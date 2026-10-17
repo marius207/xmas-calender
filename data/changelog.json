@@ -1,6 +1,28 @@
 {
  "entries": [
   {
+   "date": "2026-10-18",
+   "time": "22:42",
+   "title": "A lantern for the dungeon, and something waiting at the bottom",
+   "items": [
+    "The dungeon is much darker now. Most of the torches have burnt out, and you can hardly see without a light",
+    "An old oil lantern hangs on a hook on the way down the spiral stairs. Press G to take it and carry it in your hand, with an oil gauge in the corner. G at the hook again fills it up",
+    "Keep an eye on the flame. Old lanterns sputter… and sometimes they go out",
+    "On 12 December something big happens down in the cauldron chamber. Bring the lantern"
+   ]
+  },
+  {
+   "date": "2026-10-18",
+   "time": "22:40",
+   "title": "High scores at Bowlinghallen",
+   "items": [
+    "A big lit HIGH SCORES board on the back wall above the pins, with chasing bulbs and a pink neon glow. It shows the top 10: name, score and date",
+    "Finish a game good enough for the top 10 and you get a NEW HIGH SCORE! splash, a fanfare and a flashing board, then type your name (or tap CHRIS / MARTIN)",
+    "The game remembers the last name you typed",
+    "Marius gets a message on his phone about every finished bowling game, and the best scores are added to the board for everyone"
+   ]
+  },
+  {
    "date": "2026-10-17",
    "time": "23:50",
    "title": "Chris's flat, the noise challenge and the dungeon",
