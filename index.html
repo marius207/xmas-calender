@@ -2906,7 +2906,7 @@ try{const t0=performance.now();const PK=[];// [x,z,yaw,kind,col,tag]
  const byK=new Map();PK.forEach((q,i)=>{if(!byK.has(q[3]))byK.set(q[3],[]);byK.get(q[3]).push(i);});const where=[];
  const capList=[];const IM={};
  for(const [k,ids] of byK){const geo=vcGeo(CAR_KINDS[k]);const roof=CAR_KINDS[k].filter(p=>p[6]===0xffffff).sort((a,b)=>(b[4]+b[1]/2)-(a[4]+a[1]/2))[0];
-   const m=TD.inst(geo,new THREE.MeshLambertMaterial({vertexColors:true}),ids,(o,i,n,mm)=>{const q=PK[i];q.y=groundTop(q[0],q[1],spawnY(q[0],q[1]));// same height a drivable car settles ato.position.set(q[0],q.y,q[1]);o.rotation.y=q[2];mm.setColorAt(n,new THREE.Color(q[4]));where[i]=[k,n];
+   const m=TD.inst(geo,new THREE.MeshLambertMaterial({vertexColors:true}),ids,(o,i,n,mm)=>{const q=PK[i];q.y=groundTop(q[0],q[1],spawnY(q[0],q[1]));/* same height a drivable car settles at */o.position.set(q[0],q.y,q[1]);o.rotation.y=q[2];mm.setColorAt(n,new THREE.Color(q[4]));where[i]=[k,n];
      capList.push([i,roof]);},{shadow:true,recv:true});if(m){if(m.instanceColor)m.instanceColor.needsUpdate=true;scene.add(m);IM[k]=m;}}
  const capM=TD.inst(new THREE.BoxGeometry(1,1,1),new THREE.MeshLambertMaterial({color:0xf2f6fb}),capList,(o,[i,rf])=>{const q=PK[i];const c=Math.cos(q[2]),s=Math.sin(q[2]);o.position.set(q[0]+rf[3]*c+rf[5]*s,q.y+rf[4]+rf[1]/2+.04,q[1]-rf[3]*s+rf[5]*c);o.rotation.y=q[2];o.scale.set(rf[0]*.94,.08,rf[2]*.9);});
  if(capM)scene.add(capM);
@@ -3102,7 +3102,7 @@ try{const BINS=[],BENCH=[],RACK=[];const R=420;const used=(x,z,r)=>[...BINS,...B
 // ===== town details (#7) =====
 // #7 window lights in homes across the valley: the centre already has candle arches + paper stars (buildChunk); every chunk outside it now gives
 // most houses an advent candle arch in one window and a paper star in another, on the windows the facade really has. Built per chunk (so only near the player).
-try{const glowM=new THREE.PointsMaterial({color:new THREE.Color(2.4,1.5,.6),size:.9,toneMapped:false,transparent:true,opacity:.75,depthWrite:false,blending:THREE.AdditiveBlending});
+try{const glowM=new THREE.PointsMaterial({color:new THREE.Color(2.4,1.5,.6),map:radGlow,size:1.4,toneMapped:false,transparent:true,opacity:.8,depthWrite:false,blending:THREE.AdditiveBlending});
  const HOME=/house|detached|residential|semi|terrace|farm|cabin|apartments|bungalow|yes|building/;
  TD.perChunk(ch=>{const x0=ch.kx*CS,z0=ch.kz*CS;if(Math.hypot(x0+32-XC.x,z0+32-XC.z)<XR+60)return null;// the centre has its own
    const {G,BB,BW,EG,FR,BREF,N}=ch;const per=new Map();// building id -> candidate windows
