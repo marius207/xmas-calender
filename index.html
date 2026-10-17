@@ -660,6 +660,7 @@ function vox(C,c,r,y){const {G,T,BB,BH,BW,DM,EG,FR,DOOR,DE,ND,BREF,N,x0,z0,LE}=C
     if(h>=BW[k]){if(h===BW[k]&&!EG[k])return (b.icat?ITL.ceil+257:TILE.plank+1);return (b.rt2??(b.rc?TILE.roofRed:TILE.roof))+1;}const wt=(b.wt??STYLE2TILE[b.s]??TILE.wWhite)+1;
     if(DM[k]){if(h===BW[k]-1&&!((wx+wz)&1))return TILE.glassLit+1;return wt;}
     if(!EG[k]&&h===BH[k]-1&&BW[k]>=BH[k])return (b.rt2??(b.rc?TILE.roofRed:TILE.roofGrey))+1;// flat roofs: always close the top layer
+    if(b.hollow&&!EG[k])return 0;/* gutted: nothing inside the outer walls */
     const hr=h%3;if(b.gh)return ghVox(b,k,C,wx,wz,h,wt);
     if(EG[k]){if(DOOR[k]&&h<2)return 0;
       if(FR[k]&&(b.shop2??b.core)&&h<2)return (((wx+wz)%4+4)%4===3?wt:TILE.shopLit+1);
@@ -916,6 +917,8 @@ let tileSlot=82;function makeTile(hex,mat){if(tileSlot>127)return TILE.wWhite;co
   else noiseTile(t,hex,.04);atlas.needsUpdate=true;return t;}
 function roofTile(hex){if(tileSlot>127)return TILE.roof;const t=tileSlot++;tileDraw(t,p=>{for(let y=0;y<16;y++)for(let x=0;x<16;x++){const m=(y%4===3)||((x+(Math.floor(y/4)%2)*2)%4===3);p(x,y,m?shade(hex,-.15):shade(hex,(hash(x,y+19)-.5)*.1));}for(let x=0;x<16;x++)p(x,0,'#eef4fb');});atlas.needsUpdate=true;return t;}
 // shop fronts that face somewhere other than the nearest road (checked against Street View / Marius)
+// buildings Marius wants gutted: outer walls and roof only, one open space inside (no floors, stairs or fittings)
+const HOLLOW=[[896.2,-867.9]];for(const [hx,hz] of HOLLOW){const hb=BL.find(q=>Math.hypot(q.c[0]-hx,q.c[1]-hz)<2);if(hb){hb.hollow=true;}}
 const FACADE_FIX=[{x:47,z:-498.5,e:1},{x:.9,z:42.9,e:1},{x:-34.8,z:-7.6,e:16},{x:-223.4,z:-176.2,e:0}];  // Extra: glass entrance on the east front facing the car park (Street View Aug 2025)  // Nico Senter: entrance on the side facing the square  // Apotek 1: entrance on the long east side facing the square
 function bestFacade(b){for(const o of FACADE_FIX){if(Math.hypot(b.c[0]-o.x,b.c[1]-o.z)<1.5&&b.p[o.e+1]){const [ax,az]=b.p[o.e],[bx,bz]=b.p[o.e+1];const L=Math.hypot(bx-ax,bz-az);let nx=(bz-az)/L,nz=-(bx-ax)/L;const mx=(ax+bx)/2,mz=(az+bz)/2;if(pip(mx+nx*.6,mz+nz*.6,b.p)){nx=-nx;nz=-nz;}return {s:999,mx,mz,nx,nz,L,ax,az,bx,bz};}}let best=null;for(let i=0;i<b.p.length-1;i++){const [ax,az]=b.p[i],[bx,bz]=b.p[i+1];const L=Math.hypot(bx-ax,bz-az);if(L<3)continue;let nx=(bz-az)/L,nz=-(bx-ax)/L;const mx=(ax+bx)/2,mz=(az+bz)/2;if(pip(mx+nx*.6,mz+nz*.6,b.p)){nx=-nx;nz=-nz;}
     let road=0;for(let d=2;d<=22;d+=2){const t=typeAt(mx+nx*d,mz+nz*d);if(t===1||t===5||t===4){road=24-d;break;}}const sc=road*3+Math.min(L,16);if(!best||sc>best.s)best={s:sc,mx,mz,nx,nz,L,ax,az,bx,bz};}return best;}
@@ -2517,6 +2520,17 @@ def('nisse',{build:()=>VM('nisse',[[.18,.45,.2,-.1,.225,0,0x3a3a40],[.18,.45,.2,
 // norway / town extras
 def('spark',{build:()=>VM('spark',[[.04,.04,2.2,-.2,.04,.1,0x9aa0a8],[.04,.04,2.2,.2,.04,.1,0x9aa0a8],[.04,.2,.04,-.2,.13,-1.0,0x9aa0a8],[.04,.2,.04,.2,.13,-1.0,0x9aa0a8],[.06,.5,.06,-.18,.3,-.35,0x8a2a22],[.06,.5,.06,.18,.3,-.35,0x8a2a22],[.48,.06,.42,0,.56,-.35,0x8a2a22],[.06,1.05,.06,-.2,.55,.3,0x8a2a22],[.06,1.05,.06,.2,.55,.3,0x8a2a22],[.5,.06,.06,0,1.08,.32,0x1a1a1a],[.48,.03,.4,0,.6,-.35,SNOW]])});
 def('fireplace',{build:()=>{const p=[[.9,.2,.9,0,.55,0,0x2a2a2e],[1,.08,1,0,.66,0,0x1a1a1e],[.7,.12,.12,0,.74,0,0x5a3a20],[.12,.12,.7,0,.8,0,0x5a3a20]];for(const [x,z] of [[-.32,-.32],[.32,-.32],[-.32,.32],[.32,.32]])p.push([.07,.5,.07,x,.25,z,0x1a1a1e]);const g=grp(VM('bal',p));flame(g,1.05,true);return g;},light:{y:1.3,i:20,d:14,k:1.6,c:FIRE_COL},solid:{h:1}});
+def('tvtower',{build:r=>{const g=new THREE.Group();const H=+(r.h||60);const red=LM(0xc8241c),wh=LM(0xf2f2f0),st=LM(0x8a8e94),dk=LM(0x2a2c33);
+  /* a tall lattice TV/FM mast: four tapering legs in red and white bands, cross bracing, platforms with dishes and panel antennas, a top aerial, aviation lights and an equipment hut */
+  const legs=[[1,1],[1,-1],[-1,1],[-1,-1]];const seg=Math.max(8,Math.round(H/5));const w0=Math.max(2.2,H*.05),w1=.6;
+  for(let i=0;i<seg;i++){const y0=H*.92*i/seg,y1=H*.92*(i+1)/seg,f0=y0/(H*.92),f1=y1/(H*.92),a0=w0+(w1-w0)*f0,a1=w0+(w1-w0)*f1,m=((i>>1)%2)?red:wh;
+    for(const [sx,sz] of legs){const b=box(g,.16,y1-y0+.02,.16,sx*(a0+a1)/4,y0,sz*(a0+a1)/4,m);}
+    const ym=(y0+y1)/2,am=(a0+a1)/2;for(const [ax,az] of [[1,0],[0,1]]){for(const sgn of[-1,1]){const br=box(g,ax?am:.06,.06,az?am:.06,az*sgn*am/2,ym,ax*sgn*am/2,st);br.rotation[ax?'z':'x']=(i%2?1:-1)*.55;}}}
+  for(const f of[.35,.62,.86]){const y=H*.92*f,a=w0+(w1-w0)*f;box(g,a+.8,.12,a+.8,0,y,0,st);for(let k=0;k<4;k++){const an=k*Math.PI/2+.4;const d=new THREE.Mesh(new THREE.CylinderGeometry(.55,.55,.12,16),wh);d.rotation.set(Math.PI/2,0,an);d.position.set(Math.cos(an)*(a/2+.5),y+.7,Math.sin(an)*(a/2+.5));g.add(d);}
+    for(let k=0;k<4;k++){const an=k*Math.PI/2;box(g,.25,1.6,.12,Math.cos(an)*(a/2+.3),y-1.2,Math.sin(an)*(a/2+.3),wh);}}
+  box(g,.22,H*.08,.22,0,H*.92,0,st);for(const f of[.3,.55,.8,1])box(g,.3,.3,.3,0,H*(f<1?.92*f:1)-.1,0,GLOW(3,.25,.15));
+  box(g,4,2.6,3,w0+3,0,0,LM(0xdedcd6));box(g,4.2,.25,3.2,w0+3,2.6,0,dk);box(g,.9,1.9,.06,w0+3,0,1.52,LM(0x5a5d62));
+  return g;},solid:{h:4}});
 def('hut',{build:r=>{const g=new THREE.Group();const wall=LM(r.color||'#8e2a22'),wh=LM(0xf2f0ea),rf=LM(0x2a2a30),sn=LM(SNOW);box(g,3,2.2,3,0,1.1,0,wall);box(g,2.2,.5,2.98,0,2.45,0,wall);box(g,1.2,.4,2.98,0,2.85,0,wall);
   for(const s of[-1,1]){const a=box(g,1.95,.14,3.4,s*.76,2.72,0,rf);a.rotation.z=-s*.6;const b=box(g,1.95,.08,3.4,s*.74,2.82,0,sn);b.rotation.z=-s*.6;}
   for(const sx of[-1.5,1.5])for(const sz of[-1.5,1.5])box(g,.1,2.2,.1,sx,1.1,sz,wh);box(g,.8,1.6,.06,.6,.8,1.51,LM(0x5a3d22));box(g,.9,.08,.08,.6,1.64,1.53,wh);box(g,.7,.6,.06,-.7,1.3,1.51,GLOW(2.2,1.6,.8));box(g,.8,.08,.08,-.7,1.64,1.53,wh);box(g,.06,.6,.07,-.7,1.3,1.53,wh);return g;},color:'#8e2a22',light:{y:1.4,i:6,d:8,k:1.8,c:new THREE.Color(0xffc080)},solid:{w:3,d:3,h:3}});
@@ -2553,7 +2567,7 @@ for(const t of Object.keys(TNAME).map(Number).sort((a,b)=>a-b)){const n=TNAME[t]
 E('signs','shopsign','Shop sign (wall or posts)','🏪');E('signs','signpost','Wooden signpost','🪧');E('signs','streetsign','Street sign','🪧');E('signs','busstop','Bus stop sign + shelter','🚏');
 for(const k of Object.keys(WORK.PG||{}))E('props','prop',k==='wchair'?'waiting chair':k==='xtree'?'little Christmas tree':k,{table:'🍽',chair:'🪑',wchair:'💺',stool:'🪑',plant:'🪴',xtree:'🎄',pin:'🎳',post:'🎳',candle:'🕯'}[k]||'📦',{kind:k});
 E('props','ball','Ball','🔵');E('props','box','Box (any colour)','📦');
-E('norway','mailbox','Mailbox','📮');E('norway','bikerack','Bike rack','🚲');E('norway','spark','Kick-sled (spark)','🛷');E('norway','fireplace','Outdoor fireplace (bålpanne)','🔥');E('norway','hut','Hut (hytte)','🛖');E('norway','stall','Christmas market stall','🎪');E('norway','julenek','Julenek (sheaf)','🌾');E('norway','nisse','Nisse','🎅');E('norway','rink','Ice rink floor (4 × 4 m)','⛸');E('norway','rinkboard','Ice rink board (2 m)','🏒');E('norway','skigard','Skigard wooden fence (2 m)','🪵');E('norway','picnic','Picnic table','🧺');E('norway','lantern','Candle lantern','🏮');E('norway','flagpole','Flag pole','🇳🇴');
+E('norway','mailbox','Mailbox','📮');E('norway','bikerack','Bike rack','🚲');E('norway','spark','Kick-sled (spark)','🛷');E('norway','fireplace','Outdoor fireplace (bålpanne)','🔥');E('norway','hut','Hut (hytte)','🛖');E('norway','tvtower','TV tower, lattice mast (60 m)','🗼',{h:60});E('norway','tvtower','TV tower, giant (100 m)','🗼',{h:100});E('street','tvtower','TV tower, lattice mast (60 m)','🗼',{h:60});E('norway','stall','Christmas market stall','🎪');E('norway','julenek','Julenek (sheaf)','🌾');E('norway','nisse','Nisse','🎅');E('norway','rink','Ice rink floor (4 × 4 m)','⛸');E('norway','rinkboard','Ice rink board (2 m)','🏒');E('norway','skigard','Skigard wooden fence (2 m)','🪵');E('norway','picnic','Picnic table','🧺');E('norway','lantern','Candle lantern','🏮');E('norway','flagpole','Flag pole','🇳🇴');
 const ENTRY_OF=r=>CAT.find(e=>e.type===r.type&&(!e.d.kind||e.d.kind===r.kind))||CAT.find(e=>e.type===r.type);
 // ---------- state: desired (CUR) vs what is in the scene (LIVE / HID / WVOX) ----------
 const clean=o=>o&&typeof o.id==='string'&&typeof o.type==='string'&&isFinite(o.x)&&isFinite(o.y)&&isFinite(o.z);
