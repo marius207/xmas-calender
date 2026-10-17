@@ -4086,7 +4086,7 @@ function complete(c){NC.done[c.id]=true;$('nc_'+c.id).className='ok';setSnd(null
   else{try{mcSound('wood',.6,1.6);}catch(e){}}
   if(CH.every(x=>NC.done[x.id]))setTimeout(()=>{if(NC.on)win();},c.id==='pan'?900:300);}
 let lastF=performance.now();
-(function frame(){requestAnimationFrame(frame);const now=performance.now(),dt=Math.min(.1,(now-lastF)/1000);lastF=now;
+(function frame(){requestAnimationFrame(frame);const now=performance.now(),dt=Math.min(.25,(now-lastF)/1000);lastF=now;
   try{
   if(shk>0){shk-=dt;const a=Math.min(1,shk*3)*8;cv.style.transform='translate('+((Math.random()-.5)*a).toFixed(1)+'px,'+((Math.random()-.5)*a).toFixed(1)+'px)';}else if(cv.style.transform)cv.style.transform='';
   if(CF.washer.drum){const spin=NC.on&&cur&&cur.id==='wash'&&gHeld;const p=(NC.prog.wash||0)/6;CF.washer.drum.rotation.z+=dt*(spin?(p<.45?5:30):0);if(spin&&p>=.45){CF.washer.g.position.x=CF.washer.home.x+(Math.random()-.5)*.02;CF.washer.g.position.z=CF.washer.home.z+(Math.random()-.5)*.02;}}
