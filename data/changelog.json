@@ -2,6 +2,19 @@
  "entries": [
   {
    "date": "2026-10-17",
+   "time": "23:00",
+   "title": "Dev panel: walls & windows",
+   "items": [
+    "New first tab WALLS & WINDOWS",
+    "Slim walls (12 cm) in 1, 2, 3 and 4 m, normal (2 m, fits one floor) or tall (3 m); any colour",
+    "Wall with window, double window, lit window, glass wall, half wall / bar, doorway, wide opening",
+    "Walls with a door (wood, white or glass) that swings open when you walk up",
+    "Windows to put into a block wall: square, double, tall, panorama, round, lit; doors and double glass doors (remove the blocks first, then place it in the hole)",
+    "Slim walls block you like real walls; doors and openings let you through"
+   ]
+  },
+  {
+   "date": "2026-10-17",
    "time": "22:30",
    "title": "Two races",
    "items": [
