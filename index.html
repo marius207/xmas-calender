@@ -3522,6 +3522,19 @@ if(typeof BLOT!=='undefined'&&BLOT){try{for(const z of[-519,-518])BLOT.V.set('66
     const was=open;open+=(want-open)*.18;if(Math.abs(want-open)<.01)open=want;const out=P.x>X?1:-1;hl.rotation.y=-open*1.45*out;hr.rotation.y=open*1.45*out;
     if(was<.05&&open>=.05&&typeof thud==='function')thud(500);},33);
   window.__BOWLDOOR={get open(){return open;}};}catch(e){console.warn('bowl door',e);}}
+// ===== market vendors: one stall-keeper behind each Christmas market stall on the square, each with their own goods =====
+try{(()=>{const W=window.__WORK;if(!W||!W.person)return;const C=window.__cal;const nx=C?C.nx:0,nz=C?C.nz:1,tx=-nz,tz=nx;
+  const STALLS=[
+   {name:'Gløggboden',cat:'mkt_glogg',say:['Varm gløgg! Med rosiner og mandler.','God jul! Pepperkakene er nybakt.','Kom og varm deg!'],items:[{n:'Gløgg',p:35,heal:3},{n:'Pepperkaker',p:30,heal:2},{n:'Risgrøt med smørøye',p:55,heal:6},{n:'Kakao',p:35,heal:2}]},
+   {name:'Julepynt',cat:'mkt_pynt',say:['Handlaget julepynt fra Kvinesdal!','Glasskuler, stjerner og nisser.','En juleku til treet?'],items:[{n:'Julekule (rød)',p:49},{n:'Halmstjerne',p:39},{n:'Nissefigur',p:89},{n:'Fyrverkeri-rakett',p:60,give:'rocket',gn:2}]},
+   {name:'Strikk & ull',cat:'mkt_ull',say:['Selbuvotter, strikket av bestemor!','Ekte norsk ull. Varm som en ovn.','Lue til kalde dager?'],items:[{n:'Selbuvotter',p:249},{n:'Lusekofte',p:899},{n:'Ullue med dusk',p:199},{n:'Ullsokker',p:149}]},
+   {name:'Godteboden',cat:'mkt_godt',say:['Marsipangris! Bare i desember.','Sukkerspinn og brente mandler!','Smak på en polkagris.'],items:[{n:'Brente mandler',p:45,heal:2},{n:'Marsipangris',p:39,heal:2},{n:'Sukkerspinn',p:35,heal:1},{n:'Polkagris',p:25,heal:1}]}];
+  for(const st of STALLS){SAY[st.cat]=st.say;SHOP_ITEMS[st.cat]=st.items;}
+  const yaw=Math.atan2(nx,nz);
+  STALLS.forEach((st,i)=>{const dx=-7+i*4.6,dz=-10.15;const x=TX+tx*dx+nx*dz,z=TZ+tz*dx+nz*dz,y=gAt(x,z);const seed=31+i*17;
+    const m=W.person(i===1?'shop':'food',seed);m.position.set(x,y,z);m.rotation.y=yaw;scene.add(m);m.traverse(q=>{if(q.isMesh)q.castShadow=true;});
+    W.all.push({m,b:null,x,z,y,yaw,cat:st.cat,biz:{name:st.name,cat:st.cat,kind:'Julemarked'},name:['Gunnhild','Torbjørn','Ragnhild','Asbjørn'][i],role:'stall',ph:seed*.37,line:0});});
+  window.__VENDORS=STALLS.length;})();}catch(e){console.warn('market vendors',e);}
 window.__CINE={addCar,bestFacade,BL,POI,buildingAt,wings,spark,world,CHURCH:typeof CHURCH!=='undefined'?CHURCH:null,THREE,scene,ORN,bulbs,treeGroup,threshold(on){starTop.visible=!on;for(const o of ORN)o.visible=!on;for(const b of bulbs)if(b&&b.visible!==undefined)b.visible=!on;bulbMatA.visible=bulbMatB.visible=!on;},r,P,cam,martin,chris,arm,TX,TZ,gAt,CASTLE,EYE,CHRISH,MARTINH,COURT,BOWL,starTop,AU,f:null};window.__setShadow=n=>{moon.shadow.mapSize.set(n,n);if(moon.shadow.map){moon.shadow.map.dispose();moon.shadow.map=null;}};window.__setPR=v=>{r.setPixelRatio(v);r.setSize(innerWidth,innerHeight);if(composer){composer.setPixelRatio(v);composer.setSize(innerWidth,innerHeight);}};{let filmMode=false;const st=document.createElement('style');st.textContent='body.film *:not(canvas){visibility:hidden!important}body.film #mm,body.film #map{visibility:hidden!important}body.film #glmain{visibility:visible!important}body.film canvas:not(#glmain){visibility:hidden!important}body.film #filmHint{visibility:visible!important}';document.head.appendChild(st);
  addEventListener('keydown',e=>{if(e.code==='KeyH'&&!e.repeat&&!/INPUT|TEXTAREA/.test(document.activeElement.tagName)){filmMode=!filmMode;document.body.classList.toggle('film',filmMode);arm.visible=!filmMode;}});
  const rec=document.createElement('div');rec.id='recDot';rec.textContent='● REC';rec.style.cssText='position:fixed;top:14px;left:50%;transform:translateX(-50%);z-index:99;font:14px monospace;color:#fff;background:#c0141a;padding:4px 10px;border:2px solid #000;display:none';document.body.appendChild(rec);
