@@ -3426,6 +3426,33 @@ TD.initMs=Math.round(performance.now()-TD.t0);
 {const ck=document.createElement('div');ck.id='hudClock';ck.setAttribute('aria-label','Clock');ck.style.cssText='position:fixed;top:calc(env(safe-area-inset-top,0px) + 12px);left:50%;transform:translateX(-50%);z-index:4;font:16px Silkscreen,monospace;color:#fbf6e8;background:rgba(7,11,24,.72);border:3px solid #111;box-shadow:inset 2px 2px 0 rgba(255,255,255,.12);padding:6px 12px;letter-spacing:.06em;pointer-events:none;text-shadow:1px 1px 0 #000';document.body.appendChild(ck);
  const D=['SUN','MON','TUE','WED','THU','FRI','SAT'],M=['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
  const tick=()=>{const d=new Date();ck.textContent=String(d.getHours()).padStart(2,'0')+':'+String(d.getMinutes()).padStart(2,'0')+'  '+D[d.getDay()]+' '+d.getDate()+' '+M[d.getMonth()];};tick();setInterval(tick,1000);}
+// ================= clouds: soft drifting banks 220–480 m up; fly through them (the world goes misty white inside) =================
+const CLOUDS=(()=>{try{
+  const cv=document.createElement('canvas');cv.width=cv.height=128;const g=cv.getContext('2d');let sd=7;const rn=()=>((sd=Math.imul(sd^sd>>>15,1|sd)+0x6D2B79F5|0,(sd^sd>>>14)>>>0)/4294967296);
+  for(let i=0;i<70;i++){const x=24+rn()*80,y=30+rn()*68,r=10+rn()*30;const gr=g.createRadialGradient(x,y,0,x,y,r);gr.addColorStop(0,'rgba(255,255,255,.22)');gr.addColorStop(1,'rgba(255,255,255,0)');g.fillStyle=gr;g.fillRect(0,0,128,128);}
+  const tex=new THREE.CanvasTexture(cv);tex.colorSpace=THREE.SRGBColorSpace;
+  const NC=TOUCH?28:56,PER=TOUCH?9:14,R=2600;const clusters=[];const mats=[];
+  for(let k=0;k<6;k++)mats.push(new THREE.SpriteMaterial({map:tex,color:new THREE.Color(.62+k*.03,.68+k*.03,.8+k*.02),transparent:true,depthWrite:false,fog:false,opacity:.0}));
+  const root=new THREE.Group();scene.add(root);
+  const place=(c,far)=>{const a=rn()*Math.PI*2,d=far?R*(.75+rn()*.25):rn()*R;c.g.position.set(P.x+Math.cos(a)*d,220+rn()*260,P.z+Math.sin(a)*d);};
+  for(let i=0;i<NC;i++){const cg=new THREE.Group();const m=mats[i%mats.length].clone();const sz=60+rn()*110,sp=[];
+    for(let j=0;j<PER;j++){const sp1=new THREE.Sprite(m);const s2=sz*(.45+rn()*.7);sp1.scale.set(s2*1.6,s2,1);sp1.position.set((rn()-.5)*sz*2.2,(rn()-.5)*sz*.35,(rn()-.5)*sz*1.4);cg.add(sp1);sp.push(sp1);}
+    const c={g:cg,m,sz,on:rn()};place(c,false);root.add(cg);clusters.push(c);}
+  const mist=document.createElement('div');mist.id='cloudMist';{const st2=document.createElement('style');st2.textContent='body.film #cloudMist{visibility:visible!important}';document.head.appendChild(st2);}mist.style.cssText='position:fixed;inset:0;z-index:2;pointer-events:none;background:radial-gradient(ellipse at center,rgba(220,228,240,.55),rgba(200,210,226,.85));opacity:0;transition:opacity .25s';document.body.appendChild(mist);
+  let last=performance.now();
+  setInterval(()=>{const now=performance.now(),dt=Math.min(.2,(now-last)/1000);last=now;const W=window.__WEATHER||{i:.3,wind:.6,windDir:0};
+    const cover=.35+.65*Math.min(1,W.i*1.4);const wx=Math.cos(W.windDir||0)*(2+W.wind*3),wz=Math.sin(W.windDir||0)*(2+W.wind*3);const dark=window.__gradeU&&window.__gradeU.dark?window.__gradeU.dark.value:0;
+    let inside=0;const cp=cam.position;
+    for(const c of clusters){c.g.position.x+=wx*dt;c.g.position.z+=wz*dt;const dx=c.g.position.x-P.x,dz=c.g.position.z-P.z,dh=Math.hypot(dx,dz);if(dh>R)place(c,true);
+      const vis=c.on<cover;const fade=Math.max(0,1-Math.max(0,dh-R*.55)/(R*.45));
+      // how deep the camera is inside this bank
+      const lx=cp.x-c.g.position.x,ly=cp.y-c.g.position.y,lz=cp.z-c.g.position.z;const q=Math.hypot(lx/(c.sz*1.3),ly/(c.sz*.38),lz/(c.sz*.9));if(vis&&q<1)inside=Math.max(inside,1-q);
+      const near=Math.min(1,Math.hypot(lx,ly,lz)/(c.sz*.9));
+      c.m.opacity=vis?(.42*fade*(.25+.75*near)):0;c.m.color.setRGB((.24-dark*.1)*(1-W.i*.25)+.03,(.27-dark*.15)*(1-W.i*.2)+.03,(.36-dark*.18)*(1-W.i*.15)+.04);c.g.visible=c.m.opacity>.01;}
+    mist.style.opacity=Math.min(.92,inside*1.6);
+  },33);
+  return {clusters};}catch(e){console.warn('clouds',e);return null;}})();
+window.__CLOUDS=CLOUDS;
 window.__CINE={addCar,bestFacade,BL,POI,buildingAt,wings,spark,world,CHURCH:typeof CHURCH!=='undefined'?CHURCH:null,THREE,scene,ORN,bulbs,treeGroup,threshold(on){starTop.visible=!on;for(const o of ORN)o.visible=!on;for(const b of bulbs)if(b&&b.visible!==undefined)b.visible=!on;bulbMatA.visible=bulbMatB.visible=!on;},r,P,cam,martin,chris,arm,TX,TZ,gAt,CASTLE,EYE,CHRISH,MARTINH,COURT,BOWL,starTop,AU,f:null};window.__setShadow=n=>{moon.shadow.mapSize.set(n,n);if(moon.shadow.map){moon.shadow.map.dispose();moon.shadow.map=null;}};window.__setPR=v=>{r.setPixelRatio(v);r.setSize(innerWidth,innerHeight);if(composer){composer.setPixelRatio(v);composer.setSize(innerWidth,innerHeight);}};{let filmMode=false;const st=document.createElement('style');st.textContent='body.film *:not(canvas){visibility:hidden!important}body.film #mm,body.film #map{visibility:hidden!important}body.film #glmain{visibility:visible!important}body.film canvas:not(#glmain){visibility:hidden!important}body.film #filmHint{visibility:visible!important}';document.head.appendChild(st);
  addEventListener('keydown',e=>{if(e.code==='KeyH'&&!e.repeat&&!/INPUT|TEXTAREA/.test(document.activeElement.tagName)){filmMode=!filmMode;document.body.classList.toggle('film',filmMode);arm.visible=!filmMode;}});
  const rec=document.createElement('div');rec.id='recDot';rec.textContent='● REC';rec.style.cssText='position:fixed;top:14px;left:50%;transform:translateX(-50%);z-index:99;font:14px monospace;color:#fff;background:#c0141a;padding:4px 10px;border:2px solid #000;display:none';document.body.appendChild(rec);
