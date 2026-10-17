@@ -2348,8 +2348,18 @@ const WITCH=(()=>{if(!LOT)return null;
         toast(gf.kind==='poison'?'Poisoned! The witch left that by your door…':gf.kind==='cookies'?'You ate a green cookie. That was a mistake.':'The doll bit you!');say('cackle',0);}}}
   addEventListener('keydown',e=>{if(e.key.toLowerCase()!=='g'||e.repeat)return;for(const gf of gifts){if(Math.hypot(P.x-gf.q.position.x,P.z-gf.q.position.z)<2.2&&Math.abs(P.y-gf.q.position.y)<2){scene.remove(gf.q);gifts.splice(gifts.indexOf(gf),1);toast('You threw '+GIFT_TXT[gf.kind]+' in the bin. Nice try, witch.');e.stopImmediatePropagation();return;}}},true);
   setInterval(()=>{if(typeof started!=='undefined'&&started)stepGifts(.25);},250);
-  function note(){if(!noteBag.length)noteBag=NOTES.slice().sort(()=>Math.random()-.5);const t=noteBag.pop();const el=$('witchNote');
-    el.innerHTML='<h4>A note under the door…</h4><div>'+t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/\n/g,'<br>')+'</div><div class="sig">— Downstairs</div><div class="hint">click to close</div>';el.hidden=false;
+  // ---- Chris's mailbox by the road: look at it to see if there's post; letters from downstairs pile up while you play
+  const MBX={x:526.5,z:-706.5};let mail=2;try{const r=localStorage.getItem('kv-mail');if(r!==null&&+r>=0&&+r<=3)mail=+r;}catch(e){}
+  const saveMail=()=>{try{localStorage.setItem('kv-mail',String(mail));}catch(e){}};let mailT=0,hoverMail=false;
+  const tip=document.createElement('div');tip.id='mailTip';tip.style.cssText='position:fixed;left:50%;top:calc(50% + 26px);transform:translateX(-50%);z-index:4;font:13px Silkscreen,monospace;color:#fbf6e8;background:rgba(7,11,24,.8);border:3px solid #111;padding:6px 12px;text-align:center;pointer-events:none;display:none;text-shadow:1px 1px 0 #000;line-height:1.5';document.body.appendChild(tip);
+  setInterval(()=>{if(typeof started!=='undefined'&&!started)return;
+    if(WITCH_ST.downLeft>0){}else{mailT+=.15;if(mailT>480){mailT=0;if(mail<3){mail++;saveMail();}}}
+    const y=LOT.base+1.0,dx=MBX.x-cam.position.x,dy=y-cam.position.y,dz=MBX.z-cam.position.z,dd=Math.hypot(dx,dy,dz);let on=false;
+    if(dd<6.5&&!P.driving){const v=new THREE.Vector3();cam.getWorldDirection(v);const dot=(v.x*dx+v.y*dy+v.z*dz)/dd;on=dot>Math.cos(Math.max(.09,.45/dd));}
+    hoverMail=on;if(on){tip.innerHTML="CHRIS'S MAILBOX<br>"+(mail?('<span style=\"color:#ffd23f\">'+mail+' new letter'+(mail>1?'s':'')+'</span> · press G to open'):'<span style=\"color:#9aa7c4\">empty</span>');tip.style.display='block';}else tip.style.display='none';},150);
+  addEventListener('keydown',e=>{if(e.key.toLowerCase()!=='g'||e.repeat||!hoverMail)return;e.stopImmediatePropagation();if(mail>0){mail--;saveMail();note("In Chris's mailbox…");}else{try{toast("The mailbox is empty. For now.");}catch(_){}}},true);
+  function note(title){if(!noteBag.length)noteBag=NOTES.slice().sort(()=>Math.random()-.5);const t=noteBag.pop();const el=$('witchNote');
+    el.innerHTML='<h4>'+(title||'A note under the door…')+'</h4><div>'+t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/\n/g,'<br>')+'</div><div class="sig">— Downstairs</div><div class="hint">click to close</div>';el.hidden=false;
     clearTimeout(el._t);el._t=setTimeout(()=>el.hidden=true,11000);}
   $('witchNote').addEventListener('click',()=>$('witchNote').hidden=true);
   let t=0;setInterval(()=>{t+=.1;if(typeof started!=='undefined'&&!started)return;
