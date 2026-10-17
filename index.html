@@ -801,7 +801,7 @@ function buildChunk(kx,kz){const x0=kx*CS,z0=kz*CS,N=CS+2;
    if(vc){const g=new THREE.BufferGeometry();g.setAttribute('position',new THREE.Float32BufferAttribute(pos,3));g.setAttribute('tile',new THREE.Float32BufferAttribute(til,1));g.setIndex(idx);g.computeVertexNormals();const m=new THREE.Mesh(g,bMat);m.receiveShadow=true;group.add(m);}}
   // water surface (+ice along the banks; the open fjord stays ice-free)
   let anyW=false;for(let k=0;k<N*N;k++)if(T[k]===3&&!BB[k]){anyW=true;break;}
-  if(anyW){const wg=hmesh(N-2,N-2,(c,r)=>{const k=(r+1)*N+c+1;return (T[k]===3&&!BB[k])?G[k]+3:null;},(c,r)=>{const k=(r+1)*N+c+1;let nearLand=false;for(const [dc,dr] of DIRS){const kk=k+dr*N+dc;if(T[kk]!==3)nearLand=true;}const x=x0+c,z=z0+r;if(openWater(x,z))return TILE.water;return (nearLand&&hash(x>>1,z>>1)<.7)||Math.sin(x*.07+z*.05)+Math.sin(x*.031-z*.06)>1.35?TILE.iceBlk:TILE.water;},null,1,1,x0,z0,-.15);
+  if(anyW){const wg=hmesh(N-2,N-2,(c,r)=>{const k=(r+1)*N+c+1;return (T[k]===3&&!BB[k])?G[k]+3:null;},(c,r)=>{const k=(r+1)*N+c+1;let nearLand=false;for(const [dc,dr] of DIRS){const kk=k+dr*N+dc;if(T[kk]!==3)nearLand=true;}const x=x0+c,z=z0+r;if(openWater(x,z))return TILE.water;return nearLand?TILE.iceBlk:TILE.water;/* town details #16: ice only along the banks */},null,1,1,x0,z0,-.15);
     if(wg){const m=new THREE.Mesh(wg,wMat);m.receiveShadow=true;group.add(m);}}
   // windows
   const wl=[],shops=[],balc=[];for(let r=1;r<N-1;r++)for(let c=1;c<N-1;c++){const k=r*N+c;const id=BB[k];if(!id)continue;const b=BREF[id];const wh=BW[k]>0?BW[k]:(BW[k]===-1?8:0);if(b===RHB)continue;
@@ -2928,12 +2928,12 @@ try{const t0=performance.now();const PK=[];// [x,z,yaw,kind,col,tag]
 // orange snow poles (brøytestikker) every 25 m on both sides of the country roads outside the centre. Built per chunk, instanced.
 try{const box=TD.shared(new THREE.BoxGeometry(1,1,1).translate(0,.5,0));const snowMat=new THREE.MeshLambertMaterial({color:0xf3f7fc});
  const poleGeo=TD.shared(vcGeo([[.06,1.55,.06,0,.78,0,0xf06a10],[.065,.22,.065,0,1.66,0,0x15161a],[.065,.06,.065,0,1.2,0,0xe8e8e8]]));const poleMat=new THREE.MeshLambertMaterial({vertexColors:true});
- const CAR=t=>t===1||t===5;const FREE=(x,z)=>{const t=typeAt(x,z);return (t===0||t===6)&&!TD.side(x,z)&&!TD.blocked(x,z)&&!hedgeAt(x,z);};
+ const FUELC=BL.filter(b=>b.fuel).map(b=>b.c);const CAR=t=>t===1||t===5;const FREE=(x,z)=>{const t=typeAt(x,z);return (t===0||t===6)&&!TD.side(x,z)&&!TD.blocked(x,z)&&!hedgeAt(x,z);};
  TD.perChunk(ch=>{const T0=performance.now();const x0=ch.kx*CS,z0=ch.kz*CS;const bank=[],pile=[],pole=[],pileK=new Set();
    const far=Math.hypot(x0+32-XC.x,z0+32-XC.z);
    for(let r=0;r<CS;r++)for(let c=0;c<CS;c++){const x=x0+c+.5,z=z0+r+.5;
      const t0=typeAt(x,z);if(t0===0||t0===6){let n=0;for(const [dx,dz] of DIRS)if(CAR(typeAt(x+dx,z+dz))&&!TD.side(x+dx,z+dz))n++;
-       if(n&&FREE(x,z)&&!TD.nearDoor(x,z,2.5)){const h=hash(c+x0*3,r+z0*7);bank.push([x,z,.22+h*.33,1.0+hash(r,c)*.25]);}continue;}
+       if(n&&FREE(x,z)&&!TD.nearDoor(x,z,2.5)&&!FUELC.some(q=>Math.hypot(q[0]-x,q[1]-z)<34)){const h=hash(c+x0*3,r+z0*7);bank.push([x,z,.22+h*.33,1.0+hash(r,c)*.25]);}continue;}
      // car-park corners: a type-4 cell with car park on fewer than two sides
      if(t0===4&&!TD.blocked(x,z)&&!TD.side(x,z)&&(Math.hypot(x-TX,z-TZ)>30)){let n=0;for(const [dx,dz] of DIRS)if(typeAt(x+dx*1.5,z+dz*1.5)===4)n++;
        let edge=0;for(const [dx,dz] of DIRS){const tt=typeAt(x+dx*1.5,z+dz*1.5);if(tt!==4&&tt!==1&&tt!==5)edge++;}const gk=Math.floor(x/18)+','+Math.floor(z/18);if(n<=2&&edge>=2&&!pileK.has(gk)&&hash(x|0,z|0)<.6&&!cars.some(q=>Math.hypot(q.x-x,q.z-z)<4)&&!(TD.park&&TD.park.list.some(q=>Math.hypot(q[0]-x,q[1]-z)<4))&&!TD.nearDoor(x,z,4)){pile.push([x,z]);pileK.add(gk);}}}
@@ -3144,7 +3144,7 @@ try{const spot=(r0,r1,a0,m)=>{for(let rr=r0;rr<=r1;rr+=1.5)for(let k=0;k<24;k++)
    add(g,.48,.18,.48,0,2.22,0,red);add(g,.36,.18,.36,0,2.38,.03,red);add(g,.24,.18,.24,0,2.52,.09,red);add(g,.14,.16,.14,0,2.64,.16,red);add(g,.14,.14,.14,0,2.72,.25,beard);add(g,.5,.08,.5,0,2.15,0,beard);
    // lantern in the right hand
    add(g,.04,.2,.04,.4,1.05,-.08,black);const lan=add(g,.18,.24,.18,.4,.85,-.08,new THREE.MeshBasicMaterial({color:new THREE.Color(2.6,1.7,.6),toneMapped:false}));add(g,.22,.05,.22,.4,.99,-.08,black);
-   const lt=new THREE.PointLight(0xffb060,3,6,1.8);lt.position.set(.4,.9,-.4);g.add(lt);
+   const lt={intensity:0};/* no real light: every extra PointLight costs every pixel */
    put(g,np,1.6);TD.nisse={g,lan,lt};let t=0;TD.ticks.push(dt=>{t+=dt;const f=.85+.15*Math.sin(t*9)+.06*Math.sin(t*23);lan.material.color.setRGB(2.6*f,1.7*f,.6*f);lt.intensity=3*f;});}
  window.__TD8=()=>({julenek:jp,nisse:np});
 }catch(e){console.warn('town details #8',e&&e.stack||e);}
@@ -3162,7 +3162,6 @@ try{const W=[];
  const m=TD.inst(wreathGeo,decoMat,W,(o,[x,y,z,a,c])=>{o.position.set(x,y,z);o.rotation.y=ry(a,c);});if(m)scene.add(m);
  window.__TD9=()=>({extra:W.length,intb:INTB.length,s:W.slice(0,3)});
 }catch(e){console.warn('town details #9',e&&e.stack||e);}
-TD.initMs=Math.round(performance.now()-TD.t0);
 // ===== /town details (#9) =====
 // a jetpack in the inventory to try out: holding it in your hand switches it on
 setTimeout(()=>{try{if(countOf('jetpack')===0)give('jetpack',1);}catch(e){}},1500);
@@ -3172,7 +3171,7 @@ setTimeout(()=>{try{if(countOf('jetpack')===0)give('jetpack',1);}catch(e){}},150
 // ===== town details (#10) =====
 // #10 people variety: some villagers push a kick-sled (spark), some a pram, some walk a dog. Three extra instanced meshes that follow
 // the instanced villagers (vill / VM), so it stays at three draw calls however many people are out.
-try{const n=vill.length;const role=i=>{const h=hash(i,4242);return h<.12?1:h<.22?2:h<.36?3:0;};// 1 spark, 2 pram, 3 dog
+try{const n=vill.length;const role=i=>{const h=hash(i,4242);return h<.12?1:h<.22?2:h<.4?3:0;};// 1 spark, 2 pram, 3 dog
  const sparkGeo=vcGeo([[.05,.05,1.7,-.25,.04,-.55,0x8a9096],[.05,.05,1.7,.25,.04,-.55,0x8a9096],[.05,.12,.05,-.25,.1,-1.38,0x8a9096],[.05,.12,.05,.25,.1,-1.38,0x8a9096],
    [.05,.6,.05,-.22,.35,-.95,0xb3121b],[.05,.6,.05,.22,.35,-.95,0xb3121b],[.5,.06,.4,0,.62,-1.0,0xb3121b],[.5,.4,.05,0,.82,-.8,0xb3121b],
    [.05,1.05,.05,-.22,.6,-.35,0xb3121b],[.05,1.05,.05,.22,.6,-.35,0xb3121b],[.5,.05,.05,0,1.12,-.35,0x1a1a1e]]);
@@ -3198,6 +3197,217 @@ try{const n=vill.length;const role=i=>{const h=hash(i,4242);return h<.12?1:h<.22
  window.__TD10=()=>{const c=[0,0,0,0];for(let i=0;i<n;i++)c[role(i)]++;const vis=vill.map((v,i)=>[role(i),v.y>-900,Math.round(v.x),Math.round(v.z)]).filter(q=>q[0]&&q[1]);return {roles:c,visible:vis.slice(0,8)};};
 }catch(e){console.warn('town details #10',e&&e.stack||e);}
 // ===== /town details (#10) =====
+// ===== town details (#11) =====
+// #11 kids sledding down an open slope by Liknes skole (sliding down, then trudging back up with the sled), and snowmen in some gardens (per chunk, by hash)
+try{// --- the slope: the steepest clear 30 m run of open snow within 160 m of the school
+ const SCH=POI.find(p=>/^Liknes skole/i.test(p.name))||POI.find(p=>p.kind==='school'&&Math.hypot(p.x-XC.x,p.z-XC.z)<800);let SL=null;
+ const treeNear=(x,z)=>{const l=TIDX.get(Math.floor(x/64)+','+Math.floor(z/64));return l&&l.some(i=>Math.abs(TXA[i]+.5-x)<2.5&&Math.abs(TZA[i]+.5-z)<2.5);};
+ const open=(x,z)=>{const t=typeAt(x,z);return (t===0||t===6)&&!TD.blocked(x,z,.5)&&!TD.side(x,z)&&!treeNear(x,z)&&!hedgeAt(x,z);};
+ if(SCH){for(let r=15;r<=160;r+=5)for(let k=0;k<24;k++){const a=k/24*Math.PI*2;const sx=SCH.x+Math.cos(a)*r,sz=SCH.z+Math.sin(a)*r;if(!open(sx,sz))continue;
+     for(let q=0;q<16;q++){const b=q/16*Math.PI*2;const ux=Math.cos(b),uz=Math.sin(b);const L=30;const ex=sx+ux*L,ez=sz+uz*L;const drop=Hm(sx,sz)-Hm(ex,ez);if(drop<4.5||drop>14)continue;
+       let ok=true,prev=Hm(sx,sz);for(let d=2;d<=L&&ok;d+=2){const x=sx+ux*d,z=sz+uz*d;for(const o of[-1.5,0,1.5])if(!open(x-uz*o,z+ux*o))ok=false;const h=Hm(x,z);if(h>prev+.3)ok=false;prev=h;}if(!ok)continue;
+       const sc=drop-r*.02;if(!SL||sc>SL.sc)SL={sc,sx,sz,ux,uz,L,drop};}}}
+ if(SL)TD.sled=[SL.sx+SL.ux*15,SL.sz+SL.uz*15];
+ const KIDS=[];
+ if(SL){const M=c=>new THREE.MeshLambertMaterial({color:c});const COAT=[0xc8102e,0x1d4f91,0xe0b030,0x2a8a4a,0x8a3ab0],SLED=[0xd8262e,0x1d6fd1,0x2a8a4a,0xe07a20];
+   for(let i=0;i<4;i++){const g=new THREE.Group(),kid=new THREE.Group(),sled=new THREE.Group();const add=(G,w,h,d,x,y,z,m)=>{const o=new THREE.Mesh(new THREE.BoxGeometry(w,h,d),m);o.position.set(x,y,z);o.castShadow=true;G.add(o);return o;};
+     const coat=M(COAT[i%5]),pants=M(0x22263a);add(sled,.55,.08,1.0,0,.12,0,M(SLED[i%4]));add(sled,.05,.08,1.0,-.25,.04,0,M(0x333338));add(sled,.05,.08,1.0,.25,.04,0,M(0x333338));add(sled,.55,.22,.06,0,.24,-.5,M(SLED[i%4]));
+     const legs=add(kid,.34,.18,.5,0,.28,-.15,pants);const body=add(kid,.38,.45,.24,0,.58,.08,coat);add(kid,.3,.3,.3,0,.98,.08,M(0xe8b898));add(kid,.32,.16,.32,0,1.18,.08,M(COAT[(i+2)%5]));add(kid,.1,.1,.1,0,1.3,.08,M(0xffffff));
+     const arms=add(kid,.5,.12,.14,0,.62,-.05,coat);g.add(sled,kid);scene.add(g);KIDS.push({g,kid,sled,legs,arms,u:i*.3,st:i%2?'up':'down',v:0,y:-999,side:(i%2?1:-1)*(1+(i>>1)*1.7),wait:i*2.5});}
+   const pos=(u,off)=>{const d=SL.L*u;return [SL.sx+SL.ux*d-SL.uz*off,SL.sz+SL.uz*d+SL.ux*off];};
+   const yAt=(x,z)=>Math.max(Math.round(Hm(x,z)),Math.round(Hm(x-SL.ux*.5,z-SL.uz*.5)));
+   TD.ticks.push((dt,t)=>{if(Math.hypot(SL.sx-P.x,SL.sz-P.z)>300){for(const k of KIDS)k.g.visible=false;return;}
+     for(const k of KIDS){k.g.visible=true;if(k.wait>0){k.wait-=dt;}
+       else if(k.st==='down'){k.v=Math.min(9,k.v+dt*(2.2+SL.drop/SL.L*9));k.u+=k.v*dt/SL.L;if(k.u>=1){k.u=1;k.st='up';k.v=0;k.wait=1.5+Math.random()*2;}}
+       else{k.u-=1.1*dt/SL.L;if(k.u<=0){k.u=0;k.st='down';k.wait=1+Math.random()*3;}}
+       const sit=k.st==='down';const off=sit?k.side*.4:k.side+1.2;const [x,z]=pos(k.u,off);const ty=yAt(x,z);k.y=k.y<-900?ty:k.y+(ty-k.y)*Math.min(1,dt*(sit?6:10));
+       const yaw=Math.atan2(-SL.ux,-SL.uz)+(sit?0:Math.PI);k.g.position.set(x,k.y,z);k.g.rotation.y=yaw;
+       // sitting on the sled going down; walking up the hill towing it behind
+       if(sit){k.kid.position.set(0,0,0);k.legs.position.set(0,.28,-.15);k.legs.scale.set(1,1,1);k.arms.position.y=.62;k.sled.position.set(0,0,0);k.sled.rotation.y=0;k.g.rotation.x=0;}
+       else{const sw=Math.sin(t*8+k.side)*.08;k.kid.position.set(0,.25,0);k.legs.position.set(0,.05+Math.abs(sw),.05);k.legs.scale.set(1,1.6,.6);k.arms.position.y=.62+sw;k.sled.position.set(0,-.25,1.2);k.sled.rotation.y=Math.PI;}}});}
+ // --- snowmen in some gardens (deterministic by hash), per chunk
+ const smGeo=TD.shared(vcGeo([[1.0,.9,1.0,0,.45,0,0xf2f6fc],[.75,.7,.75,0,1.25,0,0xf2f6fc],[.52,.5,.52,0,1.85,0,0xf2f6fc],[.06,.06,.3,0,1.88,-.38,0xff7a20],[.08,.08,.04,-.12,1.98,-.27,0x111111],[.08,.08,.04,.12,1.98,-.27,0x111111],
+   [.56,.12,.56,0,2.12,0,0x1a1a1e],[.36,.32,.36,0,2.32,0,0x1a1a1e],[.8,.14,.8,0,1.58,0,0xc8102e],[.18,.4,.08,.3,1.35,-.4,0xc8102e],[.06,.06,.06,0,1.3,-.38,0x111111],[.06,.06,.06,0,1.1,-.38,0x111111],[.7,.06,.06,-.6,1.4,0,0x5a3a22],[.7,.06,.06,.6,1.4,0,0x5a3a22]]));
+ const HOME=/house|detached|residential|semi|terrace|farm|cabin|bungalow/;
+ TD.perChunk(ch=>{const x0=ch.kx*CS,z0=ch.kz*CS;const L=[];const l=BIDX.get(Math.floor((x0+32)/BK)+','+Math.floor((z0+32)/BK));if(!l)return null;
+   for(const b of l){if(b.gone||!HOME.test(b.k||'')||/auxiliary/.test(b.k||''))continue;if(b.c[0]<x0||b.c[0]>=x0+CS||b.c[1]<z0||b.c[1]>=z0+CS)continue;if(hash(b.id,99)>.16)continue;
+     const f=bestFacade(b);if(!f)continue;const tx=-f.nz,tz=f.nx;for(const [a,s] of [[4,.3],[5,-.3],[3.5,.45],[6,0]]){const x=f.mx+f.nx*a+tx*f.L*s,z=f.mz+f.nz*a+tz*f.L*s;
+       if(!open(x,z)||!open(x+.7,z)||!open(x,z+.7)||TD.nearDoor(x,z,2.5))continue;let road=false;for(let a2=-3;a2<=3&&!road;a2+=1.5)for(let b2=-3;b2<=3;b2+=1.5){const t=typeAt(x+a2,z+b2);if(t===1||t===4||t===5||t===2||TD.side(x+a2,z+b2)){road=true;break;}}if(road)continue;L.push([x,z,Math.atan2(-f.nx,-f.nz)]);break;}}
+   if(!L.length)return null;const m=TD.inst(smGeo,decoMat,L,(o,[x,z,a])=>{o.position.set(x,Math.round(Hm(x,z)),z);o.rotation.y=a;},{shadow:true});
+   for(const [x,z] of L){const k=Math.floor(x)+','+Math.floor(z);if(!LOWC.has(k)){const y=Math.round(Hm(x,z));LOWC.set(k,[y,y+2]);}}
+   const g=new THREE.Group();g.add(m);g.userData.n11=L.length;return g;});
+ window.__TD11=()=>{let n=0;for(const o of scene.children)if(o.userData.n11)n+=o.userData.n11;return {slope:SL&&{x:Math.round(SL.sx),z:Math.round(SL.sz),ux:+SL.ux.toFixed(2),uz:+SL.uz.toFixed(2),drop:+SL.drop.toFixed(1)},school:SCH&&SCH.name,snowmen:n,kids:KIDS.map(k=>[+k.g.position.x.toFixed(1),+k.g.position.y.toFixed(1),+k.g.position.z.toFixed(1),k.st])};};
+}catch(e){console.warn('town details #11',e&&e.stack||e);}
+// ===== /town details (#11) =====
+// ===== town details (#12) =====
+// #12 chimney smoke: the 28 nearest houses within ~250 m get a brick chimney on the ridge and a thin grey plume (one Points draw call, 420 soft particles)
+try{const NE=28,PER=15,NP=NE*PER;const HOME=/house|detached|residential|semi|terrace|farm|cabin|bungalow|apartments/;
+ const skip=new Set([typeof CHRISH!=='undefined'&&CHRISH,typeof MARTINH!=='undefined'&&MARTINH,typeof MARIUSH!=='undefined'&&MARIUSH,CHURCH,RHB].filter(Boolean));
+ const chim=new THREE.InstancedMesh(new THREE.BoxGeometry(.7,1.6,.7).translate(0,.8,0),new THREE.MeshLambertMaterial({map:null,color:0x6e3a2c}),NE);chim.castShadow=true;chim.frustumCulled=false;scene.add(chim);
+ const cap=new THREE.InstancedMesh(new THREE.BoxGeometry(.86,.14,.86),new THREE.MeshLambertMaterial({color:0xf2f6fb}),NE);cap.frustumCulled=false;scene.add(cap);
+ const pos=new Float32Array(NP*3),al=new Float32Array(NP),sz=new Float32Array(NP);const pg=new THREE.BufferGeometry();pg.setAttribute('position',new THREE.BufferAttribute(pos,3));pg.setAttribute('alpha',new THREE.BufferAttribute(al,1));pg.setAttribute('size',new THREE.BufferAttribute(sz,1));
+ const pm=new THREE.ShaderMaterial({transparent:true,depthWrite:false,uniforms:{col:{value:new THREE.Color(.62,.64,.7)}},
+   vertexShader:'attribute float alpha;attribute float size;varying float vA;void main(){vA=alpha;vec4 mv=modelViewMatrix*vec4(position,1.);gl_PointSize=size*420./max(1.,-mv.z);gl_Position=projectionMatrix*mv;}',
+   fragmentShader:'uniform vec3 col;varying float vA;void main(){vec2 d=gl_PointCoord-.5;float r=dot(d,d)*4.;if(r>1.)discard;gl_FragColor=vec4(col,vA*(1.-r)*(1.-r));}'});
+ const pts=new THREE.Points(pg,pm);pts.frustumCulled=false;scene.add(pts);
+ const E=[];/* emitters */
+ const P2=[];for(let i=0;i<NP;i++)P2.push({e:-1,age:0,life:1,x:0,y:0,z:0});
+ const zero=new THREE.Matrix4().makeScale(0,0,0),o=new THREE.Object3D();
+ const pick=()=>{const c=[];const kx=Math.floor(P.x/BK),kz=Math.floor(P.z/BK);for(let a=-4;a<=4;a++)for(let b=-4;b<=4;b++){const l=BIDX.get((kx+a)+','+(kz+b));if(!l)continue;for(const h of l){if(h.gone||skip.has(h)||!HOME.test(h.k||'')||/auxiliary|garage|shed/.test(h.k||'')||h.hw<2.5)continue;const d=Math.hypot(h.c[0]-P.x,h.c[1]-P.z);if(d<250&&hash(h.id,515)<.7)c.push([d,h]);}}
+   c.sort((a,b)=>a[0]-b[0]);E.length=0;const seen=new Set();for(const [,h] of c){if(seen.has(h)||E.length>=NE)continue;seen.add(h);const off=(hash(h.id,3)-.5)*.6*Math.max(2,h.hw);const x=h.c[0]+h.ax[0]*off,z=h.c[1]+h.ax[1]*off;
+     if(buildingAt(x,z)!==h)continue;const top=h.base+roofTop(h,x,z);E.push({x:Math.floor(x)+.5,y:top-.5,z:Math.floor(z)+.5,ph:hash(h.id,8)*6});}
+   for(let i=0;i<NE;i++){if(i<E.length){o.position.set(E[i].x,E[i].y,E[i].z);o.updateMatrix();chim.setMatrixAt(i,o.matrix);o.position.y+=1.62;o.updateMatrix();cap.setMatrixAt(i,o.matrix);}else{chim.setMatrixAt(i,zero);cap.setMatrixAt(i,zero);}}
+   chim.instanceMatrix.needsUpdate=cap.instanceMatrix.needsUpdate=true;for(const p of P2)if(p.e>=E.length)p.e=-1;};
+ let acc=9,lx=1e9,lz=1e9;const wind=[.35,.12];
+ TD.ticks.push((dt,t)=>{acc+=dt;if(acc>2&&Math.hypot(P.x-lx,P.z-lz)>20||acc>12){acc=0;lx=P.x;lz=P.z;pick();}
+   for(let i=0;i<NP;i++){const p=P2[i];const e=i%NE;if(p.e<0||p.age>=p.life){if(e<E.length){const q=E[e];p.e=e;p.age=-(Math.floor(i/NE)/PER)*7*(p.life===1?1:0);p.life=6.5+hash(i,9)*2;p.x=q.x+(Math.random()-.5)*.25;p.y=q.y+1.8;p.z=q.z+(Math.random()-.5)*.25;}else{al[i]=0;continue;}}
+     p.age+=dt;if(p.age<0){al[i]=0;continue;}const f=p.age/p.life;p.y+=dt*(1.1-f*.5);p.x+=dt*(wind[0]*f*2+Math.sin(t*.7+i)*.08);p.z+=dt*(wind[1]*f*2);
+     pos[i*3]=p.x;pos[i*3+1]=p.y;pos[i*3+2]=p.z;sz[i]=.6+f*3.2;al[i]=Math.min(1,p.age*2)*(1-f)*.42;}
+   pg.attributes.position.needsUpdate=true;pg.attributes.alpha.needsUpdate=true;pg.attributes.size.needsUpdate=true;});
+ window.__TD12=()=>({emitters:E.length,first:E.slice(0,3).map(e=>[+e.x.toFixed(1),+e.y.toFixed(1),+e.z.toFixed(1)])});
+}catch(e){console.warn('town details #12',e&&e.stack||e);}
+// ===== /town details (#12) =====
+// ===== town details (#13) =====
+// #13 Kvinesdal kirke: bells ring the hour (real clock; synthesised bell partials, quieter and duller with distance from the tower),
+// and the nave is warmly lit: one warm light plus rows of candles along the walls that show through the windows
+try{if(CHURCH){const T0=CHURCH.tower||CHURCH.c;
+ // --- bells
+ const bell=(when,f,amp,lp)=>{if(!ac)return;const t0=ac.currentTime+when;const out=ac.createGain();out.gain.value=amp;const fl=ac.createBiquadFilter();fl.type='lowpass';fl.frequency.value=lp;out.connect(fl);fl.connect(master);
+   for(const [r,a,d] of [[.5,.5,4.5],[1,1,3.2],[1.19,.55,2.2],[1.5,.35,1.8],[2,.45,1.4],[2.51,.25,1.0],[3.01,.18,.7],[4.2,.1,.4]]){const o=ac.createOscillator(),g=ac.createGain();o.type='sine';o.frequency.value=f*r*(1+(Math.random()-.5)*.002);
+     g.gain.setValueAtTime(0,t0);g.gain.linearRampToValueAtTime(a,t0+.006);g.gain.exponentialRampToValueAtTime(.0005,t0+d*1.6);o.connect(g);g.connect(out);o.start(t0);o.stop(t0+d*1.7);}};
+ const level=()=>{const d=Math.hypot(P.x-T0[0],P.z-T0[1]);if(d>1800)return null;return {amp:.32/(1+d/70),lp:7000/(1+d/250)};};
+ TD.ringBells=(n,peal)=>{const L=level();if(!L||!ac)return false;let t=0;if(peal){for(let i=0;i<16;i++){bell(t,[392,330,294,262][i%4],L.amp*.6,L.lp);t+=.55;}t+=1.2;}for(let i=0;i<n;i++){bell(t,196,L.amp,L.lp);t+=2.6;}return true;};
+ let lastH=-1;TD.ticks.push(()=>{if(!started||!ac)return;const d=new Date();if(d.getMinutes()!==0||d.getSeconds()>3)return;const h=d.getHours();if(h===lastH)return;lastH=h;TD.ringBells(h%12||12,true);});
+ // --- lit nave: candles on stands in the window bays round the inside of the walls, a warm light in the middle
+ const C=[];const b=CHURCH;const y0=b.base;for(let x=Math.floor(b.bb[0]);x<=b.bb[1];x++)for(let z=Math.floor(b.bb[2]);z<=b.bb[3];z++){const cx=x+.5,cz=z+.5;if(buildingAt(cx,cz)!==b)continue;
+   let wall=0,edgeIn=0;for(const [a,c] of DIRS){if(buildingAt(cx+a,cz+c)!==b)wall++;else if(buildingAt(cx+a*2,cz+c*2)!==b)edgeIn++;}
+   if(!wall&&edgeIn&&(((x*3+z*7)%4+4)%4===0))C.push([cx,cz]);}
+ const standGeo=vcGeo([[.08,1.0,.08,0,.5,0,0xc8a040],[.26,.05,.26,0,.03,0,0xc8a040],[.1,.22,.1,0,1.1,0,0xf4f0e0]]);
+ const g=new THREE.Group();const sm=TD.inst(standGeo,decoMat,C,(o,[x,z])=>o.position.set(x,y0+1,z));if(sm)g.add(sm);
+ const fl=new Float32Array(C.length*3);C.forEach(([x,z],i)=>{fl[i*3]=x;fl[i*3+1]=y0+2.3;fl[i*3+2]=z;});const fg=new THREE.BufferGeometry();fg.setAttribute('position',new THREE.BufferAttribute(fl,3));
+ const fm=new THREE.PointsMaterial({color:new THREE.Color(3,1.9,.7),size:.7,map:radGlow,toneMapped:false,transparent:true,depthWrite:false,blending:THREE.AdditiveBlending});const flames=new THREE.Points(fg,fm);flames.frustumCulled=false;g.add(flames);
+ const lt=new THREE.PointLight(0xffb870,14,Math.max(16,b.hw*3),1.4);lt.position.set(b.c[0],y0+3.5,b.c[1]);g.add(lt);scene.add(g);
+ let tt=0;TD.ticks.push(dt=>{tt+=dt;const f=.9+.1*Math.sin(tt*7.3)+.05*Math.sin(tt*17);fm.size=.7*f;const near=Math.hypot(P.x-b.c[0],P.z-b.c[1])<400;lt.intensity=near?14*f:0;});
+ window.__TD13=()=>({tower:T0,candles:C.length,level:level()});}
+}catch(e){console.warn('town details #13',e&&e.stack||e);}
+// ===== /town details (#13) =====
+// ===== town details (#14) =====
+// #14 playgrounds at Liknes skole and the kindergartens in Liknes (swings, slide, climbing frame) inside a picket fence with a gate
+try{const PG=[];const treeNear=(x,z)=>{const l=TIDX.get(Math.floor(x/64)+','+Math.floor(z/64));return l&&l.some(i=>Math.abs(TXA[i]+.5-x)<2.2&&Math.abs(TZA[i]+.5-z)<2.2);};
+ const open=(x,z)=>{const t=typeAt(x,z);return (t===0||t===6)&&!TD.blocked(x,z,.3)&&!TD.side(x,z)&&!treeNear(x,z)&&!hedgeAt(x,z);};
+ const targets=POI.filter(p=>(/^Liknes skole/i.test(p.name)||p.kind==='kindergarten')&&Math.hypot(p.x-XC.x,p.z-XC.z)<900);
+ for(const p of targets){const W=16,D=11;let best=null;
+   for(let r=8;r<=60;r+=3)for(let k=0;k<20;k++){const a=k/20*Math.PI*2;const cx=Math.round(p.x+Math.cos(a)*r),cz=Math.round(p.z+Math.sin(a)*r);
+     if(TD.sled&&Math.hypot(cx-TD.sled[0],cz-TD.sled[1])<30)continue;if(PG.some(q=>Math.hypot(q.cx-cx,q.cz-cz)<30))continue;
+     let ok=true,lo=1e9,hi=-1e9;for(let x=-W/2;x<=W/2&&ok;x+=1)for(let z=-D/2;z<=D/2;z+=1){if(!open(cx+x,cz+z)){ok=false;break;}const h=Math.round(Hm(cx+x,cz+z));lo=Math.min(lo,h);hi=Math.max(hi,h);}
+     if(!ok||hi-lo>1)continue;if(cars.some(c=>Math.abs(c.x-cx)<W/2+3&&Math.abs(c.z-cz)<D/2+3))continue;best={cx,cz,W,D,y:hi,name:p.name,px:p.x,pz:p.z};break;}
+   if(best)PG.push(best);}
+ const M=c=>new THREE.MeshLambertMaterial({color:c});const red=M(0xc8302a),yel=M(0xe0b030),blue=M(0x2a6ab0),wood=M(0x8a6a44),metal=M(0x9aa0a6),dark=M(0x222226),snow=M(0xf2f6fb),white=M(0xeeece4);
+ const posts=[],bars=[];
+ for(const q of PG){const g=new THREE.Group();g.position.set(q.cx,q.y,q.cz);const add=(w,h,d,x,y,z,m,rx=0,rz=0)=>{const o=new THREE.Mesh(new THREE.BoxGeometry(w,h,d),m);o.position.set(x,y,z);o.rotation.set(rx,0,rz);o.castShadow=true;g.add(o);return o;};
+   // swings (A-frames, beam, two seats on chains)
+   const sx=-4.5;for(const z of[-1.6,1.6]){add(.12,2.6,.12,sx-.5,1.25,z,metal,0,.2);add(.12,2.6,.12,sx+.5,1.25,z,metal,0,-.2);}add(.14,.14,3.4,sx,2.5,0,metal);add(.18,.08,3.5,sx,2.6,0,snow);
+   for(const z of[-.7,.7]){add(.02,1.9,.02,sx-.18,1.55,z,dark);add(.02,1.9,.02,sx+.18,1.55,z,dark);add(.5,.06,.22,sx,.6,z,red);add(.5,.05,.22,sx,.65,z,snow);}
+   // slide: ladder, platform with roof, ramp
+   const lx=2.5;add(1.2,.1,1.2,lx,1.6,-2,wood);add(1.24,.08,1.24,lx,1.68,-2,snow);for(const [a,b] of [[-.55,-.55],[.55,-.55],[-.55,.55],[.55,.55]])add(.1,2.6,.1,lx+a,1.3,-2+b,wood);
+   add(1.4,.1,1.4,lx,2.65,-2,red,.0,0);add(1.45,.08,1.45,lx,2.72,-2,snow);for(let i=0;i<5;i++)add(.7,.06,.06,lx,.3+i*.3,-2.7,wood);
+   const ramp=add(.7,.06,3.0,lx,.85,-.65,yel,-.55,0);add(.06,.18,3.0,lx-.36,.95,-.65,yel,-.55,0);add(.06,.18,3.0,lx+.36,.95,-.65,yel,-.55,0);add(.64,.05,2.9,lx,.9,-.65,snow,-.55,0);
+   // climbing frame: a 3x2x2 grid of blue bars
+   const cx0=3.2,cz0=2.2;for(let i=0;i<=3;i++)for(let k=0;k<=2;k++)add(.07,2,.07,cx0+i*.8-1.2,1,cz0+k*.8-.8,blue);for(const y of[.7,1.4,2])for(let k=0;k<=2;k++)add(2.4,.06,.06,cx0,y,cz0+k*.8-.8,blue);for(const y of[.7,1.4,2])for(let i=0;i<=3;i++)add(.06,.06,1.6,cx0+i*.8-1.2,y,cz0,blue);add(2.5,.06,1.7,cx0,2.04,cz0,snow);
+   // a sandbox under snow
+   add(2.2,.25,2.2,-1,.12,2.6,wood);add(2,.3,2,-1,.18,2.6,snow);
+   scene.add(g);for(const [x,z] of [[sx,0],[lx,-2],[cx0,cz0],[-1,2.6]]){const k=Math.floor(q.cx+x)+','+Math.floor(q.cz+z);LOWC.set(k,[q.y,q.y+2]);}
+   // picket fence round the playground, gate on the side facing the school / kindergarten
+   const gx=Math.sign(q.px-q.cx)||1;const hw=q.W/2+.5,hd=q.D/2+.5;const edges=[[[-hw,-hd],[hw,-hd]],[[hw,-hd],[hw,hd]],[[hw,hd],[-hw,hd]],[[-hw,hd],[-hw,-hd]]];
+   for(const [[ax,az],[bx,bz]] of edges){const L=Math.hypot(bx-ax,bz-az);const n=Math.round(L/1.25);const yaw=Math.atan2(-(bz-az),bx-ax);
+     for(let j=0;j<n;j++){const u0=j/n,u1=(j+1)/n;const x0=ax+(bx-ax)*u0,z0=az+(bz-az)*u0,x1=ax+(bx-ax)*u1,z1=az+(bz-az)*u1;const mx=(x0+x1)/2,mz=(z0+z1)/2;
+       if(Math.abs(mx-gx*hw)<.3&&Math.abs(mz)<1.3)continue;// the gate
+       const wx=q.cx+x0,wz=q.cz+z0,y=Math.round(Hm(wx,wz));posts.push([wx,y,wz,yaw,.09,1.05,.09]);const y1=Math.round(Hm(q.cx+mx,q.cz+mz));
+       bars.push([q.cx+mx,y1+.32,q.cz+mz,yaw,L/n,.09,.035],[q.cx+mx,y1+.78,q.cz+mz,yaw,L/n,.09,.035]);for(let s=1;s<5;s++){const f=s/5;bars.push([q.cx+x0+(x1-x0)*f,y,q.cz+z0+(z1-z0)*f,yaw,.07,.95,.025]);}
+       for(let s=0;s<=1;s+=.25){const k=Math.floor(q.cx+x0+(x1-x0)*s)+','+Math.floor(q.cz+z0+(z1-z0)*s);if(!LOWC.has(k))LOWC.set(k,[y,y+2]);}}}}
+ const box=new THREE.BoxGeometry(1,1,1).translate(0,.5,0);
+ for(const L of [posts,bars]){const m=TD.inst(box,white,L,(o,[x,y,z,yaw,a,b,c])=>{o.position.set(x,y,z);o.rotation.y=yaw;o.scale.set(a,b,c);},{shadow:true});if(m)scene.add(m);}
+ window.__TD14=()=>({targets:targets.map(p=>p.name),playgrounds:PG.map(q=>[q.name,q.cx,q.cz])});
+}catch(e){console.warn('town details #14',e&&e.stack||e);}
+// ===== /town details (#14) =====
+// ===== town details (#16) =====
+// #16 the river: ice only along the banks (buildChunk's water tiles, see the note there) plus a thin white snowy rim on the bank-side ice,
+// reeds poking through the snow in places along the bank (per chunk), and a few small boats pulled up on the bank under tarps (near the centre)
+try{const rimMat=new THREE.MeshLambertMaterial({color:0xf0f5fb});const slab=TD.shared(new THREE.BoxGeometry(1,.08,1));
+ const reedGeo=TD.shared(vcGeo([[.05,1.3,.05,0,.65,0,0xb89a5a],[.05,1.0,.05,.22,.5,.12,0xa08850],[.05,1.5,.05,-.18,.75,-.1,0xc0a060],[.05,.9,.05,.1,.45,-.25,0x9a8048],[.05,1.2,.05,-.25,.6,.2,0xb89a5a],
+   [.08,.28,.08,0,1.36,0,0x5a3a22],[.08,.26,.08,-.18,1.58,-.1,0x5a3a22],[.09,.05,.09,0,1.52,0,0xf2f6fb],[.09,.05,.09,-.18,1.73,-.1,0xf2f6fb]]));
+ const W=t=>t===3;
+ TD.perChunk(ch=>{const {G,T,BB,N}=ch;const x0=ch.kx*CS,z0=ch.kz*CS;const rim=[],reed=[];let any=false;for(let k=0;k<N*N;k++)if(T[k]===3){any=true;break;}if(!any)return null;
+   for(let r=1;r<N-1;r++)for(let c=1;c<N-1;c++){const k=r*N+c;const x=x0+c-1,z=z0+r-1;if(openWater(x,z))continue;
+     if(T[k]===3&&!BB[k]){let land=false;for(const [dc,dr] of DIRS){const kk=k+dr*N+dc;if(T[kk]!==3)land=true;}if(land)rim.push([x+.5,G[k]+2.86,z+.5]);continue;}
+     if((T[k]===0||T[k]===6)&&!BB[k]){let wet=false;for(const [dc,dr] of DIRS)if(T[k+dr*N+dc]===3)wet=true;if(!wet)continue;const h=hash(x>>2,z>>2),h2=hash(x,z);if(h<.22&&h2<.55&&!TD.blocked(x+.5,z+.5))reed.push([x+.5+(h2-.27),G[k],z+.5,h2*6]);}}
+   if(!rim.length&&!reed.length)return null;const g=new THREE.Group();
+   const a=TD.inst(slab,rimMat,rim,(o,[x,y,z])=>o.position.set(x,y,z),{recv:true});if(a)g.add(a);
+   const b=TD.inst(reedGeo,decoMat,reed,(o,[x,y,z,ry])=>{o.position.set(x,y,z);o.rotation.y=ry;o.scale.setScalar(.8+(ry%1)*.5);});if(b)g.add(b);g.userData.n16=[rim.length,reed.length];return g;});
+ // boats on the bank: upturned rowing boats under a blue or green tarp, near the centre
+ const BOATS=[];{const cand=[];for(let x=XC.x-600;x<XC.x+600;x+=3)for(let z=XC.z-600;z<XC.z+600;z+=3){if(typeAt(x,z)!==0)continue;let wd=null;for(const [dx,dz] of [[1,0],[-1,0],[0,1],[0,-1]])if(typeAt(x+dx*3,z+dz*3)===3&&!openWater(x+dx*3,z+dz*3)){wd=[dx,dz];break;}if(!wd)continue;
+   let ok=true;for(let a=-2.5;a<=2.5&&ok;a+=1.25)for(let b=-1;b<=1;b+=1){const px=x+wd[1]*a+wd[0]*b*-1,pz=z+wd[0]*a+wd[1]*b*-1;const t=typeAt(px,pz);if(t!==0||TD.blocked(px,pz,.5)||TD.side(px,pz)||Math.abs(Hm(px,pz)-Hm(x,z))>.8)ok=false;}
+   if(!ok)continue;let road=false;for(const r of nearRoads(x,z,20,true))if(TD.roadDist(r,x,z)<r.hw+4)road=true;if(road)continue;cand.push([x,z,wd]);}
+  cand.sort((p,q)=>hash(p[0]|0,p[1]|0)-hash(q[0]|0,q[1]|0));for(const c of cand){if(BOATS.length>=4)break;if(BOATS.some(b=>Math.hypot(b[0]-c[0],b[1]-c[1])<90))continue;BOATS.push(c);}}
+ const M=c=>new THREE.MeshLambertMaterial({color:c});const hull=M(0xe8e4dc),hull2=M(0x8a2a22),snowM=M(0xf2f6fb);
+ BOATS.forEach(([x,z,wd],i)=>{const g=new THREE.Group();const add=(w,h,d,px,py,pz,m,rz=0)=>{const o=new THREE.Mesh(new THREE.BoxGeometry(w,h,d),m);o.position.set(px,py,pz);o.rotation.z=rz;o.castShadow=true;g.add(o);return o;};
+   const hm=i%2?hull2:hull;add(1.2,.35,3.6,0,.2,0,hm);add(.9,.3,3.0,0,.5,0,hm);add(.3,.25,.6,0,.45,-1.9,hm);
+   const tarp=M(i%2?0x2a6a3a:0x2a5aa8);add(1.5,.08,3.8,0,.72,0,tarp);add(.08,.5,3.8,-.74,.48,0,tarp,.12);add(.08,.5,3.8,.74,.48,0,tarp,-.12);add(1.3,.12,3.4,0,.82,0,snowM);
+   add(.15,.15,.15,-.6,.12,1.9,M(0x5a3a22));add(.15,.15,.15,.6,.12,-1.9,M(0x5a3a22));// tie-down blocks
+   g.position.set(x,Math.round(Hm(x,z)),z);g.rotation.y=Math.atan2(wd[0],wd[1])+Math.PI/2;scene.add(g);LOWC.set(Math.floor(x)+','+Math.floor(z),[Math.round(Hm(x,z)),Math.round(Hm(x,z))+1]);});
+ window.__TD16=()=>{const n=[0,0];for(const o of scene.children)if(o.userData.n16){n[0]+=o.userData.n16[0];n[1]+=o.userData.n16[1];}return {rim:n[0],reeds:n[1],boats:BOATS.map(b=>[b[0],b[1]])};};
+}catch(e){console.warn('town details #16',e&&e.stack||e);}
+// ===== /town details (#16) =====
+// ===== town details (#17) =====
+// #17 sound, all WebAudio synthesis through master (so the game's volume applies): a nicer snow crunch for footsteps,
+// a soft swoosh when traffic or the bus passes close, a river murmur near open water, distant dog barks now and then, a shop-door bell when you walk into a shop
+try{// --- snow crunch: several tiny grains of compressed snow over ~120 ms instead of one noise burst
+ const _mc=mcSound;
+ mcSound=function(kind,vol=1,pitch=1){if(kind!=='snow'||!ac)return _mc(kind,vol,pitch);const sr=ac.sampleRate,len=Math.floor(sr*.16),b=ac.createBuffer(1,len,sr),d=b.getChannelData(0);
+   const grains=7+(Math.random()*6|0);for(let gI=0;gI<grains;gI++){const st=Math.floor((Math.pow(gI/grains,1.3)*.11+Math.random()*.012)*sr),gl=Math.floor(sr*(.004+Math.random()*.01)),amp=(.4+Math.random()*.6)*(1-gI/grains*.6);
+     for(let i=0;i<gl&&st+i<len;i++)d[st+i]+=(Math.random()*2-1)*amp*Math.pow(1-i/gl,1.5);}
+   const s=ac.createBufferSource();s.buffer=b;s.playbackRate.value=pitch*(.9+Math.random()*.2);const hp=ac.createBiquadFilter();hp.type='highpass';hp.frequency.value=900;const lp=ac.createBiquadFilter();lp.type='lowpass';lp.frequency.value=5200+Math.random()*1500;
+   const g=ac.createGain();g.gain.value=.2*vol;s.connect(hp);hp.connect(lp);lp.connect(g);g.connect(master);s.start();
+   // the soft thump of the boot underneath
+   const o=ac.createOscillator(),og=ac.createGain();o.type='sine';o.frequency.value=90+Math.random()*30;const t0=ac.currentTime;og.gain.setValueAtTime(.06*vol,t0);og.gain.exponentialRampToValueAtTime(.0005,t0+.09);o.connect(og);og.connect(master);o.start(t0);o.stop(t0+.1);};
+ TD.mcSound=mcSound;
+ // --- helpers
+ const noiseBuf=(sec)=>{const b=ac.createBuffer(1,Math.floor(ac.sampleRate*sec),ac.sampleRate),d=b.getChannelData(0);for(let i=0;i<d.length;i++)d[i]=Math.random()*2-1;return b;};
+ const pan=x=>{const p=ac.createStereoPanner?ac.createStereoPanner():null;if(p)p.pan.value=Math.max(-1,Math.min(1,x));return p;};
+ const relPan=(x,z)=>{const dx=x-P.x,dz=z-P.z;const rx=Math.cos(P.yaw),rz=-Math.sin(P.yaw);const d=Math.hypot(dx,dz)||1;return (dx*rx+dz*rz)/d;};
+ // car pass: band-passed noise swelling and fading, panned to the car's side
+ const swoosh=(g,p)=>{const s=ac.createBufferSource();s.buffer=noiseBuf(1.4);const f=ac.createBiquadFilter();f.type='bandpass';f.Q.value=.7;const t0=ac.currentTime;f.frequency.setValueAtTime(500,t0);f.frequency.linearRampToValueAtTime(1300,t0+.55);f.frequency.linearRampToValueAtTime(380,t0+1.3);
+   const gg=ac.createGain();gg.gain.setValueAtTime(0,t0);gg.gain.linearRampToValueAtTime(g,t0+.5);gg.gain.exponentialRampToValueAtTime(.0005,t0+1.35);const pn=pan(p);s.connect(f);f.connect(gg);if(pn){gg.connect(pn);pn.connect(master);}else gg.connect(master);s.start(t0);};
+ // dog bark: two or three short barks, nasal formant, far away (low-passed)
+ const bark=(far,p)=>{const t0=ac.currentTime;const n=1+(Math.random()*3|0);const base=280+Math.random()*180;const lp=ac.createBiquadFilter();lp.type='lowpass';lp.frequency.value=2400/(1+far*2);const pn=pan(p);const out=ac.createGain();out.gain.value=.11/(1+far*3);
+   lp.connect(out);if(pn){out.connect(pn);pn.connect(master);}else out.connect(master);
+   for(let i=0;i<n;i++){const ts=t0+i*(.28+Math.random()*.12);const o=ac.createOscillator();o.type='sawtooth';o.frequency.setValueAtTime(base*1.25,ts);o.frequency.exponentialRampToValueAtTime(base*.7,ts+.13);
+     const bp=ac.createBiquadFilter();bp.type='bandpass';bp.frequency.value=900;bp.Q.value=2;const g=ac.createGain();g.gain.setValueAtTime(0,ts);g.gain.linearRampToValueAtTime(1,ts+.012);g.gain.exponentialRampToValueAtTime(.001,ts+.16);
+     const ns=ac.createBufferSource();ns.buffer=noiseBuf(.18);const ng=ac.createGain();ng.gain.setValueAtTime(.35,ts);ng.gain.exponentialRampToValueAtTime(.001,ts+.12);
+     o.connect(bp);ns.connect(ng);ng.connect(bp);bp.connect(g);g.connect(lp);o.start(ts);o.stop(ts+.18);ns.start(ts);}};
+ // shop door bell: two small bells (the classic jingle over a shop door)
+ const jingle=()=>{const t0=ac.currentTime;const out=ac.createGain();out.gain.value=.12;out.connect(master);
+   for(let i=0;i<5;i++){const ts=t0+i*.07+Math.random()*.02;for(const [r,a] of [[1,1],[2.76,.4],[5.4,.2]]){const o=ac.createOscillator(),g=ac.createGain();o.type='sine';o.frequency.value=(i%2?2350:2780)*r;g.gain.setValueAtTime(0,ts);g.gain.linearRampToValueAtTime(a*(1-i*.12),ts+.004);g.gain.exponentialRampToValueAtTime(.0005,ts+.5);o.connect(g);g.connect(out);o.start(ts);o.stop(ts+.55);}}};
+ TD.snd={swoosh,bark,jingle};
+ // --- river murmur: a looped filtered noise bed whose level follows how much open water is around you
+ let riv=null;const riverBed=()=>{if(riv||!ac)return;const s=ac.createBufferSource();s.buffer=noiseBuf(3);s.loop=true;const f1=ac.createBiquadFilter();f1.type='bandpass';f1.frequency.value=420;f1.Q.value=.5;const f2=ac.createBiquadFilter();f2.type='lowpass';f2.frequency.value=1500;
+   const g=ac.createGain();g.gain.value=0;const lfo=ac.createOscillator(),lg=ac.createGain();lfo.frequency.value=.21;lg.gain.value=90;lfo.connect(lg);lg.connect(f1.frequency);lfo.start();s.connect(f1);f1.connect(f2);f2.connect(g);g.connect(master);s.start();riv={g};};
+ let acc=0,wAcc=0,barkT=25+Math.random()*30,inShop=null,lastWater=0;const passed=new Map();
+ TD.ticks.push((dt)=>{if(!ac||!started)return;acc+=dt;wAcc+=dt;
+   // cars passing close
+   if(acc>.12){acc=0;const list=[];for(let i=0;i<traffic.length;i++){const c=traffic[i];if(c.r&&c.y>-900)list.push(['t'+i,c.x,c.z,c.v||0]);}if(TD.bus&&TD.bus.mesh.visible)list.push(['bus',TD.bus.B.x,TD.bus.B.z,TD.bus.B.v]);
+     for(const [k,x,z,v] of list){const d=Math.hypot(x-P.x,z-P.z);const last=passed.get(k)||0;if(d<9&&v>4&&performance.now()-last>3500&&!P.driving){passed.set(k,performance.now());swoosh(Math.min(.16,.05+v*.006)*(k==='bus'?1.4:1)/(1+d*.12),relPan(x,z));}}}
+   // river level, sampled twice a second
+   if(wAcc>.5){wAcc=0;riverBed();let n=0;for(let a=0;a<12;a++){const an=a/12*Math.PI*2;for(const r of[6,14,26,40]){const x=P.x+Math.cos(an)*r,z=P.z+Math.sin(an)*r;if(typeAt(x,z)===3&&!openWater(x,z))n+=r<10?3:r<20?2:1;}}
+     lastWater=Math.min(1,n/40);riv.g.gain.setTargetAtTime(lastWater*.07,ac.currentTime,.8);
+     // shop door bell when you step inside a shop
+     const b=buildingAt(P.x,P.z);const ins=b&&b.icat&&b.icat!=='church'&&!P.driving&&P.y<b.base+(b.gh||b.eaveH)?b:null;if(ins&&ins!==inShop)jingle();inShop=ins;}
+   // a dog somewhere in the neighbourhood now and then (only where there are houses)
+   barkT-=dt;if(barkT<=0){barkT=35+Math.random()*60;const l=BIDX.get(Math.floor(P.x/BK)+','+Math.floor(P.z/BK));if(l&&l.length>3){const a=Math.random()*Math.PI*2,r=60+Math.random()*180;bark(r/240,relPan(P.x+Math.cos(a)*r,P.z+Math.sin(a)*r));}}});
+ window.__TD17=()=>({ac:!!ac,water:lastWater,shop:inShop&&(inShop.n||inShop.icat)});
+}catch(e){console.warn('town details #17',e&&e.stack||e);}
+TD.initMs=Math.round(performance.now()-TD.t0);
+// ===== /town details (#17) =====
 window.__CINE={addCar,bestFacade,BL,POI,buildingAt,wings,spark,world,CHURCH:typeof CHURCH!=='undefined'?CHURCH:null,THREE,scene,ORN,bulbs,treeGroup,threshold(on){starTop.visible=!on;for(const o of ORN)o.visible=!on;for(const b of bulbs)if(b&&b.visible!==undefined)b.visible=!on;bulbMatA.visible=bulbMatB.visible=!on;},r,P,cam,martin,chris,arm,TX,TZ,gAt,CASTLE,EYE,CHRISH,MARTINH,COURT,BOWL,starTop,AU,f:null};window.__setShadow=n=>{moon.shadow.mapSize.set(n,n);if(moon.shadow.map){moon.shadow.map.dispose();moon.shadow.map=null;}};window.__setPR=v=>{r.setPixelRatio(v);r.setSize(innerWidth,innerHeight);if(composer){composer.setPixelRatio(v);composer.setSize(innerWidth,innerHeight);}};{let filmMode=false;const st=document.createElement('style');st.textContent='body.film *:not(canvas){visibility:hidden!important}body.film #mm,body.film #map{visibility:hidden!important}body.film #glmain{visibility:visible!important}body.film canvas:not(#glmain){visibility:hidden!important}body.film #filmHint{visibility:visible!important}';document.head.appendChild(st);
  addEventListener('keydown',e=>{if(e.code==='KeyH'&&!e.repeat&&!/INPUT|TEXTAREA/.test(document.activeElement.tagName)){filmMode=!filmMode;document.body.classList.toggle('film',filmMode);arm.visible=!filmMode;}});
  const rec=document.createElement('div');rec.id='recDot';rec.textContent='● REC';rec.style.cssText='position:fixed;top:14px;left:50%;transform:translateX(-50%);z-index:99;font:14px monospace;color:#fff;background:#c0141a;padding:4px 10px;border:2px solid #000;display:none';document.body.appendChild(rec);
