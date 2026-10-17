@@ -2787,7 +2787,7 @@ function bake(){let raw=[];try{raw=JSON.parse(localStorage.getItem('kvinesdal-ed
 const fmt=v=>(Math.round(v*100)/100).toString();
 function renderIns(){const s=ED.sel;
   if(ED.item&&!s){const e=ED.item;insEl.innerHTML=`<h4>PLACING · ${e.name.toUpperCase()}</h4><p>Click to place. <b>R</b> / wheel rotates 15° (Shift: 90°). <b>PgUp/PgDn</b> lift. Right-click or Esc stops.</p>`;return;}
-  if(!s){insEl.innerHTML=`<h4>INSPECTOR</h4><p>Pick something in the catalog, then click in the world to place it.</p><p>With nothing picked, click a thing to select it: placed things can be moved (drag or M), rotated (R), copied (Ctrl+D) or deleted (Del). Things from the world can be hidden (Del).</p><p class="k">The mouse cursor aims; right-drag looks around; WASD walks. C grabs the mouse for crosshair aiming (Esc or C frees it). \` closes.</p>`;return;}
+  if(!s){insEl.innerHTML=`<h4>INSPECTOR</h4><p>Pick something in the catalog, then click in the world to place it.</p><p>💧 <b>I</b> or <b>middle-click</b>: copy whatever is under the cursor (a block, a lamp, a car…) and place more of it.</p><p>With nothing picked, click a thing to select it: placed things can be moved (drag or M), rotated (R), copied (Ctrl+D) or deleted (Del). Things from the world can be hidden (Del).</p><p class="k">The mouse cursor aims; right-drag looks around; WASD walks. C grabs the mouse for crosshair aiming (Esc or C frees it). \` closes.</p>`;return;}
   if(s.k==='vox'){const v=EDITS.get(s.x+','+s.y+','+s.z);insEl.innerHTML=`<h4>BLOCK</h4><p>${s.x}, ${s.y}, ${s.z}${v>=256?' · placed: '+(TNAME[v-257]||v-257):''}</p><div class="btns"><button class="del" data-a="del">REMOVE BLOCK (DEL)</button></div>`;return;}
   if(s.k==='orig'){const i=s.info;insEl.innerHTML=`<h4>FROM THE WORLD · ${i.label.toUpperCase()}</h4><p>${fmt(i.pos.x)}, ${fmt(i.pos.y)}, ${fmt(i.pos.z)}</p>${i.big?'':`<div class="btns"><button class="del" data-a="del">HIDE (DEL)</button>${(i.conv||i.car)?'<button data-a="conv">MOVE (M)</button>':''}</div><p class="k">Hiding is saved in the world file; undo or the HIDDEN tab brings it back.</p>`}`;return;}
   const o=recOf(s.id);if(!o){ED.sel=null;renderIns();return;}const d=T[o.type]||{};const e=ENTRY_OF(o);
@@ -2858,7 +2858,21 @@ function devTick(){const t=performance.now();flick(t/1000);syncLights();btn.hidd
   const s=ED.sel;selBox.visible=false;if(s&&!ED.item){if(s.k==='placed'){const L=LIVE.get(s.id);if(L&&L.obj){selBox.box.setFromObject(L.obj);selBox.visible=true;}}else if(s.k==='orig'&&s.info.box3){selBox.box.copy(s.info.box3);selBox.visible=true;}else if(s.k==='vox'){selBox.box.min.set(s.x-.01,s.y-.01,s.z-.01);selBox.box.max.set(s.x+1.01,s.y+1.01,s.z+1.01);selBox.visible=true;}}
   if(t-lastXh>200){lastXh=t;const b=away?null:(a||aim(false));if(b){const ox=P.x,oz=P.z;let nm='';try{P.x=b.hx;P.z=b.hz;const pi=placeInfo();nm=pi.name+(pi.kick?' · '+pi.kick:'');}catch(_){}finally{P.x=ox;P.z=oz;}xhEl.textContent=`${locked()?'CROSSHAIR':'CURSOR'} ${b.hx.toFixed(1)}, ${b.hy.toFixed(1)}, ${b.hz.toFixed(1)} · ${nm}`;}else xhEl.textContent=away?'—':'AIM — (sky)';}}
 const loop=()=>{requestAnimationFrame(loop);try{devTick();}catch(e){if(!loop.err){loop.err=1;console.warn('dev panel',e);}}};requestAnimationFrame(loop);
-btn.hidden=false;window.__DEV={toggle,ED,pick,aim,commit,undo,redo,placeHere,primary,cancel,rotateBy,lift,delSel,duplicate,startMove,finishMove,saveNow,bake,CAT,select:e=>{ED.item=CAT.find(x=>x.key===e||x.name===e)||null;ED.sel=null;setGhost();renderCat();renderIns();return !!ED.item;}};
+btn.hidden=false;// ----- eyedropper: I or middle-click picks whatever is under the cursor (block, placed thing, original lamp/tree/car) so you can place more of it
+function voxValAt(x,y,z){const k=x+','+y+','+z;if(CUR.vox.has(k))return CUR.vox.get(k);const e=EDITS.get(k);if(e!==undefined)return e;const ch=chunks.get(Math.floor(x/CS)+','+Math.floor(z/CS));return ch?vox(ch,x-ch.x0+1,z-ch.z0+1,y):0;}
+function dropper(){const p=pick();if(!p){toast('Nothing to pick there');return;}let item=null,label='';
+  if(p.k==='vox'){const v=voxValAt(p.x,p.y,p.z);if(!v){toast('That is air');return;}const tile=v>=257?v-257:(v>=201?faceTile(v-1,true):v-1);
+    item=CAT.find(e=>e.type==='block'&&e.d&&e.d.tile===tile)||{key:'block:#'+tile,cat:'blocks',type:'block',name:'block #'+tile,icon:'#'+tile,d:{tile}};label=item.name;}
+  else if(p.k==='placed'){const r=CUR.objects.find(o=>o.id===p.id);if(!r){toast('Could not read that');return;}const d={};for(const [k,v] of Object.entries(r))if(!['id','x','y','z','rot'].includes(k))d[k]=v;
+    const base=CAT.find(e=>e.type===r.type&&(!r.kind||!e.d||!e.d.kind||e.d.kind===r.kind))||CAT.find(e=>e.type===r.type);item={key:'pick:'+r.type+':'+JSON.stringify(d),cat:'picked',type:r.type,name:(base?base.name:r.type)+' (picked)',icon:base?base.icon:'💧',d};label=item.name;}
+  else if(p.k==='orig'){const h=(p.info&&p.info.h)||{};const map={tree:'spruce',lamp:'lamp',bench:'bench',streettree:'streettree',car:'car',candles:'candlearch',wreath:'wreath',paperstar:'paperstar'};const ty=map[h.t]||h.t;
+    if(ty==='car'&&p.info.car){const c=p.info.car;item={key:'pick:car:'+c.kind,cat:'picked',type:'car',name:'Car · '+c.kind+' (picked)',icon:'🚗',d:{kind:c.kind,color:'#'+c.m.children[0].material.color.getHexString()}};}
+    else item=CAT.find(e=>e.type===ty)||null;label=item?item.name:(p.info.label||'that');}
+  if(!item){toast("Can't pick that one: find it in the catalog");return;}
+  ED.item=item;ED.sel=null;setGhost();renderCat();renderIns();toast('Picked: '+label+' · click to place more');}
+addEventListener('keydown',e=>{if(!ED.open||e.repeat)return;if(e.key==='i'||e.key==='I'){if(document.activeElement&&/INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName))return;e.preventDefault();e.stopImmediatePropagation();dropper();}},true);
+addEventListener('mousedown',e=>{if(!ED.open||e.button!==1)return;e.preventDefault();e.stopImmediatePropagation();dropper();},true);
+window.__DEV={dropper,toggle,ED,pick,aim,commit,undo,redo,placeHere,primary,cancel,rotateBy,lift,delSel,duplicate,startMove,finishMove,saveNow,bake,CAT,select:e=>{ED.item=CAT.find(x=>x.key===e||x.name===e)||null;ED.sel=null;setGhost();renderCat();renderIns();return !!ED.item;}};
 renderCat();renderIns();}
 }
 // ===== town details (#1) =====
