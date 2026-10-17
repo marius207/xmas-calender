@@ -1546,8 +1546,9 @@ function drawMap(){const s=2.2*MS/2.2/ (mapZoom),vw=mm.width/s,vh=mm.height/s;co
   mg.save();mg.translate(mm.width/2,mm.height/2);mg.rotate(-P.yaw);mg.fillStyle='#8fd3ff';mg.strokeStyle='#000';mg.lineWidth=2;mg.beginPath();mg.moveTo(0,-10);mg.lineTo(7,7);mg.lineTo(-7,7);mg.closePath();mg.fill();mg.stroke();mg.restore();}
 
 // ================= player, physics and Minecraft controls =================
-const [SX,SZ]=freeSpot(TX-3,TZ+8);let mapZoom=2.6;
-const P={fly:false,x:SX,y:0,z:SZ,vx:0,vy:0,vz:0,onGround:false,yaw:Math.PI*.85,pitch:-.05,run:false,speed:0};
+const SPAWN=(WEDIT.spawn&&isFinite(WEDIT.spawn.x))?Object.assign({set:true},WEDIT.spawn):(()=>{const C=window.__cal;const nx=C?C.nx:0,nz=C?C.nz:1;return {x:TX-nx*5.5,z:TZ-nz*5.5,yaw:Math.atan2(nx,nz)};})();window.__SPAWN=SPAWN;
+const [SX,SZ]=freeSpot(SPAWN.x,SPAWN.z);let mapZoom=2.6;
+const P={fly:false,x:SX,y:0,z:SZ,vx:0,vy:0,vz:0,onGround:false,yaw:SPAWN.yaw??Math.PI*.85,pitch:-.05,run:false,speed:0};
 let thirdPerson=false;const input={x:0,z:0};const keys={};const AUTOJUMP=true;
 // voxel queries
 function waterCol(ix,iz){const ch=chunks.get(Math.floor(ix/CS)+','+Math.floor(iz/CS));if(ch){const k=(iz-ch.z0+1)*ch.N+ix-ch.x0+1;return ch.T[k]===3&&!ch.BB[k];}return typeAt(ix+.5,iz+.5)===3&&!buildingAt(ix+.5,iz+.5);}
@@ -2403,8 +2404,8 @@ const HEALTH=(()=>{const H={hp:20,max:20,eye:0,dmgT:0,regenT:0,dead:false};
     const m=$('eyeMeter');m.style.opacity=H.eye>.01?1:0;m.querySelector('.fill').style.width=(H.eye*100)+'%';}
   function thump(){if(!ac)return;const o=ac.createOscillator(),g=ac.createGain();o.type='square';o.frequency.setValueAtTime(140,ac.currentTime);o.frequency.exponentialRampToValueAtTime(50,ac.currentTime+.18);g.gain.setValueAtTime(.35,ac.currentTime);g.gain.exponentialRampToValueAtTime(.001,ac.currentTime+.22);o.connect(g);g.connect(master);o.start();o.stop(ac.currentTime+.25);}
   H.hurt=n=>{if(H.dead)return;H.hp=Math.max(0,H.hp-n);H.regenT=0;thump();const f=$('hurtFlash');f.style.opacity=1;setTimeout(()=>f.style.opacity=0,180);draw();
-    if(H.hp<=0){H.dead=true;$('deathScr').hidden=false;setTimeout(()=>{const home=(PLAYER_NAME==='chris'&&CHRISH&&CHRISH.front)?CHRISH.front:[TX-3,TZ+8];if(P.driving&&typeof exitCar==='function')try{exitCar();}catch(e){}
-      P.x=home[0];P.z=home[1];P.y=spawnY(P.x,P.z);P.vx=P.vy=P.vz=0;H.hp=H.max;H.eye=0;H.dead=false;$('deathScr').hidden=true;draw();},3200);}};
+    if(H.hp<=0){H.dead=true;$('deathScr').hidden=false;setTimeout(()=>{const home=(PLAYER_NAME==='chris'&&CHRISH&&CHRISH.front)?CHRISH.front:[SPAWN.x,SPAWN.z];if(P.driving&&typeof exitCar==='function')try{exitCar();}catch(e){}
+      P.x=home[0];P.z=home[1];P.y=spawnY(P.x,P.z);if(home[0]===SPAWN.x&&SPAWN.yaw!=null)P.yaw=SPAWN.yaw;P.vx=P.vy=P.vz=0;H.hp=H.max;H.eye=0;H.dead=false;$('deathScr').hidden=true;draw();},3200);}};
   H.step=(dt,seen)=>{const safe=typeof filmMode!=='undefined'&&filmMode||INV.mode==='creative';
     H.eye=Math.max(0,Math.min(1,H.eye+(seen?dt/9:-dt/14)));
     if(seen&&!safe&&H.eye>=.6){H.dmgT+=dt;const every=H.eye>=1?.7:1.6;if(H.dmgT>=every){H.dmgT=0;H.hurt(1);}}else H.dmgT=0;
@@ -2697,7 +2698,7 @@ const btn=document.createElement('button');btn.id='devBtn';btn.textContent='DEV'
 const pn=document.createElement('div');pn.id='devPanel';pn.setAttribute('role','dialog');pn.setAttribute('aria-label','World editor');
 pn.innerHTML=`<div class="dvHead"><span class="dvT" title="World editor">DEV EDITOR</span><span class="dvTabs"></span><input class="dvQ" type="search" placeholder="Search…" aria-label="Search the catalog" spellcheck="false"><button data-a="col" title="Collapse">▾</button><button data-a="close" title="Close (\`)">✕</button></div>
 <div class="dvBody"><div class="dvCat" role="listbox"></div><div class="dvIns"></div></div>
-<div class="dvFoot"><span>MODE <b class="dvMode">SELECT</b></span><span class="dvXh">—</span><label><input type="checkbox" class="dvSnap" checked> SNAP 0.5 M</label><button data-a="undo" title="Ctrl+Z">UNDO</button><button data-a="redo" title="Ctrl+Shift+Z">REDO</button><button data-a="bake" title="Move your own block edits (localStorage) into data/world_edits.json">BAKE MY BLOCK EDITS INTO THE WORLD</button><span class="dvSave pend">…</span><span class="dvConf" hidden><button data-a="reload" title="Load the newer world file (your unsaved edits stay in localStorage as a conflict copy)">RELOAD</button> <button data-a="force" title="Overwrite the world file with what you see">OVERWRITE</button></span></div>`;
+<div class="dvFoot"><span>MODE <b class="dvMode">SELECT</b></span><span class="dvXh">—</span><label><input type="checkbox" class="dvSnap" checked> SNAP 0.5 M</label><button data-a="undo" title="Ctrl+Z">UNDO</button><button data-a="redo" title="Ctrl+Shift+Z">REDO</button><button data-a="spawn" title="Players start and respawn where you stand now, facing the way you look">SET SPAWN HERE</button><button data-a="bake" title="Move your own block edits (localStorage) into data/world_edits.json">BAKE MY BLOCK EDITS INTO THE WORLD</button><span class="dvSave pend">…</span><span class="dvConf" hidden><button data-a="reload" title="Load the newer world file (your unsaved edits stay in localStorage as a conflict copy)">RELOAD</button> <button data-a="force" title="Overwrite the world file with what you see">OVERWRITE</button></span></div>`;
 document.body.appendChild(pn);const help=document.createElement('div');help.id='devHelp';help.hidden=true;document.body.appendChild(help);
 const q=s=>pn.querySelector(s);const tabsEl=q('.dvTabs'),catEl=q('.dvCat'),insEl=q('.dvIns'),qEl=q('.dvQ'),modeEl=q('.dvMode'),xhEl=q('.dvXh'),saveEl=q('.dvSave'),snapEl=q('.dvSnap');
 const ED={open:false,tab:'nature',item:null,rot:0,yOff:0,sel:null,moving:null,drag:null,mrot:0,wheel:0,mx:innerWidth/2,my:innerHeight/2,overPanel:false,lookDrag:null};
@@ -2769,7 +2770,7 @@ let saveTimer=null,saving=false,again=false;
 function setSave(t,cls){saveEl.textContent=t;saveEl.className='dvSave '+cls;}
 function changed(){renderIns();if(ED.tab==='hidden'||ED.tab==='placed')renderCat();setSave('Saving…','pend');clearTimeout(saveTimer);saveTimer=setTimeout(saveNow,1000);}
 let BASE=+WEDIT.__base||0,conflict=false;
-async function saveNow(force){if(saving){again=true;return null;}saving=true;const doc={version:1,saved:Date.now(),base:BASE,objects:CUR.objects,hide:CUR.hide,vox:[...CUR.vox]};if(force===true)doc.force=true;let ok=false;
+async function saveNow(force){if(saving){again=true;return null;}saving=true;const doc={version:1,saved:Date.now(),base:BASE,objects:CUR.objects,hide:CUR.hide,vox:[...CUR.vox]};if(window.__SPAWN&&window.__SPAWN.set)doc.spawn={x:__SPAWN.x,z:__SPAWN.z,yaw:__SPAWN.yaw};if(force===true)doc.force=true;let ok=false;
   try{localStorage.setItem('kvinesdal-world-edits',JSON.stringify(doc));}catch(e){}
   try{const ctl=new AbortController();const to=setTimeout(()=>ctl.abort(),4000);const r=await fetch(SAVE_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(doc),signal:ctl.signal});clearTimeout(to);const j=await r.json().catch(()=>({}));ok=r.ok&&j.ok;conflict=r.status===409;if(ok)BASE=doc.saved;else if(!conflict)console.warn('save refused',j);}catch(e){ok=false;conflict=false;}
   if(ok){try{localStorage.setItem('kvinesdal-world-edits',JSON.stringify(Object.assign({},doc,{base:BASE})));}catch(e){}}
@@ -2833,7 +2834,7 @@ pn.addEventListener('click',ev=>{const b=ev.target.closest('button');if(!b)retur
   if(b.dataset.goid){const o=recOf(b.dataset.goid);if(o&&window.__go)window.__go(o.x+3,o.z+3,Math.atan2(3,3),-.3);ED.sel={k:'placed',id:b.dataset.goid};renderIns();return;}
   if(b.dataset.selid){ED.sel={k:'placed',id:b.dataset.selid};ED.item=null;setGhost();renderIns();return;}
   if(a==='close')toggle(false);else if(a==='col'){pn.classList.toggle('col');b.textContent=pn.classList.contains('col')?'▴':'▾';}
-  else if(a==='undo')undo();else if(a==='redo')redo();else if(a==='bake')bake();else if(a==='reload')location.reload();else if(a==='force'){if(confirm('Overwrite the world file with the edits in this tab?'))saveNow(true);}
+  else if(a==='undo')undo();else if(a==='redo')redo();else if(a==='spawn'){const S=window.__SPAWN;S.x=+P.x.toFixed(2);S.z=+P.z.toFixed(2);S.yaw=+P.yaw.toFixed(3);S.set=true;saveNow();toast('Spawn point set here · saved to the world');}else if(a==='bake')bake();else if(a==='reload')location.reload();else if(a==='force'){if(confirm('Overwrite the world file with the edits in this tab?'))saveNow(true);}
   else if(a==='del')delSel();else if(a==='dup')duplicate();else if(a==='desel'){ED.sel=null;renderIns();}
   else if(a==='move'){if(ED.sel&&ED.sel.k==='placed')startMove(ED.sel.id,false);}
   else if(a==='conv'){if(ED.sel&&ED.sel.k==='orig'){const r=convertOrig(ED.sel.info);if(r){ED.sel={k:'placed',id:r.id};startMove(r.id,false);}}}});
