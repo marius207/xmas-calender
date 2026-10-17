@@ -1609,7 +1609,7 @@ const IT={// item id -> {n:name, ic:icon kind, c:colour}
  stick:{n:'Stick',ic:'stick',c:'#8a5a34'},coal:{n:'Coal',ic:'lump',c:'#222'},raw_iron:{n:'Raw Iron',ic:'lump',c:'#c8a48a'},raw_gold:{n:'Raw Gold',ic:'lump',c:'#e8c040'},
  iron:{n:'Iron Ingot',ic:'ingot',c:'#d8d8d8'},gold:{n:'Gold Ingot',ic:'ingot',c:'#ffd23f'},diamond:{n:'Diamond',ic:'gem',c:'#5ae8e0'},flint:{n:'Flint',ic:'lump',c:'#444'},
  string:{n:'String',ic:'string',c:'#eee'},leather:{n:'Leather',ic:'hide',c:'#8a4a24'},reeds:{n:'Sugar Cane',ic:'reeds',c:'#7ac04a'},paper:{n:'Paper',ic:'paper',c:'#f4f4ee'},
- gunpowder:{n:'Gunpowder',ic:'dust',c:'#6a6a6a'},rocket:{n:'Firework Rocket',ic:'rocket',c:'#c8102e'},elytra:{n:'Elytra',ic:'elytra',c:'#8a8ea8',slot:'chest'},
+ gunpowder:{n:'Gunpowder',ic:'dust',c:'#6a6a6a'},rocket:{n:'Firework Rocket',ic:'rocket',c:'#c8102e'},elytra:{n:'Elytra',ic:'elytra',c:'#8a8ea8',slot:'chest'},jetpack:{n:'Jetpack (hold it, Space to fly)',ic:'elytra',c:'#d8541a'},
 };
 for(const [m,c,nm] of [['leather','#8a4a24','Leather'],['iron','#d8d8d8','Iron'],['gold','#ffd23f','Golden'],['diamond','#5ae8e0','Diamond']]){
   IT[m+'_helmet']={n:nm+' Helmet',ic:'helmet',c,slot:'head',armor:m};IT[m+'_chest']={n:nm+' Chestplate',ic:'chest',c,slot:'chest',armor:m};
@@ -1719,7 +1719,7 @@ const armorMeshes={};{const u=martin.userData;const mk=(w,h,d,parent,y)=>{const 
 function updateArmor(){for(const k of ['head','chest','legs','feet']){const it=INV.armor[k]&&IT[INV.armor[k].id];const ms=[].concat(armorMeshes[k]);for(const m of ms){m.visible=!!(it&&it.armor);if(it&&it.armor)m.material.color.set(it.c);}}
   wings.visible=P.glide||(INV.armor.chest&&INV.armor.chest.id==='elytra');}
 
-function selectSlot(i){slot=i;renderHotbar();}renderHotbar();
+function selectSlot(i){slot=i;renderHotbar();const st=INV.slots[i],J=window.__JET;if(J){const want=!!(st&&st.id==='jetpack');if(want!==J.on)J.toggle();}}renderHotbar();
 // block targeting (DDA)
 const outline=new THREE.LineSegments(new THREE.EdgesGeometry(new THREE.BoxGeometry(1.004,1.004,1.004)),new THREE.LineBasicMaterial({color:0x000000,transparent:true,opacity:.7}));outline.visible=false;scene.add(outline);
 let target=null;
@@ -2838,7 +2838,7 @@ renderCat();renderIns();}
 }
 // ===== town details (#1) =====
 // shared helpers for the town-detail blocks: a per-frame tick list, chunk build/dispose hooks, ground height, no-go checks
-const TD=(()=>{const T={ticks:[],on:[],off:[]};let last=performance.now();
+const TD=(()=>{const T={ticks:[],on:[],off:[],t0:performance.now()};let last=performance.now();
   const loop=now=>{requestAnimationFrame(loop);const dt=Math.min(.1,(now-last)/1000);last=now;for(const f of T.ticks){try{f(dt,now/1000);}catch(e){if(!f.err){f.err=1;console.warn('town details tick',e);}}}};requestAnimationFrame(loop);
   const _bc=buildChunk,_dc=disposeChunk;
   buildChunk=function(kx,kz){const ch=_bc(kx,kz);for(const f of T.on){try{f(ch);}catch(e){console.warn('town details chunk',e);}}return ch;};
@@ -3121,6 +3121,51 @@ try{const glowM=new THREE.PointsMaterial({color:new THREE.Color(2.4,1.5,.6),map:
  window.__TD7=()=>{let n=0;for(const o of scene.children)if(o.userData.n7)n+=o.userData.n7;return n;};
 }catch(e){console.warn('town details #7',e&&e.stack||e);}
 // ===== /town details (#7) =====
+// ===== town details (#8) =====
+// #8 on the square: a julenek (sheaf of oats on a pole for the birds) and a big nisse with a lantern; the Christmas market stalls already stand there (4)
+try{const spot=(r0,r1,a0,m)=>{for(let rr=r0;rr<=r1;rr+=1.5)for(let k=0;k<24;k++){const a=a0+k*.55;const x=TX+Math.cos(a)*rr,z=TZ+Math.sin(a)*rr;let ok=true;
+     for(const [dx,dz] of [[0,0],[m,0],[-m,0],[0,m],[0,-m]]){const t=typeAt(x+dx,z+dz);if(t===1||t===3||TD.blocked(x+dx,z+dz,.8))ok=false;}if(ok&&!cars.some(c=>Math.hypot(c.x-x,c.z-z)<4))return [x,z];}return null;};
+ const M=c=>new THREE.MeshLambertMaterial({color:c});const add=(g,w,h,d,x,y,z,m)=>{const o=new THREE.Mesh(new THREE.BoxGeometry(w,h,d),m);o.position.set(x,y,z);o.castShadow=true;g.add(o);return o;};
+ const put=(g,p,r)=>{const y=TD.gy(p[0],p[1]);g.position.set(p[0],y,p[1]);g.rotation.y=Math.atan2(TX-p[0],TZ-p[1]);scene.add(g);SQKEEP.push([p[0],p[1],r]);const k=Math.floor(p[0])+','+Math.floor(p[1]);LOWC.set(k,[Math.floor(y),Math.floor(y)+2]);};
+ // julenek: a 3 m birch pole, a sheaf of oats tied with red ribbon, and a few bullfinches
+ const jp=spot(9,20,1.1,1);if(jp){const g=new THREE.Group();const birch=M(0xe8e4dc),bark=M(0x2a2a2a),oat=M(0xd8b04a),oat2=M(0xb88a2a),red=M(0xc8102e);
+   add(g,.14,3.2,.14,0,1.6,0,birch);for(let y=.4;y<3;y+=.55)add(g,.15,.05,.15,0,y,0,bark);
+   for(let i=0;i<14;i++){const a=i/14*Math.PI*2;const t=add(g,.07,.9,.07,Math.cos(a)*.14,3.35,Math.sin(a)*.14,i%2?oat:oat2);t.rotation.set(Math.sin(a)*.35,0,-Math.cos(a)*.35);}
+   for(let i=0;i<10;i++){const a=i/10*Math.PI*2;add(g,.12,.12,.12,Math.cos(a)*.42,3.72,Math.sin(a)*.42,oat);}
+   add(g,.32,.12,.32,0,3.1,0,red);add(g,.1,.35,.04,.12,2.9,.17,red);add(g,.6,.08,.6,0,3.86,0,M(0xf2f6fb));
+   const bird=(x,z,ry)=>{const b=new THREE.Group();add(b,.12,.11,.18,0,0,0,M(0x3a3a40));add(b,.12,.08,.1,0,-.02,-.05,M(0xd8462a));add(b,.08,.08,.08,0,.06,-.1,M(0x111111));b.position.set(x,3.55,z);b.rotation.y=ry;g.add(b);};bird(.4,.1,1);bird(-.3,.3,2.6);bird(.05,-.42,4.2);
+   put(g,jp,1.6);TD.julenek=jp;}
+ // nisse: grey wool, red cap with a white bobble, long beard, lantern; 1.6 m on a wooden crate
+ const np=spot(8,18,3.6,1.2);if(np){const g=new THREE.Group();const grey=M(0x7a7d84),red=M(0xb3121b),skin=M(0xe0b090),beard=M(0xf0f0ec),wood=M(0x7a5a3a),black=M(0x1a1a1e);
+   add(g,1.1,.6,.8,0,.3,0,wood);add(g,1.12,.06,.82,0,.63,0,M(0xf2f6fb));
+   add(g,.22,.5,.24,-.14,.9,0,grey);add(g,.22,.5,.24,.14,.9,0,grey);add(g,.26,.12,.32,-.14,.66,-.04,black);add(g,.26,.12,.32,.14,.66,-.04,black);
+   add(g,.6,.6,.36,0,1.45,0,red);add(g,.62,.1,.38,0,1.2,0,black);add(g,.18,.5,.2,-.4,1.45,0,red);add(g,.18,.5,.2,.4,1.45,0,red);add(g,.16,.14,.16,-.4,1.15,0,beard);add(g,.16,.14,.16,.4,1.15,0,beard);
+   add(g,.42,.42,.42,0,1.97,0,skin);add(g,.44,.36,.12,0,1.84,-.2,beard);add(g,.2,.3,.1,0,1.62,-.24,beard);add(g,.08,.08,.06,0,1.98,-.23,M(0xd88070));
+   add(g,.48,.18,.48,0,2.22,0,red);add(g,.36,.18,.36,0,2.38,.03,red);add(g,.24,.18,.24,0,2.52,.09,red);add(g,.14,.16,.14,0,2.64,.16,red);add(g,.14,.14,.14,0,2.72,.25,beard);add(g,.5,.08,.5,0,2.15,0,beard);
+   // lantern in the right hand
+   add(g,.04,.2,.04,.4,1.05,-.08,black);const lan=add(g,.18,.24,.18,.4,.85,-.08,new THREE.MeshBasicMaterial({color:new THREE.Color(2.6,1.7,.6),toneMapped:false}));add(g,.22,.05,.22,.4,.99,-.08,black);
+   const lt=new THREE.PointLight(0xffb060,3,6,1.8);lt.position.set(.4,.9,-.4);g.add(lt);
+   put(g,np,1.6);TD.nisse={g,lan,lt};let t=0;TD.ticks.push(dt=>{t+=dt;const f=.85+.15*Math.sin(t*9)+.06*Math.sin(t*23);lan.material.color.setRGB(2.6*f,1.7*f,.6*f);lt.intensity=3*f;});}
+ window.__TD8=()=>({julenek:jp,nisse:np});
+}catch(e){console.warn('town details #8',e&&e.stack||e);}
+// ===== /town details (#8) =====
+// ===== town details (#9) =====
+// #9 wreaths on business doors: inside the centre buildChunk already hangs one on every door cell; this adds one (green ring, red bow)
+// on the entrance of every business in INTB outside it, so no shop door in the valley goes without
+try{const W=[];
+ for(const b of INTB){if(b.gone||Math.hypot(b.c[0]-XC.x,b.c[1]-XC.z)<XR+62)continue;const L=intLayout(b);if(!L||!L.door||!L.door.length)continue;
+   const [dx,dz]=L.door[0];let out=null;for(const [a,c] of DIRS){if(buildingAt(dx+.5+a,dz+.5+c)!==b){out=[a,c];break;}}if(!out)continue;
+   /* hang it on the wall beside the doorway (the opening itself is 2-3 blocks tall) */let tx=Math.abs(out[1]),tz=Math.abs(out[0]);if(L.door[1]){const sx=Math.sign(L.door[1][0]-dx),sz=Math.sign(L.door[1][1]-dz);if(sx||sz){tx=-sx;tz=-sz;}}
+   if(buildingAt(dx+.5+tx,dz+.5+tz)!==b){tx=-tx*2;tz=-tz*2;}if(buildingAt(dx+.5+tx,dz+.5+tz)!==b)continue;
+   W.push([dx+.5+tx+out[0]*.56,b.base+1.7,dz+.5+tz+out[1]*.56,out[0],out[1]]);}
+ const ry=(dc,dr)=>dc?(dc>0?Math.PI/2:-Math.PI/2):(dr>0?0:Math.PI);
+ const m=TD.inst(wreathGeo,decoMat,W,(o,[x,y,z,a,c])=>{o.position.set(x,y,z);o.rotation.y=ry(a,c);});if(m)scene.add(m);
+ window.__TD9=()=>({extra:W.length,intb:INTB.length,s:W.slice(0,3)});
+}catch(e){console.warn('town details #9',e&&e.stack||e);}
+TD.initMs=Math.round(performance.now()-TD.t0);
+// ===== /town details (#9) =====
+// a jetpack in the inventory to try out: holding it in your hand switches it on
+setTimeout(()=>{try{if(countOf('jetpack')===0)give('jetpack',1);}catch(e){}},1500);
 window.__CINE={addCar,bestFacade,BL,POI,buildingAt,wings,spark,world,CHURCH:typeof CHURCH!=='undefined'?CHURCH:null,THREE,scene,ORN,bulbs,treeGroup,threshold(on){starTop.visible=!on;for(const o of ORN)o.visible=!on;for(const b of bulbs)if(b&&b.visible!==undefined)b.visible=!on;bulbMatA.visible=bulbMatB.visible=!on;},r,P,cam,martin,chris,arm,TX,TZ,gAt,CASTLE,EYE,CHRISH,MARTINH,COURT,BOWL,starTop,AU,f:null};window.__setShadow=n=>{moon.shadow.mapSize.set(n,n);if(moon.shadow.map){moon.shadow.map.dispose();moon.shadow.map=null;}};window.__setPR=v=>{r.setPixelRatio(v);r.setSize(innerWidth,innerHeight);if(composer){composer.setPixelRatio(v);composer.setSize(innerWidth,innerHeight);}};{let filmMode=false;const st=document.createElement('style');st.textContent='body.film *:not(canvas){visibility:hidden!important}body.film #movie,body.film #movie *{visibility:visible!important}body.film #mm,body.film #map{visibility:hidden!important}body.film canvas{visibility:visible!important}';document.head.appendChild(st);
  addEventListener('keydown',e=>{if(e.code==='KeyH'&&!e.repeat&&!/INPUT|TEXTAREA/.test(document.activeElement.tagName)){filmMode=!filmMode;document.body.classList.toggle('film',filmMode);arm.visible=!filmMode;}});
  const rec=document.createElement('div');rec.id='recDot';rec.textContent='● REC';rec.style.cssText='position:fixed;top:14px;left:50%;transform:translateX(-50%);z-index:99;font:14px monospace;color:#fff;background:#c0141a;padding:4px 10px;border:2px solid #000;display:none';document.body.appendChild(rec);
