@@ -828,7 +828,7 @@ function buildChunk(kx,kz){const x0=kx*CS,z0=kz*CS,N=CS+2;
     const ry=(dc,dr)=>dc?(dc>0?Math.PI/2:-Math.PI/2):(dr>0?0:Math.PI);
     if(cand.length){const im=new THREE.InstancedMesh(candleGeo,candleMat,cand.length);cand.forEach(([x,y,z,dc,dr],n)=>{dmo.position.set(x,y,z);dmo.rotation.set(0,ry(dc,dr),0);dmo.scale.set(1,1,1);dmo.updateMatrix();im.setMatrixAt(n,dmo.matrix);});group.add(im);}
     if(star.length){const im=new THREE.InstancedMesh(starGeo2,starMat2,star.length);star.forEach(([x,y,z,dc,dr],n)=>{dmo.position.set(x,y,z);dmo.rotation.set(0,ry(dc,dr),0);dmo.scale.setScalar(.6);dmo.updateMatrix();im.setMatrixAt(n,dmo.matrix);});dmo.scale.setScalar(1);group.add(im);}
-    if(wr.length){const im=new THREE.InstancedMesh(wreathGeo,decoMat,wr.length);wr.forEach(([x,y,z,dc,dr],n)=>{dmo.position.set(x,y,z);dmo.rotation.set(0,ry(dc,dr),0);dmo.updateMatrix();im.setMatrixAt(n,dmo.matrix);});group.add(im);}}
+    if(false&&wr.length){/* door wreaths removed: they looked like they blocked the shop entrances */const im=new THREE.InstancedMesh(wreathGeo,decoMat,wr.length);wr.forEach(([x,y,z,dc,dr],n)=>{dmo.position.set(x,y,z);dmo.rotation.set(0,ry(dc,dr),0);dmo.updateMatrix();im.setMatrixAt(n,dmo.matrix);});group.add(im);}}
   // trees (+ solid trunks)
   const tl=TIDX.get(kx+','+kz);if(tl&&tl.length){const im=new THREE.InstancedMesh(treeG,treeMat,tl.length);tl.forEach((i,n)=>{const x=TXA[i]+.5,z=TZA[i]+.5;if((COURT&&Math.hypot(x-COURT.cx,z-COURT.cz)<21)||PAVE.some(q=>x>q[0]&&x<q[1]&&z>q[2]&&z<q[3])||(SPORT.length&&sportTile(x,z))||lotG(Math.floor(x),Math.floor(z),Math.round(Hm(x,z)))!==Math.round(Hm(x,z))||CASTLE&&Math.max(Math.abs(x-CASTLE.x),Math.abs(z-CASTLE.z))<CASTLE.R+5){dmo.position.set(0,-999,0);dmo.updateMatrix();im.setMatrixAt(n,dmo.matrix);return;}const gy=Math.round(Hm(x,z));dmo.position.set(x,gy,z);dmo.rotation.set(0,0,0);const s=Math.max(.45,Math.min(2.4,THA[i]/9.5));dmo.scale.setScalar(s);dmo.updateMatrix();im.setMatrixAt(n,dmo.matrix);TRUNK.set(TXA[i]+','+TZA[i],[gy,Math.ceil(3*s)]);});dmo.scale.setScalar(1);im.castShadow=true;im.receiveShadow=true;group.add(im);}
   // parked cars in this chunk's car parks (drivable)
@@ -3159,7 +3159,7 @@ try{const W=[];
    if(buildingAt(dx+.5+tx,dz+.5+tz)!==b){tx=-tx*2;tz=-tz*2;}if(buildingAt(dx+.5+tx,dz+.5+tz)!==b)continue;
    W.push([dx+.5+tx+out[0]*.56,b.base+1.7,dz+.5+tz+out[1]*.56,out[0],out[1]]);}
  const ry=(dc,dr)=>dc?(dc>0?Math.PI/2:-Math.PI/2):(dr>0?0:Math.PI);
- const m=TD.inst(wreathGeo,decoMat,W,(o,[x,y,z,a,c])=>{o.position.set(x,y,z);o.rotation.y=ry(a,c);});if(m)scene.add(m);
+ const m=TD.inst(wreathGeo,decoMat,W,(o,[x,y,z,a,c])=>{o.position.set(x,y,z);o.rotation.y=ry(a,c);});if(m&&false)scene.add(m);/* wreaths off (Marius) */
  window.__TD9=()=>({extra:W.length,intb:INTB.length,s:W.slice(0,3)});
 }catch(e){console.warn('town details #9',e&&e.stack||e);}
 // ===== /town details (#9) =====
