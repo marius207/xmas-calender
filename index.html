@@ -2349,7 +2349,7 @@ const WITCH=(()=>{if(!LOT)return null;
   addEventListener('keydown',e=>{if(e.key.toLowerCase()!=='g'||e.repeat)return;for(const gf of gifts){if(Math.hypot(P.x-gf.q.position.x,P.z-gf.q.position.z)<2.2&&Math.abs(P.y-gf.q.position.y)<2){scene.remove(gf.q);gifts.splice(gifts.indexOf(gf),1);toast('You threw '+GIFT_TXT[gf.kind]+' in the bin. Nice try, witch.');e.stopImmediatePropagation();return;}}},true);
   setInterval(()=>{if(typeof started!=='undefined'&&started)stepGifts(.25);},250);
   // ---- Chris's mailbox by the road: look at it to see if there's post; letters from downstairs pile up while you play
-  const MBX={x:526.5,z:-706.5};let mail=2;try{const r=localStorage.getItem('kv-mail');if(r!==null&&+r>=0&&+r<=3)mail=+r;}catch(e){}
+  const MBX={x:526.5,z:-706.5};LOT.V.set('526,0,-707',0);{const mb=makeMailbox('#15161a');mb.position.set(MBX.x,LOT.base,MBX.z);scene.add(mb);}let mail=2;try{const r=localStorage.getItem('kv-mail');if(r!==null&&+r>=0&&+r<=3)mail=+r;}catch(e){}
   const saveMail=()=>{try{localStorage.setItem('kv-mail',String(mail));}catch(e){}};let mailT=0,hoverMail=false;
   const tip=document.createElement('div');tip.id='mailTip';tip.style.cssText='position:fixed;left:50%;top:calc(50% + 26px);transform:translateX(-50%);z-index:4;font:13px Silkscreen,monospace;color:#fbf6e8;background:rgba(7,11,24,.8);border:3px solid #111;padding:6px 12px;text-align:center;pointer-events:none;display:none;text-shadow:1px 1px 0 #000;line-height:1.5';document.body.appendChild(tip);
   setInterval(()=>{if(typeof started!=='undefined'&&!started)return;
@@ -2507,7 +2507,7 @@ def('bollard',{build:()=>VM('bollard',[[.22,.9,.22,0,.45,0,0x2a2c33],[.24,.1,.24
 def('fence',{build:()=>{const p=[[2,.08,.05,0,.35,0,0xf2f0ea],[2,.08,.05,0,.85,0,0xf2f0ea]];for(let i=0;i<9;i++)p.push([.09,1.05,.04,-.9+i*.225,.52,.045,0xf4f2ec]);p.push([2,.05,.1,0,1.07,.04,SNOW]);return VM('fence',p);}});
 def('guardrail',{build:()=>{const p=[[2,.3,.06,0,.62,.06,0xb8bcc2],[2,.06,.07,0,.78,.06,0xd8dce2]];for(const x of[-.95,0,.95])p.push([.12,.8,.12,x,.4,-.03,0x6a6e74]);return VM('guardrail',p);}});
 def('flagpole',{build:()=>{const g=new THREE.Group();box(g,.1,8,.1,0,4,0,LM(0xeeeeee));box(g,.18,.18,.18,0,8.05,0,LM(0xe0b040));box(g,.5,.2,.5,0,.1,0,LM(0x8a8e94));const f=new THREE.Mesh(new THREE.PlaneGeometry(1.6,1.16),new THREE.MeshLambertMaterial({map:flagTex(),side:THREE.DoubleSide}));f.position.set(.85,7.35,0);g.add(f);return g;},solid:{h:8}});
-def('mailbox',{build:r=>{const g=new THREE.Group();g.add(VM('mailboxpost',[[.1,1.0,.1,0,.5,0,0x3a3a3a],[.4,.06,.54,0,1.33,0,SNOW],[.2,.03,.02,0,1.22,.26,0x111111],[.2,.08,.02,0,1.05,.26,0xf2f2f2]]));box(g,.36,.32,.5,0,1.15,0,LM(r.color||'#c8102e'));return g;},color:'#c8102e',solid:{h:1}});
+def('mailbox',{build:r=>makeMailbox(r.color||'#15161a'),color:'#15161a',solid:{h:1}});
 def('bikerack',{build:()=>{const p=[[2,.06,.08,0,.03,-.3,0x8a8e94],[2,.06,.08,0,.03,.3,0x8a8e94]];for(let i=0;i<5;i++){const x=-.8+i*.4;p.push([.05,.7,.05,x,.35,-.3,0xa8acb2],[.05,.7,.05,x,.35,.3,0xa8acb2],[.05,.05,.65,x,.7,0,0xa8acb2],[.07,.03,.66,x,.74,0,SNOW]);}return VM('bikerack',p);}});
 def('picnic',{build:()=>VM('picnic',[[1.8,.08,.7,0,.75,0,0x8a6440],[1.8,.06,.28,0,.45,.6,0x8a6440],[1.8,.06,.28,0,.45,-.6,0x8a6440],[.08,.75,.08,-.7,.37,0,0x6a4a2a],[.08,.75,.08,.7,.37,0,0x6a4a2a],[.08,.06,1.5,-.7,.42,0,0x6a4a2a],[.08,.06,1.5,.7,.42,0,0x6a4a2a],[1.82,.05,.72,0,.81,0,SNOW]])});
 // christmas
@@ -3463,6 +3463,20 @@ const CLOUDS=(()=>{try{
   },33);
   return {clusters};}catch(e){console.warn('clouds',e);return null;}})();
 window.__CLOUDS=CLOUDS;
+// Norwegian wall-style post box ("POST", curved lid, slanted front) on a pole; any colour, Chris's is black
+function makeMailbox(col,withPole=true){const g=new THREE.Group();const c=new THREE.Color(col||'#15161a');const m=new THREE.MeshLambertMaterial({color:c}),pole=new THREE.MeshLambertMaterial({color:0x2a2c30});
+  const H0=withPole?1.0:0;if(withPole){const p=new THREE.Mesh(new THREE.BoxGeometry(.09,1.05,.09),pole);p.position.set(0,.52,-.05);g.add(p);}
+  // body: a slanted front (narrow at the bottom, deeper at the top), built from a custom box
+  const W=.36,Hh=.48,Db=.14,Dt=.26;const geo=new THREE.BoxGeometry(W,Hh,1);const pos=geo.attributes.position;for(let i=0;i<pos.count;i++){const y=pos.getY(i),z=pos.getZ(i);const d=(y>0?Dt:Db);pos.setZ(i,z>0?d-.13:-.13);}geo.computeVertexNormals();
+  const body=new THREE.Mesh(geo,m);body.position.set(0,H0+Hh/2,0);g.add(body);
+  // curved lid
+  const lid=new THREE.Mesh(new THREE.CylinderGeometry(.15,.15,W+.03,20,1,false,0,Math.PI),m);lid.rotation.z=Math.PI/2;lid.rotation.y=0;lid.scale.set(1,1,.95);lid.position.set(0,H0+Hh-.02,.0);g.add(lid);
+  const lip=new THREE.Mesh(new THREE.BoxGeometry(W+.03,.03,.04),m);lip.position.set(0,H0+Hh-.06,.15);g.add(lip);
+  // "POST" in white
+  const cv=document.createElement('canvas');cv.width=256;cv.height=96;const x=cv.getContext('2d');x.fillStyle='rgba(0,0,0,0)';x.fillRect(0,0,256,96);x.fillStyle=(c.r+c.g+c.b)>2.2?'#222':'#f4f4f0';x.font='bold 64px Arial';x.textAlign='center';x.textBaseline='middle';x.fillText('P O S T',128,52);
+  const tx=new THREE.CanvasTexture(cv);tx.colorSpace=THREE.SRGBColorSpace;const lab=new THREE.Mesh(new THREE.PlaneGeometry(.26,.1),new THREE.MeshBasicMaterial({map:tx,transparent:true}));lab.position.set(0,H0+Hh*.62,.115);lab.rotation.x=-.25;g.add(lab);
+  const sn=new THREE.Mesh(new THREE.BoxGeometry(W+.05,.04,.22),new THREE.MeshLambertMaterial({color:0xf3f7fc}));sn.position.set(0,H0+Hh+.13,0);g.add(sn);
+  g.traverse(o=>{if(o.isMesh)o.castShadow=true;});return g;}
 window.__CINE={addCar,bestFacade,BL,POI,buildingAt,wings,spark,world,CHURCH:typeof CHURCH!=='undefined'?CHURCH:null,THREE,scene,ORN,bulbs,treeGroup,threshold(on){starTop.visible=!on;for(const o of ORN)o.visible=!on;for(const b of bulbs)if(b&&b.visible!==undefined)b.visible=!on;bulbMatA.visible=bulbMatB.visible=!on;},r,P,cam,martin,chris,arm,TX,TZ,gAt,CASTLE,EYE,CHRISH,MARTINH,COURT,BOWL,starTop,AU,f:null};window.__setShadow=n=>{moon.shadow.mapSize.set(n,n);if(moon.shadow.map){moon.shadow.map.dispose();moon.shadow.map=null;}};window.__setPR=v=>{r.setPixelRatio(v);r.setSize(innerWidth,innerHeight);if(composer){composer.setPixelRatio(v);composer.setSize(innerWidth,innerHeight);}};{let filmMode=false;const st=document.createElement('style');st.textContent='body.film *:not(canvas){visibility:hidden!important}body.film #mm,body.film #map{visibility:hidden!important}body.film #glmain{visibility:visible!important}body.film canvas:not(#glmain){visibility:hidden!important}body.film #filmHint{visibility:visible!important}';document.head.appendChild(st);
  addEventListener('keydown',e=>{if(e.code==='KeyH'&&!e.repeat&&!/INPUT|TEXTAREA/.test(document.activeElement.tagName)){filmMode=!filmMode;document.body.classList.toggle('film',filmMode);arm.visible=!filmMode;}});
  const rec=document.createElement('div');rec.id='recDot';rec.textContent='● REC';rec.style.cssText='position:fixed;top:14px;left:50%;transform:translateX(-50%);z-index:99;font:14px monospace;color:#fff;background:#c0141a;padding:4px 10px;border:2px solid #000;display:none';document.body.appendChild(rec);
