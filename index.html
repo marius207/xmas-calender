@@ -335,7 +335,8 @@ const WEDIT=await (async()=>{const dev=/^(localhost|127\.0\.0\.1|\[::1\])$/.test
 // ---- Chris's house as designed in the Kvinesdal Builder (build/lot2game.py → data/chris_lot.json) ----
 const LOT=await fetch('data/chris_lot.json?'+VER,{cache:'no-cache'}).then(r=>r.ok?r.json():null).catch(()=>null);
 /* the advent day, in one place for the calendar: the December date from the real clock (before/after December = 0), or ?day=N to test */
-window.__DAY=(()=>{const q=new URLSearchParams(location.search);if(q.has('day')&&isFinite(+q.get('day')))return Math.max(0,Math.min(31,Math.floor(+q.get('day'))));const d=new Date();return d.getMonth()===11?d.getDate():0;})();
+window.__DAY=(()=>{const q=new URLSearchParams(location.search);if(q.has('day')&&isFinite(+q.get('day')))return Math.max(0,Math.min(31,Math.floor(+q.get('day'))));const d=new Date(),real=d.getMonth()===11?d.getDate():0;
+  const dev=/^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname)||q.get('dev')==='1';return dev?Math.max(8,real):real;})();/* dev copy (same test as the dev panel): at least day 8 so the dungeon is open; the public site uses the real date */
 if(LOT){LOT.V=new Map(Object.entries(LOT.vox));LOT.ugOpen=!!(LOT.ugvox&&window.__DAY>=8);if(LOT.ugOpen)for(const k in LOT.ugvox)LOT.V.set(k,LOT.ugvox[k]);LOT.G=new Map(Object.entries(LOT.ground||{}));LOT.top=0;for(const k of LOT.V.keys()){const y=+k.split(',')[1];if(y>LOT.top)LOT.top=y;}
   const inL=(x,z)=>x>=LOT.x0-1&&x<LOT.x1+1&&z>=LOT.z0-1&&z<LOT.z1+1;LOT.in=inL;
   for(const b of world.buildings)if(inL(b.c[0],b.c[1]))b.gone=true;
