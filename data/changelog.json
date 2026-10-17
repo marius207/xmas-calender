@@ -2,7 +2,39 @@
  "entries": [
   {
    "date": "2026-10-18",
-   "time": "22:42",
+   "time": "00:45",
+   "title": "New landmarks and nicer places around town",
+   "items": [
+    "Orresteinen: the giant rock on Fedaheia, right on the cliff edge over Fedafjorden. Climb it, and find the photo spot.",
+    "Globen: the big rock with the pole and ball at the top of Hamre.",
+    "Camp Botnan: the tipi village, the gate with the eagle, the hut with a fire, swings and more.",
+    "Trail signs at path starts and forks all over the map, pointing to Varden, Globen, Botnan, Parkering and other places.",
+    "New paths: the top of Helleråsen and the top of Hamre are now joined up.",
+    "The Fedafjord bridge now looks like the real suspension bridge.",
+    "The little bridge at Krågehølen is now the old green steel bridge.",
+    "The pipe from the dam at Lona down to the old power station at Livrislien.",
+    "Martin's tennis court: concrete, white lines and a chain-link fence. Martin's house also has a driveway now.",
+    "The tall cabin at Hamre is bigger.",
+    "Spark race: SPACE gives a hard push, but go too fast and the sled gets wobbly and can throw you off.",
+    "The death screen now tells you what got you."
+   ]
+  },
+  {
+   "date": "2026-10-18",
+   "time": "00:05",
+   "title": "Chris's top floor is finished",
+   "items": [
+    "Go up the stairs in Chris's flat: the top floor has a hallway with a workout room, Martin's room, Chris's bedroom, a bathroom and a gaming room",
+    "The walls now go all the way up to the sloped ceiling, with white panels, wooden beams and Velux windows in the roof",
+    "The walls are solid and every room has a door that swings open when you walk up to it",
+    "Treadmill and weights, beds, desks and wardrobes, a hot tub at the end of Chris's bedroom, a shower and toilet, and a gaming room with a sofa, TV and a computer with RGB lights",
+    "Warm lamps in every room and a few Christmas things here and there",
+    "Downstairs you can walk into the kitchen again: the white bar across the floor is gone, and furniture no longer blocks the gaps between the counters"
+   ]
+  },
+  {
+   "date": "2026-10-17",
+   "time": "23:30",
    "title": "A lantern for the dungeon, and something waiting at the bottom",
    "items": [
     "The dungeon is much darker now. Most of the torches have burnt out, and you can hardly see without a light",
@@ -12,7 +44,7 @@
    ]
   },
   {
-   "date": "2026-10-18",
+   "date": "2026-10-17",
    "time": "22:40",
    "title": "High scores at Bowlinghallen",
    "items": [
