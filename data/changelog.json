@@ -2,6 +2,19 @@
  "entries": [
   {
    "date": "2026-10-17",
+   "time": "22:00",
+   "title": "The Night Wing",
+   "items": [
+    "A one-of-a-kind armoured flying car, parked on the square next to where you start",
+    "G to get in. On the ground it drives like a car",
+    "Space (or ↑) launches it on rockets: wings fold out and it flies",
+    "In the air: W/S throttle, A/D turn and bank, Space/↑ climb, C/↓ dive, Shift afterburner",
+    "Come in low and slow to land; the wings fold back in",
+    "G always gets you into a car you're standing next to"
+   ]
+  },
+  {
+   "date": "2026-10-17",
    "time": "21:30",
    "title": "The witch hates Christmas",
    "items": [
