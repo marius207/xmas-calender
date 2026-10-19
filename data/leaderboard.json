@@ -1,1 +1,9 @@
-{"bowling":[{"name":"MARIUS","score":0,"date":"2026-10-17","placeholder":true}]}
+{
+ "bowling": [
+  {
+   "name": "MARIUS",
+   "score": 156,
+   "date": "2026-10-17"
+  }
+ ]
+}
