@@ -1,0 +1,32 @@
+{
+ "_README": "PLAYER QUIPS: short funny things the player character says out loud (and as a subtitle) when walking into a certain place. Read by the /* playerquips */ block in index.html. FIELDS: id = unique name; at = [x, z] world position; r = trigger radius in metres; face = 0 (any direction) or a half-angle in degrees: the player must be looking toward 'at' within that angle; once = true: the first visit always plays; repeat = chance (0..1) it plays again on each later visit (0 = never again); lines = ids of lines in data/voiceover.json (trigger 'quip:<id>', who 'both', so Chris and Martin each get their own voice; add rate_d / pitch_d there for a different pace / pitch per line); the game picks a random one that was not the last. To add a quip: 1) write the lines in data/voiceover.json, 2) run  python3 build/make_vo.py  (only new lines are made), 3) add a row here. Nothing runs unless you are within 40 m of a row (one 0.4 s timer). To find a position: stand there in the dev game and type  __QUIPS.here()  in the console. Test: __QUIPS.fire('barn_poop'), __QUIPS.reset(). SPECIAL (job barnlog): a row may have special={line,chance}: that voiceover line plays INSTEAD of the pool the first time the surprise has not been seen (kv-barnlog) and with 'chance' later; for barn_poop it also makes Kare the Christmas Log come alive (__BARNLOG).",
+ "quips": [
+  {
+   "id": "barn_poop",
+   "note": "The barn at Vall\u00f8yna (\u00c5mot), Marius's own pile on the plank floor. at = the pile in the middle of the barn (about 4 m in front of the door, seen in the test screenshot); face 75 = only when you are looking toward it.",
+   "at": [
+    534.6,
+    -450.4
+   ],
+   "r": 6.5,
+   "face": 75,
+   "once": true,
+   "repeat": 0.25,
+   "lines": [
+    "q_barn1",
+    "q_barn2",
+    "q_barn3",
+    "q_barn4",
+    "q_barn5",
+    "q_barn6",
+    "q_barn7",
+    "q_barn8"
+   ],
+   "special": {
+    "line": "q_barn_hankie",
+    "chance": 0.12,
+    "note": "barnlog: 'Hankie the Christmas log' line + Kare the Christmas Log comes alive; 100% the first time (kv-barnlog), 12% later. Not in lines[], so the random pool never picks it."
+   }
+  }
+ ]
+}

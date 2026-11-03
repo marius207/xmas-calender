@@ -1,0 +1,9 @@
+{
+ "x": 2188,
+ "z": 1527,
+ "y": 277,
+ "rot": 85,
+ "hl": 100,
+ "hw": 70,
+ "_notes": "Site C3 (Marius): the pad (200 x 140 m) sits on the frozen lake on the plateau. x,z = centre of the pad in game coords (z grows SOUTH), y = ice floor height (m), rot = degrees: local +x (course direction, start to finish) points to world (cos rot, sin rot) in (x,z); local +z is across. World = (x + u*cos(rot) - v*sin(rot), z + u*sin(rot) + v*cos(rot)). Position found by search: all pad edge points stay >= 32 m inside the lake (first estimate (2244,1447) had a corner on land). Edit this file or use the builder grab/R to move it."
+}

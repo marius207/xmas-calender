@@ -1,0 +1,28 @@
+{
+ "_howto": "DERPMAX programme. To add a film: copy an H.264 .mp4 (480p-720p, under 40 MB) into cinema/, add one object to \"films\" below, reload. See build/cinema/HOWTO_ADD_FILM.md. Nothing is loaded until a player sits down in the auditorium.",
+ "version": 1,
+ "cinema": {"name": "DERPMAX", "tagline": "Bigger than IMAX. Slightly derpier.", "ticketKr": 85, "studio": "Derp Studios"},
+ "preroll": {"studioCard": true, "silenceJoke": true, "comingSoonCards": true, "seconds": 20},
+ "films": [
+  {"id": "the_doors", "title": "THE DOORS", "sub": "official teaser", "file": "cinema/the_doors_teaser.mp4", "runtime": 15, "rating": "7", "days": [1, 31],
+   "blurb": "24 doors. One valley. Derp Studios shows you what is behind them.", "poster": {"motif": "doors", "a": "#ffb02e", "b": "#2a0f3a"}},
+  {"id": "valley_flyin", "title": "FLY-IN: THE VALLEY", "sub": "a short about a very small valley", "file": "cinema/flyin_valley.mp4", "runtime": 31, "rating": "A", "days": [1, 31],
+   "blurb": "A slow flight over Kvinesdal. No dragons. Probably.", "poster": {"motif": "valley", "a": "#7ad0ff", "b": "#1d3a6e"},
+   "score": {"file": "theme_bowl.mp4", "loop": true}},
+  {"id": "snowball_round", "title": "THE ROUND", "sub": "snowball arena, one full match", "file": "cinema/snowball_arena.mp4", "runtime": 75, "rating": "7", "days": [3, 31],
+   "blurb": "Chris vs Martin. Snow. Towers. Regret.", "poster": {"motif": "snowball", "a": "#e8f4ff", "b": "#2a4a8a"},
+   "score": {"file": "theme_merry.mp4", "loop": true}},
+  {"id": "laser_round", "title": "NEON ROUND", "sub": "laser tag at Banken Arena", "file": "cinema/lasertag_round.mp4", "runtime": 20, "rating": "7", "days": [5, 31],
+   "blurb": "Two floors, one glowing column, zero shots wasted.", "poster": {"motif": "laser", "a": "#ff2bd6", "b": "#10063a"},
+   "score": {"file": "music-real/preview/N1_dead_ship.ogg", "loop": true}},
+  {"id": "meteor_night", "title": "METEOR NIGHT", "sub": "the opener, in full", "file": "cinema/meteor_night.mp4", "runtime": 105, "rating": "11", "days": [1, 31],
+   "blurb": "Something big is coming over Nonskarknuten. Bring popcorn.", "poster": {"motif": "meteor", "a": "#ff7a2e", "b": "#0a0a24"},
+   "score": {"file": "theme_dark.mp4", "loop": true}}
+ ],
+ "comingSoon": [
+  {"title": "FREE FILM NIGHT", "sub": "old films, free, soon", "blurb": "Marius picks the list. Slot open.", "poster": {"motif": "slot", "a": "#ffe14a", "b": "#2a1a0a"}},
+  {"title": "KVINESDAL 2", "sub": "the downtowning", "blurb": "Nobody asked for it.", "poster": {"motif": "town", "a": "#9fd0ff", "b": "#3a1a3a"}},
+  {"title": "THE WITCH ATE THE COOKIES", "sub": "a cookie thriller", "blurb": "Based on a true crumb.", "poster": {"motif": "witch", "a": "#7fe05a", "b": "#14081e"}}
+ ],
+ "_fields": {"id": "unique short name", "title": "poster + board title (caps look best)", "sub": "small line under the title", "file": "path from the game folder, H.264 mp4", "runtime": "seconds, only for the board (the real length comes from the file)", "rating": "text on the poster", "days": "[first, last] game day it is showing", "blurb": "one line", "poster": "{motif: doors|valley|snowball|laser|meteor|slot|town|witch|stars, a: main colour, b: dark colour}", "score": "optional {file, loop}: music/sound played with a silent film"}
+}

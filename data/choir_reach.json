@@ -1,0 +1,1 @@
+{"version":1,"note":"Bandstand choir on the town square: full = metres at full volume, silent = metres where it fades to nothing, curve = how it fades (1 = even, higher = drops fast near the edge, lower = stays loud longer). Old game values: full 5, silent 42, curve 1.6.","full":15,"silent":110,"curve":1.2}

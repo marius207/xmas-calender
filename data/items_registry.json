@@ -1,0 +1,2993 @@
+{
+ "_note": "items-logic stage 1 (26 Oct 2026). Every item that exists today or is proposed. decision: keep|change|remove|add. Later patches load this file.",
+ "slots": [
+  {
+   "id": "hat",
+   "label": "HAT",
+   "above_head": true,
+   "old": "HEAD",
+   "note": "all hats"
+  },
+  {
+   "id": "face",
+   "label": "FACE",
+   "old": "HEAD",
+   "note": "panda mask, headphones"
+  },
+  {
+   "id": "neck",
+   "label": "NECK",
+   "old": null,
+   "note": "scarf (extra slot; recommended)"
+  },
+  {
+   "id": "torso",
+   "label": "SWEATER",
+   "old": "CHEST",
+   "note": "lusekofte, ullgenser"
+  },
+  {
+   "id": "jacket",
+   "label": "JACKET",
+   "old": "CHEST",
+   "note": "vinterjakke, drawn over the sweater"
+  },
+  {
+   "id": "legs",
+   "label": "LEGS",
+   "old": "LEGS",
+   "note": "ullbukse"
+  },
+  {
+   "id": "feet",
+   "label": "FEET",
+   "old": "FEET",
+   "note": "boots, socks"
+  },
+  {
+   "id": "hands",
+   "label": "HANDS",
+   "old": null,
+   "note": "mittens"
+  },
+  {
+   "id": "back",
+   "label": "BACK",
+   "old": "CHEST (elytra)",
+   "note": "elytra OR jetpack; clothing never touches it"
+  },
+  {
+   "id": "bag",
+   "label": "BAG",
+   "old": null,
+   "note": "backpack: more inventory slots (separate from BACK, see question 2)"
+  }
+ ],
+ "warm_budget": {
+  "hat": 0.1,
+  "neck": 0.08,
+  "torso": 0.2,
+  "jacket": 0.3,
+  "legs": 0.15,
+  "feet": 0.1,
+  "hands": 0.07
+ },
+ "rules": {
+  "hunger": "food meter 0..1; drains to 0 in ~33 min (2000 s). Eating adds item.fill. Below 0.30 you get the hungry hint and up to 5% slower sprint. Never kills.",
+  "hearts": "HEALTH.hp max 20 = 10 hearts; item.hp is in half-hearts (hp 6 = +3 hearts).",
+  "warmth": "meter 0..1, drains in ~30 min outdoors (faster in snow and at night). New: drain x (1 - 0.8 x sum of worn warm_resist). Max sum 1.0. Hot drinks add item.warm.",
+  "eat_use": "Hold in hotbar + click (0.6 s bite) or USE in inventory. If hunger > 0.95 and hearts full: \"You are full\", not consumed. Multi-use items (brunost 3, julekake 2) drop one use per bite.",
+  "buy": "canFit(id,n) before paying; if full: no charge + \"Your pockets are full. Throw something away at a bin (nearest: N m)\". Pickups/chests that do not fit drop a bag at your feet. Nothing is ever lost.",
+  "stack": "food 16 (meals 4, pizza/burger), drinks 8, thermos 4, ammo 16, rocket_m 8, blocks 64, wearables/tools 1.",
+  "quest_items": "flare, rocket*, snowball, string, thermos, julekule: cannot be binned while an active quest asks for them.",
+  "battery": "use = flashlight 100% (10 min). No free idle recharge. Lamps and flares keep their slow recharge.",
+  "axe": "th_axe left-click on a tree fells it. No axe: \"You need an axe.\" Hands still break blocks.",
+  "blocks": "right-click places the held block item, left-click breaks it. Breaking drops only the block itself.",
+  "trash": "Stand within 3 m of a bin, press G (tap the prompt): inventory opens with a TRASH slot; drag/tap item -> TRASH; confirm if stack value >= 100 kr."
+ },
+ "inventory": {
+  "today": 36,
+  "base": 27,
+  "hotbar": 9,
+  "backpacks": [
+   {
+    "id": "skolesekk",
+    "name": "Skolesekk (school bag)",
+    "price": 249,
+    "extra": 9,
+    "sold": "Clothes shop, Nico Mat"
+   },
+   {
+    "id": "tursekk",
+    "name": "Tursekk (hiking pack)",
+    "price": 599,
+    "extra": 18,
+    "sold": "Jernvare"
+   },
+   {
+    "id": "fjellsekk",
+    "name": "Fjellsekk (mountain pack)",
+    "price": 1199,
+    "extra": 27,
+    "sold": "Jernvare"
+   }
+  ]
+ },
+ "hats": [
+  {
+   "id": "nisselue",
+   "name": "Nisselue",
+   "geo": "santa (exists for NPCs)",
+   "colors": [
+    "#c8102e",
+    "#2f6a3a",
+    "#1d3a6e",
+    "#e8e8ee"
+   ],
+   "sizes": [
+    "S",
+    "M",
+    "L"
+   ],
+   "price": 129,
+   "where": [
+    "Julepynt stall",
+    "Clothes shop"
+   ]
+  },
+  {
+   "id": "strikkelue",
+   "name": "Strikkelue",
+   "geo": "beanie (exists)",
+   "colors": "14 colours of HATC",
+   "sizes": [
+    "M"
+   ],
+   "price": 249,
+   "where": [
+    "Clothes shop",
+    "Strikk & ull"
+   ]
+  },
+  {
+   "id": "ullue_dusk",
+   "name": "Ullue med dusk",
+   "geo": "pom (exists)",
+   "colors": "14 colours of HATC",
+   "sizes": [
+    "M",
+    "L"
+   ],
+   "price": 299,
+   "where": [
+    "Strikk & ull"
+   ]
+  },
+  {
+   "id": "oreklaplue",
+   "name": "Øreklaplue",
+   "geo": "flap (exists)",
+   "colors": "14 colours of HATC",
+   "sizes": [
+    "M"
+   ],
+   "price": 349,
+   "where": [
+    "Clothes shop"
+   ]
+  },
+  {
+   "id": "oreklaplue_dusk",
+   "name": "Øreklaplue med dusk",
+   "geo": "flapPom (exists)",
+   "colors": "14 colours of HATC",
+   "sizes": [
+    "M"
+   ],
+   "price": 399,
+   "where": [
+    "Strikk & ull"
+   ]
+  },
+  {
+   "id": "skyggelue",
+   "name": "Skyggelue",
+   "geo": "cap (exists)",
+   "colors": "14 colours of HATC",
+   "sizes": [
+    "M"
+   ],
+   "price": 199,
+   "where": [
+    "Clothes shop"
+   ]
+  },
+  {
+   "id": "flosshatt",
+   "name": "Flosshatt",
+   "geo": "NEW top hat",
+   "colors": [
+    "#1a1a1e",
+    "#8a8e96"
+   ],
+   "sizes": [
+    "M",
+    "L"
+   ],
+   "price": 499,
+   "where": [
+    "Clothes shop"
+   ]
+  },
+  {
+   "id": "reinsdyrhorn",
+   "name": "Reinsdyrgevir",
+   "geo": "NEW antlers",
+   "colors": [
+    "#6a4a2a"
+   ],
+   "sizes": [
+    "M"
+   ],
+   "price": 99,
+   "where": [
+    "Julepynt stall"
+   ]
+  },
+  {
+   "id": "luciakrone",
+   "name": "Luciakrone",
+   "geo": "NEW candle crown (tiny lights)",
+   "colors": [
+    "#f2f2ee"
+   ],
+   "sizes": [
+    "M"
+   ],
+   "price": 199,
+   "where": [
+    "Julepynt stall"
+   ]
+  },
+  {
+   "id": "kokkelue",
+   "name": "Kokkelue",
+   "geo": "NEW chef hat",
+   "colors": [
+    "#ffffff"
+   ],
+   "sizes": [
+    "M"
+   ],
+   "price": 79,
+   "where": [
+    "Bakeriet"
+   ]
+  },
+  {
+   "id": "hjelm",
+   "name": "Hjelm",
+   "geo": "hard (exists)",
+   "colors": [
+    "#e8c020",
+    "#e86a20",
+    "#e8e8ee"
+   ],
+   "sizes": [
+    "M"
+   ],
+   "price": 199,
+   "where": [
+    "Jernvare"
+   ]
+  },
+  {
+   "id": "nissehue_gull",
+   "name": "Gylden nissehue",
+   "geo": "santa (gold)",
+   "colors": [
+    "#ffd23f"
+   ],
+   "sizes": [
+    "M"
+   ],
+   "price": null,
+   "where": [
+    "Reward: 12/12 hidden nisse caps or the nisse trial"
+   ]
+  }
+ ],
+ "recipes": [
+  {
+   "id": "pepperkaker_bake",
+   "name": "Pepperkaker (bake)",
+   "station": "kitchen",
+   "inputs": {
+    "mel": 2,
+    "sukker": 1,
+    "smor": 1,
+    "egg": 1,
+    "pepperkakekrydder": 1,
+    "sirup": 1
+   },
+   "out": {
+    "id": "pepperkaker",
+    "n": 12
+   },
+   "minigame": "mix, roll, cut shapes, oven: ideal 8-11 s, burnt after 14 s",
+   "burn": "Brente pepperkaker (hp 1, fill 0.02)",
+   "note": "quality perfect/ok/burnt; ties into the witch arc (she eats the cookies)"
+  },
+  {
+   "id": "varm_kakao",
+   "name": "Varm kakao",
+   "station": "kitchen",
+   "inputs": {
+    "melk": 1,
+    "kakaopulver": 1,
+    "sukker": 1
+   },
+   "out": {
+    "id": "kakao",
+    "n": 2
+   },
+   "minigame": "stir, lift off before it boils over"
+  },
+  {
+   "id": "vafler_bake",
+   "name": "Vafler",
+   "station": "kitchen",
+   "inputs": {
+    "mel": 1,
+    "egg": 1,
+    "melk": 1,
+    "smor": 1,
+    "sukker": 1
+   },
+   "out": {
+    "id": "vafler",
+    "n": 3
+   },
+   "minigame": "waffle iron timing, can burn"
+  },
+  {
+   "id": "grandiosa_bake",
+   "name": "Grandiosa (oven)",
+   "station": "kitchen",
+   "inputs": {
+    "grandiosa": 1
+   },
+   "out": {
+    "id": "grandiosa_hot",
+    "n": 1
+   },
+   "minigame": "oven timer, can burn"
+  },
+  {
+   "id": "glogg_lag",
+   "name": "Gløgg (home-made)",
+   "station": "kitchen",
+   "inputs": {
+    "eplemost": 1,
+    "pepperkakekrydder": 1,
+    "sukker": 1
+   },
+   "out": {
+    "id": "glogg",
+    "n": 2
+   },
+   "minigame": "simmer"
+  },
+  {
+   "id": "snomann",
+   "name": "Snowman kit",
+   "station": "anywhere",
+   "inputs": {
+    "b_snow": 3,
+    "food_carrot": 1,
+    "pepperkaker": 2
+   },
+   "out": {
+    "id": "placed:snowman",
+    "n": 1
+   },
+   "minigame": null,
+   "note": "uses a carrot and two cookies as buttons"
+  },
+  {
+   "id": "pynt_treet",
+   "name": "Decorate the tree",
+   "station": "tree",
+   "inputs": {
+    "julekule": 6,
+    "halmstjerne": 1,
+    "julelys": 1,
+    "string": 1
+   },
+   "out": {
+    "id": "placed:decorated_tree",
+    "n": 1
+   },
+   "minigame": null,
+   "note": "13 Dec decorating task"
+  },
+  {
+   "id": "plank",
+   "name": "Planks from log",
+   "station": "workbench",
+   "inputs": {
+    "b_log": 1
+   },
+   "out": {
+    "id": "b_plank",
+    "n": 4
+   },
+   "minigame": null
+  }
+ ],
+ "items": [
+  {
+   "id": "skillingsbolle",
+   "name": "Skillingsbolle",
+   "category": "food",
+   "from_": "Bakery (Bakeriet)",
+   "today": "Shop only: heals hp at the counter the moment you pay (nothing enters the inventory); eating bumps hunger via a toast-text regex",
+   "decision": "change",
+   "new": "Real item in the inventory with an icon. Eat/drink it (hold in hotbar + click, or USE in inventory): +0.20 hunger, +2.0 hearts.",
+   "fill": 0.2,
+   "hp": 4,
+   "warm": 0,
+   "price": 38,
+   "stack": 16,
+   "english": "cinnamon bun"
+  },
+  {
+   "id": "lussekatt",
+   "name": "Lussekatt",
+   "category": "food",
+   "from_": "Bakery (Bakeriet)",
+   "today": "Shop only: heals hp at the counter the moment you pay (nothing enters the inventory); eating bumps hunger via a toast-text regex",
+   "decision": "change",
+   "new": "Real item in the inventory with an icon. Eat/drink it (hold in hotbar + click, or USE in inventory): +0.15 hunger, +1.5 hearts.",
+   "fill": 0.15,
+   "hp": 3,
+   "warm": 0,
+   "price": 28,
+   "stack": 16,
+   "english": "saffron bun (December)"
+  },
+  {
+   "id": "julekake",
+   "name": "Julekake",
+   "category": "food",
+   "from_": "Bakery (Bakeriet), Kakebua",
+   "today": "Shop only: heals hp at the counter the moment you pay (nothing enters the inventory); eating bumps hunger via a toast-text regex",
+   "decision": "change",
+   "new": "Real item in the inventory with an icon. Eat/drink it (hold in hotbar + click, or USE in inventory): +0.40 hunger, +4.0 hearts. Big: 2 bites (use twice).",
+   "fill": 0.4,
+   "hp": 8,
+   "warm": 0,
+   "price": 89,
+   "stack": 16,
+   "english": "Christmas loaf"
+  },
+  {
+   "id": "grovbrod",
+   "name": "Grovbrød",
+   "category": "food",
+   "from_": "Bakery (Bakeriet)",
+   "today": "Shop only: heals hp at the counter the moment you pay (nothing enters the inventory); eating bumps hunger via a toast-text regex",
+   "decision": "change",
+   "new": "Real item in the inventory with an icon. Eat/drink it (hold in hotbar + click, or USE in inventory): +0.30 hunger, +3.0 hearts.",
+   "fill": 0.3,
+   "hp": 6,
+   "warm": 0,
+   "price": 42,
+   "stack": 16,
+   "english": "rye bread"
+  },
+  {
+   "id": "pepperkaker",
+   "name": "Pepperkaker (6)",
+   "category": "food",
+   "from_": "Bakery (Bakeriet), Gløggboden",
+   "today": "Shop only: heals hp at the counter the moment you pay (nothing enters the inventory); eating bumps hunger via a toast-text regex",
+   "decision": "change",
+   "new": "Real item in the inventory with an icon. Eat/drink it (hold in hotbar + click, or USE in inventory): +0.08 hunger, +1.0 hearts. Sold as a bag of 6; each bite is one cookie.",
+   "fill": 0.08,
+   "hp": 2,
+   "warm": 0,
+   "price": 39,
+   "stack": 16,
+   "english": "ginger biscuits"
+  },
+  {
+   "id": "kaffe",
+   "name": "Kaffe",
+   "category": "drink",
+   "from_": "Bakery (Bakeriet), Cafe, Fuel, Hotel",
+   "today": "Shop only: heals hp at the counter the moment you pay (nothing enters the inventory); eating bumps hunger via a toast-text regex",
+   "decision": "change",
+   "new": "Real item in the inventory with an icon. Eat/drink it (hold in hotbar + click, or USE in inventory): +0.05 hunger, +1.0 hearts, +0.50 warmth.",
+   "fill": 0.05,
+   "hp": 2,
+   "warm": 0.5,
+   "price": 39,
+   "stack": 16,
+   "english": "coffee"
+  },
+  {
+   "id": "latte",
+   "name": "Caffe latte",
+   "category": "drink",
+   "from_": "Cafe",
+   "today": "Shop only: heals hp at the counter the moment you pay (nothing enters the inventory); eating bumps hunger via a toast-text regex",
+   "decision": "change",
+   "new": "Real item in the inventory with an icon. Eat/drink it (hold in hotbar + click, or USE in inventory): +0.06 hunger, +1.0 hearts, +0.50 warmth.",
+   "fill": 0.06,
+   "hp": 2,
+   "warm": 0.5,
+   "price": 52,
+   "stack": 16,
+   "english": ""
+  },
+  {
+   "id": "kakao_krem",
+   "name": "Kakao med krem",
+   "category": "drink",
+   "from_": "Cafe",
+   "today": "Shop only: heals hp at the counter the moment you pay (nothing enters the inventory); eating bumps hunger via a toast-text regex",
+   "decision": "change",
+   "new": "Real item in the inventory with an icon. Eat/drink it (hold in hotbar + click, or USE in inventory): +0.10 hunger, +1.5 hearts, +0.60 warmth.",
+   "fill": 0.1,
+   "hp": 3,
+   "warm": 0.6,
+   "price": 55,
+   "stack": 16,
+   "english": "cocoa with cream"
+  },
+  {
+   "id": "vafler",
+   "name": "Vafler med syltetøy",
+   "category": "food",
+   "from_": "Cafe",
+   "today": "Shop only: heals hp at the counter the moment you pay (nothing enters the inventory); eating bumps hunger via a toast-text regex",
+   "decision": "change",
+   "new": "Real item in the inventory with an icon. Eat/drink it (hold in hotbar + click, or USE in inventory): +0.20 hunger, +2.0 hearts, +0.10 warmth.",
+   "fill": 0.2,
+   "hp": 4,
+   "warm": 0.1,
+   "price": 49,
+   "stack": 16,
+   "english": "waffles with jam"
+  },
+  {
+   "id": "gulrotkake",
+   "name": "Gulrotkake",
+   "category": "food",
+   "from_": "Cafe",
+   "today": "Shop only: heals hp at the counter the moment you pay (nothing enters the inventory); eating bumps hunger via a toast-text regex",
+   "decision": "change",
+   "new": "Real item in the inventory with an icon. Eat/drink it (hold in hotbar + click, or USE in inventory): +0.20 hunger, +2.0 hearts.",
+   "fill": 0.2,
+   "hp": 4,
+   "warm": 0,
+   "price": 59,
+   "stack": 16,
+   "english": "carrot cake"
+  },
+  {
+   "id": "glogg",
+   "name": "Gløgg",
+   "category": "drink",
+   "from_": "Cafe, Gløggboden",
+   "today": "Shop only: heals hp at the counter the moment you pay (nothing enters the inventory); eating bumps hunger via a toast-text regex",
+   "decision": "change",
+   "new": "Real item in the inventory with an icon. Eat/drink it (hold in hotbar + click, or USE in inventory): +0.06 hunger, +1.0 hearts, +1.00 warmth. Full warmth, as today.",
+   "fill": 0.06,
+   "hp": 2,
+   "warm": 1.0,
+   "price": 45,
+   "stack": 16,
+   "english": "mulled wine (non-alcoholic)"
+  },
+  {
+   "id": "grandiosa",
+   "name": "Grandiosa",
+   "category": "food",
+   "from_": "Nico Mat",
+   "today": "Shop only: heals hp at the counter the moment you pay (nothing enters the inventory); eating bumps hunger via a toast-text regex",
+   "decision": "change",
+   "new": "Real item in the inventory with an icon. Eat/drink it (hold in hotbar + click, or USE in inventory): +0.50 hunger, +5.0 hearts. Eaten frozen it is -1 hp joke; the point is the kitchen: bake it at home (oven, can burn). Until the kitchen exists it can be eaten cold: +0.30 hunger.",
+   "fill": 0.5,
+   "hp": 10,
+   "warm": 0,
+   "price": 69,
+   "stack": 16,
+   "english": "frozen pizza"
+  },
+  {
+   "id": "melk",
+   "name": "Melk",
+   "category": "drink",
+   "from_": "Nico Mat",
+   "today": "Shop only: heals hp at the counter the moment you pay (nothing enters the inventory); eating bumps hunger via a toast-text regex",
+   "decision": "change",
+   "new": "Real item in the inventory with an icon. Eat/drink it (hold in hotbar + click, or USE in inventory): +0.08 hunger, +1.0 hearts. Also a baking ingredient.",
+   "fill": 0.08,
+   "hp": 2,
+   "warm": 0,
+   "price": 25,
+   "stack": 8,
+   "english": "milk"
+  },
+  {
+   "id": "brunost",
+   "name": "Brunost",
+   "category": "food",
+   "from_": "Nico Mat",
+   "today": "Shop only: heals hp at the counter the moment you pay (nothing enters the inventory); eating bumps hunger via a toast-text regex",
+   "decision": "change",
+   "new": "Real item in the inventory with an icon. Eat/drink it (hold in hotbar + click, or USE in inventory): +0.25 hunger, +3.0 hearts. Sold as a block: 3 slices, each use eats one slice (+0.25/3 hunger x3 -> shown as one item with 3 uses).",
+   "fill": 0.25,
+   "hp": 6,
+   "warm": 0,
+   "price": 95,
+   "stack": 16,
+   "english": "brown cheese"
+  },
+  {
+   "id": "appelsiner",
+   "name": "Appelsiner (3)",
+   "category": "food",
+   "from_": "Nico Mat",
+   "today": "Shop only: heals hp at the counter the moment you pay (nothing enters the inventory); eating bumps hunger via a toast-text regex",
+   "decision": "change",
+   "new": "Real item in the inventory with an icon. Eat/drink it (hold in hotbar + click, or USE in inventory): +0.10 hunger, +1.0 hearts. Sold as a net of 3; each eaten alone.",
+   "fill": 0.1,
+   "hp": 2,
+   "warm": 0,
+   "price": 32,
+   "stack": 16,
+   "english": "oranges"
+  },
+  {
+   "id": "kvikk_lunsj",
+   "name": "Kvikk Lunsj",
+   "category": "food",
+   "from_": "Nico Mat",
+   "today": "Shop only: heals hp at the counter the moment you pay (nothing enters the inventory); eating bumps hunger via a toast-text regex",
+   "decision": "change",
+   "new": "Real item in the inventory with an icon. Eat/drink it (hold in hotbar + click, or USE in inventory): +0.15 hunger, +2.0 hearts.",
+   "fill": 0.15,
+   "hp": 4,
+   "warm": 0,
+   "price": 25,
+   "stack": 16,
+   "english": "chocolate wafer bar"
+  },
+  {
+   "id": "polse",
+   "name": "Pølse i lompe",
+   "category": "food",
+   "from_": "Kiosk, Fuel, Bowling, Pølsebua",
+   "today": "Shop only: heals hp at the counter the moment you pay (nothing enters the inventory); eating bumps hunger via a toast-text regex",
+   "decision": "change",
+   "new": "Real item in the inventory with an icon. Eat/drink it (hold in hotbar + click, or USE in inventory): +0.30 hunger, +3.0 hearts.",
+   "fill": 0.3,
+   "hp": 6,
+   "warm": 0,
+   "price": 39,
+   "stack": 16,
+   "english": "hot dog in potato flatbread"
+  },
+  {
+   "id": "smagodt",
+   "name": "Smågodt",
+   "category": "food",
+   "from_": "Kiosk",
+   "today": "Shop only: heals hp at the counter the moment you pay (nothing enters the inventory); eating bumps hunger via a toast-text regex",
+   "decision": "change",
+   "new": "Real item in the inventory with an icon. Eat/drink it (hold in hotbar + click, or USE in inventory): +0.06 hunger, +1.0 hearts.",
+   "fill": 0.06,
+   "hp": 2,
+   "warm": 0,
+   "price": 20,
+   "stack": 16,
+   "english": "pick-and-mix sweets"
+  },
+  {
+   "id": "cola",
+   "name": "Cola",
+   "category": "drink",
+   "from_": "Kiosk",
+   "today": "Shop only: heals hp at the counter the moment you pay (nothing enters the inventory); eating bumps hunger via a toast-text regex",
+   "decision": "change",
+   "new": "Real item in the inventory with an icon. Eat/drink it (hold in hotbar + click, or USE in inventory): +0.03 hunger, +0.5 hearts.",
+   "fill": 0.03,
+   "hp": 1,
+   "warm": 0,
+   "price": 35,
+   "stack": 8,
+   "english": ""
+  },
+  {
+   "id": "brus",
+   "name": "Brus",
+   "category": "drink",
+   "from_": "Pizzeria, Pølsebua",
+   "today": "Shop only: heals hp at the counter the moment you pay (nothing enters the inventory); eating bumps hunger via a toast-text regex",
+   "decision": "change",
+   "new": "Real item in the inventory with an icon. Eat/drink it (hold in hotbar + click, or USE in inventory): +0.03 hunger, +0.5 hearts.",
+   "fill": 0.03,
+   "hp": 1,
+   "warm": 0,
+   "price": 39,
+   "stack": 8,
+   "english": "soda"
+  },
+  {
+   "id": "julebrus",
+   "name": "Julebrus",
+   "category": "drink",
+   "from_": "Pub",
+   "today": "Shop only: heals hp at the counter the moment you pay (nothing enters the inventory); eating bumps hunger via a toast-text regex",
+   "decision": "change",
+   "new": "Real item in the inventory with an icon. Eat/drink it (hold in hotbar + click, or USE in inventory): +0.03 hunger, +0.5 hearts.",
+   "fill": 0.03,
+   "hp": 1,
+   "warm": 0,
+   "price": 55,
+   "stack": 8,
+   "english": "Christmas soda"
+  },
+  {
+   "id": "pizza",
+   "name": "Pizza",
+   "category": "food",
+   "from_": "Pizzeria",
+   "today": "Shop only: heals hp at the counter the moment you pay (nothing enters the inventory); eating bumps hunger via a toast-text regex",
+   "decision": "change",
+   "new": "Real item in the inventory with an icon. Eat/drink it (hold in hotbar + click, or USE in inventory): +0.70 hunger, +8.0 hearts.",
+   "fill": 0.7,
+   "hp": 16,
+   "warm": 0,
+   "price": 189,
+   "stack": 4,
+   "english": "pizza"
+  },
+  {
+   "id": "kebab",
+   "name": "Kebab i pita",
+   "category": "food",
+   "from_": "Pizzeria",
+   "today": "Shop only: heals hp at the counter the moment you pay (nothing enters the inventory); eating bumps hunger via a toast-text regex",
+   "decision": "change",
+   "new": "Real item in the inventory with an icon. Eat/drink it (hold in hotbar + click, or USE in inventory): +0.55 hunger, +6.0 hearts.",
+   "fill": 0.55,
+   "hp": 12,
+   "warm": 0,
+   "price": 129,
+   "stack": 4,
+   "english": ""
+  },
+  {
+   "id": "cheeseburger",
+   "name": "Cheeseburger",
+   "category": "food",
+   "from_": "Pizzeria",
+   "today": "Shop only: heals hp at the counter the moment you pay (nothing enters the inventory); eating bumps hunger via a toast-text regex",
+   "decision": "change",
+   "new": "Real item in the inventory with an icon. Eat/drink it (hold in hotbar + click, or USE in inventory): +0.45 hunger, +5.0 hearts.",
+   "fill": 0.45,
+   "hp": 10,
+   "warm": 0,
+   "price": 119,
+   "stack": 4,
+   "english": ""
+  },
+  {
+   "id": "pommes",
+   "name": "Pommes frites",
+   "category": "food",
+   "from_": "Pizzeria",
+   "today": "Shop only: heals hp at the counter the moment you pay (nothing enters the inventory); eating bumps hunger via a toast-text regex",
+   "decision": "change",
+   "new": "Real item in the inventory with an icon. Eat/drink it (hold in hotbar + click, or USE in inventory): +0.18 hunger, +2.0 hearts.",
+   "fill": 0.18,
+   "hp": 4,
+   "warm": 0,
+   "price": 55,
+   "stack": 4,
+   "english": ""
+  },
+  {
+   "id": "burger",
+   "name": "Burger",
+   "category": "food",
+   "from_": "Pub",
+   "today": "Shop only: heals hp at the counter the moment you pay (nothing enters the inventory); eating bumps hunger via a toast-text regex",
+   "decision": "change",
+   "new": "Real item in the inventory with an icon. Eat/drink it (hold in hotbar + click, or USE in inventory): +0.55 hunger, +6.0 hearts.",
+   "fill": 0.55,
+   "hp": 12,
+   "warm": 0,
+   "price": 199,
+   "stack": 4,
+   "english": ""
+  },
+  {
+   "id": "nachos",
+   "name": "Nachos",
+   "category": "food",
+   "from_": "Pub",
+   "today": "Shop only: heals hp at the counter the moment you pay (nothing enters the inventory); eating bumps hunger via a toast-text regex",
+   "decision": "change",
+   "new": "Real item in the inventory with an icon. Eat/drink it (hold in hotbar + click, or USE in inventory): +0.35 hunger, +4.0 hearts.",
+   "fill": 0.35,
+   "hp": 8,
+   "warm": 0,
+   "price": 149,
+   "stack": 4,
+   "english": ""
+  },
+  {
+   "id": "pinnekjott",
+   "name": "Pinnekjøtt",
+   "category": "food",
+   "from_": "Pub",
+   "today": "Shop only: heals hp at the counter the moment you pay (nothing enters the inventory); eating bumps hunger via a toast-text regex",
+   "decision": "change",
+   "new": "Real item in the inventory with an icon. Eat/drink it (hold in hotbar + click, or USE in inventory): +0.90 hunger, +9.0 hearts, +0.20 warmth.",
+   "fill": 0.9,
+   "hp": 18,
+   "warm": 0.2,
+   "price": 349,
+   "stack": 2,
+   "english": "Christmas ribs"
+  },
+  {
+   "id": "risgrot",
+   "name": "Risgrøt med smørøye",
+   "category": "food",
+   "from_": "Gløggboden",
+   "today": "Shop only: heals hp at the counter the moment you pay (nothing enters the inventory); eating bumps hunger via a toast-text regex",
+   "decision": "change",
+   "new": "Real item in the inventory with an icon. Eat/drink it (hold in hotbar + click, or USE in inventory): +0.35 hunger, +3.0 hearts, +0.40 warmth. The almond-in-the-porridge joke can come later.",
+   "fill": 0.35,
+   "hp": 6,
+   "warm": 0.4,
+   "price": 89,
+   "stack": 16,
+   "english": "rice porridge with butter eye"
+  },
+  {
+   "id": "kakao",
+   "name": "Kakao",
+   "category": "drink",
+   "from_": "Gløggboden, Brente mandler",
+   "today": "Shop only: heals hp at the counter the moment you pay (nothing enters the inventory); eating bumps hunger via a toast-text regex",
+   "decision": "change",
+   "new": "Real item in the inventory with an icon. Eat/drink it (hold in hotbar + click, or USE in inventory): +0.08 hunger, +1.0 hearts, +0.60 warmth.",
+   "fill": 0.08,
+   "hp": 2,
+   "warm": 0.6,
+   "price": 45,
+   "stack": 16,
+   "english": "cocoa"
+  },
+  {
+   "id": "brente_mandler",
+   "name": "Brente mandler",
+   "category": "food",
+   "from_": "Godteboden, Brente mandler-stall",
+   "today": "Shop only: heals hp at the counter the moment you pay (nothing enters the inventory); eating bumps hunger via a toast-text regex",
+   "decision": "change",
+   "new": "Real item in the inventory with an icon. Eat/drink it (hold in hotbar + click, or USE in inventory): +0.10 hunger, +1.0 hearts. Cone of 4 handfuls: sold as 1 item with 4 uses is optional; v1: single item.",
+   "fill": 0.1,
+   "hp": 2,
+   "warm": 0,
+   "price": 59,
+   "stack": 16,
+   "english": "burnt (candied) almonds"
+  },
+  {
+   "id": "marsipangris",
+   "name": "Marsipangris",
+   "category": "food",
+   "from_": "Godteboden",
+   "today": "Shop only: heals hp at the counter the moment you pay (nothing enters the inventory); eating bumps hunger via a toast-text regex",
+   "decision": "change",
+   "new": "Real item in the inventory with an icon. Eat/drink it (hold in hotbar + click, or USE in inventory): +0.10 hunger, +1.0 hearts. Fun: eating it in front of an NPC child is a joke line (later).",
+   "fill": 0.1,
+   "hp": 2,
+   "warm": 0,
+   "price": 49,
+   "stack": 16,
+   "english": "marzipan pig"
+  },
+  {
+   "id": "sukkerspinn",
+   "name": "Sukkerspinn",
+   "category": "food",
+   "from_": "Godteboden",
+   "today": "Shop only: heals hp at the counter the moment you pay (nothing enters the inventory); eating bumps hunger via a toast-text regex",
+   "decision": "change",
+   "new": "Real item in the inventory with an icon. Eat/drink it (hold in hotbar + click, or USE in inventory): +0.04 hunger, +0.5 hearts.",
+   "fill": 0.04,
+   "hp": 1,
+   "warm": 0,
+   "price": 45,
+   "stack": 16,
+   "english": "cotton candy"
+  },
+  {
+   "id": "polkagris",
+   "name": "Polkagris",
+   "category": "food",
+   "from_": "Godteboden",
+   "today": "Shop only: heals hp at the counter the moment you pay (nothing enters the inventory); eating bumps hunger via a toast-text regex",
+   "decision": "change",
+   "new": "Real item in the inventory with an icon. Eat/drink it (hold in hotbar + click, or USE in inventory): +0.04 hunger, +0.5 hearts.",
+   "fill": 0.04,
+   "hp": 1,
+   "warm": 0,
+   "price": 29,
+   "stack": 16,
+   "english": "peppermint candy cane"
+  },
+  {
+   "id": "kanelmandler",
+   "name": "Kanelmandler",
+   "category": "food",
+   "from_": "Brente mandler-stall",
+   "today": "Shop only: heals hp at the counter the moment you pay (nothing enters the inventory); eating bumps hunger via a toast-text regex",
+   "decision": "change",
+   "new": "Real item in the inventory with an icon. Eat/drink it (hold in hotbar + click, or USE in inventory): +0.10 hunger, +1.5 hearts.",
+   "fill": 0.1,
+   "hp": 3,
+   "warm": 0,
+   "price": 69,
+   "stack": 16,
+   "english": ""
+  },
+  {
+   "id": "nottemix",
+   "name": "Nøttemix",
+   "category": "food",
+   "from_": "Brente mandler-stall",
+   "today": "Shop only: heals hp at the counter the moment you pay (nothing enters the inventory); eating bumps hunger via a toast-text regex",
+   "decision": "change",
+   "new": "Real item in the inventory with an icon. Eat/drink it (hold in hotbar + click, or USE in inventory): +0.10 hunger, +1.0 hearts.",
+   "fill": 0.1,
+   "hp": 2,
+   "warm": 0,
+   "price": 55,
+   "stack": 16,
+   "english": "nut mix"
+  },
+  {
+   "id": "grillpolse",
+   "name": "Grillpølse med brød",
+   "category": "food",
+   "from_": "Pølsebua",
+   "today": "Shop only: heals hp at the counter the moment you pay (nothing enters the inventory); eating bumps hunger via a toast-text regex",
+   "decision": "change",
+   "new": "Real item in the inventory with an icon. Eat/drink it (hold in hotbar + click, or USE in inventory): +0.35 hunger, +3.5 hearts.",
+   "fill": 0.35,
+   "hp": 7,
+   "warm": 0,
+   "price": 59,
+   "stack": 16,
+   "english": "grilled sausage"
+  },
+  {
+   "id": "kjottkake_lompe",
+   "name": "Kjøttkaker i lompe",
+   "category": "food",
+   "from_": "Pølsebua",
+   "today": "Shop only: heals hp at the counter the moment you pay (nothing enters the inventory); eating bumps hunger via a toast-text regex",
+   "decision": "change",
+   "new": "Real item in the inventory with an icon. Eat/drink it (hold in hotbar + click, or USE in inventory): +0.38 hunger, +4.0 hearts.",
+   "fill": 0.38,
+   "hp": 8,
+   "warm": 0,
+   "price": 69,
+   "stack": 16,
+   "english": "meatball wrap"
+  },
+  {
+   "id": "krumkake",
+   "name": "Krumkake",
+   "category": "food",
+   "from_": "Kakebua",
+   "today": "Shop only: heals hp at the counter the moment you pay (nothing enters the inventory); eating bumps hunger via a toast-text regex",
+   "decision": "change",
+   "new": "Real item in the inventory with an icon. Eat/drink it (hold in hotbar + click, or USE in inventory): +0.08 hunger, +1.0 hearts.",
+   "fill": 0.08,
+   "hp": 2,
+   "warm": 0,
+   "price": 25,
+   "stack": 16,
+   "english": "cone waffle cookie"
+  },
+  {
+   "id": "lefse",
+   "name": "Lefse med smør og sukker",
+   "category": "food",
+   "from_": "Kakebua",
+   "today": "Shop only: heals hp at the counter the moment you pay (nothing enters the inventory); eating bumps hunger via a toast-text regex",
+   "decision": "change",
+   "new": "Real item in the inventory with an icon. Eat/drink it (hold in hotbar + click, or USE in inventory): +0.12 hunger, +1.5 hearts.",
+   "fill": 0.12,
+   "hp": 3,
+   "warm": 0,
+   "price": 35,
+   "stack": 16,
+   "english": "buttery lefse"
+  },
+  {
+   "id": "sirupssnipper",
+   "name": "Sirupssnipper (6)",
+   "category": "food",
+   "from_": "Kakebua",
+   "today": "Shop only: heals hp at the counter the moment you pay (nothing enters the inventory); eating bumps hunger via a toast-text regex",
+   "decision": "change",
+   "new": "Real item in the inventory with an icon. Eat/drink it (hold in hotbar + click, or USE in inventory): +0.08 hunger, +1.5 hearts.",
+   "fill": 0.08,
+   "hp": 3,
+   "warm": 0,
+   "price": 79,
+   "stack": 16,
+   "english": "syrup cookies, bag of 6"
+  },
+  {
+   "id": "eplemost",
+   "name": "Eplemost",
+   "category": "drink",
+   "from_": "Vinmonopolet",
+   "today": "Shop only: heals hp at the counter the moment you pay (nothing enters the inventory); eating bumps hunger via a toast-text regex",
+   "decision": "change",
+   "new": "Real item in the inventory with an icon. Eat/drink it (hold in hotbar + click, or USE in inventory): +0.06 hunger, +1.0 hearts.",
+   "fill": 0.06,
+   "hp": 2,
+   "warm": 0,
+   "price": 59,
+   "stack": 8,
+   "english": "apple juice"
+  },
+  {
+   "id": "alkoholfri_glogg",
+   "name": "Alkoholfri gløgg",
+   "category": "drink",
+   "from_": "Vinmonopolet",
+   "today": "Shop only: heals hp at the counter the moment you pay (nothing enters the inventory); eating bumps hunger via a toast-text regex",
+   "decision": "change",
+   "new": "Real item in the inventory with an icon. Eat/drink it (hold in hotbar + click, or USE in inventory): +0.06 hunger, +1.0 hearts, +1.00 warmth.",
+   "fill": 0.06,
+   "hp": 2,
+   "warm": 1.0,
+   "price": 79,
+   "stack": 8,
+   "english": ""
+  },
+  {
+   "id": "popcorn",
+   "name": "Popcorn",
+   "category": "food",
+   "from_": "Bowling",
+   "today": "Shop only: heals hp at the counter the moment you pay (nothing enters the inventory); eating bumps hunger via a toast-text regex",
+   "decision": "change",
+   "new": "Real item in the inventory with an icon. Eat/drink it (hold in hotbar + click, or USE in inventory): +0.08 hunger, +1.0 hearts.",
+   "fill": 0.08,
+   "hp": 2,
+   "warm": 0,
+   "price": 45,
+   "stack": 16,
+   "english": ""
+  },
+  {
+   "id": "frokostbuffet",
+   "name": "Frokostbuffet",
+   "category": "service",
+   "from_": "Hotel (a meal, not an item)",
+   "today": "ok",
+   "decision": "keep",
+   "new": "Real item in the inventory with an icon. Eat/drink it (hold in hotbar + click, or USE in inventory): +0.80 hunger, +5.0 hearts, +0.30 warmth. Stays a service: eaten on the spot, no inventory item.",
+   "fill": 0.8,
+   "hp": 10,
+   "warm": 0.3,
+   "price": 229,
+   "stack": 16,
+   "english": ""
+  },
+  {
+   "id": "plaster",
+   "name": "Plaster",
+   "category": "consumable",
+   "from_": "Pharmacy",
+   "today": "Shop only: heals hp at the counter (no item)",
+   "decision": "change",
+   "new": "Real item: use = +2.0 hearts, no hunger. Plaster also stops a short \"bleed\" visual later if wanted.",
+   "hp": 4,
+   "price": 59,
+   "stack": 8
+  },
+  {
+   "id": "paracet",
+   "name": "Paracet",
+   "category": "consumable",
+   "from_": "Pharmacy",
+   "today": "Shop only: heals hp at the counter (no item)",
+   "decision": "change",
+   "new": "Real item: use = +3.0 hearts, no hunger. ",
+   "hp": 6,
+   "price": 59,
+   "stack": 8
+  },
+  {
+   "id": "strepsils",
+   "name": "Strepsils",
+   "category": "consumable",
+   "from_": "Pharmacy",
+   "today": "Shop only: heals hp at the counter (no item)",
+   "decision": "change",
+   "new": "Real item: use = +1.5 hearts, no hunger. Throat lozenge: +0.1 warmth too.",
+   "hp": 3,
+   "price": 89,
+   "stack": 8
+  },
+  {
+   "id": "vitaminer",
+   "name": "Vitaminer",
+   "category": "consumable",
+   "from_": "Pharmacy",
+   "today": "Shop only: heals hp at the counter (no item)",
+   "decision": "change",
+   "new": "Real item: use = +4.0 hearts, no hunger. Slowly: +4 hearts over 20 s, +0.1 hunger.",
+   "hp": 8,
+   "price": 149,
+   "stack": 8
+  },
+  {
+   "id": "leppepomade",
+   "name": "Leppepomade",
+   "category": "junk",
+   "from_": "Pharmacy",
+   "today": "Goes to \"pockets\"; nothing uses it",
+   "decision": "remove",
+   "new": "Gone (no gameplay, no joke worth the icon)."
+  },
+  {
+   "id": "tannborste",
+   "name": "Tannbørste",
+   "category": "junk",
+   "from_": "Clinic",
+   "today": "Pockets; nothing",
+   "decision": "remove",
+   "new": "Gone."
+  },
+  {
+   "id": "tannsjekk",
+   "name": "Tannsjekk",
+   "category": "service",
+   "from_": "Clinic",
+   "today": "Heals 20 hp at the counter",
+   "decision": "keep",
+   "new": "Stays a service (full heal).",
+   "price": 850
+  },
+  {
+   "id": "overnatting",
+   "name": "Overnatting",
+   "category": "service",
+   "from_": "Hotel",
+   "today": "Heals 20 hp",
+   "decision": "keep",
+   "new": "Service: full heal + full warmth. Later: skips the night.",
+   "price": 1490
+  },
+  {
+   "id": "thermos",
+   "name": "Gløgg thermos (the red flask)",
+   "category": "drink",
+   "from_": "Chests, map pickups (glowing thermos on the map layer PICKUPS), Gløggboden/Cafe 60-99 kr, quest rewards, 8 quests ask for it",
+   "today": "Works: hold it in the hotbar, left or right click drinks it: flashlight battery to full + 3 hearts. Nothing tells you; it only shows a hand model.",
+   "decision": "change",
+   "new": "Same effect plus a clear tooltip \"Gløgg: drink with click\" and a warmth refill (+1.0). Stack 4. It is also a quest item: never trash-able while a quest asks for it.",
+   "fill": 0.06,
+   "hp": 6,
+   "warm": 1.0,
+   "price": 99,
+   "stack": 4
+  },
+  {
+   "id": "flashlight",
+   "name": "Flashlight",
+   "category": "tool",
+   "from_": "Given automatically once, 2.2 s after the game starts",
+   "today": "L toggles it; hold it in hotbar turns it on; drains in 10 min (20 with the chest upgrade), recharges for free while off (30 min) and at lamps/flares",
+   "decision": "change",
+   "new": "Same, but it runs on BATTERIES (see battery) instead of recharging for free.",
+   "stack": 1
+  },
+  {
+   "id": "battery",
+   "name": "Batterier",
+   "category": "ammo",
+   "from_": "Elektronikk 89 kr (today a dead \"pockets\" line), chests",
+   "today": "Nothing. The shop item is just a pocket counter.",
+   "decision": "change",
+   "new": "NEW real item \"Battery (AA x4)\". USE it (inventory click or L when flat) = flashlight to 100% (10 min). Free idle recharge is removed (Marius question 4). Chests drop 1-2.",
+   "price": 89,
+   "stack": 8
+  },
+  {
+   "id": "flashbat",
+   "name": "Flashlight upgrade (chest)",
+   "category": "collectible",
+   "from_": "1 chest",
+   "today": "Sets flashlight capacity to 2x (20 min) via kv-flash-cap. Not an item.",
+   "decision": "keep",
+   "new": "Rename \"Big battery pack\": still a one-off upgrade, shown as a real item on pickup."
+  },
+  {
+   "id": "lommelykt",
+   "name": "Lommelykt",
+   "category": "junk",
+   "from_": "Elektronikk 149 kr",
+   "today": "Pockets; nothing. We already own a flashlight.",
+   "decision": "remove",
+   "new": "Gone (duplicate of the flashlight)."
+  },
+  {
+   "id": "flare",
+   "name": "Flare",
+   "category": "ammo",
+   "from_": "Chests (flare2/3), shops (Rakettboden, Bowling, Gløgg 30 kr), quest rewards, flare pickups on the ground",
+   "today": "Works: click throws it, Hollows will not enter the circle, heals you",
+   "decision": "keep",
+   "new": "Keep. Stack 16. Hint on hover.",
+   "price": 30,
+   "stack": 16
+  },
+  {
+   "id": "snowball",
+   "name": "Snowball",
+   "category": "ammo",
+   "from_": "Chest loot, starter, pickups",
+   "today": "Works: throw",
+   "decision": "keep",
+   "new": "Keep. Stack 16. Also what Chris/Martin ask for in quests.",
+   "stack": 16
+  },
+  {
+   "id": "th_lantern",
+   "name": "Lantern of light",
+   "category": "tool",
+   "from_": "Pickup in world (square)",
+   "today": "Works: hold right-click flares it, stuns Hollows (uses L.oil)",
+   "decision": "keep",
+   "new": "Keep. Lantern oil becomes a real item (oil)."
+  },
+  {
+   "id": "oil",
+   "name": "Lampeolje (lantern oil)",
+   "category": "ammo",
+   "from_": "Not sold today (L.refill() exists in code, nothing calls it)",
+   "today": "n/a",
+   "decision": "change",
+   "new": "NEW item, sold at Jernvare 79 kr and Fuel 79 kr (replaces \"Spylervæske\"); USE refills the lantern to full.",
+   "price": 79,
+   "stack": 4
+  },
+  {
+   "id": "th_axe",
+   "name": "Vedøks (wood axe)",
+   "category": "tool",
+   "from_": "World pickup (square) + chest kinds",
+   "today": "Hits Hollows (dmg 1). Does not chop trees (trees fall to bare hands).",
+   "decision": "change",
+   "new": "THE axe: left-click a tree = fell it (drops logs, \"Timber!\"); bare hands say \"You need an axe\". Still hits Hollows. Sold at Jernvare 149 kr.",
+   "price": 149,
+   "stack": 1
+  },
+  {
+   "id": "th_sword",
+   "name": "Julestjerne-sverd (star sword)",
+   "category": "tool",
+   "from_": "World pickup",
+   "today": "Works: dmg 2, lights the dark",
+   "decision": "keep",
+   "new": "Keep (boss weapon).",
+   "stack": 1
+  },
+  {
+   "id": "th_sling",
+   "name": "Snowball sling",
+   "category": "tool",
+   "from_": "World pickup",
+   "today": "Works: endless snowballs",
+   "decision": "keep",
+   "new": "Keep.",
+   "stack": 1
+  },
+  {
+   "id": "th_bell",
+   "name": "Bjelle (sleigh bell)",
+   "category": "tool",
+   "from_": "World pickup (square), chest kind",
+   "today": "Right-click rings it (synth chime, 10 s cooldown), Hollows within 14 m flinch. On touch there is no right-click.",
+   "decision": "change",
+   "new": "Left OR right click rings it, real bell sample (sfx/bell_*.m4a style), always audible, cooldown only matters near Hollows, other online players hear it.",
+   "stack": 1
+  },
+  {
+   "id": "wood_pickaxe",
+   "name": "Wooden Pickaxe",
+   "category": "tool",
+   "from_": "Starter (wood), craft grid, Jernvare (iron 349 kr)",
+   "today": "Nothing: block breaking ignores tools (instant for everything)",
+   "decision": "remove",
+   "new": "Gone. Hands break blocks. (Starter inventory loses it.)"
+  },
+  {
+   "id": "wood_axe",
+   "name": "Wooden Axe",
+   "category": "tool",
+   "from_": "Craft grid, Jernvare (stone 149 kr)",
+   "today": "Nothing (trees fall by hand)",
+   "decision": "remove",
+   "new": "Replaced by the single Vedøks."
+  },
+  {
+   "id": "wood_sword",
+   "name": "Wooden Sword",
+   "category": "tool",
+   "from_": "Craft grid",
+   "today": "Nothing (only th_sword hurts Hollows)",
+   "decision": "remove",
+   "new": "Gone."
+  },
+  {
+   "id": "stone_pickaxe",
+   "name": "Stone Pickaxe",
+   "category": "tool",
+   "from_": "Starter (wood), craft grid, Jernvare (iron 349 kr)",
+   "today": "Nothing: block breaking ignores tools (instant for everything)",
+   "decision": "remove",
+   "new": "Gone. Hands break blocks. (Starter inventory loses it.)"
+  },
+  {
+   "id": "stone_axe",
+   "name": "Stone Axe",
+   "category": "tool",
+   "from_": "Craft grid, Jernvare (stone 149 kr)",
+   "today": "Nothing (trees fall by hand)",
+   "decision": "remove",
+   "new": "Replaced by the single Vedøks."
+  },
+  {
+   "id": "stone_sword",
+   "name": "Stone Sword",
+   "category": "tool",
+   "from_": "Craft grid",
+   "today": "Nothing (only th_sword hurts Hollows)",
+   "decision": "remove",
+   "new": "Gone."
+  },
+  {
+   "id": "iron_pickaxe",
+   "name": "Iron Pickaxe",
+   "category": "tool",
+   "from_": "Starter (wood), craft grid, Jernvare (iron 349 kr)",
+   "today": "Nothing: block breaking ignores tools (instant for everything)",
+   "decision": "remove",
+   "new": "Gone. Hands break blocks. (Starter inventory loses it.)"
+  },
+  {
+   "id": "iron_axe",
+   "name": "Iron Axe",
+   "category": "tool",
+   "from_": "Craft grid, Jernvare (stone 149 kr)",
+   "today": "Nothing (trees fall by hand)",
+   "decision": "remove",
+   "new": "Replaced by the single Vedøks."
+  },
+  {
+   "id": "iron_sword",
+   "name": "Iron Sword",
+   "category": "tool",
+   "from_": "Craft grid",
+   "today": "Nothing (only th_sword hurts Hollows)",
+   "decision": "remove",
+   "new": "Gone."
+  },
+  {
+   "id": "diamond_pickaxe",
+   "name": "Diamond Pickaxe",
+   "category": "tool",
+   "from_": "Starter (wood), craft grid, Jernvare (iron 349 kr)",
+   "today": "Nothing: block breaking ignores tools (instant for everything)",
+   "decision": "remove",
+   "new": "Gone. Hands break blocks. (Starter inventory loses it.)"
+  },
+  {
+   "id": "diamond_axe",
+   "name": "Diamond Axe",
+   "category": "tool",
+   "from_": "Craft grid, Jernvare (stone 149 kr)",
+   "today": "Nothing (trees fall by hand)",
+   "decision": "remove",
+   "new": "Replaced by the single Vedøks."
+  },
+  {
+   "id": "diamond_sword",
+   "name": "Diamond Sword",
+   "category": "tool",
+   "from_": "Craft grid",
+   "today": "Nothing (only th_sword hurts Hollows)",
+   "decision": "remove",
+   "new": "Gone."
+  },
+  {
+   "id": "jetpack",
+   "name": "Jetpack (orange)",
+   "category": "wearable",
+   "from_": "Starter, auto-given 1.5 s after start",
+   "today": "Hold it in hotbar, Space flies; refuel at Fuel for 149 kr",
+   "decision": "change",
+   "new": "Slot BACK (wearable, visible on the character). Refuel stays. Only one BACK thing at a time: elytra OR jetpack.",
+   "slot": "back",
+   "stack": 1,
+   "price": 149
+  },
+  {
+   "id": "elytra",
+   "name": "Elytra",
+   "category": "wearable",
+   "from_": "Chest, owner mode, craft grid (leather+string+diamond)",
+   "today": "Equip in CHEST slot to glide; R fires a rocket boost. Wearing any shop jacket/sweater (all go to CHEST) bumps it out.",
+   "decision": "change",
+   "new": "Slot BACK, never touched by clothing. Remove the diamond craft. Keep as the reward item.",
+   "slot": "back",
+   "stack": 1
+  },
+  {
+   "id": "rocket",
+   "name": "Rocket (20 s, red)",
+   "category": "ammo",
+   "from_": "Starter 5, shops (Nico Mat, Kiosk, Rakettboden 20-49 kr), chests",
+   "today": "Works (R): elytra boost 20 s, or a firework on the ground. 7 quests use it",
+   "decision": "keep",
+   "new": "Keep. Stack 16. Remove the \"Rakett\" line from Nico Mat and Kiosk (rockets only at Rakettboden, Bowling, Fyrverkeri stall) -- Nico Mat is a grocery.",
+   "price": 35,
+   "stack": 16
+  },
+  {
+   "id": "rocket_l",
+   "name": "Long rocket (45 s, blue)",
+   "category": "ammo",
+   "from_": "Rakettboden, Bowling, chests",
+   "today": "Works",
+   "decision": "keep",
+   "new": "Keep.",
+   "price": 89,
+   "stack": 16
+  },
+  {
+   "id": "rocket_m",
+   "name": "Mega rocket (90 s, gold)",
+   "category": "ammo",
+   "from_": "Rakettboden, chests",
+   "today": "Works",
+   "decision": "keep",
+   "new": "Keep.",
+   "price": 199,
+   "stack": 8
+  },
+  {
+   "id": "gunpowder",
+   "name": "Gunpowder",
+   "category": "junk",
+   "from_": "Random drop from breaking stone / shelves",
+   "today": "Craft input for rockets only",
+   "decision": "remove",
+   "new": "Gone (rockets are bought)."
+  },
+  {
+   "id": "stick",
+   "name": "Stick",
+   "category": "junk",
+   "from_": "Random drops from breaking blocks (stone, hedges, rugs, fridges ...)",
+   "today": "Only an ingredient in the Minecraft recipes. No place in a Norwegian Christmas town.",
+   "decision": "remove",
+   "new": "Gone, and breaking blocks stops dropping them (stone gives cobble, leaves give leaves)."
+  },
+  {
+   "id": "coal",
+   "name": "Coal",
+   "category": "junk",
+   "from_": "Random drops from breaking blocks (stone, hedges, rugs, fridges ...)",
+   "today": "Only an ingredient in the Minecraft recipes. No place in a Norwegian Christmas town.",
+   "decision": "remove",
+   "new": "Gone, and breaking blocks stops dropping them (stone gives cobble, leaves give leaves)."
+  },
+  {
+   "id": "raw_iron",
+   "name": "Raw Iron",
+   "category": "junk",
+   "from_": "Random drops from breaking blocks (stone, hedges, rugs, fridges ...)",
+   "today": "Only an ingredient in the Minecraft recipes. No place in a Norwegian Christmas town.",
+   "decision": "remove",
+   "new": "Gone, and breaking blocks stops dropping them (stone gives cobble, leaves give leaves)."
+  },
+  {
+   "id": "raw_gold",
+   "name": "Raw Gold",
+   "category": "junk",
+   "from_": "Random drops from breaking blocks (stone, hedges, rugs, fridges ...)",
+   "today": "Only an ingredient in the Minecraft recipes. No place in a Norwegian Christmas town.",
+   "decision": "remove",
+   "new": "Gone, and breaking blocks stops dropping them (stone gives cobble, leaves give leaves)."
+  },
+  {
+   "id": "iron",
+   "name": "Iron Ingot",
+   "category": "junk",
+   "from_": "Random drops from breaking blocks (stone, hedges, rugs, fridges ...)",
+   "today": "Only an ingredient in the Minecraft recipes. No place in a Norwegian Christmas town.",
+   "decision": "remove",
+   "new": "Gone, and breaking blocks stops dropping them (stone gives cobble, leaves give leaves)."
+  },
+  {
+   "id": "gold",
+   "name": "Gold Ingot",
+   "category": "junk",
+   "from_": "Random drops from breaking blocks (stone, hedges, rugs, fridges ...)",
+   "today": "Only an ingredient in the Minecraft recipes. No place in a Norwegian Christmas town.",
+   "decision": "remove",
+   "new": "Gone, and breaking blocks stops dropping them (stone gives cobble, leaves give leaves)."
+  },
+  {
+   "id": "diamond",
+   "name": "Diamond",
+   "category": "junk",
+   "from_": "Random drops from breaking blocks (stone, hedges, rugs, fridges ...)",
+   "today": "Only an ingredient in the Minecraft recipes. No place in a Norwegian Christmas town.",
+   "decision": "remove",
+   "new": "Gone, and breaking blocks stops dropping them (stone gives cobble, leaves give leaves)."
+  },
+  {
+   "id": "flint",
+   "name": "Flint",
+   "category": "junk",
+   "from_": "Random drops from breaking blocks (stone, hedges, rugs, fridges ...)",
+   "today": "Only an ingredient in the Minecraft recipes. No place in a Norwegian Christmas town.",
+   "decision": "remove",
+   "new": "Gone, and breaking blocks stops dropping them (stone gives cobble, leaves give leaves)."
+  },
+  {
+   "id": "leather",
+   "name": "Leather",
+   "category": "junk",
+   "from_": "Random drops from breaking blocks (stone, hedges, rugs, fridges ...)",
+   "today": "Only an ingredient in the Minecraft recipes. No place in a Norwegian Christmas town.",
+   "decision": "remove",
+   "new": "Gone, and breaking blocks stops dropping them (stone gives cobble, leaves give leaves)."
+  },
+  {
+   "id": "reeds",
+   "name": "Sugar Cane",
+   "category": "junk",
+   "from_": "Random drops from breaking blocks (stone, hedges, rugs, fridges ...)",
+   "today": "Only an ingredient in the Minecraft recipes. No place in a Norwegian Christmas town.",
+   "decision": "remove",
+   "new": "Gone, and breaking blocks stops dropping them (stone gives cobble, leaves give leaves)."
+  },
+  {
+   "id": "string",
+   "name": "String / Hyssing",
+   "category": "quest",
+   "from_": "Hyssing at Jernvare (39-49 kr), drops from hedges; 1 quest asks for it (\"Hyssing (string)\")",
+   "today": "Quest item + wool recipe",
+   "decision": "keep",
+   "new": "Keep (quest + tree decorating).",
+   "price": 49,
+   "stack": 16
+  },
+  {
+   "id": "paper",
+   "name": "Paper / Avis",
+   "category": "collectible",
+   "from_": "Avis at Kiosk/Fuel (35-49 kr), bookshelf drops",
+   "today": "Only a crafting input",
+   "decision": "change",
+   "new": "\"Avis\" = newspaper: readable, one funny headline per day. Not craftable. Stack 8.",
+   "price": 49,
+   "stack": 8
+  },
+  {
+   "id": "leather_helmet",
+   "name": "Leather Helmet",
+   "category": "wearable",
+   "from_": "Craft grid; the clothes shop sells the \"leather_\" ones as Strikkelue / Vinterjakke / Ullbukse / Vinterstøvler",
+   "today": "Equips to HEAD/CHEST/LEGS/FEET as a coloured brown/grey BOX on Martin. No warmth, no stats.",
+   "decision": "remove",
+   "new": "Gone. Replaced by real clothes below."
+  },
+  {
+   "id": "leather_chest",
+   "name": "Leather Chestplate",
+   "category": "wearable",
+   "from_": "Craft grid; the clothes shop sells the \"leather_\" ones as Strikkelue / Vinterjakke / Ullbukse / Vinterstøvler",
+   "today": "Equips to HEAD/CHEST/LEGS/FEET as a coloured brown/grey BOX on Martin. No warmth, no stats.",
+   "decision": "remove",
+   "new": "Gone. Replaced by real clothes below."
+  },
+  {
+   "id": "leather_legs",
+   "name": "Leather Leggings",
+   "category": "wearable",
+   "from_": "Craft grid; the clothes shop sells the \"leather_\" ones as Strikkelue / Vinterjakke / Ullbukse / Vinterstøvler",
+   "today": "Equips to HEAD/CHEST/LEGS/FEET as a coloured brown/grey BOX on Martin. No warmth, no stats.",
+   "decision": "remove",
+   "new": "Gone. Replaced by real clothes below."
+  },
+  {
+   "id": "leather_boots",
+   "name": "Leather Boots",
+   "category": "wearable",
+   "from_": "Craft grid; the clothes shop sells the \"leather_\" ones as Strikkelue / Vinterjakke / Ullbukse / Vinterstøvler",
+   "today": "Equips to HEAD/CHEST/LEGS/FEET as a coloured brown/grey BOX on Martin. No warmth, no stats.",
+   "decision": "remove",
+   "new": "Gone. Replaced by real clothes below."
+  },
+  {
+   "id": "iron_helmet",
+   "name": "Iron Helmet",
+   "category": "wearable",
+   "from_": "Craft grid; the clothes shop sells the \"leather_\" ones as Strikkelue / Vinterjakke / Ullbukse / Vinterstøvler",
+   "today": "Equips to HEAD/CHEST/LEGS/FEET as a coloured brown/grey BOX on Martin. No warmth, no stats.",
+   "decision": "remove",
+   "new": "Gone. Replaced by real clothes below."
+  },
+  {
+   "id": "iron_chest",
+   "name": "Iron Chestplate",
+   "category": "wearable",
+   "from_": "Craft grid; the clothes shop sells the \"leather_\" ones as Strikkelue / Vinterjakke / Ullbukse / Vinterstøvler",
+   "today": "Equips to HEAD/CHEST/LEGS/FEET as a coloured brown/grey BOX on Martin. No warmth, no stats.",
+   "decision": "remove",
+   "new": "Gone. Replaced by real clothes below."
+  },
+  {
+   "id": "iron_legs",
+   "name": "Iron Leggings",
+   "category": "wearable",
+   "from_": "Craft grid; the clothes shop sells the \"leather_\" ones as Strikkelue / Vinterjakke / Ullbukse / Vinterstøvler",
+   "today": "Equips to HEAD/CHEST/LEGS/FEET as a coloured brown/grey BOX on Martin. No warmth, no stats.",
+   "decision": "remove",
+   "new": "Gone. Replaced by real clothes below."
+  },
+  {
+   "id": "iron_boots",
+   "name": "Iron Boots",
+   "category": "wearable",
+   "from_": "Craft grid; the clothes shop sells the \"leather_\" ones as Strikkelue / Vinterjakke / Ullbukse / Vinterstøvler",
+   "today": "Equips to HEAD/CHEST/LEGS/FEET as a coloured brown/grey BOX on Martin. No warmth, no stats.",
+   "decision": "remove",
+   "new": "Gone. Replaced by real clothes below."
+  },
+  {
+   "id": "gold_helmet",
+   "name": "Golden Helmet",
+   "category": "wearable",
+   "from_": "Craft grid; the clothes shop sells the \"leather_\" ones as Strikkelue / Vinterjakke / Ullbukse / Vinterstøvler",
+   "today": "Equips to HEAD/CHEST/LEGS/FEET as a coloured brown/grey BOX on Martin. No warmth, no stats.",
+   "decision": "remove",
+   "new": "Gone. Replaced by real clothes below."
+  },
+  {
+   "id": "gold_chest",
+   "name": "Golden Chestplate",
+   "category": "wearable",
+   "from_": "Craft grid; the clothes shop sells the \"leather_\" ones as Strikkelue / Vinterjakke / Ullbukse / Vinterstøvler",
+   "today": "Equips to HEAD/CHEST/LEGS/FEET as a coloured brown/grey BOX on Martin. No warmth, no stats.",
+   "decision": "remove",
+   "new": "Gone. Replaced by real clothes below."
+  },
+  {
+   "id": "gold_legs",
+   "name": "Golden Leggings",
+   "category": "wearable",
+   "from_": "Craft grid; the clothes shop sells the \"leather_\" ones as Strikkelue / Vinterjakke / Ullbukse / Vinterstøvler",
+   "today": "Equips to HEAD/CHEST/LEGS/FEET as a coloured brown/grey BOX on Martin. No warmth, no stats.",
+   "decision": "remove",
+   "new": "Gone. Replaced by real clothes below."
+  },
+  {
+   "id": "gold_boots",
+   "name": "Golden Boots",
+   "category": "wearable",
+   "from_": "Craft grid; the clothes shop sells the \"leather_\" ones as Strikkelue / Vinterjakke / Ullbukse / Vinterstøvler",
+   "today": "Equips to HEAD/CHEST/LEGS/FEET as a coloured brown/grey BOX on Martin. No warmth, no stats.",
+   "decision": "remove",
+   "new": "Gone. Replaced by real clothes below."
+  },
+  {
+   "id": "diamond_helmet",
+   "name": "Diamond Helmet",
+   "category": "wearable",
+   "from_": "Craft grid; the clothes shop sells the \"leather_\" ones as Strikkelue / Vinterjakke / Ullbukse / Vinterstøvler",
+   "today": "Equips to HEAD/CHEST/LEGS/FEET as a coloured brown/grey BOX on Martin. No warmth, no stats.",
+   "decision": "remove",
+   "new": "Gone. Replaced by real clothes below."
+  },
+  {
+   "id": "diamond_chest",
+   "name": "Diamond Chestplate",
+   "category": "wearable",
+   "from_": "Craft grid; the clothes shop sells the \"leather_\" ones as Strikkelue / Vinterjakke / Ullbukse / Vinterstøvler",
+   "today": "Equips to HEAD/CHEST/LEGS/FEET as a coloured brown/grey BOX on Martin. No warmth, no stats.",
+   "decision": "remove",
+   "new": "Gone. Replaced by real clothes below."
+  },
+  {
+   "id": "diamond_legs",
+   "name": "Diamond Leggings",
+   "category": "wearable",
+   "from_": "Craft grid; the clothes shop sells the \"leather_\" ones as Strikkelue / Vinterjakke / Ullbukse / Vinterstøvler",
+   "today": "Equips to HEAD/CHEST/LEGS/FEET as a coloured brown/grey BOX on Martin. No warmth, no stats.",
+   "decision": "remove",
+   "new": "Gone. Replaced by real clothes below."
+  },
+  {
+   "id": "diamond_boots",
+   "name": "Diamond Boots",
+   "category": "wearable",
+   "from_": "Craft grid; the clothes shop sells the \"leather_\" ones as Strikkelue / Vinterjakke / Ullbukse / Vinterstøvler",
+   "today": "Equips to HEAD/CHEST/LEGS/FEET as a coloured brown/grey BOX on Martin. No warmth, no stats.",
+   "decision": "remove",
+   "new": "Gone. Replaced by real clothes below."
+  },
+  {
+   "id": "panda_mask",
+   "name": "Panda mask",
+   "category": "wearable",
+   "from_": "Panda quest (+150 kr) and Marius auto-gift",
+   "today": "HEAD slot, shows a box on the head, panda-quest logic checks it",
+   "decision": "change",
+   "new": "Slot FACE. Keeps working for the panda quest.",
+   "slot": "face",
+   "stack": 1
+  },
+  {
+   "id": "nissecap",
+   "name": "Golden nisse cap",
+   "category": "wearable",
+   "from_": "Nisse trial reward (also 12 hidden caps give 5 kr each)",
+   "today": "Item with icon, equips to HEAD? no slot set, so it only sits in the inventory",
+   "decision": "change",
+   "new": "Slot HAT, golden nisse hat on the head. The 12 hidden caps become a collection; 12/12 unlocks it.",
+   "slot": "hat",
+   "stack": 1
+  },
+  {
+   "id": "strikkelue",
+   "name": "Strikkelue (beanie)",
+   "category": "wearable",
+   "from_": "New (today: only Strikkelue/Vinterjakke/Ullbukse/Vinterstøvler exist, as brown leather boxes; Ullvotter, Selbuvotter, Lusekofte, Ullue, Ullsokker, Hodetelefoner are \"pockets\" lines with no effect)",
+   "today": "Pockets counter / does not exist",
+   "decision": "change",
+   "new": "Wearable, slot hat, +0.10 warmth resistance, looks: knit beanie, 14 colours. Sold at Clothes, Strik & ull.",
+   "slot": "hat",
+   "warm_resist": 0.1,
+   "price": 249,
+   "stack": 1,
+   "looks": "knit beanie, 14 colours",
+   "sold": "Clothes, Strik & ull"
+  },
+  {
+   "id": "ullue_dusk",
+   "name": "Ullue med dusk (bobble hat)",
+   "category": "wearable",
+   "from_": "Shop line exists, bought item vanishes into \"pockets\"",
+   "today": "Pockets counter / does not exist",
+   "decision": "change",
+   "new": "Wearable, slot hat, +0.12 warmth resistance, looks: bobble hat, 14 colours. Sold at Strikk & ull.",
+   "slot": "hat",
+   "warm_resist": 0.12,
+   "price": 299,
+   "stack": 1,
+   "looks": "bobble hat, 14 colours",
+   "sold": "Strikk & ull"
+  },
+  {
+   "id": "oreklaplue",
+   "name": "Øreklaplue (flap hat)",
+   "category": "wearable",
+   "from_": "New",
+   "today": "Pockets counter / does not exist",
+   "decision": "add",
+   "new": "Wearable, slot hat, +0.14 warmth resistance, looks: ear-flap hat. Sold at Clothes.",
+   "slot": "hat",
+   "warm_resist": 0.14,
+   "price": 349,
+   "stack": 1,
+   "looks": "ear-flap hat",
+   "sold": "Clothes"
+  },
+  {
+   "id": "nisselue",
+   "name": "Nisselue (Santa/nisse hat)",
+   "category": "wearable",
+   "from_": "New",
+   "today": "Pockets counter / does not exist",
+   "decision": "add",
+   "new": "Wearable, slot hat, +0.08 warmth resistance, looks: red, green, blue, white; S/M/L. Sold at Julepynt stall, Clothes.",
+   "slot": "hat",
+   "warm_resist": 0.08,
+   "price": 129,
+   "stack": 1,
+   "looks": "red, green, blue, white; S/M/L",
+   "sold": "Julepynt stall, Clothes"
+  },
+  {
+   "id": "skyggelue",
+   "name": "Skyggelue (cap)",
+   "category": "wearable",
+   "from_": "New",
+   "today": "Pockets counter / does not exist",
+   "decision": "add",
+   "new": "Wearable, slot hat, +0.04 warmth resistance, looks: baseball cap, colours. Sold at Clothes.",
+   "slot": "hat",
+   "warm_resist": 0.04,
+   "price": 199,
+   "stack": 1,
+   "looks": "baseball cap, colours",
+   "sold": "Clothes"
+  },
+  {
+   "id": "flosshatt",
+   "name": "Flosshatt (top hat)",
+   "category": "wearable",
+   "from_": "New",
+   "today": "Pockets counter / does not exist",
+   "decision": "add",
+   "new": "Wearable, slot hat, +0.05 warmth resistance, looks: black top hat, red band. Sold at Clothes.",
+   "slot": "hat",
+   "warm_resist": 0.05,
+   "price": 499,
+   "stack": 1,
+   "looks": "black top hat, red band",
+   "sold": "Clothes"
+  },
+  {
+   "id": "reinsdyrhorn",
+   "name": "Reinsdyrgevir (antler headband)",
+   "category": "wearable",
+   "from_": "New",
+   "today": "Pockets counter / does not exist",
+   "decision": "add",
+   "new": "Wearable, slot hat, +0.03 warmth resistance, looks: antlers with bells. Sold at Julepynt stall.",
+   "slot": "hat",
+   "warm_resist": 0.03,
+   "price": 99,
+   "stack": 1,
+   "looks": "antlers with bells",
+   "sold": "Julepynt stall"
+  },
+  {
+   "id": "luciakrone",
+   "name": "Luciakrone (candle crown)",
+   "category": "wearable",
+   "from_": "New",
+   "today": "Pockets counter / does not exist",
+   "decision": "add",
+   "new": "Wearable, slot hat, +0.03 warmth resistance, looks: crown with 5 tiny lights (for 13 Dec). Sold at Julepynt stall.",
+   "slot": "hat",
+   "warm_resist": 0.03,
+   "price": 199,
+   "stack": 1,
+   "looks": "crown with 5 tiny lights (for 13 Dec)",
+   "sold": "Julepynt stall"
+  },
+  {
+   "id": "kokkelue",
+   "name": "Kokkelue (chef hat)",
+   "category": "wearable",
+   "from_": "New",
+   "today": "Pockets counter / does not exist",
+   "decision": "add",
+   "new": "Wearable, slot hat, +0.02 warmth resistance, looks: white chef hat; needed look for baking. Sold at Bakeriet.",
+   "slot": "hat",
+   "warm_resist": 0.02,
+   "price": 79,
+   "stack": 1,
+   "looks": "white chef hat; needed look for baking",
+   "sold": "Bakeriet"
+  },
+  {
+   "id": "hjelm",
+   "name": "Hjelm (hard hat)",
+   "category": "wearable",
+   "from_": "New",
+   "today": "Pockets counter / does not exist",
+   "decision": "add",
+   "new": "Wearable, slot hat, +0.05 warmth resistance, looks: yellow hard hat. Sold at Jernvare.",
+   "slot": "hat",
+   "warm_resist": 0.05,
+   "price": 199,
+   "stack": 1,
+   "looks": "yellow hard hat",
+   "sold": "Jernvare"
+  },
+  {
+   "id": "hodetelefoner",
+   "name": "Hodetelefoner (headphones)",
+   "category": "wearable",
+   "from_": "Shop line exists, bought item vanishes into \"pockets\"",
+   "today": "Pockets counter / does not exist",
+   "decision": "change",
+   "new": "Wearable, slot face, +0.04 warmth resistance, looks: cosmetic ear cups (no function). Sold at Elektronikk.",
+   "slot": "face",
+   "warm_resist": 0.04,
+   "price": 499,
+   "stack": 1,
+   "looks": "cosmetic ear cups (no function)",
+   "sold": "Elektronikk"
+  },
+  {
+   "id": "skjerf",
+   "name": "Skjerf (scarf)",
+   "category": "wearable",
+   "from_": "New",
+   "today": "Pockets counter / does not exist",
+   "decision": "add",
+   "new": "Wearable, slot neck, +0.08 warmth resistance, looks: scarf, 14 colours. Sold at Clothes, Strikk & ull.",
+   "slot": "neck",
+   "warm_resist": 0.08,
+   "price": 249,
+   "stack": 1,
+   "looks": "scarf, 14 colours",
+   "sold": "Clothes, Strikk & ull"
+  },
+  {
+   "id": "lusekofte",
+   "name": "Lusekofte (patterned jumper)",
+   "category": "wearable",
+   "from_": "Shop line exists, bought item vanishes into \"pockets\"",
+   "today": "Pockets counter / does not exist",
+   "decision": "change",
+   "new": "Wearable, slot torso, +0.25 warmth resistance, looks: Norwegian sweater, 6 patterns. Sold at Strikk & ull (899 market / 1990 real).",
+   "slot": "torso",
+   "warm_resist": 0.25,
+   "price": 1990,
+   "stack": 1,
+   "looks": "Norwegian sweater, 6 patterns",
+   "sold": "Strikk & ull (899 market / 1990 real)"
+  },
+  {
+   "id": "genser",
+   "name": "Ullgenser (wool jumper)",
+   "category": "wearable",
+   "from_": "New",
+   "today": "Pockets counter / does not exist",
+   "decision": "add",
+   "new": "Wearable, slot torso, +0.20 warmth resistance, looks: plain jumper, colours. Sold at Clothes.",
+   "slot": "torso",
+   "warm_resist": 0.2,
+   "price": 799,
+   "stack": 1,
+   "looks": "plain jumper, colours",
+   "sold": "Clothes"
+  },
+  {
+   "id": "vinterjakke",
+   "name": "Vinterjakke (winter jacket)",
+   "category": "wearable",
+   "from_": "New (today: only Strikkelue/Vinterjakke/Ullbukse/Vinterstøvler exist, as brown leather boxes; Ullvotter, Selbuvotter, Lusekofte, Ullue, Ullsokker, Hodetelefoner are \"pockets\" lines with no effect)",
+   "today": "Pockets counter / does not exist",
+   "decision": "change",
+   "new": "Wearable, slot jacket, +0.30 warmth resistance, looks: jacket, 6 colours incl. orange. Sold at Clothes.",
+   "slot": "jacket",
+   "warm_resist": 0.3,
+   "price": 1499,
+   "stack": 1,
+   "looks": "jacket, 6 colours incl. orange",
+   "sold": "Clothes"
+  },
+  {
+   "id": "ullbukse",
+   "name": "Ullbukse (wool trousers)",
+   "category": "wearable",
+   "from_": "New (today: only Strikkelue/Vinterjakke/Ullbukse/Vinterstøvler exist, as brown leather boxes; Ullvotter, Selbuvotter, Lusekofte, Ullue, Ullsokker, Hodetelefoner are \"pockets\" lines with no effect)",
+   "today": "Pockets counter / does not exist",
+   "decision": "change",
+   "new": "Wearable, slot legs, +0.15 warmth resistance, looks: trousers. Sold at Clothes.",
+   "slot": "legs",
+   "warm_resist": 0.15,
+   "price": 699,
+   "stack": 1,
+   "looks": "trousers",
+   "sold": "Clothes"
+  },
+  {
+   "id": "vinterstovler",
+   "name": "Vinterstøvler (winter boots)",
+   "category": "wearable",
+   "from_": "New (today: only Strikkelue/Vinterjakke/Ullbukse/Vinterstøvler exist, as brown leather boxes; Ullvotter, Selbuvotter, Lusekofte, Ullue, Ullsokker, Hodetelefoner are \"pockets\" lines with no effect)",
+   "today": "Pockets counter / does not exist",
+   "decision": "change",
+   "new": "Wearable, slot feet, +0.10 warmth resistance, looks: boots. Sold at Clothes.",
+   "slot": "feet",
+   "warm_resist": 0.1,
+   "price": 1199,
+   "stack": 1,
+   "looks": "boots",
+   "sold": "Clothes"
+  },
+  {
+   "id": "ullsokker",
+   "name": "Ullsokker (wool socks)",
+   "category": "wearable",
+   "from_": "Shop line exists, bought item vanishes into \"pockets\"",
+   "today": "Pockets counter / does not exist",
+   "decision": "change",
+   "new": "Wearable, slot feet, +0.06 warmth resistance, looks: socks over boots shown as sock cuffs; if boots are worn they add warmth only. Sold at Strikk & ull.",
+   "slot": "feet",
+   "warm_resist": 0.06,
+   "price": 179,
+   "stack": 1,
+   "looks": "socks over boots shown as sock cuffs; if boots are worn they add warmth only",
+   "sold": "Strikk & ull"
+  },
+  {
+   "id": "ullvotter",
+   "name": "Ullvotter (mittens)",
+   "category": "wearable",
+   "from_": "Shop line exists, bought item vanishes into \"pockets\"",
+   "today": "Pockets counter / does not exist",
+   "decision": "change",
+   "new": "Wearable, slot hands, +0.07 warmth resistance, looks: mittens. Sold at Clothes.",
+   "slot": "hands",
+   "warm_resist": 0.07,
+   "price": 199,
+   "stack": 1,
+   "looks": "mittens",
+   "sold": "Clothes"
+  },
+  {
+   "id": "selbuvotter",
+   "name": "Selbuvotter (patterned mittens)",
+   "category": "wearable",
+   "from_": "Shop line exists, bought item vanishes into \"pockets\"",
+   "today": "Pockets counter / does not exist",
+   "decision": "change",
+   "new": "Wearable, slot hands, +0.09 warmth resistance, looks: Selbu mittens. Sold at Strikk & ull.",
+   "slot": "hands",
+   "warm_resist": 0.09,
+   "price": 449,
+   "stack": 1,
+   "looks": "Selbu mittens",
+   "sold": "Strikk & ull"
+  },
+  {
+   "id": "amaryllis",
+   "name": "Amaryllis",
+   "category": "decoration",
+   "from_": "Blomster 129-149 kr; shown in the POCKETS line in Marius screenshot",
+   "today": "Pockets counter, nothing",
+   "decision": "change",
+   "new": "Real item. Use: place on a window sill/table (small prop), or give as a gift (+kr / friendship in NPC quests). Stack 4.",
+   "price": 129,
+   "stack": 4
+  },
+  {
+   "id": "julestjerne",
+   "name": "Julestjerne (poinsettia)",
+   "category": "decoration",
+   "from_": "Blomster",
+   "today": "Pockets; nothing",
+   "decision": "change",
+   "new": "Same as Amaryllis (placeable plant / gift).",
+   "price": 149,
+   "stack": 4
+  },
+  {
+   "id": "misteltein",
+   "name": "Misteltein",
+   "category": "decoration",
+   "from_": "Blomster",
+   "today": "Pockets; nothing",
+   "decision": "change",
+   "new": "Placeable above a door (kiss joke) / gift.",
+   "price": 69,
+   "stack": 4
+  },
+  {
+   "id": "juletre",
+   "name": "Juletre",
+   "category": "decoration",
+   "from_": "Blomster 499-599; Juletresalg stall (small/medium/large tree) works",
+   "today": "Blomster line: pockets. Stall trees: placed (shopTree)",
+   "decision": "change",
+   "new": "Blomster line removed (the Juletresalg stall already sells real placeable trees)."
+  },
+  {
+   "id": "granbar",
+   "name": "Granbar (8 leaves)",
+   "category": "placeable block",
+   "from_": "Blomster",
+   "today": "Gives 8 leaf blocks (works)",
+   "decision": "remove",
+   "new": "Gone (leaf blocks already come from trees)."
+  },
+  {
+   "id": "julekule",
+   "name": "Julekule (rød)",
+   "category": "decoration",
+   "from_": "Julepynt stall 59 kr (1 quest asks for it as a pocket item)",
+   "today": "Pockets item; quest takes it from pockets",
+   "decision": "change",
+   "new": "Real item (tree ornament). Quest reads the inventory now. Ornaments are what the 13 Dec tree decorating uses.",
+   "price": 59,
+   "stack": 16
+  },
+  {
+   "id": "halmstjerne",
+   "name": "Halmstjerne",
+   "category": "decoration",
+   "from_": "Julepynt",
+   "today": "Pockets",
+   "decision": "change",
+   "new": "Real ornament item (tree).",
+   "price": 49,
+   "stack": 16
+  },
+  {
+   "id": "nissefigur",
+   "name": "Nissefigur",
+   "category": "decoration",
+   "from_": "Julepynt 149 kr",
+   "today": "Pockets",
+   "decision": "change",
+   "new": "Real item: placeable small nisse on any flat surface.",
+   "price": 149,
+   "stack": 4
+  },
+  {
+   "id": "julelys",
+   "name": "Julelys / Julelys (LED)",
+   "category": "decoration",
+   "from_": "Jernvare, Elektronikk, 199-249 kr",
+   "today": "Pockets; nothing",
+   "decision": "change",
+   "new": "Real item \"string of lights\" for tree decorating / windows. Only one line stays (Jernvare); Elektronikk copy removed.",
+   "price": 249,
+   "stack": 4
+  },
+  {
+   "id": "trehest",
+   "name": "Trehest (Dalahest)",
+   "category": "collectible",
+   "from_": "Trelek 249 kr",
+   "today": "Pockets",
+   "decision": "change",
+   "new": "Real collectible/gift (shows in a collection screen).",
+   "price": 249,
+   "stack": 4
+  },
+  {
+   "id": "lekebil",
+   "name": "Lekebil i tre",
+   "category": "collectible",
+   "from_": "Trelek",
+   "today": "Pockets",
+   "decision": "change",
+   "new": "Collectible/gift.",
+   "price": 179,
+   "stack": 4
+  },
+  {
+   "id": "julenisse_tre",
+   "name": "Julenisse i tre",
+   "category": "collectible",
+   "from_": "Trelek",
+   "today": "Pockets",
+   "decision": "change",
+   "new": "Collectible/gift.",
+   "price": 129,
+   "stack": 4
+  },
+  {
+   "id": "byggeklosser",
+   "name": "Byggeklosser",
+   "category": "placeable block",
+   "from_": "Trelek 199 kr",
+   "today": "Pockets",
+   "decision": "change",
+   "new": "Gives 16 wood blocks (placeable).",
+   "price": 199,
+   "stack": 1
+  },
+  {
+   "id": "bivokslys",
+   "name": "Bivokslys (3 stk)",
+   "category": "decoration",
+   "from_": "Lys og lykter",
+   "today": "Pockets",
+   "decision": "change",
+   "new": "Placeable candle (light). Stack 8.",
+   "price": 89,
+   "stack": 8
+  },
+  {
+   "id": "telys",
+   "name": "Telys (30 stk)",
+   "category": "decoration",
+   "from_": "Lys og lykter",
+   "today": "Pockets",
+   "decision": "change",
+   "new": "Placeable tea lights. Stack 30.",
+   "price": 49,
+   "stack": 30
+  },
+  {
+   "id": "lykt",
+   "name": "Lykt med lys",
+   "category": "decoration",
+   "from_": "Lys og lykter",
+   "today": "Pockets",
+   "decision": "change",
+   "new": "Placeable lantern prop (light).",
+   "price": 149,
+   "stack": 4
+  },
+  {
+   "id": "adventslysestake",
+   "name": "Adventslysestake",
+   "category": "decoration",
+   "from_": "Lys og lykter 299 kr",
+   "today": "Pockets",
+   "decision": "change",
+   "new": "Placeable 4-candle holder; fits the advent theme (candle N lights on Sunday N).",
+   "price": 299,
+   "stack": 1
+  },
+  {
+   "id": "kransekakering",
+   "name": "Kransekakering (liten)",
+   "category": "gift",
+   "from_": "Kakebua 249 kr",
+   "today": "Pockets",
+   "decision": "change",
+   "new": "Gift item for an NPC or Chris (also edible later). Stack 1.",
+   "price": 249,
+   "stack": 1
+  },
+  {
+   "id": "julegave",
+   "name": "Julegave (akevitt)",
+   "category": "gift",
+   "from_": "Vinmonopolet 499 kr",
+   "today": "Pockets",
+   "decision": "change",
+   "new": "Rename \"Julegave\" (gift box, no alcohol on the label). Gift for NPCs.",
+   "price": 499,
+   "stack": 4
+  },
+  {
+   "id": "brukt_bok",
+   "name": "Brukt bok / Lån en bok",
+   "category": "collectible",
+   "from_": "Library 0-20 kr",
+   "today": "Pockets",
+   "decision": "change",
+   "new": "Readable book item (opens a short page). Library loan returns after 3 days like VHS tapes.",
+   "price": 20,
+   "stack": 1
+  },
+  {
+   "id": "fiskekort",
+   "name": "Fiskekort",
+   "category": "quest",
+   "from_": "Rådhus 250 kr",
+   "today": "Pockets; nothing in the game fishes",
+   "decision": "remove",
+   "new": "Gone unless fishing is built."
+  },
+  {
+   "id": "parkering",
+   "name": "Parkeringstillatelse",
+   "category": "junk",
+   "from_": "Rådhus 300 kr",
+   "today": "Pockets",
+   "decision": "remove",
+   "new": "Gone."
+  },
+  {
+   "id": "byggesok",
+   "name": "Byggesøknad",
+   "category": "service",
+   "from_": "Rådhus 2000 kr",
+   "today": "Message only (\"expect an answer in 2027\")",
+   "decision": "keep",
+   "new": "Keep as a joke service, no item.",
+   "price": 2000
+  },
+  {
+   "id": "skrujern",
+   "name": "Skrujern",
+   "category": "junk",
+   "from_": "Jernvare 89 kr",
+   "today": "Pockets",
+   "decision": "remove",
+   "new": "Gone."
+  },
+  {
+   "id": "spylervaeske",
+   "name": "Spylervæske",
+   "category": "junk",
+   "from_": "Fuel 79-99 kr",
+   "today": "Pockets",
+   "decision": "remove",
+   "new": "Gone (Lampeolje takes the shelf)."
+  },
+  {
+   "id": "ps2",
+   "name": "PlayStation 2",
+   "category": "junk",
+   "from_": "Elektronikk 1999-2490 kr",
+   "today": "Pockets",
+   "decision": "remove",
+   "new": "Gone (until home furniture exists)."
+  },
+  {
+   "id": "harvoks",
+   "name": "Hårvoks",
+   "category": "junk",
+   "from_": "Salon",
+   "today": "Pockets",
+   "decision": "remove",
+   "new": "Gone. Klipp/Vask og føn stay as services."
+  },
+  {
+   "id": "klipp",
+   "name": "Klipp / Vask og føn",
+   "category": "service",
+   "from_": "Salon 250-450 kr",
+   "today": "Message only",
+   "decision": "keep",
+   "new": "Services; later change the hair look.",
+   "price": 450
+  },
+  {
+   "id": "tenn_lys",
+   "name": "Tenn et lys",
+   "category": "service",
+   "from_": "Church 10 kr",
+   "today": "Message only",
+   "decision": "keep",
+   "new": "Keep."
+  },
+  {
+   "id": "lanekort",
+   "name": "Lånekort",
+   "category": "service",
+   "from_": "Library",
+   "today": "Message only",
+   "decision": "keep",
+   "new": "Keep."
+  },
+  {
+   "id": "arcade",
+   "name": "Arcade-polletter (5)",
+   "category": "money",
+   "from_": "Bowling 20 kr (shown in POCKETS in the screenshot)",
+   "today": "Pockets counter. Nothing in the arcade reads it.",
+   "decision": "change",
+   "new": "Real item \"Polett\" (token): the arcade machine takes 1 per play. If the arcade does not use it, remove.",
+   "price": 20,
+   "stack": 50
+  },
+  {
+   "id": "leie_sko",
+   "name": "Leie sko",
+   "category": "service",
+   "from_": "Bowling 30 kr",
+   "today": "Message only",
+   "decision": "keep",
+   "new": "Keep (joke)."
+  },
+  {
+   "id": "leie_bane",
+   "name": "Leie bane",
+   "category": "service",
+   "from_": "Bowling 50 kr",
+   "today": "Works (sets paid)",
+   "decision": "keep",
+   "new": "Keep."
+  },
+  {
+   "id": "vhs",
+   "name": "VHS / DVD (films)",
+   "category": "quest",
+   "from_": "Bowling, video shop",
+   "today": "Works: real tape items with icons, return at Stine",
+   "decision": "keep",
+   "new": "Keep (already the model for how items should work)."
+  },
+  {
+   "id": "jetpack_fuel",
+   "name": "Jetpack fuel",
+   "category": "consumable",
+   "from_": "Fuel 149 kr",
+   "today": "Works: fills the tank on purchase",
+   "decision": "keep",
+   "new": "Keep as an instant service.",
+   "price": 149
+  },
+  {
+   "id": "birdseed",
+   "name": "Fuglefrø (bird seeds)",
+   "category": "ammo",
+   "from_": "Dyr, Nico Mat, Kiosk, chests",
+   "today": "Works: hold it out near birds (the paper-bag icon in the screenshot)",
+   "decision": "keep",
+   "new": "Keep. Remove duplicate lines from Kiosk/Nico Mat -> only Fôr og Dyr and chests (a grocery selling seed is OK: leave Nico Mat).",
+   "price": 39,
+   "stack": 16
+  },
+  {
+   "id": "food_carrot",
+   "name": "Gulrøtter",
+   "category": "ammo",
+   "from_": "Fôr og Dyr",
+   "today": "Works: feed animals",
+   "decision": "keep",
+   "new": "Keep (animal food; NOT for the player). Name it \"(til dyr)\" so nobody tries to eat the dog treats. Carrots also go on a snowman.",
+   "stack": 16
+  },
+  {
+   "id": "food_apple",
+   "name": "Epler",
+   "category": "ammo",
+   "from_": "Fôr og Dyr",
+   "today": "Works: feed animals",
+   "decision": "keep",
+   "new": "Keep (animal food; NOT for the player). Name it \"(til dyr)\" so nobody tries to eat the dog treats. Carrots also go on a snowman.",
+   "stack": 16
+  },
+  {
+   "id": "food_nuts",
+   "name": "Nøtter",
+   "category": "ammo",
+   "from_": "Fôr og Dyr",
+   "today": "Works: feed animals",
+   "decision": "keep",
+   "new": "Keep (animal food; NOT for the player). Name it \"(til dyr)\" so nobody tries to eat the dog treats. Carrots also go on a snowman.",
+   "stack": 16
+  },
+  {
+   "id": "food_fish",
+   "name": "Fisk",
+   "category": "ammo",
+   "from_": "Fôr og Dyr",
+   "today": "Works: feed animals",
+   "decision": "keep",
+   "new": "Keep (animal food; NOT for the player). Name it \"(til dyr)\" so nobody tries to eat the dog treats. Carrots also go on a snowman.",
+   "stack": 16
+  },
+  {
+   "id": "food_treat",
+   "name": "Hundegodt",
+   "category": "ammo",
+   "from_": "Fôr og Dyr",
+   "today": "Works: feed animals",
+   "decision": "keep",
+   "new": "Keep (animal food; NOT for the player). Name it \"(til dyr)\" so nobody tries to eat the dog treats. Carrots also go on a snowman.",
+   "stack": 16
+  },
+  {
+   "id": "food_moss",
+   "name": "Reinlav",
+   "category": "ammo",
+   "from_": "Fôr og Dyr",
+   "today": "Works: feed animals",
+   "decision": "keep",
+   "new": "Keep (animal food; NOT for the player). Name it \"(til dyr)\" so nobody tries to eat the dog treats. Carrots also go on a snowman.",
+   "stack": 16
+  },
+  {
+   "id": "b_snow",
+   "name": "Snow block",
+   "category": "placeable block",
+   "from_": "Starter (32 planks, 64 snow), breaking blocks in the world, trees",
+   "today": "Works: right-click places, left-click breaks",
+   "decision": "keep",
+   "new": "Keep. Place/break unchanged. No more random mineral drops.",
+   "stack": 64
+  },
+  {
+   "id": "b_plank",
+   "name": "Planks",
+   "category": "placeable block",
+   "from_": "Starter (32 planks, 64 snow), breaking blocks in the world, trees",
+   "today": "Works: right-click places, left-click breaks",
+   "decision": "keep",
+   "new": "Keep. Place/break unchanged. No more random mineral drops.",
+   "stack": 64
+  },
+  {
+   "id": "b_stone",
+   "name": "Cobblestone",
+   "category": "placeable block",
+   "from_": "Starter (32 planks, 64 snow), breaking blocks in the world, trees",
+   "today": "Works: right-click places, left-click breaks",
+   "decision": "keep",
+   "new": "Keep. Place/break unchanged. No more random mineral drops.",
+   "stack": 64
+  },
+  {
+   "id": "b_brick",
+   "name": "Bricks",
+   "category": "placeable block",
+   "from_": "Starter (32 planks, 64 snow), breaking blocks in the world, trees",
+   "today": "Works: right-click places, left-click breaks",
+   "decision": "keep",
+   "new": "Keep. Place/break unchanged. No more random mineral drops.",
+   "stack": 64
+  },
+  {
+   "id": "b_log",
+   "name": "Log",
+   "category": "placeable block",
+   "from_": "Starter (32 planks, 64 snow), breaking blocks in the world, trees",
+   "today": "Works: right-click places, left-click breaks",
+   "decision": "keep",
+   "new": "Keep. Place/break unchanged. No more random mineral drops.",
+   "stack": 64
+  },
+  {
+   "id": "b_leaves",
+   "name": "Leaves",
+   "category": "placeable block",
+   "from_": "Starter (32 planks, 64 snow), breaking blocks in the world, trees",
+   "today": "Works: right-click places, left-click breaks",
+   "decision": "keep",
+   "new": "Keep. Place/break unchanged. No more random mineral drops.",
+   "stack": 64
+  },
+  {
+   "id": "b_glass",
+   "name": "Glass",
+   "category": "placeable block",
+   "from_": "Starter (32 planks, 64 snow), breaking blocks in the world, trees",
+   "today": "Works: right-click places, left-click breaks",
+   "decision": "keep",
+   "new": "Keep. Place/break unchanged. No more random mineral drops.",
+   "stack": 64
+  },
+  {
+   "id": "b_lamp",
+   "name": "Lamp",
+   "category": "placeable block",
+   "from_": "Starter (32 planks, 64 snow), breaking blocks in the world, trees",
+   "today": "Works: right-click places, left-click breaks",
+   "decision": "keep",
+   "new": "Keep. Place/break unchanged. No more random mineral drops.",
+   "stack": 64
+  },
+  {
+   "id": "b_wool",
+   "name": "Wool",
+   "category": "placeable block",
+   "from_": "Starter (32 planks, 64 snow), breaking blocks in the world, trees",
+   "today": "Works: right-click places, left-click breaks",
+   "decision": "keep",
+   "new": "Keep. Place/break unchanged. No more random mineral drops.",
+   "stack": 64
+  },
+  {
+   "id": "b_dirt",
+   "name": "Dirt",
+   "category": "placeable block",
+   "from_": "Starter (32 planks, 64 snow), breaking blocks in the world, trees",
+   "today": "Works: right-click places, left-click breaks",
+   "decision": "keep",
+   "new": "Keep. Place/break unchanged. No more random mineral drops.",
+   "stack": 64
+  },
+  {
+   "id": "b_ice",
+   "name": "Ice",
+   "category": "placeable block",
+   "from_": "Starter (32 planks, 64 snow), breaking blocks in the world, trees",
+   "today": "Works: right-click places, left-click breaks",
+   "decision": "keep",
+   "new": "Keep. Place/break unchanged. No more random mineral drops.",
+   "stack": 64
+  },
+  {
+   "id": "b_other",
+   "name": "Other block tiles",
+   "category": "placeable block",
+   "from_": "Starter (32 planks, 64 snow), breaking blocks in the world, trees",
+   "today": "Works: right-click places, left-click breaks",
+   "decision": "keep",
+   "new": "Keep. Place/break unchanged. No more random mineral drops.",
+   "stack": 64
+  },
+  {
+   "id": "loot_mitten",
+   "name": "a single mitten",
+   "category": "collectible",
+   "from_": "Chest loot (common)",
+   "today": "Shows the \"You got\" card with a joke; NOT stored anywhere (no item, no icon)",
+   "decision": "change",
+   "new": "Becomes a real collectible (Samling/collection tab, stack 1, no use) OR the joke card only, never silently lost. Edible ones: the old cookie (-1 hp, witch joke), half a waffle (+0.1)."
+  },
+  {
+   "id": "loot_cookie",
+   "name": "a suspiciously old cookie",
+   "category": "collectible",
+   "from_": "Chest loot (common)",
+   "today": "Shows the \"You got\" card with a joke; NOT stored anywhere (no item, no icon)",
+   "decision": "change",
+   "new": "Becomes a real collectible (Samling/collection tab, stack 1, no use) OR the joke card only, never silently lost. Edible ones: the old cookie (-1 hp, witch joke), half a waffle (+0.1)."
+  },
+  {
+   "id": "loot_pinecone",
+   "name": "a very small pinecone",
+   "category": "collectible",
+   "from_": "Chest loot (common)",
+   "today": "Shows the \"You got\" card with a joke; NOT stored anywhere (no item, no icon)",
+   "decision": "change",
+   "new": "Becomes a real collectible (Samling/collection tab, stack 1, no use) OR the joke card only, never silently lost. Edible ones: the old cookie (-1 hp, witch joke), half a waffle (+0.1)."
+  },
+  {
+   "id": "loot_1987",
+   "name": "a postcard from 1987",
+   "category": "collectible",
+   "from_": "Chest loot (common)",
+   "today": "Shows the \"You got\" card with a joke; NOT stored anywhere (no item, no icon)",
+   "decision": "change",
+   "new": "Becomes a real collectible (Samling/collection tab, stack 1, no use) OR the joke card only, never silently lost. Edible ones: the old cookie (-1 hp, witch joke), half a waffle (+0.1)."
+  },
+  {
+   "id": "loot_wet",
+   "name": "a left sock, very wet",
+   "category": "collectible",
+   "from_": "Chest loot (uncommon)",
+   "today": "Shows the \"You got\" card with a joke; NOT stored anywhere (no item, no icon)",
+   "decision": "change",
+   "new": "Becomes a real collectible (Samling/collection tab, stack 1, no use) OR the joke card only, never silently lost. Edible ones: the old cookie (-1 hp, witch joke), half a waffle (+0.1)."
+  },
+  {
+   "id": "loot_waffle",
+   "name": "half a waffle",
+   "category": "collectible",
+   "from_": "Chest loot (uncommon)",
+   "today": "Shows the \"You got\" card with a joke; NOT stored anywhere (no item, no icon)",
+   "decision": "change",
+   "new": "Becomes a real collectible (Samling/collection tab, stack 1, no use) OR the joke card only, never silently lost. Edible ones: the old cookie (-1 hp, witch joke), half a waffle (+0.1)."
+  },
+  {
+   "id": "loot_snowflake",
+   "name": "a golden snowflake",
+   "category": "collectible",
+   "from_": "Chest loot (rare)",
+   "today": "Shows the \"You got\" card with a joke; NOT stored anywhere (no item, no icon)",
+   "decision": "change",
+   "new": "Becomes a real collectible (Samling/collection tab, stack 1, no use) OR the joke card only, never silently lost. Edible ones: the old cookie (-1 hp, witch joke), half a waffle (+0.1)."
+  },
+  {
+   "id": "loot_Opened",
+   "name": "a trophy for 'Most Chests Opened'",
+   "category": "collectible",
+   "from_": "Chest loot (rare)",
+   "today": "Shows the \"You got\" card with a joke; NOT stored anywhere (no item, no icon)",
+   "decision": "change",
+   "new": "Becomes a real collectible (Samling/collection tab, stack 1, no use) OR the joke card only, never silently lost. Edible ones: the old cookie (-1 hp, witch joke), half a waffle (+0.1)."
+  },
+  {
+   "id": "kr",
+   "name": "Kroner (cash)",
+   "category": "money",
+   "from_": "Chests, quests, races, coins in the world",
+   "today": "Wallet (MONEY.cash)",
+   "decision": "keep",
+   "new": "Keep. Wallet and bank unchanged."
+  },
+  {
+   "id": "hint",
+   "name": "Chest hints/notes",
+   "category": "quest",
+   "from_": "Rare chests",
+   "today": "Text card",
+   "decision": "keep",
+   "new": "Keep; also store in the notebook."
+  },
+  {
+   "id": "notebook_page",
+   "name": "Notebook pages / diary",
+   "category": "quest",
+   "from_": "Light-fight notebook pickups",
+   "today": "Works (notebook)",
+   "decision": "keep",
+   "new": "Keep."
+  },
+  {
+   "id": "thermos_world",
+   "name": "Gløgg thermos (map pickups)",
+   "category": "drink",
+   "from_": "Map layer PICKUPS",
+   "today": "Works",
+   "decision": "keep",
+   "new": "Keep."
+  },
+  {
+   "id": "creative",
+   "name": "CREATIVE mode button",
+   "category": "dev",
+   "from_": "Inventory screen",
+   "today": "Infinite items, no take(), recipes free",
+   "decision": "change",
+   "new": "Hidden unless ?dev=1 / localhost / owner mode."
+  },
+  {
+   "id": "mel",
+   "name": "Mel (flour)",
+   "category": "ingredient",
+   "from_": "Nico Mat",
+   "today": "does not exist",
+   "decision": "add",
+   "new": "NEW baking ingredient. ",
+   "price": 35,
+   "stack": 16,
+   "english": "flour",
+   "sold": "Nico Mat"
+  },
+  {
+   "id": "sukker",
+   "name": "Sukker (sugar)",
+   "category": "ingredient",
+   "from_": "Nico Mat",
+   "today": "does not exist",
+   "decision": "add",
+   "new": "NEW baking ingredient. ",
+   "price": 29,
+   "stack": 16,
+   "english": "sugar",
+   "sold": "Nico Mat"
+  },
+  {
+   "id": "egg",
+   "name": "Egg (6)",
+   "category": "ingredient",
+   "from_": "Nico Mat",
+   "today": "does not exist",
+   "decision": "add",
+   "new": "NEW baking ingredient. Bag of 6.",
+   "price": 49,
+   "stack": 16,
+   "english": "eggs",
+   "sold": "Nico Mat"
+  },
+  {
+   "id": "smor",
+   "name": "Smør (butter)",
+   "category": "ingredient",
+   "from_": "Bakeriet",
+   "today": "does not exist",
+   "decision": "add",
+   "new": "NEW baking ingredient. Only at the bakery on purpose: ingredient hunt.",
+   "price": 59,
+   "stack": 16,
+   "english": "butter",
+   "sold": "Bakeriet"
+  },
+  {
+   "id": "pepperkakekrydder",
+   "name": "Pepperkakekrydder (spice mix)",
+   "category": "ingredient",
+   "from_": "Gløggboden stall",
+   "today": "does not exist",
+   "decision": "add",
+   "new": "NEW baking ingredient. ",
+   "price": 39,
+   "stack": 16,
+   "english": "gingerbread spice",
+   "sold": "Gløggboden stall"
+  },
+  {
+   "id": "sirup",
+   "name": "Sirup (syrup)",
+   "category": "ingredient",
+   "from_": "Godteboden stall",
+   "today": "does not exist",
+   "decision": "add",
+   "new": "NEW baking ingredient. Market stall (December only).",
+   "price": 45,
+   "stack": 16,
+   "english": "light syrup",
+   "sold": "Godteboden stall"
+  },
+  {
+   "id": "sjokolade",
+   "name": "Sjokolade (cooking chocolate)",
+   "category": "ingredient",
+   "from_": "Godteboden stall",
+   "today": "does not exist",
+   "decision": "add",
+   "new": "NEW baking ingredient. ",
+   "price": 49,
+   "stack": 16,
+   "english": "chocolate",
+   "sold": "Godteboden stall"
+  },
+  {
+   "id": "kakaopulver",
+   "name": "Kakaopulver",
+   "category": "ingredient",
+   "from_": "Cafe",
+   "today": "does not exist",
+   "decision": "add",
+   "new": "NEW baking ingredient. ",
+   "price": 39,
+   "stack": 16,
+   "english": "cocoa powder",
+   "sold": "Cafe"
+  },
+  {
+   "id": "gjaer",
+   "name": "Gjær (yeast)",
+   "category": "ingredient",
+   "from_": "Bakeriet",
+   "today": "does not exist",
+   "decision": "add",
+   "new": "NEW baking ingredient. ",
+   "price": 19,
+   "stack": 16,
+   "english": "yeast",
+   "sold": "Bakeriet"
+  },
+  {
+   "id": "skolesekk",
+   "name": "Skolesekk (school bag)",
+   "category": "wearable",
+   "from_": "New",
+   "today": "does not exist",
+   "decision": "add",
+   "new": "BAG slot: +9 inventory slots (27 base -> 36). Visible on the back. Sold at Clothes shop, Nico Mat.",
+   "slot": "bag",
+   "extra_slots": 9,
+   "price": 249,
+   "stack": 1,
+   "sold": "Clothes shop, Nico Mat"
+  },
+  {
+   "id": "tursekk",
+   "name": "Tursekk (hiking pack)",
+   "category": "wearable",
+   "from_": "New",
+   "today": "does not exist",
+   "decision": "add",
+   "new": "BAG slot: +18 inventory slots (27 base -> 45). Visible on the back. Sold at Jernvare.",
+   "slot": "bag",
+   "extra_slots": 18,
+   "price": 599,
+   "stack": 1,
+   "sold": "Jernvare"
+  },
+  {
+   "id": "fjellsekk",
+   "name": "Fjellsekk (mountain pack)",
+   "category": "wearable",
+   "from_": "New",
+   "today": "does not exist",
+   "decision": "add",
+   "new": "BAG slot: +27 inventory slots (27 base -> 54). Visible on the back. Sold at Jernvare.",
+   "slot": "bag",
+   "extra_slots": 27,
+   "price": 1199,
+   "stack": 1,
+   "sold": "Jernvare"
+  },
+  {
+   "id": "derp_popcorn",
+   "name": "Derp Popcorn (bucket)",
+   "category": "food",
+   "from_": "DERPMAX cinema snack bar",
+   "today": "does not exist",
+   "decision": "add",
+   "new": "Real inventory item with an icon, sold at the DERPMAX snack bar. Fills +30% hunger, +2.5 hearts.",
+   "fill": 0.3,
+   "hp": 5,
+   "warm": 0,
+   "price": 69,
+   "stack": 4,
+   "english": "popcorn bucket, 4 bites"
+  },
+  {
+   "id": "derp_cola",
+   "name": "Derpcola",
+   "category": "drink",
+   "from_": "DERPMAX cinema snack bar",
+   "today": "does not exist",
+   "decision": "add",
+   "new": "Real inventory item with an icon, sold at the DERPMAX snack bar. Fills +5% hunger, +0.5 hearts.",
+   "fill": 0.05,
+   "hp": 1,
+   "warm": 0,
+   "price": 39,
+   "stack": 8,
+   "english": "cinema soda"
+  },
+  {
+   "id": "derp_candy",
+   "name": "Derp Candy (bag)",
+   "category": "food",
+   "from_": "DERPMAX cinema snack bar",
+   "today": "does not exist",
+   "decision": "add",
+   "new": "Real inventory item with an icon, sold at the DERPMAX snack bar. Fills +10% hunger, +1.0 hearts.",
+   "fill": 0.1,
+   "hp": 2,
+   "warm": 0,
+   "price": 45,
+   "stack": 8,
+   "english": "candy bag, 2 bites"
+  },
+  {
+   "id": "oren",
+   "name": "Oren",
+   "category": "money",
+   "from_": "Chests and crates (more in far and dangerous places: summits, troll caves 2 and 3, boathouses), good missions and deliveries, very rarely a coin on the ground",
+   "today": "new",
+   "decision": "add",
+   "new": "Old gold coin (Witcher-style). No shop, stall, bus, garage or property seller takes it. Only the money changer (Vekslingskontoret on the square, or the night changer at the cemetery) turns it into kroner at the day's rate (mid 38-72 kr; day booth pays 90% minus 3 kr fee, daily limit 3 000 kr).",
+   "price": 0,
+   "stack": 64,
+   "english": "oren"
+  },
+  {
+   "id": "floren",
+   "name": "Floren",
+   "category": "money",
+   "from_": "Chests and crates, missions and deliveries, coins on the ground (a bit more common than orens)",
+   "today": "new",
+   "decision": "add",
+   "new": "Old silver coin. Same rules as the oren, worth less (mid 11-24 kr). Only the money changer exchanges it.",
+   "price": 0,
+   "stack": 64,
+   "english": "floren"
+  },
+  {
+   "id": "kongekrone",
+   "name": "Old King's Krone",
+   "category": "money",
+   "from_": "Rare: dangerous old chests (troll caves 2 and 3, hidden chests, summits), very rare mission tip; the night changer sells one a day for 700 kr",
+   "today": "new",
+   "decision": "add",
+   "new": "Rare collector coin. The changer pays about 420 kr (collectors pay more than the normal rate); five of them or Troll Pennies fill the changer's Museum of Old Coins (1 500 kr reward).",
+   "price": 0,
+   "stack": 16,
+   "english": "old king's krone"
+  },
+  {
+   "id": "trollmynt",
+   "name": "Troll Penny",
+   "category": "money",
+   "from_": "Rare: chests in the troll caves",
+   "today": "new",
+   "decision": "add",
+   "new": "Rare collector coin from the troll caves. The changer pays about 650 kr; counts for the museum.",
+   "price": 0,
+   "stack": 16,
+   "english": "troll penny"
+  }
+ ]
+}

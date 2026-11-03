@@ -1,0 +1,137 @@
+{
+ "_note": "Nissefolk lines (job nissefolk). id -> [clan, kind, Norwegian text, English subtitle]. Voices: build/make_nisse_voices.py -> voice/nisse/<id>.m4a (placeholder computer voices in Norwegian; Marius can re-record via the recording studio). Original lines, not from any TV show.",
+ "lines": {
+  "r_greet": [
+   "red",
+   "greet",
+   "Hei hå! En stor en! Vi er Rødnissene, og dette er skogen vår. Pass deg for blåhattene, de juger i kortspill.",
+   "Hey ho! A big one! We are the Red nisser, and this is our forest. Watch out for the blue hats, they cheat at cards."
+  ],
+  "r_ask": [
+   "red",
+   "ask",
+   "Har du risengrynsgrøt med smør? Uten smør teller det ikke!",
+   "Do you have rice porridge with butter? Without butter it does not count!"
+  ],
+  "r_thanks": [
+   "red",
+   "thanks",
+   "Mmm! Smør i midten! Nå er du en ekte venn av Rødnissene.",
+   "Mmm! Butter in the middle! Now you are a true friend of the Red nisser."
+  ],
+  "r_friend": [
+   "red",
+   "friend",
+   "Venn av Rødnissene! Kom og sitt ved bålet, vi har gløgg.",
+   "Friend of the Red nisser! Come and sit by the fire, we have gløgg."
+  ],
+  "r_rival": [
+   "red",
+   "rival",
+   "Du lukter blåhatt. Gå bort, før jeg henter kjevlen.",
+   "You smell of blue hat. Go away before I fetch the rolling pin."
+  ],
+  "r_idle1": [
+   "red",
+   "idle",
+   "Vi samler ved. Blåhattene tar den hvis vi ser bort.",
+   "We are gathering firewood. The blue hats take it if we look away."
+  ],
+  "r_idle2": [
+   "red",
+   "idle",
+   "Hysj! Hører du sangen? Det er bare oss. Det er alltid bare oss.",
+   "Shh! Do you hear the singing? It is only us. It is always only us."
+  ],
+  "r_idle3": [
+   "red",
+   "idle",
+   "Fela er stemt, grøten er varm, og jula kommer. Hva mer kan man ønske seg?",
+   "The fiddle is tuned, the porridge is warm, and Christmas is coming. What more could one want?"
+  ],
+  "r_argue": [
+   "red",
+   "argue",
+   "Blåhattene sier at de har finere luer. De tar feil. Rødt er mer rødt.",
+   "The blue hats say they have nicer caps. They are wrong. Red is more red."
+  ],
+  "r_steal": [
+   "red",
+   "steal",
+   "Hei! Den gaven var ikke din! Nå kommer en nissebanning. En liten en.",
+   "Hey! That gift was not yours! A nisse scolding is coming. A small one."
+  ],
+  "r_gift": [
+   "red",
+   "gift",
+   "Her, ta en julekule. Ikke si det til blåhattene.",
+   "Here, take a bauble. Do not tell the blue hats."
+  ],
+  "b_greet": [
+   "blue",
+   "greet",
+   "Å... en stor en. Velkommen til Blånissene. Vi er stille her. Rødhattene liker ikke stille.",
+   "Oh... a big one. Welcome to the Blue nisser. We are quiet here. The red hats do not like quiet."
+  ],
+  "b_ask": [
+   "blue",
+   "ask",
+   "Har du risengrynsgrøt med litt smør? Bare litt. Vi er ikke grådige.",
+   "Do you have rice porridge with a little butter? Just a little. We are not greedy."
+  ],
+  "b_thanks": [
+   "blue",
+   "thanks",
+   "Takk... den er varm. Nå er du en venn av Blånissene. Det betyr noe.",
+   "Thank you... it is warm. Now you are a friend of the Blue nisser. That means something."
+  ],
+  "b_friend": [
+   "blue",
+   "friend",
+   "Vennen vår. Sitt ved ilden og lytt til sangen.",
+   "Our friend. Sit by the fire and listen to the song."
+  ],
+  "b_rival": [
+   "blue",
+   "rival",
+   "Du har vært hos rødhattene. Jeg kjenner lukten av fele. Vi snakker ikke nå.",
+   "You have been with the red hats. I can smell fiddle on you. We are not talking now."
+  ],
+  "b_idle1": [
+   "blue",
+   "idle",
+   "Månen kommer snart. Da synger vi. Hvis du hører noe, ikke svar.",
+   "The moon is coming soon. Then we sing. If you hear something, do not answer."
+  ],
+  "b_idle2": [
+   "blue",
+   "idle",
+   "Rødhattene stjal tåken vår i fjor. Vi vil ha den tilbake.",
+   "The red hats stole our fog last year. We want it back."
+  ],
+  "b_idle3": [
+   "blue",
+   "idle",
+   "Stjernene er kalde i natt. Luen holder varmen, men ikke tankene.",
+   "The stars are cold tonight. The cap keeps the warmth, but not the thoughts."
+  ],
+  "b_argue": [
+   "blue",
+   "argue",
+   "Rødhattene er høylytte. Det er ikke det samme som å ha rett.",
+   "The red hats are loud. That is not the same as being right."
+  ],
+  "b_steal": [
+   "blue",
+   "steal",
+   "Du tok gaven vår. Vi husker det. Nisser har godt minne.",
+   "You took our gift. We remember. Nisser have good memories."
+  ],
+  "b_gift": [
+   "blue",
+   "gift",
+   "Ta denne. Den glitrer litt. Som stjerner.",
+   "Take this. It sparkles a little. Like stars."
+  ]
+ }
+}

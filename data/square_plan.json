@@ -1,0 +1,422 @@
+{
+ "format": "downtown-square-plan/1",
+ "note": "x east, z south (north = -z), metres, same numbers as the game. rot = three.js rotation.y in radians (front of the object is local +z). action: move | remove | add. Items not listed are unchanged.",
+ "layoutGenerated": "2026-10-25 09:42:16",
+ "gameVersion": 328,
+ "anchor": {
+  "TX": 7,
+  "TZ": 22,
+  "note": "square anchor in code (sleigh, julekula, stalls hang off it)"
+ },
+ "counts": {
+  "move": 18,
+  "remove": 4,
+  "add": 0,
+  "unchanged": 104
+ },
+ "items": [
+  {
+   "id": "sleigh@-16.5,24",
+   "kind": "sleigh",
+   "name": "Santa's sleigh + reindeer",
+   "action": "move",
+   "from": {
+    "x": -16.5,
+    "z": 24,
+    "rot": 0.26
+   },
+   "to": {
+    "x": -16,
+    "z": 40.5,
+    "rot": 0.5236,
+    "deg": 30
+   },
+   "source": "code",
+   "distance_m": 16.51
+  },
+  {
+   "id": "julekula",
+   "kind": "julekula",
+   "name": "Julekula (walk-in light globe)",
+   "action": "move",
+   "from": {
+    "x": 9.5,
+    "z": 22,
+    "rot": -1.12
+   },
+   "to": {
+    "x": 14.5,
+    "z": 19.5,
+    "rot": -1.12,
+    "deg": -64.2
+   },
+   "source": "code",
+   "distance_m": 5.59
+  },
+  {
+   "id": "treelot",
+   "kind": "treelot",
+   "name": "Christmas tree lot (JULETRESALG)",
+   "action": "move",
+   "from": {
+    "x": -15,
+    "z": 38.5,
+    "rot": 0
+   },
+   "to": {
+    "x": -31,
+    "z": 34,
+    "rot": -1.5708,
+    "deg": -90
+   },
+   "source": "code",
+   "distance_m": 16.62
+  },
+  {
+   "id": "omvckh44n5hyq",
+   "kind": "stall",
+   "name": "Market stall",
+   "action": "move",
+   "from": {
+    "x": -25,
+    "z": 27.5,
+    "rot": -1.57
+   },
+   "to": {
+    "x": -22,
+    "z": 19,
+    "rot": -1.5708,
+    "deg": -90
+   },
+   "source": "builder edit",
+   "editId": "omvckh44n5hyq",
+   "distance_m": 9.01
+  },
+  {
+   "id": "omvckh2z0fycu",
+   "kind": "stall",
+   "name": "Market stall",
+   "action": "move",
+   "from": {
+    "x": -24.5,
+    "z": 32.5,
+    "rot": -1.57
+   },
+   "to": {
+    "x": -26,
+    "z": 21,
+    "rot": 0.2618,
+    "deg": 15
+   },
+   "source": "builder edit",
+   "editId": "omvckh2z0fycu",
+   "distance_m": 11.6
+  },
+  {
+   "id": "omvckgyyojd30",
+   "kind": "stall",
+   "name": "Market stall",
+   "action": "move",
+   "from": {
+    "x": -23.5,
+    "z": 21,
+    "rot": -2.09
+   },
+   "to": {
+    "x": -11.5,
+    "z": 20.5,
+    "rot": -2.0944,
+    "deg": -120
+   },
+   "source": "builder edit",
+   "editId": "omvckgyyojd30",
+   "distance_m": 12.01
+  },
+  {
+   "id": "omvchrjgbdzd9",
+   "kind": "stall",
+   "name": "Market stall",
+   "action": "move",
+   "from": {
+    "x": -11,
+    "z": 30,
+    "rot": -0.79
+   },
+   "to": {
+    "x": -11,
+    "z": 30,
+    "rot": -0.7854,
+    "deg": -45
+   },
+   "source": "builder edit",
+   "editId": "omvchrjgbdzd9",
+   "distance_m": 0
+  },
+  {
+   "id": "omvchrkv2bevs",
+   "kind": "stall",
+   "name": "Market stall",
+   "action": "move",
+   "from": {
+    "x": -9,
+    "z": 11,
+    "rot": -2.09
+   },
+   "to": {
+    "x": -9,
+    "z": 11,
+    "rot": -2.0944,
+    "deg": -120
+   },
+   "source": "builder edit",
+   "editId": "omvchrkv2bevs",
+   "distance_m": 0
+  },
+  {
+   "id": "stall@14,18",
+   "kind": "stall",
+   "name": "Market stall (code)",
+   "action": "move",
+   "from": {
+    "x": 14,
+    "z": 18,
+    "rot": 2.02
+   },
+   "to": {
+    "x": 8,
+    "z": 26.5,
+    "rot": -2.8798,
+    "deg": -165
+   },
+   "source": "code",
+   "distance_m": 10.4
+  },
+  {
+   "id": "bandstand",
+   "kind": "bandstand",
+   "name": "Bandstand (music pavilion)",
+   "action": "move",
+   "from": {
+    "x": -26,
+    "z": 50,
+    "rot": 0
+   },
+   "to": {
+    "x": -24,
+    "z": 47,
+    "rot": 0,
+    "deg": 0
+   },
+   "source": "code",
+   "distance_m": 3.61
+  },
+  {
+   "id": "bench@-29.5,24.5",
+   "kind": "bench",
+   "name": "Bench (code)",
+   "action": "move",
+   "from": {
+    "x": -29.5,
+    "z": 24.5,
+    "rot": -3.14
+   },
+   "to": {
+    "x": -18.5,
+    "z": 18.5,
+    "rot": 0.5236,
+    "deg": 30
+   },
+   "source": "code",
+   "distance_m": 12.53
+  },
+  {
+   "id": "bench@-27.5,22.5",
+   "kind": "bench",
+   "name": "Bench (code)",
+   "action": "move",
+   "from": {
+    "x": -27.5,
+    "z": 22.5,
+    "rot": -3.14
+   },
+   "to": {
+    "x": -30.5,
+    "z": 22.5,
+    "rot": 1.0472,
+    "deg": 60
+   },
+   "source": "code",
+   "distance_m": 3
+  },
+  {
+   "id": "lamp@-38.8,27",
+   "kind": "lamp",
+   "name": "Street lamp (code)",
+   "action": "remove",
+   "from": {
+    "x": -38.8,
+    "z": 27,
+    "rot": 0
+   },
+   "to": null,
+   "source": "code"
+  },
+  {
+   "id": "lamp@-23.5,48.9",
+   "kind": "lamp",
+   "name": "Street lamp (code)",
+   "action": "move",
+   "from": {
+    "x": -23.5,
+    "z": 48.9,
+    "rot": 0
+   },
+   "to": {
+    "x": -10.5,
+    "z": 44,
+    "rot": 0,
+    "deg": 0
+   },
+   "source": "code",
+   "distance_m": 13.89
+  },
+  {
+   "id": "bin@-46.5,34.35",
+   "kind": "bin",
+   "name": "Bin (code)",
+   "action": "move",
+   "from": {
+    "x": -46.5,
+    "z": 34.35,
+    "rot": 0
+   },
+   "to": {
+    "x": -43,
+    "z": 17.5,
+    "rot": 0,
+    "deg": 0
+   },
+   "source": "code",
+   "distance_m": 17.21
+  },
+  {
+   "id": "bin@-37.5,36.35",
+   "kind": "bin",
+   "name": "Bin (code)",
+   "action": "move",
+   "from": {
+    "x": -37.5,
+    "z": 36.35,
+    "rot": 0
+   },
+   "to": {
+    "x": -41.5,
+    "z": 17.5,
+    "rot": 0,
+    "deg": 0
+   },
+   "source": "code",
+   "distance_m": 19.27
+  },
+  {
+   "id": "bin@-31.5,35.65",
+   "kind": "bin",
+   "name": "Bin (code)",
+   "action": "move",
+   "from": {
+    "x": -31.5,
+    "z": 35.65,
+    "rot": -3.14
+   },
+   "to": {
+    "x": -45.5,
+    "z": 18,
+    "rot": 0,
+    "deg": 0
+   },
+   "source": "code",
+   "distance_m": 22.53
+  },
+  {
+   "id": "streettree@-31.5,24.5",
+   "kind": "streettree",
+   "name": "Street tree (code)",
+   "action": "move",
+   "from": {
+    "x": -31.5,
+    "z": 24.5,
+    "rot": 0
+   },
+   "to": {
+    "x": -43.5,
+    "z": 13,
+    "rot": 0,
+    "deg": 0
+   },
+   "source": "code",
+   "distance_m": 16.62
+  },
+  {
+   "id": "streettree@-29.5,22.5",
+   "kind": "streettree",
+   "name": "Street tree (code)",
+   "action": "remove",
+   "from": {
+    "x": -29.5,
+    "z": 22.5,
+    "rot": 0
+   },
+   "to": null,
+   "source": "code"
+  },
+  {
+   "id": "streettree@-29.5,22.5#2",
+   "kind": "streettree",
+   "name": "Street tree (code)",
+   "action": "remove",
+   "from": {
+    "x": -29.5,
+    "z": 22.5,
+    "rot": 0
+   },
+   "to": null,
+   "source": "code"
+  },
+  {
+   "id": "omvchtjky3o0z",
+   "kind": "star",
+   "name": "Paper star",
+   "action": "move",
+   "from": {
+    "x": -17,
+    "z": 35,
+    "rot": 1.57
+   },
+   "to": {
+    "x": -15,
+    "z": 35,
+    "rot": 1.57,
+    "deg": 90
+   },
+   "source": "builder edit",
+   "editId": "omvchtjky3o0z",
+   "distance_m": 2
+  },
+  {
+   "id": "omvchtvrd2daw",
+   "kind": "car",
+   "name": "Car (atv)",
+   "action": "remove",
+   "from": {
+    "x": -32,
+    "z": 41.5,
+    "rot": 1.57
+   },
+   "to": null,
+   "source": "builder edit",
+   "editId": "omvchtvrd2daw"
+  }
+ ],
+ "saved": "2026-10-27 09:27:28",
+ "savedMs": 1793089648286
+}

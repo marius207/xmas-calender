@@ -1,0 +1,205 @@
+{
+ "version": 1,
+ "note": "Rune magic weakness / resist table (job magic). Multiplier on a rune's damage per target: 0 = immune (no effect), 1 = normal, 2 = weak to it. Keys: person, animal, troll, hollow (the Eye's hollows), dummy, and the woods creatures (part 1: draugr, huldra_girl, fossegrim, tusser; part 2, 2 Nov: nokken (weak to Laguz and iron), draugen (sun), lyktemann (sun, Laguz puts the lantern out), gjenganger (sun, fire), varulv (ice, spear-Tyr, iron), edderkoppkongen (fire, ice, hail), rokk (ice, Tyr, Fehu calms it), asgardsreia (the Wild Hunt: everything 0, it cannot be fought), mare (sun), lindorm (Tyr, thunder-Thurs, iron; Laguz 0)). The game reads this at start and merges it over the built-in copy; edit freely. hp = hit points of a woods creature scene (their own pool, same units as a sword hit ~1-3).",
+ "hp": {
+  "draugr": 14,
+  "huldra_girl": 12,
+  "fossegrim": 16,
+  "tusser": 10,
+  "nokken": 14,
+  "draugen": 18,
+  "lyktemann": 8,
+  "gjenganger": 12,
+  "varulv": 20,
+  "edderkoppkongen": 26,
+  "rokk": 22,
+  "asgardsreia": 99,
+  "mare": 12,
+  "lindorm": 34
+ },
+ "creatures": {
+  "person": {},
+  "animal": {
+   "fehu": 0
+  },
+  "dummy": {},
+  "troll": {
+   "isa": 0,
+   "kaun": 0.5,
+   "thurs": 0.25,
+   "sol": 0.8,
+   "hagal": 0.3,
+   "tyr": 1.5,
+   "naud": 1,
+   "dark": 0.5
+  },
+  "hollow": {
+   "sol": 3,
+   "kaun": 2,
+   "isa": 1.2,
+   "tyr": 1.5,
+   "hagal": 1,
+   "dark": 0.6
+  },
+  "draugr": {
+   "kaun": 2,
+   "sol": 3,
+   "thurs": 1,
+   "tyr": 0.5,
+   "isa": 0.4,
+   "hagal": 1.5,
+   "dark": 0,
+   "fehu": 0,
+   "lagu": 0.5
+  },
+  "huldra_girl": {
+   "kaun": 2,
+   "sol": 2,
+   "hagal": 1.3,
+   "dark": 1.3,
+   "isa": 1,
+   "thurs": 1,
+   "tyr": 1,
+   "lagu": 0.6
+  },
+  "fossegrim": {
+   "sol": 0,
+   "lagu": 0,
+   "kaun": 1.2,
+   "isa": 1.5,
+   "tyr": 0.6,
+   "hagal": 1,
+   "thurs": 1,
+   "dark": 1.2
+  },
+  "tusser": {
+   "kaun": 2,
+   "hagal": 2,
+   "thurs": 1.5,
+   "tyr": 1.2,
+   "isa": 1,
+   "sol": 0.5,
+   "dark": 1.2
+  },
+  "nokken": {
+   "lagu": 2,
+   "naud": 1.6,
+   "isa": 0.4,
+   "kaun": 1,
+   "tyr": 1,
+   "thurs": 1,
+   "sol": 0.8,
+   "hagal": 1,
+   "dark": 1,
+   "fehu": 0.5
+  },
+  "draugen": {
+   "sol": 2.5,
+   "hagal": 1.5,
+   "kaun": 1.4,
+   "isa": 1.2,
+   "lagu": 0,
+   "tyr": 1,
+   "thurs": 1,
+   "naud": 1,
+   "dark": 0,
+   "fehu": 0
+  },
+  "lyktemann": {
+   "sol": 2.5,
+   "lagu": 2,
+   "kaun": 0.4,
+   "isa": 1,
+   "thurs": 1,
+   "tyr": 1,
+   "hagal": 1.2,
+   "dark": 0,
+   "naud": 1.2,
+   "fehu": 0
+  },
+  "gjenganger": {
+   "sol": 3,
+   "kaun": 2,
+   "thurs": 1.2,
+   "isa": 0.3,
+   "tyr": 0.3,
+   "hagal": 1,
+   "lagu": 1,
+   "dark": 0,
+   "naud": 1.5,
+   "fehu": 0
+  },
+  "varulv": {
+   "isa": 1.5,
+   "thurs": 1.2,
+   "tyr": 1.5,
+   "sol": 0.5,
+   "naud": 1.5,
+   "kaun": 1.3,
+   "hagal": 1.2,
+   "lagu": 1,
+   "dark": 0.4,
+   "fehu": 0.5
+  },
+  "edderkoppkongen": {
+   "kaun": 2,
+   "isa": 1.5,
+   "hagal": 1.5,
+   "lagu": 1.2,
+   "sol": 1.5,
+   "thurs": 1,
+   "tyr": 1,
+   "naud": 1,
+   "dark": 0.5,
+   "fehu": 0.3
+  },
+  "rokk": {
+   "isa": 1.8,
+   "hagal": 1.3,
+   "kaun": 1.2,
+   "tyr": 1.5,
+   "fehu": 1.5,
+   "sol": 0.3,
+   "thurs": 0.3,
+   "lagu": 1,
+   "naud": 1,
+   "dark": 1
+  },
+  "asgardsreia": {
+   "kaun": 0,
+   "sol": 0,
+   "isa": 0,
+   "thurs": 0,
+   "tyr": 0,
+   "hagal": 0,
+   "lagu": 0,
+   "naud": 0,
+   "dark": 0,
+   "fehu": 0
+  },
+  "mare": {
+   "sol": 2,
+   "thurs": 1.2,
+   "naud": 0.5,
+   "kaun": 1.2,
+   "isa": 0.8,
+   "tyr": 1,
+   "hagal": 1,
+   "lagu": 1,
+   "dark": 0,
+   "fehu": 0
+  },
+  "lindorm": {
+   "isa": 1.2,
+   "tyr": 1.5,
+   "lagu": 0,
+   "kaun": 0.5,
+   "thurs": 1.3,
+   "naud": 1.2,
+   "sol": 0.8,
+   "hagal": 0.7,
+   "dark": 0.5,
+   "fehu": 0.5
+  }
+ }
+}

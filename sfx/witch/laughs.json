@@ -1,0 +1,166 @@
+{
+ "source": "Witch_laugh_sound_effect.mp3 (Marius, 30 Oct 2026)",
+ "count": 20,
+ "laughs": [
+  {
+   "n": 1,
+   "file": "sfx/witch/laugh_01.m4a",
+   "raw": "sfx/witch/raw/laugh_01.m4a",
+   "src_from": 2.08,
+   "src_to": 7.5,
+   "dur": 6.37
+  },
+  {
+   "n": 2,
+   "file": "sfx/witch/laugh_02.m4a",
+   "raw": "sfx/witch/raw/laugh_02.m4a",
+   "src_from": 9.24,
+   "src_to": 12.7,
+   "dur": 4.22
+  },
+  {
+   "n": 3,
+   "file": "sfx/witch/laugh_03.m4a",
+   "raw": "sfx/witch/raw/laugh_03.m4a",
+   "src_from": 14.4,
+   "src_to": 16.2,
+   "dur": 2.4
+  },
+  {
+   "n": 4,
+   "file": "sfx/witch/laugh_04.m4a",
+   "raw": "sfx/witch/raw/laugh_04.m4a",
+   "src_from": 17.34,
+   "src_to": 21.5,
+   "dur": 4.99
+  },
+  {
+   "n": 5,
+   "file": "sfx/witch/laugh_05.m4a",
+   "raw": "sfx/witch/raw/laugh_05.m4a",
+   "src_from": 23.74,
+   "src_to": 25.92,
+   "dur": 2.82
+  },
+  {
+   "n": 6,
+   "file": "sfx/witch/laugh_06.m4a",
+   "raw": "sfx/witch/raw/laugh_06.m4a",
+   "src_from": 26.7,
+   "src_to": 32.22,
+   "dur": 6.48
+  },
+  {
+   "n": 7,
+   "file": "sfx/witch/laugh_07.m4a",
+   "raw": "sfx/witch/raw/laugh_07.m4a",
+   "src_from": 33.8,
+   "src_to": 36.6,
+   "dur": 3.5
+  },
+  {
+   "n": 8,
+   "file": "sfx/witch/laugh_08.m4a",
+   "raw": "sfx/witch/raw/laugh_08.m4a",
+   "src_from": 36.96,
+   "src_to": 37.6,
+   "dur": 1.13
+  },
+  {
+   "n": 9,
+   "file": "sfx/witch/laugh_09.m4a",
+   "raw": "sfx/witch/raw/laugh_09.m4a",
+   "src_from": 39.1,
+   "src_to": 45.66,
+   "dur": 7.62
+  },
+  {
+   "n": 10,
+   "file": "sfx/witch/laugh_10.m4a",
+   "raw": "sfx/witch/raw/laugh_10.m4a",
+   "src_from": 48.82,
+   "src_to": 55.32,
+   "dur": 7.55
+  },
+  {
+   "n": 11,
+   "file": "sfx/witch/laugh_11.m4a",
+   "raw": "sfx/witch/raw/laugh_11.m4a",
+   "src_from": 55.68,
+   "src_to": 61.92,
+   "dur": 7.27
+  },
+  {
+   "n": 12,
+   "file": "sfx/witch/laugh_12.m4a",
+   "raw": "sfx/witch/raw/laugh_12.m4a",
+   "src_from": 62.38,
+   "src_to": 69.66,
+   "dur": 8.41
+  },
+  {
+   "n": 13,
+   "file": "sfx/witch/laugh_13.m4a",
+   "raw": "sfx/witch/raw/laugh_13.m4a",
+   "src_from": 70.72,
+   "src_to": 73.36,
+   "dur": 3.32
+  },
+  {
+   "n": 14,
+   "file": "sfx/witch/laugh_14.m4a",
+   "raw": "sfx/witch/raw/laugh_14.m4a",
+   "src_from": 75.28,
+   "src_to": 81.56,
+   "dur": 7.31
+  },
+  {
+   "n": 15,
+   "file": "sfx/witch/laugh_15.m4a",
+   "raw": "sfx/witch/raw/laugh_15.m4a",
+   "src_from": 82.9,
+   "src_to": 84.8,
+   "dur": 2.51
+  },
+  {
+   "n": 16,
+   "file": "sfx/witch/laugh_16.m4a",
+   "raw": "sfx/witch/raw/laugh_16.m4a",
+   "src_from": 85.86,
+   "src_to": 92.84,
+   "dur": 8.08
+  },
+  {
+   "n": 17,
+   "file": "sfx/witch/laugh_17.m4a",
+   "raw": "sfx/witch/raw/laugh_17.m4a",
+   "src_from": 93.62,
+   "src_to": 97.68,
+   "dur": 4.88
+  },
+  {
+   "n": 18,
+   "file": "sfx/witch/laugh_18.m4a",
+   "raw": "sfx/witch/raw/laugh_18.m4a",
+   "src_from": 98.9,
+   "src_to": 102.62,
+   "dur": 4.51
+  },
+  {
+   "n": 19,
+   "file": "sfx/witch/laugh_19.m4a",
+   "raw": "sfx/witch/raw/laugh_19.m4a",
+   "src_from": 103.42,
+   "src_to": 110.82,
+   "dur": 8.54
+  },
+  {
+   "n": 20,
+   "file": "sfx/witch/laugh_20.m4a",
+   "raw": "sfx/witch/raw/laugh_20.m4a",
+   "src_from": 112.4,
+   "src_to": 117.16,
+   "dur": 5.65
+  }
+ ]
+}

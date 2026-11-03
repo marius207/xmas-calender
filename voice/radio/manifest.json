@@ -1,0 +1,834 @@
+{
+ "stations": {
+  "fm": {
+   "idents": [
+    {
+     "src": "voice/radio/fm/ident_id1.m4a",
+     "text": "Downtown FM, ninety-nine point nine. The only station in town.",
+     "dur": 6.2
+    }
+   ],
+   "over": [
+    {
+     "src": "voice/radio/fm/over_ov1.m4a",
+     "text": "Here we go! Ho ho hold on tight!",
+     "dur": 4.16
+    },
+    {
+     "src": "voice/radio/fm/over_ov2.m4a",
+     "text": "Turn it up. The snow can take it.",
+     "dur": 3.92
+    }
+   ],
+   "dj": [
+    {
+     "src": "voice/radio/fm/dj_x1.m4a",
+     "text": "Snow in town! Perfect weather for staying in. Or for driving, if you enjoy sliding.",
+     "dur": 7.52,
+     "cond": "snow"
+    },
+    {
+     "src": "voice/radio/fm/dj_x2.m4a",
+     "text": "Storm warning, folks! Which is just snow with a bad attitude. Drive slowly, ho ho hold on.",
+     "dur": 7.93,
+     "cond": "storm"
+    },
+    {
+     "src": "voice/radio/fm/dj_x3.m4a",
+     "text": "It is late, it is dark, and you are still driving. We respect that. We also worry.",
+     "dur": 7.69,
+     "cond": "night"
+    },
+    {
+     "src": "voice/radio/fm/dj_x4.m4a",
+     "text": "Local news: the witch is still out there. Local advice: lock your cookies.",
+     "dur": 6.29,
+     "cond": "witch"
+    },
+    {
+     "src": "voice/radio/fm/dj_x5.m4a",
+     "text": "Big news! The witch is gone! Quick, everybody pretend you were never scared.",
+     "dur": 7.16,
+     "cond": "witchgone"
+    },
+    {
+     "src": "voice/radio/fm/dj_x6.m4a",
+     "text": "The big day is close. Whoever left the Christmas lights on all year: we see you. We are proud.",
+     "dur": 7.9,
+     "cond": "xmas"
+    },
+    {
+     "src": "voice/radio/fm/dj_nj2.m4a",
+     "text": "Rumour has it, something big is being built in Kvinesdal. No, we cannot say what. Ask us again next week.",
+     "dur": 8.86,
+     "cond": "nj2"
+    },
+    {
+     "src": "voice/radio/fm/dj_nj5.m4a",
+     "text": "Downtown FM would love to do a live ninja warrior special. As soon as somebody tells us where to point the microphone.",
+     "dur": 7.9,
+     "cond": "nj5"
+    },
+    {
+     "src": "voice/radio/fm/dj_nj10.m4a",
+     "text": "Hi, long time listener. I saw the beams. They are beautiful? And a bit scary? Both. Mostly both.",
+     "dur": 10.78,
+     "cond": "nj10"
+    },
+    {
+     "src": "voice/radio/fm/dj_nj14.m4a",
+     "text": "That was a ninja track. Ninja, because nobody saw it coming. Thank you, I will be here all week.",
+     "dur": 8.31,
+     "cond": "nj14"
+    }
+   ]
+  },
+  "jazz": {
+   "idents": [
+    {
+     "src": "voice/radio/jazz/ident_id1.m4a",
+     "text": "Jazzy Jul, one oh one point five. Smooth like warm glögg.",
+     "dur": 7.74
+    }
+   ],
+   "over": [
+    {
+     "src": "voice/radio/jazz/over_ov1.m4a",
+     "text": "Smooth sailing from here.",
+     "dur": 3.08
+    },
+    {
+     "src": "voice/radio/jazz/over_ov2.m4a",
+     "text": "Easy now. Nice and slow.",
+     "dur": 4.47
+    }
+   ],
+   "dj": [
+    {
+     "src": "voice/radio/jazz/dj_d1.m4a",
+     "text": "That was smooth. Like ice on a road. Please drive carefully. I mean it.",
+     "dur": 9.01
+    },
+    {
+     "src": "voice/radio/jazz/dj_d2.m4a",
+     "text": "Jazzy Jul: the only station where the trombone wears a Santa hat.",
+     "dur": 5.89
+    },
+    {
+     "src": "voice/radio/jazz/dj_d3.m4a",
+     "text": "It is snowing out there, folks. Snow is the best drummer in town. Nobody asks it to solo.",
+     "dur": 9.89,
+     "cond": "snow"
+    },
+    {
+     "src": "voice/radio/jazz/dj_d4.m4a",
+     "text": "Dark, late, and a saxophone. Add cocoa. That is the whole recipe.",
+     "dur": 8.48,
+     "cond": "night"
+    },
+    {
+     "src": "voice/radio/jazz/dj_d5.m4a",
+     "text": "Word is the witch is nearby. Stay cool, stay jazzy. Witches hate a good walking bass line.",
+     "dur": 9.87,
+     "cond": "witch"
+    }
+   ]
+  },
+  "kor": {
+   "idents": [
+    {
+     "src": "voice/radio/kor/ident_id1.m4a",
+     "text": "Kor and Kirke, eighty-eight point two. Peace, quiet, and the occasional echo.",
+     "dur": 9.53
+    }
+   ],
+   "over": [
+    {
+     "src": "voice/radio/kor/over_ov1.m4a",
+     "text": "Let us listen together.",
+     "dur": 3.27
+    },
+    {
+     "src": "voice/radio/kor/over_ov2.m4a",
+     "text": "Quietly now. Something is listening back.",
+     "dur": 6.1
+    }
+   ],
+   "dj": [
+    {
+     "src": "voice/radio/kor/dj_d1.m4a",
+     "text": "Let us take a deep breath together. Now breathe out. Good. Something in the church just breathed out too.",
+     "dur": 12.43
+    },
+    {
+     "src": "voice/radio/kor/dj_d2.m4a",
+     "text": "Be kind this season. Even to the neighbour with the very loud snow blower.",
+     "dur": 7.83
+    },
+    {
+     "src": "voice/radio/kor/dj_d3.m4a",
+     "text": "Tonight's reading is from the book of Things We Should Not Say Out Loud. Amen.",
+     "dur": 8.14
+    },
+    {
+     "src": "voice/radio/kor/dj_d4.m4a",
+     "text": "The choir is rehearsing tonight. We do not have a choir. Anyway, lovely voices.",
+     "dur": 10.18,
+     "cond": "night"
+    },
+    {
+     "src": "voice/radio/kor/dj_d5.m4a",
+     "text": "If you see a witch on a broom, please do not wave. Thank you.",
+     "dur": 7.13,
+     "cond": "witch"
+    }
+   ]
+  },
+  "klassisk": {
+   "idents": [
+    {
+     "src": "voice/radio/klassisk/ident_id1.m4a",
+     "text": "Klassisk Jul, ninety-four point six. Because Christmas deserves violins.",
+     "dur": 7.45
+    }
+   ],
+   "over": [
+    {
+     "src": "voice/radio/klassisk/over_ov1.m4a",
+     "text": "Bravo. Please do not clap while driving.",
+     "dur": 4.88
+    },
+    {
+     "src": "voice/radio/klassisk/over_ov2.m4a",
+     "text": "A masterpiece. Or at least very old.",
+     "dur": 4.52
+    }
+   ],
+   "dj": [
+    {
+     "src": "voice/radio/klassisk/dj_d1.m4a",
+     "text": "Ah. Tchaikovsky. A man who understood sugar plums and loneliness.",
+     "dur": 7.01
+    },
+    {
+     "src": "voice/radio/klassisk/dj_d2.m4a",
+     "text": "You are listening to Klassisk Jul, where every piece is older than your car, and better maintained.",
+     "dur": 6.75
+    },
+    {
+     "src": "voice/radio/klassisk/dj_d3.m4a",
+     "text": "I am told some listeners drive during Bach. Admirable. Bach did not even have roads.",
+     "dur": 8.21
+    },
+    {
+     "src": "voice/radio/klassisk/dj_d4.m4a",
+     "text": "The weather is dramatic, as it should be. Crescendo, snow! Fortissimo, wind!",
+     "dur": 8.19,
+     "cond": "storm"
+    },
+    {
+     "src": "voice/radio/klassisk/dj_d5.m4a",
+     "text": "A rumour: the witch plays the harpsichord. Badly. Out of spite.",
+     "dur": 7.04,
+     "cond": "witch"
+    }
+   ]
+  },
+  "kvina": {
+   "idents": [
+    {
+     "src": "voice/radio/kvina/ident_id1.m4a",
+     "text": "Radio Kvina, one oh four point three. News, weather, and who parked where.",
+     "dur": 8.27
+    },
+    {
+     "src": "voice/radio/kvina/ident_id2.m4a",
+     "text": "You are tuned to Radio Kvina. If it happened within five kilometres, we already know.",
+     "dur": 7.86
+    }
+   ],
+   "over": [
+    {
+     "src": "voice/radio/kvina/over_ov1.m4a",
+     "text": "Some music, while we find the next headline.",
+     "dur": 3.94
+    },
+    {
+     "src": "voice/radio/kvina/over_ov2.m4a",
+     "text": "And now, music. Regional music!",
+     "dur": 4.83
+    }
+   ],
+   "dj": [
+    {
+     "src": "voice/radio/kvina/dj_d1.m4a",
+     "text": "This is Radio Kvina. Our reporters are out in the field. The field is cold. Back to the studio.",
+     "dur": 9.89
+    },
+    {
+     "src": "voice/radio/kvina/dj_d2.m4a",
+     "text": "Listener call in. Bjørn asks why there are footprints on his roof. Bjørn, we do not know. Check the chimney.",
+     "dur": 10.21
+    },
+    {
+     "src": "voice/radio/kvina/dj_d3.m4a",
+     "text": "Traffic update: a moose is standing on the road. The moose has right of way. The moose always has right of way.",
+     "dur": 8.55
+    },
+    {
+     "src": "voice/radio/kvina/dj_d4.m4a",
+     "text": "Community notice. The bake sale is on Saturday. Bring cash and a flashlight. The hall lights have opinions.",
+     "dur": 9.87
+    },
+    {
+     "src": "voice/radio/kvina/dj_d5.m4a",
+     "text": "Drivers on the road to Feda: it is a long way. Pack snacks and wave at the fjord.",
+     "dur": 6.44,
+     "cond": "feda"
+    },
+    {
+     "src": "voice/radio/kvina/dj_d6.m4a",
+     "text": "Council reminder. The troll caves are not a shortcut. They are also not a storage room.",
+     "dur": 7.88,
+     "cond": "cave"
+    },
+    {
+     "src": "voice/radio/kvina/dj_nj3.m4a",
+     "text": "Listener call in. Britt says there is a ninja course in Kvinesdal now. Britt, we have no further details. Nobody does. That is the whole story.",
+     "dur": 13.54,
+     "cond": "nj3"
+    },
+    {
+     "src": "voice/radio/kvina/dj_nj5.m4a",
+     "text": "Hello? Yes. I saw beams last night. Big white ones, going round and round in the sky. My dog barked at them. Then I barked at them too.",
+     "dur": 12.87,
+     "cond": "nj5"
+    },
+    {
+     "src": "voice/radio/kvina/dj_nj7.m4a",
+     "text": "Mixed reports tonight. Some say the lights are a ninja course. Some say the aurora is having a party. Some say aliens. One lady says it is her ex.",
+     "dur": 13.81,
+     "cond": "nj7"
+    },
+    {
+     "src": "voice/radio/kvina/dj_nj10.m4a",
+     "text": "Vox pop time. We asked a man on the street where the ninja course is. He said: if I knew, I would be there, and not on the street.",
+     "dur": 9.75,
+     "cond": "nj10"
+    },
+    {
+     "src": "voice/radio/kvina/dj_nj12.m4a",
+     "text": "Our reporter has been trying to find the ninja course all week. Update: she is lost. Please send soup.",
+     "dur": 9.27,
+     "cond": "nj12"
+    },
+    {
+     "src": "voice/radio/kvina/dj_nj14.m4a",
+     "text": "Reminder. If you find the ninja course, do tell us. Do not tell the neighbour. He will beat you to the prize.",
+     "dur": 9.99,
+     "cond": "nj14"
+    }
+   ]
+  },
+  "natt": {
+   "idents": [
+    {
+     "src": "voice/radio/natt/ident_id1.m4a",
+     "text": "Nattevakt, ninety-seven point seven. The station that stays up so you do not have to.",
+     "dur": 8.67
+    },
+    {
+     "src": "voice/radio/natt/ident_id2.m4a",
+     "text": "Nattevakt. Broadcasting from a room with no windows. Do not ask about the room.",
+     "dur": 8.89
+    }
+   ],
+   "over": [
+    {
+     "src": "voice/radio/natt/over_ov1.m4a",
+     "text": "Still up? Me too.",
+     "dur": 4.01
+    },
+    {
+     "src": "voice/radio/natt/over_ov2.m4a",
+     "text": "This one is for whoever is listening. Yes, you.",
+     "dur": 5.5
+    }
+   ],
+   "dj": [
+    {
+     "src": "voice/radio/natt/dj_d1.m4a",
+     "text": "Welcome back, night people. This is Nattevakt. If you hear footsteps, that is just the bass. Probably.",
+     "dur": 11.0
+    },
+    {
+     "src": "voice/radio/natt/dj_d2.m4a",
+     "text": "A caller says the moon is following her car. Ma'am, the moon follows everyone. It is just more polite about it.",
+     "dur": 10.42
+    },
+    {
+     "src": "voice/radio/natt/dj_d3.m4a",
+     "text": "The next track is a gift from a listener who wishes to remain, quite literally, unseen.",
+     "dur": 7.42
+    },
+    {
+     "src": "voice/radio/natt/dj_d4.m4a",
+     "text": "Tonight's dedication: to whoever is in the back seat. Please say hello.",
+     "dur": 7.35
+    },
+    {
+     "src": "voice/radio/natt/dj_d5.m4a",
+     "text": "The old house on the hill has its lights on again. We recommend not looking.",
+     "dur": 6.84,
+     "cond": "witch"
+    },
+    {
+     "src": "voice/radio/natt/dj_d6.m4a",
+     "text": "It is the middle of the night, which is when I do my best work, and when the radio does its worst.",
+     "dur": 8.24,
+     "cond": "night"
+    },
+    {
+     "src": "voice/radio/natt/dj_nj5.m4a",
+     "text": "The beams. Have you seen them? Of course you have. Did you notice they sweep in time with something? Something is keeping the beat.",
+     "dur": 12.2,
+     "cond": "nj5"
+    },
+    {
+     "src": "voice/radio/natt/dj_nj10.m4a",
+     "text": "Some nights the lights stop. The valley goes quiet. Then they start again. Do not think about that.",
+     "dur": 9.87,
+     "cond": "nj10"
+    }
+   ]
+  }
+ },
+ "ads": [
+  {
+   "src": "voice/radio/ads/ad_lars.m4a",
+   "text": "Lutefisk Lars! Our fish is soaked in lye for six whole days, so you do not have to enjoy it. Lutefisk Lars: it is not a mistake, it is a tradition.",
+   "dur": 12.01
+  },
+  {
+   "src": "voice/radio/ads/ad_wash.m4a",
+   "text": "Is your car dirty? Drive it through Krågehølen Car Wash. We cannot promise it comes out cleaner. But it will come out. Mostly.",
+   "dur": 11.36
+  },
+  {
+   "src": "voice/radio/ads/ad_troll.m4a",
+   "text": "Troll problems? Call Troll Be Gone. Free estimates, free tea, and a free apology to the troll. Do not feed the troll. Trust us on this one.",
+   "dur": 12.65
+  },
+  {
+   "src": "voice/radio/ads/ad_nisse.m4a",
+   "text": "Nisse Safe Insurance. Covers snow, ice, avalanches, and that thing your brother did to the shed. Does not cover the witch. Nothing covers the witch.",
+   "dur": 12.99
+  },
+  {
+   "src": "voice/radio/ads/ad_bakery.m4a",
+   "text": "Granny Gunhild's Bakery. Fresh cinnamon buns every morning. Please stop mailing cookies to the old house on the hill. She is getting stronger. Granny Gunhild's: eat them before she does.",
+   "dur": 11.79
+  },
+  {
+   "src": "voice/radio/ads/ad_moving.m4a",
+   "text": "Gone Gone Moving. We carry your sofa, your piano, and your secrets. Our promise: we never ask what is in the cellar.",
+   "dur": 8.57
+  },
+  {
+   "src": "voice/radio/ads/ad_fish.m4a",
+   "text": "Fjord Fresh fish. Caught this morning, we think. Ask about our mystery fish. Seriously, ask somebody. We do not know either.",
+   "dur": 11.89
+  },
+  {
+   "src": "voice/radio/ads/ad_mittens.m4a",
+   "text": "Lost a mitten? Lost both? Found one on the road with a hand still in it? Call the Lost and Found. No questions. Okay, a few questions.",
+   "dur": 13.4
+  },
+  {
+   "src": "voice/radio/ads/ad_drops.m4a",
+   "text": "Sleepless? Try Doctor Lullaby's Night Drops. Side effects include sleeping, dreaming, and one very specific dream about a door. Do not open the door.",
+   "dur": 11.69,
+   "cond": "natt"
+  },
+  {
+   "src": "voice/radio/ads/ad_seven.m4a",
+   "text": "Tonight's programme is brought to you by the number seven. The number seven would like you to check behind you. That is all.",
+   "dur": 7.95,
+   "cond": "natt"
+  },
+  {
+   "src": "voice/radio/ads/ad_nj1.m4a",
+   "text": "Beamshade Optical. Sunglasses for the lights nobody can explain. Beamshade: because you looked.",
+   "dur": 6.63,
+   "cond": "nj4"
+  },
+  {
+   "src": "voice/radio/ads/ad_nj2.m4a",
+   "text": "Kvinesdal Tourist Office. Ask us about the ninja course. We will say: we do not know. Ask us again. We still do not know. Friendly service, zero answers.",
+   "dur": 14.65,
+   "cond": "nj8"
+  }
+ ],
+ "news": {
+  "open": [
+   {
+    "src": "voice/radio/news/open_open1.m4a",
+    "text": "Radio Kvina news.",
+    "dur": 3.35
+   },
+   {
+    "src": "voice/radio/news/open_open2.m4a",
+    "text": "This is Radio Kvina, with the news.",
+    "dur": 4.07
+   }
+  ],
+  "hour": {
+   "00": {
+    "src": "voice/radio/news/hour_h00.m4a",
+    "text": "It is midnight. The night shift begins.",
+    "dur": 4.54
+   },
+   "01": {
+    "src": "voice/radio/news/hour_h01.m4a",
+    "text": "It is one o'clock.",
+    "dur": 2.41
+   },
+   "02": {
+    "src": "voice/radio/news/hour_h02.m4a",
+    "text": "It is two o'clock.",
+    "dur": 2.41
+   },
+   "03": {
+    "src": "voice/radio/news/hour_h03.m4a",
+    "text": "It is three o'clock.",
+    "dur": 2.48
+   },
+   "04": {
+    "src": "voice/radio/news/hour_h04.m4a",
+    "text": "It is four o'clock.",
+    "dur": 2.45
+   },
+   "05": {
+    "src": "voice/radio/news/hour_h05.m4a",
+    "text": "It is five o'clock.",
+    "dur": 2.43
+   },
+   "06": {
+    "src": "voice/radio/news/hour_h06.m4a",
+    "text": "It is six o'clock. Good morning, early birds.",
+    "dur": 5.19
+   },
+   "07": {
+    "src": "voice/radio/news/hour_h07.m4a",
+    "text": "It is seven o'clock.",
+    "dur": 2.48
+   },
+   "08": {
+    "src": "voice/radio/news/hour_h08.m4a",
+    "text": "It is eight o'clock.",
+    "dur": 2.36
+   },
+   "09": {
+    "src": "voice/radio/news/hour_h09.m4a",
+    "text": "It is nine o'clock.",
+    "dur": 2.41
+   },
+   "10": {
+    "src": "voice/radio/news/hour_h10.m4a",
+    "text": "It is ten o'clock.",
+    "dur": 2.41
+   },
+   "11": {
+    "src": "voice/radio/news/hour_h11.m4a",
+    "text": "It is eleven o'clock.",
+    "dur": 2.65
+   },
+   "12": {
+    "src": "voice/radio/news/hour_h12.m4a",
+    "text": "It is noon. Lunch is on, so is the snow.",
+    "dur": 5.0
+   },
+   "13": {
+    "src": "voice/radio/news/hour_h13.m4a",
+    "text": "It is one o'clock.",
+    "dur": 2.41
+   },
+   "14": {
+    "src": "voice/radio/news/hour_h14.m4a",
+    "text": "It is two o'clock.",
+    "dur": 2.41
+   },
+   "15": {
+    "src": "voice/radio/news/hour_h15.m4a",
+    "text": "It is three o'clock.",
+    "dur": 2.48
+   },
+   "16": {
+    "src": "voice/radio/news/hour_h16.m4a",
+    "text": "It is four o'clock.",
+    "dur": 2.45
+   },
+   "17": {
+    "src": "voice/radio/news/hour_h17.m4a",
+    "text": "It is five o'clock.",
+    "dur": 2.43
+   },
+   "18": {
+    "src": "voice/radio/news/hour_h18.m4a",
+    "text": "It is six o'clock. Evening has arrived, and so has the dark.",
+    "dur": 5.93
+   },
+   "19": {
+    "src": "voice/radio/news/hour_h19.m4a",
+    "text": "It is seven o'clock.",
+    "dur": 2.48
+   },
+   "20": {
+    "src": "voice/radio/news/hour_h20.m4a",
+    "text": "It is eight o'clock.",
+    "dur": 2.36
+   },
+   "21": {
+    "src": "voice/radio/news/hour_h21.m4a",
+    "text": "It is nine o'clock.",
+    "dur": 2.41
+   },
+   "22": {
+    "src": "voice/radio/news/hour_h22.m4a",
+    "text": "It is ten o'clock. Late again, are we?",
+    "dur": 4.88
+   },
+   "23": {
+    "src": "voice/radio/news/hour_h23.m4a",
+    "text": "It is eleven o'clock.",
+    "dur": 2.65
+   }
+  },
+  "wx": {
+   "clear": {
+    "src": "voice/radio/news/wx_wx_clear.m4a",
+    "text": "Weather. Clear skies and sharp cold. Stars everywhere. Dress warm, and look up.",
+    "dur": 8.41,
+    "cond": "clear"
+   },
+   "light": {
+    "src": "voice/radio/news/wx_wx_light.m4a",
+    "text": "Weather. Light snow across the valley, collecting on roofs, cars, and the shoulders of anyone standing still too long.",
+    "dur": 8.57,
+    "cond": "light"
+   },
+   "steady": {
+    "src": "voice/radio/news/wx_wx_steady.m4a",
+    "text": "Weather. Steady snow all day. Shovel early. Shovel often. Shovel with feeling.",
+    "dur": 9.05,
+    "cond": "steady"
+   },
+   "heavy": {
+    "src": "voice/radio/news/wx_wx_storm.m4a",
+    "text": "Weather. A snowstorm is rolling in. Visibility zero. Courage optional.",
+    "dur": 7.76,
+    "cond": "heavy"
+   },
+   "fog": {
+    "src": "voice/radio/news/wx_wx_fog.m4a",
+    "text": "Weather. Thick fog over the woods. If a shape waves at you from the mist, do not wave back.",
+    "dur": 7.64,
+    "cond": "fog"
+   },
+   "frost": {
+    "src": "voice/radio/news/wx_wx_frost.m4a",
+    "text": "Weather. Hard frost tonight. The pipes will complain. So will you.",
+    "dur": 7.33,
+    "cond": "frost"
+   },
+   "aurora": {
+    "src": "voice/radio/news/wx_wx_aurora.m4a",
+    "text": "Weather. The sky is on fire with green light tonight. Pull over, look up, then please continue driving.",
+    "dur": 8.43,
+    "cond": "aurora"
+   }
+  },
+  "state": {
+   "witchnear": {
+    "src": "voice/radio/news/state_st_witchnear.m4a",
+    "text": "Breaking. A witch was sighted very close to this very car. Listeners are advised to look in the mirror, and then not to.",
+    "dur": 8.91,
+    "cond": "witchnear"
+   },
+   "witch": {
+    "src": "voice/radio/news/state_st_witch.m4a",
+    "text": "The witch is still at large. Police say she had no comment, only a broom.",
+    "dur": 5.81,
+    "cond": "witch"
+   },
+   "boss": {
+    "src": "voice/radio/news/state_st_boss.m4a",
+    "text": "Sources say the showdown with the witch is today. Bring cookies. Bring courage. Bring more cookies.",
+    "dur": 8.93,
+    "cond": "boss"
+   },
+   "witchgone": {
+    "src": "voice/radio/news/state_st_witchgone.m4a",
+    "text": "Good news. The witch is gone. Residents report a strange silence and an unusually peaceful bakery.",
+    "dur": 7.9,
+    "cond": "witchgone"
+   },
+   "cave": {
+    "src": "voice/radio/news/state_st_cave.m4a",
+    "text": "Troll cave update. The trolls are reported grumpy but contained. Please do not knock.",
+    "dur": 7.47,
+    "cond": "cave"
+   },
+   "accident": {
+    "src": "voice/radio/news/state_st_accident.m4a",
+    "text": "Traffic. There has been an accident on the roads. Slow down. Snow is not a suggestion.",
+    "dur": 8.45,
+    "cond": "accident"
+   },
+   "feda": {
+    "src": "voice/radio/news/state_st_feda.m4a",
+    "text": "Road report. The long drive to Feda is open. Fjord views, no cafes.",
+    "dur": 7.47,
+    "cond": "feda"
+   },
+   "night": {
+    "src": "voice/radio/news/state_st_night.m4a",
+    "text": "Night advisory. After dark the town belongs to the owls, the moose, and things that borrow both.",
+    "dur": 7.25,
+    "cond": "night"
+   },
+   "xmas": {
+    "src": "voice/radio/news/state_st_xmas.m4a",
+    "text": "Christmas is getting closer. Wrap gifts, hide cookies, and lock the pantry.",
+    "dur": 6.41,
+    "cond": "xmas"
+   },
+   "viral": {
+    "src": "voice/radio/news/state_st_viral.m4a",
+    "text": "A reader sent us this video. It shows a car where a car should not be, a great many people leaving the pavement in a hurry, and one Christmas hat in orbit. The reader asks us not to name the driver. We do not have to. Everyone has already seen it.",
+    "dur": 16.81,
+    "cond": "viral"
+   },
+   "viralchase": {
+    "src": "voice/radio/news/state_st_viralchase.m4a",
+    "text": "A reader sent us this video of a police chase through the centre, filmed with a thumb over a third of the lens. The police thank the public and ask that next time we film sideways.",
+    "dur": 10.64,
+    "cond": "viralchase"
+   },
+   "viralbang": {
+    "src": "voice/radio/news/state_st_viralbang.m4a",
+    "text": "A reader sent us this video of fireworks going off right in the middle of town. Loud, bright, and apparently very festive. Please keep your dogs inside, and your eyebrows back.",
+    "dur": 12.25,
+    "cond": "viralbang"
+   },
+   "viraltroll": {
+    "src": "voice/radio/news/state_st_viraltroll.m4a",
+    "text": "A reader sent us this video. It shows a troll. In town. The reader says he was only borrowing a cup of coffee. The troll has not commented.",
+    "dur": 11.69,
+    "cond": "viraltroll"
+   },
+   "viralgood": {
+    "src": "voice/radio/news/state_st_viralgood.m4a",
+    "text": "And some good news. A reader sent us this video of someone helping a neighbour, with no reason given and no reward asked. The comments are all hearts. Please do it again.",
+    "dur": 12.41,
+    "cond": "viralgood"
+   },
+   "calm": {
+    "src": "voice/radio/news/state_st_calm.m4a",
+    "text": "And in other news: nothing happened. The town thanks you for your patience.",
+    "dur": 5.93,
+    "cond": "calm"
+   },
+   "nj3": {
+    "src": "voice/radio/news/state_st_nj3.m4a",
+    "text": "Big news. Kvinesdal has got its very own ninja warrior course. Yes, really. Obstacles, a timer, a crowd, and a pool. The organisers have not said where it is. Or who built it. Or when.",
+    "dur": 17.5,
+    "cond": "nj3"
+   },
+   "nj5": {
+    "src": "voice/radio/news/state_st_nj5.m4a",
+    "text": "More on the ninja course. Sources say it is enormous. Our reporter has not seen it. Our reporter's sources have, and then they went quiet and looked at their boots.",
+    "dur": 11.93,
+    "cond": "nj5"
+   },
+   "nj7": {
+    "src": "voice/radio/news/state_st_nj7.m4a",
+    "text": "Locals report strange lights in the sky at night. Long white beams, sweeping slowly, some of them blue. The council says it is not them. The church says it is not them. The bakery says no comment, but looks nervous.",
+    "dur": 16.06,
+    "cond": "nj7"
+   },
+   "nj10": {
+    "src": "voice/radio/news/state_st_nj10.m4a",
+    "text": "Rumour of the week. The first person to find the ninja course gets a prize. Nobody knows what the prize is. Nobody knows who is giving it. Radio Kvina would like it to be cookies.",
+    "dur": 14.0,
+    "cond": "nj10"
+   },
+   "nj14": {
+    "src": "voice/radio/news/state_st_nj14.m4a",
+    "text": "The ninja course again. Listeners say the beams can now be seen from nearly every window in the valley. The organisers will still not say where it is. We asked three times. The third time they hung up.",
+    "dur": 14.29,
+    "cond": "nj14"
+   },
+   "nj18": {
+    "src": "voice/radio/news/state_st_nj18.m4a",
+    "text": "Listener poll. How many of you have seen the lights? Nearly everyone. How many of you know where they come from? Nobody. Where is it? Radio Kvina wants to know. So does everyone.",
+    "dur": 16.13,
+    "cond": "nj18"
+   }
+  },
+  "close": [
+   {
+    "src": "voice/radio/news/close_close1.m4a",
+    "text": "That was the news. Stay warm, stay safe, stay in the car.",
+    "dur": 5.81
+   },
+   {
+    "src": "voice/radio/news/close_close2.m4a",
+    "text": "More at the top of the next hour. Or whenever something happens.",
+    "dur": 5.09
+   }
+  ]
+ },
+ "nattSongs": [
+  [
+   "radio/natt/spooky.m4a",
+   "Creepy Ambient Loop",
+   "epb9000",
+   58.91,
+   "CC0",
+   "https://opengameart.org/content/creepy-ambient-loop"
+  ],
+  [
+   "radio/natt/waltz.m4a",
+   "Spooky Waltz (music box)",
+   "Aureolus_Omicron",
+   106.67,
+   "CC0",
+   "https://opengameart.org/content/4-music-box-tracks"
+  ],
+  [
+   "radio/natt/forest.m4a",
+   "Cathedral in the Forest",
+   "congusbongus",
+   136.97,
+   "CC0",
+   "https://opengameart.org/content/cathedral-in-the-forest"
+  ],
+  [
+   "radio/natt/ship.m4a",
+   "Background Space Track",
+   "yd",
+   226.29,
+   "CC0",
+   "https://opengameart.org/content/background-space-track"
+  ],
+  [
+   "radio/natt/mountain.m4a",
+   "Inside the Mountain",
+   "tcarisland",
+   153.65,
+   "CC BY 4.0",
+   "https://opengameart.org/content/inside-the-mountain"
+  ]
+ ]
+}

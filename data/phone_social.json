@@ -1,0 +1,2219 @@
+{
+ "_about": "Data for the phone's social engine (/* phonesocial */ in index.html, job phonesocial). Edit freely. Templates: {name} person, {item} item, {n} amount, {ref} who has it, {shop} shop, {until} closing time, {home} where. Moods: good / ok / grumpy. Personas: warm, gruff, shy, biz, mum. Sched: h=[from,to] game hours (wraps past midnight), days='all'|'sun'|'mon-sat', k=sleep|work|church|out|home, at=place. A person's own 'lines' override the persona pool. 'enabled:false' items are listed for later: nothing in the game uses them yet (items must make sense).",
+ "version": 1,
+ "tune": {
+  "debtDueH": 24,
+  "nagGapH": 14,
+  "maxOutstanding": 3,
+  "repLate": -2,
+  "relCookies": 2,
+  "relRepay": 1,
+  "relLateMax": -3,
+  "batteryHoursFull": 72,
+  "falseAlarmKr": 200,
+  "ambulanceCooldownH": 3,
+  "momEveryH": [
+   7,
+   12
+  ],
+  "unknownEveryMin": [
+   5,
+   11
+  ],
+  "replyAwakeSec": [
+   10,
+   40
+  ],
+  "replyFarSec": [
+   25,
+   90
+  ],
+  "bagSec": [
+   25,
+   70
+  ]
+ },
+ "items": {
+  "sukker": {
+   "n": "sugar",
+   "no": "sukker",
+   "kw": [
+    "sugar",
+    "sukker"
+   ],
+   "q": 1,
+   "price": 29,
+   "ac": [
+    "surgeon"
+   ]
+  },
+  "mel": {
+   "n": "flour",
+   "no": "mel",
+   "kw": [
+    "flour",
+    "mel"
+   ],
+   "q": 1,
+   "price": 35,
+   "ac": [
+    "flower"
+   ]
+  },
+  "egg": {
+   "n": "eggs",
+   "no": "egg",
+   "kw": [
+    "egg"
+   ],
+   "q": 1,
+   "price": 49,
+   "ac": [
+    "eggplant"
+   ]
+  },
+  "smor": {
+   "n": "butter",
+   "no": "smor",
+   "kw": [
+    "butter",
+    "smor",
+    "smør"
+   ],
+   "q": 1,
+   "price": 69,
+   "ac": [
+    "batter"
+   ]
+  },
+  "melk": {
+   "n": "milk",
+   "no": "melk",
+   "kw": [
+    "milk",
+    "melk"
+   ],
+   "q": 1,
+   "price": 24,
+   "ac": [
+    "mile"
+   ],
+   "def": {
+    "n": "Melk (milk)",
+    "c": "#f4f4ff"
+   }
+  },
+  "gjaer": {
+   "n": "yeast",
+   "no": "gjaer",
+   "kw": [
+    "yeast",
+    "gjaer",
+    "gjær"
+   ],
+   "q": 1,
+   "price": 19,
+   "ac": [
+    "east"
+   ]
+  },
+  "kakaopulver": {
+   "n": "cocoa powder",
+   "no": "kakao",
+   "kw": [
+    "cocoa",
+    "kakao"
+   ],
+   "q": 1,
+   "price": 39,
+   "ac": [
+    "coco"
+   ]
+  },
+  "pepperkakekrydder": {
+   "n": "gingerbread spice (cinnamon, ginger)",
+   "no": "pepperkakekrydder",
+   "kw": [
+    "cinnamon",
+    "kanel",
+    "ginger",
+    "ingefaer",
+    "ingefær",
+    "spice",
+    "krydder",
+    "clove"
+   ],
+   "q": 1,
+   "price": 39,
+   "ac": [
+    "gingivitis"
+   ]
+  },
+  "sirup": {
+   "n": "dark syrup",
+   "no": "sirup",
+   "kw": [
+    "syrup",
+    "sirup"
+   ],
+   "q": 1,
+   "price": 45,
+   "ac": [
+    "surprise"
+   ]
+  },
+  "sjokolade": {
+   "n": "cooking chocolate",
+   "no": "sjokolade",
+   "kw": [
+    "chocolate",
+    "sjokolade"
+   ],
+   "q": 1,
+   "price": 49
+  },
+  "eplemost": {
+   "n": "apple juice",
+   "no": "eplemost",
+   "kw": [
+    "apple",
+    "eplemost",
+    "juice",
+    "most"
+   ],
+   "q": 1,
+   "price": 59,
+   "ac": [
+    "apple moose"
+   ],
+   "def": {
+    "n": "Eplemost (apple juice)",
+    "c": "#d8b84a"
+   }
+  },
+  "telys": {
+   "n": "tea lights",
+   "no": "telys",
+   "kw": [
+    "tea light",
+    "telys",
+    "candle",
+    "lys"
+   ],
+   "q": 2,
+   "price": 15,
+   "ac": [
+    "tea leaves"
+   ]
+  },
+  "oil": {
+   "n": "lantern oil",
+   "no": "lampeolje",
+   "kw": [
+    "oil",
+    "olje",
+    "lampeolje"
+   ],
+   "q": 1,
+   "price": 79,
+   "ac": [
+    "oily"
+   ]
+  },
+  "battery": {
+   "n": "batteries (AA x4)",
+   "no": "batterier",
+   "kw": [
+    "batter",
+    "batteri",
+    "aa "
+   ],
+   "q": 1,
+   "price": 69,
+   "ac": [
+    "bat eaters"
+   ]
+  },
+  "stekeform": {
+   "n": "baking tin",
+   "no": "stekeform",
+   "kw": [
+    "tin",
+    "stekeform"
+   ],
+   "enabled": false
+  },
+  "kjevle": {
+   "n": "rolling pin",
+   "no": "kjevle",
+   "kw": [
+    "rolling pin",
+    "kjevle"
+   ],
+   "enabled": false
+  },
+  "fyrstikker": {
+   "n": "matches",
+   "no": "fyrstikker",
+   "kw": [
+    "match",
+    "fyrstikk"
+   ],
+   "enabled": false
+  },
+  "ved": {
+   "n": "firewood",
+   "no": "ved",
+   "kw": [
+    "firewood",
+    "wood",
+    "ved"
+   ],
+   "enabled": false
+  },
+  "isalt": {
+   "n": "salt for the ice",
+   "no": "veisalt",
+   "kw": [
+    "salt"
+   ],
+   "enabled": false
+  },
+  "snoskuffe": {
+   "n": "snow shovel",
+   "no": "snoskuffe",
+   "kw": [
+    "shovel",
+    "skuffe"
+   ],
+   "enabled": false
+  },
+  "pulk": {
+   "n": "sled",
+   "no": "pulk",
+   "kw": [
+    "sled",
+    "pulk"
+   ],
+   "enabled": false
+  },
+  "startkabler": {
+   "n": "jumper cables",
+   "no": "startkabler",
+   "kw": [
+    "jumper",
+    "cables",
+    "startkabler"
+   ],
+   "enabled": false
+  },
+  "stige": {
+   "n": "ladder",
+   "no": "stige",
+   "kw": [
+    "ladder",
+    "stige"
+   ],
+   "enabled": false
+  },
+  "pepperkake": {
+   "n": "cookies (pepperkaker)",
+   "no": "pepperkaker",
+   "kw": [
+    "cookie",
+    "pepperkake"
+   ],
+   "q": 6,
+   "price": 0
+  }
+ },
+ "cookies": {
+  "pepperkake": 1,
+  "pepperkake_perfect": 2,
+  "lussekatt": 1,
+  "lussekatt_perfect": 2,
+  "vafler": 1,
+  "vafler_perfect": 2,
+  "skillingsbolle": 1,
+  "julekake": 3,
+  "gulrotkake": 3,
+  "pepperkakehus": 6,
+  "pepperkake_brent": 0.3,
+  "lussekatt_brent": 0.3,
+  "vafler_brent": 0.3,
+  "pepperkakehus_perfect": 7,
+  "pepperkakehus_brent": 0.3
+ },
+ "people": {
+  "olsen": {
+   "name": "Fru Olsen",
+   "persona": "warm",
+   "role": "neighbour, west of your house",
+   "start": true,
+   "temper": 1.0,
+   "deliver": "door",
+   "kid": "Per-Anders (7)",
+   "home": "the yellow house next door (west)",
+   "sched": [
+    {
+     "h": [
+      22,
+      6.5
+     ],
+     "k": "sleep"
+    },
+    {
+     "h": [
+      10,
+      11.5
+     ],
+     "days": "sun",
+     "k": "church",
+     "at": "the church"
+    },
+    {
+     "h": [
+      13,
+      15
+     ],
+     "k": "out",
+     "at": "the walk with the dog"
+    }
+   ],
+   "lends": {
+    "sukker": 3,
+    "mel": 3,
+    "egg": 2,
+    "smor": 2,
+    "melk": 2,
+    "gjaer": 1,
+    "pepperkakekrydder": 2,
+    "kakaopulver": 1,
+    "telys": 4,
+    "eplemost": 1
+   },
+   "lines": {
+    "chat": {
+     "ok": [
+      "Hei hei. Just knitting. I am making a hat for the snowman. Not mine. He just stands there.",
+      "I heard humming under your floor last night. Lovely voice. Do not tell her I said that."
+     ]
+    }
+   },
+   "voice": "w_old",
+   "car": true
+  },
+  "berg": {
+   "name": "Herr Berg",
+   "persona": "gruff",
+   "role": "neighbour, east of your house",
+   "start": true,
+   "temper": -0.4,
+   "deliver": "door",
+   "home": "the grey house next door (east)",
+   "sched": [
+    {
+     "h": [
+      21,
+      5.5
+     ],
+     "k": "sleep"
+    },
+    {
+     "h": [
+      9,
+      11
+     ],
+     "k": "out",
+     "at": "the shed"
+    }
+   ],
+   "lends": {
+    "battery": 2,
+    "oil": 1,
+    "telys": 3,
+    "melk": 2,
+    "sukker": 1,
+    "kakaopulver": 1
+   },
+   "lines": {
+    "chat": {
+     "ok": [
+      "Hm. Snow again. In my day we had more. And it was colder. And we liked it.",
+      "I keep the shed locked. For good reasons. Ask about the shed again and I will stop answering."
+     ]
+    }
+   },
+   "voice": "m_old",
+   "car": true
+  },
+  "tora": {
+   "name": "Tora",
+   "persona": "warm",
+   "role": "baker, Bakeriet",
+   "pos": [
+    -6,
+    22
+   ],
+   "shop": {
+    "name": "Bakeriet",
+    "cat": "bakery"
+   },
+   "temper": 0.8,
+   "deliver": "come",
+   "kid": "her nephew Åsmund",
+   "home": "the flat above Bakeriet",
+   "sched": [
+    {
+     "h": [
+      22,
+      5.5
+     ],
+     "k": "sleep"
+    },
+    {
+     "h": [
+      5.5,
+      8
+     ],
+     "k": "work",
+     "at": "Bakeriet (baking, doors closed)",
+     "closed": true
+    },
+    {
+     "h": [
+      8,
+      17
+     ],
+     "days": "mon-sat",
+     "k": "work",
+     "at": "Bakeriet"
+    },
+    {
+     "h": [
+      10,
+      11.5
+     ],
+     "days": "sun",
+     "k": "church",
+     "at": "the church"
+    }
+   ],
+   "lends": {
+    "mel": 4,
+    "sukker": 3,
+    "smor": 3,
+    "egg": 3,
+    "gjaer": 4,
+    "sirup": 1,
+    "melk": 1,
+    "pepperkakekrydder": 1
+   },
+   "open": [
+    8,
+    17
+   ],
+   "openDays": "mon-sat",
+   "voice": "w_adult"
+  },
+  "gunnar": {
+   "name": "Gunnar",
+   "persona": "gruff",
+   "role": "runs Kiosken",
+   "pos": [
+    -17,
+    2
+   ],
+   "shop": {
+    "name": "Kiosken",
+    "cat": "kiosk"
+   },
+   "temper": -0.2,
+   "deliver": "come",
+   "home": "behind the kiosk",
+   "sched": [
+    {
+     "h": [
+      1,
+      8
+     ],
+     "k": "sleep"
+    },
+    {
+     "h": [
+      9,
+      21
+     ],
+     "k": "work",
+     "at": "Kiosken"
+    }
+   ],
+   "lends": {
+    "sukker": 2,
+    "battery": 3,
+    "sjokolade": 2
+   },
+   "open": [
+    9,
+    21
+   ],
+   "openDays": "all",
+   "voice": "m_adult"
+  },
+  "kari": {
+   "name": "Kari",
+   "persona": "warm",
+   "role": "runs Kafeen",
+   "pos": [
+    -14,
+    25
+   ],
+   "shop": {
+    "name": "Kafeen",
+    "cat": "cafe"
+   },
+   "temper": 0.9,
+   "deliver": "come",
+   "home": "above Kafeen",
+   "sched": [
+    {
+     "h": [
+      22,
+      6
+     ],
+     "k": "sleep"
+    },
+    {
+     "h": [
+      9,
+      20
+     ],
+     "days": "mon-sat",
+     "k": "work",
+     "at": "Kafeen"
+    },
+    {
+     "h": [
+      12,
+      18
+     ],
+     "days": "sun",
+     "k": "work",
+     "at": "Kafeen"
+    }
+   ],
+   "lends": {
+    "kakaopulver": 3,
+    "melk": 3,
+    "pepperkakekrydder": 3,
+    "sukker": 2,
+    "eplemost": 2,
+    "sirup": 1,
+    "sjokolade": 1
+   },
+   "open": [
+    9,
+    20
+   ],
+   "openDays": "all",
+   "voice": "w_adult"
+  },
+  "gudrun": {
+   "name": "Gudrun",
+   "persona": "warm",
+   "role": "helps Kari at Kafeen, knits",
+   "pos": [
+    -14,
+    25
+   ],
+   "temper": 0.6,
+   "deliver": "kid",
+   "kid": "her grandson Magnus",
+   "home": "Furuvegen, the white house",
+   "sched": [
+    {
+     "h": [
+      21.5,
+      6.5
+     ],
+     "k": "sleep"
+    },
+    {
+     "h": [
+      10,
+      17
+     ],
+     "days": "mon-sat",
+     "k": "work",
+     "at": "Kafeen"
+    },
+    {
+     "h": [
+      10,
+      11.5
+     ],
+     "days": "sun",
+     "k": "church",
+     "at": "the church"
+    }
+   ],
+   "lends": {
+    "melk": 1,
+    "sukker": 2,
+    "telys": 3,
+    "mel": 1
+   },
+   "voice": "w_old"
+  },
+  "hilde": {
+   "name": "Hilde",
+   "persona": "warm",
+   "role": "florist",
+   "pos": [
+    -2,
+    16
+   ],
+   "shop": {
+    "name": "Blomsterhjørnet",
+    "cat": "florist"
+   },
+   "temper": 0.7,
+   "deliver": "come",
+   "home": "above the flower shop",
+   "sched": [
+    {
+     "h": [
+      23,
+      7
+     ],
+     "k": "sleep"
+    },
+    {
+     "h": [
+      10,
+      17
+     ],
+     "days": "mon-sat",
+     "k": "work",
+     "at": "Blomsterhjørnet"
+    }
+   ],
+   "lends": {
+    "telys": 5,
+    "oil": 2,
+    "eplemost": 1
+   },
+   "open": [
+    10,
+    17
+   ],
+   "openDays": "mon-sat",
+   "voice": "w_adult"
+  },
+  "hansen": {
+   "name": "Fru Hansen",
+   "persona": "biz",
+   "role": "owns Nico Mat",
+   "pos": [
+    -25.8,
+    -25.5
+   ],
+   "shop": {
+    "name": "Nico Mat",
+    "cat": "grocery"
+   },
+   "temper": 0.3,
+   "deliver": "come",
+   "home": "the flat over Nico Mat",
+   "start": false,
+   "sched": [
+    {
+     "h": [
+      22,
+      6
+     ],
+     "k": "sleep"
+    },
+    {
+     "h": [
+      8,
+      21
+     ],
+     "days": "mon-sat",
+     "k": "work",
+     "at": "Nico Mat"
+    },
+    {
+     "h": [
+      12,
+      18
+     ],
+     "days": "sun",
+     "k": "work",
+     "at": "Nico Mat"
+    }
+   ],
+   "lends": {
+    "mel": 9,
+    "sukker": 9,
+    "egg": 9,
+    "smor": 9,
+    "melk": 9,
+    "gjaer": 9,
+    "kakaopulver": 4,
+    "sjokolade": 4,
+    "sirup": 3,
+    "eplemost": 3,
+    "battery": 5,
+    "pepperkakekrydder": 4
+   },
+   "open": [
+    8,
+    21
+   ],
+   "openDays": "all",
+   "voice": "w_adult",
+   "car": true
+  },
+  "nils": {
+   "name": "Nils",
+   "persona": "shy",
+   "role": "shelf-stacker at Nico Mat, skis",
+   "pos": [
+    -27,
+    -4
+   ],
+   "temper": 0.2,
+   "deliver": "door",
+   "home": "a flat on Nesgata",
+   "sched": [
+    {
+     "h": [
+      23,
+      6
+     ],
+     "k": "sleep"
+    },
+    {
+     "h": [
+      7,
+      9
+     ],
+     "k": "out",
+     "at": "the ski trail"
+    },
+    {
+     "h": [
+      9,
+      17
+     ],
+     "days": "mon-sat",
+     "k": "work",
+     "at": "Nico Mat"
+    }
+   ],
+   "lends": {
+    "battery": 1,
+    "telys": 2,
+    "oil": 2
+   },
+   "voice": "m_young"
+  },
+  "roger": {
+   "name": "Roger",
+   "persona": "gruff",
+   "role": "runs Bowlinghallen",
+   "pos": [
+    47,
+    -498
+   ],
+   "shop": {
+    "name": "Bowlinghallen",
+    "cat": "bowling"
+   },
+   "temper": 0.1,
+   "deliver": "come",
+   "home": "behind the lanes",
+   "sched": [
+    {
+     "h": [
+      2,
+      10
+     ],
+     "k": "sleep"
+    },
+    {
+     "h": [
+      12,
+      23
+     ],
+     "k": "work",
+     "at": "Bowlinghallen"
+    }
+   ],
+   "lends": {
+    "battery": 4,
+    "oil": 1,
+    "telys": 2
+   },
+   "open": [
+    12,
+    23
+   ],
+   "openDays": "all",
+   "voice": "m_adult",
+   "car": true
+  },
+  "emil": {
+   "name": "Emil",
+   "persona": "shy",
+   "role": "kid, always at the church",
+   "pos": [
+    -80,
+    -122
+   ],
+   "temper": 0.3,
+   "deliver": "kid",
+   "kid": "Emil himself",
+   "home": "by the church",
+   "sched": [
+    {
+     "h": [
+      20.5,
+      7
+     ],
+     "k": "sleep"
+    },
+    {
+     "h": [
+      9.5,
+      12
+     ],
+     "days": "sun",
+     "k": "church",
+     "at": "the church"
+    },
+    {
+     "h": [
+      15,
+      18
+     ],
+     "k": "out",
+     "at": "the churchyard hill"
+    }
+   ],
+   "lends": {
+    "telys": 4,
+    "sukker": 1
+   },
+   "voice": "kid_m"
+  },
+  "silje": {
+   "name": "Silje",
+   "persona": "shy",
+   "role": "skater",
+   "pos": [
+    -4,
+    10
+   ],
+   "temper": 0.4,
+   "deliver": "kid",
+   "kid": "Silje, skating past",
+   "home": "Kirkegata",
+   "sched": [
+    {
+     "h": [
+      1,
+      10
+     ],
+     "k": "sleep"
+    },
+    {
+     "h": [
+      15,
+      19
+     ],
+     "k": "out",
+     "at": "the ice, skating"
+    }
+   ],
+   "lends": {
+    "sjokolade": 1,
+    "battery": 1,
+    "kakaopulver": 1
+   },
+   "voice": "w_young"
+  },
+  "apo": {
+   "name": "Apotek 1",
+   "persona": "biz",
+   "role": "the pharmacy",
+   "pos": [
+    -1,
+    36.4
+   ],
+   "shop": {
+    "name": "Apotek 1",
+    "cat": "pharmacy"
+   },
+   "temper": 0.2,
+   "deliver": "come",
+   "home": "the pharmacy",
+   "sched": [
+    {
+     "h": [
+      18,
+      9
+     ],
+     "k": "sleep"
+    },
+    {
+     "h": [
+      9,
+      18
+     ],
+     "days": "mon-sat",
+     "k": "work",
+     "at": "Apotek 1"
+    }
+   ],
+   "lends": {},
+   "open": [
+    9,
+    18
+   ],
+   "openDays": "mon-sat"
+  },
+  "mamma": {
+   "name": "Mamma",
+   "persona": "mum",
+   "role": "Chris's mum, far away",
+   "start": true,
+   "temper": 1.5,
+   "deliver": "mail",
+   "home": "back home",
+   "sched": [
+    {
+     "h": [
+      23,
+      7
+     ],
+     "k": "sleep"
+    }
+   ],
+   "lends": {
+    "pepperkake": 6
+   },
+   "voice": "w_adult"
+  }
+ },
+ "unknown": {
+  "id": "ukjent",
+  "name": "Ukjent"
+ },
+ "services": {
+  "112": {
+   "name": "Politiet 112",
+   "num": "112",
+   "greet": "Politiet, hva gjelder det? Police. What is it about?"
+  },
+  "110": {
+   "name": "Brann 110",
+   "num": "110",
+   "greet": "Brannvesenet, 110. Fire brigade. Where is the fire?"
+  },
+  "113": {
+   "name": "Ambulanse 113",
+   "num": "113",
+   "greet": "Medisinsk nødtelefon, 113. Medical emergency. What happened?"
+  },
+  "taxi": {
+   "name": "Kvinesdal Taxi",
+   "num": "07000",
+   "greet": "Kvinesdal Taxi, hei! Where do you want to go?"
+  },
+  "pizza": {
+   "name": "Pizzabakeren",
+   "num": "22222222",
+   "greet": "Pizzabakeren, hei! One hot pizza on its way?",
+   "item": "grandiosa_hot",
+   "n": 1,
+   "price": 99,
+   "fee": 29
+  },
+  "nico": {
+   "name": "Nico Mat levering",
+   "num": "33333333",
+   "greet": "Nico Mat. Groceries to your door, 29 kr. What do you need?",
+   "fee": 29
+  },
+  "tid": {
+   "name": "Tidsangivelsen",
+   "num": "1412",
+   "greet": "Ved det tredje slag er klokken..."
+  },
+  "vaer": {
+   "name": "Vaermeldingen",
+   "num": "1413",
+   "greet": "Weather forecast for Kvinesdal and the valley."
+  },
+  "radio": {
+   "name": "Radio Ønskelinjen",
+   "num": "99900999",
+   "greet": "Downtown FM request line! The DJ is mostly awake."
+  },
+  "bank": {
+   "name": "Sparebanken",
+   "num": "81500000",
+   "greet": "Sparebanken. Your call is important to us. Not very."
+  },
+  "lykta": {
+   "name": "Lykta",
+   "num": "0",
+   "greet": "..."
+  }
+ },
+ "taxiPlaces": [
+  {
+   "n": "Torget (the square)",
+   "x": -6,
+   "z": 30
+  },
+  {
+   "n": "Kirka (the church)",
+   "x": -77,
+   "z": -135
+  },
+  {
+   "n": "Bowlinghallen",
+   "x": 47,
+   "z": -498
+  },
+  {
+   "n": "Nico Mat",
+   "x": -25.8,
+   "z": -25.5
+  },
+  {
+   "n": "Home",
+   "x": 0,
+   "z": 0,
+   "home": true
+  }
+ ],
+ "nicoMenu": [
+  "mel",
+  "sukker",
+  "egg",
+  "smor",
+  "melk",
+  "gjaer",
+  "kakaopulver",
+  "sirup"
+ ],
+ "wrongNumber": [
+  "Hallo? ... Nei, du har ringt feil. This is a sheep farm. Mæ.",
+  "Hello? Hello? I am a washing machine repair man. Are you a washing machine?",
+  "Ja? -- Oh. Feil nummer. Wrong number. Merry Christmas to you and your washing machine.",
+  "Pizza? No. Taco? No. This is Kåre. Kåre does not cook. Goodbye.",
+  "(breathing)... (a very small bell)... (a click)",
+  "The number you have dialled is not in use. Or it is. In a way we do not discuss."
+ ],
+ "ukjent": [
+  "Du bor ikke alene. You do not live alone. -U",
+  "Jeg ser lyset i vinduet ditt. I can see the light in your window. -U",
+  "Pepperkaker. Ikke de grønne. Cookies. Not the green ones. -U",
+  "Hei. It smelled like gingerbread from the cellar tonight. That was not me. -U",
+  "Du har 1 ny venn. You have 1 new friend. Do not reply. -U",
+  "Mamma says hi. Mamma is not texting you. -U"
+ ],
+ "ukjentReply": [
+  "The number you are trying to text does not exist.",
+  "Message not delivered. Message delivered. Message was already there."
+ ],
+ "momCalls": [
+  "Hei, vennen! Have you eaten? Something green? NOT the green cookies. The other green.",
+  "Hei! Are you wearing the wool socks? The wool ones. Feet are where the cold starts.",
+  "It is Mamma. Nothing is wrong. I just had a feeling. Are the stairs icy? Put salt on them. Or a neighbour.",
+  "Hello you. I made too many cookies again. I will post some. Keep them away from the woman downstairs.",
+  "Hei Hei! Mamma here. Remember to say thank you to the neighbours. And bring back what you borrow!"
+ ],
+ "momTexts": [
+  "Hei vennen! Did you eat today? Klem, Mamma",
+  "Remember a hat. Klem Mamma",
+  "I sent cookies. Check the mailbox. Do not share with the witch (joke). Klem, Mamma"
+ ],
+ "intentsText": {
+  "borrow": [
+   "Hei {name}! Could I borrow some {item}? For cookies. Takk!",
+   "Hi {name}, sorry to ask. Do you have {item} to spare?",
+   "{name}! Emergency. No {item}. The cookies are crying."
+  ],
+  "help_ride": [
+   "Hi {name}, any chance of a ride into town?"
+  ],
+  "help_car": [
+   "{name}, my car is in trouble. Can you help?"
+  ],
+  "help_snow": [
+   "Hi {name}! Could someone shovel my steps? They are a skating rink."
+  ],
+  "chat": [
+   "Hei {name}! What's up?",
+   "Hi {name}. How are you?"
+  ],
+  "gossip": [
+   "Hei {name}, heard anything interesting?"
+  ],
+  "where": [
+   "Hi, where are you at the moment?"
+  ],
+  "open": [
+   "Hi {name}, are you open today?"
+  ],
+  "favour": [
+   "{name}, could you pop over for a minute?"
+  ],
+  "thanks": [
+   "Takk for sist! Thank you, {name}."
+  ],
+  "sorry": [
+   "{name}, I am sorry. Truly. Beklager."
+  ],
+  "repay": [
+   "{name}, I am returning what I owe. And a little extra."
+  ],
+  "cookies": [
+   "{name}! I made cookies. You get a plate."
+  ]
+ },
+ "lines": {
+  "warm": {
+   "borrow_door": {
+    "good": [
+     "Of course, dear! I will hang {item} on your door handle in a minute. Not the knob: it bites. (joke)",
+     "Selvfølgelig! {item} coming up. I will pop it on your steps. Say hi to the cookies."
+    ],
+    "ok": [
+     "Yes, I have {item}. I will put it on your door.",
+     "Okay! Bag on your door in a minute."
+    ],
+    "grumpy": [
+     "Mmm... yes. {item}. Door. Minute. Let me wake up.",
+     "Fine, fine. I will hang it on your door. It is early."
+    ]
+   },
+   "borrow_kid": {
+    "good": [
+     "Yes! {kid} will run it over, he loves to knock.",
+     "Ha, yes. {kid} is on his way with {item}."
+    ],
+    "ok": [
+     "Yes. {kid} brings {item}.",
+     "{kid} will bring it."
+    ],
+    "grumpy": [
+     "Mm. {kid} will bring it. Do not shout at him."
+    ]
+   },
+   "borrow_come": {
+    "good": [
+     "Come by {home} and it is yours! Bring a smile.",
+     "Of course! Pop by and I will hand you {item}."
+    ],
+    "ok": [
+     "Yes, come by and pick up {item}.",
+     "I have it. Come to {home}."
+    ],
+    "grumpy": [
+     "Come by. Do not stand in the cold."
+    ]
+   },
+   "borrow_mail": {
+    "good": [
+     "Of course sweetie. I will post some in the mailbox. Nothing green!",
+     "Cookies on the way, in the mailbox. Eat a vegetable too!"
+    ],
+    "ok": [
+     "Posting it now."
+    ],
+    "grumpy": [
+     "Posting it. You are so far away."
+    ]
+   },
+   "borrow_out": {
+    "good": [
+     "Oh no, I just ran out of {item}! Try {ref}. Tell them I sent you.",
+     "Skal være, but I gave my last {item} to the minister. {ref} will have it."
+    ],
+    "ok": [
+     "I am out of {item}. Try {ref}."
+    ],
+    "grumpy": [
+     "No {item}. Try {ref}. Good night."
+    ]
+   },
+   "borrow_no": {
+    "good": [
+     "Hmm. Not right now, dear."
+    ],
+    "ok": [
+     "I would rather not just now. We need to talk about last time."
+    ],
+    "grumpy": [
+     "No. Not after what you did. Good night."
+    ]
+   },
+   "borrow_owe": {
+    "good": [
+     "Of course! But first, you owe me {owed}. Cookies work. I will not say how much I like cookies."
+    ],
+    "ok": [
+     "First bring back {owed}, then we talk."
+    ],
+    "grumpy": [
+     "You still owe me {owed}. Then ask."
+    ]
+   },
+   "borrow_what": {
+    "ok": [
+     "I have one, dear, but what would you do with it? Come over and tell me."
+    ]
+   },
+   "asleep": {
+    "ok": [
+     "ZZZ... oh. Sorry, I was asleep! Morning, dear. Now what did you need?",
+     "Sorry for the late reply. The cat sat on the phone."
+    ],
+    "grumpy": [
+     "I was asleep!! It is the middle of the night, you silly. Ask again in the morning."
+    ]
+   },
+   "where": {
+    "sleep": [
+     "I am in bed, dear. Shhh.",
+     "Sleeping. Why are you awake?"
+    ],
+    "work": [
+     "I am at {at}. Come say hi.",
+     "At {at}, until {until}."
+    ],
+    "church": [
+     "At {at}. I am singing alto. Badly."
+    ],
+    "out": [
+     "Out: {at}. The cold is lovely.",
+     "{at}, but I have my phone."
+    ],
+    "home": [
+     "At home, in my chair, with the radio on. Door is open."
+    ]
+   },
+   "open_yes": [
+    "Open till {until}! Come in from the cold.",
+    "Yes, open. The kettle is on."
+   ],
+   "open_no": [
+    "Closed right now. Open {from}-{until}."
+   ],
+   "open_sun": [
+    "Closed on Sundays. Come tomorrow, dear."
+   ],
+   "open_none": [
+    "I am not a shop, dear, but my kitchen is always open."
+   ],
+   "chat": {
+    "good": [
+     "Oh, hello! I was just thinking of you. It is lovely out, in a cold way.",
+     "Everything is fine here. Why are you texting me, are you lonely? Come for coffee.",
+     "Hei! I am knitting. Currently a sock with three heels. It is a project."
+    ],
+    "ok": [
+     "Hei. All fine here. You?",
+     "Cold, but cosy."
+    ],
+    "grumpy": [
+     "Mm. Hi. What is it?",
+     "I'm tired, dear. What's up?"
+    ]
+   },
+   "gossip": [
+    "Have you heard? Someone was heard singing in the church at 3 AM. Not a person.",
+    "They say the new baker's apprentice is a ghost. He is very good with dough though.",
+    "Berg next door has been putting out salt for the elves. He denies it."
+   ],
+   "thanks": [
+    "Not at all, dear!",
+    "Ha, you are very welcome."
+   ],
+   "sorry": [
+    "Oh, it is fine. Forgotten already. Almost.",
+    "You are forgiven. Just bring cookies."
+   ],
+   "help_ride_yes": [
+    "Ja, I will drive you! Meet me outside. Do not slam the door of the car, it is old."
+   ],
+   "help_ride_no": [
+    "I do not drive in the dark, dear. Take the taxi: 07000."
+   ],
+   "help_car_yes": [
+    "I will ring NAF for you. They are quick. Take care of that car."
+   ],
+   "help_car_no": [
+    "I do not know cars. Call NAF Veihjelp, it is in your phone."
+   ],
+   "help_snow_yes": [
+    "My nephew will shovel your steps. I told him to. He agreed. Silently."
+   ],
+   "help_snow_no": [
+    "My back, dear. Ask a younger person."
+   ],
+   "favour_yes": [
+    "Of course! I will come by in a few minutes with some coffee."
+   ],
+   "favour_no": [
+    "Not today, my knees are on strike."
+   ],
+   "repay_cookie": [
+    "COOKIES! Oh you angel. Now we are even, and I think you are my favourite neighbour.",
+    "Pepperkaker! You are forgiven for everything, past and future."
+   ],
+   "repay_item": [
+    "Thank you, dear. We are even.",
+    "Back safely. Takk skal du ha!"
+   ],
+   "repay_kr": [
+    "Money? Well, that works too. Takk."
+   ],
+   "repay_none": [
+    "You do not owe me anything, dear!"
+   ],
+   "repay_bonus": [
+    "And EXTRA? Oh, you spoil me. Take a little something back."
+   ],
+   "nag1": [
+    "Hei dear, just a gentle reminder about the {item}? Whenever you can. Cookies are a lovely currency."
+   ],
+   "nag2": [
+    "Hello again. Still waiting for my {item}. No pressure. A little pressure."
+   ],
+   "nag3": [
+    "I am a bit sad about the {item}. Sad, not angry. Bring cookies."
+   ],
+   "cookie_gift": [
+    "For me? PEPPERKAKER! You are an angel. I will tell everyone."
+   ]
+  },
+  "gruff": {
+   "borrow_door": {
+    "good": [
+     "Ja. {item}. Door. Five minutes.",
+     "Fine. Hanging {item} on your handle. Do not forget to return it."
+    ],
+    "ok": [
+     "Yes. I will leave it on your door.",
+     "{item}. Door. Don't lose it."
+    ],
+    "grumpy": [
+     "...yes. At the door. Don't call me again today."
+    ]
+   },
+   "borrow_kid": {
+    "good": [
+     "{kid} will bring it."
+    ],
+    "ok": [
+     "{kid} is coming with it."
+    ],
+    "grumpy": [
+     "{kid} brings it. Don't talk to him."
+    ]
+   },
+   "borrow_come": {
+    "good": [
+     "Come by {home}. You can have {item}. Do not touch anything else.",
+     "Okay. Come. I have {item}."
+    ],
+    "ok": [
+     "Come to {home}. {item}. Quick.",
+     "Come by. I'm here."
+    ],
+    "grumpy": [
+     "Come to {home}. Quick. Not through the back."
+    ]
+   },
+   "borrow_mail": {
+    "ok": [
+     "In the post."
+    ]
+   },
+   "borrow_out": {
+    "good": [
+     "I'm out of {item}. Ask {ref}. They have everything.",
+     "Ingen {item} now. {ref} has."
+    ],
+    "ok": [
+     "No {item}. Try {ref}."
+    ],
+    "grumpy": [
+     "No. Out of {item}. {ref}. Bye."
+    ]
+   },
+   "borrow_no": {
+    "good": [
+     "No. Not today. Ask later."
+    ],
+    "ok": [
+     "No. After last time? No."
+    ],
+    "grumpy": [
+     "NO. Do not text me again about that. You know what you did."
+    ]
+   },
+   "borrow_owe": {
+    "good": [
+     "You still owe me {owed}. Pay up and ask again."
+    ],
+    "ok": [
+     "{owed}. First that. Then more."
+    ],
+    "grumpy": [
+     "Return {owed}. Then we talk."
+    ]
+   },
+   "borrow_what": {
+    "ok": [
+     "I've got one. What for? Tell me and maybe."
+    ]
+   },
+   "asleep": {
+    "ok": [
+     "Hm? ...Slept. What."
+    ],
+    "grumpy": [
+     "Do you KNOW what time it is? Text in the morning!",
+     "I was asleep. Do not do that again."
+    ]
+   },
+   "where": {
+    "sleep": [
+     "Asleep. You should be too.",
+     "In bed. Leave me."
+    ],
+    "work": [
+     "{at}. Working. Obviously.",
+     "At {at} until {until}."
+    ],
+    "church": [
+     "At {at}. Don't ask."
+    ],
+    "out": [
+     "{at}. Busy."
+    ],
+    "home": [
+     "Home. Sitting. Door's locked."
+    ]
+   },
+   "open_yes": [
+    "Open. Till {until}.",
+    "Yes. {until}."
+   ],
+   "open_no": [
+    "Closed. {from} to {until}."
+   ],
+   "open_sun": [
+    "Closed. It's Sunday."
+   ],
+   "open_none": [
+    "Not a shop."
+   ],
+   "chat": {
+    "good": [
+     "Hm. Cold. Good. You?",
+     "Same as always. Watching the snow. It is doing nothing. Like me."
+    ],
+    "ok": [
+     "Fine. What do you want?",
+     "Hm. Busy. Short."
+    ],
+    "grumpy": [
+     "What.",
+     "Don't."
+    ]
+   },
+   "gossip": [
+    "The baker says there is a ghost in the oven. I say it's the thermostat.",
+    "Someone stole a bag of salt from my shed. I know who. I always know who.",
+    "Strange lights near Nonskarknuten. I did not see anything. I did."
+   ],
+   "thanks": [
+    "Ja.",
+    "Hm. Welcome."
+   ],
+   "sorry": [
+    "Fine.",
+    "Hm. Forgotten. Mostly."
+   ],
+   "help_ride_yes": [
+    "Ok. Outside in a minute. Do not touch the radio."
+   ],
+   "help_ride_no": [
+    "No car today. Taxi: 07000."
+   ],
+   "help_car_yes": [
+    "I'll text NAF. Wait with the car."
+   ],
+   "help_car_no": [
+    "Call NAF. In your phone."
+   ],
+   "help_snow_yes": [
+    "I'll do your steps. Salt too. Leave me alone."
+   ],
+   "help_snow_no": [
+    "Do your own steps."
+   ],
+   "favour_yes": [
+    "Okay. Coming. Ten minutes."
+   ],
+   "favour_no": [
+    "No."
+   ],
+   "repay_cookie": [
+    "...Pepperkaker? ...Huh. Okay. We're even. Thank you. Do not say I said that.",
+    "Cookies. Fine. We are good now."
+   ],
+   "repay_item": [
+    "Good. Even."
+   ],
+   "repay_kr": [
+    "Money. Fine. Even."
+   ],
+   "repay_none": [
+    "You owe nothing."
+   ],
+   "repay_bonus": [
+    "Extra? Hm. Take this back. Stop being nice."
+   ],
+   "nag1": [
+    "The {item}. Return it."
+   ],
+   "nag2": [
+    "The {item}. Still waiting. Do not make me knock."
+   ],
+   "nag3": [
+    "I'm not angry about the {item}. I'm disappointed. It's worse."
+   ],
+   "cookie_gift": [
+    "Cookies? ...For me? Hm. Okay. Thank you."
+   ]
+  },
+  "shy": {
+   "borrow_door": {
+    "good": [
+     "Yes!! I will leave {item} at your door. I promise.",
+     "Okay! Yes! Bag on your door!"
+    ],
+    "ok": [
+     "Yes. I will hang {item} on your door.",
+     "Okay, I will bring it."
+    ],
+    "grumpy": [
+     "...yes. Okay."
+    ]
+   },
+   "borrow_kid": {
+    "good": [
+     "Yes! I will run it over. Fast!",
+     "Okay! I'm running!"
+    ],
+    "ok": [
+     "I'll bring {item} over myself.",
+     "Yes, I bring it."
+    ],
+    "grumpy": [
+     "...fine. I'll bring it."
+    ]
+   },
+   "borrow_come": {
+    "good": [
+     "Come to {home}, I'll have it for you!"
+    ],
+    "ok": [
+     "Come by {home}."
+    ],
+    "grumpy": [
+     "Come by. Quiet."
+    ]
+   },
+   "borrow_mail": {
+    "ok": [
+     "I'll post it."
+    ]
+   },
+   "borrow_out": {
+    "good": [
+     "Oh no, I have no {item}! Try {ref}!"
+    ],
+    "ok": [
+     "I'm out of {item}. {ref} maybe?"
+    ],
+    "grumpy": [
+     "No {item}... sorry. {ref}."
+    ]
+   },
+   "borrow_no": {
+    "good": [
+     "Sorry, I can't right now."
+    ],
+    "ok": [
+     "Mamma says no. Sorry."
+    ],
+    "grumpy": [
+     "No. Sorry. Please stop."
+    ]
+   },
+   "borrow_owe": {
+    "good": [
+     "You owe me {owed}. Sorry to say!"
+    ],
+    "ok": [
+     "You still have my {owed}."
+    ],
+    "grumpy": [
+     "{owed}. Please."
+    ]
+   },
+   "borrow_what": {
+    "ok": [
+     "I have one but I don't know why you want it?"
+    ]
+   },
+   "asleep": {
+    "ok": [
+     "Zzz... sorry!! I was asleep!"
+    ],
+    "grumpy": [
+     "I'm asleep. Please text later. Sorry."
+    ]
+   },
+   "where": {
+    "sleep": [
+     "In bed. Mamma says I must sleep."
+    ],
+    "work": [
+     "At {at}!"
+    ],
+    "church": [
+     "At {at}. It is boring. Do not tell the priest."
+    ],
+    "out": [
+     "{at}! It's fun. Come!"
+    ],
+    "home": [
+     "Home. Doing nothing."
+    ]
+   },
+   "open_yes": [
+    "Open! Till {until}!"
+   ],
+   "open_no": [
+    "Closed, sorry. {from}-{until}."
+   ],
+   "open_sun": [
+    "Closed on Sunday, sorry."
+   ],
+   "open_none": [
+    "I'm not a shop. Ha."
+   ],
+   "chat": {
+    "good": [
+     "Hi!! I found a snow cave. It's huge!",
+     "Hi! Hi! I'm good!"
+    ],
+    "ok": [
+     "Hi. I'm okay.",
+     "Hi. Not much."
+    ],
+    "grumpy": [
+     "Hi. Tired."
+    ]
+   },
+   "gossip": [
+    "Per says there's a monster in the pond. I think it's a duck.",
+    "Someone sang from the church tower at night. It wasn't Emil. I checked."
+   ],
+   "thanks": [
+    "It's fine!",
+    "You're welcome!"
+   ],
+   "sorry": [
+    "It's okay!",
+    "I forgot already. Promise."
+   ],
+   "help_ride_yes": [
+    "I can't drive, I'm a kid. Ha. Ask Berg."
+   ],
+   "help_ride_no": [
+    "I can't drive."
+   ],
+   "help_car_yes": [
+    "Mm, call NAF, they have the truck."
+   ],
+   "help_car_no": [
+    "I don't know cars."
+   ],
+   "help_snow_yes": [
+    "I will shovel! For a cookie!"
+   ],
+   "help_snow_no": [
+    "Too cold, sorry."
+   ],
+   "favour_yes": [
+    "Okay! I'm coming!"
+   ],
+   "favour_no": [
+    "Can't. Mamma says."
+   ],
+   "repay_cookie": [
+    "COOKIES!! Yes!! We're best friends now."
+   ],
+   "repay_item": [
+    "Thanks!! Even."
+   ],
+   "repay_kr": [
+    "Money!? Cool! Even."
+   ],
+   "repay_none": [
+    "You don't owe me anything!"
+   ],
+   "repay_bonus": [
+    "Extra!? Take a little back. Please."
+   ],
+   "nag1": [
+    "Um. Remember the {item}? Sorry."
+   ],
+   "nag2": [
+    "The {item}? Mamma asked."
+   ],
+   "nag3": [
+    "I'm sad about the {item}."
+   ],
+   "cookie_gift": [
+    "For me!? Thank you!!"
+   ]
+  },
+  "biz": {
+   "borrow_door": {
+    "good": [
+     "Of course. {item} will be delivered. On the account."
+    ],
+    "ok": [
+     "Yes. Delivered to your steps in a minute."
+    ],
+    "grumpy": [
+     "Yes. Delivered. Shortly."
+    ]
+   },
+   "borrow_kid": {
+    "good": [
+     "The boy will bring {item}."
+    ],
+    "ok": [
+     "Our delivery boy brings it."
+    ],
+    "grumpy": [
+     "Delivery boy. A moment."
+    ]
+   },
+   "borrow_come": {
+    "good": [
+     "Come to {home}, {item} is on the counter, with your name on it. Friend price.",
+     "Of course, come by. {item}, no hurry on the money."
+    ],
+    "ok": [
+     "Come by {home}. {item} is here. Pay or bring back, as agreed.",
+     "Yes. Come in. Counter."
+    ],
+    "grumpy": [
+     "Come in, {item} is at the counter."
+    ]
+   },
+   "borrow_mail": {
+    "ok": [
+     "Sent."
+    ]
+   },
+   "borrow_out": {
+    "good": [
+     "We are out of {item}. The truck comes tomorrow. {ref} might help."
+    ],
+    "ok": [
+     "Out of {item}. {ref}."
+    ],
+    "grumpy": [
+     "Out of {item}. Try {ref}."
+    ]
+   },
+   "borrow_no": {
+    "good": [
+     "I cannot do credit today."
+    ],
+    "ok": [
+     "Your account is... complicated. Please pay first."
+    ],
+    "grumpy": [
+     "Cash only for you. Sorry."
+    ]
+   },
+   "borrow_owe": {
+    "good": [
+     "Of course. First: {owed} from before. Then more."
+    ],
+    "ok": [
+     "Outstanding: {owed}. Then more."
+    ],
+    "grumpy": [
+     "{owed}. Then more."
+    ]
+   },
+   "borrow_what": {
+    "ok": [
+     "We don't carry that. Try the hardware."
+    ]
+   },
+   "asleep": {
+    "ok": [
+     "Sorry, off the clock. In the morning."
+    ],
+    "grumpy": [
+     "We are CLOSED. Shop opens at {from}."
+    ]
+   },
+   "where": {
+    "sleep": [
+     "Off the clock."
+    ],
+    "work": [
+     "At {at} until {until}."
+    ],
+    "church": [
+     "At {at}."
+    ],
+    "out": [
+     "Out, back soon."
+    ],
+    "home": [
+     "Upstairs. Ring the bell."
+    ]
+   },
+   "open_yes": [
+    "Yes. Open till {until}.",
+    "We are open until {until}. Eggs in stock."
+   ],
+   "open_no": [
+    "Closed. {from} to {until}."
+   ],
+   "open_sun": [
+    "Closed. Sunday."
+   ],
+   "open_none": [
+    "Not a shop."
+   ],
+   "chat": {
+    "good": [
+     "Hei! Busy but happy. The Christmas ham is selling fast.",
+     "Hi. Business is good. You?"
+    ],
+    "ok": [
+     "Hi. Working."
+    ],
+    "grumpy": [
+     "Hi. We are busy."
+    ]
+   },
+   "gossip": [
+    "Someone buys 40 eggs every Friday and I do not ask. Someone else buys nothing but coffee and glitter.",
+    "The man from the church keeps asking if we sell candles that burn blue. We do not."
+   ],
+   "thanks": [
+    "You are welcome. Hyggelig."
+   ],
+   "sorry": [
+    "No harm done."
+   ],
+   "help_ride_yes": [
+    "We can send the delivery car, 50 kr."
+   ],
+   "help_ride_no": [
+    "No transport. Taxi: 07000."
+   ],
+   "help_car_yes": [
+    "Call NAF Veihjelp. They're in your phone."
+   ],
+   "help_car_no": [
+    "No. Try NAF."
+   ],
+   "help_snow_yes": [
+    "Our boy will do your steps, 30 kr."
+   ],
+   "help_snow_no": [
+    "Not our service."
+   ],
+   "favour_yes": [
+    "I can come over after closing."
+   ],
+   "favour_no": [
+    "We are busy."
+   ],
+   "repay_cookie": [
+    "Pepperkaker. For the account? Gladly. Consider us even, and you get friend prices."
+   ],
+   "repay_item": [
+    "Received. Even."
+   ],
+   "repay_kr": [
+    "Received. Even. Takk."
+   ],
+   "repay_none": [
+    "Nothing outstanding."
+   ],
+   "repay_bonus": [
+    "A tip? Thank you. Take this back."
+   ],
+   "nag1": [
+    "Reminder: {item} outstanding."
+   ],
+   "nag2": [
+    "Second reminder: {item}."
+   ],
+   "nag3": [
+    "Final reminder: {item}. We are fond of you, but rules are rules."
+   ],
+   "cookie_gift": [
+    "Pepperkaker. For the staff room. Takk."
+   ]
+  },
+  "mum": {
+   "borrow_mail": {
+    "good": [
+     "Of course sweetie. A tin of cookies is on its way to the mailbox. I put in an extra. Do not share with the woman downstairs!",
+     "Cookies coming. Eat something green. NOT the green cookies. Klem, Mamma"
+    ],
+    "ok": [
+     "I'll post a tin in the mailbox. Klem."
+    ],
+    "grumpy": [
+     "It's late, but I will bake. Klem."
+    ]
+   },
+   "borrow_out": {
+    "ok": [
+     "I cannot send more cookies yet. The postman is frightened of the mailbox. Try again in a day or two."
+    ],
+    "good": [
+     "Mamma needs to bake more first. Soon, vennen."
+    ],
+    "grumpy": [
+     "Not yet."
+    ]
+   },
+   "borrow_no": {
+    "ok": [
+     "Not yet, honey."
+    ],
+    "good": [
+     "Not yet, honey."
+    ],
+    "grumpy": [
+     "Not yet, honey."
+    ]
+   },
+   "borrow_owe": {
+    "ok": [
+     "Eat these first."
+    ],
+    "good": [
+     "Eat these first."
+    ],
+    "grumpy": [
+     "Eat these first."
+    ]
+   },
+   "borrow_what": {
+    "ok": [
+     "Mamma only sends cookies, vennen."
+    ]
+   },
+   "asleep": {
+    "ok": [
+     "Mamma was asleep! Hei vennen. What?"
+    ],
+    "grumpy": [
+     "Mamma was SLEEPING. Text later, sweetie."
+    ]
+   },
+   "where": {
+    "sleep": [
+     "In bed, vennen."
+    ],
+    "work": [
+     "At home."
+    ],
+    "church": [
+     "At church."
+    ],
+    "out": [
+     "Out."
+    ],
+    "home": [
+     "At home, baking."
+    ]
+   },
+   "open_yes": [
+    "The kitchen is always open."
+   ],
+   "open_no": [
+    "The kitchen is always open."
+   ],
+   "open_sun": [
+    "Always open."
+   ],
+   "open_none": [
+    "The kitchen is always open."
+   ],
+   "chat": {
+    "good": [
+     "Hei vennen! It is snowing here. Are you wearing a hat? I worry.",
+     "Hi you. Are you eating? Eat. Something green."
+    ],
+    "ok": [
+     "Hei vennen."
+    ],
+    "grumpy": [
+     "Mamma is tired, vennen."
+    ]
+   },
+   "gossip": [
+    "The neighbour thinks the house is haunted. I told her it's the radiator.",
+    "Mrs. Tveit's dog ate the gingerbread house. The whole house. Roof and all."
+   ],
+   "thanks": [
+    "You are welcome, vennen."
+   ],
+   "sorry": [
+    "It's fine, vennen. Mamma loves you."
+   ],
+   "help_ride_yes": [
+    "Mamma lives too far to drive, vennen. Take the taxi: 07000."
+   ],
+   "help_ride_no": [
+    "Mamma lives too far."
+   ],
+   "help_car_yes": [
+    "Call NAF, sweetie."
+   ],
+   "help_car_no": [
+    "Call NAF, sweetie."
+   ],
+   "help_snow_yes": [
+    "Ask the neighbours, vennen."
+   ],
+   "help_snow_no": [
+    "Ask the neighbours."
+   ],
+   "favour_yes": [
+    "I'll send a thought and a sock."
+   ],
+   "favour_no": [
+    "Too far, sweetie."
+   ],
+   "repay_cookie": [
+    "Oh! You baked for the neighbours? Mamma is so proud."
+   ],
+   "repay_item": [
+    "Good boy/girl."
+   ],
+   "repay_kr": [
+    "Mamma does not take money from her kids!"
+   ],
+   "repay_none": [
+    "You owe me nothing but a call."
+   ],
+   "repay_bonus": [
+    "Oh you!"
+   ],
+   "nag1": [
+    "Remember to bring back what you borrow, vennen."
+   ],
+   "nag2": [
+    "Remember your neighbours."
+   ],
+   "nag3": [
+    "Mamma is sad."
+   ],
+   "cookie_gift": [
+    "Oh, for Mamma? You can't mail baking. But you can eat it and tell me. Klem."
+   ]
+  }
+ },
+ "words": {
+  "ac_reply": [
+   "{ac}?? Ha ha! I think you mean {item}. Hold on."
+  ],
+  "referral_text": "Try {ref}.",
+  "listen": "Say what?"
+ },
+ "help": {
+  "112_false": [
+   "This is not an emergency. There will be a fine of {kr} kr. Merry Christmas.",
+   "We are busy chasing real problems. 200 kr fine. God jul."
+  ],
+  "112_first": [
+   "That did not sound like an emergency. Please do not call again for that. This is only a warning."
+  ],
+  "112_strange": [
+   "Something strange? Let me guess: a witch? A troll? ...We get this every Christmas. A patrol will take a look. Eventually.",
+   "A light in the sky? Probably a plane. Or a very lost reindeer. Noted."
+  ],
+  "112_lost": [
+   "Lost in the valley? We have a car near you. We will drive you home. Buckle up."
+  ],
+  "112_turnin": [
+   "Understood. Stay where you are with your hands visible."
+  ],
+  "110_false": [
+   "No fire, no truck. There is a fine of {kr} kr. Think of the fire engine's feelings."
+  ],
+  "110_first": [
+   "That is not a fire. Please do not call us for that. This is only a warning."
+  ],
+  "110_chimney": [
+   "Smoke from a chimney? That is how they work. Cosy, not dangerous. Thank you for checking."
+  ],
+  "110_cat": [
+   "A cat in a tree? Hm. The truck is stuck behind a Santa parade. Come back tomorrow, the cat will find its own way."
+  ],
+  "113_ok": [
+   "You sound hurt. The ambulance is on the way. Stay where you are. Medical help is free in Norway."
+  ],
+  "113_false": [
+   "You sound fine. Fine, fine. That is a fine of {kr} kr for a false alarm."
+  ],
+  "113_first": [
+   "You do not sound hurt. Please do not call 113 for that. This is only a warning."
+  ],
+  "113_cool": [
+   "The ambulance has just been to you. Give them a minute."
+  ],
+  "taxi_ok": [
+   "Taxi on the way. Two minutes. {fare} kr to {dest}."
+  ],
+  "taxi_arrive": [
+   "The taxi arrives with the engine running."
+  ],
+  "taxi_poor": [
+   "{fare} kr to {dest}? You don't have it. Ring again with cash."
+  ]
+ },
+ "voice_todo_note": "Calls are text only so far; build/phonesocial_voice_todo.txt lists every spoken line for the speakall pipeline (data/voice_manifest.json)."
+}

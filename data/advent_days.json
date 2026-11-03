@@ -1,0 +1,12 @@
+{
+ "_note": "Which opener (short cutscene / quick-time event) plays when the players open an advent door. Ids are the keys of window.__ADVENT.openers (see Settings > Advent days (1-24)). A list plays in order. An empty list or a missing day = nothing plays. Openers marked auto in the game (intro, witch) play by themselves on a new start, so the door never plays them twice. Marius's dropdown in the settings panel overrides this per device (localStorage kv-advent-assign).",
+ "days": {
+  "1": ["intro", "witch"],
+  "12": ["witchboss"]
+ },
+ "notes": {
+  "1": "Game goes live: the intro flyover, then the witch wrecks the decorations.",
+  "12": "Witch boss fight in her dungeon (not made yet).",
+  "?": "The meteor day opener ('meteor') is made but unassigned: Marius decides which day."
+ }
+}

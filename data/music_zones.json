@@ -1,0 +1,487 @@
+{
+ "version": 1,
+ "note": "Map music zones. fade = metres of crossfade outside the shape. prio: higher wins (layered). tr = track ids per variant. baseK = how much of the town music stays (default 0 with a file, 1 without). Edit with music_zones.html.",
+ "tracks": {
+  "576": {
+   "u": "sfx/nisse_m4a/m576.m4a",
+   "title": "Medieval folk (Marius favourite)",
+   "cat": "folk",
+   "lv": 0.85
+  },
+  "579": {
+   "u": "sfx/nisse_m4a/m579.m4a",
+   "title": "Gregorian chant",
+   "cat": "chant",
+   "lv": 0.85
+  },
+  "671": {
+   "u": "sfx/nisse_m4a/m671.m4a",
+   "title": "Drone music 671",
+   "cat": "drone",
+   "lv": 0.9
+  },
+  "188": {
+   "u": "sfx/nisse_m4a/m188.m4a",
+   "title": "Drone music 188",
+   "cat": "drone",
+   "lv": 0.9
+  },
+  "890": {
+   "u": "sfx/nisse_m4a/m890.m4a",
+   "title": "Drone music 890",
+   "cat": "drone",
+   "lv": 0.9
+  },
+  "564": {
+   "u": "sfx/nisse_m4a/m564.m4a",
+   "title": "Atmosphere 564 (airy)",
+   "cat": "atmos",
+   "lv": 0.9
+  },
+  "524": {
+   "u": "sfx/nisse_m4a/m524.m4a",
+   "title": "Religious 524",
+   "cat": "religious",
+   "lv": 0.9
+  },
+  "873": {
+   "u": "sfx/nisse_m4a/m873.m4a",
+   "title": "Religious 873",
+   "cat": "religious",
+   "lv": 0.9
+  },
+  "588": {
+   "u": "sfx/nisse_m4a/m588.m4a",
+   "title": "Dark atmosphere 588",
+   "cat": "dark",
+   "lv": 0.9
+  },
+  "612": {
+   "u": "sfx/nisse_m4a/m612.m4a",
+   "title": "Dark drone music 612",
+   "cat": "dark",
+   "lv": 0.9
+  },
+  "625": {
+   "u": "sfx/nisse_m4a/m625.m4a",
+   "title": "Atmosphere 625",
+   "cat": "atmos",
+   "lv": 0.9
+  },
+  "a489": {
+   "u": "sfx/scares2/a489.m4a",
+   "title": "Low drone a489",
+   "cat": "drone",
+   "lv": 1.0
+  },
+  "a894": {
+   "u": "sfx/scares2/a894.m4a",
+   "title": "Thin drone a894",
+   "cat": "drone",
+   "lv": 1.0
+  },
+  "a1162": {
+   "u": "sfx/scares2/a1162.m4a",
+   "title": "Wide drone a1162",
+   "cat": "drone",
+   "lv": 1.0
+  },
+  "a2482": {
+   "u": "sfx/scares2/a2482.m4a",
+   "title": "Dark drone a2482",
+   "cat": "dark",
+   "lv": 1.0
+  },
+  "a634": {
+   "u": "sfx/scares2/a634.m4a",
+   "title": "Eerie a634",
+   "cat": "eerie",
+   "lv": 1.0
+  },
+  "a2566": {
+   "u": "sfx/scares2/a2566.m4a",
+   "title": "Eerie a2566",
+   "cat": "eerie",
+   "lv": 1.0
+  },
+  "b2500": {
+   "u": "sfx/scares2/b2500.m4a",
+   "title": "Sub-bass b2500",
+   "cat": "sub",
+   "lv": 1.0
+  },
+  "b2914": {
+   "u": "sfx/scares2/b2914.m4a",
+   "title": "Dark drone b2914",
+   "cat": "dark",
+   "lv": 1.0
+  },
+  "m573": {
+   "u": "sfx/scares2/m573.m4a",
+   "title": "Dark music m573",
+   "cat": "dark",
+   "lv": 0.9
+  },
+  "m612": {
+   "u": "sfx/scares2/m612.m4a",
+   "title": "Dark music m612",
+   "cat": "dark",
+   "lv": 0.9
+  }
+ },
+ "zones": [
+  {
+   "id": "witch",
+   "name": "Witch's house",
+   "shape": {
+    "type": "circle",
+    "x": 530,
+    "z": -719,
+    "r": 55
+   },
+   "fade": 130,
+   "prio": 90,
+   "tr": {
+    "day": "a634",
+    "night": "a2566",
+    "storm": "a2566"
+   },
+   "note": "eerie"
+  },
+  {
+   "id": "town_centre",
+   "name": "Kvinesdal town centre",
+   "shape": {
+    "type": "circle",
+    "x": -100,
+    "z": -60,
+    "r": 170
+   },
+   "fade": 220,
+   "prio": 80,
+   "tr": {},
+   "note": "no file: the existing merry theme + carols carry it"
+  },
+  {
+   "id": "church",
+   "name": "Kvinesdal church + graveyard",
+   "shape": {
+    "type": "circle",
+    "x": -77,
+    "z": -135,
+    "r": 45
+   },
+   "fade": 130,
+   "prio": 85,
+   "tr": {
+    "day": "579",
+    "night": "873",
+    "storm": "524"
+   },
+   "note": "gregorian, religious"
+  },
+  {
+   "id": "church_dalen",
+   "name": "Kirken i Dalen",
+   "shape": {
+    "type": "circle",
+    "x": 1551,
+    "z": -969,
+    "r": 80
+   },
+   "fade": 160,
+   "prio": 85,
+   "tr": {
+    "day": "579",
+    "night": "873",
+    "storm": "524"
+   }
+  },
+  {
+   "id": "plateau",
+   "name": "Plateau, frozen lake + Ninja venue",
+   "shape": {
+    "type": "circle",
+    "x": 2188,
+    "z": 1527,
+    "r": 260
+   },
+   "fade": 320,
+   "prio": 70,
+   "tr": {
+    "day": "188",
+    "night": "671",
+    "storm": "890"
+   },
+   "note": "windy open drones; the Ninja arena keeps its own music"
+  },
+  {
+   "id": "troll_1",
+   "name": "Troll cave 1",
+   "shape": {
+    "type": "circle",
+    "x": -551,
+    "z": -283,
+    "r": 130
+   },
+   "fade": 260,
+   "prio": 66,
+   "tr": {
+    "day": "b2500",
+    "night": "a489",
+    "storm": "a489"
+   },
+   "note": "deep low, tribal"
+  },
+  {
+   "id": "troll_2",
+   "name": "Troll cave 2",
+   "shape": {
+    "type": "circle",
+    "x": 219,
+    "z": 55,
+    "r": 130
+   },
+   "fade": 260,
+   "prio": 66,
+   "tr": {
+    "day": "b2500",
+    "night": "a489",
+    "storm": "a489"
+   }
+  },
+  {
+   "id": "troll_3",
+   "name": "Troll cave 3",
+   "shape": {
+    "type": "circle",
+    "x": -1727,
+    "z": 276,
+    "r": 130
+   },
+   "fade": 260,
+   "prio": 66,
+   "tr": {
+    "day": "b2500",
+    "night": "a489",
+    "storm": "a489"
+   }
+  },
+  {
+   "id": "rod_woods",
+   "name": "Rodnisser woods",
+   "shape": {
+    "type": "circle",
+    "x": -2330,
+    "z": -2335,
+    "r": 800
+   },
+   "fade": 600,
+   "prio": 62,
+   "tr": {
+    "day": "576",
+    "night": "576",
+    "storm": "588"
+   },
+   "note": "warm folk, medieval; the nisse village music takes over close to the village"
+  },
+  {
+   "id": "blaa_woods",
+   "name": "Blanisser woods",
+   "shape": {
+    "type": "circle",
+    "x": 2585,
+    "z": 2065,
+    "r": 650
+   },
+   "fade": 500,
+   "prio": 61,
+   "tr": {
+    "day": "564",
+    "night": "579",
+    "storm": "564"
+   },
+   "note": "ethereal, airy"
+  },
+  {
+   "id": "bridge_amot",
+   "name": "Amot bru (river)",
+   "shape": {
+    "type": "circle",
+    "x": -171,
+    "z": -260,
+    "r": 70
+   },
+   "fade": 140,
+   "prio": 45,
+   "tr": {
+    "day": "564",
+    "night": "524"
+   }
+  },
+  {
+   "id": "bridge_faret",
+   "name": "Faret bru (river)",
+   "shape": {
+    "type": "circle",
+    "x": -88,
+    "z": 473,
+    "r": 70
+   },
+   "fade": 140,
+   "prio": 45,
+   "tr": {
+    "day": "564",
+    "night": "524"
+   }
+  },
+  {
+   "id": "bridge_sage",
+   "name": "Sagevollen bru (river)",
+   "shape": {
+    "type": "circle",
+    "x": 333,
+    "z": 449,
+    "r": 70
+   },
+   "fade": 140,
+   "prio": 45,
+   "tr": {
+    "day": "564",
+    "night": "524"
+   }
+  },
+  {
+   "id": "bridge_ase",
+   "name": "Asevegen bru (river)",
+   "shape": {
+    "type": "circle",
+    "x": 142,
+    "z": 801,
+    "r": 70
+   },
+   "fade": 140,
+   "prio": 45,
+   "tr": {
+    "day": "564",
+    "night": "524"
+   }
+  },
+  {
+   "id": "race",
+   "name": "Hunsbedt bru / racetrack start",
+   "shape": {
+    "type": "circle",
+    "x": 2837,
+    "z": -1668,
+    "r": 160
+   },
+   "fade": 220,
+   "prio": 44,
+   "tr": {},
+   "note": "no file: the race music comes from the music director when you race"
+  },
+  {
+   "id": "barn",
+   "name": "Valloyna barns (farm quiet)",
+   "shape": {
+    "type": "circle",
+    "x": 450,
+    "z": -510,
+    "r": 130
+   },
+   "fade": 200,
+   "prio": 40,
+   "tr": {},
+   "baseK": 0.3,
+   "note": "farm quiet: no file, town music turned down"
+  },
+  {
+   "id": "residential",
+   "name": "Residential streets",
+   "shape": {
+    "type": "circle",
+    "x": -100,
+    "z": -60,
+    "r": 800
+   },
+   "fade": 500,
+   "prio": 20,
+   "tr": {
+    "day": "588",
+    "night": "625",
+    "storm": "612"
+   },
+   "note": "soft atmosphere around the town"
+  },
+  {
+   "id": "deep_woods",
+   "name": "Dark deep woods (many trees)",
+   "shape": {
+    "type": "rule",
+    "rule": "trees",
+    "a": 8,
+    "b": 22,
+    "note": "the dark tension bed takes over by itself at night when tension is high"
+   },
+   "fade": 0,
+   "prio": 25,
+   "tr": {
+    "day": "612",
+    "night": "b2914",
+    "storm": "a2482"
+   }
+  },
+  {
+   "id": "mountains",
+   "name": "Mountains / high altitude",
+   "shape": {
+    "type": "rule",
+    "rule": "alt",
+    "a": 280,
+    "b": 360,
+    "note": "thin wind drones"
+   },
+   "fade": 0,
+   "prio": 30,
+   "tr": {
+    "day": "a894",
+    "night": "a1162",
+    "storm": "a894"
+   }
+  },
+  {
+   "id": "fjord",
+   "name": "Fjord / open water",
+   "shape": {
+    "type": "rule",
+    "rule": "water",
+    "note": "wide cold drones (south-west fjord)"
+   },
+   "fade": 0,
+   "prio": 30,
+   "tr": {
+    "day": "890",
+    "night": "671",
+    "storm": "671"
+   }
+  },
+  {
+   "id": "map_edge",
+   "name": "Far map edge",
+   "shape": {
+    "type": "rule",
+    "rule": "edge",
+    "a": 0,
+    "b": 900
+   },
+   "fade": 0,
+   "prio": 10,
+   "tr": {
+    "day": "a1162",
+    "night": "a1162",
+    "storm": "a1162"
+   }
+  }
+ ]
+}
