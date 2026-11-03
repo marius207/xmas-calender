@@ -1,0 +1,1508 @@
+{
+ "_README": "PLACEHOLDER LINES for the player character's voice-over (the character talks to themselves while exploring). Every line here can be rewritten by Marius, Chris or Martin: change the text, save, then run  build/make_vo.py  to regenerate the computer-voice audio and the word timings (only changed lines are redone). FIELDS: id = unique name (also the audio file name: voice/vo/<id>.m4a); who = 'chris' | 'martin' | 'both' (Marius plays with Chris's lines; 'both' lines are generated once per person as <id>_chris / <id>_martin); trigger = when it can play; day = [first day, last day] it may play, using the December date (0 = any time, so lines that must not spoil anything are gated); text = the words; mood = a note for whoever records it (not used by the game). Each line plays once per player (saved as kv-vo-seen). TRIGGERS: place:<tree|bowling|church|bridge|botnan|orre|globen|penstock|hamre|feda|home_chris_up|home_chris_down|home_martin|market|cairn> (first arrival; home_chris_up = Chris's flat, home_chris_down = the ground floor with the witch); event:<hollow_seen|scream_freeze|lamp_safe|flare|notebook|thermos|snowball|rocket|threshold_on|threshold_off|witch_scream|witch_defeated|trapdoor|dungeon|flashlight_dying|low_hearts|water|car|radio|film|coin_feda|death|eye_seen> (several lines may share an event: they play one at a time, in file order, each time it happens); idle (a long quiet stretch of walking), trail (a long walk far from roads and houses), morning (the day a new door opens, with day = [N,N]). REAL VOICES: record a line, convert it (see voice/vo/RECORDING.md) and save it as voice/vo/real/<id>.m4a. If that file exists the game plays it instead of the computer voice, with no code change (and it re-times the subtitles by itself). Keep lines short: 3 to 14 words reads best. Say 'downtown', not the real name of the town.",
+ "lines": [
+  {
+   "id": "c_tree",
+   "who": "chris",
+   "trigger": "place:tree",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "wry",
+   "text": "The square's tree, dark as a closed shop. It was supposed to be lit by now."
+  },
+  {
+   "id": "c_bowl",
+   "who": "chris",
+   "trigger": "place:bowling",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "cosy",
+   "text": "Bowlinghallen. Warm, loud, smells of floor polish. Safest place I know."
+  },
+  {
+   "id": "c_church",
+   "who": "chris",
+   "trigger": "place:church",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "hushed",
+   "text": "A church always sounds bigger inside than it looks from the street."
+  },
+  {
+   "id": "c_bridge",
+   "who": "chris",
+   "trigger": "place:bridge",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "quiet",
+   "text": "The river under here never freezes. It just gets quieter."
+  },
+  {
+   "id": "c_botnan",
+   "who": "chris",
+   "trigger": "place:botnan",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "wry",
+   "text": "Camp Botnan. Tipis in the snow. Martin would call this roughing it."
+  },
+  {
+   "id": "c_orre",
+   "who": "chris",
+   "trigger": "place:orre",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "wry",
+   "text": "Orresteinen. A rock the size of a house, waiting for a bus that isn't coming."
+  },
+  {
+   "id": "c_globen",
+   "who": "chris",
+   "trigger": "place:globen",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "wry",
+   "text": "A giant globe on a hill. Nobody asked, and yet here we are."
+  },
+  {
+   "id": "c_pen",
+   "who": "chris",
+   "trigger": "place:penstock",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "dry",
+   "text": "The penstock. One very long pipe with very strong opinions about gravity."
+  },
+  {
+   "id": "c_hamre",
+   "who": "chris",
+   "trigger": "place:hamre",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "awed",
+   "text": "Hamrevarden. The whole valley is down there, pretending not to look back."
+  },
+  {
+   "id": "c_feda",
+   "who": "chris",
+   "trigger": "place:feda",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "uneasy",
+   "text": "Feda. All this humming. Whatever is in those wires, I am not licking it."
+  },
+  {
+   "id": "c_homeup",
+   "who": "chris",
+   "trigger": "place:home_chris_up",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "cosy",
+   "text": "Home. Kettle, sofa, and a floor that growls at me sometimes."
+  },
+  {
+   "id": "c_homedown",
+   "who": "chris",
+   "trigger": "place:home_chris_down",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "scared",
+   "text": "Her door. Do not knock. Do not breathe loudly. Do not ask about the smell."
+  },
+  {
+   "id": "c_homem",
+   "who": "chris",
+   "trigger": "place:home_martin",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "fond",
+   "text": "Martin's place. Empty, tidy, suspiciously quiet. He's either hiding or lost."
+  },
+  {
+   "id": "c_market",
+   "who": "chris",
+   "trigger": "place:market",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "cosy",
+   "text": "The market stalls. Everyone's gone home, but the gløgg is still steaming."
+  },
+  {
+   "id": "c_cairn",
+   "who": "chris",
+   "trigger": "place:cairn",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "quiet",
+   "text": "A cairn. Somebody stacked these stones and trusted the weather to behave."
+  },
+  {
+   "id": "c_hollow",
+   "who": "chris",
+   "trigger": "event:hollow_seen",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "scared",
+   "text": "That was a person once. Don't look at the face. Don't look at the face."
+  },
+  {
+   "id": "c_freeze",
+   "who": "chris",
+   "trigger": "event:scream_freeze",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "scared",
+   "text": "I can't move. Okay. I can blink. Blinking is something."
+  },
+  {
+   "id": "c_lamp",
+   "who": "chris",
+   "trigger": "event:lamp_safe",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "relieved",
+   "text": "Lamplight. Nothing steps into it. I'm staying right here until morning."
+  },
+  {
+   "id": "c_flare",
+   "who": "chris",
+   "trigger": "event:flare",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "wry",
+   "text": "The lantern flares and they flinch. I could get used to that."
+  },
+  {
+   "id": "c_note",
+   "who": "chris",
+   "trigger": "event:notebook",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "dry",
+   "text": "Someone's notes. Handwriting like a spider on coffee. Worth reading, though."
+  },
+  {
+   "id": "c_thermos",
+   "who": "chris",
+   "trigger": "event:thermos",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "cosy",
+   "text": "Still warm. Either someone is very kind, or very close."
+  },
+  {
+   "id": "c_snow",
+   "who": "chris",
+   "trigger": "event:snowball",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "fond",
+   "text": "Snowballs. Last time I threw one at Martin, he sulked until February."
+  },
+  {
+   "id": "c_rocket",
+   "who": "chris",
+   "trigger": "event:rocket",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "wry",
+   "text": "Rockets. A terrible idea, and I'm doing it anyway."
+  },
+  {
+   "id": "c_thon",
+   "who": "chris",
+   "trigger": "event:threshold_on",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "dread",
+   "text": "Every light is out. The whole town is holding its breath."
+  },
+  {
+   "id": "c_thoff",
+   "who": "chris",
+   "trigger": "event:threshold_off",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "relieved",
+   "text": "Dawn. Thin and grey, and the best thing I've seen all year."
+  },
+  {
+   "id": "c_wscream",
+   "who": "chris",
+   "trigger": "event:witch_scream",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "dry",
+   "text": "There she goes. That's her way of saying good morning."
+  },
+  {
+   "id": "c_wdead",
+   "who": "chris",
+   "trigger": "event:witch_defeated",
+   "day": [
+    12,
+    31
+   ],
+   "mood": "relieved",
+   "text": "Quiet. After all that, it's actually quiet. I don't trust it. I love it."
+  },
+  {
+   "id": "c_trap",
+   "who": "chris",
+   "trigger": "event:trapdoor",
+   "day": [
+    8,
+    31
+   ],
+   "mood": "uneasy",
+   "text": "A trapdoor. In my own building. Under my own feet. Naturally."
+  },
+  {
+   "id": "c_dun",
+   "who": "chris",
+   "trigger": "event:dungeon",
+   "day": [
+    8,
+    31
+   ],
+   "mood": "dread",
+   "text": "This was never a flat. Nobody ever paid rent for this."
+  },
+  {
+   "id": "c_flash",
+   "who": "chris",
+   "trigger": "event:flashlight_dying",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "tense",
+   "text": "Come on. Come on. The battery has opinions, apparently."
+  },
+  {
+   "id": "c_low",
+   "who": "chris",
+   "trigger": "event:low_hearts",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "tense",
+   "text": "Not great. Breathe, Chris. Breathe, and then run."
+  },
+  {
+   "id": "c_water",
+   "who": "chris",
+   "trigger": "event:water",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "dry",
+   "text": "Cold. Very, very cold. Note to self: never do that again."
+  },
+  {
+   "id": "c_car",
+   "who": "chris",
+   "trigger": "event:car",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "wry",
+   "text": "A car. Lovely. Good chance it isn't mine, but lovely."
+  },
+  {
+   "id": "c_radio",
+   "who": "chris",
+   "trigger": "event:radio",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "cosy",
+   "text": "Static, then music, then static. Like being alive, really."
+  },
+  {
+   "id": "c_film",
+   "who": "chris",
+   "trigger": "event:film",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "dry",
+   "text": "Rented a film. Nothing says everything's fine like a Friday deadline."
+  },
+  {
+   "id": "c_coin",
+   "who": "chris",
+   "trigger": "event:coin_feda",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "curious",
+   "text": "Coins on the road from Feda. Someone is leaving a trail, or losing a fortune."
+  },
+  {
+   "id": "c_dead",
+   "who": "chris",
+   "trigger": "event:death",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "dry",
+   "text": "Right. Let's agree that never happened, and try it again."
+  },
+  {
+   "id": "c_eye",
+   "who": "chris",
+   "trigger": "event:eye_seen",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "uneasy",
+   "text": "Something up on the hill is watching me. Of course it is."
+  },
+  {
+   "id": "c_idle1",
+   "who": "chris",
+   "trigger": "idle",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "quiet",
+   "text": "Quiet night. Quiet like a held breath, not like a nap."
+  },
+  {
+   "id": "c_idle2",
+   "who": "chris",
+   "trigger": "idle",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "wry",
+   "text": "I know every shop in this town. Tonight, none of them knows me."
+  },
+  {
+   "id": "c_idle3",
+   "who": "chris",
+   "trigger": "idle",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "uneasy",
+   "text": "Snow squeaks underfoot. Just snow. Almost certainly just snow."
+  },
+  {
+   "id": "c_idle4",
+   "who": "chris",
+   "trigger": "idle",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "fond",
+   "text": "If Martin were here, he'd be talking. I miss the talking. Never telling him."
+  },
+  {
+   "id": "c_idle5",
+   "who": "chris",
+   "trigger": "idle",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "uneasy",
+   "text": "Empty streets get more crowded the longer you stare at them."
+  },
+  {
+   "id": "c_idle6",
+   "who": "chris",
+   "trigger": "idle",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "cosy",
+   "text": "Someone's lit a window somewhere. That's enough to keep walking."
+  },
+  {
+   "id": "c_trail1",
+   "who": "chris",
+   "trigger": "trail",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "quiet",
+   "text": "Nobody's been up here in a while."
+  },
+  {
+   "id": "c_trail2",
+   "who": "chris",
+   "trigger": "trail",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "dry",
+   "text": "No shops, no streetlights. Just me and a great deal of white."
+  },
+  {
+   "id": "c_trail3",
+   "who": "chris",
+   "trigger": "trail",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "uneasy",
+   "text": "Footprints ahead. Mine, I think. Probably mine."
+  },
+  {
+   "id": "c_m01",
+   "who": "chris",
+   "trigger": "morning",
+   "day": [
+    1,
+    1
+   ],
+   "mood": "wry",
+   "text": "First of December. The tree is dark, and somehow that feels personal."
+  },
+  {
+   "id": "c_m02",
+   "who": "chris",
+   "trigger": "morning",
+   "day": [
+    2,
+    2
+   ],
+   "mood": "dry",
+   "text": "Steep hill, tiny sled. My courage was not on the list."
+  },
+  {
+   "id": "c_m03",
+   "who": "chris",
+   "trigger": "morning",
+   "day": [
+    3,
+    3
+   ],
+   "mood": "wry",
+   "text": "Bowling. Chosen carefully, by someone who wants Martin to lose."
+  },
+  {
+   "id": "c_m04",
+   "who": "chris",
+   "trigger": "morning",
+   "day": [
+    4,
+    4
+   ],
+   "mood": "hushed",
+   "text": "Someone's singing out there. In this cold, that takes nerve."
+  },
+  {
+   "id": "c_m05",
+   "who": "chris",
+   "trigger": "morning",
+   "day": [
+    5,
+    5
+   ],
+   "mood": "cosy",
+   "text": "Funny how a coin on the road feels like a small, private gift."
+  },
+  {
+   "id": "c_m06",
+   "who": "chris",
+   "trigger": "morning",
+   "day": [
+    6,
+    6
+   ],
+   "mood": "wry",
+   "text": "Tipis tonight. I did say I'd try the outdoors again."
+  },
+  {
+   "id": "c_m07",
+   "who": "chris",
+   "trigger": "morning",
+   "day": [
+    7,
+    7
+   ],
+   "mood": "uneasy",
+   "text": "Something's rattling in the building. I'd blame the pipes. Quietly."
+  },
+  {
+   "id": "c_m08",
+   "who": "chris",
+   "trigger": "morning",
+   "day": [
+    8,
+    8
+   ],
+   "mood": "tense",
+   "text": "Today I find out what's behind her door. I'd rather find out tomorrow."
+  },
+  {
+   "id": "c_m09",
+   "who": "chris",
+   "trigger": "morning",
+   "day": [
+    9,
+    9
+   ],
+   "mood": "dry",
+   "text": "A globe on a hill. Of all the things to spend a morning chasing."
+  },
+  {
+   "id": "c_m10",
+   "who": "chris",
+   "trigger": "morning",
+   "day": [
+    10,
+    10
+   ],
+   "mood": "wry",
+   "text": "A very large rock. I'm told the view is worth it. I'm told a lot of things."
+  },
+  {
+   "id": "c_m11",
+   "who": "chris",
+   "trigger": "morning",
+   "day": [
+    11,
+    11
+   ],
+   "mood": "fond",
+   "text": "Jetpacks and rings. Martin is already stretching, which cannot be good."
+  },
+  {
+   "id": "c_m12",
+   "who": "chris",
+   "trigger": "morning",
+   "day": [
+    12,
+    12
+   ],
+   "mood": "resolute",
+   "text": "Today ends it. One way or another, today it ends."
+  },
+  {
+   "id": "c_m13",
+   "who": "chris",
+   "trigger": "morning",
+   "day": [
+    13,
+    13
+   ],
+   "mood": "cosy",
+   "text": "Decorations again. This time, the lights might actually stay up."
+  },
+  {
+   "id": "c_m16",
+   "who": "chris",
+   "trigger": "morning",
+   "day": [
+    16,
+    16
+   ],
+   "mood": "cosy",
+   "text": "Another parcel from home. I'm learning to hope in small amounts."
+  },
+  {
+   "id": "c_m21",
+   "who": "chris",
+   "trigger": "morning",
+   "day": [
+    21,
+    21
+   ],
+   "mood": "dread",
+   "text": "It's wrong out there today. Everything feels one step to the left."
+  },
+  {
+   "id": "c_m24",
+   "who": "chris",
+   "trigger": "morning",
+   "day": [
+    24,
+    24
+   ],
+   "mood": "warm",
+   "text": "Christmas Eve. And the tree knows it."
+  },
+  {
+   "id": "m_tree",
+   "who": "martin",
+   "trigger": "place:tree",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "nervous",
+   "text": "The tree on the square. I'm not nervous. I'm attentive."
+  },
+  {
+   "id": "m_bowl",
+   "who": "martin",
+   "trigger": "place:bowling",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "cheerful",
+   "text": "Bowlinghallen! Chris says it's lucky. Chris once bowled a forty and called it strategy."
+  },
+  {
+   "id": "m_church",
+   "who": "martin",
+   "trigger": "place:church",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "hushed",
+   "text": "A church. Very quiet. Hello? Sorry, I wasn't talking to you. Or you."
+  },
+  {
+   "id": "m_bridge",
+   "who": "martin",
+   "trigger": "place:bridge",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "nervous",
+   "text": "I'm fine with bridges. It's the water underneath I'm still negotiating with."
+  },
+  {
+   "id": "m_botnan",
+   "who": "martin",
+   "trigger": "place:botnan",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "nervous",
+   "text": "Tipis. Real ones. If anything howls, I'm sleeping in the car."
+  },
+  {
+   "id": "m_orre",
+   "who": "martin",
+   "trigger": "place:orre",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "bold",
+   "text": "That is a very large rock. I'll climb it. Confidently. Mostly."
+  },
+  {
+   "id": "m_globen",
+   "who": "martin",
+   "trigger": "place:globen",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "wry",
+   "text": "A giant globe, on a hill, in Norway. I've seen worse decisions today."
+  },
+  {
+   "id": "m_pen",
+   "who": "martin",
+   "trigger": "place:penstock",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "bold",
+   "text": "Follow the pipe, Martin. Worst case, it ends somewhere. Best case, soup."
+  },
+  {
+   "id": "m_hamre",
+   "who": "martin",
+   "trigger": "place:hamre",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "awed",
+   "text": "Hamrevarden. Oh. Wow. Okay. Chris would say something clever here."
+  },
+  {
+   "id": "m_feda",
+   "who": "martin",
+   "trigger": "place:feda",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "nervous",
+   "text": "These wires hum like they know something I don't. Which, fair."
+  },
+  {
+   "id": "m_homem",
+   "who": "martin",
+   "trigger": "place:home_martin",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "wry",
+   "text": "My house. Empty. Just me and the radiators, and the radiators are judging."
+  },
+  {
+   "id": "m_homedown",
+   "who": "martin",
+   "trigger": "place:home_chris_down",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "scared",
+   "text": "I can hear her down there, breathing. Hello, ma'am. Nothing to see."
+  },
+  {
+   "id": "m_homeup",
+   "who": "martin",
+   "trigger": "place:home_chris_up",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "fond",
+   "text": "Chris's flat. He has a kettle and no fear. I have the kettle."
+  },
+  {
+   "id": "m_market",
+   "who": "martin",
+   "trigger": "place:market",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "uneasy",
+   "text": "Gløgg stall, empty. Somebody left in a hurry, or somebody left on purpose."
+  },
+  {
+   "id": "m_cairn",
+   "who": "martin",
+   "trigger": "place:cairn",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "quiet",
+   "text": "A cairn. I'll add one stone. Politely. For luck."
+  },
+  {
+   "id": "m_hollow",
+   "who": "martin",
+   "trigger": "event:hollow_seen",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "scared",
+   "text": "Okay, that's not a person. Not anymore. Walking, Martin. Calmly. Walking."
+  },
+  {
+   "id": "m_freeze",
+   "who": "martin",
+   "trigger": "event:scream_freeze",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "scared",
+   "text": "I'm frozen. Actually frozen. Is this what Chris means by stay calm?"
+  },
+  {
+   "id": "m_lamp",
+   "who": "martin",
+   "trigger": "event:lamp_safe",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "relieved",
+   "text": "Lamplight! Nothing's coming in. I live here now."
+  },
+  {
+   "id": "m_flare",
+   "who": "martin",
+   "trigger": "event:flare",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "thrilled",
+   "text": "Flare! I did a flare! Chris is never going to believe this."
+  },
+  {
+   "id": "m_note",
+   "who": "martin",
+   "trigger": "event:notebook",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "uneasy",
+   "text": "A notebook page. Someone wrote don't four times. I'm choosing to read the rest."
+  },
+  {
+   "id": "m_thermos",
+   "who": "martin",
+   "trigger": "event:thermos",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "cheerful",
+   "text": "A thermos. Still warm. I'm drinking it. Don't tell Chris."
+  },
+  {
+   "id": "m_snow",
+   "who": "martin",
+   "trigger": "event:snowball",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "cheerful",
+   "text": "Snowball time. I'd like it noted that I started this out of love."
+  },
+  {
+   "id": "m_rocket",
+   "who": "martin",
+   "trigger": "event:rocket",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "thrilled",
+   "text": "Rocket! I am absolutely in control of this. I am absolutely not."
+  },
+  {
+   "id": "m_thon",
+   "who": "martin",
+   "trigger": "event:threshold_on",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "dread",
+   "text": "The lights have gone. All of them. Right. Everyone stay very still."
+  },
+  {
+   "id": "m_thoff",
+   "who": "martin",
+   "trigger": "event:threshold_off",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "relieved",
+   "text": "Dawn. The sun. I could cry. I will not cry. Possibly."
+  },
+  {
+   "id": "m_wscream",
+   "who": "martin",
+   "trigger": "event:witch_scream",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "scared",
+   "text": "That scream. Was that the witch? That was the witch. I'm fine. I'm fine."
+  },
+  {
+   "id": "m_wdead",
+   "who": "martin",
+   "trigger": "event:witch_defeated",
+   "day": [
+    12,
+    31
+   ],
+   "mood": "relieved",
+   "text": "She's gone. She's actually gone. Chris owes me a very large coffee."
+  },
+  {
+   "id": "m_trap",
+   "who": "martin",
+   "trigger": "event:trapdoor",
+   "day": [
+    8,
+    31
+   ],
+   "mood": "uneasy",
+   "text": "A trapdoor. Under her flat. Of course there is."
+  },
+  {
+   "id": "m_dun",
+   "who": "martin",
+   "trigger": "event:dungeon",
+   "day": [
+    8,
+    31
+   ],
+   "mood": "dread",
+   "text": "A dungeon, in a block of flats. Chris, you never mentioned the dungeon."
+  },
+  {
+   "id": "m_flash",
+   "who": "martin",
+   "trigger": "event:flashlight_dying",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "tense",
+   "text": "No, no, no. Don't go dim now. I've only just started trusting you."
+  },
+  {
+   "id": "m_low",
+   "who": "martin",
+   "trigger": "event:low_hearts",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "tense",
+   "text": "Hearts are low. Nerves are lower. Time for a sensible retreat."
+  },
+  {
+   "id": "m_water",
+   "who": "martin",
+   "trigger": "event:water",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "scared",
+   "text": "Water! Cold! Cold! Why is it so cold?"
+  },
+  {
+   "id": "m_car",
+   "who": "martin",
+   "trigger": "event:car",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "cheerful",
+   "text": "A car. If I crash it, it was already crashed."
+  },
+  {
+   "id": "m_radio",
+   "who": "martin",
+   "trigger": "event:radio",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "cosy",
+   "text": "Somebody out there is still playing songs. That's lovely, actually."
+  },
+  {
+   "id": "m_film",
+   "who": "martin",
+   "trigger": "event:film",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "wry",
+   "text": "Renting a film. Chris always picks the scary ones. Today it's my turn."
+  },
+  {
+   "id": "m_coin",
+   "who": "martin",
+   "trigger": "event:coin_feda",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "cheerful",
+   "text": "Coins on the road from Feda. Chris would pocket them silently. I'm announcing it."
+  },
+  {
+   "id": "m_dead",
+   "who": "martin",
+   "trigger": "event:death",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "wry",
+   "text": "Well. That wasn't ideal. Let's call it a rehearsal."
+  },
+  {
+   "id": "m_eye",
+   "who": "martin",
+   "trigger": "event:eye_seen",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "scared",
+   "text": "It's watching me. The big light on the hill. Hi. Hello. Please stop."
+  },
+  {
+   "id": "m_idle1",
+   "who": "martin",
+   "trigger": "idle",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "quiet",
+   "text": "Snow on everything. It makes the whole place sound like it's keeping a secret."
+  },
+  {
+   "id": "m_idle2",
+   "who": "martin",
+   "trigger": "idle",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "wry",
+   "text": "I'm talking to myself again. Chris says it's a bad habit. Chris is probably right."
+  },
+  {
+   "id": "m_idle3",
+   "who": "martin",
+   "trigger": "idle",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "nervous",
+   "text": "Just a quiet walk. A very ordinary walk. Everything is fine."
+  },
+  {
+   "id": "m_idle4",
+   "who": "martin",
+   "trigger": "idle",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "uneasy",
+   "text": "Somewhere a door just closed. I didn't hear a door. We're not discussing it."
+  },
+  {
+   "id": "m_idle5",
+   "who": "martin",
+   "trigger": "idle",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "fond",
+   "text": "I wonder what Chris is doing. Something brave, probably. Or reading about being brave."
+  },
+  {
+   "id": "m_idle6",
+   "who": "martin",
+   "trigger": "idle",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "uneasy",
+   "text": "The windows look warm. The shadows between them look hungry."
+  },
+  {
+   "id": "m_trail1",
+   "who": "martin",
+   "trigger": "trail",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "quiet",
+   "text": "Nobody's walked this way in ages. I feel like I'm trespassing on winter."
+  },
+  {
+   "id": "m_trail2",
+   "who": "martin",
+   "trigger": "trail",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "wry",
+   "text": "No houses, no people. Just me and some rather confident trees."
+  },
+  {
+   "id": "m_trail3",
+   "who": "martin",
+   "trigger": "trail",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "nervous",
+   "text": "Tracks in the snow. Small ones. I'm not following them. Just walking beside them."
+  },
+  {
+   "id": "m_m01",
+   "who": "martin",
+   "trigger": "morning",
+   "day": [
+    1,
+    1
+   ],
+   "mood": "nervous",
+   "text": "First of December. Chris says be brave. I say stay near the tree."
+  },
+  {
+   "id": "m_m02",
+   "who": "martin",
+   "trigger": "morning",
+   "day": [
+    2,
+    2
+   ],
+   "mood": "wry",
+   "text": "A sled down a hill. What could possibly go wrong, other than everything."
+  },
+  {
+   "id": "m_m03",
+   "who": "martin",
+   "trigger": "morning",
+   "day": [
+    3,
+    3
+   ],
+   "mood": "cheerful",
+   "text": "Bowling today! The one thing in town where I'm unafraid. Mostly."
+  },
+  {
+   "id": "m_m04",
+   "who": "martin",
+   "trigger": "morning",
+   "day": [
+    4,
+    4
+   ],
+   "mood": "uneasy",
+   "text": "I can hear singing. Either carolers, or something much worse."
+  },
+  {
+   "id": "m_m05",
+   "who": "martin",
+   "trigger": "morning",
+   "day": [
+    5,
+    5
+   ],
+   "mood": "cheerful",
+   "text": "Coins on the road. I'm saving up for bravery. Or soup."
+  },
+  {
+   "id": "m_m06",
+   "who": "martin",
+   "trigger": "morning",
+   "day": [
+    6,
+    6
+   ],
+   "mood": "nervous",
+   "text": "Tipis tonight. I packed. I packed a lot of snacks."
+  },
+  {
+   "id": "m_m07",
+   "who": "martin",
+   "trigger": "morning",
+   "day": [
+    7,
+    7
+   ],
+   "mood": "uneasy",
+   "text": "Chris has mail. I have a feeling about the mail."
+  },
+  {
+   "id": "m_m08",
+   "who": "martin",
+   "trigger": "morning",
+   "day": [
+    8,
+    8
+   ],
+   "mood": "tense",
+   "text": "Today we listen at her door. I'll be standing behind Chris. Supportively."
+  },
+  {
+   "id": "m_m09",
+   "who": "martin",
+   "trigger": "morning",
+   "day": [
+    9,
+    9
+   ],
+   "mood": "wry",
+   "text": "A giant globe. I'd say that's overkill, but I'm a big fan."
+  },
+  {
+   "id": "m_m10",
+   "who": "martin",
+   "trigger": "morning",
+   "day": [
+    10,
+    10
+   ],
+   "mood": "bold",
+   "text": "Climbing a rock today. A big one. I'm calling it a hill, to stay calm."
+  },
+  {
+   "id": "m_m11",
+   "who": "martin",
+   "trigger": "morning",
+   "day": [
+    11,
+    11
+   ],
+   "mood": "thrilled",
+   "text": "Jetpacks! The best day. Also the worst day. Hard to tell."
+  },
+  {
+   "id": "m_m12",
+   "who": "martin",
+   "trigger": "morning",
+   "day": [
+    12,
+    12
+   ],
+   "mood": "resolute",
+   "text": "Today we go down there. Right. Okay. I'm ready. I'm not. I'm ready."
+  },
+  {
+   "id": "m_m13",
+   "who": "martin",
+   "trigger": "morning",
+   "day": [
+    13,
+    13
+   ],
+   "mood": "cheerful",
+   "text": "Decorating day. Finally, something that isn't trying to eat me."
+  },
+  {
+   "id": "m_m16",
+   "who": "martin",
+   "trigger": "morning",
+   "day": [
+    16,
+    16
+   ],
+   "mood": "hopeful",
+   "text": "The last parcel. I hope it's cookies. I hope there are cookies left."
+  },
+  {
+   "id": "m_m21",
+   "who": "martin",
+   "trigger": "morning",
+   "day": [
+    21,
+    21
+   ],
+   "mood": "dread",
+   "text": "Today feels thin, like a stage set. I'd rather be inside Bowlinghallen."
+  },
+  {
+   "id": "m_m24",
+   "who": "martin",
+   "trigger": "morning",
+   "day": [
+    24,
+    24
+   ],
+   "mood": "warm",
+   "text": "Christmas Eve. Chris, if you're listening: well done. Both of us."
+  },
+  {
+   "id": "q_barn1",
+   "who": "both",
+   "trigger": "quip:barn_poop",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "dry, impressed",
+   "text": "Is that... a Marius original? Smells like a masterpiece.",
+   "rate_d": -3,
+   "pitch_d": 0
+  },
+  {
+   "id": "q_barn2",
+   "who": "both",
+   "trigger": "quip:barn_poop",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "flat, deadpan",
+   "text": "Marius was here. Unfortunately.",
+   "rate_d": -8,
+   "pitch_d": -2
+  },
+  {
+   "id": "q_barn3",
+   "who": "both",
+   "trigger": "quip:barn_poop",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "matter of fact",
+   "text": "That is not a cow. That is Marius's work.",
+   "rate_d": 0,
+   "pitch_d": 3
+  },
+  {
+   "id": "q_barn4",
+   "who": "both",
+   "trigger": "quip:barn_poop",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "wry",
+   "text": "He built a whole downtown, and this is the part he signed.",
+   "rate_d": 3,
+   "pitch_d": 0
+  },
+  {
+   "id": "q_barn5",
+   "who": "both",
+   "trigger": "quip:barn_poop",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "amused",
+   "text": "Even the carrots are keeping their distance. Smart carrots.",
+   "rate_d": 6,
+   "pitch_d": 4
+  },
+  {
+   "id": "q_barn6",
+   "who": "both",
+   "trigger": "quip:barn_poop",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "mock-polite",
+   "text": "Rustic, I would say. Marius would say art.",
+   "rate_d": -4,
+   "pitch_d": 2
+  },
+  {
+   "id": "q_barn7",
+   "who": "both",
+   "trigger": "quip:barn_poop",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "solemn, then a snort",
+   "text": "So this is what a creator leaves behind. Respect. Mostly respect.",
+   "rate_d": -10,
+   "pitch_d": -4
+  },
+  {
+   "id": "q_barn8",
+   "who": "both",
+   "trigger": "quip:barn_poop",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "scheming",
+   "text": "Okay, nobody tell Marius I saw it. Actually, definitely tell Marius I saw it.",
+   "rate_d": 5,
+   "pitch_d": 6
+  },
+  {
+   "id": "q_barn_hankie",
+   "who": "both",
+   "trigger": "quip:barn_hankie",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "solemn, a tiny sniff, then fond",
+   "text": "Well, here lies Hankie the Christmas log. Rest in peace, little buddy.",
+   "rate_d": -8,
+   "pitch_d": -1
+  }
+ ]
+}

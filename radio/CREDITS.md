@@ -66,3 +66,20 @@ DJ lines (radio/fm/dj*.m4a): written for this game, voiced with Microsoft Edge t
 - voice/witch_*.mp4: the game's existing witch voice lines (reused).
 
 Kor & Kirke also plays the carolers' recordings in carols/ (see carols/CREDITS.md).
+
+## TV and radio shows (Været og Nytt, Midnatt i Sentrum, Nisse-TV, Heksa FM news)
+
+Scripts written for this game (data/shows.json), voiced with Microsoft Edge text-to-speech (en-GB-SoniaNeural, en-GB-RyanNeural, en-US-JennyNeural, en-US-AnaNeural) and processed with build/make_shows.py. Files: voice/shows/*.m4a, radio/heksa/hs*.m4a. The bulletins and short episodes also air on Downtown FM; Heksa FM reads "the real news".
+
+## Intro (flyover) music
+
+| File | Title | Artist | Licence | Source |
+|---|---|---|---|---|
+| radio/intro/carol.m4a | Carol of the Bells (Shchedryk, Mykola Leontovych; arr. Aldo Forte) | United States Air Force Heritage of America Band | Public domain (US government work) | https://commons.wikimedia.org/wiki/File:Carol_of_the_Bells,_Ukrainian_-_Concert_Band_-_United_States_Air_Force_Heritage_of_America_Band.mp3 |
+
+## RADIO KVINA (104.3) and NATTEVAKT (97.7)
+
+Radio Kvina plays carols already listed above (Kor & Kirke). Nattevakt plays tracks from music-real/ (re-encoded to radio/natt/):
+Creepy Ambient Loop (epb9000, CC0), Spooky Waltz from 4 Music Box Tracks (Aureolus_Omicron, CC0), Cathedral in the Forest (congusbongus, CC0), Background Space Track (yd, CC0),
+"Inside the Mountain" by tcarisland, CC BY 4.0, https://opengameart.org/content/inside-the-mountain.
+All DJ, ad, news and ident lines (voice/radio/, build/make_radio.py): written for this game, voiced with Microsoft Edge text-to-speech. Every ad is invented.

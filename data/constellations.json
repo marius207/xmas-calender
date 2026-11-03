@@ -1,0 +1,54 @@
+{
+  "_note": "Star puzzles. Each constellation is a station (a stone star chart by a summit) and a linked reward chest. stars = real J2000 right ascension and declination in degrees; the game snaps each one to the nearest bright star of its own sky field (window.__stars, index fixed at first use, world position follows the sky's rotation). order = indices into stars, traced in that order. Wrong star = the trace starts again (no penalty). Edit freely.",
+  "constellations": [
+    {
+      "id": "karlsvogna",
+      "name": "Karlsvogna",
+      "sub": "The Big Dipper",
+      "station": { "x": -1863, "z": -2, "near": "Nonskarknuten" },
+      "chest": { "x": -1861, "z": 1.2, "yaw": 0.6, "kind": "kr100" },
+      "stars": [
+        { "name": "Dubhe", "ra": 165.93, "dec": 61.75 },
+        { "name": "Merak", "ra": 165.46, "dec": 56.38 },
+        { "name": "Phecda", "ra": 178.46, "dec": 53.69 },
+        { "name": "Megrez", "ra": 183.86, "dec": 57.03 },
+        { "name": "Alioth", "ra": 193.51, "dec": 55.96 },
+        { "name": "Mizar", "ra": 200.98, "dec": 54.93 },
+        { "name": "Alkaid", "ra": 206.89, "dec": 49.31 }
+      ],
+      "order": [0, 1, 2, 3, 4, 5, 6]
+    },
+    {
+      "id": "kassiopeia",
+      "name": "Kassiopeia",
+      "sub": "The W, Cassiopeia",
+      "station": { "x": 365, "z": 1102, "near": "Utsikten" },
+      "chest": { "x": 367, "z": 1099, "yaw": 2.2, "kind": "blue3" },
+      "stars": [
+        { "name": "Caph", "ra": 2.29, "dec": 59.15 },
+        { "name": "Schedar", "ra": 10.12, "dec": 56.54 },
+        { "name": "Gamma", "ra": 14.18, "dec": 60.72 },
+        { "name": "Ruchbah", "ra": 21.45, "dec": 60.24 },
+        { "name": "Segin", "ra": 28.6, "dec": 63.67 }
+      ],
+      "order": [0, 1, 2, 3, 4]
+    },
+    {
+      "id": "orion",
+      "name": "Orion",
+      "sub": "The Hunter, winter",
+      "station": { "x": 3502, "z": -1072, "near": "Hunsbedtheia" },
+      "chest": { "x": 3504, "z": -1069, "yaw": -0.8, "kind": "gold1" },
+      "stars": [
+        { "name": "Betelgeuse", "ra": 88.79, "dec": 7.41 },
+        { "name": "Bellatrix", "ra": 81.28, "dec": 6.35 },
+        { "name": "Mintaka", "ra": 83.0, "dec": -0.3 },
+        { "name": "Alnilam", "ra": 84.05, "dec": -1.2 },
+        { "name": "Alnitak", "ra": 85.19, "dec": -1.94 },
+        { "name": "Saiph", "ra": 86.94, "dec": -9.67 },
+        { "name": "Rigel", "ra": 78.63, "dec": -8.2 }
+      ],
+      "order": [6, 5, 4, 3, 2, 1, 0]
+    }
+  ]
+}

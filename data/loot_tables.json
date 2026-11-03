@@ -1,0 +1,543 @@
+{
+ "_note": "Loot for REGULAR chests. A chest rolls once per player when first opened (seed = player name + chest id), saved with kv-chest-open. Entry types: kr {min,max}, snowballs {n}, flare {n}, thermos, rocket {kind: normal|long|golden}, hint {text}, item {name, text} (junk/funny, no gameplay effect). w = weight. oren is ignored for now.",
+ "tiers": {
+  "common": [
+   {
+    "w": 30,
+    "type": "kr",
+    "min": 20,
+    "max": 60
+   },
+   {
+    "w": 18,
+    "type": "snowballs",
+    "n": 8
+   },
+   {
+    "w": 12,
+    "type": "snowballs",
+    "n": 15
+   },
+   {
+    "w": 12,
+    "type": "thermos"
+   },
+   {
+    "w": 6,
+    "type": "item",
+    "name": "a single mitten",
+    "text": "Just one. Somebody is cold."
+   },
+   {
+    "w": 5,
+    "type": "item",
+    "name": "a suspiciously old cookie",
+    "text": "Do not ask the witch."
+   },
+   {
+    "w": 4,
+    "type": "item",
+    "name": "a very small pinecone",
+    "text": "It is a good one."
+   },
+   {
+    "w": 3,
+    "type": "item",
+    "name": "a postcard from 1987",
+    "text": "Wish you were here. Signed: Bjarne."
+   },
+   {
+    "w": 7,
+    "type": "seeds",
+    "n": 6
+   }
+  ],
+  "uncommon": [
+   {
+    "w": 26,
+    "type": "kr",
+    "min": 80,
+    "max": 150
+   },
+   {
+    "w": 20,
+    "type": "flare",
+    "n": 2
+   },
+   {
+    "w": 8,
+    "type": "flare",
+    "n": 3
+   },
+   {
+    "w": 16,
+    "type": "rocket",
+    "kind": "normal"
+   },
+   {
+    "w": 10,
+    "type": "snowballs",
+    "n": 30
+   },
+   {
+    "w": 6,
+    "type": "thermos"
+   },
+   {
+    "w": 5,
+    "type": "item",
+    "name": "a left sock, very wet",
+    "text": "The right one is somewhere else."
+   },
+   {
+    "w": 4,
+    "type": "item",
+    "name": "half a waffle",
+    "text": "Still warm. How?"
+   },
+   {
+    "w": 6,
+    "type": "seeds",
+    "n": 6
+   }
+  ],
+  "rare": [
+   {
+    "w": 22,
+    "type": "kr",
+    "min": 250,
+    "max": 300
+   },
+   {
+    "w": 22,
+    "type": "rocket",
+    "kind": "long"
+   },
+   {
+    "w": 8,
+    "type": "rocket",
+    "kind": "golden"
+   },
+   {
+    "w": 14,
+    "type": "flare",
+    "n": 4
+   },
+   {
+    "w": 18,
+    "type": "hint",
+    "text": "Somebody left a note: look near the summit books, the green mailboxes hold more than names."
+   },
+   {
+    "w": 8,
+    "type": "hint",
+    "text": "A torn map corner shows an X by the water. Bring something that flies."
+   },
+   {
+    "w": 4,
+    "type": "item",
+    "name": "a golden snowflake",
+    "text": "Heavier than it looks. Keep it."
+   },
+   {
+    "w": 4,
+    "type": "item",
+    "name": "a trophy for 'Most Chests Opened'",
+    "text": "Participation counts."
+   }
+  ]
+ },
+ "_note2": "v2 (loot job): \"tables\" are used for every chest with loot \"random\" or a \"table\" field. A chest rolls once per player (seed = player + chest id). kr = money (krChance = chance of any money, amounts weighted), extras = each rolled with chance p, at most maxExtras of them. Extra types: battery (min,max), food (n [lo,hi]; a random shop food), wear (a random cheap/any clothes or hat from the stage 3/4 catalogue), bag (a backpack, very rare), flare/thermos/oil/snow/seeds. Which table: chest.table, else the cave one for cave chests, else by tier: common = chest, uncommon = chest_plus, rare/sky = chest_rare.",
+ "tables": {
+  "chest": {
+   "krChance": 0.95,
+   "kr": [
+    {
+     "w": 48,
+     "min": 60,
+     "max": 140
+    },
+    {
+     "w": 34,
+     "min": 140,
+     "max": 300
+    },
+    {
+     "w": 14,
+     "min": 300,
+     "max": 600
+    },
+    {
+     "w": 4,
+     "min": 800,
+     "max": 1500
+    }
+   ],
+   "maxExtras": 2,
+   "extras": [
+    {
+     "type": "weapon",
+     "p": 0.07,
+     "pool": "common"
+    },
+    {
+     "type": "battery",
+     "p": 0.5,
+     "min": 1,
+     "max": 2
+    },
+    {
+     "type": "food",
+     "p": 0.3,
+     "n": [
+      1,
+      3
+     ]
+    },
+    {
+     "type": "wear",
+     "p": 0.14,
+     "pool": "cheap"
+    },
+    {
+     "type": "flare",
+     "p": 0.1,
+     "n": 2
+    },
+    {
+     "type": "thermos",
+     "p": 0.08
+    },
+    {
+     "type": "oil",
+     "p": 0.08
+    },
+    {
+     "type": "snow",
+     "p": 0.1,
+     "n": 15
+    },
+    {
+     "type": "bag",
+     "p": 0.015
+    }
+   ]
+  },
+  "chest_plus": {
+   "krChance": 0.97,
+   "kr": [
+    {
+     "w": 35,
+     "min": 100,
+     "max": 220
+    },
+    {
+     "w": 40,
+     "min": 220,
+     "max": 450
+    },
+    {
+     "w": 20,
+     "min": 450,
+     "max": 800
+    },
+    {
+     "w": 5,
+     "min": 1000,
+     "max": 2000
+    }
+   ],
+   "maxExtras": 2,
+   "extras": [
+    {
+     "type": "weapon",
+     "p": 0.1,
+     "pool": "uncommon"
+    },
+    {
+     "type": "battery",
+     "p": 0.55,
+     "min": 1,
+     "max": 3
+    },
+    {
+     "type": "food",
+     "p": 0.3,
+     "n": [
+      1,
+      3
+     ]
+    },
+    {
+     "type": "wear",
+     "p": 0.22,
+     "pool": "any"
+    },
+    {
+     "type": "flare",
+     "p": 0.14,
+     "n": 3
+    },
+    {
+     "type": "thermos",
+     "p": 0.12
+    },
+    {
+     "type": "oil",
+     "p": 0.1
+    },
+    {
+     "type": "bag",
+     "p": 0.03
+    }
+   ]
+  },
+  "chest_rare": {
+   "krChance": 1,
+   "kr": [
+    {
+     "w": 30,
+     "min": 300,
+     "max": 600
+    },
+    {
+     "w": 45,
+     "min": 600,
+     "max": 1000
+    },
+    {
+     "w": 20,
+     "min": 1000,
+     "max": 1800
+    },
+    {
+     "w": 5,
+     "min": 2500,
+     "max": 4000
+    }
+   ],
+   "maxExtras": 3,
+   "extras": [
+    {
+     "type": "weapon",
+     "p": 0.16,
+     "pool": "rare"
+    },
+    {
+     "type": "battery",
+     "p": 0.6,
+     "min": 2,
+     "max": 4
+    },
+    {
+     "type": "wear",
+     "p": 0.35,
+     "pool": "any"
+    },
+    {
+     "type": "thermos",
+     "p": 0.2
+    },
+    {
+     "type": "food",
+     "p": 0.3,
+     "n": [
+      2,
+      4
+     ]
+    },
+    {
+     "type": "oil",
+     "p": 0.15
+    },
+    {
+     "type": "bag",
+     "p": 0.07
+    }
+   ]
+  },
+  "summit": {
+   "krChance": 1,
+   "kr": [
+    {
+     "w": 30,
+     "min": 400,
+     "max": 700
+    },
+    {
+     "w": 45,
+     "min": 700,
+     "max": 1200
+    },
+    {
+     "w": 20,
+     "min": 1200,
+     "max": 2000
+    },
+    {
+     "w": 5,
+     "min": 3000,
+     "max": 5000
+    }
+   ],
+   "maxExtras": 3,
+   "extras": [
+    {
+     "type": "weapon",
+     "p": 0.22,
+     "pool": "summit"
+    },
+    {
+     "type": "battery",
+     "p": 0.65,
+     "min": 2,
+     "max": 4
+    },
+    {
+     "type": "wear",
+     "p": 0.4,
+     "pool": "any"
+    },
+    {
+     "type": "thermos",
+     "p": 0.25
+    },
+    {
+     "type": "food",
+     "p": 0.3,
+     "n": [
+      2,
+      4
+     ]
+    },
+    {
+     "type": "bag",
+     "p": 0.1
+    }
+   ]
+  },
+  "cave": {
+   "krChance": 1,
+   "kr": [
+    {
+     "w": 35,
+     "min": 150,
+     "max": 350
+    },
+    {
+     "w": 40,
+     "min": 350,
+     "max": 700
+    },
+    {
+     "w": 20,
+     "min": 700,
+     "max": 1200
+    },
+    {
+     "w": 5,
+     "min": 1500,
+     "max": 2500
+    }
+   ],
+   "maxExtras": 2,
+   "extras": [
+    {
+     "type": "weapon",
+     "p": 0.2,
+     "pool": "cave"
+    },
+    {
+     "type": "battery",
+     "p": 0.5,
+     "min": 1,
+     "max": 3
+    },
+    {
+     "type": "wear",
+     "p": 0.25,
+     "pool": "any"
+    },
+    {
+     "type": "flare",
+     "p": 0.25,
+     "n": 3
+    },
+    {
+     "type": "thermos",
+     "p": 0.15
+    },
+    {
+     "type": "oil",
+     "p": 0.15
+    },
+    {
+     "type": "bag",
+     "p": 0.04
+    }
+   ]
+  },
+  "crate": {
+   "krChance": 0.55,
+   "kr": [
+    {
+     "w": 70,
+     "min": 10,
+     "max": 40
+    },
+    {
+     "w": 25,
+     "min": 40,
+     "max": 90
+    },
+    {
+     "w": 5,
+     "min": 100,
+     "max": 200
+    }
+   ],
+   "maxExtras": 2,
+   "extras": [
+    {
+     "type": "weapon",
+     "p": 0.08,
+     "pool": "crate"
+    },
+    {
+     "type": "food",
+     "p": 0.8,
+     "n": [
+      1,
+      3
+     ]
+    },
+    {
+     "type": "battery",
+     "p": 0.25,
+     "min": 1,
+     "max": 1
+    },
+    {
+     "type": "snow",
+     "p": 0.15,
+     "n": 8
+    },
+    {
+     "type": "seeds",
+     "p": 0.12,
+     "n": 6
+    },
+    {
+     "type": "wear",
+     "p": 0.06,
+     "pool": "cheap"
+    },
+    {
+     "type": "oil",
+     "p": 0.05
+    }
+   ]
+  }
+ },
+ "_note3": "combat (30 Oct): extra type \"weapon\" {p, pool} rolls a weapon from the rarity pool in window.__DMG.pools (common / uncommon / rare / cave / summit / crate)."
+}

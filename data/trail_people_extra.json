@@ -1,0 +1,141 @@
+{
+ "_note": "Extra strangers (round 2 of the trail life job). Same format as trail_people.json; loaded by the alive2 block. Voices: build/make_trail_voices.py.",
+ "people": [
+  {
+   "id": "sigrid",
+   "name": "Sigrid the birdwatcher",
+   "voice": "en-GB-LibbyNeural",
+   "rate": "-6%",
+   "pitch": "+0Hz",
+   "x": 1500.1,
+   "z": -4835.2,
+   "mode": "stand",
+   "hours": [
+    7,
+    19
+   ],
+   "look": {
+    "coat": "#6a8a4a",
+    "pants": "#3a3a42",
+    "hat": "#e8d8b0",
+    "pack": "#6a4a2a",
+    "skin": "#ecc4a2"
+   },
+   "extra": "",
+   "lines": [
+    "Shh. That robin has followed three people today. It doesn't like the ones who wave.",
+    "I keep a list of everything I've seen. Last night's page just says: something watching back."
+   ],
+   "speed": 0.7,
+   "path": [
+    [
+     0,
+     0
+    ]
+   ],
+   "ask": ""
+  },
+  {
+   "id": "trygve",
+   "name": "Trygve the woodcutter",
+   "voice": "en-GB-ThomasNeural",
+   "rate": "-8%",
+   "pitch": "-8Hz",
+   "x": 2479.2,
+   "z": -5828.7,
+   "mode": "stand",
+   "hours": [
+    7,
+    17
+   ],
+   "look": {
+    "coat": "#a83a2a",
+    "pants": "#2a2a30",
+    "hat": "#1a1a1e",
+    "pack": "#6a4a2a",
+    "skin": "#d9a581"
+   },
+   "extra": "",
+   "lines": [
+    "Never stand under the creaking ones. They're not complaining, they're deciding.",
+    "I cut a tree at breakfast and by lunch there's a stump with a little smile on it. Don't ask."
+   ],
+   "speed": 0.7,
+   "path": [
+    [
+     0,
+     0
+    ]
+   ],
+   "ask": ""
+  },
+  {
+   "id": "solveig",
+   "name": "Solveig with the thermos",
+   "voice": "en-US-JennyNeural",
+   "rate": "-8%",
+   "pitch": "+2Hz",
+   "x": -8963.9,
+   "z": 6586.1,
+   "mode": "stand",
+   "hours": [
+    8,
+    20
+   ],
+   "look": {
+    "coat": "#d8a028",
+    "pants": "#4a4a52",
+    "hat": "#c8423a",
+    "pack": "#d8a028",
+    "skin": "#ecc4a2"
+   },
+   "extra": "bench",
+   "lines": [
+    "Cocoa? No? Good. It isn't for you. It's for the one who comes by at midnight.",
+    "Every winter someone leaves a mitten on the fence. Every winter, it's gone by morning. I've stopped asking who."
+   ],
+   "speed": 0.7,
+   "path": [
+    [
+     0,
+     0
+    ]
+   ],
+   "ask": ""
+  },
+  {
+   "id": "knut",
+   "name": "Knut the weather man",
+   "voice": "en-GB-RyanNeural",
+   "rate": "-10%",
+   "pitch": "-4Hz",
+   "x": 4767,
+   "z": -4157.6,
+   "mode": "stand",
+   "hours": [
+    0,
+    24
+   ],
+   "look": {
+    "coat": "#3a4a6a",
+    "pants": "#2a2a30",
+    "hat": "#8a8a96",
+    "pack": "#3a4a6a",
+    "skin": "#e8b894"
+   },
+   "extra": "lantern",
+   "lines": [
+    "Wind's from the north-east. That's the direction the quiet comes from.",
+    "I counted forty-one stars last night. The night before, forty-two. I'm not worried. I'm a little worried."
+   ],
+   "speed": 0.7,
+   "path": [
+    [
+     0,
+     0
+    ]
+   ],
+   "ask": ""
+  }
+ ]
+}

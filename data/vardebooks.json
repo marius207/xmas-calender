@@ -1,0 +1,701 @@
+{
+ "_note": "Summit books (guest books in a green mailbox beside every varde). Edit freely. varder: x,z = the varde, mx,mz,yaw = the mailbox beside it (door faces yaw, toward the nearest trail), model:true = the game adds a simple cairn there (no model existed). seed: older entries shown in each book (newest first is decided by the game from the order here: last = newest). Players sign with their login name, real local date and time, and the game day. reward = kr for the first signing of each book. presets = phrases for controller/mobile. Sharing: entries are saved per player locally; when the online relay is open they are also sent live to friends (type book).",
+ "reward": {
+  "kr": 20,
+  "allKr": 100
+ },
+ "presets": [
+  "Beautiful view!",
+  "We were here.",
+  "Cold but worth it.",
+  "Greetings to the valley.",
+  "Lovely day for a walk.",
+  "Best varde so far.",
+  "Dette var fint!",
+  "God tur, alle sammen.",
+  "Saw something odd on the way up.",
+  "Brought hot chocolate. Share?"
+ ],
+ "varder": [
+  {
+   "id": "hamrevarden",
+   "name": "Hamrevarden",
+   "x": 1461,
+   "z": -3034,
+   "note": "Varde · Hamrevarden og Globen rundtur, 6.3 km",
+   "model": false,
+   "eerie": true,
+   "approach": 37,
+   "mx": 1464.3,
+   "mz": -3034.1,
+   "yaw": 0.644,
+   "pathDist": 0
+  },
+  {
+   "id": "husefjell",
+   "name": "Husefjell",
+   "x": 743,
+   "z": -3716,
+   "note": "Hei · Nonskarknuten og Husefjell, 9 km t/r",
+   "model": false,
+   "eerie": true,
+   "approach": 153,
+   "mx": 741.4,
+   "mz": -3718.9,
+   "yaw": 2.674,
+   "pathDist": 139
+  },
+  {
+   "id": "nonskarknuten",
+   "name": "Nonskarknuten",
+   "x": -1867,
+   "z": -4,
+   "note": "Hei · Nonskarknuten og Husefjell, 9 km t/r",
+   "model": false,
+   "eerie": true,
+   "approach": 86,
+   "mx": -1864.9,
+   "mz": -6.6,
+   "yaw": 1.507,
+   "pathDist": 25
+  },
+  {
+   "id": "hunsbedtheia",
+   "name": "Hunsbedtheia",
+   "x": 3498,
+   "z": -1075,
+   "note": "Fra Utsikten Golfpark, ca. 4 km t/r",
+   "model": false,
+   "eerie": false,
+   "approach": 37,
+   "mx": 3501.3,
+   "mz": -1075.1,
+   "yaw": 0.644,
+   "pathDist": 583
+  },
+  {
+   "id": "oyrutlekniben",
+   "name": "Øyrutlekniben",
+   "x": 5418,
+   "z": -4307,
+   "note": "Oslo S og Øyrutlekniben, 4.4 / 5.8 km runde",
+   "model": false,
+   "eerie": false,
+   "approach": -93,
+   "mx": 5416.0,
+   "mz": -4304.4,
+   "yaw": -1.627,
+   "pathDist": 45
+  },
+  {
+   "id": "utsikten",
+   "name": "Utsikten",
+   "x": 361,
+   "z": 1099,
+   "note": "Utsikt over Liknes",
+   "model": false,
+   "eerie": false,
+   "approach": 131,
+   "mx": 360.6,
+   "mz": 1095.7,
+   "yaw": 2.291,
+   "pathDist": 207
+  },
+  {
+   "id": "medasen",
+   "name": "Medåsen",
+   "x": 570,
+   "z": -110,
+   "note": "Topp",
+   "model": false,
+   "eerie": false,
+   "approach": -86,
+   "mx": 568.3,
+   "mz": -107.2,
+   "yaw": -1.501,
+   "pathDist": 221
+  },
+  {
+   "id": "tagasknuten",
+   "name": "Tågåsknuten",
+   "x": 2114,
+   "z": 3211,
+   "note": "Topp",
+   "model": false,
+   "eerie": false,
+   "approach": 37,
+   "mx": 2117.3,
+   "mz": 3210.9,
+   "yaw": 0.644,
+   "pathDist": 1363
+  },
+  {
+   "id": "skomakertippen",
+   "name": "Skomakertippen",
+   "x": -9381,
+   "z": 6836,
+   "note": "Stup · 3.6 km t/r, utsikt rett ned i fjorden",
+   "model": false,
+   "eerie": false,
+   "approach": 119,
+   "mx": -9380.7,
+   "mz": 6832.7,
+   "yaw": 2.08,
+   "pathDist": 138
+  },
+  {
+   "id": "dyreknuten",
+   "name": "Dyreknuten",
+   "x": -9494,
+   "z": 6558,
+   "note": "Topp · Fjordsyn fra Sande, ca. 5.3 km rundtur",
+   "model": false,
+   "eerie": false,
+   "approach": 106,
+   "mx": -9492.9,
+   "mz": 6554.9,
+   "yaw": 1.845,
+   "pathDist": 5
+  },
+  {
+   "id": "lindlandshytta",
+   "name": "Lindlandshytta",
+   "x": -9163,
+   "z": 5264,
+   "note": "4 km t/r (krevende)",
+   "model": false,
+   "eerie": false,
+   "approach": -176,
+   "mx": -9165.8,
+   "mz": 5262.3,
+   "yaw": -3.072,
+   "pathDist": 69
+  },
+  {
+   "id": "bogeknuten",
+   "name": "Bogeknuten",
+   "x": -1011,
+   "z": -6561,
+   "note": "Høyde · 6 km t/r",
+   "model": false,
+   "eerie": true,
+   "approach": -85,
+   "mx": -1012.7,
+   "mz": -6558.2,
+   "yaw": -1.488,
+   "pathDist": 244
+  },
+  {
+   "id": "biktjornsknuten",
+   "name": "Biktjørnsknuten",
+   "x": 1390,
+   "z": -9160,
+   "note": "Hei · 3.2 km t/r",
+   "model": false,
+   "eerie": false,
+   "approach": -40,
+   "mx": 1390.9,
+   "mz": -9156.8,
+   "yaw": -0.696,
+   "pathDist": 8
+  },
+  {
+   "id": "sandvannsfjellet",
+   "name": "Sandvannsfjellet",
+   "x": 2601,
+   "z": -5781,
+   "note": "6.5 km runde",
+   "model": false,
+   "eerie": false,
+   "approach": 165,
+   "mx": 2598.9,
+   "mz": -5783.5,
+   "yaw": 2.877,
+   "pathDist": 3
+  },
+  {
+   "id": "froytlandsvarden",
+   "name": "Frøytlandsvarden",
+   "x": -6925,
+   "z": 2597,
+   "note": "Firkantvarde, old triangulation point (OSM viewpoint); no model before",
+   "model": true,
+   "eerie": true,
+   "approach": 131,
+   "mx": -6925.4,
+   "mz": 2593.7,
+   "yaw": 2.292,
+   "pathDist": 4
+  },
+  {
+   "id": "melosvarden",
+   "name": "Melosvarden",
+   "x": -5238,
+   "z": -891,
+   "note": "Varde (names.json); no model before",
+   "model": true,
+   "eerie": false,
+   "approach": 37,
+   "mx": -5234.7,
+   "mz": -891.1,
+   "yaw": 0.644,
+   "pathDist": 360
+  },
+  {
+   "id": "sorens_varde",
+   "name": "Sørens varde",
+   "x": -2778,
+   "z": -9041,
+   "note": "Varde (names.json); no model before",
+   "model": true,
+   "eerie": false,
+   "approach": 37,
+   "mx": -2774.7,
+   "mz": -9041.1,
+   "yaw": 0.644,
+   "pathDist": 836
+  },
+  {
+   "id": "fladehelleren",
+   "name": "Fladehelleren",
+   "x": -9192,
+   "z": 6553,
+   "note": "Rock shelter (OSM 6855308004); small cairn added for the book",
+   "model": true,
+   "eerie": false,
+   "approach": 17,
+   "mx": -9188.9,
+   "mz": 6554.0,
+   "yaw": 0.289,
+   "pathDist": 7
+  }
+ ],
+ "seed": {
+  "hamrevarden": [
+   {
+    "name": "Per og Fido",
+    "date": "13 Mar 2026, 17:00",
+    "text": "Fido har rulla seg i noko vondtluktande her. Anbefaler ikkje å gå bak oss ned."
+   },
+   {
+    "name": "Greta",
+    "date": "18 Apr 2026, 11:00",
+    "text": "Third time this month. The sky is different every time. Bring a thermos."
+   },
+   {
+    "name": "Gamle Hans",
+    "date": "4 Jul 2026, 14:30",
+    "text": "Har gått hit sidan 1961. Varden er den same. Eg er det ikkje. God tur, ungar."
+   },
+   {
+    "name": "Ola (fisker)",
+    "date": "4 Sep 2026, 11:05",
+    "text": "Fisherman, not a climber. My knees say never again. My heart says see you in spring."
+   },
+   {
+    "name": "Ukjent",
+    "date": "5 Oct 2026, 23:58",
+    "text": "I do not remember signing this. The handwriting is mine. The date is not.",
+    "eerie": true
+   }
+  ],
+  "husefjell": [
+   {
+    "name": "Pulkagjengen",
+    "date": "13 Apr 2026, 08:45",
+    "text": "Nissen bor under ein stein her. Vi leita men fann han ikkje. Han gøymer seg bra."
+   },
+   {
+    "name": "Gamle Hans",
+    "date": "23 May 2026, 10:45",
+    "text": "Fine folk i dag. Ein svensk, to danskar og ein gut som sprang. Det er sånn det skal vere."
+   },
+   {
+    "name": "Pulkagjengen",
+    "date": "13 Jun 2026, 13:20",
+    "text": "Lise + Mats + Jonas + Pulka. Rekord: 3 min ned. Mamma veit ikkje om dette."
+   },
+   {
+    "name": "Greta",
+    "date": "24 Aug 2026, 13:45",
+    "text": "Beautiful light at Husefjell! I painted the whole ridge in ten minutes and then it rained on it. Still counts."
+   },
+   {
+    "name": "Ukjent",
+    "date": "5 Oct 2026, 23:58",
+    "text": "The stones lean toward the town now. Somebody should tell the town.",
+    "eerie": true
+   }
+  ],
+  "nonskarknuten": [
+   {
+    "name": "Ola (fisker)",
+    "date": "16 May 2026, 14:45",
+    "text": "Fisherman, not a climber. My knees say never again. My heart says see you in spring."
+   },
+   {
+    "name": "Greta",
+    "date": "16 Jun 2026, 16:25",
+    "text": "Beautiful light at Nonskarknuten! I painted the whole ridge in ten minutes and then it rained on it. Still counts."
+   },
+   {
+    "name": "Greta",
+    "date": "19 Jul 2026, 16:35",
+    "text": "Whoever left the chocolate under the flat stone: you are a saint. I left half back."
+   },
+   {
+    "name": "Ola (fisker)",
+    "date": "6 Aug 2026, 14:30",
+    "text": "Sjekka Nonskarknuten etter storm. Varden står. Det gjer eg og, så vidt."
+   },
+   {
+    "name": "Ukjent",
+    "date": "5 Oct 2026, 23:58",
+    "text": "Came up at dusk. The lamps below were counting something. I stopped when I realised they were counting me.",
+    "eerie": true
+   }
+  ],
+  "hunsbedtheia": [
+   {
+    "name": "Greta",
+    "date": "18 May 2026, 09:40",
+    "text": "Third time this month. The sky is different every time. Bring a thermos."
+   },
+   {
+    "name": "Gamle Hans",
+    "date": "5 Jun 2026, 09:55",
+    "text": "Sjå ikkje ned, sjå utover. Det er der framtida ligg, og været."
+   },
+   {
+    "name": "Pulkagjengen",
+    "date": "16 Aug 2026, 12:00",
+    "text": "Lise + Mats + Jonas + Pulka. Rekord: 3 min ned. Mamma veit ikkje om dette."
+   },
+   {
+    "name": "Greta",
+    "date": "23 Sep 2026, 18:15",
+    "text": "Whoever left the chocolate under the flat stone: you are a saint. I left half back."
+   }
+  ],
+  "oyrutlekniben": [
+   {
+    "name": "Per og Fido",
+    "date": "26 Mar 2026, 09:25",
+    "text": "Fido har rulla seg i noko vondtluktande her. Anbefaler ikkje å gå bak oss ned."
+   },
+   {
+    "name": "Per og Fido",
+    "date": "20 May 2026, 17:05",
+    "text": "Dagstur med hund. 11 km, 2 pølser, 1 sur ankel. Verd det."
+   },
+   {
+    "name": "Ingrid",
+    "date": "24 Jun 2026, 10:15",
+    "text": "Meget stille her. Ingen vind, ingen fugler. Jeg satt en stund og bare lyttet. Veldig fint."
+   },
+   {
+    "name": "Ola (fisker)",
+    "date": "24 Sep 2026, 16:50",
+    "text": "Sjekka Øyrutlekniben etter storm. Varden står. Det gjer eg og, så vidt."
+   }
+  ],
+  "utsikten": [
+   {
+    "name": "Ola (fisker)",
+    "date": "16 May 2026, 15:00",
+    "text": "Fisherman, not a climber. My knees say never again. My heart says see you in spring."
+   },
+   {
+    "name": "Agnes",
+    "date": "7 Jun 2026, 09:30",
+    "text": "Walked up slowly, came down slowly, enjoyed every minute. Greetings to my granddaughter who said I could not."
+   },
+   {
+    "name": "Ingrid",
+    "date": "27 Jul 2026, 13:50",
+    "text": "Meget stille her. Ingen vind, ingen fugler. Jeg satt en stund og bare lyttet. Veldig fint."
+   },
+   {
+    "name": "Pulkagjengen",
+    "date": "19 Sep 2026, 09:35",
+    "text": "Lise + Mats + Jonas + Pulka. Rekord: 3 min ned. Mamma veit ikkje om dette."
+   }
+  ],
+  "medasen": [
+   {
+    "name": "Ingrid",
+    "date": "11 Mar 2026, 10:35",
+    "text": "We saw eagles today. Two of them, circling like they own the valley. They probably do."
+   },
+   {
+    "name": "Gamle Hans",
+    "date": "19 Apr 2026, 18:55",
+    "text": "Sjå ikkje ned, sjå utover. Det er der framtida ligg, og været."
+   },
+   {
+    "name": "Greta",
+    "date": "21 Jul 2026, 11:15",
+    "text": "Whoever left the chocolate under the flat stone: you are a saint. I left half back."
+   },
+   {
+    "name": "Per og Fido",
+    "date": "27 Oct 2026, 15:40",
+    "text": "Per + Fido. Fido got to the top first, as always. He signed with a paw, but the pen would not take it."
+   }
+  ],
+  "tagasknuten": [
+   {
+    "name": "Ola (fisker)",
+    "date": "6 Mar 2026, 08:25",
+    "text": "Sjekka Tågåsknuten etter storm. Varden står. Det gjer eg og, så vidt."
+   },
+   {
+    "name": "Agnes",
+    "date": "10 Jun 2026, 16:15",
+    "text": "Walked up slowly, came down slowly, enjoyed every minute. Greetings to my granddaughter who said I could not."
+   },
+   {
+    "name": "Gamle Hans",
+    "date": "5 Jul 2026, 10:30",
+    "text": "Sjå ikkje ned, sjå utover. Det er der framtida ligg, og været."
+   },
+   {
+    "name": "Pulkagjengen",
+    "date": "13 Oct 2026, 11:30",
+    "text": "Nissen bor under ein stein her. Vi leita men fann han ikkje. Han gøymer seg bra."
+   }
+  ],
+  "skomakertippen": [
+   {
+    "name": "Ola (fisker)",
+    "date": "23 Apr 2026, 16:40",
+    "text": "Fisherman, not a climber. My knees say never again. My heart says see you in spring."
+   },
+   {
+    "name": "Per og Fido",
+    "date": "10 Jul 2026, 14:20",
+    "text": "Fido har rulla seg i noko vondtluktande her. Anbefaler ikkje å gå bak oss ned."
+   },
+   {
+    "name": "Pulkagjengen",
+    "date": "20 Aug 2026, 15:10",
+    "text": "VI VAR HER!!! Vi tok pulka helt hit (og trilla ned igjen). 10/10 backe. Ola sin hund lov oss å klappe han."
+   },
+   {
+    "name": "Pulkagjengen",
+    "date": "21 Sep 2026, 15:20",
+    "text": "Nissen bor under ein stein her. Vi leita men fann han ikkje. Han gøymer seg bra."
+   }
+  ],
+  "dyreknuten": [
+   {
+    "name": "Ingrid",
+    "date": "15 Apr 2026, 10:40",
+    "text": "Came for the view, stayed for the quiet. Wrote three postcards and sent none."
+   },
+   {
+    "name": "Ola (fisker)",
+    "date": "23 Jun 2026, 13:55",
+    "text": "Sjekka Dyreknuten etter storm. Varden står. Det gjer eg og, så vidt."
+   },
+   {
+    "name": "Per og Fido",
+    "date": "23 Aug 2026, 10:25",
+    "text": "Fido har rulla seg i noko vondtluktande her. Anbefaler ikkje å gå bak oss ned."
+   },
+   {
+    "name": "Pulkagjengen",
+    "date": "14 Sep 2026, 09:10",
+    "text": "Lise + Mats + Jonas + Pulka. Rekord: 3 min ned. Mamma veit ikkje om dette."
+   }
+  ],
+  "lindlandshytta": [
+   {
+    "name": "Gamle Hans",
+    "date": "24 Apr 2026, 15:35",
+    "text": "Sjå ikkje ned, sjå utover. Det er der framtida ligg, og været."
+   },
+   {
+    "name": "Ola (fisker)",
+    "date": "22 Jun 2026, 12:25",
+    "text": "Kom opp med kaffe og brunost. Fjorden ligg som eit speil. Fiskar ikkje betre enn i dag, men fint å sjå på."
+   },
+   {
+    "name": "Gamle Hans",
+    "date": "10 Jul 2026, 12:30",
+    "text": "Har gått hit sidan 1961. Varden er den same. Eg er det ikkje. God tur, ungar."
+   },
+   {
+    "name": "Pulkagjengen",
+    "date": "17 Oct 2026, 13:50",
+    "text": "Lise + Mats + Jonas + Pulka. Rekord: 3 min ned. Mamma veit ikkje om dette."
+   }
+  ],
+  "bogeknuten": [
+   {
+    "name": "Per og Fido",
+    "date": "19 Mar 2026, 11:30",
+    "text": "Fido har rulla seg i noko vondtluktande her. Anbefaler ikkje å gå bak oss ned."
+   },
+   {
+    "name": "Greta",
+    "date": "2 May 2026, 15:25",
+    "text": "Whoever left the chocolate under the flat stone: you are a saint. I left half back."
+   },
+   {
+    "name": "Agnes",
+    "date": "24 Sep 2026, 10:25",
+    "text": "Walked up slowly, came down slowly, enjoyed every minute. Greetings to my granddaughter who said I could not."
+   },
+   {
+    "name": "Agnes",
+    "date": "5 Oct 2026, 08:40",
+    "text": "Jeg møtte en rev på stien. Den så ikke imponert ut. Fine boller i sekken i dag."
+   },
+   {
+    "name": "Ukjent",
+    "date": "5 Oct 2026, 23:58",
+    "text": "The stones lean toward the town now. Somebody should tell the town.",
+    "eerie": true
+   }
+  ],
+  "biktjornsknuten": [
+   {
+    "name": "Ola (fisker)",
+    "date": "26 May 2026, 15:45",
+    "text": "Kom opp med kaffe og brunost. Fjorden ligg som eit speil. Fiskar ikkje betre enn i dag, men fint å sjå på."
+   },
+   {
+    "name": "Agnes",
+    "date": "12 Jul 2026, 15:50",
+    "text": "Walked up slowly, came down slowly, enjoyed every minute. Greetings to my granddaughter who said I could not."
+   },
+   {
+    "name": "Ingrid",
+    "date": "26 Aug 2026, 09:30",
+    "text": "We saw eagles today. Two of them, circling like they own the valley. They probably do."
+   },
+   {
+    "name": "Ingrid",
+    "date": "6 Oct 2026, 16:05",
+    "text": "Meget stille her. Ingen vind, ingen fugler. Jeg satt en stund og bare lyttet. Veldig fint."
+   }
+  ],
+  "sandvannsfjellet": [
+   {
+    "name": "Greta",
+    "date": "8 Apr 2026, 11:10",
+    "text": "Third time this month. The sky is different every time. Bring a thermos."
+   },
+   {
+    "name": "Per og Fido",
+    "date": "7 May 2026, 15:00",
+    "text": "Per + Fido. Fido got to the top first, as always. He signed with a paw, but the pen would not take it."
+   },
+   {
+    "name": "Ola (fisker)",
+    "date": "12 Jun 2026, 11:30",
+    "text": "Kom opp med kaffe og brunost. Fjorden ligg som eit speil. Fiskar ikkje betre enn i dag, men fint å sjå på."
+   },
+   {
+    "name": "Per og Fido",
+    "date": "23 Aug 2026, 15:05",
+    "text": "Fido har rulla seg i noko vondtluktande her. Anbefaler ikkje å gå bak oss ned."
+   }
+  ],
+  "froytlandsvarden": [
+   {
+    "name": "Greta",
+    "date": "21 May 2026, 08:30",
+    "text": "Whoever left the chocolate under the flat stone: you are a saint. I left half back."
+   },
+   {
+    "name": "Gamle Hans",
+    "date": "10 Jun 2026, 09:40",
+    "text": "Har gått hit sidan 1961. Varden er den same. Eg er det ikkje. God tur, ungar."
+   },
+   {
+    "name": "Greta",
+    "date": "13 Aug 2026, 17:55",
+    "text": "Third time this month. The sky is different every time. Bring a thermos."
+   },
+   {
+    "name": "Ingrid",
+    "date": "20 Oct 2026, 10:30",
+    "text": "Came for the view, stayed for the quiet. Wrote three postcards and sent none."
+   },
+   {
+    "name": "Ukjent",
+    "date": "5 Oct 2026, 23:58",
+    "text": "It was listening to the valley. I think it is still listening.",
+    "eerie": true
+   }
+  ],
+  "melosvarden": [
+   {
+    "name": "Greta",
+    "date": "6 Mar 2026, 10:10",
+    "text": "Third time this month. The sky is different every time. Bring a thermos."
+   },
+   {
+    "name": "Agnes",
+    "date": "11 May 2026, 08:05",
+    "text": "Walked up slowly, came down slowly, enjoyed every minute. Greetings to my granddaughter who said I could not."
+   },
+   {
+    "name": "Gamle Hans",
+    "date": "11 Jun 2026, 11:25",
+    "text": "Sjå ikkje ned, sjå utover. Det er der framtida ligg, og været."
+   },
+   {
+    "name": "Ola (fisker)",
+    "date": "18 Oct 2026, 09:25",
+    "text": "Fisherman, not a climber. My knees say never again. My heart says see you in spring."
+   }
+  ],
+  "sorens_varde": [
+   {
+    "name": "Greta",
+    "date": "3 Mar 2026, 14:55",
+    "text": "Whoever left the chocolate under the flat stone: you are a saint. I left half back."
+   },
+   {
+    "name": "Greta",
+    "date": "5 Apr 2026, 08:00",
+    "text": "Third time this month. The sky is different every time. Bring a thermos."
+   },
+   {
+    "name": "Per og Fido",
+    "date": "25 May 2026, 16:55",
+    "text": "Dagstur med hund. 11 km, 2 pølser, 1 sur ankel. Verd det."
+   },
+   {
+    "name": "Agnes",
+    "date": "16 Sep 2026, 14:55",
+    "text": "Walked up slowly, came down slowly, enjoyed every minute. Greetings to my granddaughter who said I could not."
+   }
+  ],
+  "fladehelleren": [
+   {
+    "name": "Gamle Hans",
+    "date": "2 May 2026, 10:00",
+    "text": "Fine folk i dag. Ein svensk, to danskar og ein gut som sprang. Det er sånn det skal vere."
+   },
+   {
+    "name": "Ingrid",
+    "date": "7 Jun 2026, 16:20",
+    "text": "We saw eagles today. Two of them, circling like they own the valley. They probably do."
+   },
+   {
+    "name": "Agnes",
+    "date": "14 Sep 2026, 10:10",
+    "text": "Walked up slowly, came down slowly, enjoyed every minute. Greetings to my granddaughter who said I could not."
+   },
+   {
+    "name": "Gamle Hans",
+    "date": "11 Oct 2026, 12:50",
+    "text": "Sjå ikkje ned, sjå utover. Det er der framtida ligg, og været."
+   }
+  ]
+ }
+}

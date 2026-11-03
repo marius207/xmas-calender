@@ -1,0 +1,90 @@
+{
+ "_note": "Hidden nisse caps (task wonder, Little surprises). 12 spots, each checked for land (not water), not inside a building (roof spots sit on the roof). x,z in game metres; the game finds the height itself. kr = reward per cap. Saved per player: kv-nisse-hats.",
+ "kr": 5,
+ "hats": [
+  {
+   "id": "fence-1",
+   "kind": "fence",
+   "x": 303.78,
+   "z": 275.63,
+   "where": "on a fence post by the stadium"
+  },
+  {
+   "id": "fence-2",
+   "kind": "fence",
+   "x": 329.86,
+   "z": 289.17,
+   "where": "on a fence post by the stadium"
+  },
+  {
+   "id": "bench-1",
+   "kind": "bench",
+   "x": 299.5,
+   "z": 58.6,
+   "where": "on the bench at Helleråsen"
+  },
+  {
+   "id": "roof-1",
+   "kind": "roof",
+   "x": -32,
+   "z": -493,
+   "where": "on a roof on the apartments"
+  },
+  {
+   "id": "roof-2",
+   "kind": "roof",
+   "x": -251,
+   "z": -456,
+   "where": "on a roof on the houses"
+  },
+  {
+   "id": "roof-3",
+   "kind": "roof",
+   "x": -154,
+   "z": 828,
+   "where": "on a roof on the terraced houses"
+  },
+  {
+   "id": "sign-1",
+   "kind": "sign",
+   "x": -165,
+   "z": -284,
+   "where": "on a sign in Vesterdalsvegen"
+  },
+  {
+   "id": "sign-2",
+   "kind": "sign",
+   "x": 47,
+   "z": 282,
+   "where": "on a sign in Lunden"
+  },
+  {
+   "id": "snow-1",
+   "kind": "snowman",
+   "x": -188,
+   "z": 277,
+   "where": "on a snowman in the snow"
+  },
+  {
+   "id": "snow-2",
+   "kind": "snowman",
+   "x": -79,
+   "z": -226,
+   "where": "on a snowman in the snow"
+  },
+  {
+   "id": "snow-3",
+   "kind": "snowman",
+   "x": 450,
+   "z": -490,
+   "where": "on a snowman in the snow"
+  },
+  {
+   "id": "snow-4",
+   "kind": "snowman",
+   "x": 343,
+   "z": 101,
+   "where": "on a snowman in the snow"
+  }
+ ]
+}

@@ -1,0 +1,1645 @@
+{
+ "_note": "Side quests. Edit freely. Givers stand at x,z (the game finds the nearest free spot). Quest types: fetch (targets.item inventory id or targets.pocket name), deliver (targets.to giver id), find (targets x,z or pen fraction), escort (x,z,r), riddle (choices,right), race (x,z,r,sec), photo (x,z,r; film mode H). reward: kr, item+n, hint. oren/florin are ignored for now. After editing text run: python3 build/make_quests.py",
+ "givers": {
+  "tora": {
+   "name": "Tora",
+   "cat": "bakery",
+   "seed": 11,
+   "x": -6,
+   "z": 22,
+   "voice": "en-GB-SoniaNeural",
+   "rate": "-4%",
+   "pitch": "+0Hz",
+   "place": "The square",
+   "idle": "Hei! Nothing more from me today. God jul!"
+  },
+  "gunnar": {
+   "name": "Gunnar",
+   "cat": "kiosk",
+   "seed": 24,
+   "x": -17,
+   "z": 2,
+   "voice": "en-GB-ThomasNeural",
+   "rate": "-8%",
+   "pitch": "-6Hz",
+   "place": "By the kiosk",
+   "idle": "Mm. Cold one today. Stay warm out there."
+  },
+  "kari": {
+   "name": "Kari",
+   "cat": "cafe",
+   "seed": 7,
+   "x": -14,
+   "z": 25,
+   "voice": "en-US-JennyNeural",
+   "rate": "+0%",
+   "pitch": "+0Hz",
+   "place": "The square",
+   "idle": "Hei hei! Thanks again for helping."
+  },
+  "roger": {
+   "name": "Roger",
+   "cat": "bowling",
+   "seed": 31,
+   "x": 47,
+   "z": -498,
+   "voice": "en-IE-ConnorNeural",
+   "rate": "-2%",
+   "pitch": "-2Hz",
+   "place": "Outside Bowlinghallen",
+   "idle": "Lanes are busy tonight. Go on, throw one."
+  },
+  "emil": {
+   "name": "Emil",
+   "cat": "clothes",
+   "seed": 3,
+   "x": -80,
+   "z": -122,
+   "voice": "en-GB-MaisieNeural",
+   "rate": "+4%",
+   "pitch": "+8Hz",
+   "place": "By the church",
+   "idle": "I keep my other mitten in my pocket now."
+  },
+  "silje": {
+   "name": "Silje",
+   "cat": "clothes",
+   "seed": 19,
+   "x": -4,
+   "z": 10,
+   "voice": "en-AU-NatashaNeural",
+   "rate": "+8%",
+   "pitch": "+2Hz",
+   "place": "The square",
+   "idle": "Beat my time yet? No? Then go again!"
+  },
+  "hilde": {
+   "name": "Hilde",
+   "cat": "florist",
+   "seed": 14,
+   "x": -2,
+   "z": 16,
+   "voice": "en-US-AriaNeural",
+   "rate": "-2%",
+   "pitch": "+0Hz",
+   "place": "The square",
+   "idle": "I love this town. I will be back next year."
+  },
+  "ase": {
+   "name": "Åse",
+   "cat": "grocery",
+   "seed": 5,
+   "x": 784,
+   "z": -1637,
+   "voice": "en-GB-LibbyNeural",
+   "rate": "-6%",
+   "pitch": "-2Hz",
+   "place": "Camp Botnan",
+   "idle": "Take a seat by the fire if you like."
+  },
+  "mikkel": {
+   "name": "Mikkel",
+   "cat": "kiosk",
+   "seed": 9,
+   "x": 768,
+   "z": -1640,
+   "voice": "en-GB-MaisieNeural",
+   "rate": "+0%",
+   "pitch": "+10Hz",
+   "place": "Camp Botnan",
+   "idle": "Globen is the best. You can see everything from there."
+  },
+  "brit": {
+   "name": "Brit",
+   "cat": "pharmacy",
+   "seed": 22,
+   "x": 2346,
+   "z": 3960,
+   "voice": "en-IE-EmilyNeural",
+   "rate": "-4%",
+   "pitch": "+0Hz",
+   "place": "The tent camp",
+   "idle": "The lake is calm tonight. Too calm."
+  },
+  "knut": {
+   "name": "Knut",
+   "cat": "fuel",
+   "seed": 41,
+   "x": 2335,
+   "z": 3966,
+   "voice": "en-GB-RyanNeural",
+   "rate": "-10%",
+   "pitch": "-8Hz",
+   "place": "The tent camp",
+   "idle": "Sit. Warm your hands. Listen to the ice."
+  },
+  "solveig": {
+   "name": "Solveig",
+   "cat": "hotel",
+   "seed": 28,
+   "x": 1452,
+   "z": -3016,
+   "voice": "en-US-MichelleNeural",
+   "rate": "+0%",
+   "pitch": "-2Hz",
+   "place": "Below Hamrevarden",
+   "idle": "The view is the whole reward, really."
+  },
+  "arne": {
+   "name": "Arne",
+   "cat": "fuel",
+   "seed": 36,
+   "x": -8396,
+   "z": 5488,
+   "voice": "en-GB-ThomasNeural",
+   "rate": "-12%",
+   "pitch": "-10Hz",
+   "place": "Feda, on the fjord",
+   "idle": "The fish are not biting. They never bite when you are watching."
+  },
+  "hans": {
+   "trail": "hans",
+   "place": "The penstock intake",
+   "idle": "Do not go near the hatch. I mean it."
+  },
+  "ingrid": {
+   "trail": "ingrid",
+   "place": "Above Fedafjorden",
+   "idle": "They say the stone is counting. I have stopped listening."
+  },
+  "nils": {
+   "trail": "nils",
+   "place": "On the ski trail",
+   "idle": "Ha! Still slow? Practice!"
+  },
+  "kids": {
+   "trail": "kids",
+   "place": "The sledding hill",
+   "idle": "Best hill ever! Come back when you want to race!"
+  },
+  "ola": {
+   "trail": "ola",
+   "place": "The fishing lake",
+   "idle": "Shh. They bite better when you are quiet."
+  },
+  "greta": {
+   "trail": "greta",
+   "place": "The forest trail",
+   "idle": "Thank you again. Mind the second bend."
+  },
+  "agnes": {
+   "trail": "agnes",
+   "place": "The bench on the hill",
+   "idle": "Sit a while. The valley looks different when you stop."
+  },
+  "nora": {
+   "name": "Nora",
+   "cat": "florist",
+   "seed": 2,
+   "x": -6949,
+   "z": 5940,
+   "voice": "en-GB-MaisieNeural",
+   "rate": "+2%",
+   "pitch": "+12Hz",
+   "place": "Fedafjorden bridge",
+   "idle": "The river never stops. I checked."
+  },
+  "ruth": {
+   "name": "Ruth",
+   "cat": "grocery",
+   "seed": 51,
+   "x": 784,
+   "z": 889,
+   "voice": "en-GB-SoniaNeural",
+   "rate": "-6%",
+   "pitch": "-2Hz",
+   "place": "The farm south of town",
+   "idle": "The cows are in. The kettle is on. Come back any time."
+  },
+  "anders_h": {
+   "name": "Anders",
+   "cat": "fuel",
+   "seed": 52,
+   "x": 777,
+   "z": -1438,
+   "voice": "en-GB-RyanNeural",
+   "rate": "-8%",
+   "pitch": "-6Hz",
+   "place": "The hut north of Camp Botnan",
+   "idle": "Quiet up here. I like it that way. Mostly."
+  },
+  "siv": {
+   "name": "Siv",
+   "cat": "hotel",
+   "seed": 53,
+   "x": -1093,
+   "z": -1688,
+   "voice": "en-AU-NatashaNeural",
+   "rate": "-4%",
+   "pitch": "+0Hz",
+   "place": "The cabin by the penstock",
+   "idle": "The pipe hums at night. I have stopped minding."
+  },
+  "lindland": {
+   "name": "Lindland",
+   "cat": "church",
+   "seed": 54,
+   "x": -9163,
+   "z": 5264,
+   "voice": "en-IE-ConnorNeural",
+   "rate": "-10%",
+   "pitch": "-6Hz",
+   "place": "Lindlandshytta",
+   "idle": "The hut is warm. The woods are not. Stay a while."
+  },
+  "ivar": {
+   "name": "Ivar",
+   "cat": "bank",
+   "seed": 55,
+   "x": 2108,
+   "z": 3225,
+   "voice": "en-CA-LiamNeural",
+   "rate": "+0%",
+   "pitch": "+0Hz",
+   "place": "Below Tågåsknuten",
+   "idle": "The view from the top is worth the knees."
+  },
+  "pia": {
+   "name": "Pia",
+   "cat": "pharmacy",
+   "seed": 56,
+   "x": -939,
+   "z": 7429,
+   "voice": "en-US-AriaNeural",
+   "rate": "+4%",
+   "pitch": "+2Hz",
+   "place": "Topanzy bridge",
+   "idle": "I cross this bridge every day. Today it felt longer."
+  },
+  "sander": {
+   "name": "Sander",
+   "cat": "clothes",
+   "seed": 57,
+   "x": 3490,
+   "z": -1070,
+   "voice": "en-US-GuyNeural",
+   "rate": "+0%",
+   "pitch": "+0Hz",
+   "place": "Hunsbedtheia",
+   "idle": "You can see the whole east from here."
+  },
+  "oline": {
+   "name": "Oline",
+   "cat": "townhall",
+   "seed": 58,
+   "x": 735,
+   "z": -3700,
+   "voice": "en-GB-LibbyNeural",
+   "rate": "-4%",
+   "pitch": "+0Hz",
+   "place": "Below Husefjell",
+   "idle": "Husefjell keeps its own counsel. So do I."
+  },
+  "vegard": {
+   "name": "Vegard",
+   "cat": "wine",
+   "seed": 59,
+   "x": -1011,
+   "z": -6561,
+   "voice": "en-GB-ThomasNeural",
+   "rate": "-12%",
+   "pitch": "-8Hz",
+   "place": "Bogeknuten",
+   "idle": "Do not look at the sky too long up here."
+  },
+  "trine": {
+   "name": "Trine",
+   "cat": "florist",
+   "seed": 60,
+   "x": 2601,
+   "z": -5781,
+   "voice": "en-NZ-MollyNeural",
+   "rate": "+2%",
+   "pitch": "+2Hz",
+   "place": "Sandvannsfjellet",
+   "idle": "Thank you for the walk. The lake is lovely now."
+  },
+  "magnus": {
+   "name": "Magnus",
+   "cat": "kiosk",
+   "seed": 61,
+   "x": -6915,
+   "z": 2610,
+   "voice": "en-US-EricNeural",
+   "rate": "-6%",
+   "pitch": "-2Hz",
+   "place": "Frøytlandsvarden",
+   "idle": "It rings when the wind is right. Listen."
+  },
+  "helga": {
+   "name": "Helga",
+   "cat": "library",
+   "seed": 62,
+   "x": -5238,
+   "z": -891,
+   "voice": "en-ZA-LeahNeural",
+   "rate": "-6%",
+   "pitch": "+0Hz",
+   "place": "Melosvarden",
+   "idle": "Some lights are not for us to follow."
+  },
+  "odd": {
+   "name": "Odd",
+   "cat": "shop",
+   "seed": 63,
+   "x": 5405,
+   "z": -4300,
+   "voice": "en-ZA-LukeNeural",
+   "rate": "-8%",
+   "pitch": "-4Hz",
+   "place": "Below Øyrutlekniben",
+   "idle": "Far from everything. That is the point."
+  },
+  "bjorg": {
+   "trail": "bjorg",
+   "place": "The old road, south",
+   "idle": "Bamse is home. I owe you a biscuit."
+  },
+  "edda": {
+   "trail": "edda",
+   "place": "Near the valley church",
+   "idle": "Keep away from cookies on the path, dear."
+  },
+  "halvor": {
+   "trail": "halvor",
+   "place": "Below Nonskarknuten",
+   "idle": "The lights are still there. Do not follow them."
+  },
+  "jorun": {
+   "trail": "jorun",
+   "place": "Fedabrygga",
+   "idle": "Rowing is easier than talking. Thank you."
+  },
+  "tarjei": {
+   "trail": "tarjei",
+   "place": "The ravens' hill, Feda",
+   "idle": "The ravens are quiet. For now."
+  },
+  "maren": {
+   "trail": "maren",
+   "place": "Utsikten",
+   "idle": "Slow and steady. That is also a way to win."
+  },
+  "liv": {
+   "trail": "liv",
+   "place": "The fjord shore",
+   "idle": "The shore remembers everything."
+  },
+  "oddvar": {
+   "trail": "oddvar",
+   "place": "The old road end",
+   "idle": "The road still ends here."
+  }
+ },
+ "quests": [
+  {
+   "id": "julekule",
+   "title": "A red julekule for Tora",
+   "giver": "tora",
+   "where": [
+    -6,
+    22
+   ],
+   "type": "fetch",
+   "minDay": 0,
+   "ask": "Hei, vennen min! My little tree is naken, and my hands are full of dough. Could you buy me one red julekule from the Julepynt stall on the square? Takk skal du ha.",
+   "wait": "One red julekule, from the Julepynt stall. Not two, I only have one branch left.",
+   "done": "Å, nydelig! Just like my bestemor had. Here, a little something for your trouble.",
+   "targets": {
+    "item": "julekule",
+    "pocket": "Julekule (rød)",
+    "n": 1,
+    "label": "a red julekule (Julepynt stall)"
+   },
+   "reward": {
+    "kr": 40
+   },
+   "repeatable": false
+  },
+  {
+   "id": "kiosk_thermos",
+   "title": "Gunnar's cold hands",
+   "giver": "gunnar",
+   "where": [
+    -17,
+    2
+   ],
+   "type": "fetch",
+   "minDay": 1,
+   "ask": "Mm. My hands are blocks of ice and the stove is broken. If you ever find a gløgg thermos on your travels, bring it to an old man.",
+   "wait": "A gløgg thermos. People leave them lying around out in the cold. Look near the lamps.",
+   "done": "Ahh. That is the warmest thing that has happened to me all week. Here, take this for your trouble.",
+   "targets": {
+    "item": "thermos",
+    "n": 1,
+    "label": "a gløgg thermos"
+   },
+   "reward": {
+    "kr": 60,
+    "item": "rocket",
+    "n": 1
+   },
+   "repeatable": false
+  },
+  {
+   "id": "kari_parcel",
+   "title": "Kari's lefse parcel",
+   "giver": "kari",
+   "where": [
+    -14,
+    25
+   ],
+   "type": "deliver",
+   "minDay": 0,
+   "ask": "Hei hei! I promised Roger at Bowlinghallen a parcel of lefse, and now my feet hurt. Would you carry it over to him? Just say it is from Kari.",
+   "wait": "The parcel is for Roger, outside Bowlinghallen. Mind the ice on the way.",
+   "done": "Lefse from Kari! She is an angel, that woman. Here, for the long walk.",
+   "targets": {
+    "to": "roger",
+    "parcel": "Parcel of lefse"
+   },
+   "reward": {
+    "kr": 50,
+    "item": "flare",
+    "n": 1
+   },
+   "repeatable": false
+  },
+  {
+   "id": "emil_mitten",
+   "title": "Emil's red mitten",
+   "giver": "emil",
+   "where": [
+    -80,
+    -122
+   ],
+   "type": "find",
+   "minDay": 0,
+   "ask": "I lost my red mitten! I was throwing snowballs at the bridge, and when I looked down, poof. Mamma will be so cross. Can you find it?",
+   "wait": "It is red, and it is on the bridge somewhere. Probably near the railing.",
+   "done": "My mitten! It is a bit frozen, but it is mine. Here, have a thermos, Mamma gave me two.",
+   "targets": {
+    "x": -97.6,
+    "z": 65.6,
+    "deck": true,
+    "thing": "a red mitten",
+    "color": "#d01830",
+    "label": "a red mitten on the bridge"
+   },
+   "reward": {
+    "kr": 30,
+    "item": "thermos",
+    "n": 1
+   },
+   "repeatable": false
+  },
+  {
+   "id": "roger_riddle",
+   "title": "Roger's lane riddle",
+   "giver": "roger",
+   "where": [
+    47,
+    -498
+   ],
+   "type": "riddle",
+   "minDay": 0,
+   "ask": "A riddle from the lanes, my friend. I roll, but I have no wheels. I am heavy, but I have no legs. And I am always looking for ten friends to knock down. What am I?",
+   "wait": "Think about it. Ten friends to knock down. What am I?",
+   "done": "Ha! Right on the head. You are sharper than the pins. Take these, in case the dark comes.",
+   "targets": {
+    "choices": [
+     "A bowling ball",
+     "A snowball",
+     "A rocket"
+    ],
+    "right": 0
+   },
+   "reward": {
+    "item": "flare",
+    "n": 2
+   },
+   "repeatable": false,
+   "wrong": "Hm, no. Not that one. Think about the lanes."
+  },
+  {
+   "id": "silje_dash",
+   "title": "Silje's dash to the church",
+   "giver": "silje",
+   "where": [
+    -4,
+    10
+   ],
+   "type": "race",
+   "minDay": 2,
+   "ask": "Bet you cannot make it to the church before the clock runs out! Seventy seconds, go go go! The church is down the road to the south west. I will count.",
+   "wait": "The church! Seventy seconds! Are you still here?",
+   "done": "Ha! Fast as a reindeer! Okay, okay, I owe you some kroner.",
+   "targets": {
+    "x": -90,
+    "z": -128,
+    "r": 15,
+    "sec": 70,
+    "label": "Kvinesdal kirke"
+   },
+   "reward": {
+    "kr": 80
+   },
+   "repeatable": false
+  },
+  {
+   "id": "hilde_church",
+   "title": "A picture of the church",
+   "giver": "hilde",
+   "where": [
+    -2,
+    16
+   ],
+   "type": "photo",
+   "minDay": 1,
+   "ask": "Excuse me, I am a tourist. I would love a photograph of your beautiful church for my sister, but my camera is broken. Could you take one for me? Press H to hide the screen, then face the church.",
+   "wait": "The church, down the road. Press H to hide the screen and frame it, then come back to me.",
+   "done": "Oh, it is perfect! The light, the snow! My sister will cry. Here, for your trouble.",
+   "targets": {
+    "x": -90,
+    "z": -136,
+    "r": 50,
+    "thing": "Kvinesdal kirke",
+    "label": "a photo of the church"
+   },
+   "reward": {
+    "kr": 50
+   },
+   "repeatable": false
+  },
+  {
+   "id": "ase_snow",
+   "title": "Snow for the cooking pot",
+   "giver": "ase",
+   "where": [
+    784,
+    -1637
+   ],
+   "type": "fetch",
+   "minDay": 0,
+   "ask": "Hei! The water pipes at the camp are frozen again, and the soup needs snow for the pot. Could you bring me six snowballs? Scoop them from any snow pile.",
+   "wait": "Six snowballs for the soup pot. Scoop them from the snow, anywhere is fine.",
+   "done": "Perfect! That will make a lovely soup. Here is a bit of kroner and something warm.",
+   "targets": {
+    "item": "snowball",
+    "n": 6,
+    "label": "6 snowballs"
+   },
+   "reward": {
+    "kr": 40,
+    "item": "thermos",
+    "n": 1
+   },
+   "repeatable": false
+  },
+  {
+   "id": "mikkel_globen",
+   "title": "Mikkel's night walk",
+   "giver": "mikkel",
+   "where": [
+    768,
+    -1640
+   ],
+   "type": "escort",
+   "minDay": 3,
+   "ask": "Psst. I want to see Globen at night, but Mamma says I cannot go alone. Will you walk with me? Stay close. It is a bit scary in the dark.",
+   "wait": "Globen is down the trail to the south. Please walk slowly, I have short legs.",
+   "done": "We made it! Look at the stars. Thank you for walking with me. Take this, I found it by the trail.",
+   "targets": {
+    "x": 644,
+    "z": -2046,
+    "r": 16,
+    "label": "Globen"
+   },
+   "reward": {
+    "item": "rocket_l",
+    "n": 1
+   },
+   "repeatable": false
+  },
+  {
+   "id": "brit_lamp",
+   "title": "Brit's headlamp",
+   "giver": "brit",
+   "where": [
+    2346,
+    3960
+   ],
+   "type": "find",
+   "minDay": 0,
+   "ask": "Oh good, a person. I dropped my headlamp somewhere along the shore, and it is getting dark. Could you look for it? It would be on the lake side of the tents.",
+   "wait": "My headlamp should be on the shore, between the tents and the water.",
+   "done": "My lamp! Thank you. Honestly, I felt that lake looking at me. Here, for your trouble.",
+   "targets": {
+    "x": 2352,
+    "z": 3990,
+    "thing": "a headlamp",
+    "color": "#e8e0b0",
+    "label": "a headlamp on the lake shore"
+   },
+   "reward": {
+    "kr": 70
+   },
+   "repeatable": false
+  },
+  {
+   "id": "knut_riddle",
+   "title": "Knut's fireside riddle",
+   "giver": "knut",
+   "where": [
+    2335,
+    3966
+   ],
+   "type": "riddle",
+   "minDay": 0,
+   "ask": "Sit. Warm yourself. A riddle for the fire. I follow you at night, but never in the dark. I am born when you hold a light. I die when you put it out. What am I?",
+   "wait": "I follow you at night, but never in the dark. What am I?",
+   "done": "Your shadow. Yes. Remember it. Out here, it is good to know what follows you. Here, and a hint: seek the high cairn above Hamrevarden.",
+   "targets": {
+    "choices": [
+     "Your shadow",
+     "Your echo",
+     "Your breath"
+    ],
+    "right": 0
+   },
+   "reward": {
+    "kr": 40,
+    "hint": "Seek the high cairn above Hamrevarden."
+   },
+   "repeatable": false,
+   "wrong": "No. Think about the light."
+  },
+  {
+   "id": "solveig_cairn",
+   "title": "A picture of Hamrevarden",
+   "giver": "solveig",
+   "where": [
+    1452,
+    -3016
+   ],
+   "type": "photo",
+   "minDay": 5,
+   "ask": "I climbed all the way up here and my phone died. Would you take a picture of the cairn at Hamrevarden for me? Press H to hide the screen, stand close, and look at it.",
+   "wait": "The cairn above us, Hamrevarden. Press H and frame it, then come back down to me.",
+   "done": "Beautiful! It looks like it is guarding the whole valley. Here is a long blue rocket. Do not waste it.",
+   "targets": {
+    "x": 1461,
+    "z": -3034,
+    "r": 45,
+    "thing": "Hamrevarden",
+    "label": "a photo of Hamrevarden"
+   },
+   "reward": {
+    "item": "rocket_l",
+    "n": 1
+   },
+   "repeatable": false
+  },
+  {
+   "id": "hans_wrench",
+   "title": "The lost wrench",
+   "giver": "hans",
+   "where": [
+    -1326,
+    -1500
+   ],
+   "type": "find",
+   "minDay": 4,
+   "ask": "Forty years on this pipe, and today I lose my big wrench. It is heavy and grey, somewhere down the slope along the pipe. My knees will not let me look. Could you?",
+   "wait": "My wrench is somewhere along the pipe, down the slope. Follow the penstock.",
+   "done": "My wrench. Good. I thought something took it. Here is a bit of kroner. And do not open the hatch.",
+   "targets": {
+    "pen": 0.07,
+    "thing": "a heavy wrench",
+    "color": "#9aa0a8",
+    "label": "a wrench by the penstock"
+   },
+   "reward": {
+    "kr": 90
+   },
+   "repeatable": false
+  },
+  {
+   "id": "arne_string",
+   "title": "String for Arne's line",
+   "giver": "arne",
+   "where": [
+    -8396,
+    5488
+   ],
+   "type": "fetch",
+   "minDay": 0,
+   "ask": "My fishing line broke, again, and the hole in the ice is waiting. Bring me some Hyssing, string, from the hardware shop in town, and I will tell you where the big ones live.",
+   "wait": "String from the hardware shop in town. Hyssing. My line is a sorry thing.",
+   "done": "That will do nicely. The big ones live under the bridge, in the black water. Here, for your trouble.",
+   "targets": {
+    "pocket": "Hyssing (string)",
+    "item": "string",
+    "n": 1,
+    "label": "Hyssing (string) from the hardware shop"
+   },
+   "reward": {
+    "kr": 100
+   },
+   "repeatable": false
+  },
+  {
+   "id": "ingrid_stone",
+   "title": "A picture of Orresteinen",
+   "giver": "ingrid",
+   "where": [
+    -7707,
+    5570
+   ],
+   "type": "photo",
+   "minDay": 6,
+   "ask": "Everyone comes to see the great stone, and nobody takes its picture. Would you? It is down the slope, the big round boulder. Press H to hide the screen and face it.",
+   "wait": "The great stone below the road. Press H, frame it, and come back to me.",
+   "done": "Oh. It looks different on the picture. Like it is looking back. Here, take this and a flare.",
+   "targets": {
+    "x": -7733,
+    "z": 5756,
+    "r": 40,
+    "thing": "Orresteinen",
+    "label": "a photo of Orresteinen"
+   },
+   "reward": {
+    "kr": 50,
+    "item": "flare",
+    "n": 1
+   },
+   "repeatable": false
+  },
+  {
+   "id": "ingrid_pie",
+   "title": "A pie for Arne",
+   "giver": "ingrid",
+   "where": [
+    -7707,
+    5570
+   ],
+   "type": "deliver",
+   "minDay": 6,
+   "ask": "One more favour. I baked a pie for Arne down at Feda, and I do not want to leave my view. Will you take it to him? He will be down by the fjord, I think.",
+   "wait": "The pie is for Arne at Feda, down by the fjord. Keep it warm.",
+   "done": "A pie! From Ingrid. She must be missing me. Here, for the long walk.",
+   "targets": {
+    "to": "arne",
+    "parcel": "Marit's pie"
+   },
+   "reward": {
+    "kr": 60
+   },
+   "repeatable": false,
+   "after": "ingrid_stone"
+  },
+  {
+   "id": "nora_riddle",
+   "title": "Nora's river riddle",
+   "giver": "nora",
+   "where": [
+    -6949,
+    5940
+   ],
+   "type": "riddle",
+   "minDay": 0,
+   "ask": "I have a riddle! What has a mouth but never eats, a bed but never sleeps, and runs but never walks?",
+   "wait": "A mouth that never eats, a bed that never sleeps, it runs but never walks. Hm?",
+   "done": "Yes! A river! I knew you were clever. Here, for being clever.",
+   "targets": {
+    "choices": [
+     "A river",
+     "A bus",
+     "A cow"
+    ],
+    "right": 0
+   },
+   "reward": {
+    "kr": 30,
+    "item": "rocket",
+    "n": 1
+   },
+   "repeatable": false,
+   "wrong": "No, silly. Think about the bridge."
+  },
+  {
+   "id": "nils_race",
+   "title": "Race Nils to the lake",
+   "giver": "nils",
+   "where": [
+    1157,
+    -677
+   ],
+   "type": "race",
+   "minDay": 1,
+   "ask": "Ha! Think you are fast? Race me to the fisherman at the lake. Two minutes. Go go go, I will take the shortcut!",
+   "wait": "The fisherman, at the lake. Two minutes. Move your legs!",
+   "done": "Not bad, not bad! Next time I will have to try harder. Here, for being quick.",
+   "targets": {
+    "x": 570,
+    "z": -652,
+    "r": 16,
+    "sec": 120,
+    "label": "the fisher at the lake"
+   },
+   "reward": {
+    "kr": 70,
+    "item": "rocket",
+    "n": 1
+   },
+   "repeatable": false
+  },
+  {
+   "id": "kids_snow",
+   "title": "Snowballs for the sled kids",
+   "giver": "kids",
+   "where": [
+    772,
+    -874
+   ],
+   "type": "fetch",
+   "minDay": 0,
+   "ask": "We are having a snowball battle and we ran out! Can you bring us eight snowballs? Please please please!",
+   "wait": "Eight snowballs! We need them for the battle. Hurry!",
+   "done": "Yay! Now we win for sure! Here, a rocket, for being the best.",
+   "targets": {
+    "item": "snowball",
+    "n": 8,
+    "label": "8 snowballs"
+   },
+   "reward": {
+    "item": "rocket",
+    "n": 1,
+    "kr": 20
+   },
+   "repeatable": false
+  },
+  {
+   "id": "ola_riddle",
+   "title": "The fisher's riddle",
+   "giver": "ola",
+   "where": [
+    570,
+    -652
+   ],
+   "type": "riddle",
+   "minDay": 0,
+   "ask": "Shh. A riddle, while we wait for the fish. The more of me you take, the more you leave behind. What am I?",
+   "wait": "The more you take, the more you leave behind. What am I?",
+   "done": "Footsteps. Aye. You are good at this. Take these, and a hint: the big fish live under the bridge.",
+   "targets": {
+    "choices": [
+     "Footsteps",
+     "Snow",
+     "Fish"
+    ],
+    "right": 0
+   },
+   "reward": {
+    "kr": 40,
+    "hint": "The big fish live under the bridge."
+   },
+   "repeatable": false,
+   "wrong": "No. Think about the snow, and what you leave in it."
+  },
+  {
+   "id": "greta_scarf",
+   "title": "Greta's red scarf",
+   "giver": "greta",
+   "where": [
+    1041,
+    -1631
+   ],
+   "type": "find",
+   "minDay": 2,
+   "ask": "Oh, thank goodness. I lost my scarf at the second bend, or maybe the third. It is red and rather long. Could you look for it? I do not like that bend.",
+   "wait": "A long red scarf, somewhere along the trail. Mind the bends.",
+   "done": "My scarf! It was lying there like it was waiting. Thank you. Here, for the trouble.",
+   "targets": {
+    "x": 1075,
+    "z": -1700,
+    "thing": "a long red scarf",
+    "color": "#c8102e",
+    "label": "a red scarf on the trail"
+   },
+   "reward": {
+    "kr": 50,
+    "item": "thermos",
+    "n": 1
+   },
+   "repeatable": false
+  },
+  {
+   "id": "agnes_letter",
+   "title": "A letter for Gunnar",
+   "giver": "agnes",
+   "where": [
+    -12,
+    134
+   ],
+   "type": "deliver",
+   "minDay": 0,
+   "ask": "Would you do an old woman a favour? I have a letter for Gunnar at the kiosk, and my hip does not like the hill. Just hand it to him.",
+   "wait": "The letter is for Gunnar, by the kiosk. Down the hill, in town.",
+   "done": "A letter from Agnes? Hm. It is about the chess game. I shall win this time. Here, for your trouble.",
+   "targets": {
+    "to": "gunnar",
+    "parcel": "Agnes's letter"
+   },
+   "reward": {
+    "kr": 40
+   },
+   "repeatable": false
+  },
+  {
+   "id": "msg_a",
+   "title": "A message for the hut",
+   "giver": "ruth",
+   "type": "deliver",
+   "minDay": 0,
+   "ask": "Hei, you look like someone who walks far. Could you take this folded note to Anders, in the hut north of Camp Botnan? I have no reason to go and he has no phone.",
+   "wait": "The note is for Anders, in the hut north of Camp Botnan. It is a long walk. Mind the cold.",
+   "done": "A note from Ruth! She has not written in a year. Here, for the walk.",
+   "targets": {
+    "to": "anders_h",
+    "parcel": "Ruth's folded note"
+   },
+   "reward": {
+    "kr": 50
+   },
+   "repeatable": false,
+   "where": [
+    784,
+    889
+   ]
+  },
+  {
+   "id": "msg_b",
+   "title": "The note goes on",
+   "giver": "anders_h",
+   "type": "deliver",
+   "minDay": 2,
+   "ask": "Hm. Ruth says the winter is early this year. She is right. Siv, in the cabin by the penstock, should hear it too. Pass it on, will you? Two words: it is early.",
+   "wait": "Take it to Siv, at the cabin by the penstock. Two words. It is early.",
+   "done": "Early. Yes. I thought so. The pipe has been humming since Monday. Here, for your trouble and a flare for the dark.",
+   "targets": {
+    "to": "siv",
+    "parcel": "Anders's message"
+   },
+   "reward": {
+    "kr": 60,
+    "item": "flare",
+    "n": 1
+   },
+   "repeatable": false,
+   "after": "msg_a",
+   "where": [
+    777,
+    -1438
+   ]
+  },
+  {
+   "id": "msg_c",
+   "title": "A thermos for the night watch",
+   "giver": "siv",
+   "type": "fetch",
+   "minDay": 4,
+   "ask": "Tell Anders I heard him. And do me one more favour. The night watch is long. Bring me a gløgg thermos, if you can find one lying around.",
+   "wait": "A gløgg thermos for the night watch. Look near the lamps, or on the trails.",
+   "done": "Ahh. Warm hands. Listen, a hint for you: the hatch under the old power station has no handle outside. Do not open it twice.",
+   "targets": {
+    "item": "thermos",
+    "n": 1,
+    "label": "a gløgg thermos"
+   },
+   "reward": {
+    "kr": 80,
+    "hint": "The hatch under the old power station has no handle outside."
+   },
+   "repeatable": false,
+   "after": "msg_b",
+   "where": [
+    -1093,
+    -1688
+   ]
+  },
+  {
+   "id": "bamse_collar",
+   "title": "Bamse's collar",
+   "giver": "bjorg",
+   "type": "find",
+   "minDay": 0,
+   "ask": "Bamse has run off, and I only found his collar. It is red with a little bell. He lost it near the old runestone, south east of town. Could you look?",
+   "wait": "A red collar with a bell, near the old runestone south east of town.",
+   "done": "His collar! Still warm. He was here. Thank you. A little kroner for the walk.",
+   "targets": {
+    "x": 1236,
+    "z": 602,
+    "thing": "Bamse's collar",
+    "color": "#c8102e",
+    "label": "Bamse's collar by the runestone"
+   },
+   "reward": {
+    "kr": 40
+   },
+   "repeatable": false,
+   "where": [
+    null,
+    null
+   ]
+  },
+  {
+   "id": "bamse_find",
+   "title": "Where is Bamse?",
+   "giver": "bjorg",
+   "type": "find",
+   "minDay": 1,
+   "ask": "Someone saw paw prints near the old tracks north east of here, by the valley church. Could you look there? Say his name. He will come.",
+   "wait": "The paw prints, by the old tracks near the valley church. Say his name.",
+   "done": "Bamse! You silly old fool. Thank you, thank you. Take this thermos, it is the least I can do.",
+   "targets": {
+    "x": 1542,
+    "z": -1118,
+    "thing": "Bamse",
+    "color": "#8a5a2a",
+    "label": "Bamse, near the valley church tracks"
+   },
+   "reward": {
+    "item": "thermos",
+    "n": 1
+   },
+   "repeatable": false,
+   "after": "bamse_collar",
+   "where": [
+    null,
+    null
+   ]
+  },
+  {
+   "id": "bamse_book",
+   "title": "Tell the summit",
+   "giver": "bjorg",
+   "type": "sign",
+   "minDay": 2,
+   "ask": "One more thing. I promised the hill I would tell it if he came home. Sign the summit book at Medåsen for me, and write that Bamse is safe. It is a silly thing, but I promised.",
+   "wait": "Sign the summit book at Medåsen. Write that Bamse is safe.",
+   "done": "Thank you. Now the hill knows. Here, a rocket for the evening.",
+   "targets": {
+    "varde": "medasen",
+    "label": "the summit book at Medåsen"
+   },
+   "reward": {
+    "kr": 60,
+    "item": "rocket",
+    "n": 1
+   },
+   "repeatable": false,
+   "after": "bamse_find",
+   "where": [
+    null,
+    null
+   ]
+  },
+  {
+   "id": "edda_tin",
+   "title": "A tin on the path",
+   "giver": "edda",
+   "type": "find",
+   "minDay": 3,
+   "ask": "Dear, there is a tin of cookies lying on the path north west of the valley church, by an old rucksack spot. It is warm. Do not eat them. Fetch it for me, and do not open the lid.",
+   "wait": "A warm tin of cookies, by the path north west of the valley church. Do not open it.",
+   "done": "Oh. Oh, that is her baking, all right. I know the smell. Thank you, dear. Here is some kroner.",
+   "targets": {
+    "x": 1499,
+    "z": -1470,
+    "thing": "a warm cookie tin",
+    "color": "#c8a040",
+    "label": "a warm cookie tin on the path"
+   },
+   "reward": {
+    "kr": 50
+   },
+   "repeatable": false,
+   "where": [
+    null,
+    null
+   ]
+  },
+  {
+   "id": "edda_bury",
+   "title": "Where the tin goes",
+   "giver": "edda",
+   "type": "deliver",
+   "minDay": 4,
+   "ask": "The tin must not stay down here. Take it up to Solveig at Hamrevarden. Ask her to put it under the cairn, and not to peek. She will understand.",
+   "wait": "The tin goes to Solveig at Hamrevarden. Under the cairn. No peeking.",
+   "done": "Under the cairn. Yes. The stones are good at keeping things. Here, for the long climb.",
+   "targets": {
+    "to": "solveig",
+    "parcel": "A warm cookie tin"
+   },
+   "reward": {
+    "kr": 90
+   },
+   "repeatable": false,
+   "after": "edda_tin",
+   "where": [
+    null,
+    null
+   ]
+  },
+  {
+   "id": "lantern_a",
+   "title": "The first light",
+   "giver": "halvor",
+   "type": "photo",
+   "minDay": 0,
+   "ask": "Three lights on the ridge, every night, and nobody believes me. Take a picture of Nonskarknuten, the summit above us. Press H to hide the screen, and face it. Then I have proof.",
+   "wait": "A photo of Nonskarknuten, above us. Press H and frame it.",
+   "done": "There! You can see a little glow, just there. I knew it. Here, for your trouble.",
+   "targets": {
+    "x": -1867,
+    "z": -4,
+    "r": 90,
+    "thing": "Nonskarknuten",
+    "label": "a photo of Nonskarknuten"
+   },
+   "reward": {
+    "kr": 50
+   },
+   "repeatable": false,
+   "where": [
+    null,
+    null
+   ]
+  },
+  {
+   "id": "lantern_b",
+   "title": "The second light",
+   "giver": "halvor",
+   "type": "sign",
+   "minDay": 5,
+   "ask": "Climb to the top, if you dare, and sign the summit book at Nonskarknuten. See whether anyone before you wrote about the lights. I would like to know.",
+   "wait": "Sign the summit book at Nonskarknuten, at the top.",
+   "done": "So someone wrote about them. Good. Then I am not mad. Take these flares, in case a light comes close.",
+   "targets": {
+    "varde": "nonskarknuten",
+    "label": "the summit book at Nonskarknuten"
+   },
+   "reward": {
+    "item": "flare",
+    "n": 2
+   },
+   "repeatable": false,
+   "after": "lantern_a",
+   "where": [
+    null,
+    null
+   ]
+  },
+  {
+   "id": "lantern_c",
+   "title": "The third light",
+   "giver": "helga",
+   "type": "riddle",
+   "minDay": 14,
+   "ask": "I live under the third light, up here on Melosvarden. It is not a lamp. It is not a fire. People follow it and are not seen again. So tell me, what do you follow, and it follows you back?",
+   "wait": "What do you follow, and it follows you back?",
+   "done": "Your reflection. Yes. So do not follow lights that follow you. Keep to your own. Here, and a hint: the third light is where the Hollows go to rest.",
+   "targets": {
+    "choices": [
+     "Your reflection",
+     "A river",
+     "The wind"
+    ],
+    "right": 0
+   },
+   "reward": {
+    "kr": 60,
+    "hint": "The third light is where the Hollows go to rest."
+   },
+   "repeatable": false,
+   "after": "lantern_b",
+   "wrong": "No. Think about the dark, and what sits in it.",
+   "where": [
+    -5238,
+    -891
+   ]
+  },
+  {
+   "id": "jorun_letter",
+   "title": "A letter across the fjord",
+   "giver": "jorun",
+   "type": "deliver",
+   "minDay": 0,
+   "ask": "I row the letters over when the ferry sleeps. This one is for old Lindland in his hut, up the hill. Please take it, and do not read it. It is not for you.",
+   "wait": "The letter is for Lindland, in his hut up the hill. Do not read it.",
+   "done": "A letter from Jorun. Hm. Thank you. I will read it by the stove. Here, for your trouble.",
+   "targets": {
+    "to": "lindland",
+    "parcel": "Jorun's sealed letter"
+   },
+   "reward": {
+    "kr": 60
+   },
+   "repeatable": false,
+   "where": [
+    null,
+    null
+   ]
+  },
+  {
+   "id": "lindland_flare",
+   "title": "A flare for the hut",
+   "giver": "lindland",
+   "type": "fetch",
+   "minDay": 3,
+   "ask": "Jorun says the ice is thin. If it breaks, I need a flare to call across the fjord. Bring me one, if you can. I will make it worth your while.",
+   "wait": "A flare. Anywhere you can find one. The ice is thin.",
+   "done": "A flare. Good. Now I can sleep. A thermos for you, and some kroner.",
+   "targets": {
+    "item": "flare",
+    "n": 1,
+    "label": "a flare"
+   },
+   "reward": {
+    "kr": 70,
+    "item": "thermos",
+    "n": 1
+   },
+   "repeatable": false,
+   "after": "jorun_letter",
+   "where": [
+    -9163,
+    5264
+   ]
+  },
+  {
+   "id": "lindland_photo",
+   "title": "The flat rock at night",
+   "giver": "lindland",
+   "type": "photo",
+   "minDay": 10,
+   "ask": "Do you see Fladehelleren, the flat rock to the north? They say it looks different at night. Take a picture of it. Press H to hide the screen, and face it. I do not want to go myself.",
+   "wait": "A photo of Fladehelleren, the flat rock to the north. Press H and frame it.",
+   "done": "It looks like it is breathing in the picture. Strange. Thank you. Here is a long blue rocket.",
+   "targets": {
+    "x": -9192,
+    "z": 6553,
+    "r": 110,
+    "thing": "Fladehelleren",
+    "label": "a photo of Fladehelleren"
+   },
+   "reward": {
+    "item": "rocket_l",
+    "n": 1
+   },
+   "repeatable": false,
+   "after": "lindland_flare",
+   "where": [
+    -9163,
+    5264
+   ]
+  },
+  {
+   "id": "oddvar_race",
+   "title": "From the road end to Orrekjerra",
+   "giver": "oddvar",
+   "type": "race",
+   "minDay": 0,
+   "ask": "The road ends here, so let us see what you are made of. Run from here to Orrekjerra, south west on the track. Two minutes. Do not look back.",
+   "wait": "To Orrekjerra, in two minutes. Do not look back.",
+   "done": "Two minutes, not a second more. You did not look back, did you? Good. Here is some kroner.",
+   "targets": {
+    "x": -8380.5,
+    "z": 5149.7,
+    "r": 18,
+    "sec": 130,
+    "label": "Orrekjerra"
+   },
+   "reward": {
+    "kr": 80
+   },
+   "repeatable": false,
+   "where": [
+    null,
+    null
+   ]
+  },
+  {
+   "id": "pia_escort",
+   "title": "Across the bridge",
+   "giver": "pia",
+   "type": "escort",
+   "minDay": 0,
+   "ask": "Excuse me. It is almost dark and I do not like the road past the bridge. Would you walk with me, just to the next bend? I will feel better.",
+   "wait": "Just to the next bend, along the road to the west. Walk slowly, please.",
+   "done": "Thank you. It looks silly now, in the light. But thank you. Here, for your trouble.",
+   "targets": {
+    "x": -1100,
+    "z": 7429,
+    "r": 16,
+    "label": "the next bend"
+   },
+   "reward": {
+    "kr": 60
+   },
+   "repeatable": false,
+   "where": [
+    -939,
+    7429
+   ]
+  },
+  {
+   "id": "tarjei_snow",
+   "title": "Snowballs for the ravens",
+   "giver": "tarjei",
+   "type": "fetch",
+   "minDay": 0,
+   "ask": "Ravens. Everywhere. I need to scare them, and a good snowball does it. Bring me five, and I will give you a rocket. Scoop them from the snow.",
+   "wait": "Five snowballs. Scoop them from the snow, anywhere.",
+   "done": "Ha! Watch them scatter. Here, a rocket, as promised.",
+   "targets": {
+    "item": "snowball",
+    "n": 5,
+    "label": "5 snowballs"
+   },
+   "reward": {
+    "item": "rocket",
+    "n": 1
+   },
+   "repeatable": false,
+   "where": [
+    null,
+    null
+   ]
+  },
+  {
+   "id": "maren_race",
+   "title": "Race to the farm",
+   "giver": "maren",
+   "type": "race",
+   "minDay": 0,
+   "ask": "I race everyone who stops here. Down to Ruth's farm, in the valley below. Under two minutes. Ready? Go go go!",
+   "wait": "To the farm below, in under two minutes!",
+   "done": "Not bad at all! You will have to try the skis next. Here is a little something.",
+   "targets": {
+    "x": 769,
+    "z": 876,
+    "r": 16,
+    "sec": 120,
+    "label": "Ruth's farm"
+   },
+   "reward": {
+    "kr": 60,
+    "item": "flare",
+    "n": 1
+   },
+   "repeatable": false,
+   "where": [
+    null,
+    null
+   ]
+  },
+  {
+   "id": "liv_riddle",
+   "title": "Liv's fjord riddle",
+   "giver": "liv",
+   "type": "riddle",
+   "minDay": 0,
+   "ask": "A riddle from the shore. I am heavier than water, yet I float. I can be broken, yet I never fall. You walk on me in winter. What am I?",
+   "wait": "Heavier than water, yet I float. You walk on me in winter. What am I?",
+   "done": "Yes, the ice. And it sings under you at night. Do not listen too long. Here, for being clever.",
+   "targets": {
+    "choices": [
+     "Ice",
+     "A boat",
+     "A cloud"
+    ],
+    "right": 0
+   },
+   "reward": {
+    "kr": 40,
+    "item": "thermos",
+    "n": 1
+   },
+   "repeatable": false,
+   "wrong": "Not that. Think about winter, and the fjord.",
+   "where": [
+    null,
+    null
+   ]
+  },
+  {
+   "id": "sander_pole",
+   "title": "A lost ski pole",
+   "giver": "sander",
+   "type": "find",
+   "minDay": 1,
+   "ask": "I dropped my ski pole somewhere on the slope below the top, and it got buried. It has a bright orange grip. Can you find it? My knees will not go back down.",
+   "wait": "An orange ski pole, somewhere on the slope below the top.",
+   "done": "My pole! Not even bent. Thank you. Here is some kroner for the climb.",
+   "targets": {
+    "x": 3478,
+    "z": -1092,
+    "thing": "an orange ski pole",
+    "color": "#ff7a1a",
+    "label": "an orange ski pole on the slope"
+   },
+   "reward": {
+    "kr": 60
+   },
+   "repeatable": false,
+   "where": [
+    3490,
+    -1070
+   ]
+  },
+  {
+   "id": "oline_rocket",
+   "title": "A rocket for the village",
+   "giver": "oline",
+   "type": "fetch",
+   "minDay": 15,
+   "ask": "On the night of the long dark I like to send up a rocket, so the valley knows the hill is awake. Bring me one rocket, any colour. I will make it worth it.",
+   "wait": "One rocket, any colour. For the night the hill wakes.",
+   "done": "Beautiful. The valley will see it. Take this, and a hint: the hill wakes on the last night.",
+   "targets": {
+    "item": "rocket",
+    "n": 1,
+    "label": "a rocket"
+   },
+   "reward": {
+    "kr": 100,
+    "hint": "The hill wakes on the last night of the year."
+   },
+   "repeatable": false,
+   "where": [
+    735,
+    -3700
+   ]
+  },
+  {
+   "id": "vegard_riddle",
+   "title": "The eye over Bogeknuten",
+   "giver": "vegard",
+   "type": "riddle",
+   "minDay": 12,
+   "ask": "Stand here too long, and a large eye opens in the sky. It does not blink. So tell me, what has an eye, but cannot see?",
+   "wait": "What has an eye, but cannot see?",
+   "done": "A needle. Yes. Unlike the one in the sky, which sees everything. Keep moving, and keep to the light. Here is some kroner.",
+   "targets": {
+    "choices": [
+     "A needle",
+     "A storm",
+     "A mountain"
+    ],
+    "right": 0
+   },
+   "reward": {
+    "kr": 70,
+    "hint": "Keep moving and keep to the light."
+   },
+   "repeatable": false,
+   "wrong": "No. Think of sewing.",
+   "where": [
+    -1011,
+    -6561
+   ]
+  },
+  {
+   "id": "trine_escort",
+   "title": "Down from Sandvannsfjellet",
+   "giver": "trine",
+   "type": "escort",
+   "minDay": 6,
+   "ask": "I climbed up before dawn, and now the light is going. The path down is steep. Would you walk down with me, to the east side? Just as far as the open ground.",
+   "wait": "Down the slope, to the open ground on the east side. Slowly, please.",
+   "done": "Down, and not a slip. Thank you. Take this, I found it on the way up.",
+   "targets": {
+    "x": 2750,
+    "z": -5781,
+    "r": 16,
+    "label": "the open ground below"
+   },
+   "reward": {
+    "kr": 60,
+    "item": "rocket_l",
+    "n": 1
+   },
+   "repeatable": false,
+   "where": [
+    2601,
+    -5781
+   ]
+  },
+  {
+   "id": "odd_book",
+   "title": "Odd's unsigned book",
+   "giver": "odd",
+   "type": "sign",
+   "minDay": 0,
+   "ask": "Odd, they call me, and odd I am. There is a summit book up on Øyrutlekniben, and I have never dared to sign it. Will you sign it for both of us?",
+   "wait": "Sign the summit book on Øyrutlekniben, above me.",
+   "done": "You signed it. I can sleep now. Here, for the climb.",
+   "targets": {
+    "varde": "oyrutlekniben",
+    "label": "the summit book at Øyrutlekniben"
+   },
+   "reward": {
+    "kr": 70
+   },
+   "repeatable": false,
+   "where": [
+    5405,
+    -4300
+   ]
+  },
+  {
+   "id": "ivar_book",
+   "title": "Ivar's summit",
+   "giver": "ivar",
+   "type": "sign",
+   "minDay": 0,
+   "ask": "Every year I climb Tågåsknuten and sign the book. My knees say no this year. Sign it for me, and write my name next to yours?",
+   "wait": "Sign the summit book at Tågåsknuten. Put my name next to yours.",
+   "done": "My name, in the book, next to yours. Thank you. Take some kroner.",
+   "targets": {
+    "varde": "tagasknuten",
+    "label": "the summit book at Tågåsknuten"
+   },
+   "reward": {
+    "kr": 40
+   },
+   "repeatable": false,
+   "where": [
+    2108,
+    3225
+   ]
+  },
+  {
+   "id": "ivar_deliver",
+   "title": "Tell Knut about the ice",
+   "giver": "ivar",
+   "type": "deliver",
+   "minDay": 3,
+   "ask": "One more thing. Tell old Knut at the tent camp the ice is thin by the point. He will pretend not to care. He cares.",
+   "wait": "Tell Knut, at the tent camp, that the ice is thin by the point.",
+   "done": "Thin by the point. Hm. I will watch it. Tell Ivar thanks. Here, for the walk, and a hint: the ice sings at night. Never answer.",
+   "targets": {
+    "to": "knut",
+    "parcel": "Ivar's message"
+   },
+   "reward": {
+    "kr": 60,
+    "hint": "The ice sings at night. Never answer."
+   },
+   "repeatable": false,
+   "after": "ivar_book",
+   "where": [
+    2108,
+    3225
+   ]
+  },
+  {
+   "id": "magnus_bell",
+   "title": "The brass bell",
+   "giver": "magnus",
+   "type": "find",
+   "minDay": 1,
+   "ask": "There was a brass bell on the cairn, and the wind took it down the slope. It rings when the wind is right. Could you find it? It might have rolled to the old cairn south east.",
+   "wait": "A brass bell, on the slope south east, near the old cairn.",
+   "done": "My bell! Listen, it rings. The valley sounds better with it. Here, for your trouble.",
+   "targets": {
+    "x": -6870,
+    "z": 3128,
+    "thing": "a brass bell",
+    "color": "#e0b030",
+    "label": "a brass bell by the old cairn"
+   },
+   "reward": {
+    "kr": 60
+   },
+   "repeatable": false,
+   "where": [
+    -6915,
+    2610
+   ]
+  }
+ ]
+}

@@ -1,0 +1,1275 @@
+{
+ "_note": "THE NISSE CASE FILE. Edit freely. evidence[]: id, n (the number Agent Skeie says), title, desc (shown when found), kind (the pixel drawing), cat (Tracks|Objects|Testimony|Places|Signals|Threshold), region (only the hint for the unfound, never exact), src (where it comes from: trail:<find id>, trial:<id>, chest:<id>, book:<varde id>, page:<n>, quest:<id>, ncc:<agent>:<line index from 0>), unlockDay, weight (1..3, counts to Case solved %), th = [witch, cold, threshold] how much it supports each theory, at = [x,z] where its pin hangs. Theories: confidence = (prior(day) + sum of the found th) / total. Voice lines: run build/make_case.py after changing text.",
+ "warmAt": {
+  "pct": 80,
+  "day": 20
+ },
+ "theories": [
+  {
+   "id": "witch",
+   "name": "Stolen by the witch",
+   "blurb": "The cookies, the crumbs, the munching. She grew, and then they were gone.",
+   "scale": 2.4,
+   "prior": 2.0,
+   "gain": {
+    "from": 1,
+    "to": 0.3,
+    "d0": 12,
+    "d1": 24
+   }
+  },
+  {
+   "id": "cold",
+   "name": "Hiding from the cold",
+   "blurb": "Warm fires, packed rucksacks, tiny doors. They simply went indoors.",
+   "scale": 2.0,
+   "prior": 1.5,
+   "gain": {
+    "from": 1,
+    "to": 0.75,
+    "d0": 1,
+    "d1": 30
+   }
+  },
+  {
+   "id": "thresh",
+   "name": "Called into the Threshold World",
+   "blurb": "Footprints that go in and never out. A hum from underneath. A warm light.",
+   "scale": 1.0,
+   "prior": 0.4,
+   "gain": {
+    "from": 0.3,
+    "to": 1,
+    "d0": 1,
+    "d1": 22
+   }
+  }
+ ],
+ "cats": [
+  "Tracks",
+  "Objects",
+  "Testimony",
+  "Places",
+  "Signals",
+  "Threshold"
+ ],
+ "evidence": [
+  {
+   "id": "trk_tracks",
+   "title": "Tracks, six centimetres",
+   "desc": "Six centimetres, left foot only. Three steps, then the snow simply stops having opinions. Nobody flew. Nobody dug.",
+   "kind": "tracks",
+   "cat": "Tracks",
+   "region": "the roads east of town",
+   "src": "trail:town_tracks_1",
+   "unlockDay": 0,
+   "weight": 2,
+   "th": [
+    1,
+    1,
+    2
+   ],
+   "at": [
+    1542.1,
+    -1118.4
+   ],
+   "n": 1
+  },
+  {
+   "id": "trk_mitten",
+   "title": "One mitten, left-handed",
+   "desc": "Knitted, red, thumb in a place no person has a thumb. Still warm. The right-hand one is, per Agent Skeie, a matter for the courts.",
+   "kind": "mitten",
+   "cat": "Objects",
+   "region": "the lanes of town",
+   "src": "trail:town_mitten_1",
+   "unlockDay": 0,
+   "weight": 1,
+   "th": [
+    1,
+    1,
+    1
+   ],
+   "at": [
+    976.2,
+    -73
+   ],
+   "n": 2
+  },
+  {
+   "id": "trk_lantern",
+   "title": "A lantern that lights itself",
+   "desc": "Lit at noon, nobody home, the flame the colour of a held breath. It leans left. Everything else in the valley leans right.",
+   "kind": "lantern",
+   "cat": "Objects",
+   "region": "the lanes of town",
+   "src": "trail:town_lantern_1",
+   "unlockDay": 0,
+   "weight": 2,
+   "th": [
+    0,
+    0,
+    3
+   ],
+   "at": [
+    284.5,
+    -38.8
+   ],
+   "n": 3
+  },
+  {
+   "id": "trk_snowman",
+   "title": "The snowman nobody built",
+   "desc": "Carrot nose, coal eyes, one red cap. Facing the church. It has not melted. It has not moved. As of this morning it also has a mitten.",
+   "kind": "snowman",
+   "cat": "Objects",
+   "region": "the lanes of town",
+   "src": "trail:town_snowman_1",
+   "unlockDay": 0,
+   "weight": 1,
+   "th": [
+    0,
+    2,
+    1
+   ],
+   "at": [
+    497.8,
+    -461.4
+   ],
+   "n": 4
+  },
+  {
+   "id": "trk_cairn",
+   "title": "The leaning cairn",
+   "desc": "One stone is added every night. Nobody is adding them. The top stone is warm and points, politely, at the town.",
+   "kind": "cairn",
+   "cat": "Tracks",
+   "region": "the woods by Botnan",
+   "src": "trail:botnan_cairn_3",
+   "unlockDay": 0,
+   "weight": 2,
+   "th": [
+    0,
+    1,
+    2
+   ],
+   "at": [
+    530.7,
+    -1884.8
+   ],
+   "n": 5
+  },
+  {
+   "id": "trk_campfire",
+   "title": "Campfire, still warm",
+   "desc": "Cold for three days, says the report. The embers disagree. Someone fed it. Someone small, with very good manners.",
+   "kind": "fire",
+   "cat": "Places",
+   "region": "the woods by Botnan",
+   "src": "trail:botnan_campfire_2",
+   "unlockDay": 0,
+   "weight": 2,
+   "th": [
+    0,
+    3,
+    1
+   ],
+   "at": [
+    662.8,
+    -1652.6
+   ],
+   "n": 6
+  },
+  {
+   "id": "trk_rucksack",
+   "title": "Rucksack, one thermos",
+   "desc": "Packed for a long winter: thermos, spare cap, a note reading BACK BY SUPPER. Supper was nine days ago.",
+   "kind": "rucksack",
+   "cat": "Objects",
+   "region": "the woods by Botnan",
+   "src": "trail:botnan_rucksack_2",
+   "unlockDay": 0,
+   "weight": 1,
+   "th": [
+    0,
+    2,
+    1
+   ],
+   "at": [
+    1498.9,
+    -1469.9
+   ],
+   "n": 7
+  },
+  {
+   "id": "trk_door",
+   "title": "Door frame: 'STILL HERE'",
+   "desc": "Scratched at the height of a very small person. Underneath, smaller still: 'NOT HERE.' Both look equally sincere.",
+   "kind": "door",
+   "cat": "Places",
+   "region": "the old cabins by the penstock",
+   "src": "trail:penstock_cabin_3",
+   "unlockDay": 0,
+   "weight": 2,
+   "th": [
+    0,
+    1,
+    2
+   ],
+   "at": [
+    -1106.4,
+    -1679.4
+   ],
+   "n": 8
+  },
+  {
+   "id": "trk_bottle",
+   "title": "Message in a bottle",
+   "desc": "'GONE DOWN. WARM IN HERE. BRING PORRIDGE.' Handwriting: neat. Spelling: Norwegian. Water inside: none.",
+   "kind": "bottle",
+   "cat": "Testimony",
+   "region": "the far west, by the big stone",
+   "src": "trail:orresteinen_bottle_2",
+   "unlockDay": 0,
+   "weight": 2,
+   "th": [
+    0,
+    0,
+    3
+   ],
+   "at": [
+    -7389.2,
+    5074.2
+   ],
+   "n": 9
+  },
+  {
+   "id": "trk_rune",
+   "title": "The humming rune stone",
+   "desc": "Carved before the road, warm to the touch, counting under its breath. It has reached twenty-three. It always reaches twenty-three.",
+   "kind": "stone",
+   "cat": "Signals",
+   "region": "the far west, by the big stone",
+   "src": "trail:orresteinen_runestone_3",
+   "unlockDay": 0,
+   "weight": 2,
+   "th": [
+    0,
+    0,
+    3
+   ],
+   "at": [
+    -7714,
+    5566.5
+   ],
+   "n": 10
+  },
+  {
+   "id": "trk_hill",
+   "title": "Tracks into the hillside",
+   "desc": "Small boots, many pairs, in single file, walking straight into solid rock. They did not come out. The rock has been very polite about it.",
+   "kind": "boots",
+   "cat": "Tracks",
+   "region": "the hills of Frøytland",
+   "src": "trail:froytland_tracks_3",
+   "unlockDay": 0,
+   "weight": 3,
+   "th": [
+    0,
+    0,
+    3
+   ],
+   "at": [
+    -7262.1,
+    3252.4
+   ],
+   "n": 11
+  },
+  {
+   "id": "trk_sled",
+   "title": "Sled, pointing at the sea",
+   "desc": "Rope frayed, seat dry, runners still wet from a slope that does not exist. Pointing at the fjord, and then, rather pointedly, below it.",
+   "kind": "sled",
+   "cat": "Tracks",
+   "region": "the shore towards Feda",
+   "src": "trail:fladehelleren_sled_3",
+   "unlockDay": 0,
+   "weight": 1,
+   "th": [
+    1,
+    1,
+    1
+   ],
+   "at": [
+    -8971.1,
+    6585.3
+   ],
+   "n": 12
+  },
+  {
+   "id": "pg_cookie",
+   "title": "Notebook: 'A cookie is a bill'",
+   "desc": "Page 2, the church. Whoever wrote this knew about the cookies before we did. Signed M. Nobody will say which M.",
+   "kind": "page",
+   "cat": "Testimony",
+   "region": "the church",
+   "src": "page:2",
+   "unlockDay": 0,
+   "weight": 2,
+   "th": [
+    3,
+    0,
+    0
+   ],
+   "at": [
+    -64,
+    -139.2
+   ],
+   "n": 13
+  },
+  {
+   "id": "pg_bridge",
+   "title": "Notebook: the practising trapdoor",
+   "desc": "Page 4, the bridge. 'Something under it has been practising your voice.' Skeie asks that nobody answers it. Skeie asks that nobody practises back.",
+   "kind": "page",
+   "cat": "Testimony",
+   "region": "the bridge",
+   "src": "page:4",
+   "unlockDay": 0,
+   "weight": 2,
+   "th": [
+    0,
+    0,
+    3
+   ],
+   "at": [
+    -99.9,
+    66.7
+   ],
+   "n": 14
+  },
+  {
+   "id": "pg_stone",
+   "title": "Notebook: the stone counts",
+   "desc": "Page 6, Orresteinen. 'It was set down carefully, and then told to wait.' Told by whom? We have a form for that. It is not on the form.",
+   "kind": "page",
+   "cat": "Testimony",
+   "region": "the big stone",
+   "src": "page:6",
+   "unlockDay": 0,
+   "weight": 2,
+   "th": [
+    0,
+    0,
+    2
+   ],
+   "at": [
+    -7730,
+    5760
+   ],
+   "n": 15
+  },
+  {
+   "id": "pg_cairns",
+   "title": "Notebook: the leaning cairns",
+   "desc": "Page 8. 'Each stone is somebody who stopped walking and decided to stay.' Please stop counting the stones. Please.",
+   "kind": "page",
+   "cat": "Testimony",
+   "region": "the summit above town",
+   "src": "page:8",
+   "unlockDay": 0,
+   "weight": 2,
+   "th": [
+    0,
+    1,
+    2
+   ],
+   "at": [
+    1466,
+    -3028
+   ],
+   "n": 16
+  },
+  {
+   "id": "pg_wire",
+   "title": "Notebook: the breathing wire",
+   "desc": "Page 10. 'The hum is not electricity. Something is breathing through the wires.' Agent Moen has asked to be moved to a quieter desk. The desk is the same desk.",
+   "kind": "page",
+   "cat": "Signals",
+   "region": "the fjord, by the hum",
+   "src": "page:10",
+   "unlockDay": 8,
+   "weight": 2,
+   "th": [
+    0,
+    0,
+    3
+   ],
+   "at": [
+    -8322,
+    5868
+   ],
+   "n": 17
+  },
+  {
+   "id": "pg_cellar",
+   "title": "Notebook: the warm cellar door",
+   "desc": "Page 11. 'A cellar door you have walked past a thousand times. It is warm to the touch. Do not knock.' We knocked. Do not.",
+   "kind": "page",
+   "cat": "Threshold",
+   "region": "a house in town",
+   "src": "page:11",
+   "unlockDay": 12,
+   "weight": 3,
+   "th": [
+    0,
+    0,
+    3
+   ],
+   "at": [
+    1277.4,
+    -1246.7
+   ],
+   "n": 18
+  },
+  {
+   "id": "tl_lamps",
+   "title": "Lanterns that count back",
+   "desc": "Light the posts one, two, three, and a fourth lights itself from underneath. The statue smiles. We have not asked it to.",
+   "kind": "lantern",
+   "cat": "Signals",
+   "region": "the hills above the square",
+   "src": "trial:hellerasen",
+   "unlockDay": 0,
+   "weight": 1,
+   "th": [
+    0,
+    0,
+    2
+   ],
+   "at": [
+    379,
+    19
+   ],
+   "n": 19
+  },
+  {
+   "id": "tl_bells",
+   "title": "Bells that say takk",
+   "desc": "Rung in order they play a carol. Rung wrong they say takk. Nobody has rung them wrong for an hour and they said it anyway.",
+   "kind": "bell",
+   "cat": "Signals",
+   "region": "the hill by the church",
+   "src": "trial:farberget",
+   "unlockDay": 0,
+   "weight": 1,
+   "th": [
+    0,
+    0,
+    2
+   ],
+   "at": [
+    -318,
+    -3
+   ],
+   "n": 20
+  },
+  {
+   "id": "tl_targets",
+   "title": "The statue that aims",
+   "desc": "Hit every target and its eyes open. Cold stone, warm eyes. They follow you all the way to the car park.",
+   "kind": "statue",
+   "cat": "Places",
+   "region": "the tarn near Botnan",
+   "src": "trial:botnetjonna",
+   "unlockDay": 0,
+   "weight": 1,
+   "th": [
+    1,
+    1,
+    1
+   ],
+   "at": [
+    919,
+    -1554
+   ],
+   "n": 21
+  },
+  {
+   "id": "tl_ring",
+   "title": "Stones in a ring",
+   "desc": "Stand in the ring and your feet go warm and your shadow points the wrong way. Skeie measured it twice. Then he stopped measuring.",
+   "kind": "stone",
+   "cat": "Places",
+   "region": "the ridge to the north-west",
+   "src": "trial:lauvasen",
+   "unlockDay": 0,
+   "weight": 2,
+   "th": [
+    0,
+    0,
+    3
+   ],
+   "at": [
+    -764,
+    1111
+   ],
+   "n": 22
+  },
+  {
+   "id": "tl_prints",
+   "title": "Footprints that glow",
+   "desc": "Follow them and they lead down the great pipe to a hatch with no handle. The lack of a handle is, in this case, the point.",
+   "kind": "boots",
+   "cat": "Tracks",
+   "region": "the penstock",
+   "src": "trial:penstock",
+   "unlockDay": 8,
+   "weight": 2,
+   "th": [
+    0,
+    0,
+    2
+   ],
+   "at": [
+    -1208,
+    -1628
+   ],
+   "n": 23
+  },
+  {
+   "id": "tl_trolldal",
+   "title": "The valley that nobody entered",
+   "desc": "A secret statue in a secret valley. All the footprints leading to it are small, and all of them are going in.",
+   "kind": "boots",
+   "cat": "Tracks",
+   "region": "the western valley",
+   "src": "trial:nons",
+   "unlockDay": 12,
+   "weight": 2,
+   "th": [
+    0,
+    1,
+    2
+   ],
+   "at": [
+    -1846,
+    -126
+   ],
+   "n": 24
+  },
+  {
+   "id": "tl_orre",
+   "title": "The statue by the egg-stone",
+   "desc": "Every stone in the ring faces the boulder. The boulder faces down. This is the third thing in this valley that faces down.",
+   "kind": "statue",
+   "cat": "Threshold",
+   "region": "the far west",
+   "src": "trial:orresteinen",
+   "unlockDay": 18,
+   "weight": 3,
+   "th": [
+    0,
+    0,
+    3
+   ],
+   "at": [
+    -7787,
+    5702
+   ],
+   "n": 25
+  },
+  {
+   "id": "tl_feda",
+   "title": "The mirror at the quay",
+   "desc": "Ring the bells across still water and the answer comes back from a second quay, on the other side of the mirror, in different weather.",
+   "kind": "mirror",
+   "cat": "Threshold",
+   "region": "the quay at Feda",
+   "src": "trial:feda",
+   "unlockDay": 22,
+   "weight": 3,
+   "th": [
+    0,
+    0,
+    3
+   ],
+   "at": [
+    -8249,
+    5835
+   ],
+   "n": 26
+  },
+  {
+   "id": "ch_porridge",
+   "title": "A chest of porridge receipts",
+   "desc": "Forty-one signed receipts for porridge delivered to 'the Under-Barn'. All paid in full. Nobody has ever heard of an Under-Barn.",
+   "kind": "chest",
+   "cat": "Objects",
+   "region": "a trail above Hamre",
+   "src": "chest:secret-hamre-trail",
+   "unlockDay": 0,
+   "weight": 2,
+   "th": [
+    0,
+    0,
+    2
+   ],
+   "at": [
+    768.6,
+    -3661.7
+   ],
+   "n": 27
+  },
+  {
+   "id": "ch_ledger",
+   "title": "Ledger of absent nisser",
+   "desc": "A list of names, each ticked in red. Every tick is dated the first of December. The last line is blank, and waiting, and slightly warm.",
+   "kind": "ledger",
+   "cat": "Objects",
+   "region": "the western ridges",
+   "src": "chest:secret-nons",
+   "unlockDay": 0,
+   "weight": 2,
+   "th": [
+    1,
+    0,
+    2
+   ],
+   "at": [
+    -1854.3,
+    -62.7
+   ],
+   "n": 28
+  },
+  {
+   "id": "ch_twice",
+   "title": "Chest: 'DO NOT OPEN TWICE'",
+   "desc": "We opened it once. It contained an apology. We are not opening it twice.",
+   "kind": "chest",
+   "cat": "Objects",
+   "region": "the penstock",
+   "src": "chest:secret-penstock-find",
+   "unlockDay": 0,
+   "weight": 1,
+   "th": [
+    0,
+    0,
+    2
+   ],
+   "at": [
+    -1142.3,
+    -1662.3
+   ],
+   "n": 29
+  },
+  {
+   "id": "ch_boots",
+   "title": "A chest of tiny boots",
+   "desc": "Seventeen pairs. Left boots only. This matches a mitten we are currently keeping in the freezer.",
+   "kind": "boots",
+   "cat": "Objects",
+   "region": "the far west",
+   "src": "chest:secret-orre-find",
+   "unlockDay": 0,
+   "weight": 1,
+   "th": [
+    1,
+    1,
+    2
+   ],
+   "at": [
+    -7691,
+    5598.7
+   ],
+   "n": 30
+  },
+  {
+   "id": "ch_view",
+   "title": "A chest with a view",
+   "desc": "Whoever hid it picked the best view in the valley, then installed the chest facing away from it. It faces the cellar.",
+   "kind": "chest",
+   "cat": "Places",
+   "region": "the viewpoint above town",
+   "src": "chest:utsikten-view",
+   "unlockDay": 0,
+   "weight": 1,
+   "th": [
+    0,
+    0,
+    2
+   ],
+   "at": [
+    376,
+    1100.5
+   ],
+   "n": 31
+  },
+  {
+   "id": "ch_ginger",
+   "title": "Gingerbread, vintage",
+   "desc": "A tin of ginger crumbs, Norwegian butter, and a note: 'Sorry, ate the rest. H.' It is a very large note.",
+   "kind": "tin",
+   "cat": "Objects",
+   "region": "the far west",
+   "src": "chest:feda-hansalf",
+   "unlockDay": 0,
+   "weight": 2,
+   "th": [
+    3,
+    0,
+    0
+   ],
+   "at": [
+    -7692.7,
+    5265.3
+   ],
+   "n": 32
+  },
+  {
+   "id": "bk_door",
+   "title": "Entry that stops mid-wo",
+   "desc": "The last entry in the Hamrevarden book stops in the middle of a sentence. Where the sentence would continue, someone has drawn a very small door.",
+   "kind": "book",
+   "cat": "Testimony",
+   "region": "the summits",
+   "src": "book:hamrevarden",
+   "unlockDay": 0,
+   "weight": 2,
+   "th": [
+    0,
+    0,
+    2
+   ],
+   "at": [
+    1461,
+    -3034
+   ],
+   "n": 33
+  },
+  {
+   "id": "bk_tiny",
+   "title": "Entry in a tiny hand",
+   "desc": "The size of a thumbnail, signed P. The tilt of the letters suggests the writer was standing on the pen.",
+   "kind": "book",
+   "cat": "Testimony",
+   "region": "the summits",
+   "src": "book:husefjell",
+   "unlockDay": 0,
+   "weight": 1,
+   "th": [
+    0,
+    2,
+    1
+   ],
+   "at": [
+    743,
+    -3716
+   ],
+   "n": 34
+  },
+  {
+   "id": "bk_pen",
+   "title": "Three signatures, one pen",
+   "desc": "Three different hands, the ink still wet. The pen is on a string. The string is not tied to anything.",
+   "kind": "book",
+   "cat": "Places",
+   "region": "the summits",
+   "src": "book:nonskarknuten",
+   "unlockDay": 0,
+   "weight": 1,
+   "th": [
+    1,
+    0,
+    2
+   ],
+   "at": [
+    -1867,
+    -4
+   ],
+   "n": 35
+  },
+  {
+   "id": "bk_warm",
+   "title": "Weather report: 'WARM'",
+   "desc": "Every other entry says brr. This one says WARM, underlined twice. It was minus eleven.",
+   "kind": "book",
+   "cat": "Signals",
+   "region": "the summits",
+   "src": "book:hunsbedtheia",
+   "unlockDay": 0,
+   "weight": 1,
+   "th": [
+    0,
+    0,
+    2
+   ],
+   "at": [
+    3498,
+    -1075
+   ],
+   "n": 36
+  },
+  {
+   "id": "bk_valley",
+   "title": "Signed by the whole valley",
+   "desc": "A page of tiny signatures, all dated the first of December. Underneath: 'See you down there.' Underneath that: a smiley, drawn by something with very few fingers.",
+   "kind": "book",
+   "cat": "Testimony",
+   "region": "the summits",
+   "src": "book:fladehelleren",
+   "unlockDay": 0,
+   "weight": 2,
+   "th": [
+    0,
+    0,
+    3
+   ],
+   "at": [
+    -9192,
+    6553
+   ],
+   "n": 37
+  },
+  {
+   "id": "bk_wish",
+   "title": "A wish list",
+   "desc": "'Please may we go home', in nine languages. The tenth line is in Nisse. We do not have a translator. We have Marit.",
+   "kind": "book",
+   "cat": "Places",
+   "region": "the summits",
+   "src": "book:utsikten",
+   "unlockDay": 0,
+   "weight": 1,
+   "th": [
+    1,
+    1,
+    2
+   ],
+   "at": [
+    361,
+    1099
+   ],
+   "n": 38
+  },
+  {
+   "id": "q_marker9",
+   "title": "Marker nine: the mitten",
+   "desc": "Evidence marker nine, one red mitten, recovered from the market. Left-handed. Warm. Eirik Vik wishes it noted that he did not touch it.",
+   "kind": "mitten",
+   "cat": "Objects",
+   "region": "the market square",
+   "src": "quest:ncc_mitten",
+   "unlockDay": 2,
+   "weight": 1,
+   "th": [
+    1,
+    1,
+    1
+   ],
+   "at": [
+    22,
+    30
+   ],
+   "n": 39
+  },
+  {
+   "id": "q_cap",
+   "title": "One red cap, size small",
+   "desc": "Still warm. Pjusk-grade wool. Wearer: unknown. Owner: very much missed. Hanne Roll has labelled it THE CAP and will hear no more.",
+   "kind": "cap",
+   "cat": "Objects",
+   "region": "the woods by Botnan",
+   "src": "quest:ncc_cap",
+   "unlockDay": 3,
+   "weight": 2,
+   "th": [
+    1,
+    1,
+    1
+   ],
+   "at": [
+    768,
+    -1608
+   ],
+   "n": 40
+  },
+  {
+   "id": "q_lantern",
+   "title": "The lantern that turns",
+   "desc": "The big nisse's lantern, photographed. Yesterday it pointed north. Today south-east. The pattern repeats every twenty-three hours.",
+   "kind": "lantern",
+   "cat": "Signals",
+   "region": "the market square",
+   "src": "quest:ncc_photo",
+   "unlockDay": 4,
+   "weight": 2,
+   "th": [
+    0,
+    0,
+    3
+   ],
+   "at": [
+    7,
+    22
+   ],
+   "n": 41
+  },
+  {
+   "id": "q_notes",
+   "title": "Agent Roll's field notes",
+   "desc": "'Followed from the camp by a sound like a very small cough.' It followed her all the way to the gate. It is still in the car park.",
+   "kind": "page",
+   "cat": "Testimony",
+   "region": "Hamre",
+   "src": "quest:ncc_escort",
+   "unlockDay": 5,
+   "weight": 1,
+   "th": [
+    0,
+    1,
+    2
+   ],
+   "at": [
+    898,
+    -846
+   ],
+   "n": 42
+  },
+  {
+   "id": "q_wax",
+   "title": "Evidence bag: candle wax",
+   "desc": "Church candle wax, still molten at minus eight. Fingerprints: none. Teeth marks: tiny. Haugen has asked if he may stop carrying it.",
+   "kind": "candle",
+   "cat": "Objects",
+   "region": "the church",
+   "src": "quest:ncc_evidence",
+   "unlockDay": 6,
+   "weight": 1,
+   "th": [
+    1,
+    1,
+    1
+   ],
+   "at": [
+    -62,
+    -112
+   ],
+   "n": 43
+  },
+  {
+   "id": "q_thermos",
+   "title": "A thermos, never opened",
+   "desc": "Gløgg, seventy-one degrees, sealed since the first of December. The date on the lid is tomorrow. Kari Lund says it is a nisse flask.",
+   "kind": "thermos",
+   "cat": "Objects",
+   "region": "Bowlinghallen",
+   "src": "quest:ncc_thermos",
+   "unlockDay": 9,
+   "weight": 1,
+   "th": [
+    0,
+    1,
+    2
+   ],
+   "at": [
+    66,
+    -468
+   ],
+   "n": 44
+  },
+  {
+   "id": "n_spiral",
+   "title": "Director: 'It is a spiral'",
+   "desc": "'The pins form a pattern. It is not a good pattern. It is a spiral.' As of today the spiral leads to one point. The Director has asked us not to say which.",
+   "kind": "spiral",
+   "cat": "Testimony",
+   "region": "the NCC in Hamre",
+   "src": "ncc:aasland:1",
+   "unlockDay": 6,
+   "weight": 2,
+   "th": [
+    0,
+    0,
+    3
+   ],
+   "at": [
+    844.6,
+    -832.3
+   ],
+   "n": 45
+  },
+  {
+   "id": "n_crumbs",
+   "title": "Skeie: 'The crumbs lead down'",
+   "desc": "'Down is the keyword.' Agent Skeie has since put a second coat on, indoors, and moved his chair nearer the door.",
+   "kind": "crumbs",
+   "cat": "Testimony",
+   "region": "the NCC in Hamre",
+   "src": "ncc:skeie:2",
+   "unlockDay": 12,
+   "weight": 2,
+   "th": [
+    2,
+    0,
+    2
+   ],
+   "at": [
+    943.2,
+    -820.3
+   ],
+   "n": 46
+  },
+  {
+   "id": "n_hum",
+   "title": "The hum says 'takk'",
+   "desc": "Played backwards, it says thank you. Played forwards it says nothing, which is worse. Agent Moen has stopped playing it either way.",
+   "kind": "radio",
+   "cat": "Signals",
+   "region": "the NCC in Hamre",
+   "src": "ncc:moen:1",
+   "unlockDay": 7,
+   "weight": 2,
+   "th": [
+    0,
+    0,
+    3
+   ],
+   "at": [
+    857.1,
+    -868.7
+   ],
+   "n": 47
+  },
+  {
+   "id": "n_big",
+   "title": "Lindtner: 'Big enough to hold something shut'",
+   "desc": "'You only need to be big to reach something high, or to hold something shut.' Nobody has asked what is being held shut. Everybody has thought about it.",
+   "kind": "eye",
+   "cat": "Testimony",
+   "region": "the NCC in Hamre",
+   "src": "ncc:lindtner:2",
+   "unlockDay": 14,
+   "weight": 2,
+   "th": [
+    1,
+    0,
+    3
+   ],
+   "at": [
+    856.8,
+    -921.6
+   ],
+   "n": 48
+  },
+  {
+   "id": "n_called",
+   "title": "Director: 'Called, not taken'",
+   "desc": "'The nisser were not taken. They were called.' The whole case turns on that sentence. The Director has had it framed, and turned to face the wall.",
+   "kind": "eye",
+   "cat": "Threshold",
+   "region": "the NCC in Hamre",
+   "src": "ncc:aasland:3",
+   "unlockDay": 20,
+   "weight": 3,
+   "th": [
+    0,
+    0,
+    3
+   ],
+   "at": [
+    903.2,
+    -845.0
+   ],
+   "n": 49
+  },
+  {
+   "id": "n_warm",
+   "title": "Lindtner: 'Follow the warm light'",
+   "desc": "'If you ever see a warm light there, follow it. It is them.' Filed under: instructions, unofficial. Next to the thermos, which is evidence.",
+   "kind": "lantern",
+   "cat": "Threshold",
+   "region": "the NCC in Hamre",
+   "src": "ncc:lindtner:3",
+   "unlockDay": 22,
+   "weight": 3,
+   "th": [
+    0,
+    0,
+    3
+   ],
+   "at": [
+    923.7,
+    -835.4
+   ],
+   "n": 50
+  }
+ ],
+ "numbers": [
+  "one",
+  "two",
+  "three",
+  "four",
+  "five",
+  "six",
+  "seven",
+  "eight",
+  "nine",
+  "ten",
+  "eleven",
+  "twelve",
+  "thirteen",
+  "fourteen",
+  "fifteen",
+  "sixteen",
+  "seventeen",
+  "eighteen",
+  "nineteen",
+  "twenty",
+  "twenty-one",
+  "twenty-two",
+  "twenty-three",
+  "twenty-four",
+  "twenty-five",
+  "twenty-six",
+  "twenty-seven",
+  "twenty-eight",
+  "twenty-nine",
+  "thirty",
+  "thirty-one",
+  "thirty-two",
+  "thirty-three",
+  "thirty-four",
+  "thirty-five",
+  "thirty-six",
+  "thirty-seven",
+  "thirty-eight",
+  "thirty-nine",
+  "forty",
+  "forty-one",
+  "forty-two",
+  "forty-three",
+  "forty-four",
+  "forty-five",
+  "forty-six",
+  "forty-seven",
+  "forty-eight",
+  "forty-nine",
+  "fifty"
+ ],
+ "lines": {
+  "skeie": {
+   "Tracks": [
+    "Interesting. Small tracks. Do not step in them. Do not step next to them either.",
+    "Tracks. Logged, measured, photographed. They are still going somewhere. I do not like where.",
+    "Another set of footprints that ends in nothing. I have started to take it personally."
+   ],
+   "Objects": [
+    "Interesting. Do not touch it. I mean it. Into the bag. Not that bag.",
+    "An object, small, possibly warm. Please place it on the table, gently, as if it might apologise.",
+    "Into the bag it goes. If it moves in the night, that is not in my report."
+   ],
+   "Testimony": [
+    "Testimony. Somebody wrote it down, which means somebody knew. I am underlining that.",
+    "A statement. Signed, dated, and slightly unsettling. Perfect for the board.",
+    "Words on paper. The most dangerous kind of evidence. They stay exactly where you put them. Until they do not."
+   ],
+   "Places": [
+    "A place. Pinned. If the map starts to look like a clock face, nobody say anything.",
+    "Another location for the wall. I am running out of red string, and the wall is not running out of locations.",
+    "Noted, pinned, and marked do not visit alone. Which we will all ignore."
+   ],
+   "Signals": [
+    "A signal. Faint, regular, and polite. I do not trust polite.",
+    "Strange signals logged. Moen says it is only the radio. Moen has not looked up from that radio since Tuesday.",
+    "That counts as a signal. It counts as several other things too, mostly to twenty-three."
+   ],
+   "Threshold": [
+    "That one goes at the bottom of the board. Underneath everything else. Where it belongs.",
+    "This changes the direction of the string. Everyone, please, look down.",
+    "I will say it quietly, because the walls are listening. That is the evidence that matters."
+   ],
+   "batch": [
+    "Several new items since your last visit. I have numbered them. Please do not rearrange them. Rearranged evidence goes strange.",
+    "You have been busy. The board is fuller. The string is shorter. I am not sure those two things should go together.",
+    "More evidence, all at once. I will need a bigger table, and possibly a smaller imagination."
+   ]
+  },
+  "director": {
+   "25": [
+    "Twenty-five percent. A quarter of a case. The other three quarters are, regrettably, the same size as the first.",
+    "A quarter of the board is filled. Please do not tell the Minister it was ever empty."
+   ],
+   "50": [
+    "Fifty percent. We now know half of what happened, and it is the cosy half.",
+    "Halfway. The pins are making a shape. I will not say which shape. It is a spiral. I said it."
+   ],
+   "75": [
+    "Seventy-five percent. I have started leaving the corridor lights on. For the building, you understand.",
+    "Three quarters. The string only runs one way now. Down."
+   ],
+   "hook": [
+    "You have enough, now. Come and see me in the ops room. I have a job that is not in any manual.",
+    "The case is nearly closed, and what is left is not on any board. Come and see me. Bring a lantern."
+   ]
+  },
+  "final": {
+   "thresh": [
+    {
+     "who": "skeie",
+     "text": "That is the last one. I have laid every item on the board, and every string meets in the same place. Down."
+    },
+    {
+     "who": "lindtner",
+     "text": "Called, not taken. Not stolen, not hiding. I have been down there once. They are waiting, and they are warm. Somebody has to go and get them."
+    },
+    {
+     "who": "aasland",
+     "text": "Case closed, in so far as it can be. The nisser are in the Threshold World. They answered a call. Now someone must answer theirs. Take the lantern, and follow the warm light."
+    }
+   ],
+   "witch": [
+    {
+     "who": "skeie",
+     "text": "That is the last one, and I have a theory. The witch took them. Cookies, crumbs, a very large note."
+    },
+    {
+     "who": "aasland",
+     "text": "Case closed. The witch did it. Please do not tell the witch. She is, as of the twelfth, no longer taking calls."
+    }
+   ],
+   "cold": [
+    {
+     "who": "skeie",
+     "text": "That is the last one, and the board says they went indoors to keep warm."
+    },
+    {
+     "who": "aasland",
+     "text": "Case closed. They hid from the cold. Very sensible. Nobody has ever hidden from the cold quite this thoroughly."
+    }
+   ]
+  }
+ },
+ "quest": {
+  "id": "case_warm",
+  "title": "The warm light",
+  "giver": "aasland",
+  "where": "ops",
+  "type": "find",
+  "minDay": 20,
+  "ask": "Officer, a word. The case is almost solved, and the part that is left is a door. Beneath Chris's flat there is a trapdoor, and beneath the trapdoor there is a cellar that was never on any plan. Go down. If you see a warm light, do not call out. Follow it.",
+  "wait": "The trapdoor under Chris's flat. A warm light, somewhere below it. Take your lantern, and do not answer if it says your name.",
+  "done": "You saw it. Then the case is solved. I will file it under weather, because nobody reads the weather. Thank you. The nisser, I think, would have said takk.",
+  "targets": {
+   "x": 530.5,
+   "z": -722.5,
+   "thing": "the warm light",
+   "label": "the trapdoor under Chris's flat",
+   "color": "#ffb347"
+  },
+  "reward": {
+   "kr": 200
+  },
+  "repeatable": false
+ }
+}

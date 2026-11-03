@@ -1,0 +1,1327 @@
+{
+ "_note": "Nisse trials (task trials). Statues + trials in the wild. type: lamps|targets|prints|bells|ring. x,z = statue (prints: the start shrine; params.end = the last statue). day = unlockDay (advent day), secret = hidden on the map until revealed by another trial's reward or until you pass close. oren is ignored for now. Spoken by Pjusk (voice/trials/<key>.m4a made by build/make_trials.py): keys trial_<id>_hint, trial_<id>_win, trial_g_<name>.",
+ "voice": {
+  "voice": "en-US-AnaNeural",
+  "rate": "+8%",
+  "pitch": "+22Hz"
+ },
+ "lines": {
+  "first": "Psst. I'm Pjusk. These statues were nisser once. Wake them up, and maybe the nisser will come home.",
+  "fail": [
+   "Oh no. Never mind. Try again.",
+   "Hee. Not that one. The statue is patient.",
+   "Shh. It all went dark. Start over, nice and slow.",
+   "Almost! The woods remember. Try once more."
+  ],
+  "secret": "I heard something. A new statue is waking, far away. Look at your map.",
+  "cap": "That was the last one. All the little eyes are open now. Here, a golden cap. Wear it where the dark can see.",
+  "again": "Thank you. I will keep a light on for you.",
+  "start": "Go!"
+ },
+ "notes": [
+  523.25,
+  587.33,
+  659.25,
+  783.99,
+  880.0
+ ],
+ "trials": [
+  {
+   "id": "hellerasen",
+   "name": "Helleråsen lanterns",
+   "type": "lamps",
+   "oren": 0,
+   "unlockDay": 0,
+   "secret": false,
+   "reward": {
+    "kr": 40
+   },
+   "hint": "The lanterns on Helleråsen are cold. Light them by the little numbers on the posts. One first, then two, and so on.",
+   "win": "Warm! The old nisse of Helleråsen can see the town again. Take this.",
+   "x": 379,
+   "z": 19,
+   "yaw": 0.96,
+   "params": {
+    "mode": "order",
+    "time": 20,
+    "lamps": [
+     [
+      -1.99,
+      6.5,
+      2
+     ],
+     [
+      1.39,
+      6.66,
+      4
+     ],
+     [
+      4.43,
+      5.16,
+      3
+     ],
+     [
+      6.37,
+      2.39,
+      1
+     ],
+     [
+      6.73,
+      -0.97,
+      5
+     ],
+     [
+      5.43,
+      -4.09,
+      6
+     ]
+    ]
+   }
+  },
+  {
+   "id": "farberget",
+   "name": "Farberget bells",
+   "type": "bells",
+   "oren": 0,
+   "unlockDay": 0,
+   "secret": false,
+   "reward": {
+    "flare": 2,
+    "reveal": "korghellerheia",
+    "note": "Pjusk's page: the shy nisse of Hamre sleeps high on the heath, past the old shelters of Korghellerheia."
+   },
+   "hint": "Three bells hang under Farberget. Press G at the statue and listen to it hum, then ring the bells in the same order.",
+   "win": "Beautiful. That tune was a lullaby once. Take this for your pockets.",
+   "x": -318,
+   "z": -3,
+   "yaw": 0.5,
+   "params": {
+    "notes": [
+     523.25,
+     659.25,
+     880.0
+    ],
+    "bells": [
+     [
+      0.7,
+      4.4
+     ],
+     [
+      2.01,
+      3.69
+     ],
+     [
+      3.33,
+      2.97
+     ]
+    ],
+    "melody": [
+     1,
+     0,
+     1,
+     2
+    ],
+    "beamYaw": 0.5
+   }
+  },
+  {
+   "id": "forefjellet",
+   "name": "Forefjellet footprints",
+   "type": "prints",
+   "oren": 0,
+   "unlockDay": 0,
+   "secret": false,
+   "reward": {
+    "kr": 30
+   },
+   "hint": "Follow the glowing footprints before they fade. The warm ones are true. The blue ones lie. Press G at the first statue.",
+   "win": "You followed him all the way. He was lonely out here. Here, for the trouble.",
+   "x": 270,
+   "z": 1424,
+   "yaw": -2.36,
+   "end": [
+    178,
+    1366
+   ],
+   "endYaw": 1.57,
+   "params": {
+    "path": [
+     [
+      270,
+      1424
+     ],
+     [
+      266,
+      1420
+     ],
+     [
+      262,
+      1416
+     ],
+     [
+      258,
+      1412
+     ],
+     [
+      254,
+      1408
+     ],
+     [
+      250,
+      1404
+     ],
+     [
+      246,
+      1400
+     ],
+     [
+      242,
+      1396
+     ],
+     [
+      238,
+      1392
+     ],
+     [
+      238,
+      1388
+     ],
+     [
+      238,
+      1384
+     ],
+     [
+      238,
+      1380
+     ],
+     [
+      236,
+      1376
+     ],
+     [
+      232,
+      1372
+     ],
+     [
+      228,
+      1368
+     ],
+     [
+      224,
+      1364
+     ],
+     [
+      220,
+      1362
+     ],
+     [
+      216,
+      1364
+     ],
+     [
+      212,
+      1368
+     ],
+     [
+      210,
+      1368
+     ],
+     [
+      208,
+      1366
+     ],
+     [
+      204,
+      1366
+     ],
+     [
+      200,
+      1366
+     ],
+     [
+      196,
+      1366
+     ],
+     [
+      192,
+      1366
+     ],
+     [
+      188,
+      1366
+     ],
+     [
+      184,
+      1366
+     ],
+     [
+      180,
+      1366
+     ],
+     [
+      178,
+      1366
+     ]
+    ],
+    "step": 2.4,
+    "fade": 26,
+    "decoys": [
+     {
+      "at": 0.35,
+      "ang": 55,
+      "len": 7
+     },
+     {
+      "at": 0.7,
+      "ang": -60,
+      "len": 7
+     }
+    ]
+   }
+  },
+  {
+   "id": "botnetjonna",
+   "name": "Botnetjønna targets",
+   "type": "targets",
+   "oren": 0,
+   "unlockDay": 0,
+   "secret": false,
+   "reward": {
+    "thermos": 1,
+    "reveal": "nons",
+    "note": "Pjusk's page: in Trolldalen, behind the great hill of Nonskarknuten, the footprints are shy."
+   },
+   "hint": "Five wooden faces hide around Botnetjønna. Press G at the statue, then hit every one with a snowball. Quickly!",
+   "win": "Splat, splat, splat! Even the statue laughed. A little thank you.",
+   "x": 919,
+   "z": -1554,
+   "yaw": 0.91,
+   "params": {
+    "time": 25,
+    "targets": [
+     [
+      -9.34,
+      1.68,
+      1.25
+     ],
+     [
+      -0.78,
+      8.13,
+      1.01
+     ],
+     [
+      7.18,
+      3.8,
+      1.75
+     ],
+     [
+      7.93,
+      -3.75,
+      1.65
+     ],
+     [
+      2.24,
+      -9.37,
+      1.7
+     ]
+    ],
+    "balls": 9
+   }
+  },
+  {
+   "id": "lauvasen",
+   "name": "Lauvåsen stones",
+   "type": "ring",
+   "oren": 0,
+   "unlockDay": 0,
+   "secret": false,
+   "reward": {
+    "rocket": 5
+   },
+   "hint": "Five stones, five carvings. Step on them in the order shown on the statue's base. A wrong step starts it over.",
+   "win": "The stones remember you now. Good feet. Here you go.",
+   "x": -764,
+   "z": 1111,
+   "yaw": 2.27,
+   "params": {
+    "stones": [
+     [
+      2.28,
+      3.65,
+      1
+     ],
+     [
+      4.17,
+      -1.04,
+      2
+     ],
+     [
+      0.3,
+      -4.29,
+      3
+     ],
+     [
+      -3.99,
+      -1.61,
+      4
+     ],
+     [
+      -2.76,
+      3.29,
+      0
+     ]
+    ],
+    "seq": [
+     1,
+     0,
+     2,
+     3
+    ]
+   }
+  },
+  {
+   "id": "botnanstien",
+   "name": "Botnan trail footprints",
+   "type": "prints",
+   "oren": 0,
+   "unlockDay": 0,
+   "secret": false,
+   "reward": {
+    "kr": 60
+   },
+   "hint": "A trail of lights starts at the little shrine near Camp Botnan. Press G, and don't let it fade. Don't trust the cold ones.",
+   "win": "He was waiting at the end of the trail the whole time. Thank you for coming.",
+   "x": 506,
+   "z": -1654,
+   "yaw": 0.0,
+   "end": [
+    556,
+    -1562
+   ],
+   "endYaw": -2.36,
+   "params": {
+    "path": [
+     [
+      506,
+      -1654
+     ],
+     [
+      506,
+      -1652
+     ],
+     [
+      502,
+      -1648
+     ],
+     [
+      500,
+      -1644
+     ],
+     [
+      500,
+      -1640
+     ],
+     [
+      500,
+      -1636
+     ],
+     [
+      500,
+      -1632
+     ],
+     [
+      500,
+      -1628
+     ],
+     [
+      500,
+      -1624
+     ],
+     [
+      502,
+      -1620
+     ],
+     [
+      506,
+      -1616
+     ],
+     [
+      508,
+      -1612
+     ],
+     [
+      508,
+      -1608
+     ],
+     [
+      512,
+      -1606
+     ],
+     [
+      516,
+      -1602
+     ],
+     [
+      520,
+      -1598
+     ],
+     [
+      524,
+      -1594
+     ],
+     [
+      528,
+      -1590
+     ],
+     [
+      532,
+      -1586
+     ],
+     [
+      536,
+      -1582
+     ],
+     [
+      540,
+      -1578
+     ],
+     [
+      544,
+      -1574
+     ],
+     [
+      548,
+      -1570
+     ],
+     [
+      552,
+      -1566
+     ],
+     [
+      556,
+      -1562
+     ]
+    ],
+    "step": 2.4,
+    "fade": 24,
+    "decoys": [
+     {
+      "at": 0.3,
+      "ang": -55,
+      "len": 7
+     },
+     {
+      "at": 0.6,
+      "ang": 60,
+      "len": 8
+     }
+    ]
+   }
+  },
+  {
+   "id": "haafossen",
+   "name": "Håfossen bells",
+   "type": "bells",
+   "oren": 0,
+   "unlockDay": 0,
+   "secret": false,
+   "reward": {
+    "flare": 3
+   },
+   "hint": "The falls hum a tune and so does the statue. Press G to listen, then ring the bells to match. The water tries to hide it.",
+   "win": "Even the water went quiet to hear you. Take this.",
+   "x": 1189,
+   "z": -826,
+   "yaw": 0.85,
+   "params": {
+    "notes": [
+     587.33,
+     659.25,
+     783.99
+    ],
+    "bells": [
+     [
+      2.17,
+      3.9
+     ],
+     [
+      3.16,
+      2.77
+     ],
+     [
+      4.15,
+      1.65
+     ]
+    ],
+    "melody": [
+     0,
+     1,
+     2,
+     1,
+     0
+    ],
+    "beamYaw": 0.85
+   }
+  },
+  {
+   "id": "globen",
+   "name": "Globen lanterns",
+   "type": "lamps",
+   "oren": 0,
+   "unlockDay": 0,
+   "secret": false,
+   "reward": {
+    "kr": 50
+   },
+   "hint": "Light all five lanterns before twenty seconds are up, or the cold takes them back. Run!",
+   "win": "Bright! Someone far away just felt that. Here is your reward.",
+   "x": 594,
+   "z": -2124,
+   "yaw": 2.12,
+   "params": {
+    "mode": "timed",
+    "time": 20,
+    "lamps": [
+     [
+      5.17,
+      4.42,
+      0
+     ],
+     [
+      6.78,
+      0.54,
+      0
+     ],
+     [
+      5.8,
+      -3.55,
+      0
+     ],
+     [
+      2.61,
+      -6.28,
+      0
+     ],
+     [
+      -1.58,
+      -6.61,
+      0
+     ]
+    ]
+   }
+  },
+  {
+   "id": "korghellerheia",
+   "name": "Korghellerheia stones",
+   "type": "ring",
+   "oren": 0,
+   "unlockDay": 4,
+   "secret": true,
+   "reward": {
+    "thermos": 1
+   },
+   "hint": "Up here the stones are old and shy. Step on the carvings in the order shown on the base.",
+   "win": "That's one more of us awake. Keep going, there are many.",
+   "x": 1351,
+   "z": -3374,
+   "yaw": 5.46,
+   "params": {
+    "stones": [
+     [
+      3.99,
+      1.61,
+      0
+     ],
+     [
+      2.77,
+      -3.29,
+      4
+     ],
+     [
+      -2.27,
+      -3.65,
+      1
+     ],
+     [
+      -4.17,
+      1.04,
+      3
+     ],
+     [
+      -0.3,
+      4.29,
+      2
+     ]
+    ],
+    "seq": [
+     2,
+     3,
+     0,
+     4
+    ]
+   }
+  },
+  {
+   "id": "penstock",
+   "name": "Penstock footprints",
+   "type": "prints",
+   "oren": 0,
+   "unlockDay": 8,
+   "secret": false,
+   "reward": {
+    "kr": 70
+   },
+   "hint": "Beside the great pipe the footprints start from the shrine. Press G, and follow the warm ones to the end.",
+   "win": "Down the pipe and back again. The nisser used to slide in here. Thank you.",
+   "x": -1208,
+   "z": -1628,
+   "yaw": -0.79,
+   "end": [
+    -1300,
+    -1572
+   ],
+   "endYaw": 1.57,
+   "params": {
+    "path": [
+     [
+      -1208,
+      -1628
+     ],
+     [
+      -1212,
+      -1624
+     ],
+     [
+      -1216,
+      -1620
+     ],
+     [
+      -1220,
+      -1616
+     ],
+     [
+      -1224,
+      -1612
+     ],
+     [
+      -1228,
+      -1608
+     ],
+     [
+      -1232,
+      -1604
+     ],
+     [
+      -1236,
+      -1600
+     ],
+     [
+      -1240,
+      -1596
+     ],
+     [
+      -1244,
+      -1594
+     ],
+     [
+      -1248,
+      -1590
+     ],
+     [
+      -1252,
+      -1586
+     ],
+     [
+      -1256,
+      -1582
+     ],
+     [
+      -1260,
+      -1578
+     ],
+     [
+      -1264,
+      -1574
+     ],
+     [
+      -1268,
+      -1572
+     ],
+     [
+      -1272,
+      -1572
+     ],
+     [
+      -1276,
+      -1572
+     ],
+     [
+      -1280,
+      -1572
+     ],
+     [
+      -1284,
+      -1572
+     ],
+     [
+      -1288,
+      -1572
+     ],
+     [
+      -1292,
+      -1572
+     ],
+     [
+      -1296,
+      -1572
+     ],
+     [
+      -1300,
+      -1572
+     ]
+    ],
+    "step": 2.4,
+    "fade": 24,
+    "decoys": [
+     {
+      "at": 0.4,
+      "ang": 60,
+      "len": 7
+     }
+    ]
+   }
+  },
+  {
+   "id": "rafossen",
+   "name": "Rafossen bells",
+   "type": "bells",
+   "oren": 0,
+   "unlockDay": 10,
+   "secret": false,
+   "reward": {
+    "rocket": 8
+   },
+   "hint": "Rafossen roars, but the bells are patient. Press G, listen to the statue, then answer with the bells.",
+   "win": "You heard it through the roar. Not many can.",
+   "x": -373,
+   "z": -5347,
+   "yaw": 3.22,
+   "params": {
+    "notes": [
+     587.33,
+     659.25,
+     783.99,
+     880.0
+    ],
+    "bells": [
+     [
+      1.91,
+      -4.36
+     ],
+     [
+      0.42,
+      -4.25
+     ],
+     [
+      -1.08,
+      -4.13
+     ],
+     [
+      -2.57,
+      -4.01
+     ]
+    ],
+    "melody": [
+     2,
+     3,
+     2,
+     3,
+     3
+    ],
+    "beamYaw": 3.22
+   }
+  },
+  {
+   "id": "oyebergan",
+   "name": "Øyebergan targets",
+   "type": "targets",
+   "oren": 0,
+   "unlockDay": 6,
+   "secret": false,
+   "reward": {
+    "flare": 3
+   },
+   "hint": "Six targets stand in the clearing at Øye. Press G at the statue to start, then snowballs, fast!",
+   "win": "Six for six. The statue wants you to know it is impressed.",
+   "x": -3405,
+   "z": 2806,
+   "yaw": 2.53,
+   "params": {
+    "time": 25,
+    "targets": [
+     [
+      4.8,
+      8.89,
+      1.63
+     ],
+     [
+      9.43,
+      2.95,
+      1.89
+     ],
+     [
+      8.25,
+      -4.72,
+      1.71
+     ],
+     [
+      0.11,
+      -9.09,
+      1.29
+     ],
+     [
+      -7.09,
+      -7.05,
+      1.23
+     ],
+     [
+      -9.85,
+      -0.21,
+      1.08
+     ]
+    ],
+    "balls": 10
+   }
+  },
+  {
+   "id": "tagasleiren",
+   "name": "Tågås lanterns",
+   "type": "lamps",
+   "oren": 0,
+   "unlockDay": 14,
+   "secret": false,
+   "reward": {
+    "kr": 80
+   },
+   "hint": "Seven lanterns by the water. Light them in number order, and the dark stays outside.",
+   "win": "Lanterns by the lake. Somebody used to sit here and wait for us. Thank you.",
+   "x": 2485,
+   "z": 4063,
+   "yaw": 2.66,
+   "params": {
+    "mode": "order",
+    "time": 20,
+    "lamps": [
+     [
+      6.7,
+      1.13,
+      7
+     ],
+     [
+      6.59,
+      -1.69,
+      6
+     ],
+     [
+      5.33,
+      -4.22,
+      2
+     ],
+     [
+      3.15,
+      -6.03,
+      1
+     ],
+     [
+      0.43,
+      -6.79,
+      4
+     ],
+     [
+      -2.37,
+      -6.37,
+      3
+     ],
+     [
+      -4.76,
+      -4.86,
+      5
+     ]
+    ]
+   }
+  },
+  {
+   "id": "nons",
+   "name": "Trolldalen footprints",
+   "type": "prints",
+   "oren": 0,
+   "unlockDay": 12,
+   "secret": true,
+   "reward": {
+    "rocket": 6
+   },
+   "hint": "Down in Trolldalen the footprints are shy. Press G at the shrine. Follow the warm ones and never the blue.",
+   "win": "Even trolls leave a light on. Good tracking.",
+   "x": -1846,
+   "z": -126,
+   "yaw": -1.57,
+   "end": [
+    -1848,
+    -232
+   ],
+   "endYaw": -0.79,
+   "params": {
+    "path": [
+     [
+      -1846,
+      -126
+     ],
+     [
+      -1850,
+      -126
+     ],
+     [
+      -1854,
+      -126
+     ],
+     [
+      -1858,
+      -126
+     ],
+     [
+      -1862,
+      -128
+     ],
+     [
+      -1864,
+      -132
+     ],
+     [
+      -1864,
+      -136
+     ],
+     [
+      -1864,
+      -140
+     ],
+     [
+      -1862,
+      -144
+     ],
+     [
+      -1862,
+      -148
+     ],
+     [
+      -1860,
+      -152
+     ],
+     [
+      -1858,
+      -156
+     ],
+     [
+      -1858,
+      -160
+     ],
+     [
+      -1858,
+      -164
+     ],
+     [
+      -1858,
+      -168
+     ],
+     [
+      -1858,
+      -172
+     ],
+     [
+      -1858,
+      -176
+     ],
+     [
+      -1858,
+      -180
+     ],
+     [
+      -1858,
+      -184
+     ],
+     [
+      -1858,
+      -188
+     ],
+     [
+      -1858,
+      -192
+     ],
+     [
+      -1858,
+      -196
+     ],
+     [
+      -1858,
+      -200
+     ],
+     [
+      -1858,
+      -204
+     ],
+     [
+      -1858,
+      -208
+     ],
+     [
+      -1858,
+      -212
+     ],
+     [
+      -1856,
+      -216
+     ],
+     [
+      -1854,
+      -220
+     ],
+     [
+      -1854,
+      -224
+     ],
+     [
+      -1852,
+      -228
+     ],
+     [
+      -1848,
+      -232
+     ]
+    ],
+    "step": 2.4,
+    "fade": 22,
+    "decoys": [
+     {
+      "at": 0.25,
+      "ang": 60,
+      "len": 7
+     },
+     {
+      "at": 0.5,
+      "ang": -60,
+      "len": 7
+     },
+     {
+      "at": 0.75,
+      "ang": 55,
+      "len": 7
+     }
+    ]
+   }
+  },
+  {
+   "id": "hunsbed",
+   "name": "Hunsbedtheia lanterns",
+   "type": "lamps",
+   "oren": 0,
+   "unlockDay": 16,
+   "secret": false,
+   "reward": {
+    "kr": 60,
+    "thermos": 1
+   },
+   "hint": "Six lanterns, twenty seconds, one hungry cold. Light them all, quickly.",
+   "win": "Just in time! You are good at this. Take this.",
+   "x": 3439,
+   "z": -931,
+   "yaw": 1.03,
+   "params": {
+    "mode": "timed",
+    "time": 20,
+    "lamps": [
+     [
+      -1.53,
+      6.63,
+      0
+     ],
+     [
+      1.85,
+      6.54,
+      0
+     ],
+     [
+      4.78,
+      4.84,
+      0
+     ],
+     [
+      6.52,
+      1.94,
+      0
+     ],
+     [
+      6.65,
+      -1.44,
+      0
+     ],
+     [
+      5.13,
+      -4.46,
+      0
+     ]
+    ]
+   }
+  },
+  {
+   "id": "orresteinen",
+   "name": "Orresteinen stones",
+   "type": "ring",
+   "oren": 0,
+   "unlockDay": 18,
+   "secret": false,
+   "reward": {
+    "kr": 100,
+    "reveal": "geiteknuten",
+    "note": "Pjusk's page: the goat-peak above Feda keeps a statue that only wakes for good throwers."
+   },
+   "hint": "Near the old stone of Orresteinen, step on the carvings in the order shown on the base.",
+   "win": "The old stone hummed. The nisser sleep in the stones. Maybe you woke one.",
+   "x": -7787,
+   "z": 5702,
+   "yaw": 5.36,
+   "params": {
+    "stones": [
+     [
+      3.89,
+      1.84,
+      3
+     ],
+     [
+      2.95,
+      -3.13,
+      4
+     ],
+     [
+      -2.06,
+      -3.77,
+      1
+     ],
+     [
+      -4.23,
+      0.79,
+      0
+     ],
+     [
+      -0.55,
+      4.26,
+      2
+     ]
+    ],
+    "seq": [
+     3,
+     2,
+     4,
+     0,
+     1
+    ]
+   }
+  },
+  {
+   "id": "geiteknuten",
+   "name": "Geiteknuten targets",
+   "type": "targets",
+   "oren": 0,
+   "unlockDay": 20,
+   "secret": true,
+   "reward": {
+    "flare": 4
+   },
+   "hint": "Goat-peak targets: five of them, twenty-four seconds. Press G at the statue to begin.",
+   "win": "Goats cannot throw, but you can. Thank you.",
+   "x": -7965,
+   "z": 5912,
+   "yaw": 5.92,
+   "params": {
+    "time": 24,
+    "targets": [
+     [
+      -4.4,
+      -6.73,
+      1.5
+     ],
+     [
+      -9.31,
+      2.72,
+      1.79
+     ],
+     [
+      -2.11,
+      9.61,
+      1.29
+     ],
+     [
+      6.0,
+      8.54,
+      1.8
+     ],
+     [
+      9.76,
+      -3.13,
+      1.14
+     ]
+    ],
+    "balls": 9
+   }
+  },
+  {
+   "id": "feda",
+   "name": "Feda fjord bells",
+   "type": "bells",
+   "oren": 0,
+   "unlockDay": 22,
+   "secret": false,
+   "reward": {
+    "kr": 100
+   },
+   "hint": "By the fjord at Feda the bells ring for those who have gone. Press G, listen, and ring them back the way the statue hums.",
+   "win": "The fjord answered. I think they heard you, wherever they are.",
+   "x": -8249,
+   "z": 5835,
+   "yaw": 4.62,
+   "params": {
+    "notes": [
+     587.33,
+     659.25,
+     783.99,
+     880.0
+    ],
+    "bells": [
+     [
+      -3.97,
+      -2.63
+     ],
+     [
+      -4.11,
+      -1.13
+     ],
+     [
+      -4.25,
+      0.36
+     ],
+     [
+      -4.39,
+      1.85
+     ]
+    ],
+    "melody": [
+     1,
+     3,
+     1,
+     0,
+     1,
+     2
+    ],
+    "beamYaw": 4.62
+   }
+  }
+ ]
+}

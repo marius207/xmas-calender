@@ -1,0 +1,491 @@
+{
+ "s": [
+  {
+   "id": "s00",
+   "t": "q",
+   "g": "f",
+   "n": "Hei! Har du sett treet på torget? Det er jo helt nydelig i år!",
+   "v": "p1"
+  },
+  {
+   "id": "s01",
+   "t": "q",
+   "g": "f",
+   "n": "Det er kaldt i dag, altså. Minus tolv, sa de på radioen.",
+   "v": "p2"
+  },
+  {
+   "id": "s02",
+   "t": "q",
+   "g": "f",
+   "n": "Har du kommet i gang med julegavene dine?",
+   "v": "i1"
+  },
+  {
+   "id": "s03",
+   "t": "q",
+   "g": "f",
+   "n": "Har du hørt det de sier om heksa?",
+   "v": "i2"
+  },
+  {
+   "id": "s04",
+   "t": "q",
+   "g": "m",
+   "n": "Du må smake på kakene til mor, de er helt fantastiske.",
+   "v": "f1"
+  },
+  {
+   "id": "s05",
+   "t": "q",
+   "g": "m",
+   "n": "Skal dere på bowling i kveld? Ungene maser om det.",
+   "v": "f2"
+  },
+  {
+   "id": "s06",
+   "t": "q",
+   "g": "f",
+   "n": "Har du sett lysene ved rådhuset? Så fint det ble!",
+   "v": "p1"
+  },
+  {
+   "id": "s07",
+   "t": "q",
+   "g": "f",
+   "n": "Jeg skal bare innom Nico og handle litt julemat.",
+   "v": "p2"
+  },
+  {
+   "id": "s08",
+   "t": "q",
+   "g": "f",
+   "n": "Hvor skal du i jula, da? Blir du her i dalen?",
+   "v": "i1"
+  },
+  {
+   "id": "s09",
+   "t": "q",
+   "g": "f",
+   "n": "Uff, så glatt det er på veien i dag.",
+   "v": "i2"
+  },
+  {
+   "id": "s10",
+   "t": "q",
+   "g": "m",
+   "n": "Har du hørt at bussen er forsinket igjen?",
+   "v": "f1"
+  },
+  {
+   "id": "s11",
+   "t": "q",
+   "g": "m",
+   "n": "Og hvordan har ungene det, da?",
+   "v": "f2"
+  },
+  {
+   "id": "s12",
+   "t": "q",
+   "g": "f",
+   "n": "Det snør jo som bare det! Perfekt juleføre.",
+   "v": "p1"
+  },
+  {
+   "id": "s13",
+   "t": "q",
+   "g": "f",
+   "n": "Jeg synes jeg så et lys i skogen i går kveld. Rart, ikke sant?",
+   "v": "p2"
+  },
+  {
+   "id": "s14",
+   "t": "q",
+   "g": "f",
+   "n": "Har du sett køen i butikken? Den går helt ut døra.",
+   "v": "i1"
+  },
+  {
+   "id": "s15",
+   "t": "q",
+   "g": "f",
+   "n": "Skal du ha ribbe eller pinnekjøtt i år?",
+   "v": "i2"
+  },
+  {
+   "id": "s16",
+   "t": "q",
+   "g": "m",
+   "n": "Har du bakt noe i år, eller kjøper du bare?",
+   "v": "f1"
+  },
+  {
+   "id": "s17",
+   "t": "q",
+   "g": "m",
+   "n": "Tenk at det er bare noen dager til jul!",
+   "v": "f2"
+  },
+  {
+   "id": "s18",
+   "t": "q",
+   "g": "f",
+   "n": "Har du hørt julesangene fra kirka i dag?",
+   "v": "p1"
+  },
+  {
+   "id": "s19",
+   "t": "q",
+   "g": "f",
+   "n": "Nå må jeg huske å kjøpe pepperkaker.",
+   "v": "p2"
+  },
+  {
+   "id": "s20",
+   "t": "q",
+   "g": "f",
+   "n": "Du, vet du hva ungene ønsker seg i år? Alt, tror jeg!",
+   "v": "i1"
+  },
+  {
+   "id": "s21",
+   "t": "q",
+   "g": "f",
+   "n": "Se der! Der kommer bussen. Endelig.",
+   "v": "i2"
+  },
+  {
+   "id": "s22",
+   "t": "q",
+   "g": "m",
+   "n": "Mamma til Chris har sendt kaker igjen, sa de.",
+   "v": "f1"
+  },
+  {
+   "id": "s23",
+   "t": "q",
+   "g": "m",
+   "n": "Har du sett hvor stort juletreet er, forresten?",
+   "v": "f2"
+  },
+  {
+   "id": "s24",
+   "t": "q",
+   "g": "f",
+   "n": "Skal vi ta en kaffe etterpå? Jeg fryser på tærne.",
+   "v": "p1"
+  },
+  {
+   "id": "s25",
+   "t": "q",
+   "g": "f",
+   "n": "Husker du i fjor? Da snødde det inn hele døra.",
+   "v": "p2"
+  },
+  {
+   "id": "s26",
+   "t": "q",
+   "g": "f",
+   "n": "Tror du det blir hvit jul i år?",
+   "v": "i1"
+  },
+  {
+   "id": "s27",
+   "t": "q",
+   "g": "f",
+   "n": "Bowlinghallen er åpen til sent i kveld, hørte jeg.",
+   "v": "i2"
+  },
+  {
+   "id": "s28",
+   "t": "a",
+   "g": "m",
+   "n": "Ja, det er helt utrolig. Det har jeg aldri sett maken til.",
+   "v": "f1"
+  },
+  {
+   "id": "s29",
+   "t": "a",
+   "g": "m",
+   "n": "Nei, det visste jeg ikke! Fortell mer.",
+   "v": "f2"
+  },
+  {
+   "id": "s30",
+   "t": "a",
+   "g": "f",
+   "n": "Ja, jeg sa det jo i går. Det blir en kald jul.",
+   "v": "p1"
+  },
+  {
+   "id": "s31",
+   "t": "a",
+   "g": "f",
+   "n": "Ja, det stemmer! Akkurat det jeg tenkte også.",
+   "v": "p2"
+  },
+  {
+   "id": "s32",
+   "t": "a",
+   "g": "f",
+   "n": "Jo da, det går bra med oss. Takk for at du spør.",
+   "v": "i1"
+  },
+  {
+   "id": "s33",
+   "t": "a",
+   "g": "f",
+   "n": "Æsj, nei, jeg har knapt begynt ennå. Jeg må skynde meg.",
+   "v": "i2"
+  },
+  {
+   "id": "s34",
+   "t": "a",
+   "g": "m",
+   "n": "Det er bare tull, det med heksa. Eller, jeg vet ikke jeg.",
+   "v": "f1"
+  },
+  {
+   "id": "s35",
+   "t": "a",
+   "g": "m",
+   "n": "Ja, jeg har hørt det. Folk sier mye rart for tida.",
+   "v": "f2"
+  },
+  {
+   "id": "s36",
+   "t": "a",
+   "g": "f",
+   "n": "Du verden, så mye folk det er her i dag!",
+   "v": "p1"
+  },
+  {
+   "id": "s37",
+   "t": "a",
+   "g": "f",
+   "n": "Det blir nok pinnekjøtt, som vanlig. Det er tradisjon.",
+   "v": "p2"
+  },
+  {
+   "id": "s38",
+   "t": "a",
+   "g": "f",
+   "n": "Ja, men husk lue, da, det er iskaldt!",
+   "v": "i1"
+  },
+  {
+   "id": "s39",
+   "t": "a",
+   "g": "f",
+   "n": "Å ja, det var koselig! Hils så mye hjem.",
+   "v": "i2"
+  },
+  {
+   "id": "s40",
+   "t": "a",
+   "g": "m",
+   "n": "Tja, vi får se. Det kommer helt an på været.",
+   "v": "f1"
+  },
+  {
+   "id": "s41",
+   "t": "a",
+   "g": "m",
+   "n": "Så fint, da! Dette blir en fin jul.",
+   "v": "f2"
+  },
+  {
+   "id": "s42",
+   "t": "a",
+   "g": "f",
+   "n": "Jeg tør ikke gå forbi skogen etter at det blir mørkt.",
+   "v": "p1"
+  },
+  {
+   "id": "s43",
+   "t": "a",
+   "g": "f",
+   "n": "Mm, kaffe og en kanelbolle hadde ikke vært dumt nå.",
+   "v": "p2"
+  },
+  {
+   "id": "s44",
+   "t": "a",
+   "g": "f",
+   "n": "Ja, ikke sant! Jeg sa det til mannen min også.",
+   "v": "i1"
+  },
+  {
+   "id": "s45",
+   "t": "a",
+   "g": "f",
+   "n": "Ha, de blir spist opp før de kommer fram, gitt.",
+   "v": "i2"
+  },
+  {
+   "id": "s46",
+   "t": "a",
+   "g": "m",
+   "n": "Ja, og stjerna på toppen lyser helt til det blir morgen.",
+   "v": "f1"
+  },
+  {
+   "id": "s47",
+   "t": "a",
+   "g": "m",
+   "n": "Ja, gjerne! Vi går til kafeen om litt.",
+   "v": "f2"
+  },
+  {
+   "id": "s48",
+   "t": "a",
+   "g": "f",
+   "n": "Ja, jeg måtte måke i tre timer!",
+   "v": "p1"
+  },
+  {
+   "id": "s49",
+   "t": "a",
+   "g": "f",
+   "n": "Det ser sånn ut. Alt er jo helt hvitt allerede.",
+   "v": "p2"
+  },
+  {
+   "id": "s50",
+   "t": "a",
+   "g": "f",
+   "n": "Mhm. Ja, ja, akkurat.",
+   "v": "i1"
+  },
+  {
+   "id": "s51",
+   "t": "a",
+   "g": "f",
+   "n": "Nei, men du sier ikke det!",
+   "v": "i2"
+  },
+  {
+   "id": "s52",
+   "t": "l",
+   "g": "f",
+   "n": "Hahaha! Nei, nå tuller du!",
+   "v": "i2"
+  },
+  {
+   "id": "s53",
+   "t": "l",
+   "g": "f",
+   "n": "Hehe, ja, det var jo litt morsomt.",
+   "v": "i1"
+  },
+  {
+   "id": "s54",
+   "t": "l",
+   "g": "f",
+   "n": "Hahaha, det er helt sant! Jeg ler så jeg gråter.",
+   "v": "p2"
+  },
+  {
+   "id": "s55",
+   "t": "l",
+   "g": "f",
+   "n": "Å nei, hihihi, det kan du ikke mene!",
+   "v": "p1"
+  },
+  {
+   "id": "s56",
+   "t": "b",
+   "g": "f",
+   "n": "Ha det bra, da! Vi snakkes.",
+   "v": "i1"
+  },
+  {
+   "id": "s57",
+   "t": "b",
+   "g": "f",
+   "n": "Ja, jeg må løpe. God jul, da!",
+   "v": "i2"
+  },
+  {
+   "id": "s58",
+   "t": "b",
+   "g": "m",
+   "n": "Ses! Hils alle sammen.",
+   "v": "f1"
+  },
+  {
+   "id": "s59",
+   "t": "b",
+   "g": "m",
+   "n": "Ha en fin dag, da!",
+   "v": "f2"
+  }
+ ],
+ "g": [
+  {
+   "k": "hei",
+   "n": "Hei!"
+  },
+  {
+   "k": "heihei",
+   "n": "Hei hei!"
+  },
+  {
+   "k": "gj",
+   "n": "God jul!"
+  },
+  {
+   "k": "gjgj",
+   "n": "God jul, god jul!"
+  },
+  {
+   "k": "hallo",
+   "n": "Hallo!"
+  },
+  {
+   "k": "heipa",
+   "n": "Hei på deg!"
+  },
+  {
+   "k": "fin",
+   "n": "Ha en fin dag!"
+  },
+  {
+   "k": "riktig",
+   "n": "Riktig god jul!"
+  },
+  {
+   "k": "takk",
+   "n": "Takk, i like måte!"
+  },
+  {
+   "k": "natt",
+   "n": "God natt!"
+  },
+  {
+   "k": "natta",
+   "n": "Natta!"
+  },
+  {
+   "k": "natt2",
+   "n": "God natt, sov godt!"
+  },
+  {
+   "k": "gjdeg",
+   "n": "God jul til deg også!"
+  },
+  {
+   "k": "ohei",
+   "n": "Å, hei! God jul!"
+  },
+  {
+   "k": "kaldt",
+   "n": "Hei, sånn! Kaldt i dag, ikke sant?"
+  }
+ ],
+ "gv": {
+  "p1": "f",
+  "i2": "f",
+  "f1": "m"
+ }
+}

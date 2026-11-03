@@ -1,0 +1,217 @@
+{
+ "version": 2,
+ "note": "x/z = GAME world coordinates in metres (z = minus north, same as world.json); north = north-positive value; dir = compass bearing into the mountain (0 = north = -z); len = metres; path = tunnel centre points [x,z] in game coordinates; twists = 0 (straight) to 10",
+ "caves": [
+  {
+   "id": "mvpbeh2g",
+   "name": "Troll cave 1",
+   "x": -551,
+   "z": -283,
+   "north": 283,
+   "dir": 338,
+   "len": 230,
+   "w": 30,
+   "slope": 17,
+   "twists": 0,
+   "seed": 1,
+   "trolls": 11,
+   "note": "a windie tunnel filled with trolls and torches and bats ",
+   "ground": 11,
+   "upPct": 2,
+   "endX": -637,
+   "endZ": -496,
+   "path": [
+    [
+     -551,
+     -283
+    ],
+    [
+     -562,
+     -311
+    ],
+    [
+     -573,
+     -339
+    ],
+    [
+     -585,
+     -366
+    ],
+    [
+     -596,
+     -394
+    ],
+    [
+     -607,
+     -422
+    ],
+    [
+     -618,
+     -450
+    ],
+    [
+     -630,
+     -478
+    ],
+    [
+     -637,
+     -496
+    ]
+   ]
+  },
+  {
+   "id": "mvpbtds8",
+   "name": "Troll cave 2",
+   "x": 219,
+   "z": 55,
+   "north": -55,
+   "dir": 62,
+   "len": 440,
+   "w": 16,
+   "slope": 2,
+   "twists": 0,
+   "seed": 1,
+   "trolls": 10,
+   "note": "lots of loot - leveled cave - more like a labyrinth - so not just straight, but with a proper opening and cool things - surprise me ",
+   "ground": 55,
+   "upPct": 28,
+   "endX": 607,
+   "endZ": -152,
+   "path": [
+    [
+     219,
+     55
+    ],
+    [
+     245,
+     41
+    ],
+    [
+     272,
+     27
+    ],
+    [
+     298,
+     13
+    ],
+    [
+     325,
+     -1
+    ],
+    [
+     351,
+     -15
+    ],
+    [
+     378,
+     -30
+    ],
+    [
+     404,
+     -44
+    ],
+    [
+     431,
+     -58
+    ],
+    [
+     457,
+     -72
+    ],
+    [
+     484,
+     -86
+    ],
+    [
+     510,
+     -100
+    ],
+    [
+     537,
+     -114
+    ],
+    [
+     563,
+     -128
+    ],
+    [
+     590,
+     -142
+    ],
+    [
+     607,
+     -152
+    ]
+   ]
+  },
+  {
+   "id": "mvpcrsse",
+   "name": "Troll cave 3",
+   "x": -1727,
+   "z": 276,
+   "north": -276,
+   "dir": 329,
+   "len": 330,
+   "w": 10,
+   "slope": -20,
+   "twists": 10,
+   "seed": 1,
+   "trolls": 14,
+   "note": "mystery just ad something",
+   "ground": 135,
+   "upPct": 30,
+   "endX": -1861,
+   "endZ": 33,
+   "path": [
+    [
+     -1727,
+     276
+    ],
+    [
+     -1744,
+     252
+    ],
+    [
+     -1749,
+     223
+    ],
+    [
+     -1774,
+     211
+    ],
+    [
+     -1781,
+     182
+    ],
+    [
+     -1795,
+     165
+    ],
+    [
+     -1804,
+     142
+    ],
+    [
+     -1814,
+     114
+    ],
+    [
+     -1836,
+     101
+    ],
+    [
+     -1839,
+     76
+    ],
+    [
+     -1864,
+     60
+    ],
+    [
+     -1861,
+     33
+    ]
+   ]
+  }
+ ]
+}

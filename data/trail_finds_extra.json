@@ -1,0 +1,126 @@
+{
+ "_note": "Extra trail finds (round 2 of the trail life job). Same format as trail_finds.json; loaded by the alive2 block of index.html. New kinds: antler, boot, ski, feeder, thermos.",
+ "finds": [
+  {
+   "id": "alive2_antler_1",
+   "kind": "antler",
+   "area": "alive2",
+   "x": 270.8,
+   "z": 64.8,
+   "text": "A shed antler, bleached smooth. Whoever wore it is still around, and now slightly lighter.",
+   "reward": {
+    "kr": 10
+   }
+  },
+  {
+   "id": "alive2_boot_2",
+   "kind": "boot",
+   "area": "alive2",
+   "x": 625.8,
+   "z": -1310.9,
+   "text": "One boot, standing upright in the snow. Laces tied. Nobody in it. You decide not to look inside.",
+   "reward": {
+    "kr": 15
+   }
+  },
+  {
+   "id": "alive2_ski_3",
+   "kind": "ski",
+   "area": "alive2",
+   "x": 1028.8,
+   "z": -1607.2,
+   "text": "A single ski, planted in the snow like a flag. Initials carved in the tail: 'N.H. was here, then went.'",
+   "reward": {
+    "kr": 10
+   }
+  },
+  {
+   "id": "alive2_feeder_4",
+   "kind": "feeder",
+   "area": "alive2",
+   "x": 758.4,
+   "z": -1438,
+   "text": "A bird feeder on a post, full of seed. Tiny footprints everywhere, and one very large ones. Both fed.",
+   "reward": {
+    "kr": 10
+   }
+  },
+  {
+   "id": "alive2_thermos_5",
+   "kind": "thermos",
+   "area": "alive2",
+   "x": -1101.1,
+   "z": -1670.8,
+   "text": "A red thermos, left on a stump. It is still hot. The cocoa tastes of cinnamon and slight guilt.",
+   "reward": {
+    "thermos": 1
+   }
+  },
+  {
+   "id": "alive2_antler_6",
+   "kind": "antler",
+   "area": "alive2",
+   "x": -7384,
+   "z": 5060.1,
+   "text": "Another antler. Somebody is losing their crown, one tree at a time.",
+   "reward": {
+    "kr": 10
+   }
+  },
+  {
+   "id": "alive2_boot_7",
+   "kind": "boot",
+   "area": "alive2",
+   "x": -6873.9,
+   "z": 3136.9,
+   "text": "A lone boot, still warm. There is a second one somewhere. You do not go looking.",
+   "reward": {
+    "kr": 10
+   }
+  },
+  {
+   "id": "alive2_ski_8",
+   "kind": "ski",
+   "area": "alive2",
+   "x": -9268.2,
+   "z": 6737.4,
+   "text": "A ski with a note taped on: 'Back in five minutes.' The tape is very old.",
+   "reward": {
+    "kr": 20
+   }
+  },
+  {
+   "id": "alive2_feeder_9",
+   "kind": "feeder",
+   "area": "alive2",
+   "x": 1239.6,
+   "z": 615.6,
+   "text": "A bird feeder. The robin on it gives you a look: 'You're late.'",
+   "reward": {
+    "kr": 10
+   }
+  },
+  {
+   "id": "alive2_thermos_10",
+   "kind": "thermos",
+   "area": "alive2",
+   "x": -20.8,
+   "z": 141.4,
+   "text": "Someone left a thermos for the next walker. You are the next walker.",
+   "reward": {
+    "kr": 20
+   }
+  },
+  {
+   "id": "alive2_antler_11",
+   "kind": "antler",
+   "area": "alive2",
+   "x": 527,
+   "z": -1876,
+   "text": "An antler stuck upright in the snow like a tiny leafless tree.",
+   "reward": {
+    "kr": 15
+   }
+  }
+ ]
+}

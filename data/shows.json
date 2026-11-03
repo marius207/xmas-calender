@@ -1,0 +1,1779 @@
+{
+ "_README": "Edit freely, then run: python3 build/make_shows.py  (makes voice/shows/*.m4a, voice/shows/timings.json and the Heksa FM radio lines). Each episode: id, show (vaer|midnatt|nisse), title, unlock (first day it can air), until (last day, optional), threshold (true = only airs in Threshold World), radio (true = also on Downtown FM), lines = [[spoken text, visual cue], ...]. Optional per line: a third item as an object {\"voice\":\"en-US-AnaNeural\"} for another speaker, or {\"reverse\":true} to speak that line backwards. Visual cues: ident, weather, skyline, tree, sign, lamp, door, doors, map, silhouette, hill, cairns, lantern, dragon, parcel, market, flat, bowling, sled, snow, church, kids, cookies, count, static, card:TEXT. Keep spoilers out: an episode may only hint at a day's event before its unlock day.",
+ "shows": {
+  "vaer": {
+   "name": "Været og Nytt",
+   "short": "V&N",
+   "ch": 1,
+   "tag": "Weather and news",
+   "voice": "en-GB-SoniaNeural",
+   "rate": "-4%",
+   "pitch": "+0Hz",
+   "col": "#3f8ad8",
+   "ident": "VÆRET OG NYTT"
+  },
+  "midnatt": {
+   "name": "Midnatt i Sentrum",
+   "short": "MiS",
+   "ch": 2,
+   "tag": "Midnight Downtown",
+   "voice": "en-GB-RyanNeural",
+   "rate": "-12%",
+   "pitch": "-6Hz",
+   "col": "#c9a24a",
+   "ident": "MIDNATT I SENTRUM"
+  },
+  "nisse": {
+   "name": "Nisse-TV",
+   "short": "NISSE",
+   "ch": 3,
+   "tag": "Kids",
+   "voice": "en-US-JennyNeural",
+   "rate": "+4%",
+   "pitch": "+6Hz",
+   "col": "#e8423a",
+   "ident": "NISSE-TV"
+  }
+ },
+ "channels": [
+  {
+   "ch": 1,
+   "show": "vaer"
+  },
+  {
+   "ch": 2,
+   "show": "midnatt"
+  },
+  {
+   "ch": 3,
+   "show": "nisse"
+  }
+ ],
+ "teletext": {
+  "vaer": [
+   "VÆRET OG NYTT",
+   "Snø / snow",
+   "Temp: kaldt / cold",
+   "Sentrum: population 2"
+  ],
+  "midnatt": [
+   "MIDNATT I SENTRUM",
+   "Tonight: strange but cosy",
+   "Please keep your doors closed",
+   "(or open. We do not judge.)"
+  ],
+  "nisse": [
+   "NISSE-TV",
+   "Pjusk says hei!",
+   "Count to 24 with us",
+   "Ask a grown-up about cookies"
+  ]
+ },
+ "episodes": [
+  {
+   "id": "v01",
+   "show": "vaer",
+   "title": "Population two",
+   "unlock": 1,
+   "until": 1,
+   "radio": true,
+   "summary": "Tree lit, welcome sign still says population two. Opens door 1.",
+   "lines": [
+    [
+     "Good evening, and welcome to Været og Nytt.",
+     "ident"
+    ],
+    [
+     "Weather: snow, minus four degrees, and a light wind from the fjord.",
+     "weather"
+    ],
+    [
+     "In the news, the Christmas tree on the square has been lit. The council describes it as, quote, mostly straight.",
+     "tree"
+    ],
+    [
+     "And the welcome sign at the edge of downtown has been repainted. It still says: population, two.",
+     "sign"
+    ],
+    [
+     "The council is checking the sign. Not the number.",
+     "sign"
+    ],
+    [
+     "That was Været og Nytt. Dress warmly. Door number one is open.",
+     "doors"
+    ]
+   ]
+  },
+  {
+   "id": "v02",
+   "show": "vaer",
+   "title": "A hill with an opinion",
+   "unlock": 2,
+   "until": 2,
+   "radio": true,
+   "summary": "Kick-sleds on Hamrevegen; hints at bowling tomorrow.",
+   "lines": [
+    [
+     "Good evening. This is Været og Nytt.",
+     "ident"
+    ],
+    [
+     "Weather: icy on the hills, with a chance of sledding.",
+     "weather"
+    ],
+    [
+     "Residents report kick-sleds on Hamrevegen again. The road has no speed limit, only a speed opinion.",
+     "sled"
+    ],
+    [
+     "Our advice: lean into the corners, and out of the way of the sheep.",
+     "sled"
+    ],
+    [
+     "Tomorrow, a very large indoor event is expected. It has pins.",
+     "bowling"
+    ],
+    [
+     "Goodnight.",
+     "snow"
+    ]
+   ]
+  },
+  {
+   "id": "v03",
+   "show": "vaer",
+   "title": "Be kind, rewind",
+   "unlock": 3,
+   "until": 3,
+   "radio": true,
+   "summary": "Bowlinghallen strike on frame four; Stine and the video corner.",
+   "lines": [
+    [
+     "Good evening. This is Været og Nytt.",
+     "ident"
+    ],
+    [
+     "Weather: cold outside, warm inside Bowlinghallen, which is where the news is tonight.",
+     "weather"
+    ],
+    [
+     "A full game of bowling was played this evening. A strike landed on frame four, and the pins have asked for a short break and a hug.",
+     "bowling"
+    ],
+    [
+     "Lane seven is said to be the lucky lane. Lane eight is said to be the loud one.",
+     "bowling"
+    ],
+    [
+     "The video corner is open. Tapes are due back in three days. Please rewind. Stine means it.",
+     "card:BE KIND. REWIND."
+    ],
+    [
+     "Goodnight.",
+     "snow"
+    ]
+   ]
+  },
+  {
+   "id": "v04",
+   "show": "vaer",
+   "title": "In tune, mostly",
+   "unlock": 4,
+   "until": 4,
+   "radio": true,
+   "summary": "Carolers by the church; if a song slows down, keep your own pace.",
+   "lines": [
+    [
+     "Good evening. This is Været og Nytt.",
+     "ident"
+    ],
+    [
+     "Weather: clear and bitterly cold. Ideal for sound. It carries.",
+     "weather"
+    ],
+    [
+     "Singing has been heard near the church. Witnesses say the carolers were in tune, which several residents found suspicious.",
+     "church"
+    ],
+    [
+     "Nobody has seen them arrive. Nobody has seen them leave. Several have seen them stand very still.",
+     "silhouette"
+    ],
+    [
+     "If a song ever slows down, the council advises you to keep your own pace, and keep humming.",
+     "church"
+    ],
+    [
+     "Goodnight.",
+     "snow"
+    ]
+   ]
+  },
+  {
+   "id": "v05",
+   "show": "vaer",
+   "title": "Pockets",
+   "unlock": 5,
+   "until": 5,
+   "radio": true,
+   "summary": "Coins on the roads; check your pockets.",
+   "lines": [
+    [
+     "Good evening. This is Været og Nytt.",
+     "ident"
+    ],
+    [
+     "Weather: flurries, light, with sparkles. Sparkles are not an official unit.",
+     "weather"
+    ],
+    [
+     "Coins are appearing along the roads. The bank says it has not lost any. The roads say nothing.",
+     "skyline"
+    ],
+    [
+     "Collect them, say the elders, because every krone counts at Christmas. Especially the shiny ones.",
+     "card:EVERY KRONE COUNTS"
+    ],
+    [
+     "Please check your pockets. Pockets are where kroner go to hide.",
+     "snow"
+    ]
+   ]
+  },
+  {
+   "id": "v06",
+   "show": "vaer",
+   "title": "Smoke straight up",
+   "unlock": 6,
+   "until": 6,
+   "radio": true,
+   "summary": "Tipis at Camp Botnan; the sky was briefly too close.",
+   "lines": [
+    [
+     "Good evening. This is Været og Nytt.",
+     "ident"
+    ],
+    [
+     "Weather: smoke rising straight up from Camp Botnan, which means a calm night.",
+     "weather"
+    ],
+    [
+     "Visitors at the tipi village report that the tipis are warm, and the sky is not. Both are true.",
+     "map"
+    ],
+    [
+     "A guest asks whether tipis can move. The camp says tipis are exactly as mobile as you are.",
+     "map"
+    ],
+    [
+     "In unrelated news, the night sky over the valley was for a moment slightly too close. The astronomers apologise.",
+     "hill"
+    ],
+    [
+     "Goodnight.",
+     "snow"
+    ]
+   ]
+  },
+  {
+   "id": "v07",
+   "show": "vaer",
+   "title": "A little lighter",
+   "unlock": 7,
+   "until": 7,
+   "radio": true,
+   "summary": "Notes in a mailbox; parcels arriving lighter (cookie clue).",
+   "lines": [
+    [
+     "Good evening. This is Været og Nytt.",
+     "ident"
+    ],
+    [
+     "Weather: grey, with a light rattling.",
+     "weather"
+    ],
+    [
+     "Rattling was reported inside an apartment building. The building says rattling is normal. Radiators exist.",
+     "flat"
+    ],
+    [
+     "Post office news. Notes have started arriving in a certain mailbox, in a mother's handwriting. Some notes are polite. Some are not from the mother.",
+     "parcel"
+    ],
+    [
+     "The post office adds that parcels are arriving a little lighter than when they were sent. It is investigating. It is also hungry.",
+     "cookies"
+    ],
+    [
+     "Goodnight. Check your mailbox.",
+     "parcel"
+    ]
+   ]
+  },
+  {
+   "id": "v08",
+   "show": "vaer",
+   "title": "Deeper than it looks",
+   "unlock": 8,
+   "until": 8,
+   "radio": true,
+   "summary": "The ground-floor flat has stairs under it. Bring a light.",
+   "lines": [
+    [
+     "Good evening. This is Været og Nytt.",
+     "ident"
+    ],
+    [
+     "Weather: cold, with a feeling of depth.",
+     "weather"
+    ],
+    [
+     "A ground-floor flat is deeper than it looks. Residents report that the floor has a sound under it, and the sound has stairs.",
+     "flat"
+    ],
+    [
+     "The council says floors are not usually deeper than they look. Surveyors will not be sent. Surveyors were asked, and declined.",
+     "flat"
+    ],
+    [
+     "The tenant of the flat declined to comment, loudly.",
+     "silhouette"
+    ],
+    [
+     "Our advice: if you go down, bring a light.",
+     "lamp"
+    ]
+   ]
+  },
+  {
+   "id": "v09",
+   "show": "vaer",
+   "title": "Globen",
+   "unlock": 9,
+   "until": 9,
+   "radio": true,
+   "summary": "The giant globe on the hill; do not spin it.",
+   "lines": [
+    [
+     "Good evening. This is Været og Nytt.",
+     "ident"
+    ],
+    [
+     "Weather: clear, and very, very round.",
+     "weather"
+    ],
+    [
+     "A giant globe has been spotted out on the hill. Locals call it Globen. It has been there a long time and has not rolled once.",
+     "map"
+    ],
+    [
+     "Geographers confirm that, from Globen, every direction is somewhere.",
+     "map"
+    ],
+    [
+     "Visitors are asked not to spin it. Someone did, and the weather changed.",
+     "weather"
+    ],
+    [
+     "Goodnight.",
+     "snow"
+    ]
+   ]
+  },
+  {
+   "id": "v10",
+   "show": "vaer",
+   "title": "The long way down",
+   "unlock": 10,
+   "until": 10,
+   "radio": true,
+   "summary": "Orresteinen summit; the way down is the way up in reverse.",
+   "lines": [
+    [
+     "Good evening. This is Været og Nytt.",
+     "ident"
+    ],
+    [
+     "Weather: wind on the heights, patience in the lowlands.",
+     "weather"
+    ],
+    [
+     "Climbers have reached the top of Orresteinen, the giant rock above the fjord. They report a very good view and a very long way down.",
+     "map"
+    ],
+    [
+     "Rescue services remind everyone that the way down is also the way up, in reverse.",
+     "map"
+    ],
+    [
+     "The rock had no comment. It never does. It is a rock.",
+     "snow"
+    ]
+   ]
+  },
+  {
+   "id": "v11",
+   "show": "vaer",
+   "title": "Rings and one person",
+   "unlock": 11,
+   "until": 11,
+   "radio": true,
+   "summary": "Jetpack ring race; hints at a noisy or quiet night tomorrow.",
+   "lines": [
+    [
+     "Good evening. This is Været og Nytt.",
+     "ident"
+    ],
+    [
+     "Weather: high, clear, and full of rings.",
+     "weather"
+    ],
+    [
+     "Air traffic downtown now consists of rings, and one person. The person is in charge of the rings. The rings disagree.",
+     "map"
+    ],
+    [
+     "The ring race to Nonskarknuten ends at the top. Fuel runs out before ambition. This is by design.",
+     "map"
+    ],
+    [
+     "Residents of ground-floor flats should prepare for a noisy night tomorrow. Or a very quiet one.",
+     "flat"
+    ]
+   ]
+  },
+  {
+   "id": "v12",
+   "show": "vaer",
+   "title": "Do not go downstairs",
+   "unlock": 12,
+   "until": 12,
+   "radio": true,
+   "summary": "Boss day: a disturbance below; crunching is not the weather.",
+   "lines": [
+    [
+     "Good evening. This bulletin is brief.",
+     "ident"
+    ],
+    [
+     "Weather: loud, with a heavy dessert warning.",
+     "weather"
+    ],
+    [
+     "A disturbance is expected in the lower levels of a certain building this evening. The council has not been told. The council would like to be told.",
+     "flat"
+    ],
+    [
+     "Residents of the ground floor are asked to stay out of the basement. Residents of the basement are asked to stay in.",
+     "flat"
+    ],
+    [
+     "If you hear crunching, that is not the weather.",
+     "cookies"
+    ]
+   ]
+  },
+  {
+   "id": "v13",
+   "show": "vaer",
+   "title": "Local witch finally quiet",
+   "unlock": 13,
+   "until": 13,
+   "radio": true,
+   "summary": "After the fight: Local witch finally quiet. Decorations stay up.",
+   "lines": [
+    [
+     "Good evening. This is Været og Nytt.",
+     "ident"
+    ],
+    [
+     "Weather: calm. Strikingly calm.",
+     "weather"
+    ],
+    [
+     "Local witch finally quiet. Neighbours report the first full night of sleep since the first of December. Several said they almost missed it.",
+     "flat"
+    ],
+    [
+     "The cookies, it turns out, were the problem. A mother in the south has been informed. She is not surprised.",
+     "parcel"
+    ],
+    [
+     "And decorations put up at one house are staying up. This is a record.",
+     "tree"
+    ],
+    [
+     "Goodnight. Quietly.",
+     "snow"
+    ]
+   ]
+  },
+  {
+   "id": "v14",
+   "show": "vaer",
+   "title": "A light nobody lit",
+   "unlock": 14,
+   "until": 14,
+   "radio": true,
+   "summary": "Lights are being lit; one came on that nobody lit.",
+   "lines": [
+    [
+     "Good evening. This is Været og Nytt.",
+     "ident"
+    ],
+    [
+     "Weather: cold and clear. A good evening for lights.",
+     "weather"
+    ],
+    [
+     "The Christmas lights are being lit across downtown, one street at a time. Begin at the tree.",
+     "tree"
+    ],
+    [
+     "The council reminds residents that lights should be switched on by the people who switched them on. Last night one came on that nobody lit. It is a small one. It is still there.",
+     "lamp"
+    ],
+    [
+     "Goodnight.",
+     "snow"
+    ]
+   ]
+  },
+  {
+   "id": "v15",
+   "show": "vaer",
+   "title": "All the way to the end",
+   "unlock": 15,
+   "until": 15,
+   "radio": true,
+   "summary": "A carol sung all the way through.",
+   "lines": [
+    [
+     "Good evening. This is Været og Nytt.",
+     "ident"
+    ],
+    [
+     "Weather: gentle snow, with voices.",
+     "weather"
+    ],
+    [
+     "The carolers sang a whole song tonight, all the way to the end. This is a first. Residents stood very close and did not clap, in case it stopped.",
+     "church"
+    ],
+    [
+     "It did not stop. It was lovely.",
+     "church"
+    ],
+    [
+     "Please stay for the whole of the next one.",
+     "snow"
+    ]
+   ]
+  },
+  {
+   "id": "v16",
+   "show": "vaer",
+   "title": "The last parcel",
+   "unlock": 16,
+   "until": 16,
+   "radio": true,
+   "summary": "The last parcel arrives intact.",
+   "lines": [
+    [
+     "Good evening. This is Været og Nytt.",
+     "ident"
+    ],
+    [
+     "Weather: soft. Parcel-shaped.",
+     "weather"
+    ],
+    [
+     "Post office news. The last parcel from a mother has arrived. Contents: intact. The post office says it did not open it. The post office says it looked at it a lot.",
+     "parcel"
+    ],
+    [
+     "In the south, the mother is said to be, quote, a bit pleased.",
+     "cookies"
+    ],
+    [
+     "Please be gentle with the cookies.",
+     "cookies"
+    ]
+   ]
+  },
+  {
+   "id": "v17",
+   "show": "vaer",
+   "title": "The hill looks back",
+   "unlock": 17,
+   "until": 17,
+   "radio": true,
+   "summary": "Hamrevarden hike; something counted the hiker; a hill looks back.",
+   "lines": [
+    [
+     "Good evening. This is Været og Nytt.",
+     "ident"
+    ],
+    [
+     "Weather: sharp, bright, and visible from far away.",
+     "weather"
+    ],
+    [
+     "Hikers on Hamrevarden report that downtown looks small from up there, and that downtown knows it.",
+     "map"
+    ],
+    [
+     "One hiker says they were counted. It felt like a very large number being said very quietly.",
+     "hill"
+    ],
+    [
+     "Hikers also noticed a hill across the valley that seemed to look back. Hills do not usually do that. Hills are being asked to stop.",
+     "hill"
+    ]
+   ]
+  },
+  {
+   "id": "v18",
+   "show": "vaer",
+   "title": "Insert coin",
+   "unlock": 18,
+   "until": 18,
+   "radio": true,
+   "summary": "Arcade at Bowlinghallen; Chris vs Martin high scores.",
+   "lines": [
+    [
+     "Good evening. This is Været og Nytt.",
+     "ident"
+    ],
+    [
+     "Weather: indoor, and a little pixelated.",
+     "weather"
+    ],
+    [
+     "At Bowlinghallen, three machines are ruling the evening: Snake, Breakout, and Sauron Invaders.",
+     "bowling"
+    ],
+    [
+     "The high score table is a rivalry between a Chris and a Martin. It is cordial. The machines have asked for a referee.",
+     "card:HIGH SCORES: CHRIS / MARTIN"
+    ],
+    [
+     "The snake reports that it is very long and would like to go home.",
+     "bowling"
+    ],
+    [
+     "Goodnight. Insert coin.",
+     "snow"
+    ]
+   ]
+  },
+  {
+   "id": "v19",
+   "show": "vaer",
+   "title": "A ticket for flying",
+   "unlock": 19,
+   "until": 19,
+   "radio": true,
+   "summary": "The Night Wing flying car gets a parking ticket.",
+   "lines": [
+    [
+     "Good evening. This is Været og Nytt.",
+     "ident"
+    ],
+    [
+     "Weather: the usual. Clear, with a chance of flying cars.",
+     "weather"
+    ],
+    [
+     "A flying car is parked downtown. It is called the Night Wing. The parking inspector has issued a ticket for parking in a flying zone. No flying zone exists.",
+     "skyline"
+    ],
+    [
+     "The ticket was accepted. The car left. The car came back. The ticket is now on the roof.",
+     "skyline"
+    ],
+    [
+     "Goodnight. Drive carefully, or don't.",
+     "snow"
+    ]
+   ]
+  },
+  {
+   "id": "v20",
+   "show": "vaer",
+   "title": "Be ready for quiet",
+   "unlock": 20,
+   "until": 20,
+   "radio": true,
+   "summary": "Wind will drop tomorrow; one warm place: it has pins.",
+   "lines": [
+    [
+     "Good evening. This is Været og Nytt.",
+     "ident"
+    ],
+    [
+     "Weather: colder. Quieter. Be ready for quiet.",
+     "weather"
+    ],
+    [
+     "The spark race down Hamrevegen has seen a second helping of personal bests. Please do not break the sleds.",
+     "sled"
+    ],
+    [
+     "Weather experts say the wind will drop tomorrow evening. After the wind, the sound will follow.",
+     "weather"
+    ],
+    [
+     "If things feel strange tomorrow, there is one place we know will be warm. It has pins.",
+     "bowling"
+    ]
+   ]
+  },
+  {
+   "id": "v21",
+   "show": "vaer",
+   "title": "Stay warm, stay loud",
+   "unlock": 21,
+   "until": 21,
+   "radio": true,
+   "summary": "The Hush: lights out, red sky. Bowlinghallen stays warm.",
+   "lines": [
+    [
+     "This is Været og Nytt. We are staying on air.",
+     "ident"
+    ],
+    [
+     "Weather: very quiet. The lights have gone out. The sky is the wrong colour. Please do not look at the hill.",
+     "weather"
+    ],
+    [
+     "The council wishes to say that there is a place that stays warm. Bowlinghallen is open. The lights are on. The music is loud. Come inside.",
+     "bowling"
+    ],
+    [
+     "Stay together. Stay warm. Stay loud.",
+     "bowling"
+    ],
+    [
+     "We will be here. Goodnight. We mean it.",
+     "lamp"
+    ]
+   ]
+  },
+  {
+   "id": "v22",
+   "show": "vaer",
+   "title": "Slightly embarrassed lights",
+   "unlock": 22,
+   "until": 22,
+   "radio": true,
+   "summary": "Aftermath of the Hush; coins return.",
+   "lines": [
+    [
+     "Good evening. This is Været og Nytt.",
+     "ident"
+    ],
+    [
+     "Weather: back to normal, mostly. The sky has remembered its colour.",
+     "weather"
+    ],
+    [
+     "The lights are back on. Some of them are embarrassed.",
+     "tree"
+    ],
+    [
+     "Shops report a rush of last-minute shoppers. Coins are again appearing on the roads. The coins say sorry about last night.",
+     "skyline"
+    ],
+    [
+     "Goodnight.",
+     "snow"
+    ]
+   ]
+  },
+  {
+   "id": "v23",
+   "show": "vaer",
+   "title": "Breathing",
+   "unlock": 23,
+   "until": 23,
+   "radio": true,
+   "summary": "Something breathes under a mountain; visit the church.",
+   "lines": [
+    [
+     "Good evening. This is Været og Nytt.",
+     "ident"
+    ],
+    [
+     "Weather: calm, with a low rumble.",
+     "weather"
+    ],
+    [
+     "Geologists report a slow, regular movement beneath a mountain. They say it is breathing. Geologists have been asked to stop saying that.",
+     "dragon"
+    ],
+    [
+     "Tomorrow is Christmas Eve. Visit the church once more tonight and say hello to everyone. Everyone is there.",
+     "church"
+    ],
+    [
+     "Please keep the lights low and the cookies near.",
+     "cookies"
+    ]
+   ]
+  },
+  {
+   "id": "v24",
+   "show": "vaer",
+   "title": "God jul",
+   "unlock": 24,
+   "until": 24,
+   "radio": true,
+   "summary": "Christmas Eve sign-off to Chris and Martin.",
+   "lines": [
+    [
+     "Good evening, and merry Christmas.",
+     "ident"
+    ],
+    [
+     "Weather: snow, minus six, and absolutely no wind.",
+     "weather"
+    ],
+    [
+     "In the news, tonight at the tree on the square, something is going to happen. The council does not know what. The council is, for once, relaxed.",
+     "tree"
+    ],
+    [
+     "Population: two. Plus everyone else who matters.",
+     "sign"
+    ],
+    [
+     "Merry Christmas, Chris and Martin. This has been Været og Nytt. Goodnight, and god jul.",
+     "doors"
+    ]
+   ]
+  },
+  {
+   "id": "m01",
+   "show": "midnatt",
+   "title": "The Doors",
+   "unlock": 1,
+   "radio": true,
+   "summary": "Twenty-four doors open one by one; mind the flicker.",
+   "lines": [
+    [
+     "Good evening. This is Midnatt i Sentrum. Midnight Downtown.",
+     "ident"
+    ],
+    [
+     "Tonight: a town where the doors began to open.",
+     "doors"
+    ],
+    [
+     "It started with one. A door on a quiet street that had been shut for years. One morning it stood ajar, and behind it was nothing at all. Just a little light.",
+     "door"
+    ],
+    [
+     "The next day, another. Then a third. People stopped locking things. There seemed no point.",
+     "doors"
+    ],
+    [
+     "By the end of the month there were twenty-four doors, and each opened at its own hour, like a very patient clock.",
+     "doors"
+    ],
+    [
+     "Nobody saw who opened them. Nobody was ever late for what was behind them.",
+     "door"
+    ],
+    [
+     "Some say a small light goes ahead of every opening, a flicker the size of a lantern. We say: mind the flicker.",
+     "lamp"
+    ],
+    [
+     "This has been Midnatt i Sentrum. Close your door, if you like. It won't make any difference. God natt.",
+     "silhouette"
+    ]
+   ]
+  },
+  {
+   "id": "m02",
+   "show": "midnatt",
+   "title": "Quiet, Please",
+   "unlock": 2,
+   "until": 12,
+   "radio": true,
+   "summary": "A woman who hates noise; her flat is bigger inside than the plans allow.",
+   "lines": [
+    [
+     "Good evening. This is Midnatt i Sentrum.",
+     "ident"
+    ],
+    [
+     "Tonight: a woman on the ground floor who hates noise.",
+     "flat"
+    ],
+    [
+     "She hates the radiator's knock, the neighbour's step, the boots on the stairs. She hates the singing most of all.",
+     "flat"
+    ],
+    [
+     "At first she wrote notes. Short and polite, then not polite. Then she wrote them so loudly that the paper shouted.",
+     "card:PLEASE BE QUIET"
+    ],
+    [
+     "The neighbours began to tiptoe. Then to whisper. Then to leave.",
+     "flat"
+    ],
+    [
+     "And still the building was loud, because the loudest sound in any quiet house is the person who needs it quiet.",
+     "silhouette"
+    ],
+    [
+     "Her flat, they say, is larger on the inside than the plans allow. The plans were drawn by people who were never invited in.",
+     "flat"
+    ],
+    [
+     "If someone asks you to be quiet, be quiet. If they ask a third time, be somewhere else. God natt.",
+     "door"
+    ]
+   ]
+  },
+  {
+   "id": "m03",
+   "show": "midnatt",
+   "title": "Lighter Parcels",
+   "unlock": 7,
+   "until": 12,
+   "radio": true,
+   "summary": "Parcels of cookies keep arriving lighter; a large appetite leaves crumbs.",
+   "lines": [
+    [
+     "Good evening. This is Midnatt i Sentrum.",
+     "ident"
+    ],
+    [
+     "Tonight: a mystery from the post office.",
+     "parcel"
+    ],
+    [
+     "A mother in the south bakes pepperkaker. She packs them in a tin, in a box, in brown paper, and sends them north with love and a lot of tape.",
+     "cookies"
+    ],
+    [
+     "The parcel is weighed at the start. It is weighed again at the door. The scale says: seven cookies fewer. The next week, the scale says: eleven.",
+     "parcel"
+    ],
+    [
+     "Crumbs were found on the stairs. The crumbs led to a window. The window led to a very large appetite, and the appetite wrote no return address.",
+     "flat"
+    ],
+    [
+     "Every week the mother asks: did you get the cookies? And every week the answer is: what cookies?",
+     "card:DID YOU GET THE COOKIES?"
+    ],
+    [
+     "Somewhere, something is getting stronger on butter and sugar. We would call the police, but the police are also a little peckish. God natt.",
+     "cookies"
+    ]
+   ]
+  },
+  {
+   "id": "m04",
+   "show": "midnatt",
+   "title": "The Eye on the Hill",
+   "unlock": 4,
+   "radio": true,
+   "summary": "The old legend of the Eye on the hill, and the lantern that undoes it.",
+   "lines": [
+    [
+     "Good evening. This is Midnatt i Sentrum.",
+     "ident"
+    ],
+    [
+     "Tonight: an old story from the hill above town.",
+     "hill"
+    ],
+    [
+     "The old people called it the Eye. A place where the hill looks back. They said: do not stare, it is rude. And it stares back.",
+     "hill"
+    ],
+    [
+     "It does not blink. It has been awake for a thousand winters. It has seen everything, and has never once been invited to dinner.",
+     "hill"
+    ],
+    [
+     "On some nights it opens. The town forgets how to be glad. The lights go thin. The singing goes slow.",
+     "skyline"
+    ],
+    [
+     "Then somebody lights a lantern, and the town remembers.",
+     "lamp"
+    ],
+    [
+     "That is the story. We checked. The hill had no comment. God natt.",
+     "hill"
+    ]
+   ]
+  },
+  {
+   "id": "m05",
+   "show": "midnatt",
+   "title": "Fifteen Cairns",
+   "unlock": 9,
+   "radio": true,
+   "summary": "Fifteen dark cairns on the ridges; light them and the valley sleeps easy.",
+   "lines": [
+    [
+     "Good evening. This is Midnatt i Sentrum.",
+     "ident"
+    ],
+    [
+     "Tonight: piles of stones.",
+     "cairns"
+    ],
+    [
+     "On the ridges above town stand fifteen cairns. Nobody remembers building them. Everybody remembers walking past.",
+     "cairns"
+    ],
+    [
+     "They say that if every cairn is lit, the valley sleeps easy. Not well. Easy.",
+     "cairns"
+    ],
+    [
+     "Nobody has tried. Or somebody has, and was very quiet about it, and went home with cold hands and a good feeling.",
+     "cairns"
+    ],
+    [
+     "The cairns have not been asked. A stone pile has no opinion. But if you listen on a still night, you can hear them waiting.",
+     "cairns"
+    ],
+    [
+     "Light one. Then you will be one of the people who did. God natt.",
+     "lamp"
+    ]
+   ]
+  },
+  {
+   "id": "m06",
+   "show": "midnatt",
+   "title": "The Market of Lights",
+   "unlock": 10,
+   "radio": true,
+   "summary": "The Christmas market's lights all go out; only hand-carried lights remain.",
+   "lines": [
+    [
+     "Good evening. This is Midnatt i Sentrum.",
+     "ident"
+    ],
+    [
+     "Tonight: the evening the lights went out.",
+     "market"
+    ],
+    [
+     "The Christmas market was lovely. Stalls, waffles, the smell of cinnamon and wet wool. Hundreds of little lights on hundreds of little strings.",
+     "market"
+    ],
+    [
+     "Then, all at once, the lights went out. Not one by one. All of them. Hundreds of people, and not one of them said a word.",
+     "static"
+    ],
+    [
+     "In the dark, they saw the sky. It had changed colour. It was the colour of a bruise, and it was looking down.",
+     "hill"
+    ],
+    [
+     "The only lights left were the ones people carried in their hands.",
+     "lantern"
+    ],
+    [
+     "This was years ago, they say. Or next week. The market keeps no calendar. God natt.",
+     "market"
+    ]
+   ]
+  },
+  {
+   "id": "m07",
+   "show": "midnatt",
+   "title": "After the Noise",
+   "unlock": 13,
+   "radio": true,
+   "summary": "The aftermath of the fight: biscuits, a clean plate, a sleeping appetite.",
+   "lines": [
+    [
+     "Good evening. This is Midnatt i Sentrum.",
+     "ident"
+    ],
+    [
+     "Tonight: the quietest flat in town.",
+     "flat"
+    ],
+    [
+     "The notes have stopped. The screaming has stopped. The munching, thank goodness, has stopped.",
+     "flat"
+    ],
+    [
+     "The neighbours are returning one by one, carrying biscuits, as if apologising to a house.",
+     "flat"
+    ],
+    [
+     "A plate was found on the ground floor. It was perfectly clean. Nobody wished to ask what had been on it.",
+     "cookies"
+    ],
+    [
+     "And under the floor, in a place the plans do not mention, something large and rather full is asleep.",
+     "flat"
+    ],
+    [
+     "Do not tiptoe. It is allowed to be loud again. God natt.",
+     "lamp"
+    ]
+   ]
+  },
+  {
+   "id": "m08",
+   "show": "midnatt",
+   "title": "The Boy and the Lantern",
+   "unlock": 14,
+   "radio": true,
+   "summary": "A boy follows a small, bossy lantern spirit through the snow.",
+   "lines": [
+    [
+     "Good evening. This is Midnatt i Sentrum.",
+     "ident"
+    ],
+    [
+     "Tonight: a boy, and a lantern, and a very long night.",
+     "lantern"
+    ],
+    [
+     "A boy found a lantern in the snow. It was not empty. Inside was a small, bossy light that pointed at things.",
+     "lantern"
+    ],
+    [
+     "It pointed at a door. It pointed at a hill. It pointed, quite rudely, at the boy's cold feet.",
+     "lantern"
+    ],
+    [
+     "He followed it, because nobody else would. It led him past the cairns and across the ice, and every time he was afraid, it got a little brighter.",
+     "cairns"
+    ],
+    [
+     "Whether the light was a spirit, or a promise, or just a very good candle, the boy never asked. Some things are only polite to follow.",
+     "lantern"
+    ],
+    [
+     "The lantern is still out there. Look for the flicker. God natt.",
+     "lamp"
+    ]
+   ]
+  },
+  {
+   "id": "m09",
+   "show": "midnatt",
+   "title": "Under the Mountain",
+   "unlock": 17,
+   "radio": true,
+   "summary": "A dragon sleeps under the mountain and dreams of warm rooms and Christmas trees.",
+   "lines": [
+    [
+     "Good evening. This is Midnatt i Sentrum.",
+     "ident"
+    ],
+    [
+     "Tonight: something that sleeps.",
+     "dragon"
+    ],
+    [
+     "Under the mountain, something sleeps. Its breath is as slow as a long winter. The farmers do not talk about it. They only leave the sheep gates a little less open.",
+     "dragon"
+    ],
+    [
+     "Geologists call it the mountain's pulse. Sheep call it grandfather. Everybody else calls it weather.",
+     "dragon"
+    ],
+    [
+     "It is said to dream of gold. It is also said to dream of warm rooms, and the smell of pine needles, and a great many little lights on a tree.",
+     "tree"
+    ],
+    [
+     "It is said that on one particular night of the year it opens one eye. Just to check that everyone is still happy.",
+     "dragon"
+    ],
+    [
+     "Do not wake it with carols. Wake it with a gift. God natt.",
+     "dragon"
+    ]
+   ]
+  },
+  {
+   "id": "n01",
+   "show": "nisse",
+   "title": "Counting with Pjusk",
+   "unlock": 1,
+   "radio": true,
+   "summary": "Tulla and the puppet Pjusk count to 24; do not count the stars on the hill.",
+   "lines": [
+    [
+     "Hei hei, friends! Welcome to Nisse-TV! I'm Tulla, and this is my friend Pjusk!",
+     "kids"
+    ],
+    [
+     "Hei hei! I live under the stairs and I eat porridge!",
+     "kids",
+     {
+      "voice": "en-US-AnaNeural"
+     }
+    ],
+    [
+     "Today we are counting! Can you count to twenty-four? Let's count the doors!",
+     "count"
+    ],
+    [
+     "One! Two! Three! Four!",
+     "count",
+     {
+      "voice": "en-US-AnaNeural"
+     }
+    ],
+    [
+     "Very good, Pjusk! Now let's count the lanterns. One little lantern, two little lanterns.",
+     "lantern"
+    ],
+    [
+     "Don't count the stars on the hill, friends. The hill counts back, and it is very, very good at maths.",
+     "hill"
+    ],
+    [
+     "What is behind door number fifteen?",
+     "count"
+    ],
+    [
+     "I'm not allowed to say! But it's warm!",
+     "count",
+     {
+      "voice": "en-US-AnaNeural"
+     }
+    ],
+    [
+     "Bye bye, friends! Remember to be kind to your neighbours, and to the dark!",
+     "kids"
+    ]
+   ]
+  },
+  {
+   "id": "n02",
+   "show": "nisse",
+   "title": "Baking Day",
+   "unlock": 5,
+   "until": 12,
+   "radio": true,
+   "summary": "Pepperkaker baking; a tip about cookies going missing in the post.",
+   "lines": [
+    [
+     "Hei hei, friends! It's baking day on Nisse-TV!",
+     "kids"
+    ],
+    [
+     "Yay! Pepperkaker! I want to eat all of them!",
+     "cookies",
+     {
+      "voice": "en-US-AnaNeural"
+     }
+    ],
+    [
+     "First, we mix butter and sugar. Then flour. Then ginger. Then a pinch of love.",
+     "cookies"
+    ],
+    [
+     "Now we put them in the oven and wait. Pjusk, where is the first cookie?",
+     "cookies"
+    ],
+    [
+     "It wasn't me! I was over there! With crumbs on my face!",
+     "cookies",
+     {
+      "voice": "en-US-AnaNeural"
+     }
+    ],
+    [
+     "Oh, Pjusk. Here is a tip, friends. If you send cookies in the post, count them before, and count them after.",
+     "parcel"
+    ],
+    [
+     "If some are missing, don't be cross. Just ask yourself: who in the building is very, very hungry?",
+     "flat"
+    ],
+    [
+     "Bye bye, friends! Bake with a grown-up!",
+     "kids"
+    ]
+   ]
+  },
+  {
+   "id": "n03",
+   "show": "nisse",
+   "title": "Pjusk Says Thank You",
+   "unlock": 13,
+   "radio": true,
+   "summary": "After the fight, Pjusk learns to say takk for the quiet.",
+   "lines": [
+    [
+     "Hei hei, friends! Today on Nisse-TV we talk about saying thank you.",
+     "kids"
+    ],
+    [
+     "Takk! Takk! Takk! That means thank you!",
+     "kids",
+     {
+      "voice": "en-US-AnaNeural"
+     }
+    ],
+    [
+     "Sometimes a neighbour is loud, and grumpy, and a little bit scary. And sometimes that neighbour is just hungry.",
+     "flat"
+    ],
+    [
+     "Now the loud neighbour has gone quiet. Pjusk, how do you feel?",
+     "kids"
+    ],
+    [
+     "I feel full of porridge! And a little bit sorry. Takk for the quiet!",
+     "kids",
+     {
+      "voice": "en-US-AnaNeural"
+     }
+    ],
+    [
+     "Remember, friends: a thank-you costs nothing, and it is very good with cookies.",
+     "cookies"
+    ],
+    [
+     "Bye bye, friends! Sleep well!",
+     "kids"
+    ]
+   ]
+  },
+  {
+   "id": "n04",
+   "show": "nisse",
+   "title": "The Lantern Song",
+   "unlock": 14,
+   "radio": true,
+   "summary": "A hum-along lantern song: if the tune goes slow, keep your own speed.",
+   "lines": [
+    [
+     "Hei hei, friends! Today on Nisse-TV: a song!",
+     "kids"
+    ],
+    [
+     "A song about the little lantern that lives in the window!",
+     "lantern",
+     {
+      "voice": "en-US-AnaNeural"
+     }
+    ],
+    [
+     "Little lantern, little light, shine for me on a winter night.",
+     "lantern"
+    ],
+    [
+     "Little lantern, little spark, find me in the winter dark.",
+     "lantern"
+    ],
+    [
+     "Now you try! Hum along, friends. If the tune goes slow, don't stop. Just keep going at your own speed.",
+     "lantern"
+    ],
+    [
+     "Little lantern, little flame, I will say your funny name.",
+     "lantern"
+    ],
+    [
+     "Bye bye, friends! Keep the light on!",
+     "kids"
+    ]
+   ]
+  },
+  {
+   "id": "n05",
+   "show": "nisse",
+   "title": "Dragons Are Shy",
+   "unlock": 20,
+   "radio": true,
+   "summary": "Dragons are shy: tiptoe at snoring, wave at a polite cough.",
+   "lines": [
+    [
+     "Hei hei, friends! Today on Nisse-TV: dragons!",
+     "kids"
+    ],
+    [
+     "Are dragons scary? I don't think so!",
+     "dragon",
+     {
+      "voice": "en-US-AnaNeural"
+     }
+    ],
+    [
+     "Dragons are very shy, friends. They like warm rooms, and gold, and being left alone.",
+     "dragon"
+    ],
+    [
+     "If you hear snoring from the mountain, tiptoe. If you hear a polite cough, wave.",
+     "dragon"
+    ],
+    [
+     "And if a dragon asks you for a cookie, always say yes!",
+     "cookies",
+     {
+      "voice": "en-US-AnaNeural"
+     }
+    ],
+    [
+     "Always say yes. And have more cookies ready.",
+     "cookies"
+    ],
+    [
+     "Bye bye, friends! Be brave, but be polite!",
+     "kids"
+    ]
+   ]
+  },
+  {
+   "id": "t1",
+   "show": "vaer",
+   "title": "[signal lost]",
+   "unlock": 1,
+   "threshold": true,
+   "summary": "Threshold: weather forecast slowed and wrong, one line backwards.",
+   "lines": [
+    [
+     "This is Været og Nytt. There is no weather.",
+     "static"
+    ],
+    [
+     "Forecast: the Eye. Temperature: the wrong number. The northern lights are red tonight.",
+     "card:FORECAST: THE EYE"
+    ],
+    [
+     "Stay indoors. Stay together. Do not look at the hill.",
+     "hill"
+    ],
+    [
+     "Do not look behind you. Do not look behind you.",
+     "static",
+     {
+      "reverse": true
+     }
+    ],
+    [
+     "Goodnight. Goodnight. Goodnight.",
+     "static"
+    ]
+   ]
+  },
+  {
+   "id": "t2",
+   "show": "midnatt",
+   "title": "[do not adjust your set]",
+   "unlock": 1,
+   "threshold": true,
+   "summary": "Threshold: the late-night show slowed down; one line backwards.",
+   "lines": [
+    [
+     "Good evening. This is Midnatt i Sentrum. There is no evening here. There is only the hill.",
+     "hill"
+    ],
+    [
+     "Do not adjust your set. The set is adjusting you.",
+     "static"
+    ],
+    [
+     "The lights have gone out. They are not coming back from here. Everyone is looking at the same place. Look at it with them.",
+     "silhouette"
+    ],
+    [
+     "You are not alone in this room.",
+     "static",
+     {
+      "reverse": true
+     }
+    ],
+    [
+     "God natt. God natt. God natt.",
+     "static"
+    ]
+   ]
+  },
+  {
+   "id": "t3",
+   "show": "nisse",
+   "title": "[pjusk is staring]",
+   "unlock": 1,
+   "threshold": true,
+   "summary": "Threshold: the kids' show goes slow and uncanny; one line backwards.",
+   "lines": [
+    [
+     "Hei... hei... friends. It's Nisse-TV.",
+     "kids"
+    ],
+    [
+     "Pjusk is staring. Pjusk will not blink.",
+     "silhouette"
+    ],
+    [
+     "Can you count how many are behind you? One. Two. Three. Please stop counting.",
+     "count"
+    ],
+    [
+     "Don't be afraid, friends. The lantern is still lit.",
+     "static",
+     {
+      "reverse": true
+     }
+    ],
+    [
+     "Bye... bye... friends.",
+     "static"
+    ]
+   ]
+  },
+  {
+   "id": "vb",
+   "show": "vaer",
+   "title": "Bowlinghallen Edition",
+   "unlock": 1,
+   "bowl": true,
+   "summary": "Cheerful Bowlinghallen news break that plays on the lounge TV.",
+   "lines": [
+    [
+     "Hei hei! Welcome to Været og Nytt: Bowlinghallen edition!",
+     "ident"
+    ],
+    [
+     "Weather: warm, loud, and full of strikes.",
+     "weather"
+    ],
+    [
+     "The news: it is cosy in here, the music is good, and Stine says the popcorn is still twenty kroner.",
+     "bowling"
+    ],
+    [
+     "Whatever it is like outside, in here it is warm. Everyone is welcome. Bring a friend.",
+     "bowling"
+    ],
+    [
+     "Thank you for watching, and happy bowling!",
+     "bowling"
+    ]
+   ]
+  },
+  {
+   "id": "vn_nj3",
+   "show": "vaer",
+   "title": "A ninja course appears",
+   "unlock": 3,
+   "until": 7,
+   "radio": true,
+   "summary": "Day 3 tease: Kvinesdal has got a ninja warrior course; the organisers will not say where.",
+   "lines": [
+    [
+     "This is a special report from Været og Nytt.",
+     "ident"
+    ],
+    [
+     "Kvinesdal has got its very own ninja warrior course.",
+     "card:NINJA WARRIOR"
+    ],
+    [
+     "It has a timer, a crowd, a pool, and according to the organisers, no refunds.",
+     "skyline"
+    ],
+    [
+     "The organisers will not say where it is. We asked. They said: you will find it.",
+     "lamp"
+    ],
+    [
+     "We will keep you posted. Or rather, we will keep you guessing.",
+     "snow"
+    ]
+   ]
+  },
+  {
+   "id": "vn_nj7",
+   "show": "vaer",
+   "title": "Sources say it is enormous",
+   "unlock": 7,
+   "until": 12,
+   "radio": true,
+   "summary": "Day 7: reporter, sources say it is enormous; strange lights in the sky at night.",
+   "lines": [
+    [
+     "Været og Nytt. More on the ninja warrior course.",
+     "ident"
+    ],
+    [
+     "Our reporter says, quote, sources say it is enormous.",
+     "card:ENORMOUS?"
+    ],
+    [
+     "How enormous? The sources held their arms wide, then wider, then sat down.",
+     "silhouette"
+    ],
+    [
+     "And locals report strange lights in the sky at night. Long beams, sweeping slowly, some of them blue.",
+     "skyline"
+    ],
+    [
+     "The council says it is not them. We believe the council. Mostly.",
+     "lamp"
+    ]
+   ]
+  },
+  {
+   "id": "vn_nj12",
+   "show": "vaer",
+   "title": "What is going on?",
+   "unlock": 12,
+   "until": 17,
+   "radio": true,
+   "summary": "Day 12: vox-pops with townspeople, the prize rumour.",
+   "lines": [
+    [
+     "Været og Nytt. We went out into the square and asked the people.",
+     "ident"
+    ],
+    [
+     "Olga, seventy-four, says: I saw a beam of light. It waved at me.",
+     "snow"
+    ],
+    [
+     "Sverre, thirty-one, says: it is a ninja course. I would know. I have been practising in my kitchen.",
+     "kids"
+    ],
+    [
+     "Kari, eight, says: it is a giant disco for owls.",
+     "kids"
+    ],
+    [
+     "And a rumour: the first person to find it wins a prize. Nobody knows who is giving it. Nobody knows what it is.",
+     "card:A PRIZE?"
+    ],
+    [
+     "What is going on? We genuinely do not know.",
+     "static"
+    ]
+   ]
+  },
+  {
+   "id": "vn_nj17",
+   "show": "vaer",
+   "title": "Where is it?",
+   "unlock": 17,
+   "until": null,
+   "radio": true,
+   "summary": "Day 17+: viewers sent photos of the lights, none of the course; where is it?",
+   "lines": [
+    [
+     "Været og Nytt. Viewers have sent us four hundred photos of the lights in the sky.",
+     "ident"
+    ],
+    [
+     "Number of photos of the ninja course itself: zero.",
+     "card:0"
+    ],
+    [
+     "The beams are now visible from almost every window in the valley. Dogs are confused. So are the dogs' owners.",
+     "skyline"
+    ],
+    [
+     "So where is it? Nobody knows. The organisers are still not saying. We have asked four times. The fourth time, they hung up.",
+     "lamp"
+    ],
+    [
+     "If you find it, tell us. Or do not. Just go. And please, mind the pool.",
+     "card:WHERE IS IT?"
+    ]
+   ]
+  }
+ ],
+ "heksa": [
+  {
+   "id": "hs01",
+   "unlock": 1,
+   "text": "This is Heksa FM, with the real news. The other stations are lying. Num num."
+  },
+  {
+   "id": "hs02",
+   "unlock": 1,
+   "until": 12,
+   "text": "Tonight's real headline: the Christmas tree is crooked. They say mostly straight. Liars."
+  },
+  {
+   "id": "hs03",
+   "unlock": 3,
+   "until": 12,
+   "text": "Bowlinghallen. A very noisy game. I have filed a complaint. In triplicate. Num."
+  },
+  {
+   "id": "hs04",
+   "unlock": 4,
+   "until": 12,
+   "text": "The real news about the carolers. They were seen. By me. I was holding a broom."
+  },
+  {
+   "id": "hs05",
+   "unlock": 7,
+   "until": 12,
+   "text": "The post office says parcels arrive lighter. The post office should look closer to home. Num num num."
+  },
+  {
+   "id": "hs06",
+   "unlock": 8,
+   "until": 12,
+   "text": "Rumour: a trapdoor. I say, do not believe rumours. I also say, do not come downstairs."
+  },
+  {
+   "id": "hs07",
+   "unlock": 10,
+   "until": 12,
+   "text": "Real weather report: stay inside. Forecast: me. Chance of cookies: high."
+  },
+  {
+   "id": "hs08",
+   "unlock": 13,
+   "text": "This station is operated by a machine. The operator is currently unavailable. She is full."
+  },
+  {
+   "id": "hs09",
+   "unlock": 14,
+   "text": "Lights. So many lights. Turn them off. Turn them off. This is a recording."
+  },
+  {
+   "id": "hs10",
+   "unlock": 17,
+   "text": "The real news about the hill. The hill is looking at you. Wave. It likes it."
+  },
+  {
+   "id": "hs11",
+   "unlock": 21,
+   "text": "And now the real, real news. The sky is red. I told you. Nobody listens to the radio witch."
+  },
+  {
+   "id": "hs12",
+   "unlock": 23,
+   "text": "Something under the mountain is snoring. And for once, it is not me."
+  },
+  {
+   "id": "hs_nj3",
+   "unlock": 3,
+   "until": 12,
+   "text": "The real news. They say a ninja course has come. I say it is a trap for cookies. Num."
+  },
+  {
+   "id": "hs_nj13",
+   "unlock": 13,
+   "text": "Real news again. The beams in the sky keep me awake. Also the beams make my cat sneeze. I want to see who is paying for the electricity. Num num."
+  }
+ ]
+}

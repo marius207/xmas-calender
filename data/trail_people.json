@@ -1,0 +1,517 @@
+{
+ "_note": "Strangers on the trails. Each has one or two spoken+subtitled lines (voice/trail/<id>_<n>.m4a, made by build/make_trail_voices.py). x,z = game coordinates; mode stand|walk; path = offsets from x,z for walkers; hours = real-clock hours they are out. \"ask\" is kept empty: hook for the sidequests job.",
+ "people": [
+  {
+   "id": "greta",
+   "name": "Greta",
+   "voice": "en-GB-SoniaNeural",
+   "rate": "-4%",
+   "pitch": "+0Hz",
+   "x": 1041,
+   "z": -1631,
+   "mode": "walk",
+   "path": [
+    [
+     0,
+     0
+    ],
+    [
+     16,
+     5
+    ]
+   ],
+   "hours": [
+    7,
+    20
+   ],
+   "look": {
+    "coat": "#c8423a",
+    "pants": "#2a3040",
+    "hat": "#f0e6d0",
+    "pack": "#3a6b4a",
+    "skin": "#e8b894"
+   },
+   "extra": "",
+   "lines": [
+    "Mind the second bend. The snow there keeps footprints that don't go anywhere.",
+    "I walk here every year. It's the only night the lights on the far hill answer back."
+   ],
+   "speed": 0.7,
+   "ask": "greta_scarf"
+  },
+  {
+   "id": "ola",
+   "name": "Ola the fisher",
+   "voice": "en-GB-ThomasNeural",
+   "rate": "-12%",
+   "pitch": "-6Hz",
+   "x": 570,
+   "z": -652,
+   "mode": "stand",
+   "hours": [
+    6,
+    21
+   ],
+   "look": {
+    "coat": "#4a5a6a",
+    "pants": "#3a3226",
+    "hat": "#6a4a2a",
+    "pack": "#6a4a2a",
+    "skin": "#d9a581"
+   },
+   "extra": "rod",
+   "lines": [
+    "Shh. They bite better when you keep quiet. Try the dark water, by the reeds.",
+    "Last winter I pulled up a brass key. Never found what it opens."
+   ],
+   "speed": 0.7,
+   "path": [
+    [
+     0,
+     0
+    ]
+   ],
+   "ask": "ola_riddle"
+  },
+  {
+   "id": "agnes",
+   "name": "Agnes",
+   "voice": "en-US-JennyNeural",
+   "rate": "-10%",
+   "pitch": "-2Hz",
+   "x": -12,
+   "z": 134,
+   "mode": "stand",
+   "hours": [
+    8,
+    18
+   ],
+   "look": {
+    "coat": "#7a4a7a",
+    "pants": "#4a4a52",
+    "hat": "#d8d0c0",
+    "pack": "#7a4a7a",
+    "skin": "#ecc4a2"
+   },
+   "extra": "bench",
+   "lines": [
+    "Sit a while. The valley looks different once you stop hurrying.",
+    "My husband built this bench. He always said the hill listens."
+   ],
+   "speed": 0.7,
+   "path": [
+    [
+     0,
+     0
+    ]
+   ],
+   "ask": "agnes_letter"
+  },
+  {
+   "id": "kids",
+   "name": "The sled kids",
+   "voice": "en-US-AnaNeural",
+   "rate": "+4%",
+   "pitch": "+4Hz",
+   "x": 772,
+   "z": -874,
+   "mode": "stand",
+   "hours": [
+    8,
+    17
+   ],
+   "look": {
+    "coat": "#2f6fd0",
+    "pants": "#1f2a48",
+    "hat": "#ffd34a",
+    "pack": "#2f6fd0",
+    "skin": "#f0c8a4"
+   },
+   "extra": "sled",
+   "lines": [
+    "Want to race down the hill? Bet you can't beat me!",
+    "Dad says don't go near the old hut after dark. So we won't. Probably."
+   ],
+   "speed": 0.7,
+   "path": [
+    [
+     0,
+     0
+    ]
+   ],
+   "ask": "kids_snow"
+  },
+  {
+   "id": "nils",
+   "name": "Nils the skier",
+   "voice": "en-US-GuyNeural",
+   "rate": "+6%",
+   "pitch": "+0Hz",
+   "x": 1157,
+   "z": -677,
+   "mode": "walk",
+   "path": [
+    [
+     0,
+     0
+    ],
+    [
+     34,
+     6
+    ]
+   ],
+   "speed": 1.6,
+   "hours": [
+    8,
+    18
+   ],
+   "look": {
+    "coat": "#d8402a",
+    "pants": "#20242c",
+    "hat": "#202428",
+    "pack": "#d8402a",
+    "skin": "#e2b08a"
+   },
+   "extra": "skis",
+   "lines": [
+    "Ha! Keep up if you can!",
+    "Not bad for someone on foot. Next time I'll give you a head start."
+   ],
+   "ask": "nils_race"
+  },
+  {
+   "id": "per",
+   "name": "Per and Bjørn",
+   "voice": "en-IE-ConnorNeural",
+   "rate": "-2%",
+   "pitch": "-2Hz",
+   "x": 611,
+   "z": -583,
+   "mode": "walk",
+   "path": [
+    [
+     0,
+     0
+    ],
+    [
+     -12,
+     9
+    ],
+    [
+     -4,
+     18
+    ]
+   ],
+   "hours": [
+    7,
+    21
+   ],
+   "look": {
+    "coat": "#5a6b3a",
+    "pants": "#33302a",
+    "hat": "#b8452e",
+    "pack": "#5a6b3a",
+    "skin": "#e0ad88"
+   },
+   "extra": "dog",
+   "lines": [
+    "Sorry about Bjørn. He loves everyone. Everyone except the ravens.",
+    "He barked at the empty road last night. Good dog. Probably nothing."
+   ],
+   "speed": 0.7,
+   "ask": ""
+  },
+  {
+   "id": "ingrid",
+   "name": "Ingrid",
+   "voice": "en-AU-NatashaNeural",
+   "rate": "-6%",
+   "pitch": "-2Hz",
+   "x": -7707,
+   "z": 5570,
+   "mode": "stand",
+   "hours": [
+    0,
+    24
+   ],
+   "look": {
+    "coat": "#e08a2a",
+    "pants": "#34383f",
+    "hat": "#1c1c24",
+    "pack": "#e08a2a",
+    "skin": "#f0c8a8"
+   },
+   "extra": "lantern",
+   "lines": [
+    "I came for the view over the fjord. I stayed for the quiet.",
+    "If you hear singing from the rock at night, don't answer. That's all."
+   ],
+   "speed": 0.7,
+   "path": [
+    [
+     0,
+     0
+    ]
+   ],
+   "ask": "ingrid_stone,ingrid_pie"
+  },
+  {
+   "id": "hans",
+   "name": "Old Hans",
+   "voice": "en-NZ-MitchellNeural",
+   "rate": "-14%",
+   "pitch": "-8Hz",
+   "x": -1326,
+   "z": -1500,
+   "mode": "stand",
+   "hours": [
+    0,
+    24
+   ],
+   "look": {
+    "coat": "#8a6a3a",
+    "pants": "#3a3a3a",
+    "hat": "#555a60",
+    "pack": "#8a6a3a",
+    "skin": "#d09a78"
+   },
+   "extra": "lantern",
+   "lines": [
+    "Forty years I kept that pipe running. Listen. It hums a tune, if you stand still.",
+    "Some nights it hums with a voice. I stopped asking whose."
+   ],
+   "speed": 0.7,
+   "path": [
+    [
+     0,
+     0
+    ]
+   ],
+   "ask": "hans_wrench"
+  },
+  {
+   "id": "bjorg",
+   "name": "Bjørg",
+   "voice": "en-IE-EmilyNeural",
+   "rate": "-4%",
+   "pitch": "+0Hz",
+   "x": 976,
+   "z": -73,
+   "mode": "stand",
+   "hours": [
+    0,
+    24
+   ],
+   "look": {
+    "coat": "#8a5a3a",
+    "pants": "#2f3a2a",
+    "hat": "#d8c8a0",
+    "pack": "#8a5a3a",
+    "skin": "#e2b08a"
+   },
+   "extra": "dog",
+   "lines": [
+    "Have you seen a brown dog with a stupid grin? He answers to Bamse. He does not answer to anything else.",
+    "He has never run off before. Not once in nine years."
+   ],
+   "speed": 0.7,
+   "ask": "bamse_collar,bamse_find,bamse_book"
+  },
+  {
+   "id": "edda",
+   "name": "Old Edda",
+   "voice": "en-GB-SoniaNeural",
+   "rate": "-12%",
+   "pitch": "-6Hz",
+   "x": 1567,
+   "z": -980,
+   "mode": "stand",
+   "hours": [
+    0,
+    24
+   ],
+   "look": {
+    "coat": "#4a3a4a",
+    "pants": "#2a2a30",
+    "hat": "#6a5a6a",
+    "pack": "#4a3a4a",
+    "skin": "#e0c0a0"
+   },
+   "extra": "lantern",
+   "lines": [
+    "Someone has been leaving cookies on the paths. Never eat them. Never, dear.",
+    "They are warm when you find them. That is how you know."
+   ],
+   "speed": 0.7,
+   "ask": "edda_tin,edda_bury"
+  },
+  {
+   "id": "halvor",
+   "name": "Halvor",
+   "voice": "en-GB-ThomasNeural",
+   "rate": "-6%",
+   "pitch": "-4Hz",
+   "x": -1850,
+   "z": 10,
+   "mode": "stand",
+   "hours": [
+    0,
+    24
+   ],
+   "look": {
+    "coat": "#3a4a5a",
+    "pants": "#2a2a2a",
+    "hat": "#2a3a4a",
+    "pack": "#3a4a5a",
+    "skin": "#d8a888"
+   },
+   "extra": "lantern",
+   "lines": [
+    "Three lights on the ridge, each night. They were not there last winter.",
+    "I counted them twice. They counted me back."
+   ],
+   "speed": 0.7,
+   "ask": "lantern_a,lantern_b"
+  },
+  {
+   "id": "jorun",
+   "name": "Jorun",
+   "voice": "en-US-MichelleNeural",
+   "rate": "+0%",
+   "pitch": "+2Hz",
+   "x": -8246,
+   "z": 5966,
+   "mode": "stand",
+   "hours": [
+    0,
+    24
+   ],
+   "look": {
+    "coat": "#2a6a8a",
+    "pants": "#2a3040",
+    "hat": "#e8e0c8",
+    "pack": "#2a6a8a",
+    "skin": "#f0c8a4"
+   },
+   "extra": "",
+   "lines": [
+    "I row letters across the fjord when the ferry sleeps. Nobody asks what is in them.",
+    "The water is very still tonight. Stiller than water has a right to be."
+   ],
+   "speed": 0.7,
+   "ask": "jorun_letter"
+  },
+  {
+   "id": "tarjei",
+   "name": "Tarjei",
+   "voice": "en-AU-WilliamNeural",
+   "rate": "-6%",
+   "pitch": "-4Hz",
+   "x": -7389,
+   "z": 5074,
+   "mode": "stand",
+   "hours": [
+    6,
+    22
+   ],
+   "look": {
+    "coat": "#5a4a2a",
+    "pants": "#3a3a2a",
+    "hat": "#c8452a",
+    "pack": "#5a4a2a",
+    "skin": "#dca680"
+   },
+   "extra": "",
+   "lines": [
+    "I came up here to hunt. Now I mostly watch the ravens watch me.",
+    "They are not ordinary ravens. I will say no more than that."
+   ],
+   "speed": 0.7,
+   "ask": "tarjei_snow"
+  },
+  {
+   "id": "maren",
+   "name": "Maren",
+   "voice": "en-US-AriaNeural",
+   "rate": "+6%",
+   "pitch": "+4Hz",
+   "x": 361,
+   "z": 1100,
+   "mode": "stand",
+   "hours": [
+    7,
+    20
+   ],
+   "look": {
+    "coat": "#e8402a",
+    "pants": "#20242c",
+    "hat": "#f0f0f0",
+    "pack": "#e8402a",
+    "skin": "#f0c8a8"
+   },
+   "extra": "skis",
+   "lines": [
+    "Great place to stretch. You can see the whole town from here, like a snow globe.",
+    "Race me down to the farm if you think you are quick!"
+   ],
+   "speed": 0.7,
+   "ask": "maren_race"
+  },
+  {
+   "id": "liv",
+   "name": "Liv",
+   "voice": "en-CA-ClaraNeural",
+   "rate": "-2%",
+   "pitch": "+0Hz",
+   "x": -7593,
+   "z": 7465,
+   "mode": "stand",
+   "hours": [
+    0,
+    24
+   ],
+   "look": {
+    "coat": "#d8a02a",
+    "pants": "#2a3a4a",
+    "hat": "#2a2a30",
+    "pack": "#d8a02a",
+    "skin": "#e8bc98"
+   },
+   "extra": "rod",
+   "lines": [
+    "I come to the fjord shore to think. The fjord thinks back, a little.",
+    "Some evenings I hear singing under the ice. It is probably the ice."
+   ],
+   "speed": 0.7,
+   "ask": "liv_riddle"
+  },
+  {
+   "id": "oddvar",
+   "name": "Oddvar",
+   "voice": "en-GB-RyanNeural",
+   "rate": "-10%",
+   "pitch": "-8Hz",
+   "x": -8113,
+   "z": 4682,
+   "mode": "stand",
+   "hours": [
+    0,
+    24
+   ],
+   "look": {
+    "coat": "#6a6a3a",
+    "pants": "#3a3a3a",
+    "hat": "#4a4a4a",
+    "pack": "#6a6a3a",
+    "skin": "#d4a07c"
+   },
+   "extra": "lantern",
+   "lines": [
+    "This road ends here. They stopped building it. Nobody remembers why.",
+    "Past that bend the road stops, but the footprints do not."
+   ],
+   "speed": 0.7,
+   "ask": "oddvar_race"
+  }
+ ]
+}

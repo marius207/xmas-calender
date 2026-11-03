@@ -1,0 +1,25 @@
+{
+ "a": {
+  "chat": 1.0,
+  "birds": 1.35,
+  "animals": 1.0,
+  "bells": 0.7,
+  "choir": 1.0,
+  "traffic": 1.0,
+  "scape": 1.0
+ },
+ "v": {
+  "chat": 0.35,
+  "birds": 1.0,
+  "animals": 1.0,
+  "bells": 0.55,
+  "choir": 1.0,
+  "traffic": 1.0,
+  "wind": 0.2,
+  "water": 1.0,
+  "music": 1.0,
+  "scape": 1.0,
+  "voices": 0.85
+ },
+ "saved": "2026-10-24 16:29"
+}
