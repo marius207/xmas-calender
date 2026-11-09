@@ -303,14 +303,15 @@ void main(){
   float hz=exp(-max(uCam.y+dirW.y*T*.5-uFogC.x*0.,0.)*.0);
   col+=sc3*uShaft;
   float fo=1.-exp(-dist*uFogD);if(d0>=.99999)fo=0.;col=mix(col,uFogC,fo*.0);}
- gl_FragColor=vec4(col,1.);}
+ gl_FragColor=vec4((any(isnan(col))||any(isinf(col)))?vec3(0.):col,1.);/*blackblob*/}
 `;
 
 const DOWN_FS = `uniform sampler2D tSrc;uniform vec2 uTexel;uniform float uFirst;uniform float uThr;
+vec3 sane(vec3 c){return (any(isnan(c))||any(isinf(c)))?vec3(0.):clamp(c,vec3(0.),vec3(64.));}/*blackblob: one NaN/Inf pixel made 64px black blocks via the bloom pyramid*/
 vec3 kar(vec3 c){float w=1./(1.+lum(c)*.25);return c*w;}
 vec3 pre(vec3 c){float l=lum(c);float kn=uThr*.5;float s=clamp(l-uThr+kn,0.,2.*kn);s=s*s/(4.*kn+1e-4);float w=max(s,l-uThr)/max(l,1e-4);return c*max(w,0.);}
-void main(){vec2 t=uTexel;vec3 a=texture2D(tSrc,vUv+t*vec2(-1.,-1.)).rgb,b=texture2D(tSrc,vUv+t*vec2(1.,-1.)).rgb,c=texture2D(tSrc,vUv+t*vec2(-1.,1.)).rgb,d=texture2D(tSrc,vUv+t*vec2(1.,1.)).rgb;
- vec3 e=texture2D(tSrc,vUv).rgb;
+void main(){vec2 t=uTexel;vec3 a=sane(texture2D(tSrc,vUv+t*vec2(-1.,-1.)).rgb),b=sane(texture2D(tSrc,vUv+t*vec2(1.,-1.)).rgb),c=sane(texture2D(tSrc,vUv+t*vec2(-1.,1.)).rgb),d=sane(texture2D(tSrc,vUv+t*vec2(1.,1.)).rgb);
+ vec3 e=sane(texture2D(tSrc,vUv).rgb);
  vec3 o;if(uFirst>.5){a=pre(a);b=pre(b);c=pre(c);d=pre(d);e=pre(e);}
  o=(a+b+c+d)*.125+e*.5;
  gl_FragColor=vec4(o,1.);}`;

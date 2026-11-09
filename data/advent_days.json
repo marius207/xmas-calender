@@ -1,12 +1,86 @@
 {
- "_note": "Which opener (short cutscene / quick-time event) plays when the players open an advent door. Ids are the keys of window.__ADVENT.openers (see Settings > Advent days (1-24)). A list plays in order. An empty list or a missing day = nothing plays. Openers marked auto in the game (intro, witch) play by themselves on a new start, so the door never plays them twice. Marius's dropdown in the settings panel overrides this per device (localStorage kv-advent-assign).",
+ "_note": "Which opener (short cutscene / quick-time event) plays when the players open an advent door. Ids are the keys of window.__ADVENT.openers (see Settings > Advent days (1-24)). A list plays in order. An empty list or a missing day = nothing plays. Openers marked auto in the game (intro, witch) play by themselves on a new start, so the door never plays them twice. Marius's dropdown in the settings panel overrides this per device (localStorage kv-advent-assign). (storyspine 4 Nov: every day without a special opener gets 'daycard'.)",
  "days": {
-  "1": ["intro", "witch"],
-  "12": ["witchboss"]
+  "1": [
+   "intro",
+   "witch"
+  ],
+  "12": [
+   "daycard",
+   "witchboss"
+  ],
+  "2": [
+   "daycard"
+  ],
+  "3": [
+   "daycard"
+  ],
+  "4": [
+   "daycard"
+  ],
+  "5": [
+   "daycard"
+  ],
+  "6": [
+   "daycard"
+  ],
+  "7": [
+   "daycard"
+  ],
+  "8": [
+   "daycard"
+  ],
+  "9": [
+   "daycard"
+  ],
+  "10": [
+   "daycard"
+  ],
+  "11": [
+   "daycard"
+  ],
+  "13": [
+   "daycard"
+  ],
+  "14": [
+   "daycard"
+  ],
+  "15": [
+   "meteor"
+  ],
+  "16": [
+   "daycard"
+  ],
+  "17": [
+   "daycard"
+  ],
+  "18": [
+   "daycard"
+  ],
+  "19": [
+   "daycard"
+  ],
+  "20": [
+   "daycard"
+  ],
+  "21": [
+   "daycard"
+  ],
+  "22": [
+   "daycard"
+  ],
+  "23": [
+   "daycard"
+  ],
+  "24": [
+   "daycard"
+  ]
  },
  "notes": {
   "1": "Game goes live: the intro flyover, then the witch wrecks the decorations.",
-  "12": "Witch boss fight in her dungeon (not made yet).",
-  "?": "The meteor day opener ('meteor') is made but unassigned: Marius decides which day."
+  "12": "Day card first, then the witch boss fight opener (not made yet: job witchfinale).",
+  "?": "The meteor day opener ('meteor') is made but unassigned: Marius decides which day.",
+  "15": "Meteor night: the 'meteor' opener (88 s, QTE) replaces the day card; all-day loudspeakers and sirens before the impact (meteornight, 4 Nov).",
+  "2": "Days 2-24 start with the generic 'daycard' opener (title + Lykta line + one TV peek, 6 s, skippable); special openers replace it day by day."
  }
 }

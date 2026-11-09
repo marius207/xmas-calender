@@ -1,139 +1,153 @@
 {
- "_readme": "Chris's mum's letters. day = advent day it arrives in the mailbox (from window.__DAY). items = cookies etc. given when the letter is read (the witch ones are thin: she ate the rest). w:1 = the witch got to it first (twist). text: \\n = new line. Place of her home is deliberately never named.",
- "letters": [
-  {
-   "id": 1,
-   "day": 7,
-   "title": "A letter from Mamma",
-   "text": "Hei, Chris!\nIt is snowing here, the kind that swallows the road, so of course I baked. Six pepperkaker in this envelope. Do not ask how they fit. The envelope is very brave.\nI sent a whole tin last week and you never said a word. Did it arrive? Are you eating something green? Not the green cookies, the OTHER green.\nHide these under the bed. Some people have a nose like a bloodhound, and stairs carry smells.\nKlem, Mamma",
-   "items": [
+  "_readme": "Chris's mum's letters. day = advent day it arrives in the mailbox (from window.__DAY). items = cookies etc. given when the letter is read (the witch ones are thin: she ate the rest). w:1 = the witch got to it first (twist). text: \\n = new line. Place of her home is deliberately never named.",
+  "letters": [
     {
-     "id": "pepperkake",
-     "n": 6
-    }
-   ],
-   "w": 0,
-   "note": "Mamma, day 7: the first letter"
-  },
-  {
-   "id": 2,
-   "day": 8,
-   "title": "A letter from Mamma",
-   "text": "Chris, my love,\nNo reply yet, so I made more. Eight this time. The kitchen looks like a snowman exploded, and the cat has gone on strike.\nFru Haugen at the shop says the post van always comes back from your street with crumbs on the seat. I told her vans do not eat. She went very quiet and bought extra butter.\nPlease write. Even one word. Even just \"ja\".\nLock your door at night. Mamma worries, and Mamma is usually right.\nKlem, Mamma",
-   "items": [
-    {
-     "id": "pepperkake",
-     "n": 8
-    }
-   ],
-   "w": 0,
-   "note": ""
-  },
-  {
-   "id": 3,
-   "day": 10,
-   "title": "A letter from Mamma",
-   "text": "Chris,\nA week of cookies and not one thank-you. I am not angry. I am a little angry.\nThis parcel is thinner, because I am sending fewer and hoping more. Four pepperkaker and the lid of the tin. Eat them standing at the window, where you can see who comes up the road.\nI dreamed somebody downstairs was chewing very slowly in the dark, and counting.\nSilly Mamma. Eat your vegetables.\nKlem, Mamma\n\n(The envelope came already open. There is a greasy thumbprint on the last line, and in green pencil, not in Mamma's hand: THANK YOU FOR THE COOKIES.)",
-   "items": [
-    {
-     "id": "pepperkake",
-     "n": 4
-    }
-   ],
-   "w": 1,
-   "note": "opened and eaten by the witch"
-  },
-  {
-   "id": 4,
-   "day": 11,
-   "title": "A letter from Mamma",
-   "text": "Chris,\nNew plan. I put a little bell on the parcel so the postman cannot lose it. Then a second bell on the first bell. I am a woman of science.\nTwo pepperkaker made it into the envelope. The rest, I think, took a different road. Do you hear bells at night? That is only me, missing you, from far away.\nTomorrow: a number lock on the tin. Your birthday, if you still remember it.\nKlem, Mamma\n\n(Underneath, in thick green pencil: I HEARD THE BELLS. I LIKED THE BELLS. THE LOCK WILL NOT HELP YOU.)",
-   "items": [
-    {
-     "id": "pepperkake",
-     "n": 2
-    }
-   ],
-   "w": 1,
-   "note": "the witch gloats"
-  },
-  {
-   "id": 5,
-   "day": 13,
-   "title": "A letter from Mamma",
-   "text": "Chris!\nYesterday evening I had the strangest feeling, as if somebody had put down a very heavy fork. Everything felt lighter. The cat came back to the kitchen. The bread rose all by itself.\nSo here are twelve pepperkaker, a whole dozen. I counted them twice, and then a third time, because I no longer trust the first two.\nNow you can decorate outside your house. Yes, I know about that. I always knew.\nKlem og kos, Mamma\nP.S. Put up ALL the lights. The neighbours can complain to me.",
-   "items": [
-    {
-     "id": "pepperkake",
-     "n": 12
-    }
-   ],
-   "w": 0,
-   "note": "after the boss fight"
-  },
-  {
-   "id": 6,
-   "day": 16,
-   "title": "A letter from Mamma",
-   "text": "Min kjære Chris,\nThis is the big one. The last parcel, and I packed it like a museum: one pepperkakehus, with a roof that is NOT for eating, and six cookies for the road.\nI have been thinking about the winter you were small and said the house made noises. I told you it was only the house settling. I may have been wrong, and I am sorry I laughed.\nBut you were brave. You still are.\nStå på, Chris.\nKlem, Mamma",
-   "items": [
-    {
-     "id": "pepperkakehus",
-     "n": 1
+      "id": 1,
+      "day": 7,
+      "title": "A letter from Mamma",
+      "text": "Hei, Chris!\nIt is snowing here, the kind that swallows the road, so of course I baked. Six pepperkaker in this envelope. Do not ask how they fit. The envelope is very brave.\nI sent a whole tin last week and you never said a word. Did it arrive? Are you eating something green? Not the green cookies, the OTHER green.\nHide these under the bed. Some people have a nose like a bloodhound, and stairs carry smells.\nKlem, Mamma",
+      "items": [
+        {
+          "id": "pepperkake",
+          "n": 6
+        }
+      ],
+      "w": 0,
+      "note": "Mamma, day 7: the first letter"
     },
     {
-     "id": "pepperkake",
-     "n": 6
-    }
-   ],
-   "w": 0,
-   "note": "the last parcel"
-  },
-  {
-   "id": 7,
-   "day": 18,
-   "title": "A letter from Mamma",
-   "text": "Chris,\nJulaften is coming and I have laid a place at the table. I have put a chair there too, just in case. Do not ask which chair.\nHere are six pepperkaker. Share two with a friend. Share one with the cold. Eat the rest in front of the fire, slowly, like a person with no enemies.\nThe snow is up to the windows now and the whole village smells of cinnamon and wet wool. It is perfect. It is slightly alarming.\nGod klem, Mamma",
-   "items": [
-    {
-     "id": "pepperkake",
-     "n": 6
-    }
-   ],
-   "w": 0,
-   "note": ""
-  },
-  {
-   "id": 8,
-   "day": 21,
-   "title": "A letter from Mamma",
-   "text": "Chris,\nThe longest night, and I lit a candle in the window, the way Bestemor did. Light it for the way home, she said. I never asked home for whom.\nI sent four telys, and some cookies, so you can do the same. Put them where the dark can see them. The dark is polite, but it likes to be asked.\nTell me if the candle still burns when you read this. I will know.\nKlem, Mamma\nP.S. The cat says hi. The cat says, count the stairs.",
-   "items": [
-    {
-     "id": "telys",
-     "n": 4
+      "id": 2,
+      "day": 8,
+      "title": "A letter from Mamma",
+      "text": "Chris, my love,\nNo reply yet, so I made more. Eight this time. The kitchen looks like a snowman exploded, and the cat has gone on strike.\nFru Haugen at the shop says the post van always comes back from your street with crumbs on the seat. I told her vans do not eat. She went very quiet and bought extra butter.\nPlease write. Even one word. Even just \"ja\".\nLock your door at night. Mamma worries, and Mamma is usually right.\nKlem, Mamma",
+      "items": [
+        {
+          "id": "pepperkake",
+          "n": 8
+        }
+      ],
+      "w": 0,
+      "note": ""
     },
     {
-     "id": "pepperkake",
-     "n": 6
-    }
-   ],
-   "w": 0,
-   "note": ""
-  },
-  {
-   "id": 9,
-   "day": 23,
-   "title": "A letter from Mamma",
-   "text": "Kjære, kjære Chris,\nTomorrow is Julaften! I am cooking for twelve, which is silly, since there are two of us, plus whatever Bestemor left in the attic.\nTwelve pepperkaker, for the nisse. Remember the butter on his porridge, or the cows go dry and your socks go missing. He is not joking and neither am I.\nThank you for being my boy, even through the post, even through the crumbs.\nSleep well. Nothing is under the bed. Probably.\nAll my klem, Mamma",
-   "items": [
+      "id": 3,
+      "day": 10,
+      "title": "A letter from Mamma",
+      "text": "Chris,\nA week of cookies and not one thank-you. I am not angry. I am a little angry.\nThis parcel is thinner, because I am sending fewer and hoping more. Four pepperkaker and the lid of the tin. Eat them standing at the window, where you can see who comes up the road.\nI dreamed somebody downstairs was chewing very slowly in the dark, and counting.\nSilly Mamma. Eat your vegetables.\nKlem, Mamma\n\n(The envelope came already open. There is a greasy thumbprint on the last line, and in green pencil, not in Mamma's hand: THANK YOU FOR THE COOKIES.)",
+      "items": [
+        {
+          "id": "pepperkake",
+          "n": 4
+        }
+      ],
+      "w": 1,
+      "note": "opened and eaten by the witch"
+    },
     {
-     "id": "pepperkake",
-     "n": 12
+      "id": 10,
+      "day": 9,
+      "title": "A letter from Mamma",
+      "text": "Chris,\nI am sending the recipe, the one from Bestemor's tin. It is written on the back of an old Christmas card and it smells of cardamom. It says the cookies were always baked with the first candle: you light it, you say who the baking is for, and only then do you start. I do not know if that is true. Bestemor always did it, even when the oven was cold.\nBake it for whoever is hungry downstairs. That is the whole recipe, really.\nKlem, Mamma\nP.S. Do not let the cat near the candle. The cat has opinions about fire.",
+      "items": [
+        {
+          "id": "oppskriftskort",
+          "n": 1
+        }
+      ],
+      "w": 0,
+      "note": "Mamma, day 9: the recipe card (baked with the first candle)"
+    },
+    {
+      "id": 4,
+      "day": 11,
+      "title": "A letter from Mamma",
+      "text": "Chris,\nNew plan. I put a little bell on the parcel so the postman cannot lose it. Then a second bell on the first bell. I am a woman of science.\nTwo pepperkaker made it into the envelope. The rest, I think, took a different road. Do you hear bells at night? That is only me, missing you, from far away.\nTomorrow: a number lock on the tin. Your birthday, if you still remember it.\nKlem, Mamma\n\n(Underneath, in thick green pencil: I HEARD THE BELLS. I LIKED THE BELLS. THE LOCK WILL NOT HELP YOU.)",
+      "items": [
+        {
+          "id": "pepperkake",
+          "n": 2
+        }
+      ],
+      "w": 1,
+      "note": "the witch gloats"
+    },
+    {
+      "id": 5,
+      "day": 13,
+      "title": "A letter from Mamma",
+      "text": "Chris!\nYesterday evening I had the strangest feeling, as if somebody had put down a very heavy fork. Everything felt lighter. And this morning the post came back, all of it at once, in a heap on the step. Every parcel taped up by somebody who clearly loved tape. Half had the wrong street on them. I am not going to ask.\nSo here are twelve pepperkaker, a whole dozen. I counted them twice, and then a third time, because I no longer trust the first two.\nNow you can decorate outside your house. Yes, I know about that. I always knew.\nKlem og kos, Mamma\nP.S. Put up ALL the lights. The neighbours can complain to me.",
+      "items": [
+        {
+          "id": "pepperkake",
+          "n": 12
+        }
+      ],
+      "w": 0,
+      "note": "after the boss fight; the stolen post returned on 12 Dec"
+    },
+    {
+      "id": 6,
+      "day": 16,
+      "title": "A letter from Mamma",
+      "text": "Min kjære Chris,\nThis is the big one. The REAL last parcel. Not the heap from the step, that was all the wrong street. This one I posted myself, to your door, and I packed it like a museum: one pepperkakehus, with a roof that is NOT for eating, and six cookies for the road.\nI have been thinking about the winter you were small and said the house made noises. I told you it was only the house settling. I may have been wrong, and I am sorry I laughed.\nBut you were brave. You still are.\nStå på, Chris.\nKlem, Mamma",
+      "items": [
+        {
+          "id": "pepperkakehus",
+          "n": 1
+        },
+        {
+          "id": "pepperkake",
+          "n": 6
+        }
+      ],
+      "w": 0,
+      "note": "the real last parcel (the stolen heap came back on 12 Dec)"
+    },
+    {
+      "id": 7,
+      "day": 18,
+      "title": "A letter from Mamma",
+      "text": "Chris,\nJulaften is coming and I have laid a place at the table. I have put a chair there too, just in case. Do not ask which chair.\nHere are six pepperkaker. Share two with a friend. Share one with the cold. Eat the rest in front of the fire, slowly, like a person with no enemies.\nThe snow is up to the windows now and the whole village smells of cinnamon and wet wool. It is perfect. It is slightly alarming.\nGod klem, Mamma",
+      "items": [
+        {
+          "id": "pepperkake",
+          "n": 6
+        }
+      ],
+      "w": 0,
+      "note": ""
+    },
+    {
+      "id": 8,
+      "day": 21,
+      "title": "A letter from Mamma",
+      "text": "Chris,\nThe longest night, and I lit a candle in the window, the way Bestemor did. Light it for the way home, she said. I never asked home for whom.\nI sent four telys, and some cookies, so you can do the same. Put them where the dark can see them. The dark is polite, but it likes to be asked.\nTell me if the candle still burns when you read this. I will know.\nKlem, Mamma\nP.S. The cat says hi. The cat says, count the stairs.",
+      "items": [
+        {
+          "id": "telys",
+          "n": 4
+        },
+        {
+          "id": "pepperkake",
+          "n": 6
+        }
+      ],
+      "w": 0,
+      "note": ""
+    },
+    {
+      "id": 9,
+      "day": 23,
+      "title": "A letter from Mamma",
+      "text": "Kjære, kjære Chris,\nTomorrow is Julaften! I am cooking for twelve, which is silly, since there are two of us, plus whatever Bestemor left in the attic.\nTwelve pepperkaker, for the nisse. Remember the butter on his porridge, or the cows go dry and your socks go missing. He is not joking and neither am I.\nThank you for being my boy, even through the post, even through the crumbs.\nSleep well. Nothing is under the bed. Probably.\nAll my klem, Mamma",
+      "items": [
+        {
+          "id": "pepperkake",
+          "n": 12
+        }
+      ],
+      "w": 0,
+      "note": ""
     }
-   ],
-   "w": 0,
-   "note": ""
-  }
- ]
+  ]
 }

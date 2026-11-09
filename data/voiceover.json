@@ -1503,6 +1503,71 @@
    "text": "Well, here lies Hankie the Christmas log. Rest in peace, little buddy.",
    "rate_d": -8,
    "pitch_d": -1
+  },
+  {
+   "id": "q_burnt1",
+   "who": "both",
+   "trigger": "quip:burnt_house",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "dry, wrinkling nose",
+   "text": "Ugh. Smells burnt. Like a bonfire that gave up halfway.",
+   "rate_d": -3,
+   "pitch_d": 0
+  },
+  {
+   "id": "q_burnt2",
+   "who": "both",
+   "trigger": "quip:burnt_house",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "quiet, uneasy",
+   "text": "Something burned here. Recently. The smell hasn't left.",
+   "rate_d": -6,
+   "pitch_d": -1
+  },
+  {
+   "id": "q_burnt3",
+   "who": "both",
+   "trigger": "quip:burnt_house",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "dry",
+   "text": "Wet ash and burnt wood. I'm not standing downwind of that.",
+   "rate_d": -2,
+   "pitch_d": 0
+  },
+  {
+   "id": "q_burnt4",
+   "who": "both",
+   "trigger": "quip:burnt_house",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "deadpan",
+   "text": "That's not burnt cookies. That's burnt house.",
+   "rate_d": -4,
+   "pitch_d": 0
+  },
+  {
+   "id": "q_burnt5",
+   "who": "both",
+   "trigger": "quip:burnt_house",
+   "day": [
+    0,
+    31
+   ],
+   "mood": "soft, hopeful",
+   "text": "Still smoking. I hope everyone got out. And the cat.",
+   "rate_d": -8,
+   "pitch_d": -2
   }
  ]
 }

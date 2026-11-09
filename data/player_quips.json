@@ -3,7 +3,7 @@
  "quips": [
   {
    "id": "barn_poop",
-   "note": "The barn at Vall\u00f8yna (\u00c5mot), Marius's own pile on the plank floor. at = the pile in the middle of the barn (about 4 m in front of the door, seen in the test screenshot); face 75 = only when you are looking toward it.",
+   "note": "The barn at Valløyna (Åmot), Marius's own pile on the plank floor. at = the pile in the middle of the barn (about 4 m in front of the door, seen in the test screenshot); face 75 = only when you are looking toward it.",
    "at": [
     534.6,
     -450.4
@@ -27,6 +27,25 @@
     "chance": 0.12,
     "note": "barnlog: 'Hankie the Christmas log' line + Kare the Christmas Log comes alive; 100% the first time (kv-barnlog), 12% later. Not in lines[], so the random pool never picks it."
    }
+  },
+  {
+   "id": "burnt_house",
+   "note": "The burnt-out house on Farmonen (data/burnt_houses.json). Plays when you come within 13 m: the player wrinkles their nose at the smell.",
+   "at": [
+    -339,
+    943
+   ],
+   "r": 13,
+   "face": 0,
+   "once": true,
+   "repeat": 0.35,
+   "lines": [
+    "q_burnt1",
+    "q_burnt2",
+    "q_burnt3",
+    "q_burnt4",
+    "q_burnt5"
+   ]
   }
  ]
 }

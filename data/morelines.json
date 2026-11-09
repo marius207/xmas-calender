@@ -1,6 +1,6 @@
 {
 "version": 1,
-"generated": "2026-11-02 17:11:17",
+"generated": "2026-11-04 06:49:07",
 "about": "job morelines: new + gap-filled voice lines. Placeholder audio in voice/ml/<id>_<variant>.m4a (build/morelines_make.py). Registered in voice_master by build/voice_inventory.py. IDs are stable: only append.",
 "lines": [
 {
@@ -701,7 +701,7 @@
 },
 {
 "id": "td_041",
-"text": "Jeg har ikke gjort leksene. Men jeg har skrevet ønskelista!",
+"text": "Eg har ikkje gjort leksa. Men eg har skrive ønskelista!",
 "lang": "nb",
 "pool": "kids",
 "cat": "townsperson draft 30 Oct",
@@ -713,27 +713,12 @@
 "situation": "a child talks",
 "char": "child",
 "voice": "kid_f|kid_m",
-"src": "draft"
-},
-{
-"id": "td_042",
-"text": "Læreren sier vi må øve på julesangene.",
-"lang": "nb",
-"pool": "kids",
-"cat": "townsperson draft 30 Oct",
-"who": "kid",
-"sx": "any",
-"trig": {},
-"how": "bright, a bit loud, childlike",
-"place": "the street / the square",
-"situation": "a child talks",
-"char": "child",
-"voice": "kid_f|kid_m",
-"src": "draft"
+"src": "draft",
+"dialect": "agder"
 },
 {
 "id": "td_043",
-"text": "Ungene har bygd snømann ute. Han har en veldig stor nese.",
+"text": "Ongan har bygd snømann ute. Han har fælt stor nese.",
 "lang": "nb",
 "pool": "kids",
 "cat": "townsperson draft 30 Oct",
@@ -745,11 +730,12 @@
 "situation": "a child talks",
 "char": "child",
 "voice": "kid_f|kid_m",
-"src": "draft"
+"src": "draft",
+"dialect": "agder"
 },
 {
 "id": "td_044",
-"text": "Mamma sier jeg må gå inn nå. Fem minutter til!",
+"text": "Mamma seier eg må inn no. Fem minutt te!",
 "lang": "nb",
 "pool": "kids",
 "cat": "townsperson draft 30 Oct",
@@ -761,27 +747,12 @@
 "situation": "a child talks",
 "char": "child",
 "voice": "kid_f|kid_m",
-"src": "draft"
-},
-{
-"id": "td_045",
-"text": "Jeg har en snøball til deg! Nei, vent...",
-"lang": "nb",
-"pool": "kids",
-"cat": "townsperson draft 30 Oct",
-"who": "kid",
-"sx": "any",
-"trig": {},
-"how": "bright, a bit loud, childlike",
-"place": "the street / the square",
-"situation": "a child talks",
-"char": "child",
-"voice": "kid_f|kid_m",
-"src": "draft"
+"src": "draft",
+"dialect": "agder"
 },
 {
 "id": "td_046",
-"text": "Vi har skøyter på skolen i dag. Jeg faller hele tiden.",
+"text": "Me har skøyter på skulen i dag. Eg datt heile tida.",
 "lang": "nb",
 "pool": "kids",
 "cat": "townsperson draft 30 Oct",
@@ -793,7 +764,8 @@
 "situation": "a child talks",
 "char": "child",
 "voice": "kid_f|kid_m",
-"src": "draft"
+"src": "draft",
+"dialect": "agder"
 },
 {
 "id": "td_047",
@@ -957,7 +929,7 @@
 },
 {
 "id": "td_057",
-"text": "Ta en handlekurv! Julekaker er på tilbud.",
+"text": "Ta ein handlekurv! Julekaka e på tilbod.",
 "lang": "nb",
 "pool": "place_grocery",
 "cat": "townsperson draft 30 Oct",
@@ -971,47 +943,12 @@
 "situation": "near the grocery store",
 "char": "shopkeeper",
 "voice": "w_adult|m_adult",
-"src": "draft"
-},
-{
-"id": "td_058",
-"text": "Det er lite brus igjen, så kjøp det du trenger.",
-"lang": "nb",
-"pool": "place_grocery",
-"cat": "townsperson draft 30 Oct",
-"who": "shop",
-"sx": "any",
-"trig": {
-"place": "grocery"
-},
-"how": "friendly shop-clerk, busy",
-"place": "Nico Mat (grocery)",
-"situation": "near the grocery store",
-"char": "shopkeeper",
-"voice": "w_adult|m_adult",
-"src": "draft"
-},
-{
-"id": "td_059",
-"text": "Hvem kjøper egentlig tolv pakker med smør?",
-"lang": "nb",
-"pool": "place_grocery",
-"cat": "townsperson draft 30 Oct",
-"who": "shop",
-"sx": "any",
-"trig": {
-"place": "grocery"
-},
-"how": "friendly shop-clerk, busy",
-"place": "Nico Mat (grocery)",
-"situation": "near the grocery store",
-"char": "shopkeeper",
-"voice": "w_adult|m_adult",
-"src": "draft"
+"src": "draft",
+"dialect": "agder"
 },
 {
 "id": "td_060",
-"text": "Pinnekjøtt, ribbe og medisterkaker, vi har alt.",
+"text": "Pinnekjøtt, ribbe å medisterkaker, me har alt.",
 "lang": "nb",
 "pool": "place_grocery",
 "cat": "townsperson draft 30 Oct",
@@ -1025,11 +962,12 @@
 "situation": "near the grocery store",
 "char": "shopkeeper",
 "voice": "w_adult|m_adult",
-"src": "draft"
+"src": "draft",
+"dialect": "agder"
 },
 {
 "id": "td_061",
-"text": "Vi har fått inn nye mandariner! Fra Spania.",
+"text": "Me har fått inn nye mandarina! Frå Spania.",
 "lang": "nb",
 "pool": "place_grocery",
 "cat": "townsperson draft 30 Oct",
@@ -1043,11 +981,12 @@
 "situation": "near the grocery store",
 "char": "shopkeeper",
 "voice": "w_adult|m_adult",
-"src": "draft"
+"src": "draft",
+"dialect": "agder"
 },
 {
 "id": "td_062",
-"text": "Husk panten, den er verdt noe.",
+"text": "Hugs panten, den e verdt nåkka.",
 "lang": "nb",
 "pool": "place_grocery",
 "cat": "townsperson draft 30 Oct",
@@ -1061,29 +1000,12 @@
 "situation": "near the grocery store",
 "char": "shopkeeper",
 "voice": "w_adult|m_adult",
-"src": "draft"
-},
-{
-"id": "td_063",
-"text": "Det er kø ved kassa, men maten er verdt det.",
-"lang": "nb",
-"pool": "place_grocery",
-"cat": "townsperson draft 30 Oct",
-"who": "shop",
-"sx": "any",
-"trig": {
-"place": "grocery"
-},
-"how": "friendly shop-clerk, busy",
-"place": "Nico Mat (grocery)",
-"situation": "near the grocery store",
-"char": "shopkeeper",
-"voice": "w_adult|m_adult",
-"src": "draft"
+"src": "draft",
+"dialect": "agder"
 },
 {
 "id": "td_064",
-"text": "God jul og takk for handelen!",
+"text": "God jul å takk for handelen!",
 "lang": "nb",
 "pool": "place_grocery",
 "cat": "townsperson draft 30 Oct",
@@ -1097,11 +1019,12 @@
 "situation": "near the grocery store",
 "char": "shopkeeper",
 "voice": "w_adult|m_adult",
-"src": "draft"
+"src": "draft",
+"dialect": "agder"
 },
 {
 "id": "td_065",
-"text": "Hei! Hostesaft og vitaminer, du ser trøtt ut.",
+"text": "Hei! Hostesaft å vitamina, du ser trøtt ut.",
 "lang": "nb",
 "pool": "place_pharmacy",
 "cat": "townsperson draft 30 Oct",
@@ -1115,11 +1038,12 @@
 "situation": "near the pharmacy",
 "char": "shopkeeper",
 "voice": "w_adult|m_adult",
-"src": "draft"
+"src": "draft",
+"dialect": "agder"
 },
 {
 "id": "td_066",
-"text": "Husk å ta det med mat. Alltid med mat.",
+"text": "Hugs å ta det mæ mat. Alltid mæ mat.",
 "lang": "nb",
 "pool": "place_pharmacy",
 "cat": "townsperson draft 30 Oct",
@@ -1133,11 +1057,12 @@
 "situation": "near the pharmacy",
 "char": "shopkeeper",
 "voice": "w_adult|m_adult",
-"src": "draft"
+"src": "draft",
+"dialect": "agder"
 },
 {
 "id": "td_067",
-"text": "Plaster? Ja, vi har noen med bamser på.",
+"text": "Plaster? Ja, me har nokka mæ bamsa på.",
 "lang": "nb",
 "pool": "place_pharmacy",
 "cat": "townsperson draft 30 Oct",
@@ -1151,11 +1076,12 @@
 "situation": "near the pharmacy",
 "char": "shopkeeper",
 "voice": "w_adult|m_adult",
-"src": "draft"
+"src": "draft",
+"dialect": "agder"
 },
 {
 "id": "td_068",
-"text": "Hva plager deg? Kulda? Den går over i mai.",
+"text": "Ka plager dæ? Kulda? Den går over i mai.",
 "lang": "nb",
 "pool": "place_pharmacy",
 "cat": "townsperson draft 30 Oct",
@@ -1169,29 +1095,12 @@
 "situation": "near the pharmacy",
 "char": "shopkeeper",
 "voice": "w_adult|m_adult",
-"src": "draft"
-},
-{
-"id": "td_069",
-"text": "Det er influensatid. Hold avstand, men ha et godt hjerte.",
-"lang": "nb",
-"pool": "place_pharmacy",
-"cat": "townsperson draft 30 Oct",
-"who": "shop",
-"sx": "any",
-"trig": {
-"place": "pharmacy"
-},
-"how": "kind, a little tired, caring",
-"place": "Apotek 1 (pharmacy)",
-"situation": "near the pharmacy",
-"char": "shopkeeper",
-"voice": "w_adult|m_adult",
-"src": "draft"
+"src": "draft",
+"dialect": "agder"
 },
 {
 "id": "td_070",
-"text": "Shh! Vi leser her.",
+"text": "Shh! Me les her.",
 "lang": "nb",
 "pool": "place_library",
 "cat": "townsperson draft 30 Oct",
@@ -1205,11 +1114,12 @@
 "situation": "near the library",
 "char": "shopkeeper",
 "voice": "w_adult|m_adult",
-"src": "draft"
+"src": "draft",
+"dialect": "agder"
 },
 {
 "id": "td_071",
-"text": "Du kan låne tre bøker. Ikke fire. Tre.",
+"text": "Du kan låna tre bøker. Ikkje fire. Tre.",
 "lang": "nb",
 "pool": "place_library",
 "cat": "townsperson draft 30 Oct",
@@ -1223,11 +1133,12 @@
 "situation": "near the library",
 "char": "shopkeeper",
 "voice": "w_adult|m_adult",
-"src": "draft"
+"src": "draft",
+"dialect": "agder"
 },
 {
 "id": "td_072",
-"text": "De skumle historiene står i det bakerste hjørnet. Ikke gå dit alene.",
+"text": "Dei skumle historiene står i det bakarste hjørnet. Ikkje gå dit åleine.",
 "lang": "nb",
 "pool": "place_library",
 "cat": "townsperson draft 30 Oct",
@@ -1241,29 +1152,12 @@
 "situation": "near the library",
 "char": "shopkeeper",
 "voice": "w_adult|m_adult",
-"src": "draft"
-},
-{
-"id": "td_073",
-"text": "Dette er en stille bygning. Kjempestille. Hør hvor stille.",
-"lang": "nb",
-"pool": "place_library",
-"cat": "townsperson draft 30 Oct",
-"who": "shop",
-"sx": "any",
-"trig": {
-"place": "library"
-},
-"how": "whispering, strict but kind (hush!)",
-"place": "Kvinesdal bibliotek",
-"situation": "near the library",
-"char": "shopkeeper",
-"voice": "w_adult|m_adult",
-"src": "draft"
+"src": "draft",
+"dialect": "agder"
 },
 {
 "id": "td_074",
-"text": "Leverte du boka du lånte i fjor? Jeg husker deg.",
+"text": "Leverte du boka du lånte i fjor? Eg hugsar dæ.",
 "lang": "nb",
 "pool": "place_library",
 "cat": "townsperson draft 30 Oct",
@@ -1277,11 +1171,12 @@
 "situation": "near the library",
 "char": "shopkeeper",
 "voice": "w_adult|m_adult",
-"src": "draft"
+"src": "draft",
+"dialect": "agder"
 },
 {
 "id": "td_075",
-"text": "Velkommen til DERPMAX! Popcornet står klart.",
+"text": "Velkommen te DERPMAX! Popcornet står klart.",
 "lang": "nb",
 "pool": "place_cinema",
 "cat": "townsperson draft 30 Oct",
@@ -1295,11 +1190,12 @@
 "situation": "near the cinema",
 "char": "shopkeeper",
 "voice": "w_adult|m_adult",
-"src": "draft"
+"src": "draft",
+"dialect": "agder"
 },
 {
 "id": "td_076",
-"text": "Filmen starter om fem minutter, finn plassen din.",
+"text": "Filmen starta om fem minutt, finn plassen din.",
 "lang": "nb",
 "pool": "place_cinema",
 "cat": "townsperson draft 30 Oct",
@@ -1313,29 +1209,12 @@
 "situation": "near the cinema",
 "char": "shopkeeper",
 "voice": "w_adult|m_adult",
-"src": "draft"
-},
-{
-"id": "td_077",
-"text": "Ikke snakk under filmen. Eller jo, men sakte.",
-"lang": "nb",
-"pool": "place_cinema",
-"cat": "townsperson draft 30 Oct",
-"who": "shop",
-"sx": "any",
-"trig": {
-"place": "derpmax"
-},
-"how": "showman, popcorn-bright",
-"place": "DERPMAX cinema",
-"situation": "near the cinema",
-"char": "shopkeeper",
-"voice": "w_adult|m_adult",
-"src": "draft"
+"src": "draft",
+"dialect": "agder"
 },
 {
 "id": "td_078",
-"text": "Smørpopcorn eller karamell? Du må velge nå.",
+"text": "Smørpopcorn eller karamell? Du må velga no.",
 "lang": "nb",
 "pool": "place_cinema",
 "cat": "townsperson draft 30 Oct",
@@ -1349,11 +1228,12 @@
 "situation": "near the cinema",
 "char": "shopkeeper",
 "voice": "w_adult|m_adult",
-"src": "draft"
+"src": "draft",
+"dialect": "agder"
 },
 {
 "id": "td_079",
-"text": "Har du sett den nye? Den er skummel og morsom på samme tid.",
+"text": "Har du sett den nye? Den e skummel å morsom på same tid.",
 "lang": "nb",
 "pool": "place_cinema",
 "cat": "townsperson draft 30 Oct",
@@ -1367,29 +1247,12 @@
 "situation": "near the cinema",
 "char": "shopkeeper",
 "voice": "w_adult|m_adult",
-"src": "draft"
-},
-{
-"id": "td_080",
-"text": "Mobilen av, takk! Eller sett den på lydløs.",
-"lang": "nb",
-"pool": "place_cinema",
-"cat": "townsperson draft 30 Oct",
-"who": "shop",
-"sx": "any",
-"trig": {
-"place": "derpmax"
-},
-"how": "showman, popcorn-bright",
-"place": "DERPMAX cinema",
-"situation": "near the cinema",
-"char": "shopkeeper",
-"voice": "w_adult|m_adult",
-"src": "draft"
+"src": "draft",
+"dialect": "agder"
 },
 {
 "id": "td_081",
-"text": "Bilen din høres litt syk ut. Skal vi se på den?",
+"text": "Bilen din høyrest litt sjuk ut. Ska me sjå på den?",
 "lang": "nb",
 "pool": "place_garage",
 "cat": "townsperson draft 30 Oct",
@@ -1403,11 +1266,12 @@
 "situation": "near the garage",
 "char": "shopkeeper",
 "voice": "w_adult|m_adult",
-"src": "draft"
+"src": "draft",
+"dialect": "agder"
 },
 {
 "id": "td_082",
-"text": "Vi bytter dekk på ti minutter. Eller femten, hvis det er snø.",
+"text": "Me bytter dekk på ti minutt. Eller femten, viss det e snø.",
 "lang": "nb",
 "pool": "place_garage",
 "cat": "townsperson draft 30 Oct",
@@ -1421,29 +1285,12 @@
 "situation": "near the garage",
 "char": "shopkeeper",
 "voice": "w_adult|m_adult",
-"src": "draft"
-},
-{
-"id": "td_083",
-"text": "Ikke rør bilen hvis den ikke er din, forresten.",
-"lang": "nb",
-"pool": "place_garage",
-"cat": "townsperson draft 30 Oct",
-"who": "shop",
-"sx": "any",
-"trig": {
-"place": "verksted"
-},
-"how": "dry mechanic, oil-stained humour",
-"place": "Åmot Bil verksted",
-"situation": "near the garage",
-"char": "shopkeeper",
-"voice": "w_adult|m_adult",
-"src": "draft"
+"src": "draft",
+"dialect": "agder"
 },
 {
 "id": "td_084",
-"text": "Jeg har olje, bensin og mye tålmodighet.",
+"text": "Eg har olje, bensin å mykje tålmod.",
 "lang": "nb",
 "pool": "place_garage",
 "cat": "townsperson draft 30 Oct",
@@ -1457,29 +1304,12 @@
 "situation": "near the garage",
 "char": "shopkeeper",
 "voice": "w_adult|m_adult",
-"src": "draft"
-},
-{
-"id": "td_085",
-"text": "Bilen må varme seg opp før du kjører. Som folk.",
-"lang": "nb",
-"pool": "place_garage",
-"cat": "townsperson draft 30 Oct",
-"who": "shop",
-"sx": "any",
-"trig": {
-"place": "verksted"
-},
-"how": "dry mechanic, oil-stained humour",
-"place": "Åmot Bil verksted",
-"situation": "near the garage",
-"char": "shopkeeper",
-"voice": "w_adult|m_adult",
-"src": "draft"
+"src": "draft",
+"dialect": "agder"
 },
 {
 "id": "td_086",
-"text": "Ingen gnist? Da må vi ringe NAF.",
+"text": "Ingen gnist? Da må me ringa NAF.",
 "lang": "nb",
 "pool": "place_garage",
 "cat": "townsperson draft 30 Oct",
@@ -1493,11 +1323,12 @@
 "situation": "near the garage",
 "char": "shopkeeper",
 "voice": "w_adult|m_adult",
-"src": "draft"
+"src": "draft",
+"dialect": "agder"
 },
 {
 "id": "td_087",
-"text": "Nybakte boller! Ta en mens de er varme.",
+"text": "Nybaka boller! Ta ein mens dei e varme.",
 "lang": "nb",
 "pool": "place_bakery",
 "cat": "townsperson draft 30 Oct",
@@ -1511,11 +1342,12 @@
 "situation": "near the bakery, cafe or kiosk",
 "char": "shopkeeper",
 "voice": "w_adult|m_adult",
-"src": "draft"
+"src": "draft",
+"dialect": "agder"
 },
 {
 "id": "td_088",
-"text": "Vi har juleboller med safran. Bare i desember.",
+"text": "Me har juleboller mæ safran. Bære i desember.",
 "lang": "nb",
 "pool": "place_bakery",
 "cat": "townsperson draft 30 Oct",
@@ -1529,11 +1361,12 @@
 "situation": "near the bakery, cafe or kiosk",
 "char": "shopkeeper",
 "voice": "w_adult|m_adult",
-"src": "draft"
+"src": "draft",
+"dialect": "agder"
 },
 {
 "id": "td_089",
-"text": "Kaffen er sterk, men varmen er gratis.",
+"text": "Kaffen e sterk, men varmen e gratis.",
 "lang": "nb",
 "pool": "place_bakery",
 "cat": "townsperson draft 30 Oct",
@@ -1547,29 +1380,12 @@
 "situation": "near the bakery, cafe or kiosk",
 "char": "shopkeeper",
 "voice": "w_adult|m_adult",
-"src": "draft"
-},
-{
-"id": "td_090",
-"text": "Vil du ha en kanelbolle? Jeg anbefaler to.",
-"lang": "nb",
-"pool": "place_bakery",
-"cat": "townsperson draft 30 Oct",
-"who": "shop",
-"sx": "any",
-"trig": {
-"place": "bakery|cafe|kiosk"
-},
-"how": "warm, proud, selling",
-"place": "bakery / cafe / kiosk",
-"situation": "near the bakery, cafe or kiosk",
-"char": "shopkeeper",
-"voice": "w_adult|m_adult",
-"src": "draft"
+"src": "draft",
+"dialect": "agder"
 },
 {
 "id": "td_091",
-"text": "Kiosken er åpen til sent, om du trenger sjokolade.",
+"text": "Kiosken e open te seint, viss du trenger sjokolade.",
 "lang": "nb",
 "pool": "place_bakery",
 "cat": "townsperson draft 30 Oct",
@@ -1583,11 +1399,12 @@
 "situation": "near the bakery, cafe or kiosk",
 "char": "shopkeeper",
 "voice": "w_adult|m_adult",
-"src": "draft"
+"src": "draft",
+"dialect": "agder"
 },
 {
 "id": "td_092",
-"text": "Pølse med alt? Det fikser jeg.",
+"text": "Pølse mæ alt? Det fiksar eg.",
 "lang": "nb",
 "pool": "place_bakery",
 "cat": "townsperson draft 30 Oct",
@@ -1601,7 +1418,8 @@
 "situation": "near the bakery, cafe or kiosk",
 "char": "shopkeeper",
 "voice": "w_adult|m_adult",
-"src": "draft"
+"src": "draft",
+"dialect": "agder"
 },
 {
 "id": "td_093",
@@ -7393,7 +7211,7 @@
 },
 {
 "id": "advent_kid_01",
-"text": "Første luke! Jeg åpner den i dag. Eller nå. Nå!",
+"text": "Fyrste luka! Eg åpnar den i dag. Eller no. No!",
 "lang": "nb",
 "pool": "advent_kid",
 "cat": "advent days",
@@ -7407,11 +7225,12 @@
 "situation": "extra day lines for the old and the kids",
 "char": "child",
 "voice": "kid_f|kid_m",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "advent_kid_02",
-"text": "Seks dager! Jeg har tegnet en nisse til hver dag.",
+"text": "Seks dagar! Eg har tegna ein nisse te kvar dag.",
 "lang": "nb",
 "pool": "advent_kid",
 "cat": "advent days",
@@ -7425,11 +7244,12 @@
 "situation": "extra day lines for the old and the kids",
 "char": "child",
 "voice": "kid_f|kid_m",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "advent_kid_03",
-"text": "I dag skal heksa få! Mamma sier jeg må holde meg inne.",
+"text": "I dag ska heksa få! Mamma seier eg må halda mæ inne.",
 "lang": "nb",
 "pool": "advent_kid",
 "cat": "advent days",
@@ -7443,11 +7263,12 @@
 "situation": "extra day lines for the old and the kids",
 "char": "child",
 "voice": "kid_f|kid_m",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "advent_kid_04",
-"text": "Atten! Jeg orker ikke å vente.",
+"text": "Atten! Eg orkar ikkje å vente.",
 "lang": "nb",
 "pool": "advent_kid",
 "cat": "advent days",
@@ -7461,7 +7282,8 @@
 "situation": "extra day lines for the old and the kids",
 "char": "child",
 "voice": "kid_f|kid_m",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "advent_kid_05",
@@ -7479,11 +7301,12 @@
 "situation": "extra day lines for the old and the kids",
 "char": "child",
 "voice": "kid_f|kid_m",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "advent_old_01",
-"text": "I min tid fikk vi én luke. Én. Og den var tom.",
+"text": "I min tid fekk me ei luke. Ei. Å den var tom.",
 "lang": "nb",
 "pool": "advent_old",
 "cat": "advent days",
@@ -7497,11 +7320,12 @@
 "situation": "extra day lines for the old and the kids",
 "char": "townsperson (old)",
 "voice": "w_old|m_old",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "advent_old_02",
-"text": "Jeg husker forrige gang heksa spøkte. Jeg lærte å lukke dørene.",
+"text": "Eg hugsar sist heksa spøkte. Eg lærte å late att dørene.",
 "lang": "nb",
 "pool": "advent_old",
 "cat": "advent days",
@@ -7515,11 +7339,12 @@
 "situation": "extra day lines for the old and the kids",
 "char": "townsperson (old)",
 "voice": "w_old|m_old",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "advent_old_03",
-"text": "Nå sitter vi. Nå lytter vi. Klokka i kirka slår, og alt blir stille.",
+"text": "No sit me. No lyttar me. Klokka i kirka slår, å alt blir stilt.",
 "lang": "nb",
 "pool": "advent_old",
 "cat": "advent days",
@@ -7533,7 +7358,8 @@
 "situation": "extra day lines for the old and the kids",
 "char": "townsperson (old)",
 "voice": "w_old|m_old",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "wx_storm_01",
@@ -9629,7 +9455,7 @@
 },
 {
 "id": "place_bank_01",
-"text": "Velkommen til banken! Pengene dine er trygge her. Det er det som står på døra.",
+"text": "Velkommen te banken! Pengane dine e trygge her. Det står på døra.",
 "lang": "nb",
 "pool": "place_bank",
 "cat": "places",
@@ -9643,11 +9469,12 @@
 "situation": "near the bank",
 "char": "shopkeeper",
 "voice": "w_adult|m_adult",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "place_bank_02",
-"text": "Vi har åpent til fire. Til tre på fredager. Til en på lørdager. Ikke spør.",
+"text": "Me har open te fire. Te tre på fredagar. Te ein på laurdagar. Ikkje spør.",
 "lang": "nb",
 "pool": "place_bank",
 "cat": "places",
@@ -9661,29 +9488,12 @@
 "situation": "near the bank",
 "char": "shopkeeper",
 "voice": "w_adult|m_adult",
-"src": "batch"
-},
-{
-"id": "place_bank_03",
-"text": "Har du kontantkort? Vi har sparegris. Den er litt tung.",
-"lang": "nb",
-"pool": "place_bank",
-"cat": "places",
-"who": "shop",
-"sx": "any",
-"trig": {
-"place": "bank"
-},
-"how": "dry bank clerk, polite but with a hint of \"we are watching\"",
-"place": "Kvinesdal Sparebank",
-"situation": "near the bank",
-"char": "shopkeeper",
-"voice": "w_adult|m_adult",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "place_bank_04",
-"text": "Renten er lav, men humøret vårt er høyt. Eller omvendt.",
+"text": "Renta e låg, men humøret vårt e høgt. Eller omvendt.",
 "lang": "nb",
 "pool": "place_bank",
 "cat": "places",
@@ -9697,29 +9507,12 @@
 "situation": "near the bank",
 "char": "shopkeeper",
 "voice": "w_adult|m_adult",
-"src": "batch"
-},
-{
-"id": "place_bank_05",
-"text": "Penger vokser ikke på trær. Men de kan vokse på konto. Sakte.",
-"lang": "nb",
-"pool": "place_bank",
-"cat": "places",
-"who": "shop",
-"sx": "any",
-"trig": {
-"place": "bank"
-},
-"how": "dry bank clerk, polite but with a hint of \"we are watching\"",
-"place": "Kvinesdal Sparebank",
-"situation": "near the bank",
-"char": "shopkeeper",
-"voice": "w_adult|m_adult",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "place_bank_06",
-"text": "Hvis du hører noen snakke bak veggen, er det bare arkivet.",
+"text": "Viss du høyrer nokon snakka bak veggen, e det bære arkivet.",
 "lang": "nb",
 "pool": "place_bank",
 "cat": "places",
@@ -9733,11 +9526,12 @@
 "situation": "near the bank",
 "char": "shopkeeper",
 "voice": "w_adult|m_adult",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "place_bank_07",
-"text": "Kroner, ja. Ingen drager, ingen floren. Det står i reglementet.",
+"text": "Kroner, ja. Ingen drakar, ingen floren. Det står i reglementet.",
 "lang": "nb",
 "pool": "place_bank",
 "cat": "places",
@@ -9751,11 +9545,12 @@
 "situation": "near the bank",
 "char": "shopkeeper",
 "voice": "w_adult|m_adult",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "place_clothes_01",
-"text": "Vi har ull! Mye ull! Ull på ull på ull!",
+"text": "Me har ull! Mykje ull! Ull på ull på ull!",
 "lang": "nb",
 "pool": "place_clothes",
 "cat": "places",
@@ -9769,11 +9564,12 @@
 "situation": "near the clothes shop",
 "char": "shopkeeper",
 "voice": "w_adult|m_adult",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "place_clothes_02",
-"text": "Prøv denne luen. Nei, ta den på riktig vei. Ja, nå ser du ut som deg.",
+"text": "Prøv denne lua. Nei, ta den på rett veg. Ja, no ser du ut som dæ sjølv.",
 "lang": "nb",
 "pool": "place_clothes",
 "cat": "places",
@@ -9787,11 +9583,12 @@
 "situation": "near the clothes shop",
 "char": "shopkeeper",
 "voice": "w_adult|m_adult",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "place_clothes_03",
-"text": "Det er rea på votter. Vi har bare venstre. Høyre kommer i januar.",
+"text": "Det e salg på votta. Me har bære venstre. Høgre kjem i januar.",
 "lang": "nb",
 "pool": "place_clothes",
 "cat": "places",
@@ -9805,47 +9602,12 @@
 "situation": "near the clothes shop",
 "char": "shopkeeper",
 "voice": "w_adult|m_adult",
-"src": "batch"
-},
-{
-"id": "place_clothes_04",
-"text": "Alt som er varmt, er dyrt. Alt som er billig, er kaldt. Slik er livet.",
-"lang": "nb",
-"pool": "place_clothes",
-"cat": "places",
-"who": "shop",
-"sx": "any",
-"trig": {
-"place": "clothes"
-},
-"how": "friendly clothes-shop clerk, a bit pushy",
-"place": "Åmot Klær",
-"situation": "near the clothes shop",
-"char": "shopkeeper",
-"voice": "w_adult|m_adult",
-"src": "batch"
-},
-{
-"id": "place_clothes_05",
-"text": "Er det en gave? Da pakker vi inn. Er det til deg? Da pakker vi også inn, bare for stemningen.",
-"lang": "nb",
-"pool": "place_clothes",
-"cat": "places",
-"who": "shop",
-"sx": "any",
-"trig": {
-"place": "clothes"
-},
-"how": "friendly clothes-shop clerk, a bit pushy",
-"place": "Åmot Klær",
-"situation": "near the clothes shop",
-"char": "shopkeeper",
-"voice": "w_adult|m_adult",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "place_clothes_06",
-"text": "Størrelse? Si bare \"stor\". Det passer alltid.",
+"text": "Storleik? Sei bære \"stor\". Det passar alltid.",
 "lang": "nb",
 "pool": "place_clothes",
 "cat": "places",
@@ -9859,11 +9621,12 @@
 "situation": "near the clothes shop",
 "char": "shopkeeper",
 "voice": "w_adult|m_adult",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "place_clothes_07",
-"text": "Genserne her har strikket seg selv. Nesten.",
+"text": "Genserne her har strikka sæ sjølv. Nesten.",
 "lang": "nb",
 "pool": "place_clothes",
 "cat": "places",
@@ -9877,11 +9640,12 @@
 "situation": "near the clothes shop",
 "char": "shopkeeper",
 "voice": "w_adult|m_adult",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "place_electronics_01",
-"text": "Trenger du batterier? Det gjør alle. Spesielt i mørket.",
+"text": "Trenger du batteri? Det gjer alle. Særleg i mørket.",
 "lang": "nb",
 "pool": "place_electronics",
 "cat": "places",
@@ -9895,11 +9659,12 @@
 "situation": "near the electronics shop",
 "char": "shopkeeper",
 "voice": "w_adult|m_adult",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "place_electronics_02",
-"text": "Denne lommelykta lyser lenger enn svigermor snakker.",
+"text": "Denne lommelykta lyser lenger enn svigermor snakkar.",
 "lang": "nb",
 "pool": "place_electronics",
 "cat": "places",
@@ -9913,29 +9678,12 @@
 "situation": "near the electronics shop",
 "char": "shopkeeper",
 "voice": "w_adult|m_adult",
-"src": "batch"
-},
-{
-"id": "place_electronics_03",
-"text": "Har du prøvd å slå den av og på igjen? Jeg spør bare.",
-"lang": "nb",
-"pool": "place_electronics",
-"cat": "places",
-"who": "shop",
-"sx": "any",
-"trig": {
-"place": "electronics"
-},
-"how": "tech-nerd clerk, enthusiastic, a little condescending",
-"place": "Power Kvinesdal",
-"situation": "near the electronics shop",
-"char": "shopkeeper",
-"voice": "w_adult|m_adult",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "place_electronics_04",
-"text": "Fjernsynet her har skarpere bilde enn livet ditt. Prøv.",
+"text": "Fjernsynet her har skarpare bilete enn livet ditt. Prøv.",
 "lang": "nb",
 "pool": "place_electronics",
 "cat": "places",
@@ -9949,29 +9697,12 @@
 "situation": "near the electronics shop",
 "char": "shopkeeper",
 "voice": "w_adult|m_adult",
-"src": "batch"
-},
-{
-"id": "place_electronics_05",
-"text": "Alle kabler her er gratis å se på og dyre å eie.",
-"lang": "nb",
-"pool": "place_electronics",
-"cat": "places",
-"who": "shop",
-"sx": "any",
-"trig": {
-"place": "electronics"
-},
-"how": "tech-nerd clerk, enthusiastic, a little condescending",
-"place": "Power Kvinesdal",
-"situation": "near the electronics shop",
-"char": "shopkeeper",
-"voice": "w_adult|m_adult",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "place_electronics_06",
-"text": "Garanti? Ja. Den dekker alt unntatt det som skjer.",
+"text": "Garanti? Ja. Den dekkar alt unntatt det som skjer.",
 "lang": "nb",
 "pool": "place_electronics",
 "cat": "places",
@@ -9985,11 +9716,12 @@
 "situation": "near the electronics shop",
 "char": "shopkeeper",
 "voice": "w_adult|m_adult",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "place_electronics_07",
-"text": "Hvis den lager lyd, er den ny. Hvis den lager røyk, er den din.",
+"text": "Viss den lagar lyd, e den ny. Viss den lagar røyk, e den din.",
 "lang": "nb",
 "pool": "place_electronics",
 "cat": "places",
@@ -10003,11 +9735,12 @@
 "situation": "near the electronics shop",
 "char": "shopkeeper",
 "voice": "w_adult|m_adult",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "place_salon_01",
-"text": "Sitt, sitt! Jeg hører alt, så fortell meg alt.",
+"text": "Sett dæ, sett dæ! Eg høyrer alt, så fortel mæ alt.",
 "lang": "nb",
 "pool": "place_salon",
 "cat": "places",
@@ -10021,29 +9754,12 @@
 "situation": "near the hair salon",
 "char": "shopkeeper",
 "voice": "w_adult|m_adult",
-"src": "batch"
-},
-{
-"id": "place_salon_02",
-"text": "Litt av sidene? Litt av toppen? Litt av ørene? Jeg tuller.",
-"lang": "nb",
-"pool": "place_salon",
-"cat": "places",
-"who": "shop",
-"sx": "any",
-"trig": {
-"place": "salon"
-},
-"how": "chatty hairdresser, gossiping",
-"place": "the hair salon",
-"situation": "near the hair salon",
-"char": "shopkeeper",
-"voice": "w_adult|m_adult",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "place_salon_03",
-"text": "Har du hørt hva de sier om bakeren? Nei? Sitt ned.",
+"text": "Har du høyrt ka dei seier om bakaren? Nei? Sett dæ ned.",
 "lang": "nb",
 "pool": "place_salon",
 "cat": "places",
@@ -10057,29 +9773,12 @@
 "situation": "near the hair salon",
 "char": "shopkeeper",
 "voice": "w_adult|m_adult",
-"src": "batch"
-},
-{
-"id": "place_salon_04",
-"text": "Julefrisyre eller nyttårsfrisyre? Du kan ha begge. De er like.",
-"lang": "nb",
-"pool": "place_salon",
-"cat": "places",
-"who": "shop",
-"sx": "any",
-"trig": {
-"place": "salon"
-},
-"how": "chatty hairdresser, gossiping",
-"place": "the hair salon",
-"situation": "near the hair salon",
-"char": "shopkeeper",
-"voice": "w_adult|m_adult",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "place_salon_05",
-"text": "Jeg kan klippe alt. Unntatt tiden. Den er veldig tett i håret.",
+"text": "Eg kan klippa alt. Unntatt tida. Den sit fælt tett i håret.",
 "lang": "nb",
 "pool": "place_salon",
 "cat": "places",
@@ -10093,11 +9792,12 @@
 "situation": "near the hair salon",
 "char": "shopkeeper",
 "voice": "w_adult|m_adult",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "place_salon_06",
-"text": "Det blir vondt, men pent. Slik er det med de fleste frisyrer.",
+"text": "Det blir vondt, men pent. Slik e det mæ dei fleste frisyra.",
 "lang": "nb",
 "pool": "place_salon",
 "cat": "places",
@@ -10111,11 +9811,12 @@
 "situation": "near the hair salon",
 "char": "shopkeeper",
 "voice": "w_adult|m_adult",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "place_salon_07",
-"text": "Vi har gløgg til de som tør å ta av seg lua.",
+"text": "Me har gløgg te dei som tør ta av sæ lua.",
 "lang": "nb",
 "pool": "place_salon",
 "cat": "places",
@@ -10129,11 +9830,12 @@
 "situation": "near the hair salon",
 "char": "shopkeeper",
 "voice": "w_adult|m_adult",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "place_wine_01",
-"text": "Vi ber om legitimasjon. Også for gløgg. Spesielt for gløgg.",
+"text": "Me ber om legitimasjon. Også for gløgg. Særleg for gløgg.",
 "lang": "nb",
 "pool": "place_wine",
 "cat": "places",
@@ -10147,29 +9849,12 @@
 "situation": "near the wine monopoly",
 "char": "shopkeeper",
 "voice": "w_adult|m_adult",
-"src": "batch"
-},
-{
-"id": "place_wine_02",
-"text": "Dette er en seriøs butikk. Vi snakker lavt. Vi puster lavt.",
-"lang": "nb",
-"pool": "place_wine",
-"cat": "places",
-"who": "shop",
-"sx": "any",
-"trig": {
-"place": "wine"
-},
-"how": "dignified, quiet Vinmonopolet clerk",
-"place": "Vinmonopolet",
-"situation": "near the wine monopoly",
-"char": "shopkeeper",
-"voice": "w_adult|m_adult",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "place_wine_03",
-"text": "En rød til ribbe. En hvit til fisk. En tydelig til svigerfar.",
+"text": "Ein raud te ribbe. Ein kvit te fisk. Ein tydeleg te svigerfar.",
 "lang": "nb",
 "pool": "place_wine",
 "cat": "places",
@@ -10183,11 +9868,12 @@
 "situation": "near the wine monopoly",
 "char": "shopkeeper",
 "voice": "w_adult|m_adult",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "place_wine_04",
-"text": "Åpningstid: akkurat så lenge du hadde glemt det.",
+"text": "Opningstid: akkurat så lenge du hadde gløymt det.",
 "lang": "nb",
 "pool": "place_wine",
 "cat": "places",
@@ -10201,29 +9887,12 @@
 "situation": "near the wine monopoly",
 "char": "shopkeeper",
 "voice": "w_adult|m_adult",
-"src": "batch"
-},
-{
-"id": "place_wine_05",
-"text": "Jeg kan anbefale det som står i hylla ved siden av. Det er som regel bedre.",
-"lang": "nb",
-"pool": "place_wine",
-"cat": "places",
-"who": "shop",
-"sx": "any",
-"trig": {
-"place": "wine"
-},
-"how": "dignified, quiet Vinmonopolet clerk",
-"place": "Vinmonopolet",
-"situation": "near the wine monopoly",
-"char": "shopkeeper",
-"voice": "w_adult|m_adult",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "place_wine_06",
-"text": "Alle spør hva som passer til julemat. Svaret er: tålmodighet.",
+"text": "Alle spør ka som passar te julemat. Svaret e: tålmod.",
 "lang": "nb",
 "pool": "place_wine",
 "cat": "places",
@@ -10237,11 +9906,12 @@
 "situation": "near the wine monopoly",
 "char": "shopkeeper",
 "voice": "w_adult|m_adult",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "place_food_01",
-"text": "Hei, velkommen til Primo's! Hva skal det være? Hurtig, folk står i kø!",
+"text": "Hei, velkommen te Primo's! Ka ska det vera? Fort, folk står i kø!",
 "lang": "nb",
 "pool": "place_food",
 "cat": "places",
@@ -10255,11 +9925,12 @@
 "situation": "near PRIMO'S",
 "char": "shopkeeper",
 "voice": "w_adult|m_adult",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "place_food_02",
-"text": "Burger, pommes og mye saus. Slik skal det være.",
+"text": "Burger, pommes frites å mykje saus. Slik ska det vera.",
 "lang": "nb",
 "pool": "place_food",
 "cat": "places",
@@ -10273,11 +9944,12 @@
 "situation": "near PRIMO'S",
 "char": "shopkeeper",
 "voice": "w_adult|m_adult",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "place_food_03",
-"text": "Nei, vi har ikke lutefisk. Prøv bakeren.",
+"text": "Nei, me har ikkje lutefisk. Prøv bakaren.",
 "lang": "nb",
 "pool": "place_food",
 "cat": "places",
@@ -10291,47 +9963,12 @@
 "situation": "near PRIMO'S",
 "char": "shopkeeper",
 "voice": "w_adult|m_adult",
-"src": "batch"
-},
-{
-"id": "place_food_04",
-"text": "Pølse med alt, to ganger? Kommer!",
-"lang": "nb",
-"pool": "place_food",
-"cat": "places",
-"who": "shop",
-"sx": "any",
-"trig": {
-"place": "food"
-},
-"how": "fast-food cashier, rushed, cheerful",
-"place": "PRIMO'S fast food",
-"situation": "near PRIMO'S",
-"char": "shopkeeper",
-"voice": "w_adult|m_adult",
-"src": "batch"
-},
-{
-"id": "place_food_05",
-"text": "Saus er gratis. Servietter er ikke det. Ta flere saus.",
-"lang": "nb",
-"pool": "place_food",
-"cat": "places",
-"who": "shop",
-"sx": "any",
-"trig": {
-"place": "food"
-},
-"how": "fast-food cashier, rushed, cheerful",
-"place": "PRIMO'S fast food",
-"situation": "near PRIMO'S",
-"char": "shopkeeper",
-"voice": "w_adult|m_adult",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "place_food_06",
-"text": "Dette er den beste maten i Kvinesdal etter klokka ti. Før ti er den også god.",
+"text": "Dette e den beste maten i Kvinesdal etter klokka ti. Før ti e den òg god.",
 "lang": "nb",
 "pool": "place_food",
 "cat": "places",
@@ -10345,11 +9982,12 @@
 "situation": "near PRIMO'S",
 "char": "shopkeeper",
 "voice": "w_adult|m_adult",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "place_church_01",
-"text": "Kirkeklokkene har ringt siden før min bestemor ble født. De ringer fortsatt, selv når ingen hører etter.",
+"text": "Kirkeklokkene har ringt sidan før bestemor vart fødd. Dei ringer framleis, sjøl når ingen høyrer etter.",
 "lang": "nb",
 "pool": "place_church",
 "cat": "places",
@@ -10363,11 +10001,12 @@
 "situation": "near the church",
 "char": "townsperson (old)",
 "voice": "w_old|m_old",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "place_church_02",
-"text": "Det er fredelig her. Bortsett fra om natten. Da er det en annen type fred.",
+"text": "Det e fredeleg her. Bortsett frå om natta. Da e det ein anna slags fred.",
 "lang": "nb",
 "pool": "place_church",
 "cat": "places",
@@ -10381,11 +10020,12 @@
 "situation": "near the church",
 "char": "townsperson (old)",
 "voice": "w_old|m_old",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "place_church_03",
-"text": "Vi tenner lys for dem som er borte. Og for dem som skulle ha vært her.",
+"text": "Me tenner lys for dei som e borte. Å for dei som skulle ha vore her.",
 "lang": "nb",
 "pool": "place_church",
 "cat": "places",
@@ -10399,11 +10039,12 @@
 "situation": "near the church",
 "char": "townsperson (old)",
 "voice": "w_old|m_old",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "place_church_04",
-"text": "Koret øver. Det høres nesten ut som engler. Nesten.",
+"text": "Koret øver. Det høyrest nesten ut som englar. Nesten.",
 "lang": "nb",
 "pool": "place_church",
 "cat": "places",
@@ -10417,29 +10058,12 @@
 "situation": "near the church",
 "char": "townsperson (old)",
 "voice": "w_old|m_old",
-"src": "batch"
-},
-{
-"id": "place_church_05",
-"text": "Gå inn og sitt litt, det koster ingenting. Bare stillhet, og den er gratis.",
-"lang": "nb",
-"pool": "place_church",
-"cat": "places",
-"who": "old",
-"sx": "any",
-"trig": {
-"place": "church"
-},
-"how": "quiet, respectful, an old voice by the church wall",
-"place": "Kvinesdal kirke",
-"situation": "near the church",
-"char": "townsperson (old)",
-"voice": "w_old|m_old",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "place_church_06",
-"text": "Prestefruen baker de beste krumkakene. Ikke si noe om det til presten.",
+"text": "Prestefrua bakar dei beste krumkakene. Ikkje sei nåkka te presten.",
 "lang": "nb",
 "pool": "place_church",
 "cat": "places",
@@ -10453,7 +10077,8 @@
 "situation": "near the church",
 "char": "townsperson (old)",
 "voice": "w_old|m_old",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "place_townhall_01",
@@ -11521,7 +11146,7 @@
 },
 {
 "id": "kids2_01",
-"text": "Se på meg! Jeg lager snøengel! Den ser ut som en pizza!",
+"text": "Sjå på mæ! Eg lagar snøengel! Den ser ut som ein pizza!",
 "lang": "nb",
 "pool": "kids2",
 "cat": "kids",
@@ -11533,11 +11158,12 @@
 "situation": "more child lines",
 "char": "child",
 "voice": "kid_f|kid_m",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "kids2_02",
-"text": "Mamma sier jeg ikke får godteri. Men hun sa ikke noe om pepperkaker.",
+"text": "Mamma seier eg får ikkje godteri. Men ho sa ingenting om pepperkaker.",
 "lang": "nb",
 "pool": "kids2",
 "cat": "kids",
@@ -11549,11 +11175,12 @@
 "situation": "more child lines",
 "char": "child",
 "voice": "kid_f|kid_m",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "kids2_03",
-"text": "Jeg har sett nissen i skogen! Han hadde røde bukser. Eller var det blå?",
+"text": "Eg har sett nissen i skogen! Han hadde raude bukser. Eller va det blå?",
 "lang": "nb",
 "pool": "kids2",
 "cat": "kids",
@@ -11565,43 +11192,12 @@
 "situation": "more child lines",
 "char": "child",
 "voice": "kid_f|kid_m",
-"src": "batch"
-},
-{
-"id": "kids2_04",
-"text": "Pappa sier jeg må gå inn. Jeg sier nei. Han sier ja. Jeg sier okei.",
-"lang": "nb",
-"pool": "kids2",
-"cat": "kids",
-"who": "kid",
-"sx": "any",
-"trig": {},
-"how": "bright, loud, honest",
-"place": "the street / the square",
-"situation": "more child lines",
-"char": "child",
-"voice": "kid_f|kid_m",
-"src": "batch"
-},
-{
-"id": "kids2_05",
-"text": "Hvem vil ha en snøball? Ingen? Greit, jeg kaster den på meg selv.",
-"lang": "nb",
-"pool": "kids2",
-"cat": "kids",
-"who": "kid",
-"sx": "any",
-"trig": {},
-"how": "bright, loud, honest",
-"place": "the street / the square",
-"situation": "more child lines",
-"char": "child",
-"voice": "kid_f|kid_m",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "kids2_06",
-"text": "Jeg skal bli nissens hjelper når jeg blir stor. Eller politi. Eller begge.",
+"text": "Eg ska bli nissens hjelpar når eg blir stor. Eller politi. Eller begge.",
 "lang": "nb",
 "pool": "kids2",
 "cat": "kids",
@@ -11613,11 +11209,12 @@
 "situation": "more child lines",
 "char": "child",
 "voice": "kid_f|kid_m",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "kids2_07",
-"text": "Stjerner er egentlig hull i himmelen, sier bestemor. Der kommer lyset ut.",
+"text": "Stjerner e eigentleg hol i himmelen, seier bestemor. Der kjem lyset ut.",
 "lang": "nb",
 "pool": "kids2",
 "cat": "kids",
@@ -11629,27 +11226,12 @@
 "situation": "more child lines",
 "char": "child",
 "voice": "kid_f|kid_m",
-"src": "batch"
-},
-{
-"id": "kids2_08",
-"text": "Kan du løfte meg? Jeg vil se over gjerdet!",
-"lang": "nb",
-"pool": "kids2",
-"cat": "kids",
-"who": "kid",
-"sx": "any",
-"trig": {},
-"how": "bright, loud, honest",
-"place": "the street / the square",
-"situation": "more child lines",
-"char": "child",
-"voice": "kid_f|kid_m",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "kids2_09",
-"text": "Jeg har fire hansker. To på hver hånd. Så er jeg varm og sterk.",
+"text": "Eg har fire hanskar. To på kvar hand. Så e eg varm å sterk.",
 "lang": "nb",
 "pool": "kids2",
 "cat": "kids",
@@ -11661,11 +11243,12 @@
 "situation": "more child lines",
 "char": "child",
 "voice": "kid_f|kid_m",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "kids2_10",
-"text": "Jeg skal ønske meg en hund, en katt og en hest. Jeg tar halvparten.",
+"text": "Eg ska ønska mæ ein hund, ei katt å ein hest. Eg tar halvparten.",
 "lang": "nb",
 "pool": "kids2",
 "cat": "kids",
@@ -11677,11 +11260,12 @@
 "situation": "more child lines",
 "char": "child",
 "voice": "kid_f|kid_m",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "kids2_11",
-"text": "Skolen har fri i dag! Eller... det er søndag.",
+"text": "Skulen har fri i dag! Eller... det e søndag.",
 "lang": "nb",
 "pool": "kids2",
 "cat": "kids",
@@ -11693,43 +11277,12 @@
 "situation": "more child lines",
 "char": "child",
 "voice": "kid_f|kid_m",
-"src": "batch"
-},
-{
-"id": "kids2_12",
-"text": "Kom og lek! Vi har fått ny sleiv til sleden!",
-"lang": "nb",
-"pool": "kids2",
-"cat": "kids",
-"who": "kid",
-"sx": "any",
-"trig": {},
-"how": "bright, loud, honest",
-"place": "the street / the square",
-"situation": "more child lines",
-"char": "child",
-"voice": "kid_f|kid_m",
-"src": "batch"
-},
-{
-"id": "kids2_13",
-"text": "Hysj, jeg gjemmer meg! Ikke si noe!",
-"lang": "nb",
-"pool": "kids2",
-"cat": "kids",
-"who": "kid",
-"sx": "any",
-"trig": {},
-"how": "bright, loud, honest",
-"place": "the street / the square",
-"situation": "more child lines",
-"char": "child",
-"voice": "kid_f|kid_m",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "kids2_14",
-"text": "Det er noe som lager lyd under isen. Jeg tror det er en fisk. Eller et monster. Eller en fiskemonster.",
+"text": "Det e nåkka som lagar lyd under isen. Eg trur det e ein fisk. Eller eit monster. Eller eit fiskemonster.",
 "lang": "nb",
 "pool": "kids2",
 "cat": "kids",
@@ -11741,27 +11294,12 @@
 "situation": "more child lines",
 "char": "child",
 "voice": "kid_f|kid_m",
-"src": "batch"
-},
-{
-"id": "kids2_15",
-"text": "Hei! Hei! Hei! Jeg bare ville si hei!",
-"lang": "nb",
-"pool": "kids2",
-"cat": "kids",
-"who": "kid",
-"sx": "any",
-"trig": {},
-"how": "bright, loud, honest",
-"place": "the street / the square",
-"situation": "more child lines",
-"char": "child",
-"voice": "kid_f|kid_m",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "old2_01",
-"text": "I min barndom var det mer snø. Og mindre skjerm. Og bedre sjokolade.",
+"text": "I barndommen min va det meir snø. Å mindre skjerm. Å betre sjokolade.",
 "lang": "nb",
 "pool": "old2",
 "cat": "old folk",
@@ -11773,11 +11311,12 @@
 "situation": "old townspeople reminisce",
 "char": "townsperson (old)",
 "voice": "w_old|m_old",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "old2_02",
-"text": "Jeg har sett tretti julaftener i denne dalen. Aldri har noen gjort det like skummelt som i år.",
+"text": "Eg har sett tretti julaftna i denne dalen. Aldri har nokon gjort det så skummelt som i år.",
 "lang": "nb",
 "pool": "old2",
 "cat": "old folk",
@@ -11789,11 +11328,12 @@
 "situation": "old townspeople reminisce",
 "char": "townsperson (old)",
 "voice": "w_old|m_old",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "old2_03",
-"text": "Da jeg var liten, hadde vi en nisse på låven. Han spiste grøten vår og ba aldri om unnskyldning.",
+"text": "Da eg va lita, hadde me ein nisse på låven. Han åt grauten vår å ba aldri om orsak.",
 "lang": "nb",
 "pool": "old2",
 "cat": "old folk",
@@ -11805,59 +11345,12 @@
 "situation": "old townspeople reminisce",
 "char": "townsperson (old)",
 "voice": "w_old|m_old",
-"src": "batch"
-},
-{
-"id": "old2_04",
-"text": "Du ser rask ut. Jeg var rask. Nå er jeg tilstede.",
-"lang": "nb",
-"pool": "old2",
-"cat": "old folk",
-"who": "old",
-"sx": "any",
-"trig": {},
-"how": "slow, dry, remembering",
-"place": "the street",
-"situation": "old townspeople reminisce",
-"char": "townsperson (old)",
-"voice": "w_old|m_old",
-"src": "batch"
-},
-{
-"id": "old2_05",
-"text": "Det var bedre før? Neida. Det var kaldere. Men vi hadde varmere hender.",
-"lang": "nb",
-"pool": "old2",
-"cat": "old folk",
-"who": "old",
-"sx": "any",
-"trig": {},
-"how": "slow, dry, remembering",
-"place": "the street",
-"situation": "old townspeople reminisce",
-"char": "townsperson (old)",
-"voice": "w_old|m_old",
-"src": "batch"
-},
-{
-"id": "old2_06",
-"text": "Barnebarna mine vil ha mobil. Jeg gir dem ullsokker. De takker med øynene.",
-"lang": "nb",
-"pool": "old2",
-"cat": "old folk",
-"who": "old",
-"sx": "any",
-"trig": {},
-"how": "slow, dry, remembering",
-"place": "the street",
-"situation": "old townspeople reminisce",
-"char": "townsperson (old)",
-"voice": "w_old|m_old",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "old2_07",
-"text": "Hvis du hører noen gå bak deg i snøen og snur deg, er det ingen. Slik har det alltid vært.",
+"text": "Viss du høyrer nokon gå bak dæ i snøen å snur dæ, e det ingen. Slik har det alltid vore.",
 "lang": "nb",
 "pool": "old2",
 "cat": "old folk",
@@ -11869,11 +11362,12 @@
 "situation": "old townspeople reminisce",
 "char": "townsperson (old)",
 "voice": "w_old|m_old",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "old2_08",
-"text": "Min mann sa alltid: \"Kulda går over.\" Han hadde rett. Han gikk også over.",
+"text": "Mannen min sa alltid: \"Kulda går over.\" Han hadde rett. Han gjekk òg over.",
 "lang": "nb",
 "pool": "old2",
 "cat": "old folk",
@@ -11885,27 +11379,12 @@
 "situation": "old townspeople reminisce",
 "char": "townsperson (old)",
 "voice": "w_old|m_old",
-"src": "batch"
-},
-{
-"id": "old2_09",
-"text": "Kirka er den samme. Bakeren er den samme. Bare jeg har endret meg.",
-"lang": "nb",
-"pool": "old2",
-"cat": "old folk",
-"who": "old",
-"sx": "any",
-"trig": {},
-"how": "slow, dry, remembering",
-"place": "the street",
-"situation": "old townspeople reminisce",
-"char": "townsperson (old)",
-"voice": "w_old|m_old",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "old2_10",
-"text": "Å ja, heksa. Jeg husker henne som ung. Hun var like grei da. Ish.",
+"text": "Å ja, heksa. Eg hugsar ho som ung. Ho va like grei da. Ish.",
 "lang": "nb",
 "pool": "old2",
 "cat": "old folk",
@@ -11917,11 +11396,12 @@
 "situation": "old townspeople reminisce",
 "char": "townsperson (old)",
 "voice": "w_old|m_old",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "old2_11",
-"text": "Gå aldri alene i skogen etter fire. Det er ikke regelverk, det er erfaring.",
+"text": "Gå aldri åleine i skogen etter klokka fire. Det e ikkje regelverk, det e røynsle.",
 "lang": "nb",
 "pool": "old2",
 "cat": "old folk",
@@ -11933,11 +11413,12 @@
 "situation": "old townspeople reminisce",
 "char": "townsperson (old)",
 "voice": "w_old|m_old",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "old2_12",
-"text": "En kopp kaffe, en stol, og at ingen snakker i en time. Det er luksus.",
+"text": "Ei kaffikopp, ein stol, å at ingen snakkar på ein time. Det e luksus.",
 "lang": "nb",
 "pool": "old2",
 "cat": "old folk",
@@ -11949,7 +11430,8 @@
 "situation": "old townspeople reminisce",
 "char": "townsperson (old)",
 "voice": "w_old|m_old",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "rod_song_01",
@@ -13257,7 +12739,7 @@
 },
 {
 "id": "directions_06",
-"text": "Vet du hvor jeg kan finne et juletre? Det ser ut som alle har tatt de beste.",
+"text": "Veit du kor eg kan finna eit juletre? Det ser ut som alle har tatt dei beste.",
 "lang": "nb",
 "pool": "directions",
 "cat": "everyday",
@@ -13269,11 +12751,12 @@
 "situation": "a villager asks for directions or gives them",
 "char": "townsperson",
 "voice": "w_adult|m_adult",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "directions_07",
-"text": "Det er en bro der borte. Ikke gå ut på den i mørket.",
+"text": "Det e ei bru der borte. Ikkje gå ut på den i mørket.",
 "lang": "nb",
 "pool": "directions",
 "cat": "everyday",
@@ -13285,11 +12768,12 @@
 "situation": "a villager asks for directions or gives them",
 "char": "townsperson",
 "voice": "w_adult|m_adult",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "directions_08",
-"text": "Jeg skulle til biblioteket, men jeg havnet ved bakeren. Det kan være en bedre plan.",
+"text": "Eg skulle te biblioteket, men eg enda hos bakaren. Det kan vera ein betre plan.",
 "lang": "nb",
 "pool": "directions",
 "cat": "everyday",
@@ -13301,11 +12785,12 @@
 "situation": "a villager asks for directions or gives them",
 "char": "townsperson",
 "voice": "w_adult|m_adult",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "grumble_01",
-"text": "Alle tråkker i snøen min. Jeg måkte den i morges!",
+"text": "Alle trakkar i snøen min. Eg måka den i morges!",
 "lang": "nb",
 "pool": "grumble",
 "cat": "everyday",
@@ -13317,11 +12802,12 @@
 "situation": "a grumpy villager",
 "char": "townsperson",
 "voice": "w_adult|m_adult",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "grumble_02",
-"text": "Det er for mye lys i år. Nabo-konkurranse. Jeg synes det er pyntelig, ikke stjerner i taket.",
+"text": "Det e for mykje lys i år. Nabokonkurranse. Eg tykkjer det e pent, ikkje stjerner i taket.",
 "lang": "nb",
 "pool": "grumble",
 "cat": "everyday",
@@ -13333,43 +12819,12 @@
 "situation": "a grumpy villager",
 "char": "townsperson",
 "voice": "w_adult|m_adult",
-"src": "batch"
-},
-{
-"id": "grumble_03",
-"text": "Det var bedre før. Det var færre mennesker og mer tålmodighet.",
-"lang": "nb",
-"pool": "grumble",
-"cat": "everyday",
-"who": "any",
-"sx": "any",
-"trig": {},
-"how": "grumpy but harmless",
-"place": "the street",
-"situation": "a grumpy villager",
-"char": "townsperson",
-"voice": "w_adult|m_adult",
-"src": "batch"
-},
-{
-"id": "grumble_04",
-"text": "Hvis du skal gå i veien, kan du i det minste gjøre det litt raskere.",
-"lang": "nb",
-"pool": "grumble",
-"cat": "everyday",
-"who": "any",
-"sx": "any",
-"trig": {},
-"how": "grumpy but harmless",
-"place": "the street",
-"situation": "a grumpy villager",
-"char": "townsperson",
-"voice": "w_adult|m_adult",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "grumble_05",
-"text": "Snø, snø, snø. Vi har det i overflod. Kan vi få litt sol i stedet?",
+"text": "Snø, snø, snø. Me har det i overflod. Kan me få litt sol i staden?",
 "lang": "nb",
 "pool": "grumble",
 "cat": "everyday",
@@ -13381,43 +12836,12 @@
 "situation": "a grumpy villager",
 "char": "townsperson",
 "voice": "w_adult|m_adult",
-"src": "batch"
-},
-{
-"id": "grumble_06",
-"text": "Parkeringsplassene er for små. Bilene er for store. Folk er for... mange.",
-"lang": "nb",
-"pool": "grumble",
-"cat": "everyday",
-"who": "any",
-"sx": "any",
-"trig": {},
-"how": "grumpy but harmless",
-"place": "the street",
-"situation": "a grumpy villager",
-"char": "townsperson",
-"voice": "w_adult|m_adult",
-"src": "batch"
-},
-{
-"id": "grumble_07",
-"text": "Jeg har ikke sovet siden det begynte å lyse. Altså siden i går.",
-"lang": "nb",
-"pool": "grumble",
-"cat": "everyday",
-"who": "any",
-"sx": "any",
-"trig": {},
-"how": "grumpy but harmless",
-"place": "the street",
-"situation": "a grumpy villager",
-"char": "townsperson",
-"voice": "w_adult|m_adult",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "grumble_08",
-"text": "Ikke snakk til meg før jeg har fått kaffe. Og ikke etterpå heller.",
+"text": "Ikkje snakk te mæ før eg har fått kaffi. Å ikkje etterpå heller.",
 "lang": "nb",
 "pool": "grumble",
 "cat": "everyday",
@@ -13429,43 +12853,12 @@
 "situation": "a grumpy villager",
 "char": "townsperson",
 "voice": "w_adult|m_adult",
-"src": "batch"
-},
-{
-"id": "kind_words_01",
-"text": "Du er flink til å være her. Det setter jeg pris på.",
-"lang": "nb",
-"pool": "kind_words",
-"cat": "everyday",
-"who": "any",
-"sx": "any",
-"trig": {},
-"how": "warm, sincere, gruff-sweet",
-"place": "the street",
-"situation": "a villager says something kind",
-"char": "townsperson",
-"voice": "w_adult|m_adult",
-"src": "batch"
-},
-{
-"id": "kind_words_02",
-"text": "Det er fint å se et kjent ansikt i kulda.",
-"lang": "nb",
-"pool": "kind_words",
-"cat": "everyday",
-"who": "any",
-"sx": "any",
-"trig": {},
-"how": "warm, sincere, gruff-sweet",
-"place": "the street",
-"situation": "a villager says something kind",
-"char": "townsperson",
-"voice": "w_adult|m_adult",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "kind_words_03",
-"text": "Hvis du trenger noe, så banker du bare på. Jeg er hjemme. Jeg er alltid hjemme.",
+"text": "Viss du trenger nåkka, så banka du bære på. Eg e heime. Eg e alltid heime.",
 "lang": "nb",
 "pool": "kind_words",
 "cat": "everyday",
@@ -13477,11 +12870,12 @@
 "situation": "a villager says something kind",
 "char": "townsperson",
 "voice": "w_adult|m_adult",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "kind_words_04",
-"text": "Du ser trøtt ut. Husk å hvile.",
+"text": "Du ser trøtt ut. Hugs å kvila.",
 "lang": "nb",
 "pool": "kind_words",
 "cat": "everyday",
@@ -13493,27 +12887,12 @@
 "situation": "a villager says something kind",
 "char": "townsperson",
 "voice": "w_adult|m_adult",
-"src": "batch"
-},
-{
-"id": "kind_words_05",
-"text": "Gud, så fint det er når alle hjelper hverandre i desember.",
-"lang": "nb",
-"pool": "kind_words",
-"cat": "everyday",
-"who": "any",
-"sx": "any",
-"trig": {},
-"how": "warm, sincere, gruff-sweet",
-"place": "the street",
-"situation": "a villager says something kind",
-"char": "townsperson",
-"voice": "w_adult|m_adult",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "kind_words_06",
-"text": "Du minner meg om noen jeg savner. Det er en kompliment.",
+"text": "Du minner mæ om nokon eg saknar. Det e eit kompliment.",
 "lang": "nb",
 "pool": "kind_words",
 "cat": "everyday",
@@ -13525,11 +12904,12 @@
 "situation": "a villager says something kind",
 "char": "townsperson",
 "voice": "w_adult|m_adult",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "kind_words_07",
-"text": "Gå varmt kledd og tenk varme tanker. Det hjelper.",
+"text": "Gå varmt kledd å tenk varme tankar. Det hjelper.",
 "lang": "nb",
 "pool": "kind_words",
 "cat": "everyday",
@@ -13541,27 +12921,12 @@
 "situation": "a villager says something kind",
 "char": "townsperson",
 "voice": "w_adult|m_adult",
-"src": "batch"
-},
-{
-"id": "kind_words_08",
-"text": "Det er noe godt med deg. Jeg bare ville si det.",
-"lang": "nb",
-"pool": "kind_words",
-"cat": "everyday",
-"who": "any",
-"sx": "any",
-"trig": {},
-"how": "warm, sincere, gruff-sweet",
-"place": "the street",
-"situation": "a villager says something kind",
-"char": "townsperson",
-"voice": "w_adult|m_adult",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "skiing_01",
-"text": "Skitur i dag! Løypa er perfekt. Altså, den er der.",
+"text": "Skitur i dag! Løypa e perfekt. Altså, den e der.",
 "lang": "nb",
 "pool": "skiing",
 "cat": "everyday",
@@ -13573,43 +12938,12 @@
 "situation": "a skier or jogger passes",
 "char": "townsperson",
 "voice": "w_adult|m_adult",
-"src": "batch"
-},
-{
-"id": "skiing_02",
-"text": "Jeg løper hver dag. Det er derfor jeg alltid er sulten.",
-"lang": "nb",
-"pool": "skiing",
-"cat": "everyday",
-"who": "any",
-"sx": "any",
-"trig": {},
-"how": "sporty and out of breath",
-"place": "the street",
-"situation": "a skier or jogger passes",
-"char": "townsperson",
-"voice": "w_adult|m_adult",
-"src": "batch"
-},
-{
-"id": "skiing_03",
-"text": "Skiene har vokset seg fast i garasjen. Jeg tar meg tid med dem.",
-"lang": "nb",
-"pool": "skiing",
-"cat": "everyday",
-"who": "any",
-"sx": "any",
-"trig": {},
-"how": "sporty and out of breath",
-"place": "the street",
-"situation": "a skier or jogger passes",
-"char": "townsperson",
-"voice": "w_adult|m_adult",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "skiing_04",
-"text": "Ti kilometer og tilbake. Jeg har tatt ni. Det går bra.",
+"text": "Ti kilometer å tilbake. Eg har tatt ni. Det går bra.",
 "lang": "nb",
 "pool": "skiing",
 "cat": "everyday",
@@ -13621,11 +12955,12 @@
 "situation": "a skier or jogger passes",
 "char": "townsperson",
 "voice": "w_adult|m_adult",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "skiing_05",
-"text": "Det er ikke kaldt, det er bare frisk luft. Si det til deg selv så ofte du kan.",
+"text": "Det e ikkje kaldt, det e bære frisk luft. Sei det te dæ sjølv så ofte du kan.",
 "lang": "nb",
 "pool": "skiing",
 "cat": "everyday",
@@ -13637,11 +12972,12 @@
 "situation": "a skier or jogger passes",
 "char": "townsperson",
 "voice": "w_adult|m_adult",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "skiing_06",
-"text": "Han tok meg igjen på bakken. Jeg tok ham igjen i kafeen.",
+"text": "Han tok mæ igjen i bakken. Eg tok han igjen på kafeen.",
 "lang": "nb",
 "pool": "skiing",
 "cat": "everyday",
@@ -13653,29 +12989,12 @@
 "situation": "a skier or jogger passes",
 "char": "townsperson",
 "voice": "w_adult|m_adult",
-"src": "batch"
-},
-{
-"id": "lights_talk_01",
-"text": "Se på gata vår! Hvert vindu har et lys.",
-"lang": "nb",
-"pool": "lights_talk",
-"cat": "everyday",
-"who": "any",
-"sx": "any",
-"trig": {
-"tod": "15-23"
-},
-"how": "proud of the street lights",
-"place": "the street at dusk",
-"situation": "a villager talks about the Christmas lights",
-"char": "townsperson",
-"voice": "w_adult|m_adult",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "lights_talk_02",
-"text": "Jeg skrudde på alle lysene. Strømmen gikk. Så tente jeg stearinlys. Det ble enda finere.",
+"text": "Eg skrudde på alle lysa. Straumen gjekk. Så tente eg stearinlys. Det vart endå penare.",
 "lang": "nb",
 "pool": "lights_talk",
 "cat": "everyday",
@@ -13689,11 +13008,12 @@
 "situation": "a villager talks about the Christmas lights",
 "char": "townsperson",
 "voice": "w_adult|m_adult",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "lights_talk_03",
-"text": "Lysene hos naboen blinker i takt med radioen. Jeg vet ikke om det er med vilje.",
+"text": "Lysa hos naboen blinkar i takt mæ radioen. Eg veit ikkje om det e mæ vilje.",
 "lang": "nb",
 "pool": "lights_talk",
 "cat": "everyday",
@@ -13707,11 +13027,12 @@
 "situation": "a villager talks about the Christmas lights",
 "char": "townsperson",
 "voice": "w_adult|m_adult",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "lights_talk_04",
-"text": "Når mørket kommer, er det som om alle husene puster ut og tenner et lys.",
+"text": "Når mørket kjem, e det som om alle husa pustar ut å tenner eit lys.",
 "lang": "nb",
 "pool": "lights_talk",
 "cat": "everyday",
@@ -13725,29 +13046,12 @@
 "situation": "a villager talks about the Christmas lights",
 "char": "townsperson",
 "voice": "w_adult|m_adult",
-"src": "batch"
-},
-{
-"id": "lights_talk_05",
-"text": "Lysene er det eneste som varmer i desember. Det og kjeks.",
-"lang": "nb",
-"pool": "lights_talk",
-"cat": "everyday",
-"who": "any",
-"sx": "any",
-"trig": {
-"tod": "15-23"
-},
-"how": "proud of the street lights",
-"place": "the street at dusk",
-"situation": "a villager talks about the Christmas lights",
-"char": "townsperson",
-"voice": "w_adult|m_adult",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "lights_talk_06",
-"text": "Lyskjeden er ti år gammel. Halvparten virker. Den halvparten er min favorittdel.",
+"text": "Lyskjeda e ti år gammal. Halvparten verkar. Den halvparten e favoritten min.",
 "lang": "nb",
 "pool": "lights_talk",
 "cat": "everyday",
@@ -13761,7 +13065,8 @@
 "situation": "a villager talks about the Christmas lights",
 "char": "townsperson",
 "voice": "w_adult|m_adult",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "spirit_low_01",
@@ -15781,7 +15086,7 @@
 },
 {
 "id": "wx_snow_01",
-"text": "Det snør igjen! Jeg elsker det. Jeg hater å måke det. Men jeg elsker det.",
+"text": "Det snør att! Eg elskar det. Eg hatar å måka det. Men eg elskar det.",
 "lang": "nb",
 "pool": "wx_snow",
 "cat": "weather",
@@ -15795,11 +15100,12 @@
 "situation": "it is snowing",
 "char": "townsperson",
 "voice": "w_adult|m_adult",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "wx_snow_02",
-"text": "Se på snøfnuggene! Hver og en er helt unik. Og alle ender opp i kragen min.",
+"text": "Sjå på snøfnugga! Kvart einaste e heilt unikt. Å alle endar i kragen min.",
 "lang": "nb",
 "pool": "wx_snow",
 "cat": "weather",
@@ -15813,11 +15119,12 @@
 "situation": "it is snowing",
 "char": "townsperson",
 "voice": "w_adult|m_adult",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "wx_snow_03",
-"text": "Snø på alle tak, snø på alle trær. Og på hodet mitt også, ser jeg.",
+"text": "Snø på alle tak, snø på alle tre. Å på hovudet mitt òg, ser eg.",
 "lang": "nb",
 "pool": "wx_snow",
 "cat": "weather",
@@ -15831,11 +15138,12 @@
 "situation": "it is snowing",
 "char": "townsperson",
 "voice": "w_adult|m_adult",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "wx_snow_04",
-"text": "Det er så stille når det snør. Selv bilene prøver å hviske.",
+"text": "Det e så stilt når det snør. Sjøl bilane prøver å kviskra.",
 "lang": "nb",
 "pool": "wx_snow",
 "cat": "weather",
@@ -15849,65 +15157,12 @@
 "situation": "it is snowing",
 "char": "townsperson",
 "voice": "w_adult|m_adult",
-"src": "batch"
-},
-{
-"id": "wx_snow_05",
-"text": "Kjenner du lukta av snø? Det er ikke noe. Det er bare rent.",
-"lang": "nb",
-"pool": "wx_snow",
-"cat": "weather",
-"who": "any",
-"sx": "any",
-"trig": {
-"wx": "snow"
-},
-"how": "cosy, soft-spoken, delighted",
-"place": "the street",
-"situation": "it is snowing",
-"char": "townsperson",
-"voice": "w_adult|m_adult",
-"src": "batch"
-},
-{
-"id": "wx_snow_06",
-"text": "Snøen er en teppe over byen. Og vi er alle små, varme tåspisser under.",
-"lang": "nb",
-"pool": "wx_snow",
-"cat": "weather",
-"who": "any",
-"sx": "any",
-"trig": {
-"wx": "snow"
-},
-"how": "cosy, soft-spoken, delighted",
-"place": "the street",
-"situation": "it is snowing",
-"char": "townsperson",
-"voice": "w_adult|m_adult",
-"src": "batch"
-},
-{
-"id": "wx_snow_07",
-"text": "Barna er helt oppspilte. Jeg også, men det sier jeg ikke høyt.",
-"lang": "nb",
-"pool": "wx_snow",
-"cat": "weather",
-"who": "any",
-"sx": "any",
-"trig": {
-"wx": "snow"
-},
-"how": "cosy, soft-spoken, delighted",
-"place": "the street",
-"situation": "it is snowing",
-"char": "townsperson",
-"voice": "w_adult|m_adult",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "wx_snow_08",
-"text": "Perfekt snø til snømann! Fuktig og klissete. Akkurat som jeg liker den.",
+"text": "Perfekt snø te snømann! Fuktig å klissete. Akkurat som eg likar den.",
 "lang": "nb",
 "pool": "wx_snow",
 "cat": "weather",
@@ -15921,11 +15176,12 @@
 "situation": "it is snowing",
 "char": "townsperson",
 "voice": "w_adult|m_adult",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "wx_wind_01",
-"text": "Hatten min! Hatten min er på vei til Sverige!",
+"text": "Hatten min! Hatten min e på veg te Sverige!",
 "lang": "nb",
 "pool": "wx_wind",
 "cat": "weather",
@@ -15939,29 +15195,12 @@
 "situation": "it is windy",
 "char": "townsperson",
 "voice": "w_adult|m_adult",
-"src": "batch"
-},
-{
-"id": "wx_wind_02",
-"text": "Vinden tar alt! Også humøret mitt!",
-"lang": "nb",
-"pool": "wx_wind",
-"cat": "weather",
-"who": "any",
-"sx": "any",
-"trig": {
-"wx": "storm|blizzard"
-},
-"how": "bundled up, shouting against the wind",
-"place": "the street",
-"situation": "it is windy",
-"char": "townsperson",
-"voice": "w_adult|m_adult",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "wx_wind_03",
-"text": "Hold deg fast i lykta di! Den vil fly!",
+"text": "Hald dæ fast i lykta di! Den vil fly!",
 "lang": "nb",
 "pool": "wx_wind",
 "cat": "weather",
@@ -15975,29 +15214,12 @@
 "situation": "it is windy",
 "char": "townsperson",
 "voice": "w_adult|m_adult",
-"src": "batch"
-},
-{
-"id": "wx_wind_04",
-"text": "Dette er ikke vær, det er en holdning!",
-"lang": "nb",
-"pool": "wx_wind",
-"cat": "weather",
-"who": "any",
-"sx": "any",
-"trig": {
-"wx": "storm|blizzard"
-},
-"how": "bundled up, shouting against the wind",
-"place": "the street",
-"situation": "it is windy",
-"char": "townsperson",
-"voice": "w_adult|m_adult",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "wx_wind_05",
-"text": "Jeg hører kirkeklokka. Eller er det vinden som ringer den?",
+"text": "Eg høyrer kirkeklokka. Eller e det vinden som ringer den?",
 "lang": "nb",
 "pool": "wx_wind",
 "cat": "weather",
@@ -16011,11 +15233,12 @@
 "situation": "it is windy",
 "char": "townsperson",
 "voice": "w_adult|m_adult",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "wx_wind_06",
-"text": "Stakkars flaggstang. Den har ikke fått hvile siden søndag.",
+"text": "Stakkars flaggstang. Den har ikkje fått kvile sidan søndag.",
 "lang": "nb",
 "pool": "wx_wind",
 "cat": "weather",
@@ -16029,11 +15252,12 @@
 "situation": "it is windy",
 "char": "townsperson",
 "voice": "w_adult|m_adult",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "wx_night_snow_01",
-"text": "Snøen lyser i mørket. Vet du hvorfor? Den lyser fordi den vil.",
+"text": "Snøen lyser i mørket. Veit du kefor? Den lyser fordi den vil.",
 "lang": "nb",
 "pool": "wx_night_snow",
 "cat": "weather",
@@ -16048,11 +15272,12 @@
 "situation": "it is snowing at night",
 "char": "townsperson",
 "voice": "w_adult|m_adult",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "wx_night_snow_02",
-"text": "Alt er så stille nå. Hører du det? Det er snøen som lytter.",
+"text": "Alt e så stilt no. Høyrer du det? Det e snøen som lyttar.",
 "lang": "nb",
 "pool": "wx_night_snow",
 "cat": "weather",
@@ -16067,30 +15292,12 @@
 "situation": "it is snowing at night",
 "char": "townsperson",
 "voice": "w_adult|m_adult",
-"src": "batch"
-},
-{
-"id": "wx_night_snow_03",
-"text": "Det er ikke for sent å gå ut når det snør. Det er bare for sent å gå inn.",
-"lang": "nb",
-"pool": "wx_night_snow",
-"cat": "weather",
-"who": "any",
-"sx": "any",
-"trig": {
-"wx": "snow",
-"tod": "21-5"
-},
-"how": "hushed, enchanted",
-"place": "the street at night",
-"situation": "it is snowing at night",
-"char": "townsperson",
-"voice": "w_adult|m_adult",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "wx_night_snow_04",
-"text": "Skyggene tar pause når det snør. Sånn har jeg alltid trodd.",
+"text": "Skuggane tar pause når det snør. Slik har eg alltid trudd.",
 "lang": "nb",
 "pool": "wx_night_snow",
 "cat": "weather",
@@ -16105,11 +15312,12 @@
 "situation": "it is snowing at night",
 "char": "townsperson",
 "voice": "w_adult|m_adult",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "advent_sunday_01",
-"text": "I dag tenner vi et lys til. Det er et lite, men det teller.",
+"text": "I dag tenner me eit lys te. Det e eit lite, men det tel.",
 "lang": "nb",
 "pool": "advent_sunday",
 "cat": "advent",
@@ -16121,11 +15329,12 @@
 "situation": "a villager mentions the advent candles",
 "char": "townsperson (old)",
 "voice": "w_old|m_old",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "advent_sunday_02",
-"text": "Fire lys i adventsstaken. Ett for hver søndag. Og ett i hjertet.",
+"text": "Fire lys i adventsstaken. Eit for kvar søndag. Å eit i hjartet.",
 "lang": "nb",
 "pool": "advent_sunday",
 "cat": "advent",
@@ -16137,11 +15346,12 @@
 "situation": "a villager mentions the advent candles",
 "char": "townsperson (old)",
 "voice": "w_old|m_old",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "advent_sunday_03",
-"text": "Mormor tente det første lyset klokka fire. Hun sa det var best da.",
+"text": "Mormor tende det fyrste lyset klokka fire. Ho sa det va best da.",
 "lang": "nb",
 "pool": "advent_sunday",
 "cat": "advent",
@@ -16153,11 +15363,12 @@
 "situation": "a villager mentions the advent candles",
 "char": "townsperson (old)",
 "voice": "w_old|m_old",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "advent_sunday_04",
-"text": "Når det siste lyset brenner, er jula nesten her. Men ikke helt. Ikke ennå.",
+"text": "Når det siste lyset brenn, e jula nesten her. Men ikkje heilt. Ikkje enno.",
 "lang": "nb",
 "pool": "advent_sunday",
 "cat": "advent",
@@ -16169,11 +15380,12 @@
 "situation": "a villager mentions the advent candles",
 "char": "townsperson (old)",
 "voice": "w_old|m_old",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "advent_sunday_05",
-"text": "Har du tent lys i vinduet? Det skal man. Så de som er ute i mørket ser at noen venter.",
+"text": "Har du tent lys i vindauga? Det ska ein. Så dei som e ute i mørket ser at nokon ventar.",
 "lang": "nb",
 "pool": "advent_sunday",
 "cat": "advent",
@@ -16185,11 +15397,12 @@
 "situation": "a villager mentions the advent candles",
 "char": "townsperson (old)",
 "voice": "w_old|m_old",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "advent_sunday_06",
-"text": "Tid for adventslys og lukt av kanel. Det er det beste jeg vet.",
+"text": "Tid for adventslys å lukt av kanel. Det e det beste eg veit.",
 "lang": "nb",
 "pool": "advent_sunday",
 "cat": "advent",
@@ -16201,11 +15414,12 @@
 "situation": "a villager mentions the advent candles",
 "char": "townsperson (old)",
 "voice": "w_old|m_old",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "kvent_gossip2_01",
-"text": "Har du spilt Kvent? Jeg tapte tre ganger mot en dame som strikket. Samtidig.",
+"text": "Har du spelt Kvent? Eg tapte tre gongar mot ei dame som strikka. Samtidig.",
 "lang": "nb",
 "pool": "kvent_gossip2",
 "cat": "kvent",
@@ -16217,27 +15431,12 @@
 "situation": "townspeople talk about the Kvent card game",
 "char": "townsperson",
 "voice": "w_adult|m_adult",
-"src": "batch"
-},
-{
-"id": "kvent_gossip2_02",
-"text": "Kortene mine er dyrere enn bilen min. Bilen min er en sykkel. Men likevel.",
-"lang": "nb",
-"pool": "kvent_gossip2",
-"cat": "kvent",
-"who": "any",
-"sx": "any",
-"trig": {},
-"how": "a card-game nerd, a little too intense",
-"place": "the street",
-"situation": "townspeople talk about the Kvent card game",
-"char": "townsperson",
-"voice": "w_adult|m_adult",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "kvent_gossip2_03",
-"text": "Jeg har en sjelden en. Jeg sier ikke hvilken. Jeg sover med den.",
+"text": "Eg har ei sjeldan. Eg seier ikkje kva. Eg søv mæ ho.",
 "lang": "nb",
 "pool": "kvent_gossip2",
 "cat": "kvent",
@@ -16249,27 +15448,12 @@
 "situation": "townspeople talk about the Kvent card game",
 "char": "townsperson",
 "voice": "w_adult|m_adult",
-"src": "batch"
-},
-{
-"id": "kvent_gossip2_04",
-"text": "Kvent er ikke et spill. Det er en livsstil. Og en dårlig vane.",
-"lang": "nb",
-"pool": "kvent_gossip2",
-"cat": "kvent",
-"who": "any",
-"sx": "any",
-"trig": {},
-"how": "a card-game nerd, a little too intense",
-"place": "the street",
-"situation": "townspeople talk about the Kvent card game",
-"char": "townsperson",
-"voice": "w_adult|m_adult",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "kvent_gossip2_05",
-"text": "Den som vinner tar kortene. Den som taper tar kakao. Jeg har mye kakao.",
+"text": "Ho som vinn tar korta. Ho som taper tar kakao. Eg har mykje kakao.",
 "lang": "nb",
 "pool": "kvent_gossip2",
 "cat": "kvent",
@@ -16281,11 +15465,12 @@
 "situation": "townspeople talk about the Kvent card game",
 "char": "townsperson",
 "voice": "w_adult|m_adult",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "kvent_gossip2_06",
-"text": "Blånissene jukser, sier rødnissene. Rødnissene jukser, sier blånissene. Alle jukser, og det er det som er så fint.",
+"text": "Blånissane jukser, seier rødnissane. Rødnissane jukser, seier blånissane. Alle jukser, å det e det som e så fint.",
 "lang": "nb",
 "pool": "kvent_gossip2",
 "cat": "kvent",
@@ -16297,11 +15482,12 @@
 "situation": "townspeople talk about the Kvent card game",
 "char": "townsperson",
 "voice": "w_adult|m_adult",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "kvent_gossip2_07",
-"text": "Jeg har aldri vunnet over Kåre. Han sier det er teknikk. Jeg sier det er trolldom.",
+"text": "Eg har aldri vunne over Kåre. Han seier det e teknikk. Eg seier det e trolldom.",
 "lang": "nb",
 "pool": "kvent_gossip2",
 "cat": "kvent",
@@ -16313,27 +15499,12 @@
 "situation": "townspeople talk about the Kvent card game",
 "char": "townsperson",
 "voice": "w_adult|m_adult",
-"src": "batch"
-},
-{
-"id": "kvent_gossip2_08",
-"text": "Å bytte kort er som å bytte oppskrifter. Du gir bort det beste og får tilbake det nest beste.",
-"lang": "nb",
-"pool": "kvent_gossip2",
-"cat": "kvent",
-"who": "any",
-"sx": "any",
-"trig": {},
-"how": "a card-game nerd, a little too intense",
-"place": "the street",
-"situation": "townspeople talk about the Kvent card game",
-"char": "townsperson",
-"voice": "w_adult|m_adult",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "race_extra_01",
-"text": "De skal kjøre fra Hunsbedt til den grønne brua igjen. Hvis noen vinner, får de æren. Og en kopp kaffe.",
+"text": "Dei ska køyra frå Hunsbedt te den grøne brua att. Viss nokon vinn, får dei æra. Å ein kopp kaffi.",
 "lang": "nb",
 "pool": "race_extra",
 "cat": "race",
@@ -16345,11 +15516,12 @@
 "situation": "townspeople talk about the street race",
 "char": "townsperson",
 "voice": "w_adult|m_adult",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "race_extra_02",
-"text": "Svarte-Kare har aldri tapt. Jeg tror han sover i bilen.",
+"text": "Svarte-Kare har aldri tapt. Eg trur han søv i bilen.",
 "lang": "nb",
 "pool": "race_extra",
 "cat": "race",
@@ -16361,43 +15533,12 @@
 "situation": "townspeople talk about the street race",
 "char": "townsperson",
 "voice": "w_adult|m_adult",
-"src": "batch"
-},
-{
-"id": "race_extra_03",
-"text": "Jeg satser på den som kjører rolig og tenker mye. Jeg satser aldri riktig.",
-"lang": "nb",
-"pool": "race_extra",
-"cat": "race",
-"who": "any",
-"sx": "any",
-"trig": {},
-"how": "locals proud of the road and the old rivalry",
-"place": "the street",
-"situation": "townspeople talk about the street race",
-"char": "townsperson",
-"voice": "w_adult|m_adult",
-"src": "batch"
-},
-{
-"id": "race_extra_04",
-"text": "Det er mer fart i gata nå enn det har vært siden 1987.",
-"lang": "nb",
-"pool": "race_extra",
-"cat": "race",
-"who": "any",
-"sx": "any",
-"trig": {},
-"how": "locals proud of the road and the old rivalry",
-"place": "the street",
-"situation": "townspeople talk about the street race",
-"char": "townsperson",
-"voice": "w_adult|m_adult",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "race_extra_05",
-"text": "Hvis du skal kjøre, så kjør pent. Eller kjør fort og pent. Ikke bare fort.",
+"text": "Viss du ska køyra, så køyr pent. Eller køyr fort å pent. Ikkje bære fort.",
 "lang": "nb",
 "pool": "race_extra",
 "cat": "race",
@@ -16409,11 +15550,12 @@
 "situation": "townspeople talk about the street race",
 "char": "townsperson",
 "voice": "w_adult|m_adult",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "race_extra_06",
-"text": "Veien er bra, men den er glatt. Det er alltid noe.",
+"text": "Vegen e bra, men han e glatt. Det e alltid nåkka.",
 "lang": "nb",
 "pool": "race_extra",
 "cat": "race",
@@ -16425,7 +15567,8 @@
 "situation": "townspeople talk about the street race",
 "char": "townsperson",
 "voice": "w_adult|m_adult",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "cop_extra_01",
@@ -16525,7 +15668,7 @@
 },
 {
 "id": "creature_extra_01",
-"text": "Jeg hørte noe i skogen i natt. Det var ikke en elg. Elger er høyere. Dette var lavere og vettug.",
+"text": "Eg høyrde nåkka i skogen i natt. Det va ikkje ein elg. Elgar e høgare. Dette va lågare å vettugare.",
 "lang": "nb",
 "pool": "creature_extra",
 "cat": "creatures",
@@ -16539,11 +15682,12 @@
 "situation": "townspeople talk about what lives in the woods",
 "char": "townsperson",
 "voice": "w_adult|m_adult",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "creature_extra_02",
-"text": "Bestemor sier at huldra har en hale. Bestefar sier at hun har en kjæreste. De snakker ikke sammen.",
+"text": "Bestemor seier at huldra har hale. Bestefar seier at ho har ein kjærast. Dei snakkar ikkje saman.",
 "lang": "nb",
 "pool": "creature_extra",
 "cat": "creatures",
@@ -16557,11 +15701,12 @@
 "situation": "townspeople talk about what lives in the woods",
 "char": "townsperson",
 "voice": "w_adult|m_adult",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "creature_extra_03",
-"text": "Gå aldri alene i skogen etter mørkets frembrudd. Gå sammen med noen. Helst noen som løper saktere enn deg.",
+"text": "Gå aldri åleine i skogen etter mørkets frambrot. Gå saman mæ nokon. Helst nokon som spring seinare enn dæ.",
 "lang": "nb",
 "pool": "creature_extra",
 "cat": "creatures",
@@ -16575,29 +15720,12 @@
 "situation": "townspeople talk about what lives in the woods",
 "char": "townsperson",
 "voice": "w_adult|m_adult",
-"src": "batch"
-},
-{
-"id": "creature_extra_04",
-"text": "Trollene er snille hvis du ikke ser rart på dem.",
-"lang": "nb",
-"pool": "creature_extra",
-"cat": "creatures",
-"who": "any",
-"sx": "any",
-"trig": {
-"tod": "17-6"
-},
-"how": "nervous or matter-of-fact about the woods",
-"place": "the street",
-"situation": "townspeople talk about what lives in the woods",
-"char": "townsperson",
-"voice": "w_adult|m_adult",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "creature_extra_05",
-"text": "Det lyser i trærne. Jeg tror det er en lykt. Jeg håper det er en lykt.",
+"text": "Det lyser i trea. Eg trur det e ei lykt. Eg håpar det e ei lykt.",
 "lang": "nb",
 "pool": "creature_extra",
 "cat": "creatures",
@@ -16611,11 +15739,12 @@
 "situation": "townspeople talk about what lives in the woods",
 "char": "townsperson",
 "voice": "w_adult|m_adult",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "creature_extra_06",
-"text": "Nisser er ikke farlige. Bare uforutsigbare. Og noen ganger bitte litt.",
+"text": "Nissar e ikkje farlege. Bære uføreseielege. Å nokre gongar bit dei litt.",
 "lang": "nb",
 "pool": "creature_extra",
 "cat": "creatures",
@@ -16629,7 +15758,8 @@
 "situation": "townspeople talk about what lives in the woods",
 "char": "townsperson",
 "voice": "w_adult|m_adult",
-"src": "batch"
+"src": "batch",
+"dialect": "agder"
 },
 {
 "id": "nisse_extra_red_01",
@@ -25135,10 +24265,8 @@
 ],
 "kids": [
 "td_041",
-"td_042",
 "td_043",
 "td_044",
-"td_045",
 "td_046"
 ],
 "neighbours": [
@@ -25158,49 +24286,39 @@
 ],
 "place_grocery": [
 "td_057",
-"td_058",
-"td_059",
 "td_060",
 "td_061",
 "td_062",
-"td_063",
 "td_064"
 ],
 "place_pharmacy": [
 "td_065",
 "td_066",
 "td_067",
-"td_068",
-"td_069"
+"td_068"
 ],
 "place_library": [
 "td_070",
 "td_071",
 "td_072",
-"td_073",
 "td_074"
 ],
 "place_cinema": [
 "td_075",
 "td_076",
-"td_077",
 "td_078",
-"td_079",
-"td_080"
+"td_079"
 ],
 "place_garage": [
 "td_081",
 "td_082",
-"td_083",
 "td_084",
-"td_085",
 "td_086"
 ],
 "place_bakery": [
 "td_087",
 "td_088",
 "td_089",
-"td_090",
 "td_091",
 "td_092"
 ],
@@ -25822,9 +24940,7 @@
 "place_bank": [
 "place_bank_01",
 "place_bank_02",
-"place_bank_03",
 "place_bank_04",
-"place_bank_05",
 "place_bank_06",
 "place_bank_07"
 ],
@@ -25832,43 +24948,33 @@
 "place_clothes_01",
 "place_clothes_02",
 "place_clothes_03",
-"place_clothes_04",
-"place_clothes_05",
 "place_clothes_06",
 "place_clothes_07"
 ],
 "place_electronics": [
 "place_electronics_01",
 "place_electronics_02",
-"place_electronics_03",
 "place_electronics_04",
-"place_electronics_05",
 "place_electronics_06",
 "place_electronics_07"
 ],
 "place_salon": [
 "place_salon_01",
-"place_salon_02",
 "place_salon_03",
-"place_salon_04",
 "place_salon_05",
 "place_salon_06",
 "place_salon_07"
 ],
 "place_wine": [
 "place_wine_01",
-"place_wine_02",
 "place_wine_03",
 "place_wine_04",
-"place_wine_05",
 "place_wine_06"
 ],
 "place_food": [
 "place_food_01",
 "place_food_02",
 "place_food_03",
-"place_food_04",
-"place_food_05",
 "place_food_06"
 ],
 "place_church": [
@@ -25876,7 +24982,6 @@
 "place_church_02",
 "place_church_03",
 "place_church_04",
-"place_church_05",
 "place_church_06"
 ],
 "place_townhall": [
@@ -25972,29 +25077,19 @@
 "kids2_01",
 "kids2_02",
 "kids2_03",
-"kids2_04",
-"kids2_05",
 "kids2_06",
 "kids2_07",
-"kids2_08",
 "kids2_09",
 "kids2_10",
 "kids2_11",
-"kids2_12",
-"kids2_13",
-"kids2_14",
-"kids2_15"
+"kids2_14"
 ],
 "old2": [
 "old2_01",
 "old2_02",
 "old2_03",
-"old2_04",
-"old2_05",
-"old2_06",
 "old2_07",
 "old2_08",
-"old2_09",
 "old2_10",
 "old2_11",
 "old2_12"
@@ -26104,37 +25199,25 @@
 "grumble": [
 "grumble_01",
 "grumble_02",
-"grumble_03",
-"grumble_04",
 "grumble_05",
-"grumble_06",
-"grumble_07",
 "grumble_08"
 ],
 "kind_words": [
-"kind_words_01",
-"kind_words_02",
 "kind_words_03",
 "kind_words_04",
-"kind_words_05",
 "kind_words_06",
-"kind_words_07",
-"kind_words_08"
+"kind_words_07"
 ],
 "skiing": [
 "skiing_01",
-"skiing_02",
-"skiing_03",
 "skiing_04",
 "skiing_05",
 "skiing_06"
 ],
 "lights_talk": [
-"lights_talk_01",
 "lights_talk_02",
 "lights_talk_03",
 "lights_talk_04",
-"lights_talk_05",
 "lights_talk_06"
 ],
 "spirit_low": [
@@ -26292,23 +25375,17 @@
 "wx_snow_02",
 "wx_snow_03",
 "wx_snow_04",
-"wx_snow_05",
-"wx_snow_06",
-"wx_snow_07",
 "wx_snow_08"
 ],
 "wx_wind": [
 "wx_wind_01",
-"wx_wind_02",
 "wx_wind_03",
-"wx_wind_04",
 "wx_wind_05",
 "wx_wind_06"
 ],
 "wx_night_snow": [
 "wx_night_snow_01",
 "wx_night_snow_02",
-"wx_night_snow_03",
 "wx_night_snow_04"
 ],
 "advent_sunday": [
@@ -26321,19 +25398,14 @@
 ],
 "kvent_gossip2": [
 "kvent_gossip2_01",
-"kvent_gossip2_02",
 "kvent_gossip2_03",
-"kvent_gossip2_04",
 "kvent_gossip2_05",
 "kvent_gossip2_06",
-"kvent_gossip2_07",
-"kvent_gossip2_08"
+"kvent_gossip2_07"
 ],
 "race_extra": [
 "race_extra_01",
 "race_extra_02",
-"race_extra_03",
-"race_extra_04",
 "race_extra_05",
 "race_extra_06"
 ],
@@ -26349,7 +25421,6 @@
 "creature_extra_01",
 "creature_extra_02",
 "creature_extra_03",
-"creature_extra_04",
 "creature_extra_05",
 "creature_extra_06"
 ],

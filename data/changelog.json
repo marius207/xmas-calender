@@ -1,6 +1,273 @@
 {
  "entries": [
   {
+   "date": "2026-11-09",
+   "time": "18:49",
+   "title": "Two new cabinets",
+   "items": [
+    "Bowlinghallen's arcade has two new machines on the back wall: MARTIN'S AUDI and CHRIS'S JOG.",
+    "Something is hidden inside them. Look closely from 3 December."
+   ]
+  },
+  {
+   "date": "2026-11-09",
+   "time": "18:39",
+   "title": "Litter (dev)",
+   "items": [
+    "Litter! Black bin bags, crushed cans, bottles, paper cups and takeaway boxes are lying around town: beside buildings and lamp posts, round car parks, shops and the football pitches, next to the bins and along the trails. Some bags are half buried in the snow.",
+    "Press E on a piece to pick it up. You carry up to five at a time: bags drag along the ground behind you, small things hang at your hip. Every piece slows you down a little and with a full load you cannot run. Trying to take a sixth gets you a funny line.",
+    "Walk to a bin and press E to dump the whole load (the pieces fly in with a rustle). Backspace (or tap the litter label on a phone) puts everything down again. You cannot carry litter and a Christmas tree at the same time, and in a car the load rides in the boot.",
+    "Tidying up is rewarded gently and never in a way you can farm: one Nice List point per dump (six a day at most) which also lifts the Christmas spirit. Pieces you dropped yourself do not count. Emptied spots stay empty for days and only a slow trickle of new litter turns up.",
+    "Dev helper for testing: window.__LITTER.nearest() / .teleport() find the closest litter. Add ?litter=0 to the address to switch it off."
+   ]
+  },
+  {
+   "date": "2026-11-09",
+   "time": "17:52",
+   "title": "Night Wing",
+   "items": [
+    "The flying car parked by the square is not ready yet. Keep an eye on the calendar, and on the sky after dark.",
+    "The jetpack race now has a new finish line, and its prize can only be won once."
+   ]
+  },
+  {
+   "date": "2026-11-09",
+   "time": "17:35",
+   "title": "Two hats",
+   "items": [
+    "The two nisse clans have been at odds for a long time. Look for grey footprints near their caves around 18 December, and be ready to play go-between."
+   ]
+  },
+  {
+   "date": "2026-11-09",
+   "time": "17:30",
+   "title": "After the witch",
+   "items": [
+    "Something changes after the big night on 12 December. Keep an eye on your front door in the mornings.",
+    "Guns and ammo are no longer found lying around or sold in the shop. If you want one, you will have to earn it another way."
+   ]
+  },
+  {
+   "date": "2026-11-04",
+   "time": "19:11",
+   "title": "A burnt-out house on Farmonen",
+   "items": [
+    "One house on Farmonen has burnt down: black wall stumps of uneven height, rubble and ash inside, a few glowing embers, and the brick chimney still standing and still smoking.",
+    "Walk up to it and your character wrinkles their nose: it smells burnt."
+   ]
+  },
+  {
+   "date": "2026-11-04",
+   "time": "10:22",
+   "title": "Gertrud: the witch finale",
+   "items": [
+    "Day 12: the witch boss opener (after the day card). Baking Day counter-batch weakens her (less health).",
+    "Win the fight and the spell breaks: a cut scene, and the witch is Gertrud, a nice old lady in her flat downstairs.",
+    "From 13 Dec Gertrud leaves a basket at your front door every day: cakes, and food for the animals with a note saying what it is for. One basket a day, nothing to farm.",
+    "Talk to Gertrud (E) for the first time and she hands you a revolver (she is American). She is now the only way to get guns: the rifle comes 19 Dec, the shotgun 22 Dec. Loot and the shop no longer have guns or bullets.",
+    "Every new cut scene can be sped up (hold Right) or skipped (double-tap Right, Esc)."
+   ]
+  },
+  {
+   "date": "2026-11-04",
+   "time": "10:18",
+   "title": "The Night Wing",
+   "items": [
+    "The flying car by the square is wrapped up until the right day",
+    "After dark it has a trail of glowing rings to follow across the sky",
+    "The jetpack ring race now finishes somewhere new, and its prize is a one-time thing"
+   ]
+  },
+  {
+   "date": "2026-11-04",
+   "time": "10:16",
+   "title": "The two nisse clans",
+   "items": [
+    "Red hats and blue hats have a new storyline in the woods",
+    "New nisse lines with voices",
+    "A new little table to find in town"
+   ]
+  },
+  {
+   "date": "2026-11-04",
+   "time": "09:35",
+   "title": "A very special night",
+   "items": [
+    "15 December now opens with its own scene instead of the plain day card",
+    "Loudspeakers and sirens around town on the day",
+    "Hold Right to speed the scene up, double-tap to jump ahead, or press SKIP"
+   ]
+  },
+  {
+   "date": "2026-11-04",
+   "time": "09:35",
+   "title": "The Threshold now comes on its own",
+   "items": [
+    "5 Dec: the street lamps go out for half a second and come back. Nobody mentions it",
+    "17 Dec evening: a short Threshold pulse (about 4 minutes, no demons, shops stay open). Twenty seconds inside Bowlinghallen and it gives up",
+    "21 Dec: the long Threshold night with everything on, until the last cairn is lit or dawn",
+    "A warning comes first: the lamps stutter, a deep hum swells, a heartbeat starts, then a few seconds of dead quiet. Lykta says what to do",
+    "Each night runs once per player, so it cannot be repeated for points"
+   ]
+  },
+  {
+   "date": "2026-11-04",
+   "time": "08:57",
+   "title": "Baking Day and the gingerbread house",
+   "items": [
+    "Baking Day (11 Dec): Mamma's recipe card, ingredients in different shops (one sold out), the first candle, the baking game and a tin for the witch",
+    "Gingerbread house (23 Dec): build it, ice it, press on candy, hang it on the tree",
+    "SKIP button in every baking game",
+    "Burnt batches keep the recipe card; the rewards come only once"
+   ]
+  },
+  {
+   "date": "2026-11-04",
+   "time": "09:00",
+   "title": "TV and radio follow the story",
+   "items": [
+    "Three TV voices now follow the story: Været og Nytt is calm and often wrong, Midnatt tells the late truth as bedtime stories, Nisse-TV is cheerful and does not notice anything",
+    "24 new TV episodes and 6 rewritten days, from the first week to the last, so every day has something new on",
+    "New Nisse-TV songs and shows, and two new Threshold-only programmes for the long nights",
+    "Downtown FM gets a newsbreak every day in the second half of December, plus two lines on the car radio",
+    "Heksa FM has one more thing to say"
+   ]
+  },
+  {
+   "date": "2026-11-04",
+   "time": "08:43",
+   "title": "Threshold weighs on Julestemning, Bowlinghallen is a refuge",
+   "items": [
+    "In the Threshold world Julestemning sinks slowly (stronger later in December, never below 28, at most 14 points a day)",
+    "Inside Bowlinghallen it never drains and it rises steadily, tapering off after 14 points a day, and the Hollows cannot enter",
+    "Cold blue edge and a THRESHOLD tag in the Threshold, warm golden glow and a REFUGE tag in the hall",
+    "Bowlinghallen REFUGE marker on the map and GPS",
+    "Lykta explains the refuge the first time you step in"
+   ]
+  },
+  {
+   "date": "2026-11-04",
+   "time": "08:40",
+   "title": "Story data: Lykta, Mom's letters, NCC, side quests",
+   "items": [
+    "Lykta's tasks for days 11, 13, 15-24 follow the story now: Baking Day at the bakery, the frozen river to look up, the Night Wing race out to the crater, the nisse clans at one table in the church, the longest night at Bowlinghallen, a neighbour to check on, Lille julaften, and Christmas Eve with timed lines for the afternoon, dusk and night.",
+    "Mom's letters: a new letter on 9 December with the recipe card (baked with the first candle). The stolen post comes back on 12 December, and the real last parcel arrives on 16 December.",
+    "NCC: new cordon lines at the crater on 16 December, a pulse line on 17 December and the closed case on 22 December with the wrong answer.",
+    "Four new side quests: a rumour from the shop (3 Dec), crumbs on Chris's mat (7 Dec), a photo of the lit tree (14 Dec) and a knock on the neighbour's door (22 Dec).",
+    "Town gossip by day (7, 8, 13, 15, 16, 17, 20, 22 Dec) is written and waits for the town-talk wiring.",
+    "Radio on the drive to Feda: two Downtown FM lines that foreshadow the fun night."
+   ]
+  },
+  {
+   "date": "2026-11-04",
+   "time": "08:25",
+   "title": "Smash everything (dev)",
+   "items": [
+    "Drive into a tree and it breaks: logs and leaves fly, a stump is left, the car loses a little speed. This now works for EVERY kind of tree: the forest trees, the little street trees, the lit garden trees by the houses, the sign trees, and the trees you placed with the builder.",
+    "Every snowman breaks too: the hat snowmen, the three in the square, the case-file ones and builder snowmen. Even a slow bump (about 10 km/h) topples a snowman, trees go down from about 15 km/h, and bins, benches, lamp posts and signs from about 12 km/h. The lamp posts along the Helldalen path go dark while they lie down.",
+    "Everything is put back about five minutes later, but only while nobody is looking at it. Nothing gives you points or money, wrecking other people's things still hurts the Nice List, and the police only care about big things somebody saw.",
+    "Kids are never hurt: a car only nudges them out of the way. Add ?smash=0 to the address to switch the new smashing off."
+   ]
+  },
+  {
+   "date": "2026-11-04",
+   "time": "06:56",
+   "title": "Townspeople talk much less, and in your own dialect (dev)",
+   "items": [
+    "Villagers now only chat on their own every 1.5 to 3 minutes (before: every 15 to 35 seconds), they go quiet when you stand still for 20 seconds, the 'standing around' remark comes at most once per 5 minutes, and lines never stack on top of each other.",
+    "About 140 of the ordinary small-talk lines (shops, weather, kids, old people, Christmas, lights) are rewritten from Oslo bokmål into Agder/Kvinesdal talk (eg, ikkje, me, ka, kor, mæ, dæ...). The 59 weakest ones are cut. Lines you have already recorded are untouched.",
+    "New review page presentations/dialect/review.html: old and new side by side, edit any line, export your wording."
+   ]
+  },
+  {
+   "date": "2026-11-04",
+   "time": "06:42",
+   "title": "The huge black blob in the night sky is gone (dev)",
+   "items": [
+    "In the CINEMATIC and REALISTIC looks a giant black, stair-stepped shape could swallow the sky and aurora (seen over the light show near the church). It was not a mountain: one overbright pixel poisoned the glow (bloom) effect and spread into big black blocks. The glow now ignores broken pixels, so the sky stays sky."
+   ]
+  },
+  {
+   "date": "2026-11-04",
+   "time": "06:26",
+   "title": "Every door now opens with something (dev)",
+   "items": [
+    "Every advent day from 2 to 24 now starts with a short title card when you open its door: the date, the day's name, Lykta's line and one peek at the TV. Hold Right to speed it up, double-tap Right to skip.",
+    "The game now has a story director that knows what is true on each day (witch, magic, the crater, the cordon, the clans, the dragon), so every later story piece plugs in with a few lines. Nothing in it can be farmed: story rewards are once only, per player.",
+    "After Christmas the game stays unlocked (the whole month open, the dungeon open for good) instead of going back to day 0."
+   ]
+  },
+  {
+   "date": "2026-11-03",
+   "time": "20:05",
+   "title": "Creatures now fight back and drop loot (dev)",
+   "items": [
+    "Creature fights are real now: every attack has a clear wind-up (rear up, hiss, dust, glowing eyes), a dodgeable strike and a recovery where you can hit back. Spiders stab, bite, shoot webs that slow you and pounce; the Varulv claws in chains and howls; the Draugr slams the ground; the Lindorm whips its tail; the Nøkken grabs. Big ones get a second phase at half health, limp when hurt and go wild when nearly beaten.",
+    "Hits feel like something: a tiny freeze on impact, camera shake, sparks, flashes, a health bar over the creature, bigger hits from behind or right after it attacks, and a proper defeat.",
+    "New creature sounds: growls, hisses, roars, screeches, skitters, paw thuds, impacts on shell, bone, wood and flesh, all made live in the game.",
+    "Beaten creatures drop things: spider silk, venom sacs, fangs, wolf claws, lindorm scales, silver pins, river pearls, glimmers, old iron and more. The right shops buy them for a few kroner. Each kind only drops so much per day, so there is nothing to farm."
+   ]
+  },
+  {
+   "date": "2026-11-03",
+   "time": "19:27",
+   "title": "More of Chris's voices are in the town (dev)",
+   "items": [
+    "Chris recorded more of his own voice and townspeople now say 15 of his lines: greetings, chatter between two villagers, barks to you when you are near, a cheer when the Christmas spirit rises or someone wins a race, plus the snow, snowman, julebrus and humming ones. They are rare and quiet, only near you, never in cutscenes. (dev build only)"
+   ]
+  },
+  {
+   "date": "2026-11-03",
+   "time": "18:07",
+   "title": "Creatures now live all over the woods (dev)",
+   "items": [
+    "The woods are no longer empty: hundreds of creature spots are spread over the whole valley (forests, bogs, streams, lakes and the fjord, lonely houses, peaks and caves), denser in the forests and around Liknes, Helldalen, Storekvina and Feda. Walk into the woods and something is usually not far away. (dev build only)",
+    "What lives where: Nøkken and Draugen on the water, Fossegrim and Lindorm at streams, Huldra, Draugr, Varulv, Tusser camps, Lyktemann and the Spider King in the woods, Gjenganger and Mare near lonely houses, the Rokk on the peaks by day (and the Wild Hunt on the Yule nights). Some only come out at night.",
+    "Signs before you see them: a howl, a bell or a screech from the right direction that gets louder as you get closer, tracks and claw marks in the snow, and glowing eyes in the dark trees at night.",
+    "On the big map (N), layer CREATURES: every creature out right now has its icon and name, and every creature den shows as a mound (grey question mark until you have found it; in the dev build all of them are shown). The layer badge shows live creatures near / total sites. SCARY MODE still hides them all.",
+    "Creatures never give rewards, so there is nothing to farm; the dangerous ones can hurt you at most once every 90 seconds and always give up the chase."
+   ]
+  },
+  {
+   "date": "2026-11-03",
+   "time": "18:06",
+   "title": "Water looks cleaner",
+   "items": [
+    "Water looks cleaner: the awkward line where the rippled water near you stopped and the flat far water began is gone. Far away the ripples, sparkle and see-through bed now melt smoothly into the misty far water, so there is no visible edge in the intro flyover or when you look out over the fjord.",
+    "Close to you the water keeps its ripples."
+   ]
+  },
+  {
+   "date": "2026-11-03",
+   "time": "17:05",
+   "title": "Street lights in Helldalen",
+   "items": [
+    "Helldalen now has real street lights and wires all the way along the gravel path, just like the real one: a slim dark pole every 40 metres with a little lamp over the path and a wire hanging between the poles.",
+    "The lamps glow warm at dusk, at night and on dark days, and are off in daylight. Snow and frost sit on top of the poles."
+   ]
+  },
+  {
+   "date": "2026-11-03",
+   "time": "14:43",
+   "title": "Safer on phones",
+   "items": [
+    "The big map and the music now use much less memory on phones, so the game should stay open a lot longer.",
+    "If a phone ever closes the game by itself, the next start is in a simple safe mode (simpler graphics) and says so.",
+    "If memory gets full while you play, the game lowers the detail by itself and shows the usual click-to-lower-graphics pop-up.",
+    "Loading is lighter on every device: the map no longer needs a huge temporary chunk of memory while it loads."
+   ]
+  },
+  {
+   "date": "2026-11-03",
+   "time": "14:14",
+   "title": "Smoother on all computers",
+   "items": [
+    "The game now tests your computer for 3 seconds the first time you play and starts at the right graphics level (you can still change it in Settings).",
+    "If it starts to lag, it reacts within a couple of seconds: crowds, creatures, snow and shadows are dialled down first, and come back slowly once it is smooth again. The 'click to lower graphics' pop-up only appears if that is not enough.",
+    "If your graphics card drops out for a moment the picture now comes back by itself, and F3 shows a speed meter with what the game is doing about it."
+   ]
+  },
+  {
    "date": "2026-11-03",
    "time": "07:10",
    "title": "Chris's house: lived-in family-home details on every floor (dev)",
@@ -3118,19 +3385,6 @@
     "JETPACK RINGS: start by the river south of Stjerneporten (search T: 'Jetpack rings (start)'). 20 rings over the river, under the bridge and up to the cairn on Nonskarknuten. Each ring +2 s fuel. Win: medal, kroner, the Elytra and 64 rockets, then jump off and fly",
     "SPARK RACE: top of Hamrevegen by the Hamre barns down to the roundabout, 1.7 km (search 'Spark race: Hamrevegen'). W kicks, A/D steer, S brakes, Shift/Space drift. Race Oddvar, Sigrid and Tor-Arne",
     "The Eye can't hurt you during a race"
-   ]
-  },
-  {
-   "date": "2026-10-17",
-   "time": "22:00",
-   "title": "The Night Wing",
-   "items": [
-    "A one-of-a-kind armoured flying car, parked on the square next to where you start",
-    "G to get in. On the ground it drives like a car",
-    "Space (or ↑) launches it on rockets: wings fold out and it flies",
-    "In the air: W/S throttle, A/D turn and bank, Space/↑ climb, C/↓ dive, Shift afterburner",
-    "Come in low and slow to land; the wings fold back in",
-    "G always gets you into a car you're standing next to"
    ]
   },
   {

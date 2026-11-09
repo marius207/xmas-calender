@@ -1,1783 +1,1810 @@
 {
- "_about": "Edit the text here, then run: python3 build/make_npc_voices.py   (only changed lines are re-made; --force redoes everything). Lykta: voice/lykta2/<id>.m4a. Villagers: voice/npc/<id>_<voice>.m4a. Real recordings: put <same name>.m4a in voice/lykta2/real/ or voice/npc/real/ and they win. A bark only plays if its text is EXACTLY a line the game shows over a villager, shopkeeper or officer (the speech bubble text); the \"who\" tells which kinds of speaker may say it. Changing a bark text here changes only the voice, not the bubble text in the game.",
- "lykta": {
-  "voice": {
-   "voice": "en-GB-SoniaNeural",
-   "rate": "-4%",
-   "pitch": "+1Hz"
+  "_about": "Edit the text here, then run: python3 build/make_npc_voices.py   (only changed lines are re-made; --force redoes everything). Lykta: voice/lykta2/<id>.m4a. Villagers: voice/npc/<id>_<voice>.m4a. Real recordings: put <same name>.m4a in voice/lykta2/real/ or voice/npc/real/ and they win. A bark only plays if its text is EXACTLY a line the game shows over a villager, shopkeeper or officer (the speech bubble text); the \"who\" tells which kinds of speaker may say it. Changing a bark text here changes only the voice, not the bubble text in the game.",
+  "lykta": {
+    "voice": {
+      "voice": "en-GB-SoniaNeural",
+      "rate": "-4%",
+      "pitch": "+1Hz"
+    },
+    "settings": {
+      "minGapSec": 45,
+      "firstDelaySec": 50,
+      "maxPerEventPerSession": 6,
+      "chance": 0.85,
+      "note": "minGapSec = the least time between two comments (any event); cool (per event, seconds) = the least time before the same event can comment again. Settings has LYKTA COMMENTS: Chatty / Quiet / Off."
+    },
+    "events": {
+      "place_square": {
+        "cool": 600,
+        "lines": [
+          "The square. Look at that tree. Okay, it's a very good tree. Don't tell the other trees.",
+          "Everyone ends up on the square sooner or later. Mostly to look at the tree. And to argue about parking.",
+          "Smell that? Gløgg. I can't smell. I just know it's gløgg.",
+          "The town hall has twenty-four doors and I know what's behind every one. I'm saying nothing.",
+          "If the church bells and the sleigh bells ring together, we run. Kidding. Probably."
+        ],
+        "desc": "you arrive at the town square"
+      },
+      "place_church": {
+        "cool": 900,
+        "lines": [
+          "The church. Nice and quiet. Suspiciously quiet. Churches are never this quiet.",
+          "Old church, old bells. If they ring on their own, we leave. That's the rule.",
+          "I like the church. Lots of candles. The candles and I have a lot in common."
+        ],
+        "desc": "you arrive at the church"
+      },
+      "place_cave": {
+        "cool": 600,
+        "lines": [
+          "That's a troll cave. Big hole, bad smell, lots of torches. Classic troll decorating.",
+          "Trolls hate light. Which is a problem, because I am the light. Hello, trolls.",
+          "Let's go in slowly. And by slowly I mean you go first.",
+          "I can hear something breathing in there. It's the wind. It is not the wind."
+        ],
+        "desc": "you get close to a troll cave"
+      },
+      "place_feda": {
+        "cool": 1200,
+        "lines": [
+          "Feda. The far end of the map. She threw us a very long way, didn't she?",
+          "Feda. Population: small. Coop Prix: the best little shop in the world, and the only one.",
+          "Home of the long road. Do you remember the long road? I remember the long road."
+        ],
+        "desc": "you reach Feda"
+      },
+      "place_fjord": {
+        "cool": 900,
+        "lines": [
+          "The fjord. So big. So still. So very, very deep. Let's not fall in.",
+          "I'm a lantern. Water and I do not get along. Please stay on the shore.",
+          "Pretty, isn't it? The water is like glass. Something under it is looking back."
+        ],
+        "desc": "you stand at the fjord"
+      },
+      "treelot": {
+        "cool": 600,
+        "lines": [
+          "A tree lot! Oh, this smells like Christmas. I think. I read about it.",
+          "Pick a good one. Not too tall, not too crooked. Nobody likes a crooked tree. Well, I do.",
+          "He sells trees by the metre. By the metre! Brilliant.",
+          "Remember, the witch hates trees too. So buying one is basically a political act."
+        ],
+        "desc": "you walk into the Christmas tree lot"
+      },
+      "carolers": {
+        "cool": 420,
+        "lines": [
+          "Carolers! Oh, they're good. A bit eerie, but good.",
+          "Listen to that. Four-part harmony at minus twelve degrees. That's dedication.",
+          "Please don't throw snowballs at the choir. I'm saying that for the record.",
+          "Tip them. The whole town likes you more for it. Well, a little."
+        ],
+        "desc": "a caroling group is close by"
+      },
+      "witchhouse": {
+        "cool": 600,
+        "lines": [
+          "That's her flat. Don't look at the window. Don't look at the window. You looked at the window.",
+          "She's down there, planning something. I can feel it in my wick.",
+          "Quietly now. She can hear a snowflake land.",
+          "Home sweet home. If home is a haunted basement with a grumpy landlady.",
+          "I used to hide in her kitchen. I will never speak of the kitchen."
+        ],
+        "desc": "you are outside the witch's house"
+      },
+      "crash": {
+        "cool": 90,
+        "lines": [
+          "Ow! Ow ow ow. Okay. We're fine. Mostly fine. I think my glass is cracked.",
+          "That was a wall. You hit a wall. A big, solid, very visible wall.",
+          "Is the car okay? Is the wall okay? Is anyone okay? I'm just asking.",
+          "The brake is the other pedal. Just so we're clear.",
+          "Wow. They'll talk about that for three days. And they will, I've heard them."
+        ],
+        "desc": "you crash the car"
+      },
+      "police_start": {
+        "cool": 240,
+        "lines": [
+          "Sirens! That's the police. That's the police and they're for us.",
+          "Okay, don't panic. Panic a little. Panic efficiently!",
+          "They really want to talk to you. Maybe it's a nice talk.",
+          "Left! No, the other left! Drive!"
+        ],
+        "desc": "the police start chasing you"
+      },
+      "police_escape": {
+        "cool": 240,
+        "lines": [
+          "We lost them! I can't believe we lost them. Please never do that again.",
+          "Quiet now. Act natural. Be a very ordinary car.",
+          "And that, kids, is why you don't drive on the pavement."
+        ],
+        "desc": "you get away from the police"
+      },
+      "flying": {
+        "cool": 300,
+        "lines": [
+          "We're flying! We're actually flying! I'm a lantern and I'm flying!",
+          "Look at that. The whole valley. It's tiny. Everything is tiny.",
+          "Do you know how many lanterns have flown? Me. It's just me.",
+          "Please land softly. Lanterns break. I break. I'm a very breakable lantern."
+        ],
+        "desc": "you fly (wings, jetpack, elytra, flying car)"
+      },
+      "chest": {
+        "cool": 60,
+        "lines": [
+          "A chest! Open it, open it, open it!",
+          "Ooh. Shiny. Tell me what's inside, I can't see from here.",
+          "Treasure! Hide it from the witch.",
+          "Somebody buried this on purpose, you know. That's romantic. Or suspicious.",
+          "Chests in the hills. I never get tired of that."
+        ],
+        "desc": "you open a treasure chest"
+      },
+      "quest_done": {
+        "cool": 60,
+        "lines": [
+          "Well done! One more thing crossed off the list.",
+          "Look at you, helping people. The whole town is going to love you.",
+          "I'm so proud. I'm just a lantern, but I'm proud.",
+          "Another one done. The calendar is going to be so happy.",
+          "You're good at this. Don't let it go to your head. Okay, a little."
+        ],
+        "desc": "you finish a quest or a mission"
+      },
+      "mum": {
+        "cool": 300,
+        "lines": [
+          "A letter from your mum! She always writes. I love it when she writes.",
+          "She sent cookies again, didn't she? ...Where do the cookies go?",
+          "Read it slowly. Mums put a lot of love in those. And a lot of cookies, apparently."
+        ],
+        "desc": "you read one of Mamma's letters"
+      },
+      "bus": {
+        "cool": 600,
+        "lines": [
+          "The bus! Ride the bus. It's slow and warm and nobody asks questions.",
+          "Do you have a ticket? I never need one. Lanterns ride free."
+        ],
+        "desc": "you get on a bus"
+      },
+      "ninja_sighting": {
+        "cool": 900,
+        "lines": [
+          "...What is THAT? Lights in the sky. Big ones. Nobody told me about lights, and I get told about everything.",
+          "Beams. Somebody is shining beams at the clouds, out there in the dark. I have so many questions.",
+          "Okay. That is either very exciting or very bad. Possibly both. I vote we go and find out."
+        ],
+        "desc": "you first notice the strange beams of light far away in the night sky (called by the ninja shell, never says where)"
+      }
+    }
   },
-  "settings": {
-   "minGapSec": 45,
-   "firstDelaySec": 50,
-   "maxPerEventPerSession": 6,
-   "chance": 0.85,
-   "note": "minGapSec = the least time between two comments (any event); cool (per event, seconds) = the least time before the same event can comment again. Settings has LYKTA COMMENTS: Chatty / Quiet / Off."
+  "npc": {
+    "personas": {
+      "w_adult": {
+        "voice": "nb-NO-PernilleNeural",
+        "rate": "+0%",
+        "pitch": "+0Hz",
+        "sex": "f"
+      },
+      "w_young": {
+        "voice": "nb-NO-PernilleNeural",
+        "rate": "+8%",
+        "pitch": "+10Hz",
+        "sex": "f"
+      },
+      "w_old": {
+        "voice": "nb-NO-PernilleNeural",
+        "rate": "-8%",
+        "pitch": "-14Hz",
+        "sex": "f"
+      },
+      "m_adult": {
+        "voice": "nb-NO-FinnNeural",
+        "rate": "+0%",
+        "pitch": "+0Hz",
+        "sex": "m"
+      },
+      "m_young": {
+        "voice": "nb-NO-FinnNeural",
+        "rate": "+6%",
+        "pitch": "+6Hz",
+        "sex": "m"
+      },
+      "m_old": {
+        "voice": "nb-NO-FinnNeural",
+        "rate": "-10%",
+        "pitch": "-12Hz",
+        "sex": "m"
+      },
+      "en_w": {
+        "voice": "en-US-JennyNeural",
+        "rate": "+4%",
+        "pitch": "+0Hz",
+        "sex": "f"
+      },
+      "en_m": {
+        "voice": "en-GB-ThomasNeural",
+        "rate": "+2%",
+        "pitch": "+0Hz",
+        "sex": "m"
+      },
+      "cop": {
+        "voice": "nb-NO-FinnNeural",
+        "rate": "-2%",
+        "pitch": "-9Hz",
+        "sex": "m",
+        "shout": true
+      },
+      "cop_f": {
+        "voice": "nb-NO-PernilleNeural",
+        "rate": "-2%",
+        "pitch": "-6Hz",
+        "sex": "f",
+        "shout": true
+      }
+    },
+    "settings": {
+      "hearM": 26,
+      "maxPerMinute": 7,
+      "minGapMs": 2500,
+      "chance": {
+        "gossip": 0.9,
+        "shop": 0.7,
+        "police": 0.8,
+        "default": 0.8
+      }
+    },
+    "barks": [
+      {
+        "id": "b001",
+        "kind": "gossip_kill",
+        "who": "any",
+        "lang": "nb",
+        "text": "Har du hørt om han som kjørte over julenissen?",
+        "voices": {
+          "f": "w_adult",
+          "m": "m_adult"
+        }
+      },
+      {
+        "id": "b002",
+        "kind": "gossip_kill",
+        "who": "any",
+        "lang": "nb",
+        "text": "De sier han tok julenissen rett på fortauet...",
+        "voices": {
+          "f": "w_young",
+          "m": "m_adult"
+        }
+      },
+      {
+        "id": "b003",
+        "kind": "gossip_kill",
+        "who": "any",
+        "lang": "nb",
+        "text": "Julenissen skal ikke være fornøyd. Bilisten heller ikke, tipper jeg.",
+        "voices": {
+          "f": "w_old",
+          "m": "m_adult"
+        }
+      },
+      {
+        "id": "b004",
+        "kind": "gossip_kill",
+        "who": "any",
+        "lang": "nb",
+        "text": "Har du sett bilen hans? Sånn kjører man ikke i Kvinesdal!",
+        "voices": {
+          "f": "w_adult",
+          "m": "m_young"
+        }
+      },
+      {
+        "id": "b005",
+        "kind": "gossip_knock",
+        "who": "any",
+        "lang": "nb",
+        "text": "Noen dytta borti en stakkar med bilen, midt i gata!",
+        "voices": {
+          "f": "w_young",
+          "m": "m_young"
+        }
+      },
+      {
+        "id": "b006",
+        "kind": "gossip_knock",
+        "who": "any",
+        "lang": "nb",
+        "text": "Hørte du? En bil tok en fotgjenger utenfor bakeriet.",
+        "voices": {
+          "f": "w_old",
+          "m": "m_young"
+        }
+      },
+      {
+        "id": "b007",
+        "kind": "gossip_knock",
+        "who": "any",
+        "lang": "nb",
+        "text": "Pass deg, det går en farlig sjåfør løs i sentrum.",
+        "voices": {
+          "f": "w_adult",
+          "m": "m_old"
+        }
+      },
+      {
+        "id": "b008",
+        "kind": "gossip_crash",
+        "who": "any",
+        "lang": "nb",
+        "text": "Hørte du smellet? En bil rett i veggen!",
+        "voices": {
+          "f": "w_young",
+          "m": "m_old"
+        }
+      },
+      {
+        "id": "b009",
+        "kind": "gossip_crash",
+        "who": "any",
+        "lang": "nb",
+        "text": "Han kjørte inn i et gjerde i går. Gjerdet har det bra.",
+        "voices": {
+          "f": "w_old",
+          "m": "m_old"
+        }
+      },
+      {
+        "id": "b010",
+        "kind": "gossip_crash",
+        "who": "any",
+        "lang": "nb",
+        "text": "Veggen vant, sier de.",
+        "voices": {
+          "f": "w_adult",
+          "m": "m_adult"
+        }
+      },
+      {
+        "id": "b011",
+        "kind": "gossip_carhit",
+        "who": "any",
+        "lang": "nb",
+        "text": "To biler kolliderte ved torget. Typisk.",
+        "voices": {
+          "f": "w_young",
+          "m": "m_adult"
+        }
+      },
+      {
+        "id": "b012",
+        "kind": "gossip_carhit",
+        "who": "any",
+        "lang": "nb",
+        "text": "Det smalt i sentrum i går. Bare bildeler igjen.",
+        "voices": {
+          "f": "w_old",
+          "m": "m_adult"
+        }
+      },
+      {
+        "id": "b013",
+        "kind": "gossip_speed",
+        "who": "any",
+        "lang": "nb",
+        "text": "Kjører man sånn på fortauet? PÅ FORTAUET!",
+        "voices": {
+          "f": "w_adult",
+          "m": "m_young"
+        }
+      },
+      {
+        "id": "b014",
+        "kind": "gossip_speed",
+        "who": "any",
+        "lang": "nb",
+        "text": "Se opp for han med bilen, han kjører som om vi er kjegler.",
+        "voices": {
+          "f": "w_young",
+          "m": "m_young"
+        }
+      },
+      {
+        "id": "b015",
+        "kind": "gossip_speed",
+        "who": "any",
+        "lang": "nb",
+        "text": "Jeg måtte hoppe i snøen for en bil i går.",
+        "voices": {
+          "f": "w_old",
+          "m": "m_young"
+        }
+      },
+      {
+        "id": "b016",
+        "kind": "gossip_chase",
+        "who": "any",
+        "lang": "nb",
+        "text": "Politiet jagde en bil gjennom sentrum! Jeg har det på film.",
+        "voices": {
+          "f": "w_adult",
+          "m": "m_old"
+        }
+      },
+      {
+        "id": "b017",
+        "kind": "gossip_chase",
+        "who": "any",
+        "lang": "nb",
+        "text": "Sirener hele kvelden. Jeg trodde det var julemusikk.",
+        "voices": {
+          "f": "w_young",
+          "m": "m_old"
+        }
+      },
+      {
+        "id": "b018",
+        "kind": "gossip_chase",
+        "who": "any",
+        "lang": "nb",
+        "text": "Har du sett politibilene? Noen har vært uskikkelige.",
+        "voices": {
+          "f": "w_old",
+          "m": "m_old"
+        }
+      },
+      {
+        "id": "b019",
+        "kind": "gossip_bang",
+        "who": "any",
+        "lang": "nb",
+        "text": "Noen skjøt opp raketter midt i sentrum. Hunden min er fortsatt under senga.",
+        "voices": {
+          "f": "w_adult",
+          "m": "m_adult"
+        }
+      },
+      {
+        "id": "b020",
+        "kind": "gossip_bang",
+        "who": "any",
+        "lang": "nb",
+        "text": "Den smellen! Jeg trodde det var krig.",
+        "voices": {
+          "f": "w_young",
+          "m": "m_adult"
+        }
+      },
+      {
+        "id": "b021",
+        "kind": "gossip_bang",
+        "who": "any",
+        "lang": "nb",
+        "text": "Nyttårsaften er jo ikke før om en måned...",
+        "voices": {
+          "f": "w_old",
+          "m": "m_adult"
+        }
+      },
+      {
+        "id": "b022",
+        "kind": "gossip_troll",
+        "who": "any",
+        "lang": "nb",
+        "text": "Det var et TROLL i sentrum. Et TROLL!",
+        "voices": {
+          "f": "w_adult",
+          "m": "m_young"
+        }
+      },
+      {
+        "id": "b023",
+        "kind": "gossip_troll",
+        "who": "any",
+        "lang": "nb",
+        "text": "Jeg så et troll. Nei, jeg har ikke drukket gløgg.",
+        "voices": {
+          "f": "w_young",
+          "m": "m_young"
+        }
+      },
+      {
+        "id": "b024",
+        "kind": "gossip_troll",
+        "who": "any",
+        "lang": "nb",
+        "text": "Trollet tok kaffen min.",
+        "voices": {
+          "f": "w_old",
+          "m": "m_young"
+        }
+      },
+      {
+        "id": "b025",
+        "kind": "gossip_tv",
+        "who": "any",
+        "lang": "nb",
+        "text": "Jeg så deg på Kvinesdal Nytt!",
+        "voices": {
+          "f": "w_adult",
+          "m": "m_old"
+        }
+      },
+      {
+        "id": "b026",
+        "kind": "gossip_tv",
+        "who": "any",
+        "lang": "nb",
+        "text": "Du er på TV nå, vet du. Leservideo!",
+        "voices": {
+          "f": "w_young",
+          "m": "m_old"
+        }
+      },
+      {
+        "id": "b027",
+        "kind": "gossip_tv",
+        "who": "any",
+        "lang": "nb",
+        "text": "Naboen min har lagt ut filmen. Alle har sett den.",
+        "voices": {
+          "f": "w_old",
+          "m": "m_old"
+        }
+      },
+      {
+        "id": "b028",
+        "kind": "gossip_good",
+        "who": "any",
+        "lang": "nb",
+        "text": "Har du hørt? Noen hjalp gamle Olga med handleposene!",
+        "voices": {
+          "f": "w_adult",
+          "m": "m_adult"
+        }
+      },
+      {
+        "id": "b029",
+        "kind": "gossip_good",
+        "who": "any",
+        "lang": "nb",
+        "text": "Fin fyr, han der. Han ga meg til og med en pepperkake.",
+        "voices": {
+          "f": "w_young",
+          "m": "m_adult"
+        }
+      },
+      {
+        "id": "b030",
+        "kind": "gossip_good",
+        "who": "any",
+        "lang": "nb",
+        "text": "Det går en snill en rundt i byen. Si det til ingen.",
+        "voices": {
+          "f": "w_old",
+          "m": "m_adult"
+        }
+      },
+      {
+        "id": "b031",
+        "kind": "gossip_bad",
+        "who": "any",
+        "lang": "nb",
+        "text": "Ikke stol på han der.",
+        "voices": {
+          "f": "w_adult",
+          "m": "m_young"
+        }
+      },
+      {
+        "id": "b032",
+        "kind": "gossip_bad",
+        "who": "any",
+        "lang": "nb",
+        "text": "Gjem lommeboka.",
+        "voices": {
+          "f": "w_young",
+          "m": "m_young"
+        }
+      },
+      {
+        "id": "b033",
+        "kind": "gossip_bad",
+        "who": "any",
+        "lang": "nb",
+        "text": "Der går han. Ikke se i øynene hans.",
+        "voices": {
+          "f": "w_old",
+          "m": "m_young"
+        }
+      },
+      {
+        "id": "b034",
+        "kind": "gossip_bad",
+        "who": "any",
+        "lang": "nb",
+        "text": "Hold hundene inne, folkens.",
+        "voices": {
+          "f": "w_adult",
+          "m": "m_old"
+        }
+      },
+      {
+        "id": "b035",
+        "kind": "gossip_good",
+        "who": "any",
+        "lang": "nb",
+        "text": "Der er hjelperen vår!",
+        "voices": {
+          "f": "w_young",
+          "m": "m_old"
+        }
+      },
+      {
+        "id": "b036",
+        "kind": "gossip_good",
+        "who": "any",
+        "lang": "nb",
+        "text": "God jul, venn!",
+        "voices": {
+          "f": "w_old",
+          "m": "m_old"
+        }
+      },
+      {
+        "id": "b037",
+        "kind": "gossip_good",
+        "who": "any",
+        "lang": "nb",
+        "text": "Tusen takk for sist!",
+        "voices": {
+          "f": "w_adult",
+          "m": "m_adult"
+        }
+      },
+      {
+        "id": "b038",
+        "kind": "gossip_good",
+        "who": "any",
+        "lang": "nb",
+        "text": "Du er det beste som har skjedd Kvinesdal siden brunosten.",
+        "voices": {
+          "f": "w_young",
+          "m": "m_adult"
+        }
+      },
+      {
+        "id": "b039",
+        "kind": "call",
+        "who": "any",
+        "lang": "nb",
+        "text": "Ring politiet!",
+        "voices": {
+          "f": "w_old",
+          "m": "m_adult"
+        }
+      },
+      {
+        "id": "b040",
+        "kind": "call",
+        "who": "any",
+        "lang": "nb",
+        "text": "Hallo? Politiet? Kom raskt!",
+        "voices": {
+          "f": "w_adult",
+          "m": "m_young"
+        }
+      },
+      {
+        "id": "b041",
+        "kind": "call",
+        "who": "any",
+        "lang": "nb",
+        "text": "Jeg ringer 112!",
+        "voices": {
+          "f": "w_young",
+          "m": "m_young"
+        }
+      },
+      {
+        "id": "b042",
+        "kind": "call",
+        "who": "any",
+        "lang": "nb",
+        "text": "Hallo? Det har skjedd noe!",
+        "voices": {
+          "f": "w_old",
+          "m": "m_young"
+        }
+      },
+      {
+        "id": "b043",
+        "kind": "call",
+        "who": "any",
+        "lang": "nb",
+        "text": "Politiet er på vei!",
+        "voices": {
+          "f": "w_adult",
+          "m": "m_old"
+        }
+      },
+      {
+        "id": "b044",
+        "kind": "gawk",
+        "who": "any",
+        "lang": "nb",
+        "text": "Så skummelt!",
+        "voices": {
+          "f": "w_young",
+          "m": "m_old"
+        }
+      },
+      {
+        "id": "b045",
+        "kind": "gawk",
+        "who": "any",
+        "lang": "nb",
+        "text": "Hva var det?!",
+        "voices": {
+          "f": "w_old",
+          "m": "m_old"
+        }
+      },
+      {
+        "id": "b046",
+        "kind": "gawk",
+        "who": "any",
+        "lang": "nb",
+        "text": "Oi oi oi.",
+        "voices": {
+          "f": "w_adult",
+          "m": "m_adult"
+        }
+      },
+      {
+        "id": "b047",
+        "kind": "gawk",
+        "who": "any",
+        "lang": "nb",
+        "text": "Så du det?!",
+        "voices": {
+          "f": "w_young",
+          "m": "m_adult"
+        }
+      },
+      {
+        "id": "b048",
+        "kind": "gawk",
+        "who": "any",
+        "lang": "nb",
+        "text": "Herregud!",
+        "voices": {
+          "f": "w_old",
+          "m": "m_adult"
+        }
+      },
+      {
+        "id": "b049",
+        "kind": "dodge",
+        "who": "any",
+        "lang": "nb",
+        "text": "Hei! Se deg for!",
+        "voices": {
+          "f": "w_adult",
+          "m": "m_young"
+        }
+      },
+      {
+        "id": "b050",
+        "kind": "dodge",
+        "who": "any",
+        "lang": "nb",
+        "text": "Pass deg!",
+        "voices": {
+          "f": "w_young",
+          "m": "m_young"
+        }
+      },
+      {
+        "id": "b051",
+        "kind": "dodge",
+        "who": "any",
+        "lang": "nb",
+        "text": "Bilen!",
+        "voices": {
+          "f": "w_old",
+          "m": "m_young"
+        }
+      },
+      {
+        "id": "b052",
+        "kind": "dodge",
+        "who": "any",
+        "lang": "nb",
+        "text": "Oi!",
+        "voices": {
+          "f": "w_adult",
+          "m": "m_old"
+        }
+      },
+      {
+        "id": "b053",
+        "kind": "shaken",
+        "who": "any",
+        "lang": "nb",
+        "text": "Jeg trenger en kaffe.",
+        "voices": {
+          "f": "w_young",
+          "m": "m_old"
+        }
+      },
+      {
+        "id": "b054",
+        "kind": "shaken",
+        "who": "any",
+        "lang": "nb",
+        "text": "Er det over?",
+        "voices": {
+          "f": "w_old",
+          "m": "m_old"
+        }
+      },
+      {
+        "id": "b055",
+        "kind": "shaken",
+        "who": "any",
+        "lang": "nb",
+        "text": "Hjertet mitt...",
+        "voices": {
+          "f": "w_adult",
+          "m": "m_adult"
+        }
+      },
+      {
+        "id": "b056",
+        "kind": "shaken",
+        "who": "any",
+        "lang": "nb",
+        "text": "Uff da.",
+        "voices": {
+          "f": "w_young",
+          "m": "m_adult"
+        }
+      },
+      {
+        "id": "b057",
+        "kind": "shaken",
+        "who": "any",
+        "lang": "nb",
+        "text": "Ja... ja... jeg venter.",
+        "voices": {
+          "f": "w_old",
+          "m": "m_adult"
+        }
+      },
+      {
+        "id": "b058",
+        "kind": "scream",
+        "who": "any",
+        "lang": "nb",
+        "text": "Hjelp!",
+        "voices": {
+          "f": "w_adult",
+          "m": "m_young"
+        }
+      },
+      {
+        "id": "b059",
+        "kind": "scream",
+        "who": "any",
+        "lang": "nb",
+        "text": "Pass opp!",
+        "voices": {
+          "f": "w_young",
+          "m": "m_young"
+        }
+      },
+      {
+        "id": "b060",
+        "kind": "scream",
+        "who": "any",
+        "lang": "nb",
+        "text": "Nei nei nei!",
+        "voices": {
+          "f": "w_old",
+          "m": "m_young"
+        }
+      },
+      {
+        "id": "b061",
+        "kind": "scream",
+        "who": "any",
+        "lang": "nb",
+        "text": "Spring!",
+        "voices": {
+          "f": "w_adult",
+          "m": "m_old"
+        }
+      },
+      {
+        "id": "b062",
+        "kind": "film",
+        "who": "any",
+        "lang": "nb",
+        "text": "Dette må jeg ha på film!",
+        "voices": {
+          "f": "w_young",
+          "m": "m_old"
+        }
+      },
+      {
+        "id": "b063",
+        "kind": "film",
+        "who": "any",
+        "lang": "nb",
+        "text": "Rec... rec...",
+        "voices": {
+          "f": "w_old",
+          "m": "m_old"
+        }
+      },
+      {
+        "id": "b064",
+        "kind": "film",
+        "who": "any",
+        "lang": "nb",
+        "text": "Alle kommer til å se dette!",
+        "voices": {
+          "f": "w_adult",
+          "m": "m_adult"
+        }
+      },
+      {
+        "id": "b065",
+        "kind": "film",
+        "who": "any",
+        "lang": "nb",
+        "text": "Hold deg i bildet!",
+        "voices": {
+          "f": "w_young",
+          "m": "m_adult"
+        }
+      },
+      {
+        "id": "b066",
+        "kind": "police",
+        "who": "cop",
+        "lang": "nb",
+        "text": "STOPP! POLITIET!",
+        "voices": {
+          "m": "cop",
+          "f": "cop_f"
+        }
+      },
+      {
+        "id": "b067",
+        "kind": "police",
+        "who": "cop",
+        "lang": "nb",
+        "text": "Stå stille!",
+        "voices": {
+          "m": "cop",
+          "f": "cop_f"
+        }
+      },
+      {
+        "id": "b068",
+        "kind": "police",
+        "who": "cop",
+        "lang": "nb",
+        "text": "Hold deg i ro!",
+        "voices": {
+          "m": "cop",
+          "f": "cop_f"
+        }
+      },
+      {
+        "id": "b069",
+        "kind": "police",
+        "who": "cop",
+        "lang": "nb",
+        "text": "Bli stående!",
+        "voices": {
+          "m": "cop",
+          "f": "cop_f"
+        }
+      },
+      {
+        "id": "b070",
+        "kind": "police",
+        "who": "cop",
+        "lang": "nb",
+        "text": "STOPP!",
+        "voices": {
+          "m": "cop",
+          "f": "cop_f"
+        }
+      },
+      {
+        "id": "b071",
+        "kind": "owner",
+        "who": "any",
+        "lang": "nb",
+        "text": "HEI! Det er bilen min!",
+        "voices": {
+          "f": "w_young",
+          "m": "m_old"
+        }
+      },
+      {
+        "id": "b072",
+        "kind": "owner",
+        "who": "any",
+        "lang": "nb",
+        "text": "Hva i alle dager?!",
+        "voices": {
+          "f": "w_old",
+          "m": "m_old"
+        }
+      },
+      {
+        "id": "b073",
+        "kind": "owner",
+        "who": "any",
+        "lang": "nb",
+        "text": "STOPP, TYV!",
+        "voices": {
+          "f": "w_adult",
+          "m": "m_adult"
+        }
+      },
+      {
+        "id": "b074",
+        "kind": "owner",
+        "who": "any",
+        "lang": "nb",
+        "text": "Min bil! Hjelp!",
+        "voices": {
+          "f": "w_young",
+          "m": "m_adult"
+        }
+      },
+      {
+        "id": "b075",
+        "kind": "shop_bakery",
+        "who": "shop",
+        "lang": "en",
+        "text": "Velkommen! Fresh skillingsboller today.",
+        "voices": {
+          "f": "en_w",
+          "m": "en_m"
+        }
+      },
+      {
+        "id": "b076",
+        "kind": "shop_bakery",
+        "who": "shop",
+        "lang": "en",
+        "text": "God jul! The julekake just came out of the oven.",
+        "voices": {
+          "f": "en_w",
+          "m": "en_m"
+        }
+      },
+      {
+        "id": "b077",
+        "kind": "shop_bakery",
+        "who": "shop",
+        "lang": "en",
+        "text": "Lussekatter — only in December!",
+        "voices": {
+          "f": "en_w",
+          "m": "en_m"
+        }
+      },
+      {
+        "id": "b078",
+        "kind": "shop_cafe",
+        "who": "shop",
+        "lang": "en",
+        "text": "Hei! Kaffe og vafler?",
+        "voices": {
+          "f": "en_w",
+          "m": "en_m"
+        }
+      },
+      {
+        "id": "b079",
+        "kind": "shop_cafe",
+        "who": "shop",
+        "lang": "en",
+        "text": "Velkommen! The kakao comes with whipped cream.",
+        "voices": {
+          "f": "en_w",
+          "m": "en_m"
+        }
+      },
+      {
+        "id": "b080",
+        "kind": "shop_cafe",
+        "who": "shop",
+        "lang": "en",
+        "text": "Grab a table, I'll bring it over.",
+        "voices": {
+          "f": "en_w",
+          "m": "en_m"
+        }
+      },
+      {
+        "id": "b081",
+        "kind": "shop_grocery",
+        "who": "shop",
+        "lang": "en",
+        "text": "Hei! Grandiosa is on offer this week.",
+        "voices": {
+          "f": "en_w",
+          "m": "en_m"
+        }
+      },
+      {
+        "id": "b082",
+        "kind": "shop_grocery",
+        "who": "shop",
+        "lang": "en",
+        "text": "Pinnekjøtt has arrived for Christmas!",
+        "voices": {
+          "f": "en_w",
+          "m": "en_m"
+        }
+      },
+      {
+        "id": "b083",
+        "kind": "shop_kiosk",
+        "who": "shop",
+        "lang": "en",
+        "text": "Hei! Pølse i lompe? The grill is hot.",
+        "voices": {
+          "f": "en_w",
+          "m": "en_m"
+        }
+      },
+      {
+        "id": "b084",
+        "kind": "shop_kiosk",
+        "who": "shop",
+        "lang": "en",
+        "text": "Smågodt is half price on Saturdays!",
+        "voices": {
+          "f": "en_w",
+          "m": "en_m"
+        }
+      },
+      {
+        "id": "b085",
+        "kind": "shop_kiosk",
+        "who": "shop",
+        "lang": "en",
+        "text": "Newspapers, sweets and hot dogs.",
+        "voices": {
+          "f": "en_w",
+          "m": "en_m"
+        }
+      },
+      {
+        "id": "b086",
+        "kind": "shop_tree",
+        "who": "shop",
+        "lang": "nb",
+        "text": "Juletre! Fersk gran fra skogen.",
+        "voices": {
+          "f": "w_young",
+          "m": "m_young"
+        }
+      },
+      {
+        "id": "b087",
+        "kind": "shop_tree",
+        "who": "shop",
+        "lang": "nb",
+        "text": "Vi pakker det i nett, så er det lettere å bære.",
+        "voices": {
+          "f": "w_old",
+          "m": "m_young"
+        }
+      },
+      {
+        "id": "b088",
+        "kind": "shop_tree",
+        "who": "shop",
+        "lang": "nb",
+        "text": "Liten, middels eller stor?",
+        "voices": {
+          "f": "w_adult",
+          "m": "m_old"
+        }
+      },
+      {
+        "id": "b089",
+        "kind": "shop_tree",
+        "who": "shop",
+        "lang": "nb",
+        "text": "Den holder nåler helt til nyttår.",
+        "voices": {
+          "f": "w_young",
+          "m": "m_old"
+        }
+      },
+      {
+        "id": "b090",
+        "kind": "bowl_greet",
+        "who": "bowl",
+        "lang": "nb",
+        "text": "Hei, og velkommen til Bowlinghallen!",
+        "voices": {
+          "f": "w_adult",
+          "m": "m_adult"
+        }
+      },
+      {
+        "id": "b091",
+        "kind": "bowl_greet",
+        "who": "bowl",
+        "lang": "en",
+        "text": "Welcome in! Grab some shoes at the desk.",
+        "voices": {
+          "f": "en_w",
+          "m": "en_m"
+        }
+      },
+      {
+        "id": "b092",
+        "kind": "bowl_greet",
+        "who": "bowl",
+        "lang": "nb",
+        "text": "God kveld! Sko får du hos Arild.",
+        "voices": {
+          "f": "w_young",
+          "m": "m_adult"
+        }
+      },
+      {
+        "id": "b093",
+        "kind": "bowl_strike",
+        "who": "bowl",
+        "lang": "en",
+        "text": "Strike!",
+        "voices": {
+          "f": "en_w",
+          "m": "en_m"
+        }
+      },
+      {
+        "id": "b094",
+        "kind": "bowl_strike",
+        "who": "bowl",
+        "lang": "en",
+        "text": "Yes! Strike!",
+        "voices": {
+          "f": "en_w",
+          "m": "en_m"
+        }
+      },
+      {
+        "id": "b095",
+        "kind": "bowl_strike",
+        "who": "bowl",
+        "lang": "nb",
+        "text": "Der satt den! Strike!",
+        "voices": {
+          "f": "w_young",
+          "m": "m_young"
+        }
+      },
+      {
+        "id": "b096",
+        "kind": "bowl_strike",
+        "who": "bowl",
+        "lang": "nb",
+        "text": "Se der, alle ti!",
+        "voices": {
+          "f": "w_adult",
+          "m": "m_adult"
+        }
+      },
+      {
+        "id": "b097",
+        "kind": "bowl_spare",
+        "who": "bowl",
+        "lang": "nb",
+        "text": "Spare! Fint!",
+        "voices": {
+          "f": "w_adult",
+          "m": "m_young"
+        }
+      },
+      {
+        "id": "b098",
+        "kind": "bowl_spare",
+        "who": "bowl",
+        "lang": "en",
+        "text": "Nice spare!",
+        "voices": {
+          "f": "en_w",
+          "m": "en_m"
+        }
+      },
+      {
+        "id": "b099",
+        "kind": "bowl_spare",
+        "who": "bowl",
+        "lang": "nb",
+        "text": "Akkurat det jeg trengte.",
+        "voices": {
+          "f": "w_old",
+          "m": "m_old"
+        }
+      },
+      {
+        "id": "b100",
+        "kind": "bowl_gutter",
+        "who": "bowl",
+        "lang": "nb",
+        "text": "Å nei, rennen!",
+        "voices": {
+          "f": "w_young",
+          "m": "m_young"
+        }
+      },
+      {
+        "id": "b101",
+        "kind": "bowl_gutter",
+        "who": "bowl",
+        "lang": "en",
+        "text": "Oh no, gutter ball!",
+        "voices": {
+          "f": "en_w",
+          "m": "en_m"
+        }
+      },
+      {
+        "id": "b102",
+        "kind": "bowl_gutter",
+        "who": "bowl",
+        "lang": "nb",
+        "text": "Uff, rett i renna.",
+        "voices": {
+          "f": "w_adult",
+          "m": "m_adult"
+        }
+      },
+      {
+        "id": "b103",
+        "kind": "bowl_gutter",
+        "who": "bowl",
+        "lang": "nb",
+        "text": "Rennekule igjen!",
+        "voices": {
+          "f": "w_old",
+          "m": "m_old"
+        }
+      },
+      {
+        "id": "b104",
+        "kind": "bowl_gutter",
+        "who": "bowl",
+        "lang": "en",
+        "text": "Not again!",
+        "voices": {
+          "f": "en_w",
+          "m": "en_m"
+        }
+      },
+      {
+        "id": "b105",
+        "kind": "bowl_nice",
+        "who": "bowl",
+        "lang": "nb",
+        "text": "Fin kule!",
+        "voices": {
+          "f": "w_adult",
+          "m": "m_adult"
+        }
+      },
+      {
+        "id": "b106",
+        "kind": "bowl_nice",
+        "who": "bowl",
+        "lang": "en",
+        "text": "Nice ball!",
+        "voices": {
+          "f": "en_w",
+          "m": "en_m"
+        }
+      },
+      {
+        "id": "b107",
+        "kind": "bowl_nice",
+        "who": "bowl",
+        "lang": "nb",
+        "text": "Bra kast!",
+        "voices": {
+          "f": "w_young",
+          "m": "m_young"
+        }
+      },
+      {
+        "id": "b108",
+        "kind": "bowl_nice",
+        "who": "bowl",
+        "lang": "nb",
+        "text": "Nesten alle!",
+        "voices": {
+          "f": "w_old",
+          "m": "m_old"
+        }
+      },
+      {
+        "id": "b109",
+        "kind": "bowl_nice",
+        "who": "bowl",
+        "lang": "en",
+        "text": "So close!",
+        "voices": {
+          "f": "en_w",
+          "m": "en_m"
+        }
+      },
+      {
+        "id": "b110",
+        "kind": "bowl_idle",
+        "who": "bowl",
+        "lang": "nb",
+        "text": "Hvem sin tur er det?",
+        "voices": {
+          "f": "w_adult",
+          "m": "m_adult"
+        }
+      },
+      {
+        "id": "b111",
+        "kind": "bowl_idle",
+        "who": "bowl",
+        "lang": "nb",
+        "text": "Er det min tur nå?",
+        "voices": {
+          "f": "w_young",
+          "m": "m_young"
+        }
+      },
+      {
+        "id": "b112",
+        "kind": "bowl_idle",
+        "who": "bowl",
+        "lang": "nb",
+        "text": "Jeg trenger en brus.",
+        "voices": {
+          "f": "w_old",
+          "m": "m_old"
+        }
+      },
+      {
+        "id": "b113",
+        "kind": "bowl_idle",
+        "who": "bowl",
+        "lang": "nb",
+        "text": "Skal vi ta air hockey etterpå?",
+        "voices": {
+          "f": "w_young",
+          "m": "m_adult"
+        }
+      },
+      {
+        "id": "b114",
+        "kind": "bowl_idle",
+        "who": "bowl",
+        "lang": "nb",
+        "text": "Jeg slo deg sist, husker du?",
+        "voices": {
+          "f": "w_adult",
+          "m": "m_young"
+        }
+      },
+      {
+        "id": "b115",
+        "kind": "bowl_idle",
+        "who": "bowl",
+        "lang": "en",
+        "text": "This place never changes.",
+        "voices": {
+          "f": "en_w",
+          "m": "en_m"
+        }
+      },
+      {
+        "id": "b116",
+        "kind": "bowl_idle",
+        "who": "bowl",
+        "lang": "en",
+        "text": "Who has the next game?",
+        "voices": {
+          "f": "en_w",
+          "m": "en_m"
+        }
+      },
+      {
+        "id": "b117",
+        "kind": "bowl_idle",
+        "who": "bowl",
+        "lang": "en",
+        "text": "These shoes are way too small.",
+        "voices": {
+          "f": "en_w",
+          "m": "en_m"
+        }
+      },
+      {
+        "id": "b118",
+        "kind": "bowl_idle",
+        "who": "bowl",
+        "lang": "nb",
+        "text": "Du fusker, du sto på streken!",
+        "voices": {
+          "f": "w_adult",
+          "m": "m_old"
+        }
+      },
+      {
+        "id": "b119",
+        "kind": "bowl_bar",
+        "who": "bowl",
+        "lang": "nb",
+        "text": "En cola og en pølse, takk.",
+        "voices": {
+          "f": "w_young",
+          "m": "m_adult"
+        }
+      },
+      {
+        "id": "b120",
+        "kind": "bowl_bar",
+        "who": "bowl",
+        "lang": "en",
+        "text": "Two hot dogs, please!",
+        "voices": {
+          "f": "en_w",
+          "m": "en_m"
+        }
+      },
+      {
+        "id": "b121",
+        "kind": "bowl_bar",
+        "who": "bowl",
+        "lang": "nb",
+        "text": "Det blir åtti kroner, takk.",
+        "voices": {
+          "f": "w_adult",
+          "m": "m_adult"
+        }
+      },
+      {
+        "id": "b122",
+        "kind": "bowl_bar",
+        "who": "bowl",
+        "lang": "nb",
+        "text": "Skål for en fin kveld!",
+        "voices": {
+          "f": "w_old",
+          "m": "m_old"
+        }
+      },
+      {
+        "id": "b123",
+        "kind": "bowl_bar",
+        "who": "bowl",
+        "lang": "nb",
+        "text": "Ha det bra, og kom igjen!",
+        "voices": {
+          "f": "w_adult",
+          "m": "m_old"
+        }
+      },
+      {
+        "id": "b124",
+        "kind": "bowl_arcade",
+        "who": "bowl",
+        "lang": "nb",
+        "text": "Kom igjen, ny rekord!",
+        "voices": {
+          "f": "w_young",
+          "m": "m_young"
+        }
+      },
+      {
+        "id": "b125",
+        "kind": "bowl_arcade",
+        "who": "bowl",
+        "lang": "en",
+        "text": "One more credit and I get the high score!",
+        "voices": {
+          "f": "en_w",
+          "m": "en_m"
+        }
+      },
+      {
+        "id": "b126",
+        "kind": "bowl_arcade",
+        "who": "bowl",
+        "lang": "nb",
+        "text": "Nei, jeg døde igjen!",
+        "voices": {
+          "f": "w_adult",
+          "m": "m_young"
+        }
+      },
+      {
+        "id": "b127",
+        "kind": "gossip_lights",
+        "who": "any",
+        "lang": "nb",
+        "text": "Har du hørt det? Kvinesdal har fått sin egen ninjabane!",
+        "voices": {
+          "f": "w_adult",
+          "m": "m_adult"
+        }
+      },
+      {
+        "id": "b128",
+        "kind": "gossip_lights",
+        "who": "any",
+        "lang": "nb",
+        "text": "De sier noen har bygd en hinderløype. Ingen vet hvem.",
+        "voices": {
+          "f": "w_young",
+          "m": "m_old"
+        }
+      },
+      {
+        "id": "b129",
+        "kind": "gossip_lights",
+        "who": "any",
+        "lang": "nb",
+        "text": "Jeg hørte det er en ninjabane. Ingen vil si hvor den er. Typisk.",
+        "voices": {
+          "f": "w_old",
+          "m": "m_young"
+        }
+      },
+      {
+        "id": "b130",
+        "kind": "gossip_lights",
+        "who": "any",
+        "lang": "nb",
+        "text": "Lysene på himmelen i natt! Så du dem? Lange strålekastere!",
+        "voices": {
+          "f": "w_adult",
+          "m": "m_adult"
+        }
+      },
+      {
+        "id": "b131",
+        "kind": "gossip_lights",
+        "who": "any",
+        "lang": "nb",
+        "text": "Hunden min bjeffet på lysene hele natta.",
+        "voices": {
+          "f": "w_young",
+          "m": "m_old"
+        }
+      },
+      {
+        "id": "b132",
+        "kind": "gossip_lights",
+        "who": "any",
+        "lang": "nb",
+        "text": "Noen sier det er rakettene til julenissen. Jeg tror det er noe større.",
+        "voices": {
+          "f": "w_old",
+          "m": "m_young"
+        }
+      },
+      {
+        "id": "b133",
+        "kind": "gossip_lights",
+        "who": "any",
+        "lang": "nb",
+        "text": "Jeg så en lysstråle som svingte rundt og rundt. Jeg ble helt svimmel.",
+        "voices": {
+          "f": "w_adult",
+          "m": "m_adult"
+        }
+      },
+      {
+        "id": "b134",
+        "kind": "gossip_lights",
+        "who": "any",
+        "lang": "nb",
+        "text": "Naboen min sier han vet hvor den er. Han lyver. Han vet ingenting.",
+        "voices": {
+          "f": "w_young",
+          "m": "m_old"
+        }
+      },
+      {
+        "id": "b135",
+        "kind": "gossip_lights",
+        "who": "any",
+        "lang": "nb",
+        "text": "Første som finner ninjabanen får en premie, sier de. Jeg leter allerede!",
+        "voices": {
+          "f": "w_old",
+          "m": "m_young"
+        }
+      },
+      {
+        "id": "b136",
+        "kind": "gossip_lights",
+        "who": "any",
+        "lang": "nb",
+        "text": "Jeg har lett i tre dager. Bare snø. Og en elg.",
+        "voices": {
+          "f": "w_adult",
+          "m": "m_adult"
+        }
+      },
+      {
+        "id": "b137",
+        "kind": "gossip_lights",
+        "who": "any",
+        "lang": "nb",
+        "text": "Nå ser man lysene fra kjøkkenvinduet. Jeg setter meg ned med kaffen og ser på.",
+        "voices": {
+          "f": "w_young",
+          "m": "m_old"
+        }
+      },
+      {
+        "id": "b138",
+        "kind": "gossip_lights",
+        "who": "any",
+        "lang": "nb",
+        "text": "Alle spør hvor den er. Ingen svarer. Det er så spennende!",
+        "voices": {
+          "f": "w_old",
+          "m": "m_young"
+        }
+      }
+    ]
   },
-  "events": {
-   "place_square": {
-    "cool": 600,
-    "lines": [
-     "The square. Look at that tree. Okay, it's a very good tree. Don't tell the other trees.",
-     "Everyone ends up on the square sooner or later. Mostly to look at the tree. And to argue about parking.",
-     "Smell that? Gløgg. I can't smell. I just know it's gløgg.",
-     "The town hall has twenty-four doors and I know what's behind every one. I'm saying nothing.",
-     "If the church bells and the sleigh bells ring together, we run. Kidding. Probably."
+  "storyGossip": {
+    "_about": "Story gossip by advent day (plan 2.3, PROPOSED text). Wiring: the __TOWN gossip pool picks these lines on the matching day (storyspine/townlife). Not voiced yet.",
+    "7": [
+      "Somebody down your street is eating the post. Nobody will say who."
     ],
-    "desc": "you arrive at the town square"
-   },
-   "place_church": {
-    "cool": 900,
-    "lines": [
-     "The church. Nice and quiet. Suspiciously quiet. Churches are never this quiet.",
-     "Old church, old bells. If they ring on their own, we leave. That's the rule.",
-     "I like the church. Lots of candles. The candles and I have a lot in common."
+    "8": [
+      "The witch's flat has a cellar. Nobody goes near the cellar. Nobody has ever been near the cellar."
     ],
-    "desc": "you arrive at the church"
-   },
-   "place_cave": {
-    "cool": 600,
-    "lines": [
-     "That's a troll cave. Big hole, bad smell, lots of torches. Classic troll decorating.",
-     "Trolls hate light. Which is a problem, because I am the light. Hello, trolls.",
-     "Let's go in slowly. And by slowly I mean you go first.",
-     "I can hear something breathing in there. It's the wind. It is not the wind."
+    "13": [
+      "Quiet, isn't it? Nobody is shouting through the walls. I miss it, a little."
     ],
-    "desc": "you get close to a troll cave"
-   },
-   "place_feda": {
-    "cool": 1200,
-    "lines": [
-     "Feda. The far end of the map. She threw us a very long way, didn't she?",
-     "Feda. Population: small. Coop Prix: the best little shop in the world, and the only one.",
-     "Home of the long road. Do you remember the long road? I remember the long road."
+    "15": [
+      "Did you see the sky? Don't look up at it. Look at your feet, like a sensible person."
     ],
-    "desc": "you reach Feda"
-   },
-   "place_fjord": {
-    "cool": 900,
-    "lines": [
-     "The fjord. So big. So still. So very, very deep. Let's not fall in.",
-     "I'm a lantern. Water and I do not get along. Please stay on the shore.",
-     "Pretty, isn't it? The water is like glass. Something under it is looking back."
+    "16": [
+      "Men in black coats up at the crater. They are very polite. That is what worries me."
     ],
-    "desc": "you stand at the fjord"
-   },
-   "treelot": {
-    "cool": 600,
-    "lines": [
-     "A tree lot! Oh, this smells like Christmas. I think. I read about it.",
-     "Pick a good one. Not too tall, not too crooked. Nobody likes a crooked tree. Well, I do.",
-     "He sells trees by the metre. By the metre! Brilliant.",
-     "Remember, the witch hates trees too. So buying one is basically a political act."
+    "17": [
+      "The lights went grey last night. Just for a minute. Nobody says it, but we all counted."
     ],
-    "desc": "you walk into the Christmas tree lot"
-   },
-   "carolers": {
-    "cool": 420,
-    "lines": [
-     "Carolers! Oh, they're good. A bit eerie, but good.",
-     "Listen to that. Four-part harmony at minus twelve degrees. That's dedication.",
-     "Please don't throw snowballs at the choir. I'm saying that for the record.",
-     "Tip them. The whole town likes you more for it. Well, a little."
+    "20": [
+      "Something in the crater. Gunnar swears he saw it blink."
     ],
-    "desc": "a caroling group is close by"
-   },
-   "witchhouse": {
-    "cool": 600,
-    "lines": [
-     "That's her flat. Don't look at the window. Don't look at the window. You looked at the window.",
-     "She's down there, planning something. I can feel it in my wick.",
-     "Quietly now. She can hear a snowflake land.",
-     "Home sweet home. If home is a haunted basement with a grumpy landlady.",
-     "I used to hide in her kitchen. I will never speak of the kitchen."
-    ],
-    "desc": "you are outside the witch's house"
-   },
-   "crash": {
-    "cool": 90,
-    "lines": [
-     "Ow! Ow ow ow. Okay. We're fine. Mostly fine. I think my glass is cracked.",
-     "That was a wall. You hit a wall. A big, solid, very visible wall.",
-     "Is the car okay? Is the wall okay? Is anyone okay? I'm just asking.",
-     "The brake is the other pedal. Just so we're clear.",
-     "Wow. They'll talk about that for three days. And they will, I've heard them."
-    ],
-    "desc": "you crash the car"
-   },
-   "police_start": {
-    "cool": 240,
-    "lines": [
-     "Sirens! That's the police. That's the police and they're for us.",
-     "Okay, don't panic. Panic a little. Panic efficiently!",
-     "They really want to talk to you. Maybe it's a nice talk.",
-     "Left! No, the other left! Drive!"
-    ],
-    "desc": "the police start chasing you"
-   },
-   "police_escape": {
-    "cool": 240,
-    "lines": [
-     "We lost them! I can't believe we lost them. Please never do that again.",
-     "Quiet now. Act natural. Be a very ordinary car.",
-     "And that, kids, is why you don't drive on the pavement."
-    ],
-    "desc": "you get away from the police"
-   },
-   "flying": {
-    "cool": 300,
-    "lines": [
-     "We're flying! We're actually flying! I'm a lantern and I'm flying!",
-     "Look at that. The whole valley. It's tiny. Everything is tiny.",
-     "Do you know how many lanterns have flown? Me. It's just me.",
-     "Please land softly. Lanterns break. I break. I'm a very breakable lantern."
-    ],
-    "desc": "you fly (wings, jetpack, elytra, flying car)"
-   },
-   "chest": {
-    "cool": 60,
-    "lines": [
-     "A chest! Open it, open it, open it!",
-     "Ooh. Shiny. Tell me what's inside, I can't see from here.",
-     "Treasure! Hide it from the witch.",
-     "Somebody buried this on purpose, you know. That's romantic. Or suspicious.",
-     "Chests in the hills. I never get tired of that."
-    ],
-    "desc": "you open a treasure chest"
-   },
-   "quest_done": {
-    "cool": 60,
-    "lines": [
-     "Well done! One more thing crossed off the list.",
-     "Look at you, helping people. The whole town is going to love you.",
-     "I'm so proud. I'm just a lantern, but I'm proud.",
-     "Another one done. The calendar is going to be so happy.",
-     "You're good at this. Don't let it go to your head. Okay, a little."
-    ],
-    "desc": "you finish a quest or a mission"
-   },
-   "mum": {
-    "cool": 300,
-    "lines": [
-     "A letter from your mum! She always writes. I love it when she writes.",
-     "She sent cookies again, didn't she? ...Where do the cookies go?",
-     "Read it slowly. Mums put a lot of love in those. And a lot of cookies, apparently."
-    ],
-    "desc": "you read one of Mamma's letters"
-   },
-   "bus": {
-    "cool": 600,
-    "lines": [
-     "The bus! Ride the bus. It's slow and warm and nobody asks questions.",
-     "Do you have a ticket? I never need one. Lanterns ride free."
-    ],
-    "desc": "you get on a bus"
-   },
-   "ninja_sighting": {
-    "cool": 900,
-    "lines": [
-     "...What is THAT? Lights in the sky. Big ones. Nobody told me about lights, and I get told about everything.",
-     "Beams. Somebody is shining beams at the clouds, out there in the dark. I have so many questions.",
-     "Okay. That is either very exciting or very bad. Possibly both. I vote we go and find out."
-    ],
-    "desc": "you first notice the strange beams of light far away in the night sky (called by the ninja shell, never says where)"
-   }
+    "22": [
+      "Warm is a team sport, my grandmother said. Then she said it again, just in case."
+    ]
   }
- },
- "npc": {
-  "personas": {
-   "w_adult": {
-    "voice": "nb-NO-PernilleNeural",
-    "rate": "+0%",
-    "pitch": "+0Hz",
-    "sex": "f"
-   },
-   "w_young": {
-    "voice": "nb-NO-PernilleNeural",
-    "rate": "+8%",
-    "pitch": "+10Hz",
-    "sex": "f"
-   },
-   "w_old": {
-    "voice": "nb-NO-PernilleNeural",
-    "rate": "-8%",
-    "pitch": "-14Hz",
-    "sex": "f"
-   },
-   "m_adult": {
-    "voice": "nb-NO-FinnNeural",
-    "rate": "+0%",
-    "pitch": "+0Hz",
-    "sex": "m"
-   },
-   "m_young": {
-    "voice": "nb-NO-FinnNeural",
-    "rate": "+6%",
-    "pitch": "+6Hz",
-    "sex": "m"
-   },
-   "m_old": {
-    "voice": "nb-NO-FinnNeural",
-    "rate": "-10%",
-    "pitch": "-12Hz",
-    "sex": "m"
-   },
-   "en_w": {
-    "voice": "en-US-JennyNeural",
-    "rate": "+4%",
-    "pitch": "+0Hz",
-    "sex": "f"
-   },
-   "en_m": {
-    "voice": "en-GB-ThomasNeural",
-    "rate": "+2%",
-    "pitch": "+0Hz",
-    "sex": "m"
-   },
-   "cop": {
-    "voice": "nb-NO-FinnNeural",
-    "rate": "-2%",
-    "pitch": "-9Hz",
-    "sex": "m",
-    "shout": true
-   },
-   "cop_f": {
-    "voice": "nb-NO-PernilleNeural",
-    "rate": "-2%",
-    "pitch": "-6Hz",
-    "sex": "f",
-    "shout": true
-   }
-  },
-  "settings": {
-   "hearM": 26,
-   "maxPerMinute": 7,
-   "minGapMs": 2500,
-   "chance": {
-    "gossip": 0.9,
-    "shop": 0.7,
-    "police": 0.8,
-    "default": 0.8
-   }
-  },
-  "barks": [
-   {
-    "id": "b001",
-    "kind": "gossip_kill",
-    "who": "any",
-    "lang": "nb",
-    "text": "Har du hørt om han som kjørte over julenissen?",
-    "voices": {
-     "f": "w_adult",
-     "m": "m_adult"
-    }
-   },
-   {
-    "id": "b002",
-    "kind": "gossip_kill",
-    "who": "any",
-    "lang": "nb",
-    "text": "De sier han tok julenissen rett på fortauet...",
-    "voices": {
-     "f": "w_young",
-     "m": "m_adult"
-    }
-   },
-   {
-    "id": "b003",
-    "kind": "gossip_kill",
-    "who": "any",
-    "lang": "nb",
-    "text": "Julenissen skal ikke være fornøyd. Bilisten heller ikke, tipper jeg.",
-    "voices": {
-     "f": "w_old",
-     "m": "m_adult"
-    }
-   },
-   {
-    "id": "b004",
-    "kind": "gossip_kill",
-    "who": "any",
-    "lang": "nb",
-    "text": "Har du sett bilen hans? Sånn kjører man ikke i Kvinesdal!",
-    "voices": {
-     "f": "w_adult",
-     "m": "m_young"
-    }
-   },
-   {
-    "id": "b005",
-    "kind": "gossip_knock",
-    "who": "any",
-    "lang": "nb",
-    "text": "Noen dytta borti en stakkar med bilen, midt i gata!",
-    "voices": {
-     "f": "w_young",
-     "m": "m_young"
-    }
-   },
-   {
-    "id": "b006",
-    "kind": "gossip_knock",
-    "who": "any",
-    "lang": "nb",
-    "text": "Hørte du? En bil tok en fotgjenger utenfor bakeriet.",
-    "voices": {
-     "f": "w_old",
-     "m": "m_young"
-    }
-   },
-   {
-    "id": "b007",
-    "kind": "gossip_knock",
-    "who": "any",
-    "lang": "nb",
-    "text": "Pass deg, det går en farlig sjåfør løs i sentrum.",
-    "voices": {
-     "f": "w_adult",
-     "m": "m_old"
-    }
-   },
-   {
-    "id": "b008",
-    "kind": "gossip_crash",
-    "who": "any",
-    "lang": "nb",
-    "text": "Hørte du smellet? En bil rett i veggen!",
-    "voices": {
-     "f": "w_young",
-     "m": "m_old"
-    }
-   },
-   {
-    "id": "b009",
-    "kind": "gossip_crash",
-    "who": "any",
-    "lang": "nb",
-    "text": "Han kjørte inn i et gjerde i går. Gjerdet har det bra.",
-    "voices": {
-     "f": "w_old",
-     "m": "m_old"
-    }
-   },
-   {
-    "id": "b010",
-    "kind": "gossip_crash",
-    "who": "any",
-    "lang": "nb",
-    "text": "Veggen vant, sier de.",
-    "voices": {
-     "f": "w_adult",
-     "m": "m_adult"
-    }
-   },
-   {
-    "id": "b011",
-    "kind": "gossip_carhit",
-    "who": "any",
-    "lang": "nb",
-    "text": "To biler kolliderte ved torget. Typisk.",
-    "voices": {
-     "f": "w_young",
-     "m": "m_adult"
-    }
-   },
-   {
-    "id": "b012",
-    "kind": "gossip_carhit",
-    "who": "any",
-    "lang": "nb",
-    "text": "Det smalt i sentrum i går. Bare bildeler igjen.",
-    "voices": {
-     "f": "w_old",
-     "m": "m_adult"
-    }
-   },
-   {
-    "id": "b013",
-    "kind": "gossip_speed",
-    "who": "any",
-    "lang": "nb",
-    "text": "Kjører man sånn på fortauet? PÅ FORTAUET!",
-    "voices": {
-     "f": "w_adult",
-     "m": "m_young"
-    }
-   },
-   {
-    "id": "b014",
-    "kind": "gossip_speed",
-    "who": "any",
-    "lang": "nb",
-    "text": "Se opp for han med bilen, han kjører som om vi er kjegler.",
-    "voices": {
-     "f": "w_young",
-     "m": "m_young"
-    }
-   },
-   {
-    "id": "b015",
-    "kind": "gossip_speed",
-    "who": "any",
-    "lang": "nb",
-    "text": "Jeg måtte hoppe i snøen for en bil i går.",
-    "voices": {
-     "f": "w_old",
-     "m": "m_young"
-    }
-   },
-   {
-    "id": "b016",
-    "kind": "gossip_chase",
-    "who": "any",
-    "lang": "nb",
-    "text": "Politiet jagde en bil gjennom sentrum! Jeg har det på film.",
-    "voices": {
-     "f": "w_adult",
-     "m": "m_old"
-    }
-   },
-   {
-    "id": "b017",
-    "kind": "gossip_chase",
-    "who": "any",
-    "lang": "nb",
-    "text": "Sirener hele kvelden. Jeg trodde det var julemusikk.",
-    "voices": {
-     "f": "w_young",
-     "m": "m_old"
-    }
-   },
-   {
-    "id": "b018",
-    "kind": "gossip_chase",
-    "who": "any",
-    "lang": "nb",
-    "text": "Har du sett politibilene? Noen har vært uskikkelige.",
-    "voices": {
-     "f": "w_old",
-     "m": "m_old"
-    }
-   },
-   {
-    "id": "b019",
-    "kind": "gossip_bang",
-    "who": "any",
-    "lang": "nb",
-    "text": "Noen skjøt opp raketter midt i sentrum. Hunden min er fortsatt under senga.",
-    "voices": {
-     "f": "w_adult",
-     "m": "m_adult"
-    }
-   },
-   {
-    "id": "b020",
-    "kind": "gossip_bang",
-    "who": "any",
-    "lang": "nb",
-    "text": "Den smellen! Jeg trodde det var krig.",
-    "voices": {
-     "f": "w_young",
-     "m": "m_adult"
-    }
-   },
-   {
-    "id": "b021",
-    "kind": "gossip_bang",
-    "who": "any",
-    "lang": "nb",
-    "text": "Nyttårsaften er jo ikke før om en måned...",
-    "voices": {
-     "f": "w_old",
-     "m": "m_adult"
-    }
-   },
-   {
-    "id": "b022",
-    "kind": "gossip_troll",
-    "who": "any",
-    "lang": "nb",
-    "text": "Det var et TROLL i sentrum. Et TROLL!",
-    "voices": {
-     "f": "w_adult",
-     "m": "m_young"
-    }
-   },
-   {
-    "id": "b023",
-    "kind": "gossip_troll",
-    "who": "any",
-    "lang": "nb",
-    "text": "Jeg så et troll. Nei, jeg har ikke drukket gløgg.",
-    "voices": {
-     "f": "w_young",
-     "m": "m_young"
-    }
-   },
-   {
-    "id": "b024",
-    "kind": "gossip_troll",
-    "who": "any",
-    "lang": "nb",
-    "text": "Trollet tok kaffen min.",
-    "voices": {
-     "f": "w_old",
-     "m": "m_young"
-    }
-   },
-   {
-    "id": "b025",
-    "kind": "gossip_tv",
-    "who": "any",
-    "lang": "nb",
-    "text": "Jeg så deg på Kvinesdal Nytt!",
-    "voices": {
-     "f": "w_adult",
-     "m": "m_old"
-    }
-   },
-   {
-    "id": "b026",
-    "kind": "gossip_tv",
-    "who": "any",
-    "lang": "nb",
-    "text": "Du er på TV nå, vet du. Leservideo!",
-    "voices": {
-     "f": "w_young",
-     "m": "m_old"
-    }
-   },
-   {
-    "id": "b027",
-    "kind": "gossip_tv",
-    "who": "any",
-    "lang": "nb",
-    "text": "Naboen min har lagt ut filmen. Alle har sett den.",
-    "voices": {
-     "f": "w_old",
-     "m": "m_old"
-    }
-   },
-   {
-    "id": "b028",
-    "kind": "gossip_good",
-    "who": "any",
-    "lang": "nb",
-    "text": "Har du hørt? Noen hjalp gamle Olga med handleposene!",
-    "voices": {
-     "f": "w_adult",
-     "m": "m_adult"
-    }
-   },
-   {
-    "id": "b029",
-    "kind": "gossip_good",
-    "who": "any",
-    "lang": "nb",
-    "text": "Fin fyr, han der. Han ga meg til og med en pepperkake.",
-    "voices": {
-     "f": "w_young",
-     "m": "m_adult"
-    }
-   },
-   {
-    "id": "b030",
-    "kind": "gossip_good",
-    "who": "any",
-    "lang": "nb",
-    "text": "Det går en snill en rundt i byen. Si det til ingen.",
-    "voices": {
-     "f": "w_old",
-     "m": "m_adult"
-    }
-   },
-   {
-    "id": "b031",
-    "kind": "gossip_bad",
-    "who": "any",
-    "lang": "nb",
-    "text": "Ikke stol på han der.",
-    "voices": {
-     "f": "w_adult",
-     "m": "m_young"
-    }
-   },
-   {
-    "id": "b032",
-    "kind": "gossip_bad",
-    "who": "any",
-    "lang": "nb",
-    "text": "Gjem lommeboka.",
-    "voices": {
-     "f": "w_young",
-     "m": "m_young"
-    }
-   },
-   {
-    "id": "b033",
-    "kind": "gossip_bad",
-    "who": "any",
-    "lang": "nb",
-    "text": "Der går han. Ikke se i øynene hans.",
-    "voices": {
-     "f": "w_old",
-     "m": "m_young"
-    }
-   },
-   {
-    "id": "b034",
-    "kind": "gossip_bad",
-    "who": "any",
-    "lang": "nb",
-    "text": "Hold hundene inne, folkens.",
-    "voices": {
-     "f": "w_adult",
-     "m": "m_old"
-    }
-   },
-   {
-    "id": "b035",
-    "kind": "gossip_good",
-    "who": "any",
-    "lang": "nb",
-    "text": "Der er hjelperen vår!",
-    "voices": {
-     "f": "w_young",
-     "m": "m_old"
-    }
-   },
-   {
-    "id": "b036",
-    "kind": "gossip_good",
-    "who": "any",
-    "lang": "nb",
-    "text": "God jul, venn!",
-    "voices": {
-     "f": "w_old",
-     "m": "m_old"
-    }
-   },
-   {
-    "id": "b037",
-    "kind": "gossip_good",
-    "who": "any",
-    "lang": "nb",
-    "text": "Tusen takk for sist!",
-    "voices": {
-     "f": "w_adult",
-     "m": "m_adult"
-    }
-   },
-   {
-    "id": "b038",
-    "kind": "gossip_good",
-    "who": "any",
-    "lang": "nb",
-    "text": "Du er det beste som har skjedd Kvinesdal siden brunosten.",
-    "voices": {
-     "f": "w_young",
-     "m": "m_adult"
-    }
-   },
-   {
-    "id": "b039",
-    "kind": "call",
-    "who": "any",
-    "lang": "nb",
-    "text": "Ring politiet!",
-    "voices": {
-     "f": "w_old",
-     "m": "m_adult"
-    }
-   },
-   {
-    "id": "b040",
-    "kind": "call",
-    "who": "any",
-    "lang": "nb",
-    "text": "Hallo? Politiet? Kom raskt!",
-    "voices": {
-     "f": "w_adult",
-     "m": "m_young"
-    }
-   },
-   {
-    "id": "b041",
-    "kind": "call",
-    "who": "any",
-    "lang": "nb",
-    "text": "Jeg ringer 112!",
-    "voices": {
-     "f": "w_young",
-     "m": "m_young"
-    }
-   },
-   {
-    "id": "b042",
-    "kind": "call",
-    "who": "any",
-    "lang": "nb",
-    "text": "Hallo? Det har skjedd noe!",
-    "voices": {
-     "f": "w_old",
-     "m": "m_young"
-    }
-   },
-   {
-    "id": "b043",
-    "kind": "call",
-    "who": "any",
-    "lang": "nb",
-    "text": "Politiet er på vei!",
-    "voices": {
-     "f": "w_adult",
-     "m": "m_old"
-    }
-   },
-   {
-    "id": "b044",
-    "kind": "gawk",
-    "who": "any",
-    "lang": "nb",
-    "text": "Så skummelt!",
-    "voices": {
-     "f": "w_young",
-     "m": "m_old"
-    }
-   },
-   {
-    "id": "b045",
-    "kind": "gawk",
-    "who": "any",
-    "lang": "nb",
-    "text": "Hva var det?!",
-    "voices": {
-     "f": "w_old",
-     "m": "m_old"
-    }
-   },
-   {
-    "id": "b046",
-    "kind": "gawk",
-    "who": "any",
-    "lang": "nb",
-    "text": "Oi oi oi.",
-    "voices": {
-     "f": "w_adult",
-     "m": "m_adult"
-    }
-   },
-   {
-    "id": "b047",
-    "kind": "gawk",
-    "who": "any",
-    "lang": "nb",
-    "text": "Så du det?!",
-    "voices": {
-     "f": "w_young",
-     "m": "m_adult"
-    }
-   },
-   {
-    "id": "b048",
-    "kind": "gawk",
-    "who": "any",
-    "lang": "nb",
-    "text": "Herregud!",
-    "voices": {
-     "f": "w_old",
-     "m": "m_adult"
-    }
-   },
-   {
-    "id": "b049",
-    "kind": "dodge",
-    "who": "any",
-    "lang": "nb",
-    "text": "Hei! Se deg for!",
-    "voices": {
-     "f": "w_adult",
-     "m": "m_young"
-    }
-   },
-   {
-    "id": "b050",
-    "kind": "dodge",
-    "who": "any",
-    "lang": "nb",
-    "text": "Pass deg!",
-    "voices": {
-     "f": "w_young",
-     "m": "m_young"
-    }
-   },
-   {
-    "id": "b051",
-    "kind": "dodge",
-    "who": "any",
-    "lang": "nb",
-    "text": "Bilen!",
-    "voices": {
-     "f": "w_old",
-     "m": "m_young"
-    }
-   },
-   {
-    "id": "b052",
-    "kind": "dodge",
-    "who": "any",
-    "lang": "nb",
-    "text": "Oi!",
-    "voices": {
-     "f": "w_adult",
-     "m": "m_old"
-    }
-   },
-   {
-    "id": "b053",
-    "kind": "shaken",
-    "who": "any",
-    "lang": "nb",
-    "text": "Jeg trenger en kaffe.",
-    "voices": {
-     "f": "w_young",
-     "m": "m_old"
-    }
-   },
-   {
-    "id": "b054",
-    "kind": "shaken",
-    "who": "any",
-    "lang": "nb",
-    "text": "Er det over?",
-    "voices": {
-     "f": "w_old",
-     "m": "m_old"
-    }
-   },
-   {
-    "id": "b055",
-    "kind": "shaken",
-    "who": "any",
-    "lang": "nb",
-    "text": "Hjertet mitt...",
-    "voices": {
-     "f": "w_adult",
-     "m": "m_adult"
-    }
-   },
-   {
-    "id": "b056",
-    "kind": "shaken",
-    "who": "any",
-    "lang": "nb",
-    "text": "Uff da.",
-    "voices": {
-     "f": "w_young",
-     "m": "m_adult"
-    }
-   },
-   {
-    "id": "b057",
-    "kind": "shaken",
-    "who": "any",
-    "lang": "nb",
-    "text": "Ja... ja... jeg venter.",
-    "voices": {
-     "f": "w_old",
-     "m": "m_adult"
-    }
-   },
-   {
-    "id": "b058",
-    "kind": "scream",
-    "who": "any",
-    "lang": "nb",
-    "text": "Hjelp!",
-    "voices": {
-     "f": "w_adult",
-     "m": "m_young"
-    }
-   },
-   {
-    "id": "b059",
-    "kind": "scream",
-    "who": "any",
-    "lang": "nb",
-    "text": "Pass opp!",
-    "voices": {
-     "f": "w_young",
-     "m": "m_young"
-    }
-   },
-   {
-    "id": "b060",
-    "kind": "scream",
-    "who": "any",
-    "lang": "nb",
-    "text": "Nei nei nei!",
-    "voices": {
-     "f": "w_old",
-     "m": "m_young"
-    }
-   },
-   {
-    "id": "b061",
-    "kind": "scream",
-    "who": "any",
-    "lang": "nb",
-    "text": "Spring!",
-    "voices": {
-     "f": "w_adult",
-     "m": "m_old"
-    }
-   },
-   {
-    "id": "b062",
-    "kind": "film",
-    "who": "any",
-    "lang": "nb",
-    "text": "Dette må jeg ha på film!",
-    "voices": {
-     "f": "w_young",
-     "m": "m_old"
-    }
-   },
-   {
-    "id": "b063",
-    "kind": "film",
-    "who": "any",
-    "lang": "nb",
-    "text": "Rec... rec...",
-    "voices": {
-     "f": "w_old",
-     "m": "m_old"
-    }
-   },
-   {
-    "id": "b064",
-    "kind": "film",
-    "who": "any",
-    "lang": "nb",
-    "text": "Alle kommer til å se dette!",
-    "voices": {
-     "f": "w_adult",
-     "m": "m_adult"
-    }
-   },
-   {
-    "id": "b065",
-    "kind": "film",
-    "who": "any",
-    "lang": "nb",
-    "text": "Hold deg i bildet!",
-    "voices": {
-     "f": "w_young",
-     "m": "m_adult"
-    }
-   },
-   {
-    "id": "b066",
-    "kind": "police",
-    "who": "cop",
-    "lang": "nb",
-    "text": "STOPP! POLITIET!",
-    "voices": {
-     "m": "cop",
-     "f": "cop_f"
-    }
-   },
-   {
-    "id": "b067",
-    "kind": "police",
-    "who": "cop",
-    "lang": "nb",
-    "text": "Stå stille!",
-    "voices": {
-     "m": "cop",
-     "f": "cop_f"
-    }
-   },
-   {
-    "id": "b068",
-    "kind": "police",
-    "who": "cop",
-    "lang": "nb",
-    "text": "Hold deg i ro!",
-    "voices": {
-     "m": "cop",
-     "f": "cop_f"
-    }
-   },
-   {
-    "id": "b069",
-    "kind": "police",
-    "who": "cop",
-    "lang": "nb",
-    "text": "Bli stående!",
-    "voices": {
-     "m": "cop",
-     "f": "cop_f"
-    }
-   },
-   {
-    "id": "b070",
-    "kind": "police",
-    "who": "cop",
-    "lang": "nb",
-    "text": "STOPP!",
-    "voices": {
-     "m": "cop",
-     "f": "cop_f"
-    }
-   },
-   {
-    "id": "b071",
-    "kind": "owner",
-    "who": "any",
-    "lang": "nb",
-    "text": "HEI! Det er bilen min!",
-    "voices": {
-     "f": "w_young",
-     "m": "m_old"
-    }
-   },
-   {
-    "id": "b072",
-    "kind": "owner",
-    "who": "any",
-    "lang": "nb",
-    "text": "Hva i alle dager?!",
-    "voices": {
-     "f": "w_old",
-     "m": "m_old"
-    }
-   },
-   {
-    "id": "b073",
-    "kind": "owner",
-    "who": "any",
-    "lang": "nb",
-    "text": "STOPP, TYV!",
-    "voices": {
-     "f": "w_adult",
-     "m": "m_adult"
-    }
-   },
-   {
-    "id": "b074",
-    "kind": "owner",
-    "who": "any",
-    "lang": "nb",
-    "text": "Min bil! Hjelp!",
-    "voices": {
-     "f": "w_young",
-     "m": "m_adult"
-    }
-   },
-   {
-    "id": "b075",
-    "kind": "shop_bakery",
-    "who": "shop",
-    "lang": "en",
-    "text": "Velkommen! Fresh skillingsboller today.",
-    "voices": {
-     "f": "en_w",
-     "m": "en_m"
-    }
-   },
-   {
-    "id": "b076",
-    "kind": "shop_bakery",
-    "who": "shop",
-    "lang": "en",
-    "text": "God jul! The julekake just came out of the oven.",
-    "voices": {
-     "f": "en_w",
-     "m": "en_m"
-    }
-   },
-   {
-    "id": "b077",
-    "kind": "shop_bakery",
-    "who": "shop",
-    "lang": "en",
-    "text": "Lussekatter — only in December!",
-    "voices": {
-     "f": "en_w",
-     "m": "en_m"
-    }
-   },
-   {
-    "id": "b078",
-    "kind": "shop_cafe",
-    "who": "shop",
-    "lang": "en",
-    "text": "Hei! Kaffe og vafler?",
-    "voices": {
-     "f": "en_w",
-     "m": "en_m"
-    }
-   },
-   {
-    "id": "b079",
-    "kind": "shop_cafe",
-    "who": "shop",
-    "lang": "en",
-    "text": "Velkommen! The kakao comes with whipped cream.",
-    "voices": {
-     "f": "en_w",
-     "m": "en_m"
-    }
-   },
-   {
-    "id": "b080",
-    "kind": "shop_cafe",
-    "who": "shop",
-    "lang": "en",
-    "text": "Grab a table, I'll bring it over.",
-    "voices": {
-     "f": "en_w",
-     "m": "en_m"
-    }
-   },
-   {
-    "id": "b081",
-    "kind": "shop_grocery",
-    "who": "shop",
-    "lang": "en",
-    "text": "Hei! Grandiosa is on offer this week.",
-    "voices": {
-     "f": "en_w",
-     "m": "en_m"
-    }
-   },
-   {
-    "id": "b082",
-    "kind": "shop_grocery",
-    "who": "shop",
-    "lang": "en",
-    "text": "Pinnekjøtt has arrived for Christmas!",
-    "voices": {
-     "f": "en_w",
-     "m": "en_m"
-    }
-   },
-   {
-    "id": "b083",
-    "kind": "shop_kiosk",
-    "who": "shop",
-    "lang": "en",
-    "text": "Hei! Pølse i lompe? The grill is hot.",
-    "voices": {
-     "f": "en_w",
-     "m": "en_m"
-    }
-   },
-   {
-    "id": "b084",
-    "kind": "shop_kiosk",
-    "who": "shop",
-    "lang": "en",
-    "text": "Smågodt is half price on Saturdays!",
-    "voices": {
-     "f": "en_w",
-     "m": "en_m"
-    }
-   },
-   {
-    "id": "b085",
-    "kind": "shop_kiosk",
-    "who": "shop",
-    "lang": "en",
-    "text": "Newspapers, sweets and hot dogs.",
-    "voices": {
-     "f": "en_w",
-     "m": "en_m"
-    }
-   },
-   {
-    "id": "b086",
-    "kind": "shop_tree",
-    "who": "shop",
-    "lang": "nb",
-    "text": "Juletre! Fersk gran fra skogen.",
-    "voices": {
-     "f": "w_young",
-     "m": "m_young"
-    }
-   },
-   {
-    "id": "b087",
-    "kind": "shop_tree",
-    "who": "shop",
-    "lang": "nb",
-    "text": "Vi pakker det i nett, så er det lettere å bære.",
-    "voices": {
-     "f": "w_old",
-     "m": "m_young"
-    }
-   },
-   {
-    "id": "b088",
-    "kind": "shop_tree",
-    "who": "shop",
-    "lang": "nb",
-    "text": "Liten, middels eller stor?",
-    "voices": {
-     "f": "w_adult",
-     "m": "m_old"
-    }
-   },
-   {
-    "id": "b089",
-    "kind": "shop_tree",
-    "who": "shop",
-    "lang": "nb",
-    "text": "Den holder nåler helt til nyttår.",
-    "voices": {
-     "f": "w_young",
-     "m": "m_old"
-    }
-   },
-   {
-    "id": "b090",
-    "kind": "bowl_greet",
-    "who": "bowl",
-    "lang": "nb",
-    "text": "Hei, og velkommen til Bowlinghallen!",
-    "voices": {
-     "f": "w_adult",
-     "m": "m_adult"
-    }
-   },
-   {
-    "id": "b091",
-    "kind": "bowl_greet",
-    "who": "bowl",
-    "lang": "en",
-    "text": "Welcome in! Grab some shoes at the desk.",
-    "voices": {
-     "f": "en_w",
-     "m": "en_m"
-    }
-   },
-   {
-    "id": "b092",
-    "kind": "bowl_greet",
-    "who": "bowl",
-    "lang": "nb",
-    "text": "God kveld! Sko får du hos Arild.",
-    "voices": {
-     "f": "w_young",
-     "m": "m_adult"
-    }
-   },
-   {
-    "id": "b093",
-    "kind": "bowl_strike",
-    "who": "bowl",
-    "lang": "en",
-    "text": "Strike!",
-    "voices": {
-     "f": "en_w",
-     "m": "en_m"
-    }
-   },
-   {
-    "id": "b094",
-    "kind": "bowl_strike",
-    "who": "bowl",
-    "lang": "en",
-    "text": "Yes! Strike!",
-    "voices": {
-     "f": "en_w",
-     "m": "en_m"
-    }
-   },
-   {
-    "id": "b095",
-    "kind": "bowl_strike",
-    "who": "bowl",
-    "lang": "nb",
-    "text": "Der satt den! Strike!",
-    "voices": {
-     "f": "w_young",
-     "m": "m_young"
-    }
-   },
-   {
-    "id": "b096",
-    "kind": "bowl_strike",
-    "who": "bowl",
-    "lang": "nb",
-    "text": "Se der, alle ti!",
-    "voices": {
-     "f": "w_adult",
-     "m": "m_adult"
-    }
-   },
-   {
-    "id": "b097",
-    "kind": "bowl_spare",
-    "who": "bowl",
-    "lang": "nb",
-    "text": "Spare! Fint!",
-    "voices": {
-     "f": "w_adult",
-     "m": "m_young"
-    }
-   },
-   {
-    "id": "b098",
-    "kind": "bowl_spare",
-    "who": "bowl",
-    "lang": "en",
-    "text": "Nice spare!",
-    "voices": {
-     "f": "en_w",
-     "m": "en_m"
-    }
-   },
-   {
-    "id": "b099",
-    "kind": "bowl_spare",
-    "who": "bowl",
-    "lang": "nb",
-    "text": "Akkurat det jeg trengte.",
-    "voices": {
-     "f": "w_old",
-     "m": "m_old"
-    }
-   },
-   {
-    "id": "b100",
-    "kind": "bowl_gutter",
-    "who": "bowl",
-    "lang": "nb",
-    "text": "Å nei, rennen!",
-    "voices": {
-     "f": "w_young",
-     "m": "m_young"
-    }
-   },
-   {
-    "id": "b101",
-    "kind": "bowl_gutter",
-    "who": "bowl",
-    "lang": "en",
-    "text": "Oh no, gutter ball!",
-    "voices": {
-     "f": "en_w",
-     "m": "en_m"
-    }
-   },
-   {
-    "id": "b102",
-    "kind": "bowl_gutter",
-    "who": "bowl",
-    "lang": "nb",
-    "text": "Uff, rett i renna.",
-    "voices": {
-     "f": "w_adult",
-     "m": "m_adult"
-    }
-   },
-   {
-    "id": "b103",
-    "kind": "bowl_gutter",
-    "who": "bowl",
-    "lang": "nb",
-    "text": "Rennekule igjen!",
-    "voices": {
-     "f": "w_old",
-     "m": "m_old"
-    }
-   },
-   {
-    "id": "b104",
-    "kind": "bowl_gutter",
-    "who": "bowl",
-    "lang": "en",
-    "text": "Not again!",
-    "voices": {
-     "f": "en_w",
-     "m": "en_m"
-    }
-   },
-   {
-    "id": "b105",
-    "kind": "bowl_nice",
-    "who": "bowl",
-    "lang": "nb",
-    "text": "Fin kule!",
-    "voices": {
-     "f": "w_adult",
-     "m": "m_adult"
-    }
-   },
-   {
-    "id": "b106",
-    "kind": "bowl_nice",
-    "who": "bowl",
-    "lang": "en",
-    "text": "Nice ball!",
-    "voices": {
-     "f": "en_w",
-     "m": "en_m"
-    }
-   },
-   {
-    "id": "b107",
-    "kind": "bowl_nice",
-    "who": "bowl",
-    "lang": "nb",
-    "text": "Bra kast!",
-    "voices": {
-     "f": "w_young",
-     "m": "m_young"
-    }
-   },
-   {
-    "id": "b108",
-    "kind": "bowl_nice",
-    "who": "bowl",
-    "lang": "nb",
-    "text": "Nesten alle!",
-    "voices": {
-     "f": "w_old",
-     "m": "m_old"
-    }
-   },
-   {
-    "id": "b109",
-    "kind": "bowl_nice",
-    "who": "bowl",
-    "lang": "en",
-    "text": "So close!",
-    "voices": {
-     "f": "en_w",
-     "m": "en_m"
-    }
-   },
-   {
-    "id": "b110",
-    "kind": "bowl_idle",
-    "who": "bowl",
-    "lang": "nb",
-    "text": "Hvem sin tur er det?",
-    "voices": {
-     "f": "w_adult",
-     "m": "m_adult"
-    }
-   },
-   {
-    "id": "b111",
-    "kind": "bowl_idle",
-    "who": "bowl",
-    "lang": "nb",
-    "text": "Er det min tur nå?",
-    "voices": {
-     "f": "w_young",
-     "m": "m_young"
-    }
-   },
-   {
-    "id": "b112",
-    "kind": "bowl_idle",
-    "who": "bowl",
-    "lang": "nb",
-    "text": "Jeg trenger en brus.",
-    "voices": {
-     "f": "w_old",
-     "m": "m_old"
-    }
-   },
-   {
-    "id": "b113",
-    "kind": "bowl_idle",
-    "who": "bowl",
-    "lang": "nb",
-    "text": "Skal vi ta air hockey etterpå?",
-    "voices": {
-     "f": "w_young",
-     "m": "m_adult"
-    }
-   },
-   {
-    "id": "b114",
-    "kind": "bowl_idle",
-    "who": "bowl",
-    "lang": "nb",
-    "text": "Jeg slo deg sist, husker du?",
-    "voices": {
-     "f": "w_adult",
-     "m": "m_young"
-    }
-   },
-   {
-    "id": "b115",
-    "kind": "bowl_idle",
-    "who": "bowl",
-    "lang": "en",
-    "text": "This place never changes.",
-    "voices": {
-     "f": "en_w",
-     "m": "en_m"
-    }
-   },
-   {
-    "id": "b116",
-    "kind": "bowl_idle",
-    "who": "bowl",
-    "lang": "en",
-    "text": "Who has the next game?",
-    "voices": {
-     "f": "en_w",
-     "m": "en_m"
-    }
-   },
-   {
-    "id": "b117",
-    "kind": "bowl_idle",
-    "who": "bowl",
-    "lang": "en",
-    "text": "These shoes are way too small.",
-    "voices": {
-     "f": "en_w",
-     "m": "en_m"
-    }
-   },
-   {
-    "id": "b118",
-    "kind": "bowl_idle",
-    "who": "bowl",
-    "lang": "nb",
-    "text": "Du fusker, du sto på streken!",
-    "voices": {
-     "f": "w_adult",
-     "m": "m_old"
-    }
-   },
-   {
-    "id": "b119",
-    "kind": "bowl_bar",
-    "who": "bowl",
-    "lang": "nb",
-    "text": "En cola og en pølse, takk.",
-    "voices": {
-     "f": "w_young",
-     "m": "m_adult"
-    }
-   },
-   {
-    "id": "b120",
-    "kind": "bowl_bar",
-    "who": "bowl",
-    "lang": "en",
-    "text": "Two hot dogs, please!",
-    "voices": {
-     "f": "en_w",
-     "m": "en_m"
-    }
-   },
-   {
-    "id": "b121",
-    "kind": "bowl_bar",
-    "who": "bowl",
-    "lang": "nb",
-    "text": "Det blir åtti kroner, takk.",
-    "voices": {
-     "f": "w_adult",
-     "m": "m_adult"
-    }
-   },
-   {
-    "id": "b122",
-    "kind": "bowl_bar",
-    "who": "bowl",
-    "lang": "nb",
-    "text": "Skål for en fin kveld!",
-    "voices": {
-     "f": "w_old",
-     "m": "m_old"
-    }
-   },
-   {
-    "id": "b123",
-    "kind": "bowl_bar",
-    "who": "bowl",
-    "lang": "nb",
-    "text": "Ha det bra, og kom igjen!",
-    "voices": {
-     "f": "w_adult",
-     "m": "m_old"
-    }
-   },
-   {
-    "id": "b124",
-    "kind": "bowl_arcade",
-    "who": "bowl",
-    "lang": "nb",
-    "text": "Kom igjen, ny rekord!",
-    "voices": {
-     "f": "w_young",
-     "m": "m_young"
-    }
-   },
-   {
-    "id": "b125",
-    "kind": "bowl_arcade",
-    "who": "bowl",
-    "lang": "en",
-    "text": "One more credit and I get the high score!",
-    "voices": {
-     "f": "en_w",
-     "m": "en_m"
-    }
-   },
-   {
-    "id": "b126",
-    "kind": "bowl_arcade",
-    "who": "bowl",
-    "lang": "nb",
-    "text": "Nei, jeg døde igjen!",
-    "voices": {
-     "f": "w_adult",
-     "m": "m_young"
-    }
-   },
-   {
-    "id": "b127",
-    "kind": "gossip_lights",
-    "who": "any",
-    "lang": "nb",
-    "text": "Har du hørt det? Kvinesdal har fått sin egen ninjabane!",
-    "voices": {
-     "f": "w_adult",
-     "m": "m_adult"
-    }
-   },
-   {
-    "id": "b128",
-    "kind": "gossip_lights",
-    "who": "any",
-    "lang": "nb",
-    "text": "De sier noen har bygd en hinderløype. Ingen vet hvem.",
-    "voices": {
-     "f": "w_young",
-     "m": "m_old"
-    }
-   },
-   {
-    "id": "b129",
-    "kind": "gossip_lights",
-    "who": "any",
-    "lang": "nb",
-    "text": "Jeg hørte det er en ninjabane. Ingen vil si hvor den er. Typisk.",
-    "voices": {
-     "f": "w_old",
-     "m": "m_young"
-    }
-   },
-   {
-    "id": "b130",
-    "kind": "gossip_lights",
-    "who": "any",
-    "lang": "nb",
-    "text": "Lysene på himmelen i natt! Så du dem? Lange strålekastere!",
-    "voices": {
-     "f": "w_adult",
-     "m": "m_adult"
-    }
-   },
-   {
-    "id": "b131",
-    "kind": "gossip_lights",
-    "who": "any",
-    "lang": "nb",
-    "text": "Hunden min bjeffet på lysene hele natta.",
-    "voices": {
-     "f": "w_young",
-     "m": "m_old"
-    }
-   },
-   {
-    "id": "b132",
-    "kind": "gossip_lights",
-    "who": "any",
-    "lang": "nb",
-    "text": "Noen sier det er rakettene til julenissen. Jeg tror det er noe større.",
-    "voices": {
-     "f": "w_old",
-     "m": "m_young"
-    }
-   },
-   {
-    "id": "b133",
-    "kind": "gossip_lights",
-    "who": "any",
-    "lang": "nb",
-    "text": "Jeg så en lysstråle som svingte rundt og rundt. Jeg ble helt svimmel.",
-    "voices": {
-     "f": "w_adult",
-     "m": "m_adult"
-    }
-   },
-   {
-    "id": "b134",
-    "kind": "gossip_lights",
-    "who": "any",
-    "lang": "nb",
-    "text": "Naboen min sier han vet hvor den er. Han lyver. Han vet ingenting.",
-    "voices": {
-     "f": "w_young",
-     "m": "m_old"
-    }
-   },
-   {
-    "id": "b135",
-    "kind": "gossip_lights",
-    "who": "any",
-    "lang": "nb",
-    "text": "Første som finner ninjabanen får en premie, sier de. Jeg leter allerede!",
-    "voices": {
-     "f": "w_old",
-     "m": "m_young"
-    }
-   },
-   {
-    "id": "b136",
-    "kind": "gossip_lights",
-    "who": "any",
-    "lang": "nb",
-    "text": "Jeg har lett i tre dager. Bare snø. Og en elg.",
-    "voices": {
-     "f": "w_adult",
-     "m": "m_adult"
-    }
-   },
-   {
-    "id": "b137",
-    "kind": "gossip_lights",
-    "who": "any",
-    "lang": "nb",
-    "text": "Nå ser man lysene fra kjøkkenvinduet. Jeg setter meg ned med kaffen og ser på.",
-    "voices": {
-     "f": "w_young",
-     "m": "m_old"
-    }
-   },
-   {
-    "id": "b138",
-    "kind": "gossip_lights",
-    "who": "any",
-    "lang": "nb",
-    "text": "Alle spør hvor den er. Ingen svarer. Det er så spennende!",
-    "voices": {
-     "f": "w_old",
-     "m": "m_young"
-    }
-   }
-  ]
- }
 }

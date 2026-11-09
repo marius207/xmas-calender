@@ -1,876 +1,896 @@
 {
- "_note": "NCC · Nisse Security Central. agents: who, where (at = hq spot or a site id), voice, and spoken clue lines unlocked from their day (the game plays the newest line you have not heard, then cycles). quests use the same shape as data/sidequests.json (targets.at = a site id with dx/dz in metres from the site centre). Run build/make_ncc.py after editing text. Audio: voice/ncc/<key>.m4a (ncc_<agent>_<n>, <quest>_ask|wait|done).",
- "arrivalDay": 2,
- "agents": {
-  "kleppe": {
-   "sex": "m",
-   "name": "Officer Kleppe",
-   "role": "Gate security",
-   "place": "NCC main gate",
-   "at": "gate",
-   "seed": 3,
-   "voice": "en-GB-ThomasNeural",
-   "rate": "-6%",
-   "pitch": "-4Hz",
-   "lines": [
-    {
-     "day": 2,
-     "text": "Halt. Name, business, and shoe size. Never mind the shoe size, that is for the other shift. Welcome to the Nisse Security Central. Please do not feed the SUVs."
+  "_note": "NCC · Nisse Security Central. agents: who, where (at = hq spot or a site id), voice, and spoken clue lines unlocked from their day (the game plays the newest line you have not heard, then cycles). quests use the same shape as data/sidequests.json (targets.at = a site id with dx/dz in metres from the site centre). Run build/make_ncc.py after editing text. Audio: voice/ncc/<key>.m4a (ncc_<agent>_<n>, <quest>_ask|wait|done).",
+  "arrivalDay": 2,
+  "agents": {
+    "kleppe": {
+      "sex": "m",
+      "name": "Officer Kleppe",
+      "role": "Gate security",
+      "place": "NCC main gate",
+      "at": "gate",
+      "seed": 3,
+      "voice": "en-GB-ThomasNeural",
+      "rate": "-6%",
+      "pitch": "-4Hz",
+      "lines": [
+        {
+          "day": 2,
+          "text": "Halt. Name, business, and shoe size. Never mind the shoe size, that is for the other shift. Welcome to the Nisse Security Central. Please do not feed the SUVs."
+        },
+        {
+          "day": 6,
+          "text": "Since the second of December I have logged four hundred and twelve visitors. Three hundred of them were you. I am not saying anything. I am just saying I have a log."
+        },
+        {
+          "day": 12,
+          "text": "The Director says nobody goes down to any cellar. Which cellar? Exactly. I am not supposed to know about it. Forget I said it. That is an order, from me, to you."
+        },
+        {
+          "day": 20,
+          "text": "The barrier arm has been going up by itself at night. The Director says it is the wind. The wind, in my experience, does not say takk."
+        },
+        {
+          "day": 16,
+          "text": "The mountain road is closed. The police have handed the roadblock over to us, and nobody argued. Nobody wanted it."
+        }
+      ]
     },
-    {
-     "day": 6,
-     "text": "Since the second of December I have logged four hundred and twelve visitors. Three hundred of them were you. I am not saying anything. I am just saying I have a log."
+    "marit": {
+      "sex": "f",
+      "name": "Marit Nygård",
+      "role": "Reception",
+      "place": "NCC lobby",
+      "at": "lobby",
+      "seed": 14,
+      "voice": "en-GB-LibbyNeural",
+      "rate": "-2%",
+      "pitch": "+0Hz",
+      "lines": [
+        {
+          "day": 2,
+          "text": "Velkommen to the NCC! I am Marit. Here is your visitor badge, number zero zero one. Please wear it at all times, and do not lick it."
+        },
+        {
+          "day": 5,
+          "text": "We have had a record number of visitors since the nisser went missing. Mostly people asking if it is a prank. It is not a prank. We have a form for that."
+        },
+        {
+          "day": 10,
+          "text": "I have started leaving a bowl of porridge by the front door. With butter. Technically it is for the building. The building has not complained."
+        },
+        {
+          "day": 18,
+          "text": "Between us? The porridge bowl was empty this morning. Licked clean. And I locked the door from the inside."
+        }
+      ]
     },
-    {
-     "day": 12,
-     "text": "The Director says nobody goes down to any cellar. Which cellar? Exactly. I am not supposed to know about it. Forget I said it. That is an order, from me, to you."
+    "aasland": {
+      "sex": "f",
+      "name": "Director Aasland",
+      "role": "Director of the NCC",
+      "place": "NCC operations room",
+      "at": "ops",
+      "seed": 8,
+      "voice": "en-GB-SoniaNeural",
+      "rate": "-12%",
+      "pitch": "-6Hz",
+      "lines": [
+        {
+          "day": 2,
+          "text": "I am Director Aasland. Let me be plain. The nisser of Kvinesdal have gone missing. Every one of them. Who guards the barns now? That is what keeps me awake. That, and the coffee."
+        },
+        {
+          "day": 6,
+          "text": "We have mapped every sighting, every mitten, every crumb. The pins form a pattern. It is not a good pattern. It is, I regret to say, a spiral."
+        },
+        {
+          "day": 12,
+          "text": "The witch is no longer the problem. The cookies, however. The nisser were last seen near her door. They went in. They did not come out. That is all I can say officially."
+        },
+        {
+          "day": 20,
+          "text": "Gather round. Officially: the nisser were not taken. They were called. Beneath this world sits another, the Threshold World. I have seen the stitching of it. Find the lantern. We cannot go where the lantern is needed. You can."
+        },
+        {
+          "day": 16,
+          "text": "The cordon is up. Tape, floodlights, a tent, and black cars. The crater is not a tourist attraction. It is not an attraction at all. Nobody goes up there. That is an order."
+        },
+        {
+          "day": 22,
+          "text": "Case closed. Official finding: the nisser were called, the witch was a misunderstanding, and the lights are the council's fault. Lindtner disagrees. Lindtner is retiring again."
+        }
+      ]
     },
-    {
-     "day": 20,
-     "text": "The barrier arm has been going up by itself at night. The Director says it is the wind. The wind, in my experience, does not say takk."
+    "skeie": {
+      "sex": "m",
+      "name": "Agent Skeie",
+      "role": "Evidence and forensics",
+      "place": "NCC briefing room",
+      "at": "brief",
+      "seed": 21,
+      "voice": "en-IE-ConnorNeural",
+      "rate": "-4%",
+      "pitch": "-2Hz",
+      "lines": [
+        {
+          "day": 2,
+          "text": "Evidence so far: one red cap, one mitten, knitted, left-handed. A track in the snow, six centimetres. Could be a very small man. Could be a very big cat. We are keeping an open mind."
+        },
+        {
+          "day": 6,
+          "text": "Cookie crumbs. Ginger, home baked, Norwegian butter. Somebody's mother. I will not say whose. It is just that Chris's mum's baking has a very unmistakable crumb."
+        },
+        {
+          "day": 12,
+          "text": "The witch's munching is confirmed on the audio. The crumbs lead down. Down is the keyword. Beneath Hamre there is a cellar that is not on any of the plans."
+        },
+        {
+          "day": 19,
+          "text": "I laid every clue on this board, and every string meets in one place. A door that only opens from the dark side. I keep my coat on in here now."
+        }
+      ]
+    },
+    "moen": {
+      "sex": "f",
+      "name": "Agent Moen",
+      "role": "Radio and signals",
+      "place": "NCC radio room",
+      "at": "radio",
+      "seed": 30,
+      "voice": "en-AU-NatashaNeural",
+      "rate": "-4%",
+      "pitch": "+0Hz",
+      "lines": [
+        {
+          "day": 2,
+          "text": "Signals desk. Everything on Nisse-TV has been a repeat for three days, and nobody is on it. Pjusk the puppet is still counting to twenty-four. He never gets past twenty-three."
+        },
+        {
+          "day": 7,
+          "text": "There is a hum under the radio. At night it sounds like a choir that has forgotten the words. I played it backwards. It said takk. Then I stopped playing it."
+        },
+        {
+          "day": 13,
+          "text": "Tulla has not been on Nisse-TV since the first. The broadcasts are repeats. But last night one repeat had an extra second at the end. A door, closing. I would keep an eye on the doors."
+        },
+        {
+          "day": 21,
+          "text": "I traced the hum. It does not come from a place, it comes from underneath. Odd calls it the Threshold World. I call it a very bad signal. Either way, it says come and get us."
+        }
+      ]
+    },
+    "lindtner": {
+      "sex": "m",
+      "name": "Agent Lindtner",
+      "role": "Field veteran",
+      "place": "NCC break room",
+      "at": "break",
+      "seed": 17,
+      "voice": "en-US-GuyNeural",
+      "rate": "-10%",
+      "pitch": "-8Hz",
+      "lines": [
+        {
+          "day": 2,
+          "text": "Coffee is on. The cookie tin is evidence, so do not touch it. Okay, one cookie. But I log it."
+        },
+        {
+          "day": 8,
+          "text": "Thirty years chasing things that should not exist. The nisser are the polite ones. They never scare anyone, they just hide very quietly. The hiding is what worries me."
+        },
+        {
+          "day": 14,
+          "text": "The witch ate the cookies, and she grew. Everyone understands that. Nobody asks why a witch would want to be big. You only need to be big to reach something high. Or to hold something shut."
+        },
+        {
+          "day": 22,
+          "text": "Between you and the thermos: the nisser were taken to the Threshold World. I have been there once. Everything is grey, and everyone stares at the Eye. If you ever see a warm light there, follow it. It is them."
+        },
+        {
+          "day": 17,
+          "text": "The lights went grey for four minutes last night. I logged it. Do not ask me what looked in through the window. I logged that too."
+        }
+      ]
+    },
+    "vik": {
+      "sex": "m",
+      "name": "Agent Eirik Vik",
+      "role": "Field agent",
+      "place": "The square, Liknes",
+      "at": "square",
+      "seed": 5,
+      "voice": "en-GB-RyanNeural",
+      "rate": "-4%",
+      "pitch": "-2Hz",
+      "lines": [
+        {
+          "day": 2,
+          "text": "Please stay behind the tape. The big nisse's lantern is still lit, and nobody lit it. And the oats on the julenek were eaten. Bullfinch tracks stop halfway across the square. Halfway."
+        },
+        {
+          "day": 9,
+          "text": "The big nisse has not moved. Forensics say so. But yesterday its lantern pointed left, and today it points right. We are watching it. It is watching back."
+        },
+        {
+          "day": 16,
+          "text": "Cordon line at the crater. Stay behind the tape. The tape is not a suggestion. The tape is the only thing I trust up there."
+        }
+      ]
+    },
+    "roll": {
+      "sex": "f",
+      "name": "Agent Hanne Roll",
+      "role": "Field agent",
+      "place": "Camp Botnan",
+      "at": "botnan",
+      "seed": 9,
+      "voice": "en-IE-EmilyNeural",
+      "rate": "-2%",
+      "pitch": "+0Hz",
+      "lines": [
+        {
+          "day": 3,
+          "text": "Six tipis, one tårngamme, zero nisser. We found a tiny pair of boots by the fire pit. Still warm. That is, and I say this professionally, deeply unsettling."
+        },
+        {
+          "day": 11,
+          "text": "The totem pole has a new face carved on it overnight. A very small face. Smiling. Do not make eye contact with the totem."
+        }
+      ]
+    },
+    "tveit": {
+      "sex": "m",
+      "name": "Agent Sven Tveit",
+      "role": "Field agent",
+      "place": "Orresteinen, above Feda",
+      "at": "orre",
+      "seed": 12,
+      "voice": "en-AU-WilliamNeural",
+      "rate": "-4%",
+      "pitch": "-3Hz",
+      "lines": [
+        {
+          "day": 4,
+          "text": "Giant boulder, giant mystery. Old stories say the nisser sleep under big stones. We looked under it. Dirt. But the dirt was warm, and it was humming."
+        },
+        {
+          "day": 13,
+          "text": "I pressed my ear to Orresteinen and heard bells. Very faint. Very far down. Sleigh bells, I think. Or the biggest nisse alarm clock in the world."
+        }
+      ]
+    },
+    "brekke": {
+      "sex": "f",
+      "name": "Agent Lise Brekke",
+      "role": "Field agent",
+      "place": "The penstock intake",
+      "at": "pen",
+      "seed": 19,
+      "voice": "en-US-AriaNeural",
+      "rate": "-2%",
+      "pitch": "+0Hz",
+      "lines": [
+        {
+          "day": 5,
+          "text": "Water goes in at the top, power comes out at the bottom, and something in the middle is knocking on the pipe. Three knocks. Pause. Three knocks. It is polite. That is what scares me."
+        },
+        {
+          "day": 14,
+          "text": "The knocking has changed. It is now a rhythm. Our radio man says it is the first line of Nisse-TV's theme tune. I did not need to know that."
+        }
+      ]
+    },
+    "haugen": {
+      "sex": "m",
+      "name": "Agent Jonas Haugen",
+      "role": "Field agent",
+      "place": "Kvinesdal kirke",
+      "at": "church",
+      "seed": 26,
+      "voice": "en-US-ChristopherNeural",
+      "rate": "-4%",
+      "pitch": "-2Hz",
+      "lines": [
+        {
+          "day": 6,
+          "text": "The choir sings every evening at four, and last Sunday there was one voice too many. Very small. A little off key, and very sincere."
+        },
+        {
+          "day": 15,
+          "text": "I stayed after the service. The nativity scene has a new shepherd. Nobody put him there. He is wearing a red cap. I am not touching him."
+        }
+      ]
+    },
+    "berg": {
+      "sex": "f",
+      "name": "Agent Tone Berg",
+      "role": "Field agent",
+      "place": "The tent camp, Tågåsvatn",
+      "at": "tent",
+      "seed": 31,
+      "voice": "en-US-MichelleNeural",
+      "rate": "-2%",
+      "pitch": "+0Hz",
+      "lines": [
+        {
+          "day": 7,
+          "text": "Sleeping bags, a campfire, a thermos, and not one camper. Whoever was here left in a hurry. Or they never left. The fire is warm. Warm, after three days."
+        },
+        {
+          "day": 16,
+          "text": "The tent has two doors now. When we arrived, it had one. We are not going to talk about the second door. Please do not use the second door."
+        }
+      ]
+    },
+    "aas": {
+      "sex": "m",
+      "name": "Agent Rolf Aas",
+      "role": "Field agent",
+      "place": "Feda",
+      "at": "feda",
+      "seed": 4,
+      "voice": "en-CA-LiamNeural",
+      "rate": "-4%",
+      "pitch": "-2Hz",
+      "lines": [
+        {
+          "day": 8,
+          "text": "Feda. The bridge, the fjord, the ferry timetable that has not changed since nineteen ninety eight. A nisse hat was found floating in the harbour. Dry. Do not ask how it was dry."
+        },
+        {
+          "day": 17,
+          "text": "Every night the water at the quay goes perfectly still, like a mirror, and on the other side of the mirror there is a lantern. Same quay. Different weather. I am writing that down. Carefully."
+        }
+      ]
+    },
+    "lund": {
+      "sex": "f",
+      "name": "Agent Kari Lund",
+      "role": "Field agent",
+      "place": "Bowlinghallen",
+      "at": "bowl",
+      "seed": 22,
+      "voice": "en-CA-ClaraNeural",
+      "rate": "-2%",
+      "pitch": "+0Hz",
+      "lines": [
+        {
+          "day": 9,
+          "text": "Bowlinghallen is the only place in the valley where the lights never flicker. The nisser must have known. The score on lane three says eleven hundred. Nobody can bowl that."
+        },
+        {
+          "day": 18,
+          "text": "When the valley goes quiet, the staff here stay happy. Warm lights, loud music, strike after strike. I think the hall is a refuge. I think the nisser knew that too."
+        }
+      ]
     }
-   ]
   },
-  "marit": {
-   "sex": "f",
-   "name": "Marit Nygård",
-   "role": "Reception",
-   "place": "NCC lobby",
-   "at": "lobby",
-   "seed": 14,
-   "voice": "en-GB-LibbyNeural",
-   "rate": "-2%",
-   "pitch": "+0Hz",
-   "lines": [
+  "quests": [
     {
-     "day": 2,
-     "text": "Velkommen to the NCC! I am Marit. Here is your visitor badge, number zero zero one. Please wear it at all times, and do not lick it."
+      "id": "ncc_mitten",
+      "title": "The left-handed mitten",
+      "giver": "vik",
+      "where": "square",
+      "type": "find",
+      "minDay": 2,
+      "ask": "Eirik Vik, NCC. Evidence marker nine has gone missing from the market. A red, left-handed mitten, size nisse. It blew off the tape, I swear. Could you look around the stalls? Just find it. Touching it is above my pay grade.",
+      "wait": "A red mitten, marker nine, somewhere near the stalls. It is very small, so look low.",
+      "done": "That is the one. Left-handed, wool, and still warm. Warm! Thank you. The NCC is in your debt, and I am authorised to say that in actual kroner.",
+      "targets": {
+        "at": "square",
+        "dx": 15,
+        "dz": 8,
+        "thing": "the red mitten",
+        "label": "a red mitten near the market stalls"
+      },
+      "reward": {
+        "kr": 50
+      },
+      "repeatable": false
     },
     {
-     "day": 5,
-     "text": "We have had a record number of visitors since the nisser went missing. Mostly people asking if it is a prank. It is not a prank. We have a form for that."
+      "id": "ncc_cap",
+      "title": "A lost nisse cap",
+      "giver": "roll",
+      "where": "botnan",
+      "type": "find",
+      "minDay": 3,
+      "ask": "Hanne Roll. One cap, red, pointed, left behind on the trail near Camp Botnan. The wearer is missing. The cap is still here. Forensics says that is worse. Could you find it before the snow does?",
+      "wait": "A red cap, somewhere in the trees near the camp. If it moves on its own, do not pick it up. Tell me.",
+      "done": "A real nisse cap. Look at the stitching, that is Pjusk grade wool. You have good eyes. Here, for your trouble. Do not spend it all at once.",
+      "targets": {
+        "at": "botnan",
+        "dx": -24,
+        "dz": 16,
+        "thing": "a lost nisse cap",
+        "label": "a red nisse cap near Camp Botnan"
+      },
+      "reward": {
+        "kr": 60,
+        "item": "rocket",
+        "n": 1
+      },
+      "repeatable": false
     },
     {
-     "day": 10,
-     "text": "I have started leaving a bowl of porridge by the front door. With butter. Technically it is for the building. The building has not complained."
+      "id": "ncc_photo",
+      "title": "The big nisse's lantern",
+      "giver": "lindtner",
+      "where": "break",
+      "type": "photo",
+      "minDay": 4,
+      "ask": "Odd Lindtner. Coffee is on. Listen, forensics swear the big nisse's lantern on the square points a different way every morning. I need proof. Open the camera, line it up, press H. I would go myself, but my knees. And my nerves.",
+      "wait": "The big nisse's lantern, on the square. Camera mode, point at it, press H. I will keep the coffee warm.",
+      "done": "Ha. It points south east. Yesterday it was north. It is definitely moving, and it is definitely watching. Excellent. Do not tell Aasland I was scared.",
+      "targets": {
+        "at": "square",
+        "nisse": true,
+        "thing": "the big nisse's lantern",
+        "r": 40,
+        "label": "the big nisse on the square"
+      },
+      "reward": {
+        "kr": 70
+      },
+      "repeatable": false
     },
     {
-     "day": 18,
-     "text": "Between us? The porridge bowl was empty this morning. Licked clean. And I locked the door from the inside."
+      "id": "ncc_escort",
+      "title": "Walk Agent Roll home",
+      "giver": "roll",
+      "where": "botnan",
+      "type": "escort",
+      "minDay": 5,
+      "after": "ncc_cap",
+      "ask": "The case is packed, the light is leaving, and I do not like walking past the Camp alone after dark. Would you walk me back to headquarters in Hamre? I will stay close. Not that close. Close enough.",
+      "wait": "Lead the way to the gate in Hamre. I will follow. Please do not run, I have a clipboard.",
+      "done": "Safe at the gate. Thank you. I will tell the Director you were calm, professional, and only slightly lost. Here, for your trouble.",
+      "targets": {
+        "x": 898,
+        "z": -846,
+        "r": 14,
+        "label": "the NCC gate at Hamre"
+      },
+      "reward": {
+        "kr": 120
+      },
+      "repeatable": false
+    },
+    {
+      "id": "ncc_evidence",
+      "title": "Evidence for headquarters",
+      "giver": "haugen",
+      "where": "church",
+      "type": "deliver",
+      "minDay": 6,
+      "ask": "Jonas Haugen, at the church. I have bagged candle wax from the nativity corner. There are tiny fingerprints in it. Tiny. Please take this evidence to Agent Skeie at NCC headquarters in Hamre. Do not open the bag. Do not sniff the bag.",
+      "wait": "The bag goes to Agent Skeie, in the briefing room at Hamre. Straight there, please. No detours. No porridge.",
+      "done": "Candle wax, with fingerprints the size of a thumbnail. Excellent. This goes straight on the board, next to the mitten. You have done the valley a service. Here is something for the road.",
+      "targets": {
+        "to": "skeie",
+        "parcel": "Evidence bag: candle wax"
+      },
+      "reward": {
+        "kr": 80
+      },
+      "repeatable": false
+    },
+    {
+      "id": "ncc_thermos",
+      "title": "Coffee for the stakeout",
+      "giver": "lund",
+      "where": "bowl",
+      "type": "fetch",
+      "minDay": 9,
+      "ask": "Kari Lund. Stakeout at Bowlinghallen, night shift, and the vending machine ate my last coin. A gløgg thermos would save my life. Or at least my fingers. If you find one lying around, bring it.",
+      "wait": "One gløgg thermos. People leave them by lamp posts. I would ask the lamp posts myself, but they do not answer.",
+      "done": "Hot, spiced, and slightly illegal at this hour. You are officially my favourite civilian. Take this, and tell no one I said so.",
+      "targets": {
+        "item": "thermos",
+        "n": 1,
+        "label": "a gløgg thermos"
+      },
+      "reward": {
+        "kr": 80,
+        "item": "rocket",
+        "n": 1
+      },
+      "repeatable": false
     }
-   ]
-  },
-  "aasland": {
-   "sex": "f",
-   "name": "Director Aasland",
-   "role": "Director of the NCC",
-   "place": "NCC operations room",
-   "at": "ops",
-   "seed": 8,
-   "voice": "en-GB-SoniaNeural",
-   "rate": "-12%",
-   "pitch": "-6Hz",
-   "lines": [
-    {
-     "day": 2,
-     "text": "I am Director Aasland. Let me be plain. The nisser of Kvinesdal have gone missing. Every one of them. Who guards the barns now? That is what keeps me awake. That, and the coffee."
-    },
-    {
-     "day": 6,
-     "text": "We have mapped every sighting, every mitten, every crumb. The pins form a pattern. It is not a good pattern. It is, I regret to say, a spiral."
-    },
-    {
-     "day": 12,
-     "text": "The witch is no longer the problem. The cookies, however. The nisser were last seen near her door. They went in. They did not come out. That is all I can say officially."
-    },
-    {
-     "day": 20,
-     "text": "Gather round. Officially: the nisser were not taken. They were called. Beneath this world sits another, the Threshold World. I have seen the stitching of it. Find the lantern. We cannot go where the lantern is needed. You can."
-    }
-   ]
-  },
-  "skeie": {
-   "sex": "m",
-   "name": "Agent Skeie",
-   "role": "Evidence and forensics",
-   "place": "NCC briefing room",
-   "at": "brief",
-   "seed": 21,
-   "voice": "en-IE-ConnorNeural",
-   "rate": "-4%",
-   "pitch": "-2Hz",
-   "lines": [
-    {
-     "day": 2,
-     "text": "Evidence so far: one red cap, one mitten, knitted, left-handed. A track in the snow, six centimetres. Could be a very small man. Could be a very big cat. We are keeping an open mind."
-    },
-    {
-     "day": 6,
-     "text": "Cookie crumbs. Ginger, home baked, Norwegian butter. Somebody's mother. I will not say whose. It is just that Chris's mum's baking has a very unmistakable crumb."
-    },
-    {
-     "day": 12,
-     "text": "The witch's munching is confirmed on the audio. The crumbs lead down. Down is the keyword. Beneath Hamre there is a cellar that is not on any of the plans."
-    },
-    {
-     "day": 19,
-     "text": "I laid every clue on this board, and every string meets in one place. A door that only opens from the dark side. I keep my coat on in here now."
-    }
-   ]
-  },
-  "moen": {
-   "sex": "f",
-   "name": "Agent Moen",
-   "role": "Radio and signals",
-   "place": "NCC radio room",
-   "at": "radio",
-   "seed": 30,
-   "voice": "en-AU-NatashaNeural",
-   "rate": "-4%",
-   "pitch": "+0Hz",
-   "lines": [
-    {
-     "day": 2,
-     "text": "Signals desk. Everything on Nisse-TV has been a repeat for three days, and nobody is on it. Pjusk the puppet is still counting to twenty-four. He never gets past twenty-three."
-    },
-    {
-     "day": 7,
-     "text": "There is a hum under the radio. At night it sounds like a choir that has forgotten the words. I played it backwards. It said takk. Then I stopped playing it."
-    },
-    {
-     "day": 13,
-     "text": "Tulla has not been on Nisse-TV since the first. The broadcasts are repeats. But last night one repeat had an extra second at the end. A door, closing. I would keep an eye on the doors."
-    },
-    {
-     "day": 21,
-     "text": "I traced the hum. It does not come from a place, it comes from underneath. Odd calls it the Threshold World. I call it a very bad signal. Either way, it says come and get us."
-    }
-   ]
-  },
-  "lindtner": {
-   "sex": "m",
-   "name": "Agent Lindtner",
-   "role": "Field veteran",
-   "place": "NCC break room",
-   "at": "break",
-   "seed": 17,
-   "voice": "en-US-GuyNeural",
-   "rate": "-10%",
-   "pitch": "-8Hz",
-   "lines": [
-    {
-     "day": 2,
-     "text": "Coffee is on. The cookie tin is evidence, so do not touch it. Okay, one cookie. But I log it."
-    },
-    {
-     "day": 8,
-     "text": "Thirty years chasing things that should not exist. The nisser are the polite ones. They never scare anyone, they just hide very quietly. The hiding is what worries me."
-    },
-    {
-     "day": 14,
-     "text": "The witch ate the cookies, and she grew. Everyone understands that. Nobody asks why a witch would want to be big. You only need to be big to reach something high. Or to hold something shut."
-    },
-    {
-     "day": 22,
-     "text": "Between you and the thermos: the nisser were taken to the Threshold World. I have been there once. Everything is grey, and everyone stares at the Eye. If you ever see a warm light there, follow it. It is them."
-    }
-   ]
-  },
-  "vik": {
-   "sex": "m",
-   "name": "Agent Eirik Vik",
-   "role": "Field agent",
-   "place": "The square, Liknes",
-   "at": "square",
-   "seed": 5,
-   "voice": "en-GB-RyanNeural",
-   "rate": "-4%",
-   "pitch": "-2Hz",
-   "lines": [
-    {
-     "day": 2,
-     "text": "Please stay behind the tape. The big nisse's lantern is still lit, and nobody lit it. And the oats on the julenek were eaten. Bullfinch tracks stop halfway across the square. Halfway."
-    },
-    {
-     "day": 9,
-     "text": "The big nisse has not moved. Forensics say so. But yesterday its lantern pointed left, and today it points right. We are watching it. It is watching back."
-    }
-   ]
-  },
-  "roll": {
-   "sex": "f",
-   "name": "Agent Hanne Roll",
-   "role": "Field agent",
-   "place": "Camp Botnan",
-   "at": "botnan",
-   "seed": 9,
-   "voice": "en-IE-EmilyNeural",
-   "rate": "-2%",
-   "pitch": "+0Hz",
-   "lines": [
-    {
-     "day": 3,
-     "text": "Six tipis, one tårngamme, zero nisser. We found a tiny pair of boots by the fire pit. Still warm. That is, and I say this professionally, deeply unsettling."
-    },
-    {
-     "day": 11,
-     "text": "The totem pole has a new face carved on it overnight. A very small face. Smiling. Do not make eye contact with the totem."
-    }
-   ]
-  },
-  "tveit": {
-   "sex": "m",
-   "name": "Agent Sven Tveit",
-   "role": "Field agent",
-   "place": "Orresteinen, above Feda",
-   "at": "orre",
-   "seed": 12,
-   "voice": "en-AU-WilliamNeural",
-   "rate": "-4%",
-   "pitch": "-3Hz",
-   "lines": [
-    {
-     "day": 4,
-     "text": "Giant boulder, giant mystery. Old stories say the nisser sleep under big stones. We looked under it. Dirt. But the dirt was warm, and it was humming."
-    },
-    {
-     "day": 13,
-     "text": "I pressed my ear to Orresteinen and heard bells. Very faint. Very far down. Sleigh bells, I think. Or the biggest nisse alarm clock in the world."
-    }
-   ]
-  },
-  "brekke": {
-   "sex": "f",
-   "name": "Agent Lise Brekke",
-   "role": "Field agent",
-   "place": "The penstock intake",
-   "at": "pen",
-   "seed": 19,
-   "voice": "en-US-AriaNeural",
-   "rate": "-2%",
-   "pitch": "+0Hz",
-   "lines": [
-    {
-     "day": 5,
-     "text": "Water goes in at the top, power comes out at the bottom, and something in the middle is knocking on the pipe. Three knocks. Pause. Three knocks. It is polite. That is what scares me."
-    },
-    {
-     "day": 14,
-     "text": "The knocking has changed. It is now a rhythm. Our radio man says it is the first line of Nisse-TV's theme tune. I did not need to know that."
-    }
-   ]
-  },
-  "haugen": {
-   "sex": "m",
-   "name": "Agent Jonas Haugen",
-   "role": "Field agent",
-   "place": "Kvinesdal kirke",
-   "at": "church",
-   "seed": 26,
-   "voice": "en-US-ChristopherNeural",
-   "rate": "-4%",
-   "pitch": "-2Hz",
-   "lines": [
-    {
-     "day": 6,
-     "text": "The choir sings every evening at four, and last Sunday there was one voice too many. Very small. A little off key, and very sincere."
-    },
-    {
-     "day": 15,
-     "text": "I stayed after the service. The nativity scene has a new shepherd. Nobody put him there. He is wearing a red cap. I am not touching him."
-    }
-   ]
-  },
-  "berg": {
-   "sex": "f",
-   "name": "Agent Tone Berg",
-   "role": "Field agent",
-   "place": "The tent camp, Tågåsvatn",
-   "at": "tent",
-   "seed": 31,
-   "voice": "en-US-MichelleNeural",
-   "rate": "-2%",
-   "pitch": "+0Hz",
-   "lines": [
-    {
-     "day": 7,
-     "text": "Sleeping bags, a campfire, a thermos, and not one camper. Whoever was here left in a hurry. Or they never left. The fire is warm. Warm, after three days."
-    },
-    {
-     "day": 16,
-     "text": "The tent has two doors now. When we arrived, it had one. We are not going to talk about the second door. Please do not use the second door."
-    }
-   ]
-  },
-  "aas": {
-   "sex": "m",
-   "name": "Agent Rolf Aas",
-   "role": "Field agent",
-   "place": "Feda",
-   "at": "feda",
-   "seed": 4,
-   "voice": "en-CA-LiamNeural",
-   "rate": "-4%",
-   "pitch": "-2Hz",
-   "lines": [
-    {
-     "day": 8,
-     "text": "Feda. The bridge, the fjord, the ferry timetable that has not changed since nineteen ninety eight. A nisse hat was found floating in the harbour. Dry. Do not ask how it was dry."
-    },
-    {
-     "day": 17,
-     "text": "Every night the water at the quay goes perfectly still, like a mirror, and on the other side of the mirror there is a lantern. Same quay. Different weather. I am writing that down. Carefully."
-    }
-   ]
-  },
-  "lund": {
-   "sex": "f",
-   "name": "Agent Kari Lund",
-   "role": "Field agent",
-   "place": "Bowlinghallen",
-   "at": "bowl",
-   "seed": 22,
-   "voice": "en-CA-ClaraNeural",
-   "rate": "-2%",
-   "pitch": "+0Hz",
-   "lines": [
-    {
-     "day": 9,
-     "text": "Bowlinghallen is the only place in the valley where the lights never flicker. The nisser must have known. The score on lane three says eleven hundred. Nobody can bowl that."
-    },
-    {
-     "day": 18,
-     "text": "When the valley goes quiet, the staff here stay happy. Warm lights, loud music, strike after strike. I think the hall is a refuge. I think the nisser knew that too."
-    }
-   ]
-  }
- },
- "quests": [
-  {
-   "id": "ncc_mitten",
-   "title": "The left-handed mitten",
-   "giver": "vik",
-   "where": "square",
-   "type": "find",
-   "minDay": 2,
-   "ask": "Eirik Vik, NCC. Evidence marker nine has gone missing from the market. A red, left-handed mitten, size nisse. It blew off the tape, I swear. Could you look around the stalls? Just find it. Touching it is above my pay grade.",
-   "wait": "A red mitten, marker nine, somewhere near the stalls. It is very small, so look low.",
-   "done": "That is the one. Left-handed, wool, and still warm. Warm! Thank you. The NCC is in your debt, and I am authorised to say that in actual kroner.",
-   "targets": {
-    "at": "square",
-    "dx": 15,
-    "dz": 8,
-    "thing": "the red mitten",
-    "label": "a red mitten near the market stalls"
-   },
-   "reward": {
-    "kr": 50
-   },
-   "repeatable": false
-  },
-  {
-   "id": "ncc_cap",
-   "title": "A lost nisse cap",
-   "giver": "roll",
-   "where": "botnan",
-   "type": "find",
-   "minDay": 3,
-   "ask": "Hanne Roll. One cap, red, pointed, left behind on the trail near Camp Botnan. The wearer is missing. The cap is still here. Forensics says that is worse. Could you find it before the snow does?",
-   "wait": "A red cap, somewhere in the trees near the camp. If it moves on its own, do not pick it up. Tell me.",
-   "done": "A real nisse cap. Look at the stitching, that is Pjusk grade wool. You have good eyes. Here, for your trouble. Do not spend it all at once.",
-   "targets": {
-    "at": "botnan",
-    "dx": -24,
-    "dz": 16,
-    "thing": "a lost nisse cap",
-    "label": "a red nisse cap near Camp Botnan"
-   },
-   "reward": {
-    "kr": 60,
-    "item": "rocket",
-    "n": 1
-   },
-   "repeatable": false
-  },
-  {
-   "id": "ncc_photo",
-   "title": "The big nisse's lantern",
-   "giver": "lindtner",
-   "where": "break",
-   "type": "photo",
-   "minDay": 4,
-   "ask": "Odd Lindtner. Coffee is on. Listen, forensics swear the big nisse's lantern on the square points a different way every morning. I need proof. Open the camera, line it up, press H. I would go myself, but my knees. And my nerves.",
-   "wait": "The big nisse's lantern, on the square. Camera mode, point at it, press H. I will keep the coffee warm.",
-   "done": "Ha. It points south east. Yesterday it was north. It is definitely moving, and it is definitely watching. Excellent. Do not tell Aasland I was scared.",
-   "targets": {
-    "at": "square",
-    "nisse": true,
-    "thing": "the big nisse's lantern",
-    "r": 40,
-    "label": "the big nisse on the square"
-   },
-   "reward": {
-    "kr": 70
-   },
-   "repeatable": false
-  },
-  {
-   "id": "ncc_escort",
-   "title": "Walk Agent Roll home",
-   "giver": "roll",
-   "where": "botnan",
-   "type": "escort",
-   "minDay": 5,
-   "after": "ncc_cap",
-   "ask": "The case is packed, the light is leaving, and I do not like walking past the Camp alone after dark. Would you walk me back to headquarters in Hamre? I will stay close. Not that close. Close enough.",
-   "wait": "Lead the way to the gate in Hamre. I will follow. Please do not run, I have a clipboard.",
-   "done": "Safe at the gate. Thank you. I will tell the Director you were calm, professional, and only slightly lost. Here, for your trouble.",
-   "targets": {
-    "x": 898,
-    "z": -846,
-    "r": 14,
-    "label": "the NCC gate at Hamre"
-   },
-   "reward": {
-    "kr": 120
-   },
-   "repeatable": false
-  },
-  {
-   "id": "ncc_evidence",
-   "title": "Evidence for headquarters",
-   "giver": "haugen",
-   "where": "church",
-   "type": "deliver",
-   "minDay": 6,
-   "ask": "Jonas Haugen, at the church. I have bagged candle wax from the nativity corner. There are tiny fingerprints in it. Tiny. Please take this evidence to Agent Skeie at NCC headquarters in Hamre. Do not open the bag. Do not sniff the bag.",
-   "wait": "The bag goes to Agent Skeie, in the briefing room at Hamre. Straight there, please. No detours. No porridge.",
-   "done": "Candle wax, with fingerprints the size of a thumbnail. Excellent. This goes straight on the board, next to the mitten. You have done the valley a service. Here is something for the road.",
-   "targets": {
-    "to": "skeie",
-    "parcel": "Evidence bag: candle wax"
-   },
-   "reward": {
-    "kr": 80
-   },
-   "repeatable": false
-  },
-  {
-   "id": "ncc_thermos",
-   "title": "Coffee for the stakeout",
-   "giver": "lund",
-   "where": "bowl",
-   "type": "fetch",
-   "minDay": 9,
-   "ask": "Kari Lund. Stakeout at Bowlinghallen, night shift, and the vending machine ate my last coin. A gløgg thermos would save my life. Or at least my fingers. If you find one lying around, bring it.",
-   "wait": "One gløgg thermos. People leave them by lamp posts. I would ask the lamp posts myself, but they do not answer.",
-   "done": "Hot, spiced, and slightly illegal at this hour. You are officially my favourite civilian. Take this, and tell no one I said so.",
-   "targets": {
-    "item": "thermos",
-    "n": 1,
-    "label": "a gløgg thermos"
-   },
-   "reward": {
-    "kr": 80,
-    "item": "rocket",
-    "n": 1
-   },
-   "repeatable": false
-  }
- ],
- "beamer": {
-  "warn1": [
-   "Sir, please do not throw snowballs at federal agents.",
-   "Excuse me. This is a federal agent. Snowballs are not authorised.",
-   "Sir. That was a snowball. At a federal agent. Please stop."
   ],
-  "warn2": [
-   "This is your final warning.",
-   "Last warning, sir. I am holding something shiny, and I am not afraid to use it.",
-   "Final warning. Put the snowballs down, slowly."
-  ],
-  "bye": [
-   "Bye bye.",
-   "Have a lovely day. Bye bye.",
-   "Bye bye now. Mind the snow."
-  ],
-  "toast": [
-   "Where am I?",
-   "Wait. Where am I?",
-   "That was a very bright pen."
+  "beamer": {
+    "warn1": [
+      "Sir, please do not throw snowballs at federal agents.",
+      "Excuse me. This is a federal agent. Snowballs are not authorised.",
+      "Sir. That was a snowball. At a federal agent. Please stop."
+    ],
+    "warn2": [
+      "This is your final warning.",
+      "Last warning, sir. I am holding something shiny, and I am not afraid to use it.",
+      "Final warning. Put the snowballs down, slowly."
+    ],
+    "bye": [
+      "Bye bye.",
+      "Have a lovely day. Bye bye.",
+      "Bye bye now. Mind the snow."
+    ],
+    "toast": [
+      "Where am I?",
+      "Wait. Where am I?",
+      "That was a very bright pen."
+    ]
+  },
+  "chatter": [
+    {
+      "id": "r1",
+      "text": "Unit seven, confirm: still no sign of the nisse. Over.",
+      "mood": "normal",
+      "minDay": 2,
+      "voice": 0
+    },
+    {
+      "id": "r2",
+      "text": "Copy that. Tracks lead north. Repeat, north.",
+      "mood": "normal",
+      "minDay": 2,
+      "voice": 1
+    },
+    {
+      "id": "r3",
+      "text": "Who ate the evidence cookies? Over.",
+      "mood": "funny",
+      "minDay": 2,
+      "voice": 2
+    },
+    {
+      "id": "r4",
+      "text": "Control, we have a hat. Repeat, we have a hat.",
+      "mood": "funny",
+      "minDay": 2,
+      "voice": 3
+    },
+    {
+      "id": "r5",
+      "text": "Negative, that was a reindeer. Over.",
+      "mood": "funny",
+      "minDay": 2,
+      "voice": 0
+    },
+    {
+      "id": "r6",
+      "text": "Unit three, report. Unit three? Dave, are you eating?",
+      "mood": "funny",
+      "minDay": 2,
+      "voice": 1
+    },
+    {
+      "id": "r7",
+      "text": "Control to all units. The porridge bowl at the gate is empty again. Investigate.",
+      "mood": "normal",
+      "minDay": 2,
+      "voice": 2
+    },
+    {
+      "id": "r8",
+      "text": "Copy. Eyes on the barn. Barn is quiet. Too quiet. Over.",
+      "mood": "normal",
+      "minDay": 2,
+      "voice": 3
+    },
+    {
+      "id": "r9",
+      "text": "Alpha team, the snow is falling. Repeat, snow is falling. Out.",
+      "mood": "funny",
+      "minDay": 2,
+      "voice": 0
+    },
+    {
+      "id": "r10",
+      "text": "This is Unit nine. I have found a mitten. Left hand. Warm. Over.",
+      "mood": "normal",
+      "minDay": 3,
+      "voice": 1
+    },
+    {
+      "id": "r11",
+      "text": "Control, the big nisse on the square. Did it move? Over.",
+      "mood": "normal",
+      "minDay": 3,
+      "voice": 2
+    },
+    {
+      "id": "r12",
+      "text": "Negative, Control. It is looking at us. Over.",
+      "mood": "eerie",
+      "minDay": 5,
+      "voice": 3
+    },
+    {
+      "id": "r13",
+      "text": "Unit four to Control. We are at the church. The choir has one voice too many. Over.",
+      "mood": "normal",
+      "minDay": 4,
+      "voice": 0
+    },
+    {
+      "id": "r14",
+      "text": "Roger. Do not sing along. Repeat, do not sing along.",
+      "mood": "funny",
+      "minDay": 4,
+      "voice": 1
+    },
+    {
+      "id": "r15",
+      "text": "Break room to all units. Who took the last cookie? I logged it. Over.",
+      "mood": "funny",
+      "minDay": 2,
+      "voice": 2
+    },
+    {
+      "id": "r16",
+      "text": "Radio check. Radio check. Is anybody there? Over.",
+      "mood": "normal",
+      "minDay": 2,
+      "voice": 3
+    },
+    {
+      "id": "r17",
+      "text": "Control, penstock reports knocking. Three knocks, pause, three knocks.",
+      "mood": "normal",
+      "minDay": 5,
+      "voice": 0
+    },
+    {
+      "id": "r18",
+      "text": "Copy. Do not knock back. Repeat, do not knock back.",
+      "mood": "eerie",
+      "minDay": 5,
+      "voice": 1
+    },
+    {
+      "id": "r19",
+      "text": "Unit twelve, why is your location a bowling alley? Over.",
+      "mood": "funny",
+      "minDay": 3,
+      "voice": 2
+    },
+    {
+      "id": "r20",
+      "text": "Surveillance, Control. Strictly professional. Over.",
+      "mood": "funny",
+      "minDay": 3,
+      "voice": 3
+    },
+    {
+      "id": "r21",
+      "text": "All units, the Director wants a pattern. We have a spiral. Over.",
+      "mood": "normal",
+      "minDay": 6,
+      "voice": 0
+    },
+    {
+      "id": "r22",
+      "text": "Copy spiral. Spiral confirmed. Spiral is getting bigger. Over.",
+      "mood": "eerie",
+      "minDay": 8,
+      "voice": 1
+    },
+    {
+      "id": "r23",
+      "text": "Unit five, the tent has a second door. Repeat, second door. Over.",
+      "mood": "eerie",
+      "minDay": 10,
+      "voice": 2
+    },
+    {
+      "id": "r24",
+      "text": "Do not use the second door. Out.",
+      "mood": "eerie",
+      "minDay": 10,
+      "voice": 3
+    },
+    {
+      "id": "r25",
+      "text": "Control, we have footprints. Very small. They stop at the lamp post. Over.",
+      "mood": "normal",
+      "minDay": 4,
+      "voice": 0
+    },
+    {
+      "id": "r26",
+      "text": "Roger. Check the lamp post for a nisse. Over.",
+      "mood": "funny",
+      "minDay": 4,
+      "voice": 1
+    },
+    {
+      "id": "r27",
+      "text": "Unit six, the coffee machine is down. Repeat, coffee is down. Morale is down.",
+      "mood": "funny",
+      "minDay": 2,
+      "voice": 2
+    },
+    {
+      "id": "r28",
+      "text": "Copy. Send the thermos. Send the thermos. Over.",
+      "mood": "funny",
+      "minDay": 9,
+      "voice": 3
+    },
+    {
+      "id": "r29",
+      "text": "All units, Pjusk the puppet is still counting. He reached twenty three. Over.",
+      "mood": "normal",
+      "minDay": 7,
+      "voice": 0
+    },
+    {
+      "id": "r30",
+      "text": "Copy. Do not let him reach twenty four. Out.",
+      "mood": "eerie",
+      "minDay": 12,
+      "voice": 1
+    },
+    {
+      "id": "r31",
+      "text": "Control, I am hearing a hum. A choir of some kind. Over.",
+      "mood": "eerie",
+      "minDay": 7,
+      "voice": 2
+    },
+    {
+      "id": "r32",
+      "text": "It is under us. Repeat, it is under us. Over.",
+      "mood": "eerie",
+      "minDay": 12,
+      "voice": 3
+    },
+    {
+      "id": "r33",
+      "text": "Unit two, we found crumbs. Ginger. Somebody's mother's butter. Over.",
+      "mood": "funny",
+      "minDay": 6,
+      "voice": 0
+    },
+    {
+      "id": "r34",
+      "text": "Copy. Bag the crumbs. Do not taste the crumbs. Out.",
+      "mood": "funny",
+      "minDay": 6,
+      "voice": 1
+    },
+    {
+      "id": "r35",
+      "text": "Control, the lantern on the quay points the wrong way. Over.",
+      "mood": "eerie",
+      "minDay": 8,
+      "voice": 2
+    },
+    {
+      "id": "r36",
+      "text": "Say again, wrong way? Over.",
+      "mood": "normal",
+      "minDay": 8,
+      "voice": 3
+    },
+    {
+      "id": "r37",
+      "text": "Unit eight to Control. It counted us again. Over.",
+      "mood": "eerie",
+      "minDay": 15,
+      "voice": 0
+    },
+    {
+      "id": "r38",
+      "text": "...it counted us again, over.",
+      "mood": "eerie",
+      "minDay": 15,
+      "voice": 1
+    },
+    {
+      "id": "r39",
+      "text": "Copy. Nobody counts the agents. That is our job. Out.",
+      "mood": "funny",
+      "minDay": 15,
+      "voice": 2
+    },
+    {
+      "id": "r40",
+      "text": "Control, the radio is saying takk. Backwards. Over.",
+      "mood": "eerie",
+      "minDay": 13,
+      "voice": 3
+    },
+    {
+      "id": "r41",
+      "text": "Alpha to Bravo. The snow is in my coffee. Over.",
+      "mood": "funny",
+      "minDay": 2,
+      "voice": 0
+    },
+    {
+      "id": "r42",
+      "text": "Bravo to Alpha. The snow is in everything. Out.",
+      "mood": "funny",
+      "minDay": 2,
+      "voice": 1
+    },
+    {
+      "id": "r43",
+      "text": "All units, remember: we are very serious about the nisser. Very. Over.",
+      "mood": "funny",
+      "minDay": 2,
+      "voice": 2
+    },
+    {
+      "id": "r44",
+      "text": "Copy, Control. Very serious. Hat in hand. Over.",
+      "mood": "funny",
+      "minDay": 2,
+      "voice": 3
+    },
+    {
+      "id": "r45",
+      "text": "Control, something is whistling in the barn. Possibly the wind. Possibly not. Over.",
+      "mood": "eerie",
+      "minDay": 10,
+      "voice": 0
+    },
+    {
+      "id": "r46",
+      "text": "Gate to Control. Visitors at the gate. One of them is a goat. Over.",
+      "mood": "funny",
+      "minDay": 3,
+      "voice": 1
+    },
+    {
+      "id": "r47",
+      "text": "Roger. Check the goat's badge. Over.",
+      "mood": "funny",
+      "minDay": 3,
+      "voice": 2
+    },
+    {
+      "id": "r48",
+      "text": "Unit ten, the Threshold is thin tonight. Do you read? Over.",
+      "mood": "eerie",
+      "minDay": 18,
+      "voice": 3
+    },
+    {
+      "id": "r49",
+      "text": "Reading you faint. Very faint. Is that you, Unit ten? Over.",
+      "mood": "eerie",
+      "minDay": 18,
+      "voice": 0
+    },
+    {
+      "id": "r50",
+      "text": "Control, the lights are going grey. Repeat, grey. Over.",
+      "mood": "eerie",
+      "minDay": 20,
+      "voice": 1
+    },
+    {
+      "id": "r51",
+      "text": "All units, hold position. Hold. Hold. Do not look at the Eye. Out.",
+      "mood": "eerie",
+      "minDay": 20,
+      "voice": 2
+    },
+    {
+      "id": "r52",
+      "text": "Unit one, status? ...Unit one? ...Kshh. Nothing. Out.",
+      "mood": "eerie",
+      "minDay": 16,
+      "voice": 3
+    },
+    {
+      "id": "r53",
+      "text": "Break room to Control. The cookie tin is full again. Nobody filled it. Over.",
+      "mood": "eerie",
+      "minDay": 19,
+      "voice": 0
+    }
   ]
- },
- "chatter": [
-  {
-   "id": "r1",
-   "text": "Unit seven, confirm: still no sign of the nisse. Over.",
-   "mood": "normal",
-   "minDay": 2,
-   "voice": 0
-  },
-  {
-   "id": "r2",
-   "text": "Copy that. Tracks lead north. Repeat, north.",
-   "mood": "normal",
-   "minDay": 2,
-   "voice": 1
-  },
-  {
-   "id": "r3",
-   "text": "Who ate the evidence cookies? Over.",
-   "mood": "funny",
-   "minDay": 2,
-   "voice": 2
-  },
-  {
-   "id": "r4",
-   "text": "Control, we have a hat. Repeat, we have a hat.",
-   "mood": "funny",
-   "minDay": 2,
-   "voice": 3
-  },
-  {
-   "id": "r5",
-   "text": "Negative, that was a reindeer. Over.",
-   "mood": "funny",
-   "minDay": 2,
-   "voice": 0
-  },
-  {
-   "id": "r6",
-   "text": "Unit three, report. Unit three? Dave, are you eating?",
-   "mood": "funny",
-   "minDay": 2,
-   "voice": 1
-  },
-  {
-   "id": "r7",
-   "text": "Control to all units. The porridge bowl at the gate is empty again. Investigate.",
-   "mood": "normal",
-   "minDay": 2,
-   "voice": 2
-  },
-  {
-   "id": "r8",
-   "text": "Copy. Eyes on the barn. Barn is quiet. Too quiet. Over.",
-   "mood": "normal",
-   "minDay": 2,
-   "voice": 3
-  },
-  {
-   "id": "r9",
-   "text": "Alpha team, the snow is falling. Repeat, snow is falling. Out.",
-   "mood": "funny",
-   "minDay": 2,
-   "voice": 0
-  },
-  {
-   "id": "r10",
-   "text": "This is Unit nine. I have found a mitten. Left hand. Warm. Over.",
-   "mood": "normal",
-   "minDay": 3,
-   "voice": 1
-  },
-  {
-   "id": "r11",
-   "text": "Control, the big nisse on the square. Did it move? Over.",
-   "mood": "normal",
-   "minDay": 3,
-   "voice": 2
-  },
-  {
-   "id": "r12",
-   "text": "Negative, Control. It is looking at us. Over.",
-   "mood": "eerie",
-   "minDay": 5,
-   "voice": 3
-  },
-  {
-   "id": "r13",
-   "text": "Unit four to Control. We are at the church. The choir has one voice too many. Over.",
-   "mood": "normal",
-   "minDay": 4,
-   "voice": 0
-  },
-  {
-   "id": "r14",
-   "text": "Roger. Do not sing along. Repeat, do not sing along.",
-   "mood": "funny",
-   "minDay": 4,
-   "voice": 1
-  },
-  {
-   "id": "r15",
-   "text": "Break room to all units. Who took the last cookie? I logged it. Over.",
-   "mood": "funny",
-   "minDay": 2,
-   "voice": 2
-  },
-  {
-   "id": "r16",
-   "text": "Radio check. Radio check. Is anybody there? Over.",
-   "mood": "normal",
-   "minDay": 2,
-   "voice": 3
-  },
-  {
-   "id": "r17",
-   "text": "Control, penstock reports knocking. Three knocks, pause, three knocks.",
-   "mood": "normal",
-   "minDay": 5,
-   "voice": 0
-  },
-  {
-   "id": "r18",
-   "text": "Copy. Do not knock back. Repeat, do not knock back.",
-   "mood": "eerie",
-   "minDay": 5,
-   "voice": 1
-  },
-  {
-   "id": "r19",
-   "text": "Unit twelve, why is your location a bowling alley? Over.",
-   "mood": "funny",
-   "minDay": 3,
-   "voice": 2
-  },
-  {
-   "id": "r20",
-   "text": "Surveillance, Control. Strictly professional. Over.",
-   "mood": "funny",
-   "minDay": 3,
-   "voice": 3
-  },
-  {
-   "id": "r21",
-   "text": "All units, the Director wants a pattern. We have a spiral. Over.",
-   "mood": "normal",
-   "minDay": 6,
-   "voice": 0
-  },
-  {
-   "id": "r22",
-   "text": "Copy spiral. Spiral confirmed. Spiral is getting bigger. Over.",
-   "mood": "eerie",
-   "minDay": 8,
-   "voice": 1
-  },
-  {
-   "id": "r23",
-   "text": "Unit five, the tent has a second door. Repeat, second door. Over.",
-   "mood": "eerie",
-   "minDay": 10,
-   "voice": 2
-  },
-  {
-   "id": "r24",
-   "text": "Do not use the second door. Out.",
-   "mood": "eerie",
-   "minDay": 10,
-   "voice": 3
-  },
-  {
-   "id": "r25",
-   "text": "Control, we have footprints. Very small. They stop at the lamp post. Over.",
-   "mood": "normal",
-   "minDay": 4,
-   "voice": 0
-  },
-  {
-   "id": "r26",
-   "text": "Roger. Check the lamp post for a nisse. Over.",
-   "mood": "funny",
-   "minDay": 4,
-   "voice": 1
-  },
-  {
-   "id": "r27",
-   "text": "Unit six, the coffee machine is down. Repeat, coffee is down. Morale is down.",
-   "mood": "funny",
-   "minDay": 2,
-   "voice": 2
-  },
-  {
-   "id": "r28",
-   "text": "Copy. Send the thermos. Send the thermos. Over.",
-   "mood": "funny",
-   "minDay": 9,
-   "voice": 3
-  },
-  {
-   "id": "r29",
-   "text": "All units, Pjusk the puppet is still counting. He reached twenty three. Over.",
-   "mood": "normal",
-   "minDay": 7,
-   "voice": 0
-  },
-  {
-   "id": "r30",
-   "text": "Copy. Do not let him reach twenty four. Out.",
-   "mood": "eerie",
-   "minDay": 12,
-   "voice": 1
-  },
-  {
-   "id": "r31",
-   "text": "Control, I am hearing a hum. A choir of some kind. Over.",
-   "mood": "eerie",
-   "minDay": 7,
-   "voice": 2
-  },
-  {
-   "id": "r32",
-   "text": "It is under us. Repeat, it is under us. Over.",
-   "mood": "eerie",
-   "minDay": 12,
-   "voice": 3
-  },
-  {
-   "id": "r33",
-   "text": "Unit two, we found crumbs. Ginger. Somebody's mother's butter. Over.",
-   "mood": "funny",
-   "minDay": 6,
-   "voice": 0
-  },
-  {
-   "id": "r34",
-   "text": "Copy. Bag the crumbs. Do not taste the crumbs. Out.",
-   "mood": "funny",
-   "minDay": 6,
-   "voice": 1
-  },
-  {
-   "id": "r35",
-   "text": "Control, the lantern on the quay points the wrong way. Over.",
-   "mood": "eerie",
-   "minDay": 8,
-   "voice": 2
-  },
-  {
-   "id": "r36",
-   "text": "Say again, wrong way? Over.",
-   "mood": "normal",
-   "minDay": 8,
-   "voice": 3
-  },
-  {
-   "id": "r37",
-   "text": "Unit eight to Control. It counted us again. Over.",
-   "mood": "eerie",
-   "minDay": 15,
-   "voice": 0
-  },
-  {
-   "id": "r38",
-   "text": "...it counted us again, over.",
-   "mood": "eerie",
-   "minDay": 15,
-   "voice": 1
-  },
-  {
-   "id": "r39",
-   "text": "Copy. Nobody counts the agents. That is our job. Out.",
-   "mood": "funny",
-   "minDay": 15,
-   "voice": 2
-  },
-  {
-   "id": "r40",
-   "text": "Control, the radio is saying takk. Backwards. Over.",
-   "mood": "eerie",
-   "minDay": 13,
-   "voice": 3
-  },
-  {
-   "id": "r41",
-   "text": "Alpha to Bravo. The snow is in my coffee. Over.",
-   "mood": "funny",
-   "minDay": 2,
-   "voice": 0
-  },
-  {
-   "id": "r42",
-   "text": "Bravo to Alpha. The snow is in everything. Out.",
-   "mood": "funny",
-   "minDay": 2,
-   "voice": 1
-  },
-  {
-   "id": "r43",
-   "text": "All units, remember: we are very serious about the nisser. Very. Over.",
-   "mood": "funny",
-   "minDay": 2,
-   "voice": 2
-  },
-  {
-   "id": "r44",
-   "text": "Copy, Control. Very serious. Hat in hand. Over.",
-   "mood": "funny",
-   "minDay": 2,
-   "voice": 3
-  },
-  {
-   "id": "r45",
-   "text": "Control, something is whistling in the barn. Possibly the wind. Possibly not. Over.",
-   "mood": "eerie",
-   "minDay": 10,
-   "voice": 0
-  },
-  {
-   "id": "r46",
-   "text": "Gate to Control. Visitors at the gate. One of them is a goat. Over.",
-   "mood": "funny",
-   "minDay": 3,
-   "voice": 1
-  },
-  {
-   "id": "r47",
-   "text": "Roger. Check the goat's badge. Over.",
-   "mood": "funny",
-   "minDay": 3,
-   "voice": 2
-  },
-  {
-   "id": "r48",
-   "text": "Unit ten, the Threshold is thin tonight. Do you read? Over.",
-   "mood": "eerie",
-   "minDay": 18,
-   "voice": 3
-  },
-  {
-   "id": "r49",
-   "text": "Reading you faint. Very faint. Is that you, Unit ten? Over.",
-   "mood": "eerie",
-   "minDay": 18,
-   "voice": 0
-  },
-  {
-   "id": "r50",
-   "text": "Control, the lights are going grey. Repeat, grey. Over.",
-   "mood": "eerie",
-   "minDay": 20,
-   "voice": 1
-  },
-  {
-   "id": "r51",
-   "text": "All units, hold position. Hold. Hold. Do not look at the Eye. Out.",
-   "mood": "eerie",
-   "minDay": 20,
-   "voice": 2
-  },
-  {
-   "id": "r52",
-   "text": "Unit one, status? ...Unit one? ...Kshh. Nothing. Out.",
-   "mood": "eerie",
-   "minDay": 16,
-   "voice": 3
-  },
-  {
-   "id": "r53",
-   "text": "Break room to Control. The cookie tin is full again. Nobody filled it. Over.",
-   "mood": "eerie",
-   "minDay": 19,
-   "voice": 0
-  }
- ]
 }

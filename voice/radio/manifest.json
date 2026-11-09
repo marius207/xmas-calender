@@ -80,6 +80,84 @@
      "text": "That was a ninja track. Ninja, because nobody saw it coming. Thank you, I will be here all week.",
      "dur": 8.31,
      "cond": "nj14"
+    },
+    {
+     "src": "voice/radio/fm/dj_drive1.m4a",
+     "text": "Downtown FM: astronomers are optimistic about a fun night. Bring a blanket and a sense of wonder.",
+     "dur": 7.33,
+     "cond": "feda"
+    },
+    {
+     "src": "voice/radio/fm/dj_drive2.m4a",
+     "text": "Downtown FM: the forecast says clear skies, with a small chance of something falling down. Stay tuned.",
+     "dur": 7.61,
+     "cond": "feda"
+    },
+    {
+     "src": "voice/radio/fm/dj_ns14.m4a",
+     "text": "Downtown FM newsbreak. Astronomers say the next night or two could be a fun one for the sky. Bring a blanket, a flask, and somebody to say wow to.",
+     "dur": 10.78,
+     "cond": "nj14"
+    },
+    {
+     "src": "voice/radio/fm/dj_ns15.m4a",
+     "text": "This is a live newsbreak on Downtown FM. You can hear sirens. That is the town, not the radio. Viktig melding, important message: go outside, look up, and do not stand under anything you love.",
+     "dur": 14.62,
+     "cond": "nj15"
+    },
+    {
+     "src": "voice/radio/fm/dj_ns16.m4a",
+     "text": "Downtown FM newsbreak. A spokesman for Nisse Security Central says there is nothing on the mountain, and that the nothing is under control. He asked us not to say where the nothing is. We have said it is on the mountain. Sorry.",
+     "dur": 15.8,
+     "cond": "nj16"
+    },
+    {
+     "src": "voice/radio/fm/dj_ns17.m4a",
+     "text": "Newsbreak. The lights flickered across town this afternoon and forty listeners rang to say it was nothing. Forty. All saying nothing. Bowlinghallen is open late and warm. Just saying.",
+     "dur": 14.77,
+     "cond": "nj17"
+    },
+    {
+     "src": "voice/radio/fm/dj_ns18.m4a",
+     "text": "Newsbreak. Two julenisse clans are not speaking. Chief Gammel-Rød says it is the blues. Chief Mor Blå says it is the reds. Downtown FM says: have a biscuit.",
+     "dur": 13.21,
+     "cond": "nj18"
+    },
+    {
+     "src": "voice/radio/fm/dj_ns19.m4a",
+     "text": "Newsbreak. A flying car has been seen over the valley. Traffic control would like it to stop. The pilot says he will, right after the next ring.",
+     "dur": 11.21,
+     "cond": "nj19"
+    },
+    {
+     "src": "voice/radio/fm/dj_ns20.m4a",
+     "text": "Newsbreak. Geologists at the crater report that the ground is warm in the wrong places and cold in the right ones. They say something is moving, and that this is normal. The geologists have all gone home early.",
+     "dur": 13.93,
+     "cond": "nj20"
+    },
+    {
+     "src": "voice/radio/fm/dj_ns21.m4a",
+     "text": "Newsbreak. Tonight is the longest night of the year. Fifteen cairns are waiting on the ridges. If you have a match, a lantern, or a really stubborn attitude, tonight is your night. Stay together, stay warm, stay loud.",
+     "dur": 15.82,
+     "cond": "nj21"
+    },
+    {
+     "src": "voice/radio/fm/dj_ns22.m4a",
+     "text": "Newsbreak. Nisse Security Central has closed the case. Cause: weather. The weather has been asked to apologise, and has not replied.",
+     "dur": 11.07,
+     "cond": "nj22"
+    },
+    {
+     "src": "voice/radio/fm/dj_ns23.m4a",
+     "text": "Newsbreak. Tomorrow is Christmas Eve. Bake something, wrap something, forgive something. Farmers near Liland say the mountain is breathing slowly. Please keep the sheep gates shut.",
+     "dur": 13.69,
+     "cond": "nj23"
+    },
+    {
+     "src": "voice/radio/fm/dj_ns24.m4a",
+     "text": "Newsbreak. Merry Christmas, downtown. Tonight at the tree something is going to happen, and we are not allowed to say what. Be warm. Be kind. Be at the tree.",
+     "dur": 14.09,
+     "cond": "nj24"
     }
    ]
   },

@@ -1,404 +1,422 @@
 {
- "_README": "PLACEHOLDERS: Marius will rewrite all of these. Every day below is a draft task drawn from what exists in the game, not final story. Edit freely: day = door number; title = short name; text = what the Lantern (Lykta) says; hint = a small extra line (can be empty); done = what Lykta says when the task is done; target = {x,z,name} in world coordinates (null = no arrow; name is what the compass shows, use 'downtown' not the real town name); kind = story/explore/race/bowl/coins (just a label); done_when = how the game knows it is done: {type:'near',radius:12} walk within radius metres of the target, {type:'race',race:'spark'|'jet'} finish that race (leave race out for any race), {type:'bowl'} finish a bowling game, {type:'coins',n:10} collect n coins since the door opened, {type:'flag',flag:'__WITCH_GONE'} a window flag is truthy, {type:'talk'} just listen to Lykta, {type:'manual'} only window.__LANTERNGUIDE.complete() finishes it. Target can use {find:'Bowlinghallen'} instead of x,z to look the place up in the search index. Note: this file is public, so days later than today can be read by anyone who opens it; keep spoilers vague or move the file out before launch.",
- "days": [
-  {
-   "day": 1,
-   "title": "Welcome downtown",
-   "text": "Welcome downtown! Find the Christmas tree on the square.",
-   "hint": "It stands in the middle of town, by the town hall.",
-   "kind": "explore",
-   "target": {
-    "x": 7,
-    "z": 28,
-    "name": "The Christmas tree"
-   },
-   "done_when": {
-    "type": "near",
-    "radius": 14
-   },
-   "done": "The tree is lit and so are you. The first door is open!"
-  },
-  {
-   "day": 2,
-   "title": "Down the hill",
-   "text": "Hop on a kick-sled and ride the spark race down Hamrevegen!",
-   "hint": "Walk to the start sign and press G.",
-   "kind": "race",
-   "target": {
-    "x": 1062,
-    "z": -1926,
-    "name": "Spark race start"
-   },
-   "done_when": {
-    "type": "race",
-    "race": "spark"
-   },
-   "done": "What a ride!"
-  },
-  {
-   "day": 3,
-   "title": "Strike!",
-   "text": "Go to Bowlinghallen and play one whole game of bowling.",
-   "hint": "Rent a lane at the counter, then press G at a lane.",
-   "kind": "bowl",
-   "target": {
-    "x": 47,
-    "z": -498,
-    "name": "Bowlinghallen"
-   },
-   "done_when": {
-    "type": "bowl"
-   },
-   "done": "Nice rolling!"
-  },
-  {
-   "day": 4,
-   "title": "Voices in the cold",
-   "text": "Find the church and listen. Somewhere downtown, carolers are singing.",
-   "hint": "Follow the sound of singing.",
-   "kind": "explore",
-   "target": {
-    "x": -90,
-    "z": -136,
-    "name": "The church"
-   },
-   "done_when": {
-    "type": "near",
-    "radius": 18
-   },
-   "done": "Beautiful singing."
-  },
-  {
-   "day": 5,
-   "title": "Pocket money",
-   "text": "Collect 10 coins along the roads. Every krone counts at Christmas.",
-   "hint": "Coins glow on the roads. Walk through them.",
-   "kind": "coins",
-   "target": null,
-   "done_when": {
-    "type": "coins",
-    "n": 10
-   },
-   "done": "Cha-ching!"
-  },
-  {
-   "day": 6,
-   "title": "Tipi village",
-   "text": "Visit Camp Botnan and look around the tipi village.",
-   "hint": "It is up in the hills east of town.",
-   "kind": "explore",
-   "target": {
-    "x": 784,
-    "z": -1637,
-    "name": "Camp Botnan"
-   },
-   "done_when": {
-    "type": "near",
-    "radius": 25
-   },
-   "done": "Cozy up there!"
-  },
-  {
-   "day": 7,
-   "title": "Mail from home",
-   "text": "Something is rattling in Chris's building. Go home and check the mailbox. A note might be waiting.",
-   "hint": "The mailbox is by Chris's house. Press G.",
-   "kind": "story",
-   "target": {
-    "x": 526.5,
-    "z": -706.5,
-    "name": "Chris's house"
-   },
-   "done_when": {
-    "type": "near",
-    "radius": 8
-   },
-   "done": "A note from mom? Hmm. Keep it secret."
-  },
-  {
-   "day": 8,
-   "title": "Under the floorboards",
-   "text": "The witch's flat is not what it seems. Go to Chris's house and listen for what is behind her door.",
-   "hint": "Stay quiet. She hates noise.",
-   "kind": "story",
-   "target": {
-    "x": 526.5,
-    "z": -706.5,
-    "name": "Chris's house"
-   },
-   "done_when": {
-    "type": "near",
-    "radius": 8
-   },
-   "done": "I knew it. A dungeon."
-  },
-  {
-   "day": 9,
-   "title": "The big globe",
-   "text": "Find Globen, the giant landmark out on the hill.",
-   "hint": "Follow the path past the tipi village.",
-   "kind": "explore",
-   "target": {
-    "x": 644,
-    "z": -2050,
-    "name": "Globen"
-   },
-   "done_when": {
-    "type": "near",
-    "radius": 25
-   },
-   "done": "What a view!"
-  },
-  {
-   "day": 10,
-   "title": "Top of the rock",
-   "text": "Climb Orresteinen, the giant rock above Fedafjorden.",
-   "hint": "It is far. A car helps. Or a jetpack.",
-   "kind": "explore",
-   "target": {
-    "x": -7733,
-    "z": 5756,
-    "name": "Orresteinen"
-   },
-   "done_when": {
-    "type": "near",
-    "radius": 30
-   },
-   "done": "Top of the world!"
-  },
-  {
-   "day": 11,
-   "title": "Rings in the sky",
-   "text": "Strap on the jetpack and fly the ring race to Nonskarknuten.",
-   "hint": "Walk to the start sign and press G.",
-   "kind": "race",
-   "target": {
-    "x": -82,
-    "z": 8,
-    "name": "Jetpack rings start"
-   },
-   "done_when": {
-    "type": "race",
-    "race": "jet"
-   },
-   "done": "You can fly!"
-  },
-  {
-   "day": 12,
-   "title": "Cookie monster",
-   "text": "The witch has been eating all the cookies. Go down into her dungeon and end this. Take a light.",
-   "hint": "Press L for the flashlight. She is very strong now.",
-   "kind": "story",
-   "target": {
-    "x": 526.5,
-    "z": -706.5,
-    "name": "Chris's house"
-   },
-   "done_when": {
-    "type": "flag",
-    "flag": "__WITCH_GONE"
-   },
-   "done": "She is gone for good! Go and get that last parcel."
-  },
-  {
-   "day": 13,
-   "title": "Make it shine",
-   "text": "Decorate Chris's house. Now it will stay up!",
-   "hint": "Open the dev decorating items and go wild.",
-   "kind": "story",
-   "target": {
-    "x": 526.5,
-    "z": -706.5,
-    "name": "Chris's house"
-   },
-   "done_when": {
-    "type": "near",
-    "radius": 8
-   },
-   "done": "Beautiful."
-  },
-  {
-   "day": 14,
-   "title": "Light the lights",
-   "text": "Walk around town and light up Christmas. Start by the tree on the square.",
-   "hint": "",
-   "kind": "explore",
-   "target": {
-    "x": 7,
-    "z": 28,
-    "name": "The Christmas tree"
-   },
-   "done_when": {
-    "type": "near",
-    "radius": 14
-   },
-   "done": "Everything glows!"
-  },
-  {
-   "day": 15,
-   "title": "Sing along",
-   "text": "Find the carolers and stand close to listen to a whole song.",
-   "hint": "They wander between the church and the square.",
-   "kind": "explore",
-   "target": {
-    "x": -90,
-    "z": -136,
-    "name": "The church"
-   },
-   "done_when": {
-    "type": "near",
-    "radius": 18
-   },
-   "done": "Fa la la la la!"
-  },
-  {
-   "day": 16,
-   "title": "The last parcel",
-   "text": "Check the mailbox. The last parcel from mom should be here.",
-   "hint": "Press G at the mailbox.",
-   "kind": "story",
-   "target": {
-    "x": 526.5,
-    "z": -706.5,
-    "name": "Chris's house"
-   },
-   "done_when": {
-    "type": "near",
-    "radius": 8
-   },
-   "done": "Cookies at last!"
-  },
-  {
-   "day": 17,
-   "title": "Hill walk",
-   "text": "Hike up to Hamrevarden and see the town from above.",
-   "hint": "Warm clothes help.",
-   "kind": "explore",
-   "target": {
-    "x": 1461,
-    "z": -3034,
-    "name": "Hamrevarden"
-   },
-   "done_when": {
-    "type": "near",
-    "radius": 25
-   },
-   "done": "Cold and beautiful."
-  },
-  {
-   "day": 18,
-   "title": "Game over?",
-   "text": "Play the arcade games at Bowlinghallen: Snake, Breakout, or Sauron Invaders.",
-   "hint": "Press G at an arcade cabinet.",
-   "kind": "bowl",
-   "target": {
-    "x": 47,
-    "z": -498,
-    "name": "Bowlinghallen"
-   },
-   "done_when": {
-    "type": "near",
-    "radius": 14
-   },
-   "done": "New high score!"
-  },
-  {
-   "day": 19,
-   "title": "The Night Wing",
-   "text": "Go and see the Night Wing, the flying car parked downtown.",
-   "hint": "Find it on the square.",
-   "kind": "explore",
-   "target": {
-    "x": 7,
-    "z": 28,
-    "name": "The Christmas tree"
-   },
-   "done_when": {
-    "type": "near",
-    "radius": 14
-   },
-   "done": "What a machine!"
-  },
-  {
-   "day": 20,
-   "title": "Second helping",
-   "text": "Beat your best time in the spark race down Hamrevegen.",
-   "hint": "Walk to the start sign and press G.",
-   "kind": "race",
-   "target": {
-    "x": 1062,
-    "z": -1926,
-    "name": "Spark race start"
-   },
-   "done_when": {
-    "type": "race",
-    "race": "spark"
-   },
-   "done": "Faster!"
-  },
-  {
-   "day": 21,
-   "title": "Hush",
-   "text": "Things feel strange tonight. Go to Bowlinghallen. It is the only place that stays warm.",
-   "hint": "If it gets dark, stay near me.",
-   "kind": "story",
-   "target": {
-    "x": 47,
-    "z": -498,
-    "name": "Bowlinghallen"
-   },
-   "done_when": {
-    "type": "near",
-    "radius": 14
-   },
-   "done": "Safe and warm."
-  },
-  {
-   "day": 22,
-   "title": "Pocket money again",
-   "text": "Collect 25 more coins for the last Christmas shopping.",
-   "hint": "",
-   "kind": "coins",
-   "target": null,
-   "done_when": {
-    "type": "coins",
-    "n": 25
-   },
-   "done": "Shopping done!"
-  },
-  {
-   "day": 23,
-   "title": "The eve of the eve",
-   "text": "Visit the church one more time and say hello to everyone.",
-   "hint": "",
-   "kind": "explore",
-   "target": {
-    "x": -90,
-    "z": -136,
-    "name": "The church"
-   },
-   "done_when": {
-    "type": "near",
-    "radius": 18
-   },
-   "done": "Almost there."
-  },
-  {
-   "day": 24,
-   "title": "Christmas Eve",
-   "text": "Go to the tree on the square. It is time. Merry Christmas, Chris and Martin!",
-   "hint": "",
-   "kind": "explore",
-   "target": {
-    "x": 7,
-    "z": 28,
-    "name": "The Christmas tree"
-   },
-   "done_when": {
-    "type": "near",
-    "radius": 10
-   },
-   "done": "Merry Christmas! The last door is open."
-  }
- ]
+  "_README": "PLACEHOLDERS: Marius will rewrite all of these. Every day below is a draft task drawn from what exists in the game, not final story. Edit freely: day = door number; title = short name; text = what the Lantern (Lykta) says; hint = a small extra line (can be empty); done = what Lykta says when the task is done; target = {x,z,name} in world coordinates (null = no arrow; name is what the compass shows, use 'downtown' not the real town name); kind = story/explore/race/bowl/coins (just a label); done_when = how the game knows it is done: {type:'near',radius:12} walk within radius metres of the target, {type:'race',race:'spark'|'jet'} finish that race (leave race out for any race), {type:'bowl'} finish a bowling game, {type:'coins',n:10} collect n coins since the door opened, {type:'flag',flag:'__WITCH_GONE'} a window flag is truthy, {type:'talk'} just listen to Lykta, {type:'manual'} only window.__LANTERNGUIDE.complete() finishes it. Target can use {find:'Bowlinghallen'} instead of x,z to look the place up in the search index. Note: this file is public, so days later than today can be read by anyone who opens it; keep spoilers vague or move the file out before launch. Day 24 also has 'later': timed Lykta lines [{at:'afternoon'|'dusk'|'night', text}] for the finale (storydata 4 Nov; the finale wiring reads them).",
+  "days": [
+    {
+      "day": 1,
+      "title": "Welcome downtown",
+      "text": "Welcome downtown! Find the Christmas tree on the square.",
+      "hint": "It stands in the middle of town, by the town hall.",
+      "kind": "explore",
+      "target": {
+        "x": 7,
+        "z": 28,
+        "name": "The Christmas tree"
+      },
+      "done_when": {
+        "type": "near",
+        "radius": 14
+      },
+      "done": "The tree is lit and so are you. The first door is open!"
+    },
+    {
+      "day": 2,
+      "title": "Down the hill",
+      "text": "Hop on a kick-sled and ride the spark race down Hamrevegen!",
+      "hint": "Walk to the start sign and press G.",
+      "kind": "race",
+      "target": {
+        "x": 1062,
+        "z": -1926,
+        "name": "Spark race start"
+      },
+      "done_when": {
+        "type": "race",
+        "race": "spark"
+      },
+      "done": "What a ride!"
+    },
+    {
+      "day": 3,
+      "title": "Strike!",
+      "text": "Go to Bowlinghallen and play one whole game of bowling.",
+      "hint": "Rent a lane at the counter, then press G at a lane.",
+      "kind": "bowl",
+      "target": {
+        "x": 47,
+        "z": -498,
+        "name": "Bowlinghallen"
+      },
+      "done_when": {
+        "type": "bowl"
+      },
+      "done": "Nice rolling!"
+    },
+    {
+      "day": 4,
+      "title": "Voices in the cold",
+      "text": "Find the church and listen. Somewhere downtown, carolers are singing.",
+      "hint": "Follow the sound of singing.",
+      "kind": "explore",
+      "target": {
+        "x": -90,
+        "z": -136,
+        "name": "The church"
+      },
+      "done_when": {
+        "type": "near",
+        "radius": 18
+      },
+      "done": "Beautiful singing."
+    },
+    {
+      "day": 5,
+      "title": "Pocket money",
+      "text": "Collect 10 coins along the roads. Every krone counts at Christmas.",
+      "hint": "Coins glow on the roads. Walk through them.",
+      "kind": "coins",
+      "target": null,
+      "done_when": {
+        "type": "coins",
+        "n": 10
+      },
+      "done": "Cha-ching!"
+    },
+    {
+      "day": 6,
+      "title": "Tipi village",
+      "text": "Visit Camp Botnan and look around the tipi village.",
+      "hint": "It is up in the hills east of town.",
+      "kind": "explore",
+      "target": {
+        "x": 784,
+        "z": -1637,
+        "name": "Camp Botnan"
+      },
+      "done_when": {
+        "type": "near",
+        "radius": 25
+      },
+      "done": "Cozy up there!"
+    },
+    {
+      "day": 7,
+      "title": "Mail from home",
+      "text": "Something is rattling in Chris's building. Go home and check the mailbox. A note might be waiting.",
+      "hint": "The mailbox is by Chris's house. Press G.",
+      "kind": "story",
+      "target": {
+        "x": 526.5,
+        "z": -706.5,
+        "name": "Chris's house"
+      },
+      "done_when": {
+        "type": "near",
+        "radius": 8
+      },
+      "done": "A note from mom? Hmm. Keep it secret."
+    },
+    {
+      "day": 8,
+      "title": "Under the floorboards",
+      "text": "The witch's flat is not what it seems. Go to Chris's house and listen for what is behind her door.",
+      "hint": "Stay quiet. She hates noise.",
+      "kind": "story",
+      "target": {
+        "x": 526.5,
+        "z": -706.5,
+        "name": "Chris's house"
+      },
+      "done_when": {
+        "type": "near",
+        "radius": 8
+      },
+      "done": "I knew it. A dungeon."
+    },
+    {
+      "day": 9,
+      "title": "The big globe",
+      "text": "Find Globen, the giant landmark out on the hill.",
+      "hint": "Follow the path past the tipi village.",
+      "kind": "explore",
+      "target": {
+        "x": 644,
+        "z": -2050,
+        "name": "Globen"
+      },
+      "done_when": {
+        "type": "near",
+        "radius": 25
+      },
+      "done": "What a view!"
+    },
+    {
+      "day": 10,
+      "title": "Top of the rock",
+      "text": "Climb Orresteinen, the giant rock above Fedafjorden.",
+      "hint": "It is far. A car helps. Or a jetpack.",
+      "kind": "explore",
+      "target": {
+        "x": -7733,
+        "z": 5756,
+        "name": "Orresteinen"
+      },
+      "done_when": {
+        "type": "near",
+        "radius": 30
+      },
+      "done": "Top of the world!"
+    },
+    {
+      "day": 11,
+      "title": "Baking Day",
+      "text": "Flour, butter, ginger, syrup, eggs. Different shops, and some of them are sold out. Please do not let it burn. I cannot smell, and I am still worried.",
+      "hint": "Start at the bakery on Nesgata. Mix, roll, cut, bake. Then take the batch to her.",
+      "kind": "story",
+      "target": {
+        "x": 26.3,
+        "z": 47.5,
+        "name": "Smula Bakeriutsalg"
+      },
+      "done_when": {
+        "type": "near",
+        "radius": 14
+      },
+      "done": "Not burnt. Almost. Now take it where it is needed."
+    },
+    {
+      "day": 12,
+      "title": "Cookie monster",
+      "text": "The witch has been eating all the cookies. Go down into her dungeon and end this. Take a light.",
+      "hint": "Press L for the flashlight. She is very strong now.",
+      "kind": "story",
+      "target": {
+        "x": 526.5,
+        "z": -706.5,
+        "name": "Chris's house"
+      },
+      "done_when": {
+        "type": "flag",
+        "flag": "__WITCH_GONE"
+      },
+      "done": "She is gone for good! Go and get that last parcel."
+    },
+    {
+      "day": 13,
+      "title": "Make it shine",
+      "text": "Decorate Chris's house. Now it will stay up!",
+      "hint": "Open the dev decorating items and go wild.",
+      "kind": "story",
+      "target": {
+        "x": 526.5,
+        "z": -706.5,
+        "name": "Chris's house"
+      },
+      "done_when": {
+        "type": "near",
+        "radius": 8
+      },
+      "done": "Beautiful. The stones are warm. Not the stones, I mean everything. Is that your doing?"
+    },
+    {
+      "day": 14,
+      "title": "Light the lights",
+      "text": "Walk around town and light up Christmas. Start by the tree on the square.",
+      "hint": "",
+      "kind": "explore",
+      "target": {
+        "x": 7,
+        "z": 28,
+        "name": "The Christmas tree"
+      },
+      "done_when": {
+        "type": "near",
+        "radius": 14
+      },
+      "done": "Everything glows!"
+    },
+    {
+      "day": 15,
+      "title": "Look up",
+      "text": "Astronomers said a fun night. I have looked up the word fun. They are using it differently. Go to the frozen river and look up.",
+      "hint": "Stay on the ice until something falls.",
+      "kind": "explore",
+      "target": {
+        "x": -82,
+        "z": 8,
+        "name": "The frozen river"
+      },
+      "done_when": {
+        "type": "near",
+        "radius": 20
+      },
+      "done": "That was not a fun night. That was a fireball."
+    },
+    {
+      "day": 16,
+      "title": "The last parcel",
+      "text": "Check the mailbox. The last parcel from mom should be here.",
+      "hint": "Press G at the mailbox.",
+      "kind": "story",
+      "target": {
+        "x": 526.5,
+        "z": -706.5,
+        "name": "Chris's house"
+      },
+      "done_when": {
+        "type": "near",
+        "radius": 8
+      },
+      "done": "Cookies at last! Men in black coats are up at the crater now. Do not go near. ...Go near, but carefully."
+    },
+    {
+      "day": 17,
+      "title": "Hill walk",
+      "text": "Hike up to Hamrevarden and see the town from above.",
+      "hint": "Warm clothes help.",
+      "kind": "explore",
+      "target": {
+        "x": 1461,
+        "z": -3034,
+        "name": "Hamrevarden"
+      },
+      "done_when": {
+        "type": "near",
+        "radius": 25
+      },
+      "done": "Cold and beautiful. I keep feeling counted. Please be warm somewhere."
+    },
+    {
+      "day": 18,
+      "title": "Two hats",
+      "text": "Red hats, blue hats, one very old argument. Gammel-Rød waits in the red cave and Mor Blå in the blue one, and both blame the other for the grey footprints. Bring them to one table at the church. I would knock their heads together, but I have no hands.",
+      "hint": "Look at the footprints in both caves, hear both chiefs out, then meet them at the church table.",
+      "kind": "story",
+      "target": {
+        "x": -90,
+        "z": -136,
+        "name": "The church"
+      },
+      "done_when": {
+        "type": "flag",
+        "flag": "__NISSE_PEACE"
+      },
+      "done": "They are still arguing, but at one table. That counts."
+    },
+    {
+      "day": 19,
+      "title": "The Night Wing",
+      "text": "The Night Wing is ready. Fly the jetpack ring race out toward the crater on Nonskarknuten. Rings, a crater, and a car with opinions. Fly.",
+      "hint": "Walk to the start sign and press G. The prize is the Elytra and 64 rockets.",
+      "kind": "race",
+      "target": {
+        "x": -82,
+        "z": 8,
+        "name": "Jetpack rings start"
+      },
+      "done_when": {
+        "type": "race",
+        "race": "jet"
+      },
+      "done": "You made it to the rim. Do not look down into the crater."
+    },
+    {
+      "day": 20,
+      "title": "The crater",
+      "text": "Something up on the mountain is moving, slowly, toward town. Go and look at the crater. Then run.",
+      "hint": "Stay on the flank, away from the light beam.",
+      "kind": "explore",
+      "target": {
+        "x": -1600,
+        "z": -205,
+        "name": "The crater"
+      },
+      "done_when": {
+        "type": "near",
+        "radius": 40
+      },
+      "done": "It is slow. I do not like slow things that do not stop."
+    },
+    {
+      "day": 21,
+      "title": "Longest night",
+      "text": "Fifteen small fires. We make them, or we are dark. Light the cairns on the way, then get to Bowlinghallen. It is the only place that stays warm.",
+      "hint": "If it gets dark, stay near me.",
+      "kind": "story",
+      "target": {
+        "x": 47,
+        "z": -498,
+        "name": "Bowlinghallen"
+      },
+      "done_when": {
+        "type": "near",
+        "radius": 14
+      },
+      "done": "Safe and warm. Fifteen fires, and we kept the light."
+    },
+    {
+      "day": 22,
+      "title": "Slightly embarrassed lights",
+      "text": "Check on someone. Anyone. Warm is a team sport. Start with the flat next door.",
+      "hint": "Coins can wait. Bring a few for the cafe if you like.",
+      "kind": "story",
+      "target": {
+        "x": 526.5,
+        "z": -706.5,
+        "name": "Chris's house"
+      },
+      "done_when": {
+        "type": "near",
+        "radius": 8
+      },
+      "done": "Somebody smiled back. Warm is a team sport."
+    },
+    {
+      "day": 23,
+      "title": "Lille julaften",
+      "text": "Lille julaften. The dragon at Liland woke when the light went out. Make the gingerbread house anyway. Slowly. Then visit the church and say hello to everyone.",
+      "hint": "",
+      "kind": "explore",
+      "target": {
+        "x": -90,
+        "z": -136,
+        "name": "The church"
+      },
+      "done_when": {
+        "type": "near",
+        "radius": 18
+      },
+      "done": "Almost there. Tomorrow we find out what the dragon wants."
+    },
+    {
+      "day": 24,
+      "title": "Christmas Eve",
+      "text": "Whatever happens, we kept the light. Go to the tree on the square. It is time.",
+      "hint": "",
+      "kind": "explore",
+      "target": {
+        "x": 7,
+        "z": 28,
+        "name": "The Christmas tree"
+      },
+      "done_when": {
+        "type": "near",
+        "radius": 10
+      },
+      "done": "Merry Christmas, Chris and Martin! The last door is open.",
+      "later": [
+        {
+          "at": "afternoon",
+          "text": "The Liland dragon is stretching. We have an appointment at dusk, and it is not a dinner."
+        },
+        {
+          "at": "dusk",
+          "text": "The candles at the cemetery. Light one for everyone who is not here. Then go on."
+        },
+        {
+          "at": "night",
+          "text": "The Nice List. Whatever it says, you were kind to someone. Probably. Go and see."
+        }
+      ]
+    }
+  ]
 }

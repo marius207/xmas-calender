@@ -5,6 +5,8 @@
 "ncc_aasland_2": "6a5aa325e41911334f758b3bfe423f07",
 "ncc_aasland_3": "95253583b8f56526ff6741cac07a4697",
 "ncc_aasland_4": "c79c23555283e4b6eeaa57edfda9cfc7",
+"ncc_aasland_5": "e92de89303f357eb72c0511d384d008d",
+"ncc_aasland_6": "04b572577a5507b5bb0f17697c983268",
 "ncc_beam_bye_1_f": "8333fb9ac13e9b9f1b6d11fdbf9464c1",
 "ncc_beam_bye_1_m": "80daa7d4ab2396e65dbf2fb899199f14",
 "ncc_beam_bye_2_f": "d38fb225c17a1e1fe4467ac3144c4ae3",
@@ -45,10 +47,12 @@
 "ncc_kleppe_2": "e8a15d941d0a9b55c706db5e05d46924",
 "ncc_kleppe_3": "19470ddcb6c830b94e3ea463995fc821",
 "ncc_kleppe_4": "dab71116bf20733a6e727e80bbf524d7",
+"ncc_kleppe_5": "659dd37b44267888a9a5321698517b6a",
 "ncc_lindtner_1": "5aae5698c475a793eee65a168049d05e",
 "ncc_lindtner_2": "45b41355539736f0a60861871679360f",
 "ncc_lindtner_3": "6df01bbcac3ea91a99ef8930f95bb69e",
 "ncc_lindtner_4": "166a170650c0997c90516a0b05a1ae82",
+"ncc_lindtner_5": "b8c83251d7c438dcdbf2bebcbce17dae",
 "ncc_lund_1": "4689b506b6986ef5be1765039eff3b81",
 "ncc_lund_2": "1bf6e66bf3ada051440514337622f804",
 "ncc_marit_1": "d20902831c22c7f61778500203a32ab2",
@@ -130,5 +134,6 @@
 "ncc_tveit_1": "5db0fde63c64a28c431ed194f77132f2",
 "ncc_tveit_2": "f6d8b8ade0b5315e868e77a7b2d1a157",
 "ncc_vik_1": "e28df1d4215a75b9802632ee4078ac44",
-"ncc_vik_2": "48aedeeb07401dca5045e1db8e4e2df9"
+"ncc_vik_2": "48aedeeb07401dca5045e1db8e4e2df9",
+"ncc_vik_3": "45fb890ca65a4fa0bd99c26a200f3cb3"
 }

@@ -132,6 +132,150 @@
    "gift",
    "Ta denne. Den glitrer litt. Som stjerner.",
    "Take this. It sparkles a little. Like stars."
+  ],
+  "rb_t1": [
+   "red",
+   "bridge",
+   "Jeg er Gammel-Rød, hundre og elleve år og stolt av det. Noen tramper grå spor gjennom hulene mine, og jeg vet hvem. Blåhattene. Hvem ellers?",
+   "I am Gammel-Rød, a hundred and eleven years old and proud of it. Someone is tramping grey footprints through my caves, and I know who. The blue hats. Who else?"
+  ],
+  "rb_t2": [
+   "red",
+   "bridge",
+   "Gå og se på sporene, du. Fem tær, ingen sko. Blåhattene har vært her, og de har kalde føtter.",
+   "Go and look at the tracks, you. Five toes, no boots. The blue hats have been here, and they have cold feet."
+  ],
+  "rb_t3": [
+   "red",
+   "bridge",
+   "Så du sporene? Da vet du hvem som lyver, og det er ikke meg. Mor Blå kan komme til kirken, så ordner vi det. Jeg sitter ved kaffekannen, ikke ved siden av henne.",
+   "You saw the tracks? Then you know who is lying, and it is not me. Mor Blå can come to the church and we will settle it. I will sit by the coffee pot, not next to her."
+  ],
+  "rb_wait": [
+   "red",
+   "bridge",
+   "Jeg kommer til kirken når hun gjør det. Ikke et minutt før.",
+   "I will come to the church when she does. Not a minute before."
+  ],
+  "rb_table": [
+   "red",
+   "bridge",
+   "Der er du. Seks minutter forsinket. Typisk blått.",
+   "There you are. Six minutes late. Typically blue."
+  ],
+  "rb_play": [
+   "red",
+   "bridge",
+   "Gunvald er den beste hånden jeg har. Han bløffer. Det er en slags ærlighet.",
+   "Gunvald is the best hand I have. He bluffs. It is a kind of honesty."
+  ],
+  "rb_won": [
+   "red",
+   "bridge",
+   "Du vant. Det var ikke planen. Men ingen kan si at en rød lue fuskte.",
+   "You won. That was not the plan. But nobody can say a red hat cheated."
+  ],
+  "rb_lost": [
+   "red",
+   "bridge",
+   "Du tapte, men vi tapte ikke. Det er den eneste måten å tape på som jeg liker.",
+   "You lost, but we did not lose. It is the only way of losing that I like."
+  ],
+  "rb_peace": [
+   "red",
+   "bridge",
+   "Hundre og elleve år med krangel, og et kortbord ordner det på ti minutter. Jeg sier ikke at hun har rett. Jeg sier bare at kaffen er god.",
+   "A hundred and eleven years of quarrelling, and a card table fixes it in ten minutes. I am not saying she is right. I am only saying the coffee is good."
+  ],
+  "rb_idle1": [
+   "red",
+   "bridge",
+   "Mor Blå sier at ordet er strikke. Jeg sier at ordet er flette. Vi er ikke uenige.",
+   "Mor Blå says the word is knit. I say the word is weave. We are not disagreeing."
+  ],
+  "rb_idle2": [
+   "red",
+   "bridge",
+   "Grå fotspor i begge hulene. Hvem går barfot rundt midt i julen?",
+   "Grey footprints in both caves. Who walks around barefoot in the middle of Christmas?"
+  ],
+  "rb_idle3": [
+   "red",
+   "bridge",
+   "Rødlue og blålue ved samme bord. Bestefar ville snudd seg i haugen.",
+   "Red hat and blue hat at the same table. Grandfather would turn in his barrow."
+  ],
+  "bb_t1": [
+   "blue",
+   "bridge",
+   "Mor Blå, hundre og ti, og ingen husker at jeg er den yngste. Sporene er grå, og røde nisser lager alltid rot. Skriv det ned.",
+   "Mor Blå, a hundred and ten, and nobody remembers that I am the younger. The tracks are grey, and red nisser always make a mess. Write that down."
+  ],
+  "bb_t2": [
+   "blue",
+   "bridge",
+   "Se på sporene i hulen. Ingen sko, fem tær. Gammel-Rød kjenner ikke igjen fem tær når han ser dem. Han teller annerledes.",
+   "Look at the tracks in the cave. No shoes, five toes. Gammel-Rød does not recognise five toes when he sees them. He counts differently."
+  ],
+  "bb_t3": [
+   "blue",
+   "bridge",
+   "Du har sett dem selv. Da er det ikke bare oss. Fint. Jeg kommer til kirken med strikketøyet. Sier han blåhatt én gang, strikker jeg ham inn i en lue.",
+   "You have seen them yourself. Then it is not just us. Fine. I will come to the church with my knitting. If he says blue hat once, I will knit him into a hat."
+  ],
+  "bb_wait": [
+   "blue",
+   "bridge",
+   "Jeg kommer når han kommer. Jeg skal være seks minutter forsinket, så han ikke blir overrasket.",
+   "I will come when he comes. I will be six minutes late so that he is not surprised."
+  ],
+  "bb_table": [
+   "blue",
+   "bridge",
+   "Seks minutter. Jeg sa seks. Jeg er alltid nøyaktig.",
+   "Six minutes. I said six. I am always exact."
+  ],
+  "bb_play": [
+   "blue",
+   "bridge",
+   "Vi kan ikke spille mot hverandre, da vinner den ene. Så du spiller mot Gunvald, og Stempelsen holder poengene. Taper du, taper ingen av oss.",
+   "We cannot play each other, then one of us wins. So you play Gunvald, and Stempelsen keeps the score. Lose, and neither of us loses."
+  ],
+  "bb_won": [
+   "blue",
+   "bridge",
+   "Du vant, og ingen av oss tapte. Skriv det ned, Stempelsen.",
+   "You won, and neither of us lost. Write that down, Stempelsen."
+  ],
+  "bb_lost": [
+   "blue",
+   "bridge",
+   "Du tapte. Pent gjort. Vi regner det som uavgjort, i tre eksemplarer.",
+   "You lost. Nicely done. We count it as a draw, in triplicate."
+  ],
+  "bb_peace": [
+   "blue",
+   "bridge",
+   "Vi har kranglet om en halv lefse siden nitten-elleve. Jeg husker ikke hvem som tok den. Jeg tror det var meg.",
+   "We have argued about half a lefse since nineteen eleven. I do not remember who took it. I think it was me."
+  ],
+  "bb_idle1": [
+   "blue",
+   "bridge",
+   "Gammel-Rød snorker ikke. Han puster bare med lyd, veldig sakte.",
+   "Gammel-Rød does not snore. He just breathes loudly, very slowly."
+  ],
+  "bb_idle2": [
+   "blue",
+   "bridge",
+   "Sporene stopper ved fjellet. Jeg liker ikke hva fjellet sier om det.",
+   "The tracks stop at the mountain. I do not like what the mountain says about it."
+  ],
+  "bb_idle3": [
+   "blue",
+   "bridge",
+   "Nå holder vi sammen, uansett hva som kommer ned fra fjellet.",
+   "Now we stick together, whatever comes down from the mountain."
   ]
  }
 }
