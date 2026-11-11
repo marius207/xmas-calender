@@ -1,0 +1,10 @@
+{
+ "_README": "BURNT-OUT HOUSES (4 Nov 2026, job burnhouse). Each row turns the nearest house within 8 m of x,z into a burnt-out ruin: charred wall stumps of uneven height, a doorway gap, rubble, ash floor, glowing embers, and a brick chimney that still stands and still smokes. It is no longer a home (no residents, windows, lights, chimney smoke of its own). Edit x,z (world metres) to move it; use __BURN.here() in the dev console to read the nearest house to you. The player's smell lines are in data/player_quips.json (row burnt_house) and data/voiceover.json (q_burnt1..5). Dev: window.__BURN.",
+ "houses": [
+  {
+   "x": -339,
+   "z": 943,
+   "note": "Farmonen 21, Likness, by the stadium. Burnt in real life. Marius's pick from Google Maps 4 Nov 2026 (mapped lat/lon to game; building 1644)."
+  }
+ ]
+}

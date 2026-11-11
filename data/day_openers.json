@@ -1,0 +1,1979 @@
+{
+ "_readme": "Day openers: a news-style montage of the valley and its people, read by the Downtown News anchor (placeholder edge-tts voice en-GB-RyanNeural, one anchor every day). Built by build/dayopeners/make_data.py. Shot i starts with anchor line i. Voice files: voice/dayopen/<line id>.m4a (+ durations.json). Real recordings: put them in voice/dayopen/real/<line id>.m4a and add the id to _real in voice/dayopen/durations.json. Days 1 and 15 keep their own openers.",
+ "anchor": {
+  "name": "Downtown News",
+  "voice": "en-GB-RyanNeural",
+  "rate": "+2%",
+  "pitch": "+2Hz",
+  "note": "placeholder: re-record in Marius/CapCut voice via the studio, same anchor every day"
+ },
+ "spots": {
+  "tree": [
+   7,
+   28
+  ],
+  "hall": [
+   37,
+   -7
+  ],
+  "bank": [
+   19,
+   -37
+  ],
+  "bakery": [
+   26,
+   47
+  ],
+  "shop": [
+   -27,
+   -4
+  ],
+  "river": [
+   -82,
+   8
+  ],
+  "church": [
+   -85,
+   -135
+  ],
+  "bowl": [
+   47,
+   -498
+  ],
+  "cinema": [
+   -229,
+   -375
+  ],
+  "chris": [
+   526,
+   -706
+  ],
+  "hamre": [
+   1062,
+   -1926
+  ],
+  "botnan": [
+   784,
+   -1637
+  ],
+  "globe": [
+   644,
+   -2050
+  ],
+  "varden": [
+   1461,
+   -3034
+  ],
+  "view": [
+   361,
+   1099
+  ],
+  "nons": [
+   -1867,
+   -4
+  ],
+  "crater": null,
+  "valley": [
+   150,
+   -300
+  ]
+ },
+ "spotNames": {
+  "tree": "the Christmas tree on the square",
+  "hall": "the town hall",
+  "bank": "the bank",
+  "bakery": "the bakery",
+  "shop": "the shop",
+  "river": "the frozen river",
+  "church": "the church",
+  "bowl": "Bowlinghallen",
+  "cinema": "the cinema",
+  "chris": "Chris's street",
+  "hamre": "Hamrevegen",
+  "botnan": "Camp Botnan",
+  "globe": "Globen",
+  "varden": "Hamrevarden",
+  "view": "the lookout",
+  "nons": "Nonskarknuten",
+  "valley": "the valley"
+ },
+ "days": {
+  "2": {
+   "title": "Down the hill",
+   "head": "A HILL WITH AN OPINION",
+   "activity": "The Spark race down Hamrevegen (Silje's race, kick-sled)",
+   "tod": "10:30",
+   "wx": "light",
+   "shots": [
+    {
+     "at": "hamre",
+     "a": 20,
+     "r": [
+      70,
+      34
+     ],
+     "h": [
+      26,
+      12
+     ],
+     "la": 2,
+     "fov": [
+      62,
+      52
+     ],
+     "sw": 25,
+     "cap": "Hamrevegen",
+     "ppl": {
+      "k": "kid",
+      "n": 5,
+      "r": 9,
+      "face": "out",
+      "walk": 0.6,
+      "seed": 1
+     }
+    },
+    {
+     "at": "tree",
+     "a": 200,
+     "r": [
+      46,
+      30
+     ],
+     "h": [
+      16,
+      9
+     ],
+     "la": 3,
+     "fov": 58,
+     "sw": 40,
+     "cap": "The square",
+     "ppl": {
+      "k": "folk",
+      "n": 6,
+      "r": 11,
+      "face": "in",
+      "walk": 0.3,
+      "seed": 1
+     }
+    },
+    {
+     "at": "valley",
+     "a": 300,
+     "r": [
+      160,
+      220
+     ],
+     "h": [
+      60,
+      120
+     ],
+     "la": 0,
+     "fov": 58,
+     "sw": 25,
+     "cap": "Somewhere by the road: a field office"
+    }
+   ],
+   "lines": [
+    {
+     "id": "d02_1",
+     "t": "Good morning, downtown. It is the second of December, and the hill on Hamrevegen has an opinion again."
+    },
+    {
+     "id": "d02_2",
+     "t": "Kick-sleds were seen on it at speeds the council calls, quote, enthusiastic. Silje has announced a race down it. Anyone with a sled may enter."
+    },
+    {
+     "id": "d02_3",
+     "t": "Meanwhile, Nisse Security Central has opened a field office by the road. It has a flag and a kettle. It does not have an explanation."
+    }
+   ]
+  },
+  "3": {
+   "title": "Strike!",
+   "head": "STRIKE, FRAME FOUR",
+   "activity": "Play one whole game at Bowlinghallen",
+   "tod": "17:30",
+   "wx": "clear",
+   "shots": [
+    {
+     "at": "bowl",
+     "a": 150,
+     "r": [
+      60,
+      34
+     ],
+     "h": [
+      20,
+      10
+     ],
+     "la": 3,
+     "fov": 56,
+     "sw": 30,
+     "cap": "Bowlinghallen",
+     "ppl": {
+      "k": "folk",
+      "n": 5,
+      "r": 10,
+      "face": "in",
+      "walk": 0.2,
+      "seed": 1
+     }
+    },
+    {
+     "at": "shop",
+     "a": 40,
+     "r": [
+      40,
+      26
+     ],
+     "h": [
+      14,
+      9
+     ],
+     "la": 3,
+     "fov": 56,
+     "sw": 30,
+     "cap": "The shop",
+     "ppl": {
+      "k": "folk",
+      "n": 4,
+      "r": 8,
+      "face": "in",
+      "walk": 0.0,
+      "seed": 1
+     }
+    },
+    {
+     "at": "river",
+     "a": 260,
+     "r": [
+      110,
+      150
+     ],
+     "h": [
+      28,
+      46
+     ],
+     "la": 4,
+     "fov": 58,
+     "sw": 20,
+     "cap": "The edge of the woods"
+    }
+   ],
+   "lines": [
+    {
+     "id": "d03_1",
+     "t": "Good evening, downtown. Third of December. Bowlinghallen reports a strike. A good one. Frame four."
+    },
+    {
+     "id": "d03_2",
+     "t": "At the shop, Fru Haugen says something is moving in the woods again. She says it is probably a deer."
+    },
+    {
+     "id": "d03_3",
+     "t": "The deer have been asked. They decline to comment. Bowlinghallen is open to anyone who wants a strike of their own."
+    }
+   ]
+  },
+  "4": {
+   "title": "Voices in the cold",
+   "head": "IN TUNE, MOSTLY",
+   "activity": "Go to the church and listen to the carolers",
+   "tod": "15:20",
+   "wx": "clear",
+   "shots": [
+    {
+     "at": "church",
+     "a": 330,
+     "r": [
+      58,
+      32
+     ],
+     "h": [
+      18,
+      8
+     ],
+     "la": 4,
+     "fov": 56,
+     "sw": 28,
+     "cap": "The church",
+     "ppl": {
+      "k": "folk",
+      "n": 6,
+      "r": 7,
+      "face": "out",
+      "walk": 0,
+      "seed": 4
+     }
+    },
+    {
+     "at": "river",
+     "a": 100,
+     "r": [
+      42,
+      60
+     ],
+     "h": [
+      14,
+      22
+     ],
+     "la": 2,
+     "fov": 60,
+     "sw": 35,
+     "cap": "The frozen river",
+     "ppl": {
+      "k": "folk",
+      "n": 3,
+      "r": 5,
+      "face": "in",
+      "walk": 0.4,
+      "seed": 1
+     }
+    },
+    {
+     "at": "hall",
+     "a": 270,
+     "r": [
+      110,
+      150
+     ],
+     "h": [
+      30,
+      50
+     ],
+     "la": 8,
+     "fov": 58,
+     "sw": 25,
+     "cap": "Houses, windows, one lit"
+    }
+   ],
+   "lines": [
+    {
+     "id": "d04_1",
+     "t": "Good afternoon, downtown. Carolers were heard by the church today. They stopped quite suddenly."
+    },
+    {
+     "id": "d04_2",
+     "t": "Witnesses report shouting from an upstairs window, and what one described as a broom."
+    },
+    {
+     "id": "d04_3",
+     "t": "Old-timers have begun telling a story about an eye on the hill. Old-timers always do. The church is a good place to stand and listen."
+    }
+   ]
+  },
+  "5": {
+   "title": "Pocket money",
+   "head": "COINS ON THE ROADS",
+   "activity": "Collect 10 coins along the roads",
+   "tod": "11:30",
+   "wx": "light",
+   "shots": [
+    {
+     "at": "bank",
+     "a": 120,
+     "r": [
+      42,
+      24
+     ],
+     "h": [
+      16,
+      8
+     ],
+     "la": 2,
+     "fov": 56,
+     "sw": 30,
+     "cap": "The bank",
+     "ppl": {
+      "k": "folk",
+      "n": 5,
+      "r": 9,
+      "face": "in",
+      "walk": 0.3,
+      "seed": 1
+     }
+    },
+    {
+     "at": "tree",
+     "a": 330,
+     "r": [
+      52,
+      34
+     ],
+     "h": [
+      18,
+      10
+     ],
+     "la": 2,
+     "fov": 58,
+     "sw": 35,
+     "cap": "Along the roads",
+     "ppl": {
+      "k": "kid",
+      "n": 5,
+      "r": 12,
+      "face": "out",
+      "walk": 0.7,
+      "seed": 1
+     }
+    },
+    {
+     "at": "valley",
+     "a": 200,
+     "r": [
+      150,
+      200
+     ],
+     "h": [
+      70,
+      100
+     ],
+     "la": 0,
+     "fov": 56,
+     "sw": 25,
+     "cap": "Street lamps"
+    }
+   ],
+   "lines": [
+    {
+     "id": "d05_1",
+     "t": "Good day, downtown. Coins are appearing along the roads. The bank says it has not lost any."
+    },
+    {
+     "id": "d05_2",
+     "t": "The roads say nothing. Children say they are looking for the bigger ones."
+    },
+    {
+     "id": "d05_3",
+     "t": "The electric company would like it known that tonight's lamps are working normally. In advance. Ten coins is the unofficial target."
+    }
+   ]
+  },
+  "6": {
+   "title": "Tipi village",
+   "head": "SMOKE STRAIGHT UP",
+   "activity": "Visit Camp Botnan and look around the tipi village",
+   "tod": "11:00",
+   "wx": "steady",
+   "shots": [
+    {
+     "at": "botnan",
+     "a": 40,
+     "r": [
+      64,
+      34
+     ],
+     "h": [
+      20,
+      10
+     ],
+     "la": 3,
+     "fov": 56,
+     "sw": 30,
+     "cap": "Camp Botnan",
+     "ppl": {
+      "k": "folk",
+      "n": 5,
+      "r": 9,
+      "face": "in",
+      "walk": 0.1,
+      "seed": 6
+     }
+    },
+    {
+     "at": "botnan",
+     "a": 220,
+     "r": [
+      30,
+      22
+     ],
+     "h": [
+      7,
+      5
+     ],
+     "la": 3,
+     "fov": 62,
+     "sw": 40,
+     "cap": "The tipi village",
+     "ppl": {
+      "k": "kid",
+      "n": 3,
+      "r": 6,
+      "face": "out",
+      "walk": 0.5,
+      "seed": 9
+     }
+    },
+    {
+     "at": "botnan",
+     "a": 170,
+     "r": [
+      170,
+      120
+     ],
+     "h": [
+      80,
+      50
+     ],
+     "la": 2,
+     "fov": 54,
+     "sw": 25,
+     "cap": "Seen from the heights"
+    }
+   ],
+   "lines": [
+    {
+     "id": "d06_1",
+     "t": "Good morning, downtown. Smoke is rising straight up from Camp Botnan, which means a calm night."
+    },
+    {
+     "id": "d06_2",
+     "t": "Visitors say the tipis are warm and the sky is not. Both are in the brochure."
+    },
+    {
+     "id": "d06_3",
+     "t": "One visitor reports feeling followed. Another says that was him. Ingrid, who knows everyone, says to ask someone else. Camp Botnan is open to visitors."
+    }
+   ]
+  },
+  "7": {
+   "title": "Mail from home",
+   "head": "A LITTLE LIGHTER",
+   "activity": "Check the mailbox at Chris's building",
+   "tod": "09:15",
+   "wx": "steady",
+   "shots": [
+    {
+     "at": "chris",
+     "a": 30,
+     "r": [
+      60,
+      34
+     ],
+     "h": [
+      20,
+      9
+     ],
+     "la": 3,
+     "fov": 56,
+     "sw": 30,
+     "cap": "Chris's street",
+     "ppl": {
+      "k": "folk",
+      "n": 3,
+      "r": 8,
+      "face": "in",
+      "walk": 0.5,
+      "seed": 7
+     }
+    },
+    {
+     "at": "chris",
+     "a": 200,
+     "r": [
+      30,
+      20
+     ],
+     "h": [
+      9,
+      6
+     ],
+     "la": 2,
+     "fov": 60,
+     "sw": 35,
+     "cap": "The mailbox"
+    },
+    {
+     "at": "hall",
+     "a": 100,
+     "r": [
+      90,
+      120
+     ],
+     "h": [
+      26,
+      40
+     ],
+     "la": 6,
+     "fov": 58,
+     "sw": 25,
+     "cap": "The post office road"
+    }
+   ],
+   "lines": [
+    {
+     "id": "d07_1",
+     "t": "Good morning, downtown. Post has arrived. One parcel contains a note from a mother who wants to know if the cookies got there."
+    },
+    {
+     "id": "d07_2",
+     "t": "Residents of one building report chewing from the floor below. The building says it is the pipes."
+    },
+    {
+     "id": "d07_3",
+     "t": "The pipes have been asked to chew more quietly. Residents are encouraged to check their mailbox."
+    }
+   ]
+  },
+  "8": {
+   "title": "Under the floorboards",
+   "head": "DEEPER THAN IT LOOKS",
+   "activity": "Listen at the witch's flat; the trapdoor",
+   "tod": "13:30",
+   "wx": "fog",
+   "shots": [
+    {
+     "at": "chris",
+     "a": 330,
+     "r": [
+      56,
+      30
+     ],
+     "h": [
+      18,
+      8
+     ],
+     "la": 3,
+     "fov": 56,
+     "sw": 30,
+     "cap": "Chris's building",
+     "ppl": {
+      "k": "folk",
+      "n": 2,
+      "r": 7,
+      "face": "in",
+      "walk": 0.3,
+      "seed": 8
+     }
+    },
+    {
+     "at": "chris",
+     "a": 120,
+     "r": [
+      40,
+      28
+     ],
+     "h": [
+      22,
+      16
+     ],
+     "la": 3,
+     "fov": 58,
+     "sw": 40,
+     "cap": "Ground floor"
+    },
+    {
+     "at": "river",
+     "a": 60,
+     "r": [
+      100,
+      140
+     ],
+     "h": [
+      24,
+      40
+     ],
+     "la": 2,
+     "fov": 58,
+     "sw": 20,
+     "cap": "Fog on the river"
+    }
+   ],
+   "lines": [
+    {
+     "id": "d08_1",
+     "t": "Good afternoon, downtown. A ground-floor flat is deeper than it looks."
+    },
+    {
+     "id": "d08_2",
+     "t": "Residents report that the floor has a sound under it, and the sound has a smell. Old sugar."
+    },
+    {
+     "id": "d08_3",
+     "t": "The landlord says every flat is as deep as you make it. The landlord has stopped answering the door. Neighbours are encouraged to listen at the door."
+    }
+   ]
+  },
+  "9": {
+   "title": "The big globe",
+   "head": "GLOBEN",
+   "activity": "Find Globen on the hill",
+   "tod": "11:30",
+   "wx": "clear",
+   "shots": [
+    {
+     "at": "globe",
+     "a": 20,
+     "r": [
+      90,
+      52
+     ],
+     "h": [
+      34,
+      16
+     ],
+     "la": 12,
+     "fov": 56,
+     "sw": 32,
+     "cap": "Globen",
+     "ppl": {
+      "k": "folk",
+      "n": 3,
+      "r": 14,
+      "face": "in",
+      "walk": 0.3,
+      "seed": 9
+     }
+    },
+    {
+     "at": "globe",
+     "a": 190,
+     "r": [
+      50,
+      36
+     ],
+     "h": [
+      20,
+      14
+     ],
+     "la": 8,
+     "fov": 58,
+     "sw": 35,
+     "cap": "Visitors",
+     "ppl": {
+      "k": "kid",
+      "n": 4,
+      "r": 12,
+      "face": "in",
+      "walk": 0.4,
+      "seed": 1
+     }
+    },
+    {
+     "at": "globe",
+     "a": 250,
+     "r": [
+      230,
+      180
+     ],
+     "h": [
+      110,
+      70
+     ],
+     "la": 6,
+     "fov": 54,
+     "sw": 25,
+     "cap": "A trail of crumbs"
+    }
+   ],
+   "lines": [
+    {
+     "id": "d09_1",
+     "t": "Good morning, downtown. A giant globe has been spotted out on the hill. Locals call it Globen."
+    },
+    {
+     "id": "d09_2",
+     "t": "Globen has been there for a long time. Nobody has explained it, and nobody has asked it to leave."
+    },
+    {
+     "id": "d09_3",
+     "t": "A line of crumbs has been reported nearby. Hikers are asked not to eat them. Hikers are eating them. Anyone who finds Globen is asked to say hello."
+    }
+   ]
+  },
+  "10": {
+   "title": "Top of the rock",
+   "head": "THE LONG WAY DOWN",
+   "activity": "Climb Orresteinen above the fjord",
+   "tod": "12:30",
+   "wx": "clear",
+   "shots": [
+    {
+     "at": "view",
+     "a": 170,
+     "r": [
+      150,
+      90
+     ],
+     "h": [
+      60,
+      30
+     ],
+     "la": 6,
+     "fov": 54,
+     "sw": 25,
+     "cap": "The lookout",
+     "ppl": {
+      "k": "pro",
+      "n": 3,
+      "r": 8,
+      "face": "out",
+      "walk": 0.0,
+      "seed": 10
+     }
+    },
+    {
+     "at": "varden",
+     "a": 40,
+     "r": [
+      70,
+      40
+     ],
+     "h": [
+      26,
+      14
+     ],
+     "la": 4,
+     "fov": 56,
+     "sw": 30,
+     "cap": "The heights",
+     "ppl": {
+      "k": "folk",
+      "n": 2,
+      "r": 6,
+      "face": "out",
+      "walk": 0.0,
+      "seed": 11
+     }
+    },
+    {
+     "at": "chris",
+     "a": 250,
+     "r": [
+      70,
+      50
+     ],
+     "h": [
+      22,
+      12
+     ],
+     "la": 3,
+     "fov": 56,
+     "sw": 20,
+     "cap": "The mailbox again"
+    }
+   ],
+   "lines": [
+    {
+     "id": "d10_1",
+     "t": "Good day, downtown. Climbers have reached the top of Orresteinen, the giant rock above the fjord. They report that the view is good and the way down is long."
+    },
+    {
+     "id": "d10_2",
+     "t": "In the post, one letter arrived already opened, and mostly eaten. The postman has stopped asking."
+    },
+    {
+     "id": "d10_3",
+     "t": "Neighbours say the old lady downstairs seems bigger this week. She says it is the coat. The rock is open to climbers."
+    }
+   ]
+  },
+  "11": {
+   "title": "Baking Day",
+   "head": "SMELL OF BUTTER",
+   "activity": "Baking Day: gather the ingredients, bake the counter-batch",
+   "tod": "10:30",
+   "wx": "clear",
+   "shots": [
+    {
+     "at": "bakery",
+     "a": 200,
+     "r": [
+      50,
+      28
+     ],
+     "h": [
+      16,
+      8
+     ],
+     "la": 3,
+     "fov": 56,
+     "sw": 30,
+     "cap": "The bakery",
+     "ppl": {
+      "k": "folk",
+      "n": 7,
+      "r": 8,
+      "face": "in",
+      "walk": 0.0,
+      "seed": 12,
+      "c": [
+       0,
+       4
+      ]
+     }
+    },
+    {
+     "at": "shop",
+     "a": 90,
+     "r": [
+      36,
+      24
+     ],
+     "h": [
+      13,
+      8
+     ],
+     "la": 3,
+     "fov": 58,
+     "sw": 35,
+     "cap": "The shelves",
+     "ppl": {
+      "k": "folk",
+      "n": 4,
+      "r": 7,
+      "face": "in",
+      "walk": 0.2,
+      "seed": 1
+     }
+    },
+    {
+     "at": "tree",
+     "a": 10,
+     "r": [
+      70,
+      90
+     ],
+     "h": [
+      30,
+      46
+     ],
+     "la": 8,
+     "fov": 58,
+     "sw": 25,
+     "cap": "Chimneys all over downtown"
+    }
+   ],
+   "lines": [
+    {
+     "id": "d11_1",
+     "t": "Good morning, downtown. Flour has sold out. Ginger has sold out. One shop has sold out of sold out."
+    },
+    {
+     "id": "d11_2",
+     "t": "Residents are asked to bake. All of them. Today. The bakery calls this, quote, a nutritional matter."
+    },
+    {
+     "id": "d11_3",
+     "t": "A strong smell of butter is reported from every chimney. The smell is, officially, delicious. Baking begins at the bakery."
+    }
+   ]
+  },
+  "12": {
+   "title": "Cookie monster",
+   "head": "DO NOT GO DOWNSTAIRS",
+   "activity": "The witch boss fight in the dungeon (own opener follows)",
+   "tod": "06:45",
+   "wx": "fog",
+   "shots": [
+    {
+     "at": "chris",
+     "a": 40,
+     "r": [
+      58,
+      36
+     ],
+     "h": [
+      16,
+      8
+     ],
+     "la": 3,
+     "fov": 54,
+     "sw": 25,
+     "cap": "Chris's building"
+    },
+    {
+     "at": "chris",
+     "a": 190,
+     "r": [
+      28,
+      18
+     ],
+     "h": [
+      5,
+      3
+     ],
+     "la": 2,
+     "fov": 60,
+     "sw": 30,
+     "cap": "The cellar window"
+    },
+    {
+     "at": "river",
+     "a": 250,
+     "r": [
+      100,
+      140
+     ],
+     "h": [
+      22,
+      36
+     ],
+     "la": 2,
+     "fov": 56,
+     "sw": 20,
+     "cap": "Everyone else, indoors"
+    }
+   ],
+   "lines": [
+    {
+     "id": "d12_1",
+     "t": "Good morning. This bulletin is brief."
+    },
+    {
+     "id": "d12_2",
+     "t": "A disturbance is expected in the lower levels of a certain building this evening. Residents are asked not to go downstairs."
+    },
+    {
+     "id": "d12_3",
+     "t": "Residents are going downstairs. Weather: loud, with a heavy dessert warning."
+    }
+   ]
+  },
+  "13": {
+   "title": "Make it shine",
+   "head": "LOCAL WITCH FINALLY QUIET",
+   "activity": "Decorate Chris's house (it stays now)",
+   "tod": "08:40",
+   "wx": "clear",
+   "shots": [
+    {
+     "at": "church",
+     "a": 140,
+     "r": [
+      60,
+      34
+     ],
+     "h": [
+      16,
+      8
+     ],
+     "la": 4,
+     "fov": 56,
+     "sw": 30,
+     "cap": "The church, Lucia dawn",
+     "ppl": {
+      "k": "folk",
+      "n": 7,
+      "r": 6,
+      "face": "out",
+      "walk": 0.15,
+      "seed": 13
+     }
+    },
+    {
+     "at": "chris",
+     "a": 330,
+     "r": [
+      50,
+      30
+     ],
+     "h": [
+      14,
+      8
+     ],
+     "la": 3,
+     "fov": 58,
+     "sw": 30,
+     "cap": "Decorations, staying up",
+     "ppl": {
+      "k": "folk",
+      "n": 3,
+      "r": 8,
+      "face": "in",
+      "walk": 0.0,
+      "seed": 1
+     }
+    },
+    {
+     "at": "tree",
+     "a": 200,
+     "r": [
+      90,
+      70
+     ],
+     "h": [
+      38,
+      28
+     ],
+     "la": 6,
+     "fov": 58,
+     "sw": 25,
+     "cap": "First full night of sleep"
+    }
+   ],
+   "lines": [
+    {
+     "id": "d13_1",
+     "t": "Good morning, downtown. Local witch finally quiet. Neighbours report the first full night of sleep since the first."
+    },
+    {
+     "id": "d13_2",
+     "t": "At dawn, the Lucia procession: white robes, candles, and one very serious child."
+    },
+    {
+     "id": "d13_3",
+     "t": "Decorating is permitted again. This time it stays up. The council has checked."
+    }
+   ]
+  },
+  "14": {
+   "title": "Light the lights",
+   "head": "A LIGHT NOBODY LIT",
+   "activity": "Walk the town and light the lights, starting at the tree",
+   "tod": "16:45",
+   "wx": "clear",
+   "shots": [
+    {
+     "at": "tree",
+     "a": 320,
+     "r": [
+      48,
+      28
+     ],
+     "h": [
+      14,
+      8
+     ],
+     "la": 3,
+     "fov": 58,
+     "sw": 35,
+     "cap": "The square",
+     "ppl": {
+      "k": "folk",
+      "n": 8,
+      "r": 11,
+      "face": "in",
+      "walk": 0.3,
+      "seed": 14
+     }
+    },
+    {
+     "at": "cinema",
+     "a": 60,
+     "r": [
+      56,
+      34
+     ],
+     "h": [
+      16,
+      8
+     ],
+     "la": 4,
+     "fov": 56,
+     "sw": 30,
+     "cap": "The cinema",
+     "ppl": {
+      "k": "kid",
+      "n": 4,
+      "r": 9,
+      "face": "in",
+      "walk": 0.4,
+      "seed": 1
+     }
+    },
+    {
+     "at": "bowl",
+     "a": 250,
+     "r": [
+      80,
+      110
+     ],
+     "h": [
+      26,
+      38
+     ],
+     "la": 5,
+     "fov": 58,
+     "sw": 25,
+     "cap": "Lights, one street at a time"
+    }
+   ],
+   "lines": [
+    {
+     "id": "d14_1",
+     "t": "Good evening, downtown. The Christmas lights are being lit across town, one street at a time. Begin at the tree."
+    },
+    {
+     "id": "d14_2",
+     "t": "The cinema, the bank, the Julerennet and the arcade are all open. One light was lit by nobody. We are looking into it."
+    },
+    {
+     "id": "d14_3",
+     "t": "Astronomers expect a fun night tomorrow. They have said that before."
+    }
+   ]
+  },
+  "16": {
+   "title": "The last parcel",
+   "head": "STAY AWAY",
+   "activity": "Check the mailbox: the last parcel from Mum",
+   "tod": "12:00",
+   "wx": "steady",
+   "shots": [
+    {
+     "at": "crater",
+     "a": 100,
+     "r": [
+      520,
+      380
+     ],
+     "h": [
+      90,
+      60
+     ],
+     "la": 8,
+     "fov": 54,
+     "sw": 20,
+     "cap": "The mountain road"
+    },
+    {
+     "at": "river",
+     "a": 260,
+     "r": [
+      60,
+      80
+     ],
+     "h": [
+      20,
+      28
+     ],
+     "la": 4,
+     "fov": 58,
+     "sw": 30,
+     "cap": "The frozen river",
+     "ppl": {
+      "k": "folk",
+      "n": 3,
+      "r": 6,
+      "face": "out",
+      "walk": 0.0,
+      "seed": 16
+     }
+    },
+    {
+     "at": "chris",
+     "a": 70,
+     "r": [
+      36,
+      22
+     ],
+     "h": [
+      10,
+      6
+     ],
+     "la": 2,
+     "fov": 60,
+     "sw": 35,
+     "cap": "The mailbox"
+    }
+   ],
+   "lines": [
+    {
+     "id": "d16_1",
+     "t": "Good morning. The official line is: nothing to worry about. Please stay away."
+    },
+    {
+     "id": "d16_2",
+     "t": "Overnight, black cars were seen on the mountain road, and a fence has appeared where there was no fence. The fence is nothing to worry about."
+    },
+    {
+     "id": "d16_3",
+     "t": "In the post, one last parcel from a mother. It smells of ginger, and a little of smoke."
+    }
+   ]
+  },
+  "17": {
+   "title": "Hill walk",
+   "head": "THE HILL LOOKS BACK",
+   "activity": "Hike up to Hamrevarden",
+   "tod": "11:30",
+   "wx": "clear",
+   "shots": [
+    {
+     "at": "varden",
+     "a": 200,
+     "r": [
+      90,
+      56
+     ],
+     "h": [
+      30,
+      16
+     ],
+     "la": 6,
+     "fov": 56,
+     "sw": 30,
+     "cap": "Hamrevarden",
+     "ppl": {
+      "k": "pro",
+      "n": 2,
+      "r": 7,
+      "face": "out",
+      "walk": 0.0,
+      "seed": 17
+     }
+    },
+    {
+     "at": "valley",
+     "a": 40,
+     "r": [
+      200,
+      260
+     ],
+     "h": [
+      90,
+      140
+     ],
+     "la": 0,
+     "fov": 56,
+     "sw": 25,
+     "cap": "Downtown, from above"
+    },
+    {
+     "at": "bowl",
+     "a": 330,
+     "r": [
+      44,
+      28
+     ],
+     "h": [
+      14,
+      8
+     ],
+     "la": 3,
+     "fov": 58,
+     "sw": 35,
+     "cap": "Bowlinghallen: warm",
+     "ppl": {
+      "k": "folk",
+      "n": 3,
+      "r": 7,
+      "face": "in",
+      "walk": 0.0,
+      "seed": 18
+     }
+    }
+   ],
+   "lines": [
+    {
+     "id": "d17_1",
+     "t": "Good morning, downtown. Hikers on Hamrevarden report that downtown looks small from up there, and that downtown knows it."
+    },
+    {
+     "id": "d17_2",
+     "t": "Bowlinghallen remains warm, and the council recommends it. A man named Pelle has been seen going in with a very large bag."
+    },
+    {
+     "id": "d17_3",
+     "t": "He has not been seen coming out. The bag has."
+    }
+   ]
+  },
+  "18": {
+   "title": "Two hats",
+   "head": "RED HATS, BLUE HATS",
+   "activity": "Bring Gammel-Rod and Mor Bla to one table",
+   "tod": "13:00",
+   "wx": "steady",
+   "shots": [
+    {
+     "at": "valley",
+     "a": 95,
+     "r": [
+      170,
+      230
+     ],
+     "h": [
+      70,
+      100
+     ],
+     "la": 0,
+     "fov": 56,
+     "sw": 30,
+     "cap": "Two caves, opposite sides of the valley"
+    },
+    {
+     "at": "river",
+     "a": 0,
+     "r": [
+      48,
+      34
+     ],
+     "h": [
+      14,
+      8
+     ],
+     "la": 3,
+     "fov": 58,
+     "sw": 35,
+     "cap": "The frozen river",
+     "ppl": {
+      "k": "folk",
+      "n": 3,
+      "r": 5,
+      "face": "in",
+      "walk": 0.0,
+      "seed": 19,
+      "c": [
+       -9,
+       0
+      ]
+     }
+    },
+    {
+     "at": "church",
+     "a": 210,
+     "r": [
+      54,
+      36
+     ],
+     "h": [
+      14,
+      8
+     ],
+     "la": 3,
+     "fov": 58,
+     "sw": 30,
+     "cap": "The church",
+     "ppl": {
+      "k": "folk",
+      "n": 3,
+      "r": 5,
+      "face": "in",
+      "walk": 0.0,
+      "seed": 21,
+      "c": [
+       9,
+       0
+      ]
+     }
+    }
+   ],
+   "lines": [
+    {
+     "id": "d18_1",
+     "t": "Good afternoon, downtown. Two clans of julenisser, from caves on opposite sides of the valley, have stopped speaking."
+    },
+    {
+     "id": "d18_2",
+     "t": "The red hats blame the blue hats. The blue hats blame the red hats. Both blame the hats."
+    },
+    {
+     "id": "d18_3",
+     "t": "The council would like both clans at one table. Someone neutral is needed."
+    }
+   ]
+  },
+  "19": {
+   "title": "The Night Wing",
+   "head": "A TICKET FOR FLYING",
+   "activity": "The jetpack ring race toward the crater",
+   "tod": "13:30",
+   "wx": "clear",
+   "shots": [
+    {
+     "at": "river",
+     "a": 300,
+     "r": [
+      60,
+      40
+     ],
+     "h": [
+      22,
+      10
+     ],
+     "la": 5,
+     "fov": 58,
+     "sw": 40,
+     "cap": "By the river"
+    },
+    {
+     "at": "tree",
+     "a": 120,
+     "r": [
+      50,
+      34
+     ],
+     "h": [
+      16,
+      9
+     ],
+     "la": 3,
+     "fov": 58,
+     "sw": 30,
+     "cap": "The square",
+     "ppl": {
+      "k": "folk",
+      "n": 6,
+      "r": 11,
+      "face": "in",
+      "walk": 0.0,
+      "seed": 22
+     }
+    },
+    {
+     "at": "crater",
+     "a": 80,
+     "r": [
+      700,
+      520
+     ],
+     "h": [
+      180,
+      120
+     ],
+     "la": 20,
+     "fov": 54,
+     "sw": 20,
+     "cap": "The course: out toward the crater"
+    }
+   ],
+   "lines": [
+    {
+     "id": "d19_1",
+     "t": "Good afternoon, downtown. A flying car is parked by the river. It is called the Night Wing."
+    },
+    {
+     "id": "d19_2",
+     "t": "The parking inspector has issued a ticket for flying without permission. The car has not noticed."
+    },
+    {
+     "id": "d19_3",
+     "t": "A ring race is planned, out toward the crater. Pilots are asked to look both ways, and also up."
+    }
+   ]
+  },
+  "20": {
+   "title": "The crater",
+   "head": "BE READY FOR QUIET",
+   "activity": "Go and look at the crater",
+   "tod": "10:00",
+   "wx": "steady",
+   "shots": [
+    {
+     "at": "crater",
+     "a": 60,
+     "r": [
+      360,
+      240
+     ],
+     "h": [
+      60,
+      36
+     ],
+     "la": 8,
+     "fov": 54,
+     "sw": 25,
+     "cap": "The crater"
+    },
+    {
+     "at": "river",
+     "a": 10,
+     "r": [
+      44,
+      56
+     ],
+     "h": [
+      14,
+      20
+     ],
+     "la": 3,
+     "fov": 60,
+     "sw": 30,
+     "cap": "Downtown: very quiet",
+     "ppl": {
+      "k": "folk",
+      "n": 3,
+      "r": 6,
+      "face": "out",
+      "walk": 0.0,
+      "seed": 23
+     }
+    },
+    {
+     "at": "chris",
+     "a": 150,
+     "r": [
+      50,
+      30
+     ],
+     "h": [
+      14,
+      8
+     ],
+     "la": 3,
+     "fov": 58,
+     "sw": 25,
+     "cap": "No birds"
+    }
+   ],
+   "lines": [
+    {
+     "id": "d20_1",
+     "t": "Good morning, downtown. Instruments at the crater show activity. The council defines activity as, quote, things happening."
+    },
+    {
+     "id": "d20_2",
+     "t": "Shops report an unusual quiet. Birds have left. Dogs are looking at the mountain, and then at their owners."
+    },
+    {
+     "id": "d20_3",
+     "t": "Be ready for quiet. That is the whole forecast. Somebody should go and look."
+    }
+   ]
+  },
+  "21": {
+   "title": "The longest night",
+   "head": "STAY WARM, STAY LOUD",
+   "activity": "Light the 15 cairns",
+   "tod": "15:20",
+   "wx": "clear",
+   "shots": [
+    {
+     "at": "varden",
+     "a": 160,
+     "r": [
+      260,
+      200
+     ],
+     "h": [
+      100,
+      70
+     ],
+     "la": 4,
+     "fov": 54,
+     "sw": 25,
+     "cap": "The ridges"
+    },
+    {
+     "at": "tree",
+     "a": 70,
+     "r": [
+      48,
+      30
+     ],
+     "h": [
+      14,
+      8
+     ],
+     "la": 3,
+     "fov": 58,
+     "sw": 35,
+     "cap": "The square: candles",
+     "ppl": {
+      "k": "folk",
+      "n": 9,
+      "r": 11,
+      "face": "in",
+      "walk": 0.0,
+      "seed": 24
+     }
+    },
+    {
+     "at": "church",
+     "a": 280,
+     "r": [
+      58,
+      40
+     ],
+     "h": [
+      16,
+      9
+     ],
+     "la": 4,
+     "fov": 56,
+     "sw": 25,
+     "cap": "The church",
+     "ppl": {
+      "k": "kid",
+      "n": 3,
+      "r": 7,
+      "face": "in",
+      "walk": 0.0,
+      "seed": 1
+     }
+    }
+   ],
+   "lines": [
+    {
+     "id": "d21_1",
+     "t": "Good afternoon, downtown. Today is the shortest day, and tonight is the longest night."
+    },
+    {
+     "id": "d21_2",
+     "t": "The council recommends warm socks, a friend, and every candle you own. Stay warm. Stay loud."
+    },
+    {
+     "id": "d21_3",
+     "t": "The sun sets early. It is nothing personal. Fifteen small fires would be welcome."
+    }
+   ]
+  },
+  "22": {
+   "title": "Slightly embarrassed lights",
+   "head": "SLIGHTLY EMBARRASSED LIGHTS",
+   "activity": "Check on a neighbour, starting with the flat next door",
+   "tod": "10:00",
+   "wx": "clear",
+   "shots": [
+    {
+     "at": "tree",
+     "a": 250,
+     "r": [
+      50,
+      34
+     ],
+     "h": [
+      16,
+      9
+     ],
+     "la": 3,
+     "fov": 58,
+     "sw": 35,
+     "cap": "The square",
+     "ppl": {
+      "k": "folk",
+      "n": 6,
+      "r": 11,
+      "face": "in",
+      "walk": 0.2,
+      "seed": 25
+     }
+    },
+    {
+     "at": "hall",
+     "a": 40,
+     "r": [
+      40,
+      28
+     ],
+     "h": [
+      13,
+      8
+     ],
+     "la": 3,
+     "fov": 58,
+     "sw": 30,
+     "cap": "The town hall",
+     "ppl": {
+      "k": "police",
+      "n": 2,
+      "r": 4,
+      "face": "in",
+      "walk": 0.0,
+      "seed": 26
+     }
+    },
+    {
+     "at": "chris",
+     "a": 300,
+     "r": [
+      50,
+      32
+     ],
+     "h": [
+      14,
+      9
+     ],
+     "la": 3,
+     "fov": 56,
+     "sw": 25,
+     "cap": "Next door"
+    }
+   ],
+   "lines": [
+    {
+     "id": "d22_1",
+     "t": "Good morning, downtown. The lights are back on. Some of them are embarrassed."
+    },
+    {
+     "id": "d22_2",
+     "t": "The police have announced that the case is closed. Nobody is sure the answer is right. The police are sure."
+    },
+    {
+     "id": "d22_3",
+     "t": "Residents are asked to check on their neighbours, and on their neighbours' neighbours. Warm is a team sport."
+    }
+   ]
+  },
+  "23": {
+   "title": "Lille julaften",
+   "head": "A SLOW, REGULAR MOVEMENT",
+   "activity": "Build the gingerbread house",
+   "tod": "12:30",
+   "wx": "steady",
+   "shots": [
+    {
+     "at": "bakery",
+     "a": 60,
+     "r": [
+      48,
+      26
+     ],
+     "h": [
+      14,
+      8
+     ],
+     "la": 3,
+     "fov": 56,
+     "sw": 30,
+     "cap": "The bakery, gingerbread",
+     "ppl": {
+      "k": "kid",
+      "n": 5,
+      "r": 7,
+      "face": "in",
+      "walk": 0.0,
+      "seed": 27,
+      "c": [
+       0,
+       4
+      ]
+     }
+    },
+    {
+     "at": "church",
+     "a": 150,
+     "r": [
+      56,
+      36
+     ],
+     "h": [
+      16,
+      8
+     ],
+     "la": 4,
+     "fov": 56,
+     "sw": 30,
+     "cap": "The church",
+     "ppl": {
+      "k": "folk",
+      "n": 4,
+      "r": 8,
+      "face": "in",
+      "walk": 0.0,
+      "seed": 28
+     }
+    },
+    {
+     "at": "nons",
+     "a": 90,
+     "r": [
+      900,
+      700
+     ],
+     "h": [
+      230,
+      160
+     ],
+     "la": 40,
+     "fov": 54,
+     "sw": 20,
+     "cap": "A low rumble, far off"
+    }
+   ],
+   "lines": [
+    {
+     "id": "d23_1",
+     "t": "Good day, downtown. It is little Christmas Eve, and gingerbread houses are being built in every kitchen."
+    },
+    {
+     "id": "d23_2",
+     "t": "Geologists report a slow, regular movement beneath a mountain. They say it is breathing."
+    },
+    {
+     "id": "d23_3",
+     "t": "Residents are asked not to breathe back."
+    }
+   ]
+  },
+  "24": {
+   "title": "Christmas Eve",
+   "head": "GOD JUL",
+   "activity": "Go to the tree on the square",
+   "tod": "09:30",
+   "wx": "light",
+   "shots": [
+    {
+     "at": "tree",
+     "a": 160,
+     "r": [
+      70,
+      40
+     ],
+     "h": [
+      30,
+      14
+     ],
+     "la": 4,
+     "fov": 58,
+     "sw": 40,
+     "cap": "The tree, Christmas Eve",
+     "ppl": {
+      "k": "folk",
+      "n": 9,
+      "r": 13,
+      "face": "in",
+      "walk": 0.2,
+      "seed": 29
+     }
+    },
+    {
+     "at": "chris",
+     "a": 20,
+     "r": [
+      56,
+      32
+     ],
+     "h": [
+      16,
+      9
+     ],
+     "la": 3,
+     "fov": 56,
+     "sw": 30,
+     "cap": "Every window lit",
+     "ppl": {
+      "k": "kid",
+      "n": 3,
+      "r": 7,
+      "face": "out",
+      "walk": 0.0,
+      "seed": 30
+     }
+    },
+    {
+     "at": "valley",
+     "a": 220,
+     "r": [
+      180,
+      240
+     ],
+     "h": [
+      70,
+      100
+     ],
+     "la": 0,
+     "fov": 56,
+     "sw": 25,
+     "cap": "Snow, minus six, no wind"
+    }
+   ],
+   "lines": [
+    {
+     "id": "d24_1",
+     "t": "Good morning, downtown, and merry Christmas. Snow, minus six, and absolutely no wind."
+    },
+    {
+     "id": "d24_2",
+     "t": "In the news, tonight at the tree on the square, something is going to happen. The council will not say what."
+    },
+    {
+     "id": "d24_3",
+     "t": "The council is looking forward to it. God jul."
+    }
+   ]
+  }
+ }
+}

@@ -1,0 +1,317 @@
+{
+ "_note": "Creature drops (job creature-density). per kind: list of {id,n:[min,max],p} rolled on each kill. NO FARMING: the site rests 15-30 game minutes after a kill, at most dayCap items per kind per game day (saved in localStorage kv-pop-drops-v1), and the chance is multiplied by diminish[kills today of that kind]. Nothing sells for much (see goods). Existing items: string, coal, flint, raw_iron, hide, feathers, kr (coins).",
+ "dayCap": {
+  "default": 4
+ },
+ "diminish": [
+  1,
+  0.7,
+  0.45,
+  0.25,
+  0.1
+ ],
+ "drops": {
+  "edderkoppkongen": [
+   {
+    "id": "string",
+    "n": [
+     2,
+     4
+    ],
+    "p": 1
+   },
+   {
+    "id": "venom_sac",
+    "n": [
+     1,
+     1
+    ],
+    "p": 0.5
+   },
+   {
+    "id": "fang",
+    "n": [
+     1,
+     1
+    ],
+    "p": 0.5
+   }
+  ],
+  "varulv": [
+   {
+    "id": "hide",
+    "n": [
+     1,
+     2
+    ],
+    "p": 0.9
+   },
+   {
+    "id": "claw",
+    "n": [
+     1,
+     2
+    ],
+    "p": 0.7
+   }
+  ],
+  "draugr": [
+   {
+    "id": "rusty_scrap",
+    "n": [
+     1,
+     2
+    ],
+    "p": 0.9
+   },
+   {
+    "id": "raw_iron",
+    "n": [
+     1,
+     1
+    ],
+    "p": 0.3
+   },
+   {
+    "id": "kr",
+    "n": [
+     5,
+     15
+    ],
+    "p": 0.7
+   }
+  ],
+  "lindorm": [
+   {
+    "id": "lindorm_scale",
+    "n": [
+     1,
+     3
+    ],
+    "p": 1
+   },
+   {
+    "id": "hide",
+    "n": [
+     1,
+     1
+    ],
+    "p": 0.4
+   }
+  ],
+  "huldra": [
+   {
+    "id": "silver_pin",
+    "n": [
+     1,
+     1
+    ],
+    "p": 0.6
+   }
+  ],
+  "nokken": [
+   {
+    "id": "river_pearl",
+    "n": [
+     1,
+     1
+    ],
+    "p": 0.6
+   }
+  ],
+  "fossegrim": [
+   {
+    "id": "string",
+    "n": [
+     1,
+     2
+    ],
+    "p": 0.8
+   },
+   {
+    "id": "river_pearl",
+    "n": [
+     1,
+     1
+    ],
+    "p": 0.3
+   }
+  ],
+  "tusser": [
+   {
+    "id": "coal",
+    "n": [
+     1,
+     3
+    ],
+    "p": 0.9
+   },
+   {
+    "id": "flint",
+    "n": [
+     1,
+     1
+    ],
+    "p": 0.5
+   }
+  ],
+  "rokk": [
+   {
+    "id": "feathers",
+    "n": [
+     2,
+     4
+    ],
+    "p": 1
+   },
+   {
+    "id": "hide",
+    "n": [
+     1,
+     1
+    ],
+    "p": 0.4
+   }
+  ],
+  "lyktemann": [
+   {
+    "id": "glimmer",
+    "n": [
+     1,
+     2
+    ],
+    "p": 0.9
+   }
+  ],
+  "gjenganger": [
+   {
+    "id": "glimmer",
+    "n": [
+     1,
+     1
+    ],
+    "p": 0.8
+   },
+   {
+    "id": "rusty_scrap",
+    "n": [
+     1,
+     1
+    ],
+    "p": 0.3
+   }
+  ],
+  "mare": [
+   {
+    "id": "glimmer",
+    "n": [
+     1,
+     2
+    ],
+    "p": 0.8
+   }
+  ],
+  "draugen": [
+   {
+    "id": "rusty_scrap",
+    "n": [
+     1,
+     2
+    ],
+    "p": 0.8
+   },
+   {
+    "id": "glimmer",
+    "n": [
+     1,
+     1
+    ],
+    "p": 0.5
+   }
+  ],
+  "asgardsreia": [
+   {
+    "id": "glimmer",
+    "n": [
+     2,
+     3
+    ],
+    "p": 1
+   },
+   {
+    "id": "silver_pin",
+    "n": [
+     1,
+     1
+    ],
+    "p": 0.5
+   }
+  ]
+ },
+ "goods": {
+  "venom_sac": {
+   "n": "Venom sac",
+   "c": "#7ac04a",
+   "stack": 8,
+   "sell": 22,
+   "buy": "^(pharmacy|apotek|shop)$",
+   "desc": "A spider's venom sac. The pharmacy buys it for antidotes, the hardware shop for pest control."
+  },
+  "fang": {
+   "n": "Spider fang",
+   "c": "#e8e0c8",
+   "stack": 8,
+   "sell": 16,
+   "buy": "^(shop|hotel|bar)$",
+   "desc": "A curved fang. Hotels and shops hang it on the wall."
+  },
+  "claw": {
+   "n": "Wolf claw",
+   "c": "#d8d0c0",
+   "stack": 8,
+   "sell": 14,
+   "buy": "^(shop|hotel|bar|clothes)$",
+   "desc": "A big claw. Hotels, bars and the clothes shop buy it for charms."
+  },
+  "lindorm_scale": {
+   "n": "Lindorm scale",
+   "c": "#7fae5a",
+   "stack": 16,
+   "sell": 18,
+   "buy": "^(shop|clothes|hotel)$",
+   "desc": "A shiny green scale. Shops buy it for decoration."
+  },
+  "silver_pin": {
+   "n": "Silver hair pin",
+   "c": "#cfd8e8",
+   "stack": 4,
+   "sell": 45,
+   "buy": "^(clothes|florist|gift|shop)$",
+   "desc": "A thin silver pin, still warm. The clothes shop and florist buy it."
+  },
+  "river_pearl": {
+   "n": "River pearl",
+   "c": "#e8f0f8",
+   "stack": 8,
+   "sell": 38,
+   "buy": "^(clothes|florist|gift|shop)$",
+   "desc": "A small pearl from the river bottom."
+  },
+  "glimmer": {
+   "n": "Glimmer",
+   "c": "#9fe8ff",
+   "stack": 16,
+   "sell": 10,
+   "buy": "^(florist|church|gift|shop)$",
+   "desc": "A little cold light that stayed behind. Florists and the church like it for lanterns."
+  },
+  "rusty_scrap": {
+   "n": "Rusty scrap",
+   "c": "#8a5a34",
+   "stack": 16,
+   "sell": 6,
+   "buy": "^(shop)$",
+   "desc": "Old rusty iron bits. The hardware shop pays a little."
+  }
+ }
+}

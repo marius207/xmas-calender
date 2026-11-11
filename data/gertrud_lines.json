@@ -1,0 +1,457 @@
+{
+  "_README": "Gertrud (job witchfinale, 4 Nov 2026). The old lady the witch turns into on 12 Dec. EVERY spoken line is here with an id, so Marius can re-record it. VOICE: the CapCut grandma voice (same export/split/import flow as the townspeople, memory capcut-townsperson-voices). The CapCut voice name is noted in voice.capcutName once it is applied. Until a recording exists the game speaks the line with the browser voice (placeholder) and always shows the caption. A recording is picked up by dropping voice/gertrud/<id>.m4a (no code change). Gift notes (gifts.*.note) are WRITTEN notes, not spoken.",
+  "voice": {
+    "who": "Gertrud",
+    "capcut": "grandma",
+    "capcutName": "TBD (note the exact CapCut voice when applied)",
+    "status": "placeholder: browser TTS, no recording yet",
+    "folder": "voice/gertrud/",
+    "recordWith": "recording studio page; one take per id; export as the 'gertrud' track"
+  },
+  "lines": {
+    "b1": {
+      "who": "LYKTA",
+      "t": "Today is the day. Or it is not. I have been wrong about dates before, I admit it."
+    },
+    "b2_tin": {
+      "who": "LYKTA",
+      "t": "You have Mamma's tin. It rattles like a small, brave drum. Keep it dry."
+    },
+    "b2_no": {
+      "who": "LYKTA",
+      "t": "No tin. No Mamma's baking. I would go down anyway, but I would bring a very long stick."
+    },
+    "b3": {
+      "who": "LYKTA",
+      "t": "She is down the stairs. She is bigger than she was. Every cookie she stole is in there somewhere. The old lantern is already in your hand, I put it there while you were not looking. Please do not be hit."
+    },
+    "sp1": {
+      "who": "LYKTA",
+      "t": "Look. The green is leaving her, like water out of a bath. I do not know where it goes."
+    },
+    "sp2": {
+      "who": "GERTRUD",
+      "t": "Oh. Oh, my. Why is it so dark in here? And why am I standing next to a cauldron?"
+    },
+    "sp3": {
+      "who": "GERTRUD",
+      "t": "I remember a bag of sugar. Then a lot of cackling. Was that me? That was me, wasn't it."
+    },
+    "sp4_tin": {
+      "who": "GERTRUD",
+      "t": "Is that a tin? Oh, honey. It smells of ginger and candle smoke. It smells like home. Sugar-free, in a way. Made with the first candle. Well, I never."
+    },
+    "sp4_no": {
+      "who": "GERTRUD",
+      "t": "Did somebody bring cookies? No. Of course not. I ate them all, didn't I."
+    },
+    "sp5": {
+      "who": "GERTRUD",
+      "t": "Your mother's cookies. Every single box. I thought they were meant for me. There was a name on them. There was YOUR name on them. I am so, so sorry."
+    },
+    "sp6": {
+      "who": "LYKTA",
+      "t": "Something just left this room and went up through the floor. Warm. The whole valley feels warmer. I do not know what it was. I only know I felt it."
+    },
+    "sp7": {
+      "who": "GERTRUD",
+      "t": "My name is Gertrud, by the way. I will leave something at your door tomorrow, and the day after. Do not you dare say no. Now. Who tiled this floor?"
+    },
+    "g1": {
+      "who": "GERTRUD",
+      "t": "Sit down, honey. I am going to tell you something about myself. I am American."
+    },
+    "g2": {
+      "who": "GERTRUD",
+      "t": "That is why the broom was never really my thing. Back home, a girl keeps something in the kitchen drawer for the nights when the woods get loud."
+    },
+    "g3": {
+      "who": "GERTRUD",
+      "t": "It is a revolver. It was my grandfather's. I have held onto it since the green went away, and I would feel better if it lived with you."
+    },
+    "g4": {
+      "who": "GERTRUD",
+      "t": "Listen to me. You never point it at anyone who is not out there in the dark wanting to hurt you. Never at a child. Never at a neighbor. And the police in this town are very, very quick."
+    },
+    "g5": {
+      "who": "GERTRUD",
+      "t": "It is loud, too. Everything in the woods will hear it, and some of them will come closer. Do you understand?"
+    },
+    "g5b": {
+      "who": "LYKTA",
+      "t": "I do not like this. But I like her, and I do not know the woods well enough to argue."
+    },
+    "g6": {
+      "who": "GERTRUD",
+      "t": "Good. Six bullets in it, and a few spare. I will find you more in time. Nobody else around here sells them. That is how I like it."
+    },
+    "t0": {
+      "who": "GERTRUD",
+      "t": "Oh! A visitor. Come in, come in, and mind the trapdoor. I never did find out who built that."
+    },
+    "t1": {
+      "who": "GERTRUD",
+      "t": "I bake with the sugar-free flour now. It tastes like regret, but it keeps me human."
+    },
+    "t2": {
+      "who": "GERTRUD",
+      "t": "The broom? I use it for sweeping now. Imagine that. A broom, for sweeping."
+    },
+    "t3": {
+      "who": "GERTRUD",
+      "t": "Your mother writes the loveliest letters. I read them out loud to the cat. I do not have a cat. Maybe I have a cat."
+    },
+    "t4": {
+      "who": "GERTRUD",
+      "t": "I used to be a witch, you know. Not by choice. Gosh, the paperwork."
+    },
+    "t5": {
+      "who": "GERTRUD",
+      "t": "Have you eaten? Eat something green. Not the green cookies. The OTHER green."
+    },
+    "t6": {
+      "who": "GERTRUD",
+      "t": "Did the basket arrive at your door? Good. Do not let it get cold, honey."
+    },
+    "tk": {
+      "who": "GERTRUD",
+      "t": "Oh, you are welcome, honey. That is the nicest thing anyone has said to me since nineteen sixty-one."
+    },
+    "tk2": {
+      "who": "GERTRUD",
+      "t": "You thanked me already today. Now go and be warm somewhere."
+    },
+    "pre": {
+      "who": "GERTRUD",
+      "t": "Come back tomorrow, dear. I need to find my glasses, and my dignity, and I do not think they are in the same place."
+    }
+  },
+  "scenes": {
+    "witchboss": [
+      "b1",
+      "b2_tin|b2_no",
+      "b3"
+    ],
+    "spell": [
+      "sp1",
+      "sp2",
+      "sp3",
+      "sp4_tin|sp4_no",
+      "sp5",
+      "sp6",
+      "sp7"
+    ],
+    "guns": [
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "g5",
+      "g5b",
+      "g6"
+    ],
+    "talk": [
+      "t0",
+      "t1",
+      "t2",
+      "t3",
+      "t4",
+      "t5",
+      "t6"
+    ]
+  },
+  "gifts": {
+    "_README": "One basket per advent day 13..24 at Chris's front door, one per player per day (kv-story-v1 once-key gertrudGift:<day>). From 25 Dec the table repeats by real date (still one a day). Every item has a use and every stack has a note saying what for. 'guns' rows are given only if that gun was never given before (once-key gertrudGun:<id>). Ammo rows only if the player owns that gun. Animal foods feed animals for Koselig (daily cap in __SPIRIT, nothing sells).",
+    "13": {
+      "title": "Lucia buns",
+      "items": [
+        [
+          "lussekatt",
+          6
+        ],
+        [
+          "food_carrot",
+          30
+        ]
+      ],
+      "note": "Lucia buns, six of them, with saffron. Eat one now and one for each of the others.\nAnd 30 carrots for the deer down by the river. They look thin. Hold one out and stand very still.\n- Gertrud"
+    },
+    "14": {
+      "title": "Carrot cake and a lot of carrots",
+      "items": [
+        [
+          "gulrotkake",
+          1
+        ],
+        [
+          "food_carrot",
+          60
+        ]
+      ],
+      "note": "A carrot cake, because I had too many carrots.\nSo here are 60 more. Go and feed the deer, the horses, anyone with ears.\n- Gertrud"
+    },
+    "15": {
+      "title": "Ginger and fish",
+      "items": [
+        [
+          "pepperkaker",
+          6
+        ],
+        [
+          "food_fish",
+          12
+        ]
+      ],
+      "note": "Pepperkaker. The sugar-free kind. Be brave.\nAnd fish for the cats. The ones behind the shops look like they have opinions about your last fish.\n- Gertrud"
+    },
+    "16": {
+      "title": "Krumkake and bones",
+      "items": [
+        [
+          "krumkake",
+          4
+        ],
+        [
+          "food_treat",
+          12
+        ],
+        [
+          "ammo_38",
+          6
+        ]
+      ],
+      "note": "Krumkake, rolled while still warm. Do not tell anyone about the cone trick.\nDog treats for any dog that will have them.\nAnd six more bullets for the revolver. Only for the dark, honey.\n- Gertrud"
+    },
+    "17": {
+      "title": "Julekake and apples",
+      "items": [
+        [
+          "julekake",
+          1
+        ],
+        [
+          "food_apple",
+          20
+        ]
+      ],
+      "note": "A julekake with raisins. Slice it thin and share it.\nTwenty apples for the horses. Flat hand, they are all fingers about it.\n- Gertrud"
+    },
+    "18": {
+      "title": "Lefse and nuts",
+      "items": [
+        [
+          "lefse",
+          6
+        ],
+        [
+          "food_nuts",
+          20
+        ]
+      ],
+      "note": "Lefse, butter and sugar-free sugar. It works better than it sounds.\nNuts for the squirrels. They talk about you.\n- Gertrud"
+    },
+    "19": {
+      "title": "A rifle from home",
+      "items": [
+        [
+          "skillingsbolle",
+          4
+        ],
+        [
+          "birdseed",
+          10
+        ],
+        [
+          "gun_rifle",
+          1
+        ],
+        [
+          "ammo_rifle",
+          5
+        ]
+      ],
+      "note": "Skillingsboller, warm.\nSeeds for the little birds on the fence.\nAnd my father's hunting rifle, from my homeland. It is for the big dark things in the woods, never for anyone who walks on two legs and is not trying to eat you. Keep it clean.\n- Gertrud"
+    },
+    "20": {
+      "title": "Risgrot and moss",
+      "items": [
+        [
+          "risgrot",
+          2
+        ],
+        [
+          "food_moss",
+          15
+        ]
+      ],
+      "note": "Risgrot, with the almond hidden in it. Whoever finds it gets a wish. Do not fight over it.\nReindeer moss for the reindeer, up where it is cold.\n- Gertrud"
+    },
+    "21": {
+      "title": "Winter solstice supplies",
+      "items": [
+        [
+          "vafler",
+          6
+        ],
+        [
+          "food_carrot",
+          40
+        ],
+        [
+          "ammo_12",
+          4
+        ]
+      ],
+      "note": "Vafler, with sour cream and jam.\nCarrots again. You have no idea how many carrots one old lady can end up with.\nAnd four shells for the shotgun, in case a long night gets longer.\n- Gertrud"
+    },
+    "22": {
+      "title": "A shotgun, as promised",
+      "items": [
+        [
+          "pepperkaker",
+          6
+        ],
+        [
+          "food_fish",
+          12
+        ],
+        [
+          "gun_shotgun",
+          1
+        ],
+        [
+          "ammo_12",
+          4
+        ]
+      ],
+      "note": "More pepperkaker, and fish for the cats.\nAnd the Hagle, a double-barrel. It is heavy, it is loud, it is very much from my homeland. Two barrels. Make them count. Never near a child.\n- Gertrud"
+    },
+    "23": {
+      "title": "Gingerbread day",
+      "items": [
+        [
+          "kakao",
+          2
+        ],
+        [
+          "food_nuts",
+          20
+        ],
+        [
+          "food_treat",
+          12
+        ]
+      ],
+      "note": "Hot cocoa for the baking. The gingerbread house wants your whole heart, and a little cocoa.\nNuts and treats for whoever is waiting outside.\n- Gertrud"
+    },
+    "24": {
+      "title": "Julaften",
+      "items": [
+        [
+          "julekake",
+          1
+        ],
+        [
+          "lussekatt",
+          4
+        ],
+        [
+          "food_apple",
+          20
+        ],
+        [
+          "food_carrot",
+          30
+        ]
+      ],
+      "note": "Merry Christmas, honey. A julekake, buns, apples for the horses and carrots for the deer, so everyone in the valley eats tonight.\nThank you for forgiving an old witch.\n- Gertrud"
+    }
+  },
+  "epilogue": {
+    "titles": [
+      "A basket from Gertrud",
+      "Something warm at the door",
+      "Gertrud's basket"
+    ],
+    "pool": [
+      {
+        "items": [
+          [
+            "pepperkaker",
+            4
+          ],
+          [
+            "food_carrot",
+            30
+          ]
+        ],
+        "note": "Pepperkaker, and carrots for the deer. Same as ever.\n- Gertrud"
+      },
+      {
+        "items": [
+          [
+            "lussekatt",
+            4
+          ],
+          [
+            "food_fish",
+            10
+          ]
+        ],
+        "note": "Buns for you, fish for the cats behind the shops.\n- Gertrud"
+      },
+      {
+        "items": [
+          [
+            "gulrotkake",
+            1
+          ],
+          [
+            "food_apple",
+            15
+          ]
+        ],
+        "note": "Carrot cake, and apples for the horses.\n- Gertrud"
+      },
+      {
+        "items": [
+          [
+            "krumkake",
+            4
+          ],
+          [
+            "food_treat",
+            10
+          ]
+        ],
+        "note": "Krumkake, and treats for the dogs.\n- Gertrud"
+      },
+      {
+        "items": [
+          [
+            "lefse",
+            4
+          ],
+          [
+            "food_nuts",
+            15
+          ]
+        ],
+        "note": "Lefse, and nuts for the squirrels.\n- Gertrud"
+      },
+      {
+        "items": [
+          [
+            "vafler",
+            4
+          ],
+          [
+            "birdseed",
+            8
+          ]
+        ],
+        "note": "Vafler, and seeds for the little birds.\n- Gertrud"
+      }
+    ]
+  }
+}

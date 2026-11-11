@@ -6,127 +6,127 @@
    "u": "sfx/nisse_m4a/m576.m4a",
    "title": "Medieval folk (Marius favourite)",
    "cat": "folk",
-   "lv": 0.85
+   "lv": 0.29
   },
   "579": {
    "u": "sfx/nisse_m4a/m579.m4a",
    "title": "Gregorian chant",
    "cat": "chant",
-   "lv": 0.85
+   "lv": 0.78
   },
   "671": {
    "u": "sfx/nisse_m4a/m671.m4a",
    "title": "Drone music 671",
    "cat": "drone",
-   "lv": 0.9
+   "lv": 0.86
   },
   "188": {
    "u": "sfx/nisse_m4a/m188.m4a",
    "title": "Drone music 188",
    "cat": "drone",
-   "lv": 0.9
+   "lv": 0.86
   },
   "890": {
    "u": "sfx/nisse_m4a/m890.m4a",
    "title": "Drone music 890",
    "cat": "drone",
-   "lv": 0.9
+   "lv": 0.84
   },
   "564": {
    "u": "sfx/nisse_m4a/m564.m4a",
    "title": "Atmosphere 564 (airy)",
    "cat": "atmos",
-   "lv": 0.9
+   "lv": 1.71
   },
   "524": {
    "u": "sfx/nisse_m4a/m524.m4a",
    "title": "Religious 524",
    "cat": "religious",
-   "lv": 0.9
+   "lv": 0.53
   },
   "873": {
    "u": "sfx/nisse_m4a/m873.m4a",
    "title": "Religious 873",
    "cat": "religious",
-   "lv": 0.9
+   "lv": 1.41
   },
   "588": {
    "u": "sfx/nisse_m4a/m588.m4a",
    "title": "Dark atmosphere 588",
    "cat": "dark",
-   "lv": 0.9
+   "lv": 0.89
   },
   "612": {
    "u": "sfx/nisse_m4a/m612.m4a",
    "title": "Dark drone music 612",
    "cat": "dark",
-   "lv": 0.9
+   "lv": 0.4
   },
   "625": {
    "u": "sfx/nisse_m4a/m625.m4a",
    "title": "Atmosphere 625",
    "cat": "atmos",
-   "lv": 0.9
+   "lv": 0.6
   },
   "a489": {
    "u": "sfx/scares2/a489.m4a",
    "title": "Low drone a489",
    "cat": "drone",
-   "lv": 1.0
+   "lv": 0.74
   },
   "a894": {
    "u": "sfx/scares2/a894.m4a",
    "title": "Thin drone a894",
    "cat": "drone",
-   "lv": 1.0
+   "lv": 1.65
   },
   "a1162": {
    "u": "sfx/scares2/a1162.m4a",
    "title": "Wide drone a1162",
    "cat": "drone",
-   "lv": 1.0
+   "lv": 2.0
   },
   "a2482": {
    "u": "sfx/scares2/a2482.m4a",
    "title": "Dark drone a2482",
    "cat": "dark",
-   "lv": 1.0
+   "lv": 2.0
   },
   "a634": {
    "u": "sfx/scares2/a634.m4a",
    "title": "Eerie a634",
    "cat": "eerie",
-   "lv": 1.0
+   "lv": 2.0
   },
   "a2566": {
    "u": "sfx/scares2/a2566.m4a",
    "title": "Eerie a2566",
    "cat": "eerie",
-   "lv": 1.0
+   "lv": 2.0
   },
   "b2500": {
    "u": "sfx/scares2/b2500.m4a",
    "title": "Sub-bass b2500",
    "cat": "sub",
-   "lv": 1.0
+   "lv": 2.0
   },
   "b2914": {
    "u": "sfx/scares2/b2914.m4a",
    "title": "Dark drone b2914",
    "cat": "dark",
-   "lv": 1.0
+   "lv": 2.0
   },
   "m573": {
    "u": "sfx/scares2/m573.m4a",
    "title": "Dark music m573",
    "cat": "dark",
-   "lv": 0.9
+   "lv": 1.89
   },
   "m612": {
    "u": "sfx/scares2/m612.m4a",
    "title": "Dark music m612",
    "cat": "dark",
-   "lv": 0.9
+   "lv": 2.0
   }
  },
  "zones": [

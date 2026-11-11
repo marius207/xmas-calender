@@ -1,1908 +1,2268 @@
 {
-"version": 1,
-"rate": 32000,
-"packs": {
-"main": "voice/scape/steps.m4a"
-},
-"note": "kinds[kind].clips = clip ids; real clips (src=real) are used first (probability kinds[kind].real), synthesised ones are the fallback. A clip may carry its own \"file\" (m4a url) instead of pack/start/len. Per-clip \"gain\" multiplies kinds[kind].gain.",
-"clips": [
-{
-"id": "freshsnow:snow_step_dry-01",
-"kind": "freshsnow",
-"src": "real",
-"pack": "main",
-"start": 0.0,
-"len": 0.4447,
-"gain": 1.0
-},
-{
-"id": "freshsnow:snow_step_dry-02",
-"kind": "freshsnow",
-"src": "real",
-"pack": "main",
-"start": 0.4948,
-"len": 0.6794,
-"gain": 1.0
-},
-{
-"id": "freshsnow:snow_step_dry-03",
-"kind": "freshsnow",
-"src": "real",
-"pack": "main",
-"start": 1.2242,
-"len": 0.5088,
-"gain": 1.0
-},
-{
-"id": "freshsnow:snow_step_dry-04",
-"kind": "freshsnow",
-"src": "real",
-"pack": "main",
-"start": 1.7829,
-"len": 0.4874,
-"gain": 1.0
-},
-{
-"id": "freshsnow:SnowWalk",
-"kind": "freshsnow",
-"src": "real",
-"pack": "main",
-"start": 2.3204,
-"len": 0.6638,
-"gain": 1.0
-},
-{
-"id": "freshsnow:SnowWalk2",
-"kind": "freshsnow",
-"src": "real",
-"pack": "main",
-"start": 3.0342,
-"len": 0.6358,
-"gain": 1.0
-},
-{
-"id": "packedsnow:snow_step_wet-01",
-"kind": "packedsnow",
-"src": "real",
-"pack": "main",
-"start": 3.72,
-"len": 0.4409,
-"gain": 1.0
-},
-{
-"id": "packedsnow:snow_step_wet-02",
-"kind": "packedsnow",
-"src": "real",
-"pack": "main",
-"start": 4.2109,
-"len": 0.3178,
-"gain": 1.0
-},
-{
-"id": "packedsnow:snow_step_wet-03",
-"kind": "packedsnow",
-"src": "real",
-"pack": "main",
-"start": 4.5788,
-"len": 0.4389,
-"gain": 1.0
-},
-{
-"id": "packedsnow:snow_step_wet-04",
-"kind": "packedsnow",
-"src": "real",
-"pack": "main",
-"start": 5.0676,
-"len": 0.3464,
-"gain": 1.0
-},
-{
-"id": "packedsnow:snow_step_wet-05",
-"kind": "packedsnow",
-"src": "real",
-"pack": "main",
-"start": 5.464,
-"len": 0.1979,
-"gain": 1.0
-},
-{
-"id": "packedsnow:snow_step_wet-06",
-"kind": "packedsnow",
-"src": "real",
-"pack": "main",
-"start": 5.7119,
-"len": 0.432,
-"gain": 1.0
-},
-{
-"id": "packedsnow:snow_step_wet-07",
-"kind": "packedsnow",
-"src": "real",
-"pack": "main",
-"start": 6.1939,
-"len": 0.2547,
-"gain": 1.0
-},
-{
-"id": "packedsnow:snow_step_wet-08",
-"kind": "packedsnow",
-"src": "real",
-"pack": "main",
-"start": 6.4987,
-"len": 0.5228,
-"gain": 1.0
-},
-{
-"id": "packedsnow:snow_step_wet-09",
-"kind": "packedsnow",
-"src": "real",
-"pack": "main",
-"start": 7.0714,
-"len": 0.6688,
-"gain": 1.0
-},
-{
-"id": "snowgravel:Corsica_S-Walking_on_snow_covered_gravel_01",
-"kind": "snowgravel",
-"src": "real",
-"pack": "main",
-"start": 7.7903,
-"len": 0.4769,
-"gain": 1.0
-},
-{
-"id": "snowgravel:Corsica_S-Walking_on_snow_covered_gravel_02",
-"kind": "snowgravel",
-"src": "real",
-"pack": "main",
-"start": 8.3172,
-"len": 0.6937,
-"gain": 1.0
-},
-{
-"id": "snowgravel:Corsica_S-Walking_on_snow_covered_gravel_03",
-"kind": "snowgravel",
-"src": "real",
-"pack": "main",
-"start": 9.0609,
-"len": 0.6496,
-"gain": 1.0
-},
-{
-"id": "snowgravel:Corsica_S-Walking_on_snow_covered_gravel_04",
-"kind": "snowgravel",
-"src": "real",
-"pack": "main",
-"start": 9.7605,
-"len": 0.679,
-"gain": 1.0
-},
-{
-"id": "snowgravel:Corsica_S-Walking_on_snow_covered_gravel_05",
-"kind": "snowgravel",
-"src": "real",
-"pack": "main",
-"start": 10.4895,
-"len": 0.641,
-"gain": 1.0
-},
-{
-"id": "snowgravel:Corsica_S-Walking_on_snow_covered_gravel_06",
-"kind": "snowgravel",
-"src": "real",
-"pack": "main",
-"start": 11.1805,
-"len": 0.6655,
-"gain": 1.0
-},
-{
-"id": "snowgravel:Corsica_S-Walking_on_snow_covered_gravel_07",
-"kind": "snowgravel",
-"src": "real",
-"pack": "main",
-"start": 11.896,
-"len": 0.6901,
-"gain": 1.0
-},
-{
-"id": "snowgravel:Corsica_S-Walking_on_snow_covered_gravel_08",
-"kind": "snowgravel",
-"src": "real",
-"pack": "main",
-"start": 12.6361,
-"len": 0.6139,
-"gain": 1.0
-},
-{
-"id": "snowgravel:Corsica_S-Walking_on_snow_covered_gravel_09",
-"kind": "snowgravel",
-"src": "real",
-"pack": "main",
-"start": 13.3,
-"len": 0.6139,
-"gain": 1.0
-},
-{
-"id": "snowgravel:Corsica_S-Walking_on_snow_covered_gravel_10",
-"kind": "snowgravel",
-"src": "real",
-"pack": "main",
-"start": 13.964,
-"len": 0.6557,
-"gain": 1.0
-},
-{
-"id": "snowgravel:Corsica_S-Walking_on_snow_covered_gravel_11",
-"kind": "snowgravel",
-"src": "real",
-"pack": "main",
-"start": 14.6697,
-"len": 0.6275,
-"gain": 1.0
-},
-{
-"id": "snowgravel:Corsica_S-Walking_on_snow_covered_gravel_12",
-"kind": "snowgravel",
-"src": "real",
-"pack": "main",
-"start": 15.3471,
-"len": 0.5538,
-"gain": 1.0
-},
-{
-"id": "snowgravel:Corsica_S-Walking_on_snow_covered_gravel_13",
-"kind": "snowgravel",
-"src": "real",
-"pack": "main",
-"start": 15.9509,
-"len": 0.7195,
-"gain": 1.0
-},
-{
-"id": "snowgravel:Corsica_S-Walking_on_snow_covered_gravel_14",
-"kind": "snowgravel",
-"src": "real",
-"pack": "main",
-"start": 16.7204,
-"len": 0.6698,
-"gain": 1.0
-},
-{
-"id": "snowgravel:Corsica_S-Walking_on_snow_covered_gravel_15",
-"kind": "snowgravel",
-"src": "real",
-"pack": "main",
-"start": 17.4402,
-"len": 0.5857,
-"gain": 1.0
-},
-{
-"id": "snowgravel:Corsica_S-Walking_on_snow_covered_gravel_16",
-"kind": "snowgravel",
-"src": "real",
-"pack": "main",
-"start": 18.076,
-"len": 0.5894,
-"gain": 1.0
-},
-{
-"id": "snowgravel:Corsica_S-Walking_on_snow_covered_gravel_17",
-"kind": "snowgravel",
-"src": "real",
-"pack": "main",
-"start": 18.7153,
-"len": 0.7081,
-"gain": 1.0
-},
-{
-"id": "snowgravel:Corsica_S-Walking_on_snow_covered_gravel_18",
-"kind": "snowgravel",
-"src": "real",
-"pack": "main",
-"start": 19.4735,
-"len": 0.4484,
-"gain": 1.0
-},
-{
-"id": "gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_01",
-"kind": "gravelice",
-"src": "real",
-"pack": "main",
-"start": 19.9718,
-"len": 0.4424,
-"gain": 1.0
-},
-{
-"id": "gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_02",
-"kind": "gravelice",
-"src": "real",
-"pack": "main",
-"start": 20.4642,
-"len": 0.63,
-"gain": 1.0
-},
-{
-"id": "gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_03",
-"kind": "gravelice",
-"src": "real",
-"pack": "main",
-"start": 21.1442,
-"len": 0.6372,
-"gain": 1.0
-},
-{
-"id": "gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_04",
-"kind": "gravelice",
-"src": "real",
-"pack": "main",
-"start": 21.8315,
-"len": 0.6091,
-"gain": 1.0
-},
-{
-"id": "gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_05",
-"kind": "gravelice",
-"src": "real",
-"pack": "main",
-"start": 22.4906,
-"len": 0.6207,
-"gain": 1.0
-},
-{
-"id": "gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_06",
-"kind": "gravelice",
-"src": "real",
-"pack": "main",
-"start": 23.1612,
-"len": 0.6748,
-"gain": 1.0
-},
-{
-"id": "gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_07",
-"kind": "gravelice",
-"src": "real",
-"pack": "main",
-"start": 23.886,
-"len": 0.6026,
-"gain": 1.0
-},
-{
-"id": "gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_08",
-"kind": "gravelice",
-"src": "real",
-"pack": "main",
-"start": 24.5386,
-"len": 0.5341,
-"gain": 1.0
-},
-{
-"id": "gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_09",
-"kind": "gravelice",
-"src": "real",
-"pack": "main",
-"start": 25.1227,
-"len": 0.5802,
-"gain": 1.0
-},
-{
-"id": "gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_10",
-"kind": "gravelice",
-"src": "real",
-"pack": "main",
-"start": 25.7529,
-"len": 0.6777,
-"gain": 1.0
-},
-{
-"id": "gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_11",
-"kind": "gravelice",
-"src": "real",
-"pack": "main",
-"start": 26.4806,
-"len": 0.6192,
-"gain": 1.0
-},
-{
-"id": "gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_12",
-"kind": "gravelice",
-"src": "real",
-"pack": "main",
-"start": 27.1498,
-"len": 0.6033,
-"gain": 1.0
-},
-{
-"id": "gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_13",
-"kind": "gravelice",
-"src": "real",
-"pack": "main",
-"start": 27.8031,
-"len": 0.6004,
-"gain": 1.0
-},
-{
-"id": "gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_14",
-"kind": "gravelice",
-"src": "real",
-"pack": "main",
-"start": 28.4535,
-"len": 0.5723,
-"gain": 1.0
-},
-{
-"id": "gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_15",
-"kind": "gravelice",
-"src": "real",
-"pack": "main",
-"start": 29.0758,
-"len": 0.5073,
-"gain": 1.0
-},
-{
-"id": "gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_16",
-"kind": "gravelice",
-"src": "real",
-"pack": "main",
-"start": 29.6332,
-"len": 0.7058,
-"gain": 1.0
-},
-{
-"id": "gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_17",
-"kind": "gravelice",
-"src": "real",
-"pack": "main",
-"start": 30.389,
-"len": 0.5254,
-"gain": 1.0
-},
-{
-"id": "gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_18",
-"kind": "gravelice",
-"src": "real",
-"pack": "main",
-"start": 30.9643,
-"len": 0.7015,
-"gain": 1.0
-},
-{
-"id": "gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_19",
-"kind": "gravelice",
-"src": "real",
-"pack": "main",
-"start": 31.7158,
-"len": 0.6257,
-"gain": 1.0
-},
-{
-"id": "gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_20",
-"kind": "gravelice",
-"src": "real",
-"pack": "main",
-"start": 32.3915,
-"len": 0.5124,
-"gain": 1.0
-},
-{
-"id": "gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_21",
-"kind": "gravelice",
-"src": "real",
-"pack": "main",
-"start": 32.9539,
-"len": 0.6748,
-"gain": 1.0
-},
-{
-"id": "gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_22",
-"kind": "gravelice",
-"src": "real",
-"pack": "main",
-"start": 33.6787,
-"len": 0.6589,
-"gain": 1.0
-},
-{
-"id": "gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_23",
-"kind": "gravelice",
-"src": "real",
-"pack": "main",
-"start": 34.3876,
-"len": 0.5571,
-"gain": 1.0
-},
-{
-"id": "gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_24",
-"kind": "gravelice",
-"src": "real",
-"pack": "main",
-"start": 34.9947,
-"len": 0.4369,
-"gain": 1.0
-},
-{
-"id": "freshsnow:freshsnow_s1",
-"kind": "freshsnow",
-"src": "synth",
-"pack": "main",
-"start": 35.4816,
-"len": 0.293,
-"gain": 1.0
-},
-{
-"id": "freshsnow:freshsnow_s2",
-"kind": "freshsnow",
-"src": "synth",
-"pack": "main",
-"start": 35.8246,
-"len": 0.2819,
-"gain": 1.0
-},
-{
-"id": "freshsnow:freshsnow_s3",
-"kind": "freshsnow",
-"src": "synth",
-"pack": "main",
-"start": 36.1564,
-"len": 0.2842,
-"gain": 1.0
-},
-{
-"id": "freshsnow:freshsnow_s4",
-"kind": "freshsnow",
-"src": "synth",
-"pack": "main",
-"start": 36.4906,
-"len": 0.2921,
-"gain": 1.0
-},
-{
-"id": "freshsnow:freshsnow_s5",
-"kind": "freshsnow",
-"src": "synth",
-"pack": "main",
-"start": 36.8327,
-"len": 0.29,
-"gain": 1.0
-},
-{
-"id": "freshsnow:freshsnow_s6",
-"kind": "freshsnow",
-"src": "synth",
-"pack": "main",
-"start": 37.1727,
-"len": 0.2724,
-"gain": 1.0
-},
-{
-"id": "packedsnow:packedsnow_s1",
-"kind": "packedsnow",
-"src": "synth",
-"pack": "main",
-"start": 37.4951,
-"len": 0.2213,
-"gain": 1.0
-},
-{
-"id": "packedsnow:packedsnow_s2",
-"kind": "packedsnow",
-"src": "synth",
-"pack": "main",
-"start": 37.7664,
-"len": 0.2185,
-"gain": 1.0
-},
-{
-"id": "packedsnow:packedsnow_s3",
-"kind": "packedsnow",
-"src": "synth",
-"pack": "main",
-"start": 38.0349,
-"len": 0.2216,
-"gain": 1.0
-},
-{
-"id": "packedsnow:packedsnow_s4",
-"kind": "packedsnow",
-"src": "synth",
-"pack": "main",
-"start": 38.3065,
-"len": 0.2309,
-"gain": 1.0
-},
-{
-"id": "packedsnow:packedsnow_s5",
-"kind": "packedsnow",
-"src": "synth",
-"pack": "main",
-"start": 38.5874,
-"len": 0.2026,
-"gain": 1.0
-},
-{
-"id": "packedsnow:packedsnow_s6",
-"kind": "packedsnow",
-"src": "synth",
-"pack": "main",
-"start": 38.84,
-"len": 0.2329,
-"gain": 1.0
-},
-{
-"id": "ice:ice_s1",
-"kind": "ice",
-"src": "synth",
-"pack": "main",
-"start": 39.1228,
-"len": 0.2565,
-"gain": 1.0
-},
-{
-"id": "ice:ice_s2",
-"kind": "ice",
-"src": "synth",
-"pack": "main",
-"start": 39.4293,
-"len": 0.2472,
-"gain": 1.0
-},
-{
-"id": "ice:ice_s3",
-"kind": "ice",
-"src": "synth",
-"pack": "main",
-"start": 39.7265,
-"len": 0.2308,
-"gain": 1.0
-},
-{
-"id": "ice:ice_s4",
-"kind": "ice",
-"src": "synth",
-"pack": "main",
-"start": 40.0073,
-"len": 0.2712,
-"gain": 1.0
-},
-{
-"id": "ice:ice_s5",
-"kind": "ice",
-"src": "synth",
-"pack": "main",
-"start": 40.3286,
-"len": 0.2524,
-"gain": 1.0
-},
-{
-"id": "ice:ice_s6",
-"kind": "ice",
-"src": "synth",
-"pack": "main",
-"start": 40.6309,
-"len": 0.2677,
-"gain": 1.0
-},
-{
-"id": "asphalt:asphalt_s1",
-"kind": "asphalt",
-"src": "synth",
-"pack": "main",
-"start": 40.9486,
-"len": 0.1605,
-"gain": 1.0
-},
-{
-"id": "asphalt:asphalt_s2",
-"kind": "asphalt",
-"src": "synth",
-"pack": "main",
-"start": 41.1592,
-"len": 0.1693,
-"gain": 1.0
-},
-{
-"id": "asphalt:asphalt_s3",
-"kind": "asphalt",
-"src": "synth",
-"pack": "main",
-"start": 41.3784,
-"len": 0.1594,
-"gain": 1.0
-},
-{
-"id": "asphalt:asphalt_s4",
-"kind": "asphalt",
-"src": "synth",
-"pack": "main",
-"start": 41.5878,
-"len": 0.1467,
-"gain": 1.0
-},
-{
-"id": "asphalt:asphalt_s5",
-"kind": "asphalt",
-"src": "synth",
-"pack": "main",
-"start": 41.7845,
-"len": 0.1523,
-"gain": 1.0
-},
-{
-"id": "asphalt:asphalt_s6",
-"kind": "asphalt",
-"src": "synth",
-"pack": "main",
-"start": 41.9869,
-"len": 0.1603,
-"gain": 1.0
-},
-{
-"id": "paving:paving_s1",
-"kind": "paving",
-"src": "synth",
-"pack": "main",
-"start": 42.1972,
-"len": 0.1666,
-"gain": 1.0
-},
-{
-"id": "paving:paving_s2",
-"kind": "paving",
-"src": "synth",
-"pack": "main",
-"start": 42.4137,
-"len": 0.171,
-"gain": 1.0
-},
-{
-"id": "paving:paving_s3",
-"kind": "paving",
-"src": "synth",
-"pack": "main",
-"start": 42.6347,
-"len": 0.1476,
-"gain": 1.0
-},
-{
-"id": "paving:paving_s4",
-"kind": "paving",
-"src": "synth",
-"pack": "main",
-"start": 42.8323,
-"len": 0.1662,
-"gain": 1.0
-},
-{
-"id": "paving:paving_s5",
-"kind": "paving",
-"src": "synth",
-"pack": "main",
-"start": 43.0485,
-"len": 0.1523,
-"gain": 1.0
-},
-{
-"id": "paving:paving_s6",
-"kind": "paving",
-"src": "synth",
-"pack": "main",
-"start": 43.2508,
-"len": 0.1573,
-"gain": 1.0
-},
-{
-"id": "gravel:gravel_s1",
-"kind": "gravel",
-"src": "synth",
-"pack": "main",
-"start": 43.4581,
-"len": 0.3031,
-"gain": 1.0
-},
-{
-"id": "gravel:gravel_s2",
-"kind": "gravel",
-"src": "synth",
-"pack": "main",
-"start": 43.8112,
-"len": 0.3419,
-"gain": 1.0
-},
-{
-"id": "gravel:gravel_s3",
-"kind": "gravel",
-"src": "synth",
-"pack": "main",
-"start": 44.2031,
-"len": 0.3042,
-"gain": 1.0
-},
-{
-"id": "gravel:gravel_s4",
-"kind": "gravel",
-"src": "synth",
-"pack": "main",
-"start": 44.5573,
-"len": 0.3184,
-"gain": 1.0
-},
-{
-"id": "gravel:gravel_s5",
-"kind": "gravel",
-"src": "synth",
-"pack": "main",
-"start": 44.9257,
-"len": 0.3016,
-"gain": 1.0
-},
-{
-"id": "gravel:gravel_s6",
-"kind": "gravel",
-"src": "synth",
-"pack": "main",
-"start": 45.2773,
-"len": 0.299,
-"gain": 1.0
-},
-{
-"id": "dirt:dirt_s1",
-"kind": "dirt",
-"src": "synth",
-"pack": "main",
-"start": 45.6264,
-"len": 0.2083,
-"gain": 1.0
-},
-{
-"id": "dirt:dirt_s2",
-"kind": "dirt",
-"src": "synth",
-"pack": "main",
-"start": 45.8847,
-"len": 0.208,
-"gain": 1.0
-},
-{
-"id": "dirt:dirt_s3",
-"kind": "dirt",
-"src": "synth",
-"pack": "main",
-"start": 46.1427,
-"len": 0.2257,
-"gain": 1.0
-},
-{
-"id": "dirt:dirt_s4",
-"kind": "dirt",
-"src": "synth",
-"pack": "main",
-"start": 46.4184,
-"len": 0.234,
-"gain": 1.0
-},
-{
-"id": "dirt:dirt_s5",
-"kind": "dirt",
-"src": "synth",
-"pack": "main",
-"start": 46.7024,
-"len": 0.2336,
-"gain": 1.0
-},
-{
-"id": "dirt:dirt_s6",
-"kind": "dirt",
-"src": "synth",
-"pack": "main",
-"start": 46.986,
-"len": 0.2039,
-"gain": 1.0
-},
-{
-"id": "grass:grass_s1",
-"kind": "grass",
-"src": "synth",
-"pack": "main",
-"start": 47.2399,
-"len": 0.2627,
-"gain": 1.0
-},
-{
-"id": "grass:grass_s2",
-"kind": "grass",
-"src": "synth",
-"pack": "main",
-"start": 47.5526,
-"len": 0.2951,
-"gain": 1.0
-},
-{
-"id": "grass:grass_s3",
-"kind": "grass",
-"src": "synth",
-"pack": "main",
-"start": 47.8978,
-"len": 0.2985,
-"gain": 1.0
-},
-{
-"id": "grass:grass_s4",
-"kind": "grass",
-"src": "synth",
-"pack": "main",
-"start": 48.2463,
-"len": 0.2831,
-"gain": 1.0
-},
-{
-"id": "grass:grass_s5",
-"kind": "grass",
-"src": "synth",
-"pack": "main",
-"start": 48.5793,
-"len": 0.2895,
-"gain": 1.0
-},
-{
-"id": "grass:grass_s6",
-"kind": "grass",
-"src": "synth",
-"pack": "main",
-"start": 48.9189,
-"len": 0.2948,
-"gain": 1.0
-},
-{
-"id": "forestfloor:forestfloor_s1",
-"kind": "forestfloor",
-"src": "synth",
-"pack": "main",
-"start": 49.2637,
-"len": 0.3529,
-"gain": 1.0
-},
-{
-"id": "forestfloor:forestfloor_s2",
-"kind": "forestfloor",
-"src": "synth",
-"pack": "main",
-"start": 49.6666,
-"len": 0.3503,
-"gain": 1.0
-},
-{
-"id": "forestfloor:forestfloor_s3",
-"kind": "forestfloor",
-"src": "synth",
-"pack": "main",
-"start": 50.0669,
-"len": 0.341,
-"gain": 1.0
-},
-{
-"id": "forestfloor:forestfloor_s4",
-"kind": "forestfloor",
-"src": "synth",
-"pack": "main",
-"start": 50.4579,
-"len": 0.3788,
-"gain": 1.0
-},
-{
-"id": "forestfloor:forestfloor_s5",
-"kind": "forestfloor",
-"src": "synth",
-"pack": "main",
-"start": 50.8868,
-"len": 0.4045,
-"gain": 1.0
-},
-{
-"id": "forestfloor:forestfloor_s6",
-"kind": "forestfloor",
-"src": "synth",
-"pack": "main",
-"start": 51.3413,
-"len": 0.3468,
-"gain": 1.0
-},
-{
-"id": "woodplank:woodplank_s1",
-"kind": "woodplank",
-"src": "synth",
-"pack": "main",
-"start": 51.7381,
-"len": 0.3752,
-"gain": 1.0
-},
-{
-"id": "woodplank:woodplank_s2",
-"kind": "woodplank",
-"src": "synth",
-"pack": "main",
-"start": 52.1633,
-"len": 0.3591,
-"gain": 1.0
-},
-{
-"id": "woodplank:woodplank_s3",
-"kind": "woodplank",
-"src": "synth",
-"pack": "main",
-"start": 52.5724,
-"len": 0.3698,
-"gain": 1.0
-},
-{
-"id": "woodplank:woodplank_s4",
-"kind": "woodplank",
-"src": "synth",
-"pack": "main",
-"start": 52.9922,
-"len": 0.3728,
-"gain": 1.0
-},
-{
-"id": "woodplank:woodplank_s5",
-"kind": "woodplank",
-"src": "synth",
-"pack": "main",
-"start": 53.4149,
-"len": 0.3727,
-"gain": 1.0
-},
-{
-"id": "woodplank:woodplank_s6",
-"kind": "woodplank",
-"src": "synth",
-"pack": "main",
-"start": 53.8376,
-"len": 0.3788,
-"gain": 1.0
-},
-{
-"id": "woodfloor:woodfloor_s1",
-"kind": "woodfloor",
-"src": "synth",
-"pack": "main",
-"start": 54.2663,
-"len": 0.3093,
-"gain": 1.0
-},
-{
-"id": "woodfloor:woodfloor_s2",
-"kind": "woodfloor",
-"src": "synth",
-"pack": "main",
-"start": 54.6257,
-"len": 0.331,
-"gain": 1.0
-},
-{
-"id": "woodfloor:woodfloor_s3",
-"kind": "woodfloor",
-"src": "synth",
-"pack": "main",
-"start": 55.0067,
-"len": 0.2998,
-"gain": 1.0
-},
-{
-"id": "woodfloor:woodfloor_s4",
-"kind": "woodfloor",
-"src": "synth",
-"pack": "main",
-"start": 55.3564,
-"len": 0.3384,
-"gain": 1.0
-},
-{
-"id": "woodfloor:woodfloor_s5",
-"kind": "woodfloor",
-"src": "synth",
-"pack": "main",
-"start": 55.7448,
-"len": 0.2949,
-"gain": 1.0
-},
-{
-"id": "woodfloor:woodfloor_s6",
-"kind": "woodfloor",
-"src": "synth",
-"pack": "main",
-"start": 56.0897,
-"len": 0.3126,
-"gain": 1.0
-},
-{
-"id": "tile:tile_s1",
-"kind": "tile",
-"src": "synth",
-"pack": "main",
-"start": 56.4522,
-"len": 0.1501,
-"gain": 1.0
-},
-{
-"id": "tile:tile_s2",
-"kind": "tile",
-"src": "synth",
-"pack": "main",
-"start": 56.6523,
-"len": 0.1507,
-"gain": 1.0
-},
-{
-"id": "tile:tile_s3",
-"kind": "tile",
-"src": "synth",
-"pack": "main",
-"start": 56.853,
-"len": 0.1544,
-"gain": 1.0
-},
-{
-"id": "tile:tile_s4",
-"kind": "tile",
-"src": "synth",
-"pack": "main",
-"start": 57.0574,
-"len": 0.1511,
-"gain": 1.0
-},
-{
-"id": "tile:tile_s5",
-"kind": "tile",
-"src": "synth",
-"pack": "main",
-"start": 57.2585,
-"len": 0.1478,
-"gain": 1.0
-},
-{
-"id": "tile:tile_s6",
-"kind": "tile",
-"src": "synth",
-"pack": "main",
-"start": 57.4564,
-"len": 0.1492,
-"gain": 1.0
-},
-{
-"id": "carpet:carpet_s1",
-"kind": "carpet",
-"src": "synth",
-"pack": "main",
-"start": 57.6556,
-"len": 0.1328,
-"gain": 1.0
-},
-{
-"id": "carpet:carpet_s2",
-"kind": "carpet",
-"src": "synth",
-"pack": "main",
-"start": 57.8384,
-"len": 0.1353,
-"gain": 1.0
-},
-{
-"id": "carpet:carpet_s3",
-"kind": "carpet",
-"src": "synth",
-"pack": "main",
-"start": 58.0237,
-"len": 0.1368,
-"gain": 1.0
-},
-{
-"id": "carpet:carpet_s4",
-"kind": "carpet",
-"src": "synth",
-"pack": "main",
-"start": 58.2105,
-"len": 0.1442,
-"gain": 1.0
-},
-{
-"id": "carpet:carpet_s5",
-"kind": "carpet",
-"src": "synth",
-"pack": "main",
-"start": 58.4047,
-"len": 0.1358,
-"gain": 1.0
-},
-{
-"id": "carpet:carpet_s6",
-"kind": "carpet",
-"src": "synth",
-"pack": "main",
-"start": 58.5905,
-"len": 0.1505,
-"gain": 1.0
-},
-{
-"id": "metal:metal_s1",
-"kind": "metal",
-"src": "synth",
-"pack": "main",
-"start": 58.791,
-"len": 0.5566,
-"gain": 1.0
-},
-{
-"id": "metal:metal_s2",
-"kind": "metal",
-"src": "synth",
-"pack": "main",
-"start": 59.3975,
-"len": 0.5765,
-"gain": 1.0
-},
-{
-"id": "metal:metal_s3",
-"kind": "metal",
-"src": "synth",
-"pack": "main",
-"start": 60.0241,
-"len": 0.5662,
-"gain": 1.0
-},
-{
-"id": "metal:metal_s4",
-"kind": "metal",
-"src": "synth",
-"pack": "main",
-"start": 60.6403,
-"len": 0.4961,
-"gain": 1.0
-},
-{
-"id": "metal:metal_s5",
-"kind": "metal",
-"src": "synth",
-"pack": "main",
-"start": 61.1864,
-"len": 0.5971,
-"gain": 1.0
-},
-{
-"id": "metal:metal_s6",
-"kind": "metal",
-"src": "synth",
-"pack": "main",
-"start": 61.8335,
-"len": 0.4983,
-"gain": 1.0
-},
-{
-"id": "glass:glass_s1",
-"kind": "glass",
-"src": "synth",
-"pack": "main",
-"start": 62.3818,
-"len": 0.3984,
-"gain": 1.0
-},
-{
-"id": "glass:glass_s2",
-"kind": "glass",
-"src": "synth",
-"pack": "main",
-"start": 62.8302,
-"len": 0.4262,
-"gain": 1.0
-},
-{
-"id": "glass:glass_s3",
-"kind": "glass",
-"src": "synth",
-"pack": "main",
-"start": 63.3063,
-"len": 0.4289,
-"gain": 1.0
-},
-{
-"id": "glass:glass_s4",
-"kind": "glass",
-"src": "synth",
-"pack": "main",
-"start": 63.7852,
-"len": 0.433,
-"gain": 1.0
-},
-{
-"id": "glass:glass_s5",
-"kind": "glass",
-"src": "synth",
-"pack": "main",
-"start": 64.2682,
-"len": 0.4083,
-"gain": 1.0
-},
-{
-"id": "glass:glass_s6",
-"kind": "glass",
-"src": "synth",
-"pack": "main",
-"start": 64.7266,
-"len": 0.3803,
-"gain": 1.0
-},
-{
-"id": "dungeon:dungeon_s1",
-"kind": "dungeon",
-"src": "synth",
-"pack": "main",
-"start": 65.1568,
-"len": 0.902,
-"gain": 1.0
-},
-{
-"id": "dungeon:dungeon_s2",
-"kind": "dungeon",
-"src": "synth",
-"pack": "main",
-"start": 66.1088,
-"len": 0.9026,
-"gain": 1.0
-},
-{
-"id": "dungeon:dungeon_s3",
-"kind": "dungeon",
-"src": "synth",
-"pack": "main",
-"start": 67.0615,
-"len": 0.8836,
-"gain": 1.0
-},
-{
-"id": "dungeon:dungeon_s4",
-"kind": "dungeon",
-"src": "synth",
-"pack": "main",
-"start": 67.9951,
-"len": 0.9314,
-"gain": 1.0
-},
-{
-"id": "dungeon:dungeon_s5",
-"kind": "dungeon",
-"src": "synth",
-"pack": "main",
-"start": 68.9764,
-"len": 0.8973,
-"gain": 1.0
-},
-{
-"id": "dungeon:dungeon_s6",
-"kind": "dungeon",
-"src": "synth",
-"pack": "main",
-"start": 69.9237,
-"len": 0.9223,
-"gain": 1.0
-},
-{
-"id": "track:track_s1",
-"kind": "track",
-"src": "synth",
-"pack": "main",
-"start": 70.896,
-"len": 0.2201,
-"gain": 1.0
-},
-{
-"id": "track:track_s2",
-"kind": "track",
-"src": "synth",
-"pack": "main",
-"start": 71.1661,
-"len": 0.2025,
-"gain": 1.0
-},
-{
-"id": "track:track_s3",
-"kind": "track",
-"src": "synth",
-"pack": "main",
-"start": 71.4185,
-"len": 0.2328,
-"gain": 1.0
-},
-{
-"id": "track:track_s4",
-"kind": "track",
-"src": "synth",
-"pack": "main",
-"start": 71.7013,
-"len": 0.2263,
-"gain": 1.0
-},
-{
-"id": "track:track_s5",
-"kind": "track",
-"src": "synth",
-"pack": "main",
-"start": 71.9777,
-"len": 0.2204,
-"gain": 1.0
-},
-{
-"id": "track:track_s6",
-"kind": "track",
-"src": "synth",
-"pack": "main",
-"start": 72.2481,
-"len": 0.2135,
-"gain": 1.0
-},
-{
-"id": "water:water_s1",
-"kind": "water",
-"src": "synth",
-"pack": "main",
-"start": 72.5117,
-"len": 0.4678,
-"gain": 1.0
-},
-{
-"id": "water:water_s2",
-"kind": "water",
-"src": "synth",
-"pack": "main",
-"start": 73.0294,
-"len": 0.4611,
-"gain": 1.0
-},
-{
-"id": "water:water_s3",
-"kind": "water",
-"src": "synth",
-"pack": "main",
-"start": 73.5406,
-"len": 0.4277,
-"gain": 1.0
-},
-{
-"id": "water:water_s4",
-"kind": "water",
-"src": "synth",
-"pack": "main",
-"start": 74.0182,
-"len": 0.495,
-"gain": 1.0
-},
-{
-"id": "water:water_s5",
-"kind": "water",
-"src": "synth",
-"pack": "main",
-"start": 74.5632,
-"len": 0.4859,
-"gain": 1.0
-},
-{
-"id": "water:water_s6",
-"kind": "water",
-"src": "synth",
-"pack": "main",
-"start": 75.0991,
-"len": 0.4204,
-"gain": 1.0
-},
-{
-"id": "snowgravel:snowgravel_s1",
-"kind": "snowgravel",
-"src": "synth",
-"pack": "main",
-"start": 75.5695,
-"len": 0.2935,
-"gain": 1.0
-},
-{
-"id": "gravelice:gravelice_s1",
-"kind": "gravelice",
-"src": "synth",
-"pack": "main",
-"start": 75.913,
-"len": 0.2811,
-"gain": 1.0
-},
-{
-"id": "snowgravel:snowgravel_s2",
-"kind": "snowgravel",
-"src": "synth",
-"pack": "main",
-"start": 76.2441,
-"len": 0.3271,
-"gain": 1.0
-},
-{
-"id": "gravelice:gravelice_s2",
-"kind": "gravelice",
-"src": "synth",
-"pack": "main",
-"start": 76.6212,
-"len": 0.3233,
-"gain": 1.0
-},
-{
-"id": "snowgravel:snowgravel_s3",
-"kind": "snowgravel",
-"src": "synth",
-"pack": "main",
-"start": 76.9945,
-"len": 0.3215,
-"gain": 1.0
-},
-{
-"id": "gravelice:gravelice_s3",
-"kind": "gravelice",
-"src": "synth",
-"pack": "main",
-"start": 77.366,
-"len": 0.3083,
-"gain": 1.0
-},
-{
-"id": "snowgravel:snowgravel_s4",
-"kind": "snowgravel",
-"src": "synth",
-"pack": "main",
-"start": 77.7243,
-"len": 0.3211,
-"gain": 1.0
-},
-{
-"id": "gravelice:gravelice_s4",
-"kind": "gravelice",
-"src": "synth",
-"pack": "main",
-"start": 78.0954,
-"len": 0.2965,
-"gain": 1.0
-}
-],
-"kinds": {
-"freshsnow": {
-"gain": 0.9,
-"real": 1.0,
-"clips": [
-"freshsnow:snow_step_dry-01",
-"freshsnow:snow_step_dry-02",
-"freshsnow:snow_step_dry-03",
-"freshsnow:snow_step_dry-04",
-"freshsnow:SnowWalk",
-"freshsnow:SnowWalk2",
-"freshsnow:freshsnow_s1",
-"freshsnow:freshsnow_s2",
-"freshsnow:freshsnow_s3",
-"freshsnow:freshsnow_s4",
-"freshsnow:freshsnow_s5",
-"freshsnow:freshsnow_s6"
-]
-},
-"packedsnow": {
-"gain": 0.9,
-"real": 1.0,
-"clips": [
-"packedsnow:snow_step_wet-01",
-"packedsnow:snow_step_wet-02",
-"packedsnow:snow_step_wet-03",
-"packedsnow:snow_step_wet-04",
-"packedsnow:snow_step_wet-05",
-"packedsnow:snow_step_wet-06",
-"packedsnow:snow_step_wet-07",
-"packedsnow:snow_step_wet-08",
-"packedsnow:snow_step_wet-09",
-"packedsnow:packedsnow_s1",
-"packedsnow:packedsnow_s2",
-"packedsnow:packedsnow_s3",
-"packedsnow:packedsnow_s4",
-"packedsnow:packedsnow_s5",
-"packedsnow:packedsnow_s6"
-]
-},
-"snowgravel": {
-"gain": 0.9,
-"real": 1.0,
-"clips": [
-"snowgravel:Corsica_S-Walking_on_snow_covered_gravel_01",
-"snowgravel:Corsica_S-Walking_on_snow_covered_gravel_02",
-"snowgravel:Corsica_S-Walking_on_snow_covered_gravel_03",
-"snowgravel:Corsica_S-Walking_on_snow_covered_gravel_04",
-"snowgravel:Corsica_S-Walking_on_snow_covered_gravel_05",
-"snowgravel:Corsica_S-Walking_on_snow_covered_gravel_06",
-"snowgravel:Corsica_S-Walking_on_snow_covered_gravel_07",
-"snowgravel:Corsica_S-Walking_on_snow_covered_gravel_08",
-"snowgravel:Corsica_S-Walking_on_snow_covered_gravel_09",
-"snowgravel:Corsica_S-Walking_on_snow_covered_gravel_10",
-"snowgravel:Corsica_S-Walking_on_snow_covered_gravel_11",
-"snowgravel:Corsica_S-Walking_on_snow_covered_gravel_12",
-"snowgravel:Corsica_S-Walking_on_snow_covered_gravel_13",
-"snowgravel:Corsica_S-Walking_on_snow_covered_gravel_14",
-"snowgravel:Corsica_S-Walking_on_snow_covered_gravel_15",
-"snowgravel:Corsica_S-Walking_on_snow_covered_gravel_16",
-"snowgravel:Corsica_S-Walking_on_snow_covered_gravel_17",
-"snowgravel:Corsica_S-Walking_on_snow_covered_gravel_18",
-"snowgravel:snowgravel_s1",
-"snowgravel:snowgravel_s2",
-"snowgravel:snowgravel_s3",
-"snowgravel:snowgravel_s4"
-]
-},
-"gravelice": {
-"gain": 0.9,
-"real": 1.0,
-"clips": [
-"gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_01",
-"gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_02",
-"gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_03",
-"gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_04",
-"gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_05",
-"gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_06",
-"gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_07",
-"gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_08",
-"gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_09",
-"gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_10",
-"gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_11",
-"gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_12",
-"gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_13",
-"gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_14",
-"gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_15",
-"gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_16",
-"gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_17",
-"gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_18",
-"gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_19",
-"gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_20",
-"gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_21",
-"gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_22",
-"gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_23",
-"gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_24",
-"gravelice:gravelice_s1",
-"gravelice:gravelice_s2",
-"gravelice:gravelice_s3",
-"gravelice:gravelice_s4"
-]
-},
-"ice": {
-"gain": 0.8,
-"real": 0.6,
-"clips": [
-"ice:ice_s1",
-"ice:ice_s2",
-"ice:ice_s3",
-"ice:ice_s4",
-"ice:ice_s5",
-"ice:ice_s6",
-"gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_01",
-"gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_02",
-"gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_03",
-"gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_04",
-"gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_05",
-"gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_06",
-"gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_07",
-"gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_08",
-"gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_09",
-"gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_10",
-"gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_11",
-"gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_12",
-"gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_13",
-"gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_14",
-"gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_15",
-"gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_16",
-"gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_17",
-"gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_18",
-"gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_19",
-"gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_20",
-"gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_21",
-"gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_22",
-"gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_23",
-"gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_24"
-]
-},
-"asphalt": {
-"gain": 0.85,
-"real": 1.0,
-"clips": [
-"asphalt:asphalt_s1",
-"asphalt:asphalt_s2",
-"asphalt:asphalt_s3",
-"asphalt:asphalt_s4",
-"asphalt:asphalt_s5",
-"asphalt:asphalt_s6"
-]
-},
-"paving": {
-"gain": 1.0,
-"real": 1.0,
-"clips": [
-"paving:paving_s1",
-"paving:paving_s2",
-"paving:paving_s3",
-"paving:paving_s4",
-"paving:paving_s5",
-"paving:paving_s6"
-]
-},
-"gravel": {
-"gain": 0.9,
-"real": 0.6,
-"clips": [
-"gravel:gravel_s1",
-"gravel:gravel_s2",
-"gravel:gravel_s3",
-"gravel:gravel_s4",
-"gravel:gravel_s5",
-"gravel:gravel_s6",
-"snowgravel:Corsica_S-Walking_on_snow_covered_gravel_01",
-"snowgravel:Corsica_S-Walking_on_snow_covered_gravel_02",
-"snowgravel:Corsica_S-Walking_on_snow_covered_gravel_03",
-"snowgravel:Corsica_S-Walking_on_snow_covered_gravel_04",
-"snowgravel:Corsica_S-Walking_on_snow_covered_gravel_05",
-"snowgravel:Corsica_S-Walking_on_snow_covered_gravel_06",
-"snowgravel:Corsica_S-Walking_on_snow_covered_gravel_07",
-"snowgravel:Corsica_S-Walking_on_snow_covered_gravel_08",
-"snowgravel:Corsica_S-Walking_on_snow_covered_gravel_09",
-"snowgravel:Corsica_S-Walking_on_snow_covered_gravel_10",
-"snowgravel:Corsica_S-Walking_on_snow_covered_gravel_11",
-"snowgravel:Corsica_S-Walking_on_snow_covered_gravel_12",
-"snowgravel:Corsica_S-Walking_on_snow_covered_gravel_13",
-"snowgravel:Corsica_S-Walking_on_snow_covered_gravel_14",
-"snowgravel:Corsica_S-Walking_on_snow_covered_gravel_15",
-"snowgravel:Corsica_S-Walking_on_snow_covered_gravel_16",
-"snowgravel:Corsica_S-Walking_on_snow_covered_gravel_17",
-"snowgravel:Corsica_S-Walking_on_snow_covered_gravel_18",
-"snowgravel:snowgravel_s1",
-"snowgravel:snowgravel_s2",
-"snowgravel:snowgravel_s3",
-"snowgravel:snowgravel_s4"
-]
-},
-"dirt": {
-"gain": 0.8,
-"real": 1.0,
-"clips": [
-"dirt:dirt_s1",
-"dirt:dirt_s2",
-"dirt:dirt_s3",
-"dirt:dirt_s4",
-"dirt:dirt_s5",
-"dirt:dirt_s6"
-]
-},
-"grass": {
-"gain": 0.7,
-"real": 1.0,
-"clips": [
-"grass:grass_s1",
-"grass:grass_s2",
-"grass:grass_s3",
-"grass:grass_s4",
-"grass:grass_s5",
-"grass:grass_s6"
-]
-},
-"forestfloor": {
-"gain": 1.3,
-"real": 1.0,
-"clips": [
-"forestfloor:forestfloor_s1",
-"forestfloor:forestfloor_s2",
-"forestfloor:forestfloor_s3",
-"forestfloor:forestfloor_s4",
-"forestfloor:forestfloor_s5",
-"forestfloor:forestfloor_s6"
-]
-},
-"woodplank": {
-"gain": 1.0,
-"real": 1.0,
-"clips": [
-"woodplank:woodplank_s1",
-"woodplank:woodplank_s2",
-"woodplank:woodplank_s3",
-"woodplank:woodplank_s4",
-"woodplank:woodplank_s5",
-"woodplank:woodplank_s6"
-]
-},
-"woodfloor": {
-"gain": 0.9,
-"real": 1.0,
-"clips": [
-"woodfloor:woodfloor_s1",
-"woodfloor:woodfloor_s2",
-"woodfloor:woodfloor_s3",
-"woodfloor:woodfloor_s4",
-"woodfloor:woodfloor_s5",
-"woodfloor:woodfloor_s6"
-]
-},
-"tile": {
-"gain": 0.9,
-"real": 1.0,
-"clips": [
-"tile:tile_s1",
-"tile:tile_s2",
-"tile:tile_s3",
-"tile:tile_s4",
-"tile:tile_s5",
-"tile:tile_s6"
-]
-},
-"carpet": {
-"gain": 0.45,
-"real": 1.0,
-"clips": [
-"carpet:carpet_s1",
-"carpet:carpet_s2",
-"carpet:carpet_s3",
-"carpet:carpet_s4",
-"carpet:carpet_s5",
-"carpet:carpet_s6"
-]
-},
-"metal": {
-"gain": 0.8,
-"real": 1.0,
-"clips": [
-"metal:metal_s1",
-"metal:metal_s2",
-"metal:metal_s3",
-"metal:metal_s4",
-"metal:metal_s5",
-"metal:metal_s6"
-]
-},
-"glass": {
-"gain": 0.6,
-"real": 1.0,
-"clips": [
-"glass:glass_s1",
-"glass:glass_s2",
-"glass:glass_s3",
-"glass:glass_s4",
-"glass:glass_s5",
-"glass:glass_s6"
-]
-},
-"dungeon": {
-"gain": 0.9,
-"real": 1.0,
-"clips": [
-"dungeon:dungeon_s1",
-"dungeon:dungeon_s2",
-"dungeon:dungeon_s3",
-"dungeon:dungeon_s4",
-"dungeon:dungeon_s5",
-"dungeon:dungeon_s6"
-]
-},
-"track": {
-"gain": 0.8,
-"real": 1.0,
-"clips": [
-"track:track_s1",
-"track:track_s2",
-"track:track_s3",
-"track:track_s4",
-"track:track_s5",
-"track:track_s6"
-]
-},
-"water": {
-"gain": 0.9,
-"real": 1.0,
-"clips": [
-"water:water_s1",
-"water:water_s2",
-"water:water_s3",
-"water:water_s4",
-"water:water_s5",
-"water:water_s6"
-]
-}
-}
+ "version": 1,
+ "rate": 32000,
+ "packs": {
+  "main": "voice/scape/steps.m4a"
+ },
+ "note": "kinds[kind].clips = clip ids; real clips (src=real) are used first (probability kinds[kind].real), synthesised ones are the fallback. A clip may carry its own \"file\" (m4a url) instead of pack/start/len. Per-clip \"gain\" multiplies kinds[kind].gain.",
+ "clips": [
+  {
+   "id": "freshsnow:snow_step_dry-01",
+   "kind": "freshsnow",
+   "src": "real",
+   "pack": "main",
+   "start": 0.0,
+   "len": 0.4447,
+   "gain": 1.0
+  },
+  {
+   "id": "freshsnow:snow_step_dry-02",
+   "kind": "freshsnow",
+   "src": "real",
+   "pack": "main",
+   "start": 0.4948,
+   "len": 0.6794,
+   "gain": 1.0
+  },
+  {
+   "id": "freshsnow:snow_step_dry-03",
+   "kind": "freshsnow",
+   "src": "real",
+   "pack": "main",
+   "start": 1.2242,
+   "len": 0.5088,
+   "gain": 1.0
+  },
+  {
+   "id": "freshsnow:snow_step_dry-04",
+   "kind": "freshsnow",
+   "src": "real",
+   "pack": "main",
+   "start": 1.7829,
+   "len": 0.4874,
+   "gain": 1.0
+  },
+  {
+   "id": "freshsnow:SnowWalk",
+   "kind": "freshsnow",
+   "src": "real",
+   "pack": "main",
+   "start": 2.3204,
+   "len": 0.6638,
+   "gain": 1.0
+  },
+  {
+   "id": "freshsnow:SnowWalk2",
+   "kind": "freshsnow",
+   "src": "real",
+   "pack": "main",
+   "start": 3.0342,
+   "len": 0.6358,
+   "gain": 1.0
+  },
+  {
+   "id": "packedsnow:snow_step_wet-01",
+   "kind": "packedsnow",
+   "src": "real",
+   "pack": "main",
+   "start": 3.72,
+   "len": 0.4409,
+   "gain": 1.0
+  },
+  {
+   "id": "packedsnow:snow_step_wet-02",
+   "kind": "packedsnow",
+   "src": "real",
+   "pack": "main",
+   "start": 4.2109,
+   "len": 0.3178,
+   "gain": 1.0
+  },
+  {
+   "id": "packedsnow:snow_step_wet-03",
+   "kind": "packedsnow",
+   "src": "real",
+   "pack": "main",
+   "start": 4.5788,
+   "len": 0.4389,
+   "gain": 1.0
+  },
+  {
+   "id": "packedsnow:snow_step_wet-04",
+   "kind": "packedsnow",
+   "src": "real",
+   "pack": "main",
+   "start": 5.0676,
+   "len": 0.3464,
+   "gain": 1.0
+  },
+  {
+   "id": "packedsnow:snow_step_wet-05",
+   "kind": "packedsnow",
+   "src": "real",
+   "pack": "main",
+   "start": 5.464,
+   "len": 0.1979,
+   "gain": 1.0
+  },
+  {
+   "id": "packedsnow:snow_step_wet-06",
+   "kind": "packedsnow",
+   "src": "real",
+   "pack": "main",
+   "start": 5.7119,
+   "len": 0.432,
+   "gain": 1.0
+  },
+  {
+   "id": "packedsnow:snow_step_wet-07",
+   "kind": "packedsnow",
+   "src": "real",
+   "pack": "main",
+   "start": 6.1939,
+   "len": 0.2547,
+   "gain": 1.0
+  },
+  {
+   "id": "packedsnow:snow_step_wet-08",
+   "kind": "packedsnow",
+   "src": "real",
+   "pack": "main",
+   "start": 6.4987,
+   "len": 0.5228,
+   "gain": 1.0
+  },
+  {
+   "id": "packedsnow:snow_step_wet-09",
+   "kind": "packedsnow",
+   "src": "real",
+   "pack": "main",
+   "start": 7.0714,
+   "len": 0.6688,
+   "gain": 1.0
+  },
+  {
+   "id": "snowgravel:Corsica_S-Walking_on_snow_covered_gravel_01",
+   "kind": "snowgravel",
+   "src": "real",
+   "pack": "main",
+   "start": 7.7903,
+   "len": 0.4769,
+   "gain": 1.0
+  },
+  {
+   "id": "snowgravel:Corsica_S-Walking_on_snow_covered_gravel_02",
+   "kind": "snowgravel",
+   "src": "real",
+   "pack": "main",
+   "start": 8.3172,
+   "len": 0.6937,
+   "gain": 1.0
+  },
+  {
+   "id": "snowgravel:Corsica_S-Walking_on_snow_covered_gravel_03",
+   "kind": "snowgravel",
+   "src": "real",
+   "pack": "main",
+   "start": 9.0609,
+   "len": 0.6496,
+   "gain": 1.0
+  },
+  {
+   "id": "snowgravel:Corsica_S-Walking_on_snow_covered_gravel_04",
+   "kind": "snowgravel",
+   "src": "real",
+   "pack": "main",
+   "start": 9.7605,
+   "len": 0.679,
+   "gain": 1.0
+  },
+  {
+   "id": "snowgravel:Corsica_S-Walking_on_snow_covered_gravel_05",
+   "kind": "snowgravel",
+   "src": "real",
+   "pack": "main",
+   "start": 10.4895,
+   "len": 0.641,
+   "gain": 1.0
+  },
+  {
+   "id": "snowgravel:Corsica_S-Walking_on_snow_covered_gravel_06",
+   "kind": "snowgravel",
+   "src": "real",
+   "pack": "main",
+   "start": 11.1805,
+   "len": 0.6655,
+   "gain": 1.0
+  },
+  {
+   "id": "snowgravel:Corsica_S-Walking_on_snow_covered_gravel_07",
+   "kind": "snowgravel",
+   "src": "real",
+   "pack": "main",
+   "start": 11.896,
+   "len": 0.6901,
+   "gain": 1.0
+  },
+  {
+   "id": "snowgravel:Corsica_S-Walking_on_snow_covered_gravel_08",
+   "kind": "snowgravel",
+   "src": "real",
+   "pack": "main",
+   "start": 12.6361,
+   "len": 0.6139,
+   "gain": 1.0
+  },
+  {
+   "id": "snowgravel:Corsica_S-Walking_on_snow_covered_gravel_09",
+   "kind": "snowgravel",
+   "src": "real",
+   "pack": "main",
+   "start": 13.3,
+   "len": 0.6139,
+   "gain": 1.0
+  },
+  {
+   "id": "snowgravel:Corsica_S-Walking_on_snow_covered_gravel_10",
+   "kind": "snowgravel",
+   "src": "real",
+   "pack": "main",
+   "start": 13.964,
+   "len": 0.6557,
+   "gain": 1.0
+  },
+  {
+   "id": "snowgravel:Corsica_S-Walking_on_snow_covered_gravel_11",
+   "kind": "snowgravel",
+   "src": "real",
+   "pack": "main",
+   "start": 14.6697,
+   "len": 0.6275,
+   "gain": 1.0
+  },
+  {
+   "id": "snowgravel:Corsica_S-Walking_on_snow_covered_gravel_12",
+   "kind": "snowgravel",
+   "src": "real",
+   "pack": "main",
+   "start": 15.3471,
+   "len": 0.5538,
+   "gain": 1.0
+  },
+  {
+   "id": "snowgravel:Corsica_S-Walking_on_snow_covered_gravel_13",
+   "kind": "snowgravel",
+   "src": "real",
+   "pack": "main",
+   "start": 15.9509,
+   "len": 0.7195,
+   "gain": 1.0
+  },
+  {
+   "id": "snowgravel:Corsica_S-Walking_on_snow_covered_gravel_14",
+   "kind": "snowgravel",
+   "src": "real",
+   "pack": "main",
+   "start": 16.7204,
+   "len": 0.6698,
+   "gain": 1.0
+  },
+  {
+   "id": "snowgravel:Corsica_S-Walking_on_snow_covered_gravel_15",
+   "kind": "snowgravel",
+   "src": "real",
+   "pack": "main",
+   "start": 17.4402,
+   "len": 0.5857,
+   "gain": 1.0
+  },
+  {
+   "id": "snowgravel:Corsica_S-Walking_on_snow_covered_gravel_16",
+   "kind": "snowgravel",
+   "src": "real",
+   "pack": "main",
+   "start": 18.076,
+   "len": 0.5894,
+   "gain": 1.0
+  },
+  {
+   "id": "snowgravel:Corsica_S-Walking_on_snow_covered_gravel_17",
+   "kind": "snowgravel",
+   "src": "real",
+   "pack": "main",
+   "start": 18.7153,
+   "len": 0.7081,
+   "gain": 1.0
+  },
+  {
+   "id": "snowgravel:Corsica_S-Walking_on_snow_covered_gravel_18",
+   "kind": "snowgravel",
+   "src": "real",
+   "pack": "main",
+   "start": 19.4735,
+   "len": 0.4484,
+   "gain": 1.0
+  },
+  {
+   "id": "gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_01",
+   "kind": "gravelice",
+   "src": "real",
+   "pack": "main",
+   "start": 19.9718,
+   "len": 0.4424,
+   "gain": 1.0
+  },
+  {
+   "id": "gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_02",
+   "kind": "gravelice",
+   "src": "real",
+   "pack": "main",
+   "start": 20.4642,
+   "len": 0.63,
+   "gain": 1.0
+  },
+  {
+   "id": "gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_03",
+   "kind": "gravelice",
+   "src": "real",
+   "pack": "main",
+   "start": 21.1442,
+   "len": 0.6372,
+   "gain": 1.0
+  },
+  {
+   "id": "gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_04",
+   "kind": "gravelice",
+   "src": "real",
+   "pack": "main",
+   "start": 21.8315,
+   "len": 0.6091,
+   "gain": 1.0
+  },
+  {
+   "id": "gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_05",
+   "kind": "gravelice",
+   "src": "real",
+   "pack": "main",
+   "start": 22.4906,
+   "len": 0.6207,
+   "gain": 1.0
+  },
+  {
+   "id": "gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_06",
+   "kind": "gravelice",
+   "src": "real",
+   "pack": "main",
+   "start": 23.1612,
+   "len": 0.6748,
+   "gain": 1.0
+  },
+  {
+   "id": "gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_07",
+   "kind": "gravelice",
+   "src": "real",
+   "pack": "main",
+   "start": 23.886,
+   "len": 0.6026,
+   "gain": 1.0
+  },
+  {
+   "id": "gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_08",
+   "kind": "gravelice",
+   "src": "real",
+   "pack": "main",
+   "start": 24.5386,
+   "len": 0.5341,
+   "gain": 1.0
+  },
+  {
+   "id": "gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_09",
+   "kind": "gravelice",
+   "src": "real",
+   "pack": "main",
+   "start": 25.1227,
+   "len": 0.5802,
+   "gain": 1.0
+  },
+  {
+   "id": "gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_10",
+   "kind": "gravelice",
+   "src": "real",
+   "pack": "main",
+   "start": 25.7529,
+   "len": 0.6777,
+   "gain": 1.0
+  },
+  {
+   "id": "gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_11",
+   "kind": "gravelice",
+   "src": "real",
+   "pack": "main",
+   "start": 26.4806,
+   "len": 0.6192,
+   "gain": 1.0
+  },
+  {
+   "id": "gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_12",
+   "kind": "gravelice",
+   "src": "real",
+   "pack": "main",
+   "start": 27.1498,
+   "len": 0.6033,
+   "gain": 1.0
+  },
+  {
+   "id": "gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_13",
+   "kind": "gravelice",
+   "src": "real",
+   "pack": "main",
+   "start": 27.8031,
+   "len": 0.6004,
+   "gain": 1.0
+  },
+  {
+   "id": "gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_14",
+   "kind": "gravelice",
+   "src": "real",
+   "pack": "main",
+   "start": 28.4535,
+   "len": 0.5723,
+   "gain": 1.0
+  },
+  {
+   "id": "gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_15",
+   "kind": "gravelice",
+   "src": "real",
+   "pack": "main",
+   "start": 29.0758,
+   "len": 0.5073,
+   "gain": 1.0
+  },
+  {
+   "id": "gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_16",
+   "kind": "gravelice",
+   "src": "real",
+   "pack": "main",
+   "start": 29.6332,
+   "len": 0.7058,
+   "gain": 1.0
+  },
+  {
+   "id": "gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_17",
+   "kind": "gravelice",
+   "src": "real",
+   "pack": "main",
+   "start": 30.389,
+   "len": 0.5254,
+   "gain": 1.0
+  },
+  {
+   "id": "gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_18",
+   "kind": "gravelice",
+   "src": "real",
+   "pack": "main",
+   "start": 30.9643,
+   "len": 0.7015,
+   "gain": 1.0
+  },
+  {
+   "id": "gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_19",
+   "kind": "gravelice",
+   "src": "real",
+   "pack": "main",
+   "start": 31.7158,
+   "len": 0.6257,
+   "gain": 1.0
+  },
+  {
+   "id": "gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_20",
+   "kind": "gravelice",
+   "src": "real",
+   "pack": "main",
+   "start": 32.3915,
+   "len": 0.5124,
+   "gain": 1.0
+  },
+  {
+   "id": "gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_21",
+   "kind": "gravelice",
+   "src": "real",
+   "pack": "main",
+   "start": 32.9539,
+   "len": 0.6748,
+   "gain": 1.0
+  },
+  {
+   "id": "gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_22",
+   "kind": "gravelice",
+   "src": "real",
+   "pack": "main",
+   "start": 33.6787,
+   "len": 0.6589,
+   "gain": 1.0
+  },
+  {
+   "id": "gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_23",
+   "kind": "gravelice",
+   "src": "real",
+   "pack": "main",
+   "start": 34.3876,
+   "len": 0.5571,
+   "gain": 1.0
+  },
+  {
+   "id": "gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_24",
+   "kind": "gravelice",
+   "src": "real",
+   "pack": "main",
+   "start": 34.9947,
+   "len": 0.4369,
+   "gain": 1.0
+  },
+  {
+   "id": "freshsnow:freshsnow_s1",
+   "kind": "freshsnow",
+   "src": "synth",
+   "pack": "main",
+   "start": 35.4816,
+   "len": 0.293,
+   "gain": 1.0
+  },
+  {
+   "id": "freshsnow:freshsnow_s2",
+   "kind": "freshsnow",
+   "src": "synth",
+   "pack": "main",
+   "start": 35.8246,
+   "len": 0.2819,
+   "gain": 1.0
+  },
+  {
+   "id": "freshsnow:freshsnow_s3",
+   "kind": "freshsnow",
+   "src": "synth",
+   "pack": "main",
+   "start": 36.1564,
+   "len": 0.2842,
+   "gain": 1.0
+  },
+  {
+   "id": "freshsnow:freshsnow_s4",
+   "kind": "freshsnow",
+   "src": "synth",
+   "pack": "main",
+   "start": 36.4906,
+   "len": 0.2921,
+   "gain": 1.0
+  },
+  {
+   "id": "freshsnow:freshsnow_s5",
+   "kind": "freshsnow",
+   "src": "synth",
+   "pack": "main",
+   "start": 36.8327,
+   "len": 0.29,
+   "gain": 1.0
+  },
+  {
+   "id": "freshsnow:freshsnow_s6",
+   "kind": "freshsnow",
+   "src": "synth",
+   "pack": "main",
+   "start": 37.1727,
+   "len": 0.2724,
+   "gain": 1.0
+  },
+  {
+   "id": "packedsnow:packedsnow_s1",
+   "kind": "packedsnow",
+   "src": "synth",
+   "pack": "main",
+   "start": 37.4951,
+   "len": 0.2213,
+   "gain": 1.0
+  },
+  {
+   "id": "packedsnow:packedsnow_s2",
+   "kind": "packedsnow",
+   "src": "synth",
+   "pack": "main",
+   "start": 37.7664,
+   "len": 0.2185,
+   "gain": 1.0
+  },
+  {
+   "id": "packedsnow:packedsnow_s3",
+   "kind": "packedsnow",
+   "src": "synth",
+   "pack": "main",
+   "start": 38.0349,
+   "len": 0.2216,
+   "gain": 1.0
+  },
+  {
+   "id": "packedsnow:packedsnow_s4",
+   "kind": "packedsnow",
+   "src": "synth",
+   "pack": "main",
+   "start": 38.3065,
+   "len": 0.2309,
+   "gain": 1.0
+  },
+  {
+   "id": "packedsnow:packedsnow_s5",
+   "kind": "packedsnow",
+   "src": "synth",
+   "pack": "main",
+   "start": 38.5874,
+   "len": 0.2026,
+   "gain": 1.0
+  },
+  {
+   "id": "packedsnow:packedsnow_s6",
+   "kind": "packedsnow",
+   "src": "synth",
+   "pack": "main",
+   "start": 38.84,
+   "len": 0.2329,
+   "gain": 1.0
+  },
+  {
+   "id": "ice:ice_s1",
+   "kind": "ice",
+   "src": "synth",
+   "pack": "main",
+   "start": 39.1228,
+   "len": 0.2565,
+   "gain": 1.0
+  },
+  {
+   "id": "ice:ice_s2",
+   "kind": "ice",
+   "src": "synth",
+   "pack": "main",
+   "start": 39.4293,
+   "len": 0.2472,
+   "gain": 1.0
+  },
+  {
+   "id": "ice:ice_s3",
+   "kind": "ice",
+   "src": "synth",
+   "pack": "main",
+   "start": 39.7265,
+   "len": 0.2308,
+   "gain": 1.0
+  },
+  {
+   "id": "ice:ice_s4",
+   "kind": "ice",
+   "src": "synth",
+   "pack": "main",
+   "start": 40.0073,
+   "len": 0.2712,
+   "gain": 1.0
+  },
+  {
+   "id": "ice:ice_s5",
+   "kind": "ice",
+   "src": "synth",
+   "pack": "main",
+   "start": 40.3286,
+   "len": 0.2524,
+   "gain": 1.0
+  },
+  {
+   "id": "ice:ice_s6",
+   "kind": "ice",
+   "src": "synth",
+   "pack": "main",
+   "start": 40.6309,
+   "len": 0.2677,
+   "gain": 1.0
+  },
+  {
+   "id": "asphalt:asphalt_s1",
+   "kind": "asphalt",
+   "src": "synth",
+   "pack": "main",
+   "start": 40.9486,
+   "len": 0.1605,
+   "gain": 1.0
+  },
+  {
+   "id": "asphalt:asphalt_s2",
+   "kind": "asphalt",
+   "src": "synth",
+   "pack": "main",
+   "start": 41.1592,
+   "len": 0.1693,
+   "gain": 1.0
+  },
+  {
+   "id": "asphalt:asphalt_s3",
+   "kind": "asphalt",
+   "src": "synth",
+   "pack": "main",
+   "start": 41.3784,
+   "len": 0.1594,
+   "gain": 1.0
+  },
+  {
+   "id": "asphalt:asphalt_s4",
+   "kind": "asphalt",
+   "src": "synth",
+   "pack": "main",
+   "start": 41.5878,
+   "len": 0.1467,
+   "gain": 1.0
+  },
+  {
+   "id": "asphalt:asphalt_s5",
+   "kind": "asphalt",
+   "src": "synth",
+   "pack": "main",
+   "start": 41.7845,
+   "len": 0.1523,
+   "gain": 1.0
+  },
+  {
+   "id": "asphalt:asphalt_s6",
+   "kind": "asphalt",
+   "src": "synth",
+   "pack": "main",
+   "start": 41.9869,
+   "len": 0.1603,
+   "gain": 1.0
+  },
+  {
+   "id": "paving:paving_s1",
+   "kind": "paving",
+   "src": "synth",
+   "pack": "main",
+   "start": 42.1972,
+   "len": 0.1666,
+   "gain": 1.0
+  },
+  {
+   "id": "paving:paving_s2",
+   "kind": "paving",
+   "src": "synth",
+   "pack": "main",
+   "start": 42.4137,
+   "len": 0.171,
+   "gain": 1.0
+  },
+  {
+   "id": "paving:paving_s3",
+   "kind": "paving",
+   "src": "synth",
+   "pack": "main",
+   "start": 42.6347,
+   "len": 0.1476,
+   "gain": 1.0
+  },
+  {
+   "id": "paving:paving_s4",
+   "kind": "paving",
+   "src": "synth",
+   "pack": "main",
+   "start": 42.8323,
+   "len": 0.1662,
+   "gain": 1.0
+  },
+  {
+   "id": "paving:paving_s5",
+   "kind": "paving",
+   "src": "synth",
+   "pack": "main",
+   "start": 43.0485,
+   "len": 0.1523,
+   "gain": 1.0
+  },
+  {
+   "id": "paving:paving_s6",
+   "kind": "paving",
+   "src": "synth",
+   "pack": "main",
+   "start": 43.2508,
+   "len": 0.1573,
+   "gain": 1.0
+  },
+  {
+   "id": "gravel:gravel_s1",
+   "kind": "gravel",
+   "src": "synth",
+   "pack": "main",
+   "start": 43.4581,
+   "len": 0.3031,
+   "gain": 1.0
+  },
+  {
+   "id": "gravel:gravel_s2",
+   "kind": "gravel",
+   "src": "synth",
+   "pack": "main",
+   "start": 43.8112,
+   "len": 0.3419,
+   "gain": 1.0
+  },
+  {
+   "id": "gravel:gravel_s3",
+   "kind": "gravel",
+   "src": "synth",
+   "pack": "main",
+   "start": 44.2031,
+   "len": 0.3042,
+   "gain": 1.0
+  },
+  {
+   "id": "gravel:gravel_s4",
+   "kind": "gravel",
+   "src": "synth",
+   "pack": "main",
+   "start": 44.5573,
+   "len": 0.3184,
+   "gain": 1.0
+  },
+  {
+   "id": "gravel:gravel_s5",
+   "kind": "gravel",
+   "src": "synth",
+   "pack": "main",
+   "start": 44.9257,
+   "len": 0.3016,
+   "gain": 1.0
+  },
+  {
+   "id": "gravel:gravel_s6",
+   "kind": "gravel",
+   "src": "synth",
+   "pack": "main",
+   "start": 45.2773,
+   "len": 0.299,
+   "gain": 1.0
+  },
+  {
+   "id": "dirt:dirt_s1",
+   "kind": "dirt",
+   "src": "synth",
+   "pack": "main",
+   "start": 45.6264,
+   "len": 0.2083,
+   "gain": 1.0
+  },
+  {
+   "id": "dirt:dirt_s2",
+   "kind": "dirt",
+   "src": "synth",
+   "pack": "main",
+   "start": 45.8847,
+   "len": 0.208,
+   "gain": 1.0
+  },
+  {
+   "id": "dirt:dirt_s3",
+   "kind": "dirt",
+   "src": "synth",
+   "pack": "main",
+   "start": 46.1427,
+   "len": 0.2257,
+   "gain": 1.0
+  },
+  {
+   "id": "dirt:dirt_s4",
+   "kind": "dirt",
+   "src": "synth",
+   "pack": "main",
+   "start": 46.4184,
+   "len": 0.234,
+   "gain": 1.0
+  },
+  {
+   "id": "dirt:dirt_s5",
+   "kind": "dirt",
+   "src": "synth",
+   "pack": "main",
+   "start": 46.7024,
+   "len": 0.2336,
+   "gain": 1.0
+  },
+  {
+   "id": "dirt:dirt_s6",
+   "kind": "dirt",
+   "src": "synth",
+   "pack": "main",
+   "start": 46.986,
+   "len": 0.2039,
+   "gain": 1.0
+  },
+  {
+   "id": "grass:grass_s1",
+   "kind": "grass",
+   "src": "synth",
+   "pack": "main",
+   "start": 47.2399,
+   "len": 0.2627,
+   "gain": 1.0
+  },
+  {
+   "id": "grass:grass_s2",
+   "kind": "grass",
+   "src": "synth",
+   "pack": "main",
+   "start": 47.5526,
+   "len": 0.2951,
+   "gain": 1.0
+  },
+  {
+   "id": "grass:grass_s3",
+   "kind": "grass",
+   "src": "synth",
+   "pack": "main",
+   "start": 47.8978,
+   "len": 0.2985,
+   "gain": 1.0
+  },
+  {
+   "id": "grass:grass_s4",
+   "kind": "grass",
+   "src": "synth",
+   "pack": "main",
+   "start": 48.2463,
+   "len": 0.2831,
+   "gain": 1.0
+  },
+  {
+   "id": "grass:grass_s5",
+   "kind": "grass",
+   "src": "synth",
+   "pack": "main",
+   "start": 48.5793,
+   "len": 0.2895,
+   "gain": 1.0
+  },
+  {
+   "id": "grass:grass_s6",
+   "kind": "grass",
+   "src": "synth",
+   "pack": "main",
+   "start": 48.9189,
+   "len": 0.2948,
+   "gain": 1.0
+  },
+  {
+   "id": "forestfloor:forestfloor_s1",
+   "kind": "forestfloor",
+   "src": "synth",
+   "pack": "main",
+   "start": 49.2637,
+   "len": 0.3529,
+   "gain": 1.0
+  },
+  {
+   "id": "forestfloor:forestfloor_s2",
+   "kind": "forestfloor",
+   "src": "synth",
+   "pack": "main",
+   "start": 49.6666,
+   "len": 0.3503,
+   "gain": 1.0
+  },
+  {
+   "id": "forestfloor:forestfloor_s3",
+   "kind": "forestfloor",
+   "src": "synth",
+   "pack": "main",
+   "start": 50.0669,
+   "len": 0.341,
+   "gain": 1.0
+  },
+  {
+   "id": "forestfloor:forestfloor_s4",
+   "kind": "forestfloor",
+   "src": "synth",
+   "pack": "main",
+   "start": 50.4579,
+   "len": 0.3788,
+   "gain": 1.0
+  },
+  {
+   "id": "forestfloor:forestfloor_s5",
+   "kind": "forestfloor",
+   "src": "synth",
+   "pack": "main",
+   "start": 50.8868,
+   "len": 0.4045,
+   "gain": 1.0
+  },
+  {
+   "id": "forestfloor:forestfloor_s6",
+   "kind": "forestfloor",
+   "src": "synth",
+   "pack": "main",
+   "start": 51.3413,
+   "len": 0.3468,
+   "gain": 1.0
+  },
+  {
+   "id": "woodplank:woodplank_s1",
+   "kind": "woodplank",
+   "src": "synth",
+   "pack": "main",
+   "start": 51.7381,
+   "len": 0.3752,
+   "gain": 1.0
+  },
+  {
+   "id": "woodplank:woodplank_s2",
+   "kind": "woodplank",
+   "src": "synth",
+   "pack": "main",
+   "start": 52.1633,
+   "len": 0.3591,
+   "gain": 1.0
+  },
+  {
+   "id": "woodplank:woodplank_s3",
+   "kind": "woodplank",
+   "src": "synth",
+   "pack": "main",
+   "start": 52.5724,
+   "len": 0.3698,
+   "gain": 1.0
+  },
+  {
+   "id": "woodplank:woodplank_s4",
+   "kind": "woodplank",
+   "src": "synth",
+   "pack": "main",
+   "start": 52.9922,
+   "len": 0.3728,
+   "gain": 1.0
+  },
+  {
+   "id": "woodplank:woodplank_s5",
+   "kind": "woodplank",
+   "src": "synth",
+   "pack": "main",
+   "start": 53.4149,
+   "len": 0.3727,
+   "gain": 1.0
+  },
+  {
+   "id": "woodplank:woodplank_s6",
+   "kind": "woodplank",
+   "src": "synth",
+   "pack": "main",
+   "start": 53.8376,
+   "len": 0.3788,
+   "gain": 1.0
+  },
+  {
+   "id": "woodfloor:woodfloor_s1",
+   "kind": "woodfloor",
+   "src": "synth",
+   "pack": "main",
+   "start": 54.2663,
+   "len": 0.3093,
+   "gain": 1.0
+  },
+  {
+   "id": "woodfloor:woodfloor_s2",
+   "kind": "woodfloor",
+   "src": "synth",
+   "pack": "main",
+   "start": 54.6257,
+   "len": 0.331,
+   "gain": 1.0
+  },
+  {
+   "id": "woodfloor:woodfloor_s3",
+   "kind": "woodfloor",
+   "src": "synth",
+   "pack": "main",
+   "start": 55.0067,
+   "len": 0.2998,
+   "gain": 1.0
+  },
+  {
+   "id": "woodfloor:woodfloor_s4",
+   "kind": "woodfloor",
+   "src": "synth",
+   "pack": "main",
+   "start": 55.3564,
+   "len": 0.3384,
+   "gain": 1.0
+  },
+  {
+   "id": "woodfloor:woodfloor_s5",
+   "kind": "woodfloor",
+   "src": "synth",
+   "pack": "main",
+   "start": 55.7448,
+   "len": 0.2949,
+   "gain": 1.0
+  },
+  {
+   "id": "woodfloor:woodfloor_s6",
+   "kind": "woodfloor",
+   "src": "synth",
+   "pack": "main",
+   "start": 56.0897,
+   "len": 0.3126,
+   "gain": 1.0
+  },
+  {
+   "id": "tile:tile_s1",
+   "kind": "tile",
+   "src": "synth",
+   "pack": "main",
+   "start": 56.4522,
+   "len": 0.1501,
+   "gain": 1.0
+  },
+  {
+   "id": "tile:tile_s2",
+   "kind": "tile",
+   "src": "synth",
+   "pack": "main",
+   "start": 56.6523,
+   "len": 0.1507,
+   "gain": 1.0
+  },
+  {
+   "id": "tile:tile_s3",
+   "kind": "tile",
+   "src": "synth",
+   "pack": "main",
+   "start": 56.853,
+   "len": 0.1544,
+   "gain": 1.0
+  },
+  {
+   "id": "tile:tile_s4",
+   "kind": "tile",
+   "src": "synth",
+   "pack": "main",
+   "start": 57.0574,
+   "len": 0.1511,
+   "gain": 1.0
+  },
+  {
+   "id": "tile:tile_s5",
+   "kind": "tile",
+   "src": "synth",
+   "pack": "main",
+   "start": 57.2585,
+   "len": 0.1478,
+   "gain": 1.0
+  },
+  {
+   "id": "tile:tile_s6",
+   "kind": "tile",
+   "src": "synth",
+   "pack": "main",
+   "start": 57.4564,
+   "len": 0.1492,
+   "gain": 1.0
+  },
+  {
+   "id": "carpet:carpet_s1",
+   "kind": "carpet",
+   "src": "synth",
+   "pack": "main",
+   "start": 57.6556,
+   "len": 0.1328,
+   "gain": 1.0
+  },
+  {
+   "id": "carpet:carpet_s2",
+   "kind": "carpet",
+   "src": "synth",
+   "pack": "main",
+   "start": 57.8384,
+   "len": 0.1353,
+   "gain": 1.0
+  },
+  {
+   "id": "carpet:carpet_s3",
+   "kind": "carpet",
+   "src": "synth",
+   "pack": "main",
+   "start": 58.0237,
+   "len": 0.1368,
+   "gain": 1.0
+  },
+  {
+   "id": "carpet:carpet_s4",
+   "kind": "carpet",
+   "src": "synth",
+   "pack": "main",
+   "start": 58.2105,
+   "len": 0.1442,
+   "gain": 1.0
+  },
+  {
+   "id": "carpet:carpet_s5",
+   "kind": "carpet",
+   "src": "synth",
+   "pack": "main",
+   "start": 58.4047,
+   "len": 0.1358,
+   "gain": 1.0
+  },
+  {
+   "id": "carpet:carpet_s6",
+   "kind": "carpet",
+   "src": "synth",
+   "pack": "main",
+   "start": 58.5905,
+   "len": 0.1505,
+   "gain": 1.0
+  },
+  {
+   "id": "metal:metal_s1",
+   "kind": "metal",
+   "src": "synth",
+   "pack": "main",
+   "start": 58.791,
+   "len": 0.5566,
+   "gain": 1.0
+  },
+  {
+   "id": "metal:metal_s2",
+   "kind": "metal",
+   "src": "synth",
+   "pack": "main",
+   "start": 59.3975,
+   "len": 0.5765,
+   "gain": 1.0
+  },
+  {
+   "id": "metal:metal_s3",
+   "kind": "metal",
+   "src": "synth",
+   "pack": "main",
+   "start": 60.0241,
+   "len": 0.5662,
+   "gain": 1.0
+  },
+  {
+   "id": "metal:metal_s4",
+   "kind": "metal",
+   "src": "synth",
+   "pack": "main",
+   "start": 60.6403,
+   "len": 0.4961,
+   "gain": 1.0
+  },
+  {
+   "id": "metal:metal_s5",
+   "kind": "metal",
+   "src": "synth",
+   "pack": "main",
+   "start": 61.1864,
+   "len": 0.5971,
+   "gain": 1.0
+  },
+  {
+   "id": "metal:metal_s6",
+   "kind": "metal",
+   "src": "synth",
+   "pack": "main",
+   "start": 61.8335,
+   "len": 0.4983,
+   "gain": 1.0
+  },
+  {
+   "id": "glass:glass_s1",
+   "kind": "glass",
+   "src": "synth",
+   "pack": "main",
+   "start": 62.3818,
+   "len": 0.3984,
+   "gain": 1.0
+  },
+  {
+   "id": "glass:glass_s2",
+   "kind": "glass",
+   "src": "synth",
+   "pack": "main",
+   "start": 62.8302,
+   "len": 0.4262,
+   "gain": 1.0
+  },
+  {
+   "id": "glass:glass_s3",
+   "kind": "glass",
+   "src": "synth",
+   "pack": "main",
+   "start": 63.3063,
+   "len": 0.4289,
+   "gain": 1.0
+  },
+  {
+   "id": "glass:glass_s4",
+   "kind": "glass",
+   "src": "synth",
+   "pack": "main",
+   "start": 63.7852,
+   "len": 0.433,
+   "gain": 1.0
+  },
+  {
+   "id": "glass:glass_s5",
+   "kind": "glass",
+   "src": "synth",
+   "pack": "main",
+   "start": 64.2682,
+   "len": 0.4083,
+   "gain": 1.0
+  },
+  {
+   "id": "glass:glass_s6",
+   "kind": "glass",
+   "src": "synth",
+   "pack": "main",
+   "start": 64.7266,
+   "len": 0.3803,
+   "gain": 1.0
+  },
+  {
+   "id": "dungeon:dungeon_s1",
+   "kind": "dungeon",
+   "src": "synth",
+   "pack": "main",
+   "start": 65.1568,
+   "len": 0.902,
+   "gain": 1.0
+  },
+  {
+   "id": "dungeon:dungeon_s2",
+   "kind": "dungeon",
+   "src": "synth",
+   "pack": "main",
+   "start": 66.1088,
+   "len": 0.9026,
+   "gain": 1.0
+  },
+  {
+   "id": "dungeon:dungeon_s3",
+   "kind": "dungeon",
+   "src": "synth",
+   "pack": "main",
+   "start": 67.0615,
+   "len": 0.8836,
+   "gain": 1.0
+  },
+  {
+   "id": "dungeon:dungeon_s4",
+   "kind": "dungeon",
+   "src": "synth",
+   "pack": "main",
+   "start": 67.9951,
+   "len": 0.9314,
+   "gain": 1.0
+  },
+  {
+   "id": "dungeon:dungeon_s5",
+   "kind": "dungeon",
+   "src": "synth",
+   "pack": "main",
+   "start": 68.9764,
+   "len": 0.8973,
+   "gain": 1.0
+  },
+  {
+   "id": "dungeon:dungeon_s6",
+   "kind": "dungeon",
+   "src": "synth",
+   "pack": "main",
+   "start": 69.9237,
+   "len": 0.9223,
+   "gain": 1.0
+  },
+  {
+   "id": "track:track_s1",
+   "kind": "track",
+   "src": "synth",
+   "pack": "main",
+   "start": 70.896,
+   "len": 0.2201,
+   "gain": 1.0
+  },
+  {
+   "id": "track:track_s2",
+   "kind": "track",
+   "src": "synth",
+   "pack": "main",
+   "start": 71.1661,
+   "len": 0.2025,
+   "gain": 1.0
+  },
+  {
+   "id": "track:track_s3",
+   "kind": "track",
+   "src": "synth",
+   "pack": "main",
+   "start": 71.4185,
+   "len": 0.2328,
+   "gain": 1.0
+  },
+  {
+   "id": "track:track_s4",
+   "kind": "track",
+   "src": "synth",
+   "pack": "main",
+   "start": 71.7013,
+   "len": 0.2263,
+   "gain": 1.0
+  },
+  {
+   "id": "track:track_s5",
+   "kind": "track",
+   "src": "synth",
+   "pack": "main",
+   "start": 71.9777,
+   "len": 0.2204,
+   "gain": 1.0
+  },
+  {
+   "id": "track:track_s6",
+   "kind": "track",
+   "src": "synth",
+   "pack": "main",
+   "start": 72.2481,
+   "len": 0.2135,
+   "gain": 1.0
+  },
+  {
+   "id": "water:water_s1",
+   "kind": "water",
+   "src": "synth",
+   "pack": "main",
+   "start": 72.5117,
+   "len": 0.4678,
+   "gain": 1.0
+  },
+  {
+   "id": "water:water_s2",
+   "kind": "water",
+   "src": "synth",
+   "pack": "main",
+   "start": 73.0294,
+   "len": 0.4611,
+   "gain": 1.0
+  },
+  {
+   "id": "water:water_s3",
+   "kind": "water",
+   "src": "synth",
+   "pack": "main",
+   "start": 73.5406,
+   "len": 0.4277,
+   "gain": 1.0
+  },
+  {
+   "id": "water:water_s4",
+   "kind": "water",
+   "src": "synth",
+   "pack": "main",
+   "start": 74.0182,
+   "len": 0.495,
+   "gain": 1.0
+  },
+  {
+   "id": "water:water_s5",
+   "kind": "water",
+   "src": "synth",
+   "pack": "main",
+   "start": 74.5632,
+   "len": 0.4859,
+   "gain": 1.0
+  },
+  {
+   "id": "water:water_s6",
+   "kind": "water",
+   "src": "synth",
+   "pack": "main",
+   "start": 75.0991,
+   "len": 0.4204,
+   "gain": 1.0
+  },
+  {
+   "id": "snowgravel:snowgravel_s1",
+   "kind": "snowgravel",
+   "src": "synth",
+   "pack": "main",
+   "start": 75.5695,
+   "len": 0.2935,
+   "gain": 1.0
+  },
+  {
+   "id": "gravelice:gravelice_s1",
+   "kind": "gravelice",
+   "src": "synth",
+   "pack": "main",
+   "start": 75.913,
+   "len": 0.2811,
+   "gain": 1.0
+  },
+  {
+   "id": "snowgravel:snowgravel_s2",
+   "kind": "snowgravel",
+   "src": "synth",
+   "pack": "main",
+   "start": 76.2441,
+   "len": 0.3271,
+   "gain": 1.0
+  },
+  {
+   "id": "gravelice:gravelice_s2",
+   "kind": "gravelice",
+   "src": "synth",
+   "pack": "main",
+   "start": 76.6212,
+   "len": 0.3233,
+   "gain": 1.0
+  },
+  {
+   "id": "snowgravel:snowgravel_s3",
+   "kind": "snowgravel",
+   "src": "synth",
+   "pack": "main",
+   "start": 76.9945,
+   "len": 0.3215,
+   "gain": 1.0
+  },
+  {
+   "id": "gravelice:gravelice_s3",
+   "kind": "gravelice",
+   "src": "synth",
+   "pack": "main",
+   "start": 77.366,
+   "len": 0.3083,
+   "gain": 1.0
+  },
+  {
+   "id": "snowgravel:snowgravel_s4",
+   "kind": "snowgravel",
+   "src": "synth",
+   "pack": "main",
+   "start": 77.7243,
+   "len": 0.3211,
+   "gain": 1.0
+  },
+  {
+   "id": "gravelice:gravelice_s4",
+   "kind": "gravelice",
+   "src": "synth",
+   "pack": "main",
+   "start": 78.0954,
+   "len": 0.2965,
+   "gain": 1.0
+  },
+  {
+   "id": "woodfloor:real_wood_1",
+   "kind": "woodfloor",
+   "src": "real",
+   "file": "sfx/step_wood_1.m4a",
+   "gain": 0.833,
+   "len": 0.4
+  },
+  {
+   "id": "woodfloor:real_wood_2",
+   "kind": "woodfloor",
+   "src": "real",
+   "file": "sfx/step_wood_2.m4a",
+   "gain": 0.833,
+   "len": 0.4
+  },
+  {
+   "id": "woodfloor:real_wood_3",
+   "kind": "woodfloor",
+   "src": "real",
+   "file": "sfx/step_wood_3.m4a",
+   "gain": 0.833,
+   "len": 0.4
+  },
+  {
+   "id": "woodfloor:real_wood_4",
+   "kind": "woodfloor",
+   "src": "real",
+   "file": "sfx/step_wood_4.m4a",
+   "gain": 0.833,
+   "len": 0.4
+  },
+  {
+   "id": "woodplank:real_wood_1",
+   "kind": "woodplank",
+   "src": "real",
+   "file": "sfx/step_wood_1.m4a",
+   "gain": 0.75,
+   "len": 0.4
+  },
+  {
+   "id": "woodplank:real_wood_2",
+   "kind": "woodplank",
+   "src": "real",
+   "file": "sfx/step_wood_2.m4a",
+   "gain": 0.75,
+   "len": 0.4
+  },
+  {
+   "id": "woodplank:real_wood_3",
+   "kind": "woodplank",
+   "src": "real",
+   "file": "sfx/step_wood_3.m4a",
+   "gain": 0.75,
+   "len": 0.4
+  },
+  {
+   "id": "woodplank:real_wood_4",
+   "kind": "woodplank",
+   "src": "real",
+   "file": "sfx/step_wood_4.m4a",
+   "gain": 0.75,
+   "len": 0.4
+  },
+  {
+   "id": "tile:real_stone_1",
+   "kind": "tile",
+   "src": "real",
+   "file": "sfx/step_stone_1.m4a",
+   "gain": 1.111,
+   "len": 0.4
+  },
+  {
+   "id": "tile:real_stone_2",
+   "kind": "tile",
+   "src": "real",
+   "file": "sfx/step_stone_2.m4a",
+   "gain": 1.111,
+   "len": 0.4
+  },
+  {
+   "id": "tile:real_stone_3",
+   "kind": "tile",
+   "src": "real",
+   "file": "sfx/step_stone_3.m4a",
+   "gain": 1.111,
+   "len": 0.4
+  },
+  {
+   "id": "tile:real_stone_4",
+   "kind": "tile",
+   "src": "real",
+   "file": "sfx/step_stone_4.m4a",
+   "gain": 1.111,
+   "len": 0.4
+  },
+  {
+   "id": "paving:real_stone_1",
+   "kind": "paving",
+   "src": "real",
+   "file": "sfx/step_stone_1.m4a",
+   "gain": 1.0,
+   "len": 0.4
+  },
+  {
+   "id": "paving:real_stone_2",
+   "kind": "paving",
+   "src": "real",
+   "file": "sfx/step_stone_2.m4a",
+   "gain": 1.0,
+   "len": 0.4
+  },
+  {
+   "id": "paving:real_stone_3",
+   "kind": "paving",
+   "src": "real",
+   "file": "sfx/step_stone_3.m4a",
+   "gain": 1.0,
+   "len": 0.4
+  },
+  {
+   "id": "paving:real_stone_4",
+   "kind": "paving",
+   "src": "real",
+   "file": "sfx/step_stone_4.m4a",
+   "gain": 1.0,
+   "len": 0.4
+  },
+  {
+   "id": "asphalt:real_stone_1",
+   "kind": "asphalt",
+   "src": "real",
+   "file": "sfx/step_stone_1.m4a",
+   "gain": 1.176,
+   "len": 0.4
+  },
+  {
+   "id": "asphalt:real_stone_2",
+   "kind": "asphalt",
+   "src": "real",
+   "file": "sfx/step_stone_2.m4a",
+   "gain": 1.176,
+   "len": 0.4
+  },
+  {
+   "id": "asphalt:real_stone_3",
+   "kind": "asphalt",
+   "src": "real",
+   "file": "sfx/step_stone_3.m4a",
+   "gain": 1.176,
+   "len": 0.4
+  },
+  {
+   "id": "asphalt:real_stone_4",
+   "kind": "asphalt",
+   "src": "real",
+   "file": "sfx/step_stone_4.m4a",
+   "gain": 1.176,
+   "len": 0.4
+  },
+  {
+   "id": "dungeon:real_stone_1",
+   "kind": "dungeon",
+   "src": "real",
+   "file": "sfx/step_stone_1.m4a",
+   "gain": 1.111,
+   "len": 0.4
+  },
+  {
+   "id": "dungeon:real_stone_2",
+   "kind": "dungeon",
+   "src": "real",
+   "file": "sfx/step_stone_2.m4a",
+   "gain": 1.111,
+   "len": 0.4
+  },
+  {
+   "id": "dungeon:real_stone_3",
+   "kind": "dungeon",
+   "src": "real",
+   "file": "sfx/step_stone_3.m4a",
+   "gain": 1.111,
+   "len": 0.4
+  },
+  {
+   "id": "dungeon:real_stone_4",
+   "kind": "dungeon",
+   "src": "real",
+   "file": "sfx/step_stone_4.m4a",
+   "gain": 1.111,
+   "len": 0.4
+  },
+  {
+   "id": "gravel:real_sand_1",
+   "kind": "gravel",
+   "src": "real",
+   "file": "sfx/step_sand_1.m4a",
+   "gain": 1.667,
+   "len": 0.4
+  },
+  {
+   "id": "gravel:real_sand_2",
+   "kind": "gravel",
+   "src": "real",
+   "file": "sfx/step_sand_2.m4a",
+   "gain": 1.667,
+   "len": 0.4
+  },
+  {
+   "id": "gravel:real_sand_3",
+   "kind": "gravel",
+   "src": "real",
+   "file": "sfx/step_sand_3.m4a",
+   "gain": 1.667,
+   "len": 0.4
+  },
+  {
+   "id": "gravel:real_sand_4",
+   "kind": "gravel",
+   "src": "real",
+   "file": "sfx/step_sand_4.m4a",
+   "gain": 1.667,
+   "len": 0.4
+  },
+  {
+   "id": "dirt:real_sand_1",
+   "kind": "dirt",
+   "src": "real",
+   "file": "sfx/step_sand_1.m4a",
+   "gain": 1.875,
+   "len": 0.4
+  },
+  {
+   "id": "dirt:real_sand_2",
+   "kind": "dirt",
+   "src": "real",
+   "file": "sfx/step_sand_2.m4a",
+   "gain": 1.875,
+   "len": 0.4
+  },
+  {
+   "id": "dirt:real_sand_3",
+   "kind": "dirt",
+   "src": "real",
+   "file": "sfx/step_sand_3.m4a",
+   "gain": 1.875,
+   "len": 0.4
+  },
+  {
+   "id": "dirt:real_sand_4",
+   "kind": "dirt",
+   "src": "real",
+   "file": "sfx/step_sand_4.m4a",
+   "gain": 1.875,
+   "len": 0.4
+  },
+  {
+   "id": "grass:real_sand_1",
+   "kind": "grass",
+   "src": "real",
+   "file": "sfx/step_sand_1.m4a",
+   "gain": 2.143,
+   "len": 0.4
+  },
+  {
+   "id": "grass:real_sand_2",
+   "kind": "grass",
+   "src": "real",
+   "file": "sfx/step_sand_2.m4a",
+   "gain": 2.143,
+   "len": 0.4
+  },
+  {
+   "id": "grass:real_sand_3",
+   "kind": "grass",
+   "src": "real",
+   "file": "sfx/step_sand_3.m4a",
+   "gain": 2.143,
+   "len": 0.4
+  },
+  {
+   "id": "grass:real_sand_4",
+   "kind": "grass",
+   "src": "real",
+   "file": "sfx/step_sand_4.m4a",
+   "gain": 2.143,
+   "len": 0.4
+  },
+  {
+   "id": "forestfloor:real_sand_1",
+   "kind": "forestfloor",
+   "src": "real",
+   "file": "sfx/step_sand_1.m4a",
+   "gain": 1.154,
+   "len": 0.4
+  },
+  {
+   "id": "forestfloor:real_sand_2",
+   "kind": "forestfloor",
+   "src": "real",
+   "file": "sfx/step_sand_2.m4a",
+   "gain": 1.154,
+   "len": 0.4
+  },
+  {
+   "id": "forestfloor:real_sand_3",
+   "kind": "forestfloor",
+   "src": "real",
+   "file": "sfx/step_sand_3.m4a",
+   "gain": 1.154,
+   "len": 0.4
+  },
+  {
+   "id": "forestfloor:real_sand_4",
+   "kind": "forestfloor",
+   "src": "real",
+   "file": "sfx/step_sand_4.m4a",
+   "gain": 1.154,
+   "len": 0.4
+  }
+ ],
+ "kinds": {
+  "freshsnow": {
+   "gain": 0.9,
+   "real": 1.0,
+   "clips": [
+    "freshsnow:snow_step_dry-01",
+    "freshsnow:snow_step_dry-02",
+    "freshsnow:snow_step_dry-03",
+    "freshsnow:snow_step_dry-04",
+    "freshsnow:SnowWalk",
+    "freshsnow:SnowWalk2",
+    "freshsnow:freshsnow_s1",
+    "freshsnow:freshsnow_s2",
+    "freshsnow:freshsnow_s3",
+    "freshsnow:freshsnow_s4",
+    "freshsnow:freshsnow_s5",
+    "freshsnow:freshsnow_s6"
+   ]
+  },
+  "packedsnow": {
+   "gain": 0.9,
+   "real": 1.0,
+   "clips": [
+    "packedsnow:snow_step_wet-01",
+    "packedsnow:snow_step_wet-02",
+    "packedsnow:snow_step_wet-03",
+    "packedsnow:snow_step_wet-04",
+    "packedsnow:snow_step_wet-05",
+    "packedsnow:snow_step_wet-06",
+    "packedsnow:snow_step_wet-07",
+    "packedsnow:snow_step_wet-08",
+    "packedsnow:snow_step_wet-09",
+    "packedsnow:packedsnow_s1",
+    "packedsnow:packedsnow_s2",
+    "packedsnow:packedsnow_s3",
+    "packedsnow:packedsnow_s4",
+    "packedsnow:packedsnow_s5",
+    "packedsnow:packedsnow_s6"
+   ]
+  },
+  "snowgravel": {
+   "gain": 0.9,
+   "real": 1.0,
+   "clips": [
+    "snowgravel:Corsica_S-Walking_on_snow_covered_gravel_01",
+    "snowgravel:Corsica_S-Walking_on_snow_covered_gravel_02",
+    "snowgravel:Corsica_S-Walking_on_snow_covered_gravel_03",
+    "snowgravel:Corsica_S-Walking_on_snow_covered_gravel_04",
+    "snowgravel:Corsica_S-Walking_on_snow_covered_gravel_05",
+    "snowgravel:Corsica_S-Walking_on_snow_covered_gravel_06",
+    "snowgravel:Corsica_S-Walking_on_snow_covered_gravel_07",
+    "snowgravel:Corsica_S-Walking_on_snow_covered_gravel_08",
+    "snowgravel:Corsica_S-Walking_on_snow_covered_gravel_09",
+    "snowgravel:Corsica_S-Walking_on_snow_covered_gravel_10",
+    "snowgravel:Corsica_S-Walking_on_snow_covered_gravel_11",
+    "snowgravel:Corsica_S-Walking_on_snow_covered_gravel_12",
+    "snowgravel:Corsica_S-Walking_on_snow_covered_gravel_13",
+    "snowgravel:Corsica_S-Walking_on_snow_covered_gravel_14",
+    "snowgravel:Corsica_S-Walking_on_snow_covered_gravel_15",
+    "snowgravel:Corsica_S-Walking_on_snow_covered_gravel_16",
+    "snowgravel:Corsica_S-Walking_on_snow_covered_gravel_17",
+    "snowgravel:Corsica_S-Walking_on_snow_covered_gravel_18",
+    "snowgravel:snowgravel_s1",
+    "snowgravel:snowgravel_s2",
+    "snowgravel:snowgravel_s3",
+    "snowgravel:snowgravel_s4"
+   ]
+  },
+  "gravelice": {
+   "gain": 0.9,
+   "real": 1.0,
+   "clips": [
+    "gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_01",
+    "gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_02",
+    "gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_03",
+    "gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_04",
+    "gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_05",
+    "gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_06",
+    "gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_07",
+    "gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_08",
+    "gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_09",
+    "gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_10",
+    "gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_11",
+    "gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_12",
+    "gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_13",
+    "gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_14",
+    "gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_15",
+    "gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_16",
+    "gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_17",
+    "gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_18",
+    "gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_19",
+    "gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_20",
+    "gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_21",
+    "gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_22",
+    "gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_23",
+    "gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_24",
+    "gravelice:gravelice_s1",
+    "gravelice:gravelice_s2",
+    "gravelice:gravelice_s3",
+    "gravelice:gravelice_s4"
+   ]
+  },
+  "ice": {
+   "gain": 0.8,
+   "real": 0.6,
+   "clips": [
+    "ice:ice_s1",
+    "ice:ice_s2",
+    "ice:ice_s3",
+    "ice:ice_s4",
+    "ice:ice_s5",
+    "ice:ice_s6",
+    "gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_01",
+    "gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_02",
+    "gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_03",
+    "gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_04",
+    "gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_05",
+    "gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_06",
+    "gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_07",
+    "gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_08",
+    "gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_09",
+    "gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_10",
+    "gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_11",
+    "gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_12",
+    "gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_13",
+    "gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_14",
+    "gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_15",
+    "gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_16",
+    "gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_17",
+    "gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_18",
+    "gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_19",
+    "gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_20",
+    "gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_21",
+    "gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_22",
+    "gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_23",
+    "gravelice:Corsica_S-Walking_on_snow_covered_gravel_and_ice_24"
+   ]
+  },
+  "asphalt": {
+   "gain": 0.85,
+   "real": 1.0,
+   "clips": [
+    "asphalt:asphalt_s1",
+    "asphalt:asphalt_s2",
+    "asphalt:asphalt_s3",
+    "asphalt:asphalt_s4",
+    "asphalt:asphalt_s5",
+    "asphalt:asphalt_s6",
+    "asphalt:real_stone_1",
+    "asphalt:real_stone_2",
+    "asphalt:real_stone_3",
+    "asphalt:real_stone_4"
+   ]
+  },
+  "paving": {
+   "gain": 1.0,
+   "real": 1.0,
+   "clips": [
+    "paving:paving_s1",
+    "paving:paving_s2",
+    "paving:paving_s3",
+    "paving:paving_s4",
+    "paving:paving_s5",
+    "paving:paving_s6",
+    "paving:real_stone_1",
+    "paving:real_stone_2",
+    "paving:real_stone_3",
+    "paving:real_stone_4"
+   ]
+  },
+  "gravel": {
+   "gain": 0.9,
+   "real": 0.6,
+   "clips": [
+    "gravel:gravel_s1",
+    "gravel:gravel_s2",
+    "gravel:gravel_s3",
+    "gravel:gravel_s4",
+    "gravel:gravel_s5",
+    "gravel:gravel_s6",
+    "snowgravel:Corsica_S-Walking_on_snow_covered_gravel_01",
+    "snowgravel:Corsica_S-Walking_on_snow_covered_gravel_02",
+    "snowgravel:Corsica_S-Walking_on_snow_covered_gravel_03",
+    "snowgravel:Corsica_S-Walking_on_snow_covered_gravel_04",
+    "snowgravel:Corsica_S-Walking_on_snow_covered_gravel_05",
+    "snowgravel:Corsica_S-Walking_on_snow_covered_gravel_06",
+    "snowgravel:Corsica_S-Walking_on_snow_covered_gravel_07",
+    "snowgravel:Corsica_S-Walking_on_snow_covered_gravel_08",
+    "snowgravel:Corsica_S-Walking_on_snow_covered_gravel_09",
+    "snowgravel:Corsica_S-Walking_on_snow_covered_gravel_10",
+    "snowgravel:Corsica_S-Walking_on_snow_covered_gravel_11",
+    "snowgravel:Corsica_S-Walking_on_snow_covered_gravel_12",
+    "snowgravel:Corsica_S-Walking_on_snow_covered_gravel_13",
+    "snowgravel:Corsica_S-Walking_on_snow_covered_gravel_14",
+    "snowgravel:Corsica_S-Walking_on_snow_covered_gravel_15",
+    "snowgravel:Corsica_S-Walking_on_snow_covered_gravel_16",
+    "snowgravel:Corsica_S-Walking_on_snow_covered_gravel_17",
+    "snowgravel:Corsica_S-Walking_on_snow_covered_gravel_18",
+    "snowgravel:snowgravel_s1",
+    "snowgravel:snowgravel_s2",
+    "snowgravel:snowgravel_s3",
+    "snowgravel:snowgravel_s4",
+    "gravel:real_sand_1",
+    "gravel:real_sand_2",
+    "gravel:real_sand_3",
+    "gravel:real_sand_4"
+   ]
+  },
+  "dirt": {
+   "gain": 0.8,
+   "real": 1.0,
+   "clips": [
+    "dirt:dirt_s1",
+    "dirt:dirt_s2",
+    "dirt:dirt_s3",
+    "dirt:dirt_s4",
+    "dirt:dirt_s5",
+    "dirt:dirt_s6",
+    "dirt:real_sand_1",
+    "dirt:real_sand_2",
+    "dirt:real_sand_3",
+    "dirt:real_sand_4"
+   ]
+  },
+  "grass": {
+   "gain": 0.7,
+   "real": 1.0,
+   "clips": [
+    "grass:grass_s1",
+    "grass:grass_s2",
+    "grass:grass_s3",
+    "grass:grass_s4",
+    "grass:grass_s5",
+    "grass:grass_s6",
+    "grass:real_sand_1",
+    "grass:real_sand_2",
+    "grass:real_sand_3",
+    "grass:real_sand_4"
+   ]
+  },
+  "forestfloor": {
+   "gain": 1.3,
+   "real": 1.0,
+   "clips": [
+    "forestfloor:forestfloor_s1",
+    "forestfloor:forestfloor_s2",
+    "forestfloor:forestfloor_s3",
+    "forestfloor:forestfloor_s4",
+    "forestfloor:forestfloor_s5",
+    "forestfloor:forestfloor_s6",
+    "forestfloor:real_sand_1",
+    "forestfloor:real_sand_2",
+    "forestfloor:real_sand_3",
+    "forestfloor:real_sand_4"
+   ]
+  },
+  "woodplank": {
+   "gain": 1.0,
+   "real": 1.0,
+   "clips": [
+    "woodplank:woodplank_s1",
+    "woodplank:woodplank_s2",
+    "woodplank:woodplank_s3",
+    "woodplank:woodplank_s4",
+    "woodplank:woodplank_s5",
+    "woodplank:woodplank_s6",
+    "woodplank:real_wood_1",
+    "woodplank:real_wood_2",
+    "woodplank:real_wood_3",
+    "woodplank:real_wood_4"
+   ]
+  },
+  "woodfloor": {
+   "gain": 0.9,
+   "real": 1.0,
+   "clips": [
+    "woodfloor:woodfloor_s1",
+    "woodfloor:woodfloor_s2",
+    "woodfloor:woodfloor_s3",
+    "woodfloor:woodfloor_s4",
+    "woodfloor:woodfloor_s5",
+    "woodfloor:woodfloor_s6",
+    "woodfloor:real_wood_1",
+    "woodfloor:real_wood_2",
+    "woodfloor:real_wood_3",
+    "woodfloor:real_wood_4"
+   ]
+  },
+  "tile": {
+   "gain": 0.9,
+   "real": 1.0,
+   "clips": [
+    "tile:tile_s1",
+    "tile:tile_s2",
+    "tile:tile_s3",
+    "tile:tile_s4",
+    "tile:tile_s5",
+    "tile:tile_s6",
+    "tile:real_stone_1",
+    "tile:real_stone_2",
+    "tile:real_stone_3",
+    "tile:real_stone_4"
+   ]
+  },
+  "carpet": {
+   "gain": 0.45,
+   "real": 1.0,
+   "clips": [
+    "carpet:carpet_s1",
+    "carpet:carpet_s2",
+    "carpet:carpet_s3",
+    "carpet:carpet_s4",
+    "carpet:carpet_s5",
+    "carpet:carpet_s6"
+   ]
+  },
+  "metal": {
+   "gain": 0.8,
+   "real": 1.0,
+   "clips": [
+    "metal:metal_s1",
+    "metal:metal_s2",
+    "metal:metal_s3",
+    "metal:metal_s4",
+    "metal:metal_s5",
+    "metal:metal_s6"
+   ]
+  },
+  "glass": {
+   "gain": 0.6,
+   "real": 1.0,
+   "clips": [
+    "glass:glass_s1",
+    "glass:glass_s2",
+    "glass:glass_s3",
+    "glass:glass_s4",
+    "glass:glass_s5",
+    "glass:glass_s6"
+   ]
+  },
+  "dungeon": {
+   "gain": 0.9,
+   "real": 1.0,
+   "clips": [
+    "dungeon:dungeon_s1",
+    "dungeon:dungeon_s2",
+    "dungeon:dungeon_s3",
+    "dungeon:dungeon_s4",
+    "dungeon:dungeon_s5",
+    "dungeon:dungeon_s6",
+    "dungeon:real_stone_1",
+    "dungeon:real_stone_2",
+    "dungeon:real_stone_3",
+    "dungeon:real_stone_4"
+   ]
+  },
+  "track": {
+   "gain": 0.8,
+   "real": 1.0,
+   "clips": [
+    "track:track_s1",
+    "track:track_s2",
+    "track:track_s3",
+    "track:track_s4",
+    "track:track_s5",
+    "track:track_s6"
+   ]
+  },
+  "water": {
+   "gain": 0.9,
+   "real": 1.0,
+   "clips": [
+    "water:water_s1",
+    "water:water_s2",
+    "water:water_s3",
+    "water:water_s4",
+    "water:water_s5",
+    "water:water_s6"
+   ]
+  }
+ }
 }

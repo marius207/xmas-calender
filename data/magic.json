@@ -1,6 +1,6 @@
 {
  "version": 1,
- "note": "Rune magic weakness / resist table (job magic). Multiplier on a rune's damage per target: 0 = immune (no effect), 1 = normal, 2 = weak to it. Keys: person, animal, troll, hollow (the Eye's hollows), dummy, and the woods creatures (part 1: draugr, huldra_girl, fossegrim, tusser; part 2, 2 Nov: nokken (weak to Laguz and iron), draugen (sun), lyktemann (sun, Laguz puts the lantern out), gjenganger (sun, fire), varulv (ice, spear-Tyr, iron), edderkoppkongen (fire, ice, hail), rokk (ice, Tyr, Fehu calms it), asgardsreia (the Wild Hunt: everything 0, it cannot be fought), mare (sun), lindorm (Tyr, thunder-Thurs, iron; Laguz 0)). The game reads this at start and merges it over the built-in copy; edit freely. hp = hit points of a woods creature scene (their own pool, same units as a sword hit ~1-3).",
+ "note": "Rune magic weakness / resist table (job magic). Multiplier on a rune's damage per target: 0 = immune (no effect), 1 = normal, 2 = weak to it. Keys: person, animal, troll, hollow (the Eye's hollows), dummy, and the woods creatures (part 1: draugr, huldra_girl, fossegrim, tusser; part 2, 2 Nov: nokken (weak to Laguz and iron), draugen (sun), lyktemann (sun, Laguz puts the lantern out), gjenganger (sun, fire), varulv (ice, spear-Tyr, iron), edderkoppkongen (fire, ice, hail), rokk (ice, Tyr, Fehu calms it), asgardsreia (the Wild Hunt: everything 0, it cannot be fought), mare (sun), lindorm (Tyr, thunder-Thurs, iron; Laguz 0)). The game reads this at start and merges it over the built-in copy; edit freely. hp = hit points of a woods creature scene (their own pool, same units as a sword hit ~1-3). HUSH (job craterhush, 9 Nov): the grey crater creature has no hit points; Sol and Kaun make it flinch and stall (the game reads only those two), Isa slows, physical hits barely scratch.",
  "hp": {
   "draugr": 14,
   "huldra_girl": 12,
@@ -200,6 +200,18 @@
    "hagal": 0.7,
    "dark": 0.5,
    "fehu": 0.5
+  },
+  "hush": {
+   "sol": 3,
+   "kaun": 2,
+   "isa": 1.4,
+   "tyr": 0.3,
+   "thurs": 0.15,
+   "hagal": 0.2,
+   "naud": 0.5,
+   "dark": 0,
+   "fehu": 0,
+   "lagu": 0
   }
  }
 }

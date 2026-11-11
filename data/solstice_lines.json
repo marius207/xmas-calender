@@ -1,0 +1,230 @@
+{
+ "_note": "Spoken/captioned lines of job solstice (21-22 Dec). Text only today (Lykta say()); feed to the voice pipeline / recording studio later. who: lykta, gammel (Gammel-Rod), mor (Mor Bla), pelle, npc (lost neighbours/neighbours), aasland (radio), vik.",
+ "lines": [
+  {
+   "id": "sol_warn",
+   "who": "lykta",
+   "text": "The dark is climbing the valley. Fifteen small fires, remember. Light what you can. Bowlinghallen stays warm if you need to catch your breath."
+  },
+  {
+   "id": "sol_start",
+   "who": "lykta",
+   "text": "This is the long one. Every fire you light pushes the night back. I do not know how far. Nobody has ever checked."
+  },
+  {
+   "id": "sol_snuff",
+   "who": "lykta",
+   "text": "The cold from the crater just took every fire you ever lit. Rude. They remember how to burn. I put all fifteen on your map. Go, go, go."
+  },
+  {
+   "id": "sol_c1",
+   "who": "lykta",
+   "text": "One. The night just took a small step back. Listen: it is annoyed."
+  },
+  {
+   "id": "sol_c4",
+   "who": "lykta",
+   "text": "Four. Somewhere up in the passes the nisse have started singing. Badly. Beautifully."
+  },
+  {
+   "id": "sol_c8",
+   "who": "lykta",
+   "text": "Eight. Halfway. The Hollows are hesitating. I have never seen a Hollow hesitate."
+  },
+  {
+   "id": "sol_c12",
+   "who": "lykta",
+   "text": "Twelve. The grey thing at the edge of town is leaning away from the light. Three more."
+  },
+  {
+   "id": "sol_c14",
+   "who": "lykta",
+   "text": "One more. Whichever one is nearest. Run. Walk fast. Do something with legs."
+  },
+  {
+   "id": "sol_held1",
+   "who": "lykta",
+   "text": "That is all fifteen, but the mountain did not answer. It does not want an afternoon. I think it wants the dark."
+  },
+  {
+   "id": "sol_held2",
+   "who": "lykta",
+   "text": "Fifteen burning in daylight. The mountain is polite. It is waiting. Hold on to that feeling, and your lantern."
+  },
+  {
+   "id": "sol_last1",
+   "who": "lykta",
+   "text": "Look east. Past the Liland road. Something very big just opened one eye. A warm one. I did not know it could be warm."
+  },
+  {
+   "id": "sol_last2",
+   "who": "lykta",
+   "text": "And the grey one is turning. It is not angry. It just has somewhere else to be. Everybody pretend you are not relieved. I will go first. ...I am relieved."
+  },
+  {
+   "id": "sol_dawnHi",
+   "who": "lykta",
+   "text": "Dawn. So close. Thirteen, fourteen, I stopped counting out of nerves. The grey went home anyway. I think it got bored of us. That is a win."
+  },
+  {
+   "id": "sol_dawnMid",
+   "who": "lykta",
+   "text": "Dawn. Not every fire took, and the dark came a bit too far in. We are still here, though. Slightly singed, slightly proud. Warm is warm."
+  },
+  {
+   "id": "sol_dawnLo",
+   "who": "lykta",
+   "text": "Dawn. It was a very long night and there were very few fires. Do not apologise to me. Apologise to the stairs you ran up. We are still here."
+  },
+  {
+   "id": "sol_pass0",
+   "who": "gammel",
+   "text": "Gammel-Rød: Nobody gets past the Hat Brigade tonight. Not the Hush, not the Hollows, not Mor Blå's gossip."
+  },
+  {
+   "id": "sol_pass1",
+   "who": "mor",
+   "text": "Mor Blå: I knitted these lantern covers warm. They hold. Whatever comes, it comes round us."
+  },
+  {
+   "id": "sol_pass2",
+   "who": "gammel",
+   "text": "Gammel-Rød: Red hats left, blue hats right. Do not tell Mor Blå I said she was right about the spacing."
+  },
+  {
+   "id": "sol_pass3",
+   "who": "mor",
+   "text": "Mor Blå: Fifteen fires, sweetheart. Count them. It is the only thing the dark cannot do."
+  },
+  {
+   "id": "sol_pelle",
+   "who": "pelle",
+   "text": "Pelle (in the mask): It counts us. Tonight it is counting the fires instead. Please keep it busy."
+  },
+  {
+   "id": "sol_pelleL",
+   "who": "lykta",
+   "text": "A kid in a panda mask is standing with the nisse. He says his name is Pelle. He says he is not scared. His knees are doing a different thing."
+  },
+  {
+   "id": "sol_aft",
+   "who": "lykta",
+   "text": "Morning. The lights are back on. Some of them look... embarrassed. Check on someone. Anyone. Warm is a team sport."
+  },
+  {
+   "id": "sol_aftHint",
+   "who": "lykta",
+   "text": "Grey people are standing about the square, looking up. Hold the lantern up and talk to them gently. They are not angry. They are lost."
+  },
+  {
+   "id": "sol_noLantern",
+   "who": "lykta",
+   "text": "You need the lantern for this. Light is the only thing that wakes them gently. I would offer myself but I am being held at the moment."
+  },
+  {
+   "id": "sol_w1",
+   "who": "npc",
+   "text": "Where am I? ...Is it Thursday? Why am I holding a ladle?"
+  },
+  {
+   "id": "sol_w2",
+   "who": "npc",
+   "text": "Oh no. Did I miss Christmas? ...No. I can smell cinnamon. I did not."
+  },
+  {
+   "id": "sol_w3",
+   "who": "npc",
+   "text": "I was somewhere very grey. There was a queue. Everyone was facing the same way. It was not a good queue."
+  },
+  {
+   "id": "sol_w4",
+   "who": "npc",
+   "text": "Thank you. I walked a long way, slowly, toward a light that was not there. It is lovely to be wrong."
+  },
+  {
+   "id": "sol_w5",
+   "who": "npc",
+   "text": "Is that a lantern? Is the lantern talking? ...Hello, lantern."
+  },
+  {
+   "id": "sol_w5L",
+   "who": "lykta",
+   "text": "Hello. Do not tell anyone I was holding my breath."
+  },
+  {
+   "id": "sol_relit",
+   "who": "lykta",
+   "text": "It came back on. Look at it. It is trying very hard to look as if it never left."
+  },
+  {
+   "id": "sol_n1",
+   "who": "npc",
+   "text": "Oh! You came. The lights went out and I stood in the hall for an hour holding a spoon. I have no idea why the spoon."
+  },
+  {
+   "id": "sol_n2",
+   "who": "npc",
+   "text": "I am fine. I am absolutely fine. Would you like a waffle? I am going to make fourteen waffles."
+  },
+  {
+   "id": "sol_n3",
+   "who": "npc",
+   "text": "Something sat on the roof all night and sighed. I made it tea. It did not drink the tea, but the tea is gone."
+  },
+  {
+   "id": "sol_n4",
+   "who": "npc",
+   "text": "My fairy lights are back. They look... embarrassed. Mine especially."
+  },
+  {
+   "id": "sol_n5",
+   "who": "npc",
+   "text": "I had a candle, then another candle, then the whole street had candles. It was rather lovely, actually."
+  },
+  {
+   "id": "sol_nisse",
+   "who": "lykta",
+   "text": "Something small and red just stepped out from behind the bins and went in. A house nisse. They are coming home."
+  },
+  {
+   "id": "sol_cl0",
+   "who": "aasland",
+   "text": "Aasland (radio): All units. The case is closed."
+  },
+  {
+   "id": "sol_cl1",
+   "who": "vik",
+   "text": "Vik: Closed? Director, there was a thing. A big grey thing. I watched it eat a lamp."
+  },
+  {
+   "id": "sol_cl2",
+   "who": "aasland",
+   "text": "Aasland (radio): Official finding. Weather, and a large rock. The nisser were called, not taken. The witch was a misunderstanding. The lights are the council's fault."
+  },
+  {
+   "id": "sol_cl3",
+   "who": "vik",
+   "text": "Vik: And the fifteen fires on the hills?"
+  },
+  {
+   "id": "sol_cl4",
+   "who": "aasland",
+   "text": "Aasland (radio): Bonfire season. Excellent turnout. Case closed. I will stamp it twice."
+  },
+  {
+   "id": "sol_cl5",
+   "who": "vik",
+   "text": "Vik (to you, lowering the radio): Between us, I think she knows. She just hates paperwork that argues back."
+  },
+  {
+   "id": "sol_cl6",
+   "who": "lykta",
+   "text": "Case closed. I have never been so happy to be filed under \"weather\"."
+  },
+  {
+   "id": "sol_clN",
+   "who": "lykta",
+   "text": "Three small red shapes are crossing the square toward the tape. Nobody wrote that down. Vik wrote it down, and then crossed it out."
+  }
+ ]
+}

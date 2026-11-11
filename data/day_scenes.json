@@ -1,0 +1,3031 @@
+{
+ "_readme": "Day scenes (job dayscenes): a real ~1 minute scene per day = 10-15 s Downtown News montage (data/day_openers.json, shots/lines picked by \"montage\") + 25-35 s in-world scene with Chris/Martin, Lykta and the day's character + ONE quick-time moment (no fail state) + the TODAY'S THING card. Rows are data; the player is the /* dayscenes */ block. Source: build/dayscenes/make_data.py. Voices: voice/dayscene/<id>.m4a (placeholders; real ones in voice/dayscene/real/<id>.m4a + id in _real of durations.json). Wave 1 = days 3-10,14,16,20,22; wave 2 (story days) comes later.",
+ "wave": 1,
+ "days": {
+  "3": {
+   "title": "Strike!",
+   "feel": "cozy",
+   "tens": 0.05,
+   "montage": [
+    0,
+    1
+   ],
+   "place": "the shop, evening",
+   "stage": {
+    "at": "shop",
+    "tod": "17:30",
+    "wx": "clear",
+    "rot": 40
+   },
+   "cast": {
+    "chris": {
+     "p": [
+      -1.25,
+      0
+     ],
+     "f": 22
+    },
+    "martin": {
+     "p": [
+      1.25,
+      0.15
+     ],
+     "f": -24
+    },
+    "lykta": {
+     "p": [
+      0,
+      0.25
+     ],
+     "y": 1.95
+    }
+   },
+   "npcs": [
+    {
+     "id": "fru",
+     "name": "FRU HAUGEN",
+     "v": "folkf",
+     "seed": 31,
+     "cat": "folk",
+     "p": [
+      3.3,
+      1.0
+     ],
+     "f": -58
+    }
+   ],
+   "beats": [
+    {
+     "cam": {
+      "a": 8,
+      "sw": 22,
+      "r": [
+       7.5,
+       5.8
+      ],
+      "h": [
+       2.0,
+       1.6
+      ],
+      "la": 1.4,
+      "fov": 50
+     },
+     "lines": [
+      {
+       "id": "s03_1",
+       "who": "martin",
+       "t": "Frame four! Did you see frame four?"
+      },
+      {
+       "id": "s03_2",
+       "who": "chris",
+       "t": "I saw it. The whole street saw it. You did a dance."
+      },
+      {
+       "id": "s03_3",
+       "who": "martin",
+       "t": "It was a victory shuffle."
+      }
+     ]
+    },
+    {
+     "cam": {
+      "a": -38,
+      "sw": -18,
+      "r": [
+       5.4,
+       4.2
+      ],
+      "h": [
+       1.6,
+       1.5
+      ],
+      "la": 1.5,
+      "fov": 46,
+      "at": [
+       2.0,
+       0.6
+      ]
+     },
+     "lines": [
+      {
+       "id": "s03_4",
+       "who": "fru",
+       "t": "Boys. Something is moving in the woods again. It is probably a deer."
+      },
+      {
+       "id": "s03_5",
+       "who": "chris",
+       "t": "Probably."
+      },
+      {
+       "id": "s03_6",
+       "who": "martin",
+       "t": "Is it probably a deer, or is it probably-a-deer?"
+      },
+      {
+       "id": "s03_7",
+       "who": "lykta",
+       "t": "I have no data on the second kind."
+      }
+     ]
+    },
+    {
+     "cam": {
+      "a": 0,
+      "sw": 0,
+      "r": [
+       6.2,
+       6.2
+      ],
+      "h": [
+       1.5,
+       1.5
+      ],
+      "la": 1.5,
+      "fov": 46
+     },
+     "lines": [],
+     "qcam": {
+      "a": 12,
+      "sw": 6,
+      "r": [
+       4.6,
+       3.8
+      ],
+      "h": [
+       1.5,
+       1.4
+      ],
+      "la": 1.5,
+      "fov": 42
+     },
+     "qte": {
+      "type": "ring",
+      "win": 2.2,
+      "title": "ROLL! Let go as the ring closes",
+      "say": {
+       "id": "s03_8",
+       "who": "lykta",
+       "t": "Bowling is all timing. Let go as the ring closes."
+      },
+      "ok": {
+       "id": "s03_9",
+       "who": "lykta",
+       "t": "Strike. The pins fell over out of respect."
+      },
+      "no": {
+       "id": "s03_10",
+       "who": "lykta",
+       "t": "A gutter. A very graceful gutter. The pins did not even flinch."
+      }
+     }
+    },
+    {
+     "cam": {
+      "a": -4,
+      "sw": 10,
+      "r": [
+       6.0,
+       4.6
+      ],
+      "h": [
+       1.45,
+       1.45
+      ],
+      "la": 1.7,
+      "fov": 46
+     },
+     "sign": {
+      "at": 0.5,
+      "kind": "draught"
+     },
+     "lines": [
+      {
+       "id": "s03_11",
+       "who": "lykta",
+       "t": "Today's thing: play one whole game at Bowlinghallen. Ten frames. It is warm in there."
+      },
+      {
+       "id": "s03_12",
+       "who": "martin",
+       "t": "Did the door just breathe?"
+      },
+      {
+       "id": "s03_13",
+       "who": "chris",
+       "t": "Draught."
+      }
+     ]
+    }
+   ],
+   "obj": {
+    "head": "STRIKE!",
+    "text": "Play one whole game at Bowlinghallen.",
+    "sub": "Rent a lane at the counter, then press G at a lane."
+   },
+   "sign_note": "A cold draught from the woods side; the shop door seems to breathe once."
+  },
+  "4": {
+   "title": "Voices in the cold",
+   "feel": "cozy",
+   "tens": 0.12,
+   "montage": [
+    0,
+    1
+   ],
+   "place": "the frozen river, afternoon",
+   "stage": {
+    "at": "river",
+    "tod": "15:20",
+    "wx": "clear",
+    "rot": 200
+   },
+   "cast": {
+    "chris": {
+     "p": [
+      -1.25,
+      0
+     ],
+     "f": 22
+    },
+    "martin": {
+     "p": [
+      1.25,
+      0.15
+     ],
+     "f": -24
+    },
+    "lykta": {
+     "p": [
+      0,
+      0.25
+     ],
+     "y": 1.95
+    }
+   },
+   "npcs": [
+    {
+     "id": "cara",
+     "name": "CAROLER",
+     "v": "folkf",
+     "seed": 41,
+     "cat": "folk",
+     "p": [
+      -3.4,
+      1.5
+     ],
+     "f": 38
+    },
+    {
+     "id": "carb",
+     "name": "CAROLER",
+     "v": "folkm",
+     "seed": 42,
+     "cat": "folk",
+     "p": [
+      3.4,
+      1.3
+     ],
+     "f": -40
+    },
+    {
+     "id": "old",
+     "name": "OLD-TIMER",
+     "v": "old",
+     "seed": 43,
+     "cat": "folk",
+     "p": [
+      4.7,
+      -1.0
+     ],
+     "f": -80,
+     "on": [
+      2,
+      3,
+      4
+     ]
+    }
+   ],
+   "beats": [
+    {
+     "cam": {
+      "a": 10,
+      "sw": 16,
+      "r": [
+       8.5,
+       6.5
+      ],
+      "h": [
+       2.2,
+       1.7
+      ],
+      "la": 1.5,
+      "fov": 50
+     },
+     "fx": [
+      [
+       0.2,
+       "carol"
+      ]
+     ],
+     "lines": [
+      {
+       "id": "s04_1",
+       "who": "chris",
+       "t": "That was lovely. And then it stopped. Quite suddenly."
+      },
+      {
+       "id": "s04_2",
+       "who": "martin",
+       "t": "In tune, mostly. Why did they stop?"
+      }
+     ]
+    },
+    {
+     "cam": {
+      "a": -30,
+      "sw": -14,
+      "r": [
+       5.2,
+       4.2
+      ],
+      "h": [
+       1.6,
+       1.5
+      ],
+      "la": 1.5,
+      "fov": 46,
+      "at": [
+       -0.4,
+       1.2
+      ]
+     },
+     "lines": [
+      {
+       "id": "s04_3",
+       "who": "cara",
+       "t": "A broom came out of an upstairs window."
+      },
+      {
+       "id": "s04_4",
+       "who": "carb",
+       "t": "It had opinions about our key."
+      },
+      {
+       "id": "s04_5",
+       "who": "martin",
+       "t": "Whose broom?"
+      },
+      {
+       "id": "s04_6",
+       "who": "cara",
+       "t": "We did not ask."
+      }
+     ]
+    },
+    {
+     "cam": {
+      "a": 32,
+      "sw": 12,
+      "r": [
+       5.0,
+       4.0
+      ],
+      "h": [
+       1.5,
+       1.45
+      ],
+      "la": 1.5,
+      "fov": 44,
+      "at": [
+       3.2,
+       0.2
+      ]
+     },
+     "lines": [
+      {
+       "id": "s04_7",
+       "who": "old",
+       "t": "My grandfather said there is an eye on the hill. Old-timers always say that."
+      },
+      {
+       "id": "s04_8",
+       "who": "chris",
+       "t": "Which hill?"
+      },
+      {
+       "id": "s04_9",
+       "who": "old",
+       "t": "The one that looks back."
+      }
+     ]
+    },
+    {
+     "cam": {
+      "a": 0,
+      "sw": 0,
+      "r": [
+       5.6,
+       5.6
+      ],
+      "h": [
+       1.5,
+       1.5
+      ],
+      "la": 1.5,
+      "fov": 46
+     },
+     "lines": [],
+     "qcam": {
+      "a": -12,
+      "sw": 5,
+      "r": [
+       4.0,
+       3.2
+      ],
+      "h": [
+       1.4,
+       1.4
+      ],
+      "la": 1.4,
+      "fov": 42
+     },
+     "qte": {
+      "type": "hold",
+      "need": 1.1,
+      "title": "Hold the candle steady. Let them finish the verse.",
+      "say": {
+       "id": "s04_10",
+       "who": "lykta",
+       "t": "Hold the candle steady, Martin. The last verse needs a flame that does not bow."
+      },
+      "ok": {
+       "id": "s04_11",
+       "who": "lykta",
+       "t": "The flame stood up straight. The verse landed on its feet."
+      },
+      "no": {
+       "id": "s04_12",
+       "who": "lykta",
+       "t": "The flame bowed. The verse went home early, politely."
+      }
+     }
+    },
+    {
+     "cam": {
+      "a": 6,
+      "sw": -8,
+      "r": [
+       6.4,
+       5.0
+      ],
+      "h": [
+       1.5,
+       1.5
+      ],
+      "la": 1.7,
+      "fov": 46
+     },
+     "sign": {
+      "at": 0.4,
+      "kind": "dim"
+     },
+     "lines": [
+      {
+       "id": "s04_13",
+       "who": "martin",
+       "t": "The candles are all leaning the same way."
+      },
+      {
+       "id": "s04_14",
+       "who": "lykta",
+       "t": "Candles do that. I have never looked into why."
+      },
+      {
+       "id": "s04_15",
+       "who": "lykta",
+       "t": "Today's thing: go to the church and listen. They say they will try again."
+      }
+     ]
+    }
+   ],
+   "obj": {
+    "head": "IN TUNE, MOSTLY",
+    "text": "Go to the church and listen to the carolers.",
+    "sub": "Follow the sound of singing."
+   },
+   "sign_note": "Every candle flame leans the same way, toward the hill, once."
+  },
+  "5": {
+   "title": "Pocket money",
+   "feel": "cozy",
+   "tens": 0.2,
+   "montage": [
+    0,
+    1
+   ],
+   "place": "the bank, late morning",
+   "stage": {
+    "at": "bank",
+    "tod": "11:30",
+    "wx": "light",
+    "rot": 150
+   },
+   "cast": {
+    "chris": {
+     "p": [
+      -1.25,
+      0
+     ],
+     "f": 22
+    },
+    "martin": {
+     "p": [
+      1.25,
+      0.15
+     ],
+     "f": -24
+    },
+    "lykta": {
+     "p": [
+      0,
+      0.25
+     ],
+     "y": 1.95
+    }
+   },
+   "npcs": [
+    {
+     "id": "clerk",
+     "name": "BANK CLERK",
+     "v": "folkf",
+     "seed": 51,
+     "cat": "folk",
+     "p": [
+      3.4,
+      0.9
+     ],
+     "f": -55
+    }
+   ],
+   "beats": [
+    {
+     "cam": {
+      "a": 6,
+      "sw": 20,
+      "r": [
+       7.0,
+       5.4
+      ],
+      "h": [
+       1.8,
+       1.5
+      ],
+      "la": 1.2,
+      "fov": 50
+     },
+     "lines": [
+      {
+       "id": "s05_1",
+       "who": "martin",
+       "t": "There! A coin! ...It is a button."
+      },
+      {
+       "id": "s05_2",
+       "who": "chris",
+       "t": "A button."
+      },
+      {
+       "id": "s05_3",
+       "who": "martin",
+       "t": "A button of great promise."
+      }
+     ]
+    },
+    {
+     "cam": {
+      "a": -36,
+      "sw": -16,
+      "r": [
+       5.2,
+       4.2
+      ],
+      "h": [
+       1.6,
+       1.5
+      ],
+      "la": 1.5,
+      "fov": 46,
+      "at": [
+       2.0,
+       0.6
+      ]
+     },
+     "lines": [
+      {
+       "id": "s05_4",
+       "who": "clerk",
+       "t": "The bank has not lost any coins. We counted. Twice."
+      },
+      {
+       "id": "s05_5",
+       "who": "chris",
+       "t": "Then whose are they?"
+      },
+      {
+       "id": "s05_6",
+       "who": "clerk",
+       "t": "The roads', apparently."
+      },
+      {
+       "id": "s05_7",
+       "who": "lykta",
+       "t": "Ten is the unofficial target. I made that up. It sounds right."
+      }
+     ]
+    },
+    {
+     "cam": {
+      "a": 0,
+      "sw": 0,
+      "r": [
+       6.0,
+       6.0
+      ],
+      "h": [
+       1.5,
+       1.5
+      ],
+      "la": 1.4,
+      "fov": 46
+     },
+     "lines": [],
+     "qcam": {
+      "a": 14,
+      "sw": 5,
+      "r": [
+       4.2,
+       3.6
+      ],
+      "h": [
+       1.4,
+       1.3
+      ],
+      "la": 1.0,
+      "fov": 44
+     },
+     "qte": {
+      "type": "press",
+      "win": 3.0,
+      "title": "CATCH IT! Tap now",
+      "say": {
+       "id": "s05_8",
+       "who": "lykta",
+       "t": "Martin, the coin is rolling! Catch it, quick!"
+      },
+      "ok": {
+       "id": "s05_9",
+       "who": "lykta",
+       "t": "Caught. It was a bottle cap. It counts, emotionally."
+      },
+      "no": {
+       "id": "s05_10",
+       "who": "lykta",
+       "t": "It rolled down a drain. It has gone to meet its family."
+      }
+     }
+    },
+    {
+     "cam": {
+      "a": -8,
+      "sw": 12,
+      "r": [
+       6.2,
+       5.0
+      ],
+      "h": [
+       1.5,
+       1.5
+      ],
+      "la": 3.0,
+      "fov": 46
+     },
+     "sign": {
+      "at": 0.35,
+      "kind": "flicker"
+     },
+     "lines": [
+      {
+       "id": "s05_11",
+       "who": "chris",
+       "t": "Right. Ten coins. Let us go."
+      },
+      {
+       "id": "s05_12",
+       "who": "martin",
+       "t": "Right."
+      },
+      {
+       "id": "s05_13",
+       "who": "lykta",
+       "t": "Today's thing: collect ten coins along the roads. They glow. Walk through them."
+      }
+     ]
+    }
+   ],
+   "obj": {
+    "head": "COINS ON THE ROADS",
+    "text": "Collect 10 coins along the roads.",
+    "sub": "Coins glow on the roads. Walk through them."
+   },
+   "sign_note": "The street lamp goes out for half a second and comes back. Nobody mentions it."
+  },
+  "6": {
+   "title": "Tipi village",
+   "feel": "cozy",
+   "tens": 0.25,
+   "montage": [
+    0,
+    1
+   ],
+   "place": "Chris's street, late morning",
+   "stage": {
+    "at": "chris",
+    "tod": "11:00",
+    "wx": "steady",
+    "rot": 20
+   },
+   "cast": {
+    "chris": {
+     "p": [
+      -1.25,
+      0
+     ],
+     "f": 22
+    },
+    "martin": {
+     "p": [
+      1.25,
+      0.15
+     ],
+     "f": -24
+    },
+    "lykta": {
+     "p": [
+      0,
+      0.25
+     ],
+     "y": 1.95
+    }
+   },
+   "npcs": [
+    {
+     "id": "ingrid",
+     "name": "INGRID",
+     "v": "folkf2",
+     "seed": 61,
+     "cat": "folk",
+     "p": [
+      3.4,
+      0.8
+     ],
+     "f": -55
+    },
+    {
+     "id": "fol",
+     "name": "",
+     "v": "folkm",
+     "seed": 62,
+     "cat": "folk",
+     "p": [
+      -6.5,
+      -26
+     ],
+     "f": 0,
+     "on": [
+      1
+     ],
+     "lk": {
+      "hat": "beanie",
+      "hatT": "#15161a"
+     }
+    }
+   ],
+   "beats": [
+    {
+     "cam": {
+      "a": 8,
+      "sw": 18,
+      "r": [
+       7.0,
+       5.6
+      ],
+      "h": [
+       1.9,
+       1.6
+      ],
+      "la": 1.4,
+      "fov": 50
+     },
+     "lines": [
+      {
+       "id": "s06_1",
+       "who": "ingrid",
+       "t": "Camp Botnan! Smoke straight up. That means a calm night."
+      },
+      {
+       "id": "s06_2",
+       "who": "martin",
+       "t": "Is that good?"
+      },
+      {
+       "id": "s06_3",
+       "who": "ingrid",
+       "t": "The tipis are warm and the sky is not. Both are in the brochure."
+      }
+     ]
+    },
+    {
+     "cam": {
+      "a": -6,
+      "sw": 0,
+      "r": [
+       6.0,
+       6.0
+      ],
+      "h": [
+       1.7,
+       1.7
+      ],
+      "la": 1.4,
+      "fov": 44,
+      "at": [
+       -3.0,
+       -9.0
+      ]
+     },
+     "sign": {
+      "at": 1.0,
+      "kind": "grey"
+     },
+     "lines": [
+      {
+       "id": "s06_4",
+       "who": "martin",
+       "t": "Somebody is standing behind us. Far back, by the lamp."
+      },
+      {
+       "id": "s06_5",
+       "who": "chris",
+       "t": "Where?"
+      },
+      {
+       "id": "s06_6",
+       "who": "martin",
+       "t": "It is... gone."
+      },
+      {
+       "id": "s06_7",
+       "who": "ingrid",
+       "t": "That will be Håkon. Or Per. Ask somebody else; I know everyone and I do not know that."
+      }
+     ]
+    },
+    {
+     "cam": {
+      "a": 0,
+      "sw": 0,
+      "r": [
+       5.8,
+       5.8
+      ],
+      "h": [
+       1.5,
+       1.5
+      ],
+      "la": 1.4,
+      "fov": 46
+     },
+     "lines": [],
+     "qcam": {
+      "a": 10,
+      "sw": 5,
+      "r": [
+       3.6,
+       3.0
+      ],
+      "h": [
+       1.3,
+       1.3
+      ],
+      "la": 1.2,
+      "fov": 42
+     },
+     "qte": {
+      "type": "mash",
+      "need": 8,
+      "win": 4.5,
+      "title": "Mash to rub your hands warm",
+      "say": {
+       "id": "s06_8",
+       "who": "lykta",
+       "t": "It is very cold. Mash those hands together. Warm them up."
+      },
+      "ok": {
+       "id": "s06_9",
+       "who": "lykta",
+       "t": "Warm. Toasty. Your fingers have forgiven you."
+      },
+      "no": {
+       "id": "s06_10",
+       "who": "lykta",
+       "t": "Still cold. Ingrid hands over a spare mitten, tutting."
+      }
+     }
+    },
+    {
+     "cam": {
+      "a": -10,
+      "sw": 10,
+      "r": [
+       6.4,
+       5.2
+      ],
+      "h": [
+       1.6,
+       1.6
+      ],
+      "la": 1.8,
+      "fov": 46
+     },
+     "lines": [
+      {
+       "id": "s06_11",
+       "who": "lykta",
+       "t": "Today's thing: visit Camp Botnan and look around the tipi village. It is up in the hills east of town."
+      },
+      {
+       "id": "s06_12",
+       "who": "chris",
+       "t": "Warm clothes."
+      },
+      {
+       "id": "s06_13",
+       "who": "martin",
+       "t": "And a friend who does not get followed."
+      }
+     ]
+    }
+   ],
+   "obj": {
+    "head": "SMOKE STRAIGHT UP",
+    "text": "Visit Camp Botnan and look around the tipi village.",
+    "sub": "Up in the hills east of town."
+   },
+   "sign_note": "The colours drain for a moment while a still shape stands far down the street; it is gone with no footprints."
+  },
+  "7": {
+   "title": "Mail from home",
+   "feel": "mixed",
+   "tens": 0.3,
+   "montage": [
+    0,
+    1
+   ],
+   "place": "Chris's street, morning",
+   "stage": {
+    "at": "chris",
+    "tod": "09:15",
+    "wx": "steady",
+    "rot": 20
+   },
+   "cast": {
+    "chris": {
+     "p": [
+      -1.25,
+      0
+     ],
+     "f": 22
+    },
+    "martin": {
+     "p": [
+      1.25,
+      0.15
+     ],
+     "f": -24
+    },
+    "lykta": {
+     "p": [
+      0,
+      0.25
+     ],
+     "y": 1.95
+    }
+   },
+   "npcs": [
+    {
+     "id": "post",
+     "name": "POSTMAN",
+     "v": "folkm",
+     "seed": 71,
+     "cat": "folk",
+     "p": [
+      3.4,
+      0.7
+     ],
+     "f": -55
+    }
+   ],
+   "beats": [
+    {
+     "cam": {
+      "a": 8,
+      "sw": 18,
+      "r": [
+       7.0,
+       5.6
+      ],
+      "h": [
+       1.9,
+       1.6
+      ],
+      "la": 1.4,
+      "fov": 50
+     },
+     "lines": [
+      {
+       "id": "s07_1",
+       "who": "post",
+       "t": "Parcel for number three. It was open when it arrived."
+      },
+      {
+       "id": "s07_2",
+       "who": "chris",
+       "t": "Open how?"
+      },
+      {
+       "id": "s07_3",
+       "who": "post",
+       "t": "Mostly emptied. There is a note."
+      }
+     ]
+    },
+    {
+     "cam": {
+      "a": -14,
+      "sw": -6,
+      "r": [
+       4.0,
+       3.2
+      ],
+      "h": [
+       1.5,
+       1.5
+      ],
+      "la": 1.5,
+      "fov": 42,
+      "at": [
+       -0.6,
+       0.6
+      ]
+     },
+     "lines": [
+      {
+       "id": "s07_4",
+       "who": "chris",
+       "t": "\"Did you get the cookies? Six pepperkaker, in the blue tin. Love, Mum.\""
+      },
+      {
+       "id": "s07_5",
+       "who": "martin",
+       "t": "Six. We have not seen six."
+      },
+      {
+       "id": "s07_6",
+       "who": "chris",
+       "t": "We have not seen one."
+      }
+     ]
+    },
+    {
+     "cam": {
+      "a": 0,
+      "sw": 0,
+      "r": [
+       5.8,
+       5.8
+      ],
+      "h": [
+       1.5,
+       1.5
+      ],
+      "la": 1.4,
+      "fov": 46
+     },
+     "lines": [],
+     "qcam": {
+      "a": 40,
+      "sw": 6,
+      "r": [
+       3.8,
+       3.0
+      ],
+      "h": [
+       1.0,
+       0.8
+      ],
+      "la": 0.7,
+      "fov": 44,
+      "at": [
+       -3.5,
+       -2.5
+      ]
+     },
+     "fx": [
+      [
+       0.3,
+       "chew"
+      ]
+     ],
+     "qte": {
+      "type": "hold",
+      "need": 1.3,
+      "title": "Shh. Hold still. Listen to the floor.",
+      "say": {
+       "id": "s07_7",
+       "who": "lykta",
+       "t": "Shh. Do you hear that? Hold still and listen."
+      },
+      "ok": {
+       "id": "s07_8",
+       "who": "lykta",
+       "t": "Chewing. Wet, patient, enormous chewing. From the cellar window."
+      },
+      "no": {
+       "id": "s07_9",
+       "who": "lykta",
+       "t": "You sneezed. The chewing stopped. That is worse."
+      }
+     }
+    },
+    {
+     "cam": {
+      "a": -10,
+      "sw": 8,
+      "r": [
+       6.0,
+       5.2
+      ],
+      "h": [
+       1.6,
+       1.6
+      ],
+      "la": 1.8,
+      "fov": 46
+     },
+     "sign": {
+      "at": 0.2,
+      "kind": "hush"
+     },
+     "lines": [
+      {
+       "id": "s07_10",
+       "who": "martin",
+       "t": "Chris. Who lives downstairs?"
+      },
+      {
+       "id": "s07_11",
+       "who": "chris",
+       "t": "A neighbour. Quiet. Likes sugar."
+      },
+      {
+       "id": "s07_12",
+       "who": "lykta",
+       "t": "Today's thing: check the mailbox. It is right there. I will wait here; I have no hands."
+      }
+     ]
+    }
+   ],
+   "obj": {
+    "head": "A LITTLE LIGHTER",
+    "text": "Check the mailbox at Chris's building.",
+    "sub": "Press G at the mailbox."
+   },
+   "sign_note": "All the ambient sound drops out for a few seconds, leaving only the chewing under the floor."
+  },
+  "8": {
+   "title": "Under the floorboards",
+   "feel": "mixed",
+   "tens": 0.5,
+   "montage": [
+    0,
+    1
+   ],
+   "place": "the frozen river, in fog",
+   "stage": {
+    "at": "river",
+    "tod": "13:30",
+    "wx": "fog",
+    "rot": 200
+   },
+   "cast": {
+    "chris": {
+     "p": [
+      -1.25,
+      0
+     ],
+     "f": 22
+    },
+    "martin": {
+     "p": [
+      1.25,
+      0.15
+     ],
+     "f": -24
+    },
+    "lykta": {
+     "p": [
+      0,
+      0.25
+     ],
+     "y": 1.95
+    }
+   },
+   "npcs": [
+    {
+     "id": "lord",
+     "name": "LANDLORD",
+     "v": "folkm2",
+     "seed": 81,
+     "cat": "folk",
+     "p": [
+      3.4,
+      0.9
+     ],
+     "f": -55
+    }
+   ],
+   "beats": [
+    {
+     "cam": {
+      "a": 10,
+      "sw": 14,
+      "r": [
+       7.2,
+       5.8
+      ],
+      "h": [
+       1.9,
+       1.6
+      ],
+      "la": 1.4,
+      "fov": 50
+     },
+     "lines": [
+      {
+       "id": "s08_1",
+       "who": "lord",
+       "t": "The ground-floor flat? Deeper than it looks."
+      },
+      {
+       "id": "s08_2",
+       "who": "chris",
+       "t": "Deeper how?"
+      },
+      {
+       "id": "s08_3",
+       "who": "lord",
+       "t": "As deep as you make it."
+      },
+      {
+       "id": "s08_4",
+       "who": "martin",
+       "t": "That is not an answer."
+      },
+      {
+       "id": "s08_5",
+       "who": "lord",
+       "t": "No."
+      }
+     ]
+    },
+    {
+     "cam": {
+      "a": -28,
+      "sw": -12,
+      "r": [
+       5.0,
+       4.0
+      ],
+      "h": [
+       1.6,
+       1.5
+      ],
+      "la": 1.5,
+      "fov": 44,
+      "at": [
+       2.0,
+       0.6
+      ]
+     },
+     "lines": [
+      {
+       "id": "s08_6",
+       "who": "lord",
+       "t": "I would knock myself. But the floor has a sound under it now, and I have stopped."
+      },
+      {
+       "id": "s08_7",
+       "who": "lykta",
+       "t": "And a smell. Old sugar."
+      },
+      {
+       "id": "s08_8",
+       "who": "chris",
+       "t": "Sugar."
+      }
+     ]
+    },
+    {
+     "cam": {
+      "a": 0,
+      "sw": 0,
+      "r": [
+       5.6,
+       5.6
+      ],
+      "h": [
+       1.4,
+       1.4
+      ],
+      "la": 0.8,
+      "fov": 46
+     },
+     "lines": [],
+     "qcam": {
+      "a": 18,
+      "sw": 6,
+      "r": [
+       3.4,
+       2.8
+      ],
+      "h": [
+       1.2,
+       0.8
+      ],
+      "la": 0.2,
+      "fov": 44,
+      "at": [
+       0,
+       1.8
+      ]
+     },
+     "qte": {
+      "type": "ring",
+      "win": 2.0,
+      "title": "KNOCK on the ice as the ring closes",
+      "say": {
+       "id": "s08_9",
+       "who": "lykta",
+       "t": "You want to know how deep it is? Knock on the ice. Politely."
+      },
+      "ok": {
+       "id": "s08_10",
+       "who": "lykta",
+       "t": "Tok. Tok. Tok. The ice answered in a deep, friendly voice. Then it stopped being friendly."
+      },
+      "no": {
+       "id": "s08_11",
+       "who": "lykta",
+       "t": "Tok. The ice said nothing. Then, very far down, it said something."
+      }
+     }
+    },
+    {
+     "cam": {
+      "a": -6,
+      "sw": 10,
+      "r": [
+       6.2,
+       5.0
+      ],
+      "h": [
+       1.6,
+       1.6
+      ],
+      "la": 1.6,
+      "fov": 46
+     },
+     "sign": {
+      "at": 0.5,
+      "kind": "draught"
+     },
+     "lines": [
+      {
+       "id": "s08_12",
+       "who": "martin",
+       "t": "Is it me, or is the fog coming up out of the ground?"
+      },
+      {
+       "id": "s08_13",
+       "who": "chris",
+       "t": "It is the river."
+      },
+      {
+       "id": "s08_14",
+       "who": "martin",
+       "t": "The river is over there."
+      },
+      {
+       "id": "s08_15",
+       "who": "lykta",
+       "t": "Today's thing: listen at the witch's flat. Quietly. And do not knock a fourth time."
+      }
+     ]
+    }
+   ],
+   "obj": {
+    "head": "DEEPER THAN IT LOOKS",
+    "text": "Listen at the witch's flat. Find the trapdoor.",
+    "sub": "Stay quiet. She hates noise."
+   },
+   "sign_note": "A cold draught that seems to come up out of the ground; the fog thickens from below."
+  },
+  "9": {
+   "title": "The big globe",
+   "feel": "mixed",
+   "tens": 0.3,
+   "montage": [
+    0,
+    1
+   ],
+   "place": "Chris's street, late morning",
+   "stage": {
+    "at": "chris",
+    "tod": "11:30",
+    "wx": "clear",
+    "rot": 20
+   },
+   "cast": {
+    "chris": {
+     "p": [
+      -1.25,
+      0
+     ],
+     "f": 22
+    },
+    "martin": {
+     "p": [
+      1.25,
+      0.15
+     ],
+     "f": -24
+    },
+    "lykta": {
+     "p": [
+      0,
+      0.25
+     ],
+     "y": 1.95
+    }
+   },
+   "npcs": [],
+   "beats": [
+    {
+     "cam": {
+      "a": 8,
+      "sw": 18,
+      "r": [
+       6.4,
+       5.0
+      ],
+      "h": [
+       1.8,
+       1.6
+      ],
+      "la": 1.4,
+      "fov": 48
+     },
+     "lines": [
+      {
+       "id": "s09_1",
+       "who": "martin",
+       "t": "Another one from your mum."
+      },
+      {
+       "id": "s09_2",
+       "who": "chris",
+       "t": "A card. A recipe card. \"Ginger, syrup, butter, flour. Baked with the first candle.\""
+      },
+      {
+       "id": "s09_3",
+       "who": "martin",
+       "t": "The first candle?"
+      },
+      {
+       "id": "s09_4",
+       "who": "chris",
+       "t": "She always says that. I thought it was a joke."
+      }
+     ]
+    },
+    {
+     "cam": {
+      "a": -12,
+      "sw": -8,
+      "r": [
+       5.0,
+       4.0
+      ],
+      "h": [
+       1.6,
+       1.5
+      ],
+      "la": 1.5,
+      "fov": 44
+     },
+     "lines": [
+      {
+       "id": "s09_5",
+       "who": "lykta",
+       "t": "A candle is a small fire that somebody agreed to. That is my whole professional opinion."
+      },
+      {
+       "id": "s09_6",
+       "who": "martin",
+       "t": "Crumbs. A trail of crumbs, up the hill."
+      },
+      {
+       "id": "s09_7",
+       "who": "chris",
+       "t": "Gingerbread. Big ones."
+      },
+      {
+       "id": "s09_8",
+       "who": "martin",
+       "t": "Too big for crumbs. These are crumbs of something bigger."
+      }
+     ]
+    },
+    {
+     "cam": {
+      "a": 0,
+      "sw": 0,
+      "r": [
+       5.6,
+       5.6
+      ],
+      "h": [
+       1.4,
+       1.4
+      ],
+      "la": 1.2,
+      "fov": 46
+     },
+     "lines": [],
+     "qcam": {
+      "a": 30,
+      "sw": 6,
+      "r": [
+       4.6,
+       3.8
+      ],
+      "h": [
+       1.6,
+       1.3
+      ],
+      "la": 0.8,
+      "fov": 44,
+      "at": [
+       -0.5,
+       3.0
+      ]
+     },
+     "qte": {
+      "type": "hold",
+      "need": 1.0,
+      "title": "Hold still. Look closely at the crumb.",
+      "say": {
+       "id": "s09_9",
+       "who": "lykta",
+       "t": "Look closely. Hold still and let your eyes adjust."
+      },
+      "ok": {
+       "id": "s09_10",
+       "who": "lykta",
+       "t": "Ginger. Syrup. And one enormous tooth mark, politely rounded."
+      },
+      "no": {
+       "id": "s09_11",
+       "who": "lykta",
+       "t": "A crow got there first. The crow is not sorry."
+      }
+     }
+    },
+    {
+     "cam": {
+      "a": -8,
+      "sw": 10,
+      "r": [
+       6.2,
+       5.2
+      ],
+      "h": [
+       1.6,
+       1.6
+      ],
+      "la": 2.0,
+      "fov": 46
+     },
+     "sign": {
+      "at": 0.3,
+      "kind": "hush"
+     },
+     "lines": [
+      {
+       "id": "s09_12",
+       "who": "martin",
+       "t": "The birds just stopped."
+      },
+      {
+       "id": "s09_13",
+       "who": "chris",
+       "t": "They do that."
+      },
+      {
+       "id": "s09_14",
+       "who": "lykta",
+       "t": "Today's thing: find Globen, the big globe on the hill. The crumbs go that way."
+      }
+     ]
+    }
+   ],
+   "obj": {
+    "head": "GLOBEN",
+    "text": "Find Globen on the hill.",
+    "sub": "Follow the path past the tipi village."
+   },
+   "sign_note": "The birds stop for a few seconds, then start again, a little out of tune."
+  },
+  "10": {
+   "title": "Top of the rock",
+   "feel": "mixed",
+   "tens": 0.4,
+   "montage": [
+    0,
+    1
+   ],
+   "place": "Chris's street, noon",
+   "stage": {
+    "at": "chris",
+    "tod": "12:30",
+    "wx": "clear",
+    "rot": 20
+   },
+   "cast": {
+    "chris": {
+     "p": [
+      -1.25,
+      0
+     ],
+     "f": 22
+    },
+    "martin": {
+     "p": [
+      1.25,
+      0.15
+     ],
+     "f": -24
+    },
+    "lykta": {
+     "p": [
+      0,
+      0.25
+     ],
+     "y": 1.95
+    }
+   },
+   "npcs": [
+    {
+     "id": "neigh",
+     "name": "THE NEIGHBOUR",
+     "v": "old",
+     "seed": 101,
+     "cat": "folk",
+     "p": [
+      4.2,
+      -1.2
+     ],
+     "f": 178,
+     "s": 1.4,
+     "on": [
+      1,
+      2,
+      3
+     ],
+     "lk": {
+      "hat": "beanie",
+      "hatT": "#3a2a40"
+     }
+    }
+   ],
+   "beats": [
+    {
+     "cam": {
+      "a": 8,
+      "sw": 16,
+      "r": [
+       6.8,
+       5.4
+      ],
+      "h": [
+       1.8,
+       1.6
+      ],
+      "la": 1.4,
+      "fov": 48
+     },
+     "lines": [
+      {
+       "id": "s10_1",
+       "who": "chris",
+       "t": "Another letter from Mum. It was open."
+      },
+      {
+       "id": "s10_2",
+       "who": "martin",
+       "t": "And chewed."
+      },
+      {
+       "id": "s10_3",
+       "who": "chris",
+       "t": "Mostly eaten. A stamp and half a sentence."
+      },
+      {
+       "id": "s10_4",
+       "who": "martin",
+       "t": "\"...hope you are keeping warm and...\" And that is all. The rest is gone."
+      }
+     ]
+    },
+    {
+     "cam": {
+      "a": -22,
+      "sw": -10,
+      "r": [
+       5.6,
+       4.6
+      ],
+      "h": [
+       1.5,
+       1.4
+      ],
+      "la": 1.9,
+      "fov": 46,
+      "at": [
+       3.2,
+       -0.6
+      ]
+     },
+     "sign": {
+      "at": 0.6,
+      "kind": "draught"
+     },
+     "lines": [
+      {
+       "id": "s10_5",
+       "who": "chris",
+       "t": "Good morning."
+      },
+      {
+       "id": "s10_6",
+       "who": "neigh",
+       "t": "Good morning, boys. Lovely coat, isn't it?"
+      },
+      {
+       "id": "s10_7",
+       "who": "martin",
+       "t": "It is very big."
+      },
+      {
+       "id": "s10_8",
+       "who": "neigh",
+       "t": "It is the coat. I wear it large."
+      }
+     ]
+    },
+    {
+     "cam": {
+      "a": 0,
+      "sw": 0,
+      "r": [
+       5.8,
+       5.8
+      ],
+      "h": [
+       1.5,
+       1.5
+      ],
+      "la": 1.6,
+      "fov": 46
+     },
+     "lines": [],
+     "qcam": {
+      "a": 22,
+      "sw": 6,
+      "r": [
+       4.8,
+       4.2
+      ],
+      "h": [
+       1.6,
+       1.5
+      ],
+      "la": 1.5,
+      "fov": 44,
+      "at": [
+       2.4,
+       0
+      ]
+     },
+     "qte": {
+      "type": "press",
+      "win": 2.6,
+      "title": "DUCK behind the mailbox! Tap now",
+      "say": {
+       "id": "s10_9",
+       "who": "lykta",
+       "t": "She is turning around. Duck! Now!"
+      },
+      "ok": {
+       "id": "s10_10",
+       "who": "lykta",
+       "t": "Ducked. She admired the mailbox for a long time."
+      },
+      "no": {
+       "id": "s10_11",
+       "who": "lykta",
+       "t": "She looked right at you and waved. Very warmly. Very hungrily."
+      }
+     }
+    },
+    {
+     "cam": {
+      "a": -6,
+      "sw": 8,
+      "r": [
+       6.2,
+       5.0
+      ],
+      "h": [
+       1.6,
+       1.6
+      ],
+      "la": 1.8,
+      "fov": 46
+     },
+     "lines": [
+      {
+       "id": "s10_12",
+       "who": "lykta",
+       "t": "Today's thing: climb Orresteinen, the giant rock above the fjord. It is far. A car helps. Or a jetpack."
+      },
+      {
+       "id": "s10_13",
+       "who": "martin",
+       "t": "Why are we leaving?"
+      },
+      {
+       "id": "s10_14",
+       "who": "chris",
+       "t": "Because I would like to be somewhere with fewer coats."
+      }
+     ]
+    }
+   ],
+   "obj": {
+    "head": "THE LONG WAY DOWN",
+    "text": "Climb Orresteinen above the fjord.",
+    "sub": "It is far. A car helps. Or a jetpack."
+   },
+   "sign_note": "A cold draught as the neighbour steps out, as if the door behind her is open onto somewhere much bigger."
+  },
+  "14": {
+   "title": "Light the lights",
+   "feel": "cozy",
+   "tens": 0.3,
+   "montage": [
+    0,
+    1
+   ],
+   "place": "the square, early evening",
+   "stage": {
+    "at": "tree",
+    "tod": "16:45",
+    "wx": "clear",
+    "rot": 160
+   },
+   "cast": {
+    "chris": {
+     "p": [
+      -1.25,
+      0
+     ],
+     "f": 22
+    },
+    "martin": {
+     "p": [
+      1.25,
+      0.15
+     ],
+     "f": -24
+    },
+    "lykta": {
+     "p": [
+      0,
+      0.25
+     ],
+     "y": 1.95
+    }
+   },
+   "npcs": [
+    {
+     "id": "ela",
+     "name": "TOWNSPERSON",
+     "v": "folkm",
+     "seed": 141,
+     "cat": "folk",
+     "p": [
+      3.5,
+      0.6
+     ],
+     "f": -52
+    },
+    {
+     "id": "elb",
+     "name": "TOWNSPERSON",
+     "v": "folkf",
+     "seed": 142,
+     "cat": "folk",
+     "p": [
+      -3.6,
+      0.9
+     ],
+     "f": 52
+    }
+   ],
+   "beats": [
+    {
+     "cam": {
+      "a": 8,
+      "sw": 18,
+      "r": [
+       8.0,
+       6.0
+      ],
+      "h": [
+       2.2,
+       1.8
+      ],
+      "la": 2.2,
+      "fov": 50
+     },
+     "lines": [
+      {
+       "id": "s14_1",
+       "who": "chris",
+       "t": "Every shop has its lights on. Except the tree."
+      },
+      {
+       "id": "s14_2",
+       "who": "martin",
+       "t": "Tonight is the night!"
+      },
+      {
+       "id": "s14_3",
+       "who": "ela",
+       "t": "Start at the tree. Then one street at a time."
+      }
+     ]
+    },
+    {
+     "cam": {
+      "a": -34,
+      "sw": -14,
+      "r": [
+       5.6,
+       4.6
+      ],
+      "h": [
+       1.7,
+       1.6
+      ],
+      "la": 1.6,
+      "fov": 46
+     },
+     "lines": [
+      {
+       "id": "s14_4",
+       "who": "lykta",
+       "t": "The cinema, the bank, the arcade and the Julerennet are all open today. The town has decided to be pleased."
+      },
+      {
+       "id": "s14_5",
+       "who": "elb",
+       "t": "We have decided to be pleased very carefully."
+      }
+     ]
+    },
+    {
+     "cam": {
+      "a": 0,
+      "sw": 0,
+      "r": [
+       6.2,
+       6.2
+      ],
+      "h": [
+       2.0,
+       2.0
+      ],
+      "la": 2.4,
+      "fov": 46
+     },
+     "lines": [],
+     "qcam": {
+      "a": 8,
+      "sw": 6,
+      "r": [
+       4.8,
+       4.0
+      ],
+      "h": [
+       1.5,
+       1.4
+      ],
+      "la": 1.6,
+      "fov": 44
+     },
+     "qte": {
+      "type": "mash",
+      "need": 9,
+      "win": 4.5,
+      "title": "Mash to crank the old generator",
+      "say": {
+       "id": "s14_6",
+       "who": "lykta",
+       "t": "The tree's old generator needs cranking. Mash!"
+      },
+      "ok": {
+       "id": "s14_7",
+       "who": "lykta",
+       "t": "Lit! Every bulb on the square said hello at once."
+      },
+      "no": {
+       "id": "s14_8",
+       "who": "lykta",
+       "t": "A cough of light, then a lovely wobbly glow. Good enough."
+      }
+     }
+    },
+    {
+     "cam": {
+      "a": -6,
+      "sw": 10,
+      "r": [
+       6.6,
+       5.4
+      ],
+      "h": [
+       1.8,
+       1.8
+      ],
+      "la": 2.2,
+      "fov": 46
+     },
+     "sign": {
+      "at": 0.5,
+      "kind": "dim"
+     },
+     "lines": [
+      {
+       "id": "s14_9",
+       "who": "martin",
+       "t": "Who lit that one? The little window over there."
+      },
+      {
+       "id": "s14_10",
+       "who": "ela",
+       "t": "Not me."
+      },
+      {
+       "id": "s14_11",
+       "who": "elb",
+       "t": "Not me."
+      },
+      {
+       "id": "s14_12",
+       "who": "chris",
+       "t": "A timer."
+      },
+      {
+       "id": "s14_13",
+       "who": "lykta",
+       "t": "...A timer. Yes. Today's thing: walk the town and light the lights, starting at the tree."
+      }
+     ]
+    }
+   ],
+   "obj": {
+    "head": "A LIGHT NOBODY LIT",
+    "text": "Walk the town and light the lights, starting at the tree.",
+    "sub": "The cinema, the arcade and the Julerennet are open too."
+   },
+   "sign_note": "One small window lights itself across the square. A timer, everybody agrees, a little too quickly."
+  },
+  "16": {
+   "title": "The last parcel",
+   "feel": "tense",
+   "tens": 0.6,
+   "montage": [
+    0,
+    1
+   ],
+   "place": "the lookout above downtown",
+   "stage": {
+    "at": "view",
+    "tod": "12:00",
+    "wx": "steady",
+    "rot": 160
+   },
+   "cast": {
+    "chris": {
+     "p": [
+      -1.25,
+      0
+     ],
+     "f": 22
+    },
+    "martin": {
+     "p": [
+      1.25,
+      0.15
+     ],
+     "f": -24
+    },
+    "lykta": {
+     "p": [
+      0,
+      0.25
+     ],
+     "y": 1.95
+    }
+   },
+   "npcs": [
+    {
+     "id": "agent",
+     "name": "MAN IN A BLACK COAT",
+     "v": "folkm2",
+     "seed": 161,
+     "cat": "folk",
+     "p": [
+      -5.5,
+      -9.0
+     ],
+     "f": 18,
+     "on": [
+      1,
+      2,
+      3
+     ],
+     "lk": {
+      "hat": "beanie",
+      "hatT": "#0e0f12"
+     }
+    }
+   ],
+   "beats": [
+    {
+     "cam": {
+      "a": 10,
+      "sw": 14,
+      "r": [
+       8.0,
+       6.4
+      ],
+      "h": [
+       2.0,
+       1.7
+      ],
+      "la": 1.5,
+      "fov": 50
+     },
+     "lines": [
+      {
+       "id": "s16_1",
+       "who": "chris",
+       "t": "The mountain road is closed. There is a fence. Yesterday there was no fence."
+      },
+      {
+       "id": "s16_2",
+       "who": "martin",
+       "t": "A new fence. Very proud of itself."
+      },
+      {
+       "id": "s16_3",
+       "who": "lykta",
+       "t": "The official line is: nothing to worry about. Please stay away."
+      }
+     ]
+    },
+    {
+     "cam": {
+      "a": -30,
+      "sw": -12,
+      "r": [
+       6.0,
+       5.0
+      ],
+      "h": [
+       1.7,
+       1.6
+      ],
+      "la": 1.6,
+      "fov": 46,
+      "at": [
+       -4.0,
+       -6.0
+      ]
+     },
+     "sign": {
+      "at": 0.5,
+      "kind": "grey"
+     },
+     "lines": [
+      {
+       "id": "s16_4",
+       "who": "agent",
+       "t": "Move along, please. Nothing to see."
+      },
+      {
+       "id": "s16_5",
+       "who": "chris",
+       "t": "We are not looking."
+      },
+      {
+       "id": "s16_6",
+       "who": "agent",
+       "t": "Looking is the first step."
+      }
+     ]
+    },
+    {
+     "cam": {
+      "a": 0,
+      "sw": 0,
+      "r": [
+       6.0,
+       6.0
+      ],
+      "h": [
+       1.5,
+       1.5
+      ],
+      "la": 1.5,
+      "fov": 46
+     },
+     "lines": [],
+     "qcam": {
+      "a": 16,
+      "sw": 6,
+      "r": [
+       3.8,
+       3.2
+      ],
+      "h": [
+       1.3,
+       1.2
+      ],
+      "la": 1.3,
+      "fov": 44
+     },
+     "qte": {
+      "type": "hold",
+      "need": 1.5,
+      "title": "Hold still. Be a fence post.",
+      "say": {
+       "id": "s16_7",
+       "who": "lykta",
+       "t": "A black car is slowing down. Hold still. Be a fence post."
+      },
+      "ok": {
+       "id": "s16_8",
+       "who": "lykta",
+       "t": "It rolled on. Probably lost. Probably."
+      },
+      "no": {
+       "id": "s16_9",
+       "who": "lykta",
+       "t": "It stopped. A window slid down one inch, then up again."
+      }
+     }
+    },
+    {
+     "cam": {
+      "a": -6,
+      "sw": 10,
+      "r": [
+       6.4,
+       5.2
+      ],
+      "h": [
+       1.6,
+       1.6
+      ],
+      "la": 1.8,
+      "fov": 46
+     },
+     "lines": [
+      {
+       "id": "s16_10",
+       "who": "chris",
+       "t": "Mum's last parcel is at the mailbox."
+      },
+      {
+       "id": "s16_11",
+       "who": "lykta",
+       "t": "It smells of ginger, and a little of smoke. Today's thing: check the mailbox. Away from the fence."
+      }
+     ]
+    }
+   ],
+   "obj": {
+    "head": "STAY AWAY",
+    "text": "Check the mailbox: the last parcel from Mum.",
+    "sub": "Press G at the mailbox."
+   },
+   "sign_note": "The colours go cold and grey when the man in the black coat steps into view, like a door opening onto winter."
+  },
+  "20": {
+   "title": "The crater",
+   "feel": "tense",
+   "tens": 0.85,
+   "montage": [
+    0,
+    1
+   ],
+   "place": "the frozen river, looking at the mountain",
+   "stage": {
+    "at": "river",
+    "tod": "10:00",
+    "wx": "steady",
+    "rot": 280
+   },
+   "cast": {
+    "chris": {
+     "p": [
+      -1.25,
+      0
+     ],
+     "f": 22
+    },
+    "martin": {
+     "p": [
+      1.25,
+      0.15
+     ],
+     "f": -24
+    },
+    "lykta": {
+     "p": [
+      0,
+      0.25
+     ],
+     "y": 1.95
+    }
+   },
+   "npcs": [
+    {
+     "id": "walk",
+     "name": "DOG OWNER",
+     "v": "folkf",
+     "seed": 201,
+     "cat": "folk",
+     "p": [
+      3.4,
+      0.7
+     ],
+     "f": -55
+    }
+   ],
+   "beats": [
+    {
+     "cam": {
+      "a": 6,
+      "sw": 8,
+      "r": [
+       7.0,
+       6.0
+      ],
+      "h": [
+       1.5,
+       1.3
+      ],
+      "la": 1.4,
+      "fov": 50
+     },
+     "lines": [
+      {
+       "id": "s20_1",
+       "who": "chris",
+       "t": "Do you hear it?"
+      },
+      {
+       "id": "s20_2",
+       "who": "martin",
+       "t": "No."
+      },
+      {
+       "id": "s20_3",
+       "who": "chris",
+       "t": "Exactly. No birds. No dogs. No wind."
+      }
+     ]
+    },
+    {
+     "cam": {
+      "a": -28,
+      "sw": -10,
+      "r": [
+       5.0,
+       4.2
+      ],
+      "h": [
+       1.5,
+       1.4
+      ],
+      "la": 1.5,
+      "fov": 44,
+      "at": [
+       2.0,
+       0.6
+      ]
+     },
+     "lines": [
+      {
+       "id": "s20_4",
+       "who": "walk",
+       "t": "My dog will not leave the cellar. She looks at the mountain, then at me."
+      },
+      {
+       "id": "s20_5",
+       "who": "martin",
+       "t": "Dogs know things."
+      },
+      {
+       "id": "s20_6",
+       "who": "walk",
+       "t": "She has never looked at me like that."
+      }
+     ]
+    },
+    {
+     "cam": {
+      "a": 0,
+      "sw": 0,
+      "r": [
+       5.4,
+       5.4
+      ],
+      "h": [
+       1.3,
+       1.3
+      ],
+      "la": 1.5,
+      "fov": 46
+     },
+     "lines": [],
+     "qcam": {
+      "a": 12,
+      "sw": 4,
+      "r": [
+       3.4,
+       2.8
+      ],
+      "h": [
+       1.1,
+       1.0
+      ],
+      "la": 1.4,
+      "fov": 42
+     },
+     "qte": {
+      "type": "hold",
+      "need": 1.9,
+      "title": "Hold your breath. Be very quiet.",
+      "say": {
+       "id": "s20_7",
+       "who": "lykta",
+       "t": "Be ready for quiet. Hold your breath. Hold it."
+      },
+      "ok": {
+       "id": "s20_8",
+       "who": "lykta",
+       "t": "Nothing noticed you. Nothing. You tell yourself that."
+      },
+      "no": {
+       "id": "s20_9",
+       "who": "lykta",
+       "t": "You breathed out. Far away, very slowly, something turned its head."
+      }
+     }
+    },
+    {
+     "cam": {
+      "a": -8,
+      "sw": 8,
+      "r": [
+       5.8,
+       5.0
+      ],
+      "h": [
+       1.2,
+       1.2
+      ],
+      "la": 2.2,
+      "fov": 46
+     },
+     "sign": {
+      "at": 0.2,
+      "kind": "hush"
+     },
+     "lines": [
+      {
+       "id": "s20_10",
+       "who": "lykta",
+       "t": "I do not like slow things that do not stop."
+      },
+      {
+       "id": "s20_11",
+       "who": "lykta",
+       "t": "Today's thing: go and look at the crater. Then run."
+      }
+     ]
+    }
+   ],
+   "obj": {
+    "head": "BE READY FOR QUIET",
+    "text": "Go and look at the crater.",
+    "sub": "Stay on the flank. Then run."
+   },
+   "sign_note": "The sound drops out completely and the ground gives a very slow, very low tremor."
+  },
+  "22": {
+   "title": "Slightly embarrassed lights",
+   "feel": "mixed",
+   "tens": 0.45,
+   "montage": [
+    0,
+    1
+   ],
+   "place": "the town hall, morning",
+   "stage": {
+    "at": "hall",
+    "tod": "10:00",
+    "wx": "clear",
+    "rot": 160
+   },
+   "cast": {
+    "chris": {
+     "p": [
+      -1.25,
+      0
+     ],
+     "f": 22
+    },
+    "martin": {
+     "p": [
+      1.25,
+      0.15
+     ],
+     "f": -24
+    },
+    "lykta": {
+     "p": [
+      0,
+      0.25
+     ],
+     "y": 1.95
+    }
+   },
+   "npcs": [
+    {
+     "id": "cop1",
+     "name": "OFFICER",
+     "v": "police",
+     "seed": 221,
+     "cat": "pol",
+     "p": [
+      3.4,
+      0.7
+     ],
+     "f": -55,
+     "role": "police"
+    },
+    {
+     "id": "cop2",
+     "name": "OFFICER",
+     "v": "police",
+     "seed": 222,
+     "cat": "pol",
+     "p": [
+      5.0,
+      -0.6
+     ],
+     "f": -62,
+     "role": "police"
+    }
+   ],
+   "beats": [
+    {
+     "cam": {
+      "a": 8,
+      "sw": 16,
+      "r": [
+       7.6,
+       6.0
+      ],
+      "h": [
+       2.0,
+       1.7
+      ],
+      "la": 2.2,
+      "fov": 50
+     },
+     "sign": {
+      "at": 1.2,
+      "kind": "flickersoft"
+     },
+     "lines": [
+      {
+       "id": "s22_1",
+       "who": "chris",
+       "t": "The lights are back."
+      },
+      {
+       "id": "s22_2",
+       "who": "martin",
+       "t": "Some of them are embarrassed."
+      },
+      {
+       "id": "s22_3",
+       "who": "lykta",
+       "t": "They are. Look at the third one. It is trying to hide behind the tree."
+      }
+     ]
+    },
+    {
+     "cam": {
+      "a": -32,
+      "sw": -12,
+      "r": [
+       5.4,
+       4.4
+      ],
+      "h": [
+       1.7,
+       1.6
+      ],
+      "la": 1.6,
+      "fov": 46,
+      "at": [
+       3.4,
+       0.4
+      ]
+     },
+     "lines": [
+      {
+       "id": "s22_4",
+       "who": "cop1",
+       "t": "The case is closed. We have the answer."
+      },
+      {
+       "id": "s22_5",
+       "who": "martin",
+       "t": "What was the question?"
+      },
+      {
+       "id": "s22_6",
+       "who": "cop1",
+       "t": "That is not how it works."
+      },
+      {
+       "id": "s22_7",
+       "who": "chris",
+       "t": "Is the answer right?"
+      },
+      {
+       "id": "s22_8",
+       "who": "cop1",
+       "t": "The police are sure."
+      }
+     ]
+    },
+    {
+     "cam": {
+      "a": 0,
+      "sw": 0,
+      "r": [
+       6.0,
+       6.0
+      ],
+      "h": [
+       1.7,
+       1.7
+      ],
+      "la": 1.8,
+      "fov": 46
+     },
+     "lines": [],
+     "qcam": {
+      "a": 14,
+      "sw": 6,
+      "r": [
+       4.4,
+       3.8
+      ],
+      "h": [
+       1.5,
+       1.4
+      ],
+      "la": 1.5,
+      "fov": 44
+     },
+     "qte": {
+      "type": "press",
+      "win": 2.4,
+      "title": "WAVE BACK! Tap now",
+      "say": {
+       "id": "s22_9",
+       "who": "lykta",
+       "t": "Someone is waving from a window. Wave back before they lose their nerve!"
+      },
+      "ok": {
+       "id": "s22_10",
+       "who": "lykta",
+       "t": "Waved. They beamed. Somewhere a kettle went on."
+      },
+      "no": {
+       "id": "s22_11",
+       "who": "lykta",
+       "t": "A late wave. Awkward. Still warm, though. Still counts."
+      }
+     }
+    },
+    {
+     "cam": {
+      "a": -6,
+      "sw": 10,
+      "r": [
+       6.4,
+       5.2
+      ],
+      "h": [
+       1.6,
+       1.6
+      ],
+      "la": 1.8,
+      "fov": 46
+     },
+     "lines": [
+      {
+       "id": "s22_12",
+       "who": "lykta",
+       "t": "Warm is a team sport. Today's thing: check on a neighbour, starting with the flat next door."
+      },
+      {
+       "id": "s22_13",
+       "who": "chris",
+       "t": "Next door is the lady with the cookies."
+      },
+      {
+       "id": "s22_14",
+       "who": "martin",
+       "t": "Good. I hope there are cookies."
+      }
+     ]
+    }
+   ],
+   "obj": {
+    "head": "SLIGHTLY EMBARRASSED LIGHTS",
+    "text": "Check on a neighbour, starting with the flat next door.",
+    "sub": "Coins can wait. Bring a few for the cafe if you like."
+   },
+   "sign_note": "A few of the lamps flick on and off sheepishly, like a bad joke told twice."
+  },
+  "101": {
+   "title": "The Mayor",
+   "feel": "eerie-cozy",
+   "tens": 0.0,
+   "nocard": true,
+   "loc": "DOWNTOWN · THE SQUARE",
+   "place": "the square, dusk",
+   "montage": [],
+   "stage": {
+    "at": [
+     5.4,
+     15
+    ],
+    "tod": "17:10",
+    "wx": "light",
+    "rot": 90
+   },
+   "cast": {
+    "chris": {
+     "p": [
+      -1.5,
+      1.7
+     ],
+     "f": 172
+    },
+    "martin": {
+     "p": [
+      1.5,
+      1.9
+     ],
+     "f": 188
+    },
+    "lykta": {
+     "p": [
+      2.6,
+      0.6
+     ],
+     "y": 2.05
+    }
+   },
+   "npcs": [
+    {
+     "id": "mayor",
+     "name": "THE MAYOR",
+     "v": "mayor",
+     "seed": 1,
+     "cat": "folk",
+     "p": [
+      0,
+      0
+     ],
+     "f": 0,
+     "walk": [
+      -5.5,
+      -3.2
+     ],
+     "mayor": 1
+    }
+   ],
+   "beats": [
+    {
+     "cam": {
+      "a": -30,
+      "sw": 16,
+      "r": [
+       7.2,
+       6.0
+      ],
+      "h": [
+       2.5,
+       2.1
+      ],
+      "la": 1.55,
+      "fov": 50
+     },
+     "lines": [
+      {
+       "id": "m1_1",
+       "who": "mayor",
+       "t": "Chris! Martin! You came! Look at you, standing in my square."
+      },
+      {
+       "id": "m1_2",
+       "who": "mayor",
+       "t": "I am the mayor. Everything is perfect. Absolutely perfect. Welcome to downtown!"
+      }
+     ]
+    },
+    {
+     "cam": {
+      "a": 24,
+      "sw": -10,
+      "r": [
+       5.4,
+       4.4
+      ],
+      "h": [
+       2.0,
+       1.9
+      ],
+      "la": 1.7,
+      "fov": 46
+     },
+     "lines": [
+      {
+       "id": "m1_3",
+       "who": "martin",
+       "t": "Um. The tree just went dark."
+      },
+      {
+       "id": "m1_4",
+       "who": "mayor",
+       "t": "Resting! The lights are resting. They worked so hard all November."
+      },
+      {
+       "id": "m1_5",
+       "who": "chris",
+       "t": "Where is everybody? The street is empty."
+      },
+      {
+       "id": "m1_6",
+       "who": "mayor",
+       "t": "Exactly where they should be. Indoors. Nobody is hiding. That would be weird, and nothing weird ever happens here."
+      }
+     ]
+    },
+    {
+     "cam": {
+      "a": -32,
+      "sw": 10,
+      "r": [
+       4.6,
+       4.0
+      ],
+      "h": [
+       1.9,
+       1.9
+      ],
+      "la": 1.75,
+      "fov": 44
+     },
+     "lines": [
+      {
+       "id": "m1_7",
+       "who": "lykta",
+       "t": "Mayor, my sensors report a great deal of quiet."
+      },
+      {
+       "id": "m1_8",
+       "who": "mayor",
+       "t": "Peace and quiet! Lovely. We had a goose once. It was fine."
+      },
+      {
+       "id": "m1_9",
+       "who": "martin",
+       "t": "A woman on a broom just wrecked all the decorations."
+      }
+     ]
+    },
+    {
+     "cam": {
+      "a": 5,
+      "sw": -4,
+      "r": [
+       3.9,
+       3.1
+      ],
+      "h": [
+       1.5,
+       1.4
+      ],
+      "la": 1.42,
+      "fov": 42
+     },
+     "sign": {
+      "at": 9.0,
+      "kind": "dim"
+     },
+     "lines": [
+      {
+       "id": "m1_10",
+       "who": "mayor",
+       "t": "Wind! Lovely, hat-wearing wind. We get it every year."
+      },
+      {
+       "id": "m1_11",
+       "who": "mayor",
+       "t": "The tree lot is open. Pick a nice one and go home before it gets late. Not because of anything."
+      },
+      {
+       "id": "m1_12",
+       "who": "mayor",
+       "t": "I will be right here. I am always right here. Smile!"
+      }
+     ]
+    }
+   ],
+   "obj": {
+    "head": "",
+    "text": "",
+    "sub": ""
+   }
+  }
+ }
+}

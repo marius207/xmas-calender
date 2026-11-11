@@ -6,74 +6,74 @@
    "witch"
   ],
   "12": [
-   "daycard",
+   "newsopen",
    "witchboss"
   ],
   "2": [
-   "daycard"
+   "newsopen"
   ],
   "3": [
-   "daycard"
+   "newsopen"
   ],
   "4": [
-   "daycard"
+   "newsopen"
   ],
   "5": [
-   "daycard"
+   "newsopen"
   ],
   "6": [
-   "daycard"
+   "newsopen"
   ],
   "7": [
-   "daycard"
+   "newsopen"
   ],
   "8": [
-   "daycard"
+   "newsopen"
   ],
   "9": [
-   "daycard"
+   "newsopen"
   ],
   "10": [
-   "daycard"
+   "newsopen"
   ],
   "11": [
-   "daycard"
+   "newsopen"
   ],
   "13": [
-   "daycard"
+   "newsopen"
   ],
   "14": [
-   "daycard"
+   "newsopen"
   ],
   "15": [
    "meteor"
   ],
   "16": [
-   "daycard"
+   "newsopen"
   ],
   "17": [
-   "daycard"
+   "newsopen"
   ],
   "18": [
-   "daycard"
+   "newsopen"
   ],
   "19": [
-   "daycard"
+   "newsopen"
   ],
   "20": [
-   "daycard"
+   "newsopen"
   ],
   "21": [
-   "daycard"
+   "newsopen"
   ],
   "22": [
-   "daycard"
+   "newsopen"
   ],
   "23": [
-   "daycard"
+   "newsopen"
   ],
   "24": [
-   "daycard"
+   "newsopen"
   ]
  },
  "notes": {
@@ -81,6 +81,6 @@
   "12": "Day card first, then the witch boss fight opener (not made yet: job witchfinale).",
   "?": "The meteor day opener ('meteor') is made but unassigned: Marius decides which day.",
   "15": "Meteor night: the 'meteor' opener (88 s, QTE) replaces the day card; all-day loudspeakers and sirens before the impact (meteornight, 4 Nov).",
-  "2": "Days 2-24 start with the generic 'daycard' opener (title + Lykta line + one TV peek, 6 s, skippable); special openers replace it day by day."
+  "2": "Days 2-14, 16-24: 'newsopen' = the Downtown News montage of the valley (data/day_openers.json, job dayopeners, 5 Nov). Day 12 plays it, then the witch boss. 'daycard' is still available in the dropdown."
  }
 }

@@ -1,0 +1,23 @@
+{
+ "_note": "Job nissebridge (4 Nov 2026): the clans' peace quest (18 Dec). Lykta lines (English, she is honest about what she does not know) and the quest wording. The chiefs' spoken lines live in data/nisse_lines.json (ids rb_* Gammel-Rod, bb_* Mor Bla, kind 'bridge'; voices voice/nisse/<id>.m4a).",
+ "lykta": {
+  "prints1": "Grey footprints. Cold ones. Five toes, no boots, and bigger than any nisse foot I have ever lit. I do not know whose they are, and I would like it noted that I tried to remember.",
+  "prints2": "The same prints. Same stride, same cold. Whatever walks here walks in both caves. So it is not the reds and it is not the blues. It is neither of them, which is worse.",
+  "printsAgain": "Still grey. Still cold. Still not a nisse. I have nothing new to add, but I enjoy saying it.",
+  "firstAgreed": "One chief says yes. The other has to say yes too. Nisse politics. It is like the NCC, with beards.",
+  "summoned": "Both are agreed. They went ahead by nisse shortcuts. Do not ask me where those go; I have never been allowed to follow. Meet them at the church.",
+  "table": "Sit. Both of you. I would knock your heads together, but I have no hands. Cards will do. Kvent decides, not hats.",
+  "gunvald": "Gunvald is on the third stool. You cannot see him. He is very good at not being seen; that is half of bluffing.",
+  "peace": "One table. One coffee pot. In this valley that counts as a peace treaty. And I notice the footprints do not stop at the caves. Keep me lit.",
+  "retry": "The cards are still on the table. Sit down when you are ready.",
+  "skipMatch": "The cards are ready, but this machine has no Kvent. Never mind: they have decided to be sensible. It happens about once a century."
+ },
+ "toast": {
+  "need": "Two hats: look at the grey footprints in both caves, and hear both chiefs out",
+  "red": "Gammel-Rød, the red chief, waits by the fire in the red cave (north-west).",
+  "blue": "Mor Blå, the blue chief, waits by the fire in the blue cave (south-east).",
+  "church": "Both chiefs are waiting at the church. Sit down at the table.",
+  "peace": "The clans are at peace",
+  "runes": "The nisser teach you their runes"
+ }
+}

@@ -1,6 +1,330 @@
 {
  "entries": [
   {
+   "date": "2026-11-11",
+   "time": "13:25",
+   "title": "Your builder work is all there",
+   "items": [
+    "Checked every block and thing saved from the Dev panel against the real world: 109 blocks around Chris's house (under the floor and the porch) had been wiped at load and are back now.",
+    "The 9 snowball piles near Hamrevarden and the 2 treasure chests by the town hall were missing and now appear.",
+    "Two street trees you had hidden in the square no longer pop back after the road smoothing."
+   ]
+  },
+  {
+   "date": "2026-11-11",
+   "time": "12:26",
+   "title": "One clear set of keys",
+   "items": [
+    "L is the flashlight again. Santa's Nice List moved to the comma key (also in the menu, and the star at the top).",
+    "Notes are on B, the bauble collection is on J, and in a car B is the horn while holding the full stop key looks behind.",
+    "The controls screen and the key hints now come from one list, so they always match the real keys."
+   ]
+  },
+  {
+   "date": "2026-11-11",
+   "time": "12:03",
+   "title": "Everything Lykta says is spoken",
+   "items": [
+    "Lykta now says her task, tip and warning lines out loud in her own voice, with the bubble as the subtitle",
+    "Phone calls from people who ring you with a job now speak when you pick up",
+    "A call line is no longer lost when another voice is talking at that moment",
+    "The witch in the card game now speaks her lines"
+   ]
+  },
+  {
+   "date": "2026-11-11",
+   "time": "11:40",
+   "title": "Streetlights on every road",
+   "items": [
+    "Streetlights now stand along the main road and the bigger roads all the way, not just in town, with a warm glow in the air and a pool of light on the road and snow",
+    "The orange snow poles glow a little at night",
+    "Tunnels have a warm pool of light under every ceiling lamp",
+    "Car headlights reach further"
+   ]
+  },
+  {
+   "date": "2026-11-11",
+   "time": "11:23",
+   "title": "Night Wing waits for its day",
+   "items": [
+    "The black flying car no longer sits by the square before its day. It shows up on the day it is meant to, and not before."
+   ]
+  },
+  {
+   "date": "2026-11-11",
+   "time": "11:23",
+   "title": "Softer snow banks",
+   "items": [
+    "Driving into the snow banks at the side of the road is now one soft, muffled thump instead of a loud crash, and it no longer gives points.",
+    "Snow on a car roof from a tree crash now pays its small bonus at most once every 20 seconds."
+   ]
+  },
+  {
+   "date": "2026-11-11",
+   "time": "10:40",
+   "title": "Tunnels fixed",
+   "items": [
+    "Tunnels now start and end where the real map says, not up to 60 m too long",
+    "Tunnels have a proper roof and walls all the way, no more open sky inside them",
+    "The road floor no longer floats: solid support under raised tunnel floors"
+   ]
+  },
+  {
+   "date": "2026-11-11",
+   "time": "09:30",
+   "title": "Calmer town voices",
+   "items": [
+    "At most two villagers talk at once, they stop for cutscenes and fade when you walk away.",
+    "Money and loot from villagers and trolls now has a daily limit."
+   ]
+  },
+  {
+   "date": "2026-11-11",
+   "time": "09:30",
+   "title": "Fairer scares and fights",
+   "items": [
+    "Kids dodge snowballs and laugh.",
+    "Hollows cannot be escaped by opening the inventory, trolls cannot club through rock and give you a moment after you wake up, witch gifts can no longer knock you out, and the dragon warns you before a swoop."
+   ]
+  },
+  {
+   "date": "2026-11-11",
+   "time": "09:30",
+   "title": "Music and sound polish",
+   "items": [
+    "The Music volume slider now really changes the town, area and zone music.",
+    "In the dark woods the calm music now steps aside for the scary sounds, and two silences can no longer leave the game stuck quiet.",
+    "Smoother music changes (no swell, gentler fades) and a low hum instead of tuba in the forest at night.",
+    "A few loud music tracks were turned down to match the rest.",
+    "Sound comes back by itself after a phone call or switching apps.",
+    "Music ducks gently under cutscene voices and when the inventory or phone is open."
+   ]
+  },
+  {
+   "date": "2026-11-11",
+   "time": "08:03",
+   "title": "A calmer screen: the new HUD",
+   "items": [
+    "Calm walks now show just your hearts, a round map, the hotbar and your phone clock. Money, spirit and nice-list chips pop up when they change, or while you hold Tab.",
+    "Hearts moved to the top-left, the map is round with a compass mark, and the clock lives on the phone only.",
+    "Subtitles, hints and prompts each have one fixed place, one at a time, so they no longer cover your hearts or each other.",
+    "Cutscenes, shop, inventory, map and phone now hide the rest of the screen instead of letting it show through.",
+    "In the car: speedometer in its own corner with the speed limit, the radio is a short banner, and the hotbar and crosshair step aside.",
+    "Wanted stars sit under the map; at 3 stars the screen edge pulses blue and red. Police texts go quietly into the phone instead of popping it open.",
+    "One banner for messages at the top, and one slim quest line with its distance. Small deadpan lines like Hungry. Mildly.",
+    "Pixel icons instead of emoji, two fonts, bigger touch targets on phones, and Settings shows players only what they need."
+   ]
+  },
+  {
+   "date": "2026-11-11",
+   "time": "07:24",
+   "title": "Real sounds for the town",
+   "items": [
+    "Footsteps on wooden floors, stone and tile, and on sand, dirt and grass are now real recordings instead of computer-made ones.",
+    "Houses hum and tick: a fridge hums, a wall clock ticks, a fireplace crackles when you stand close.",
+    "Cars: a real door thunk and engine start when you get in, the door when you get out, a real horn and real brake squeal.",
+    "More doors, including a spooky creaking hinge you may hear late at night.",
+    "Thin ice crackles now and then under your feet, wind in the pines is a longer natural sound, and the sleigh bell really jingles.",
+    "Real animals: owls, foxes, sheep, squirrels, deer, reindeer, gulls, eagles, hares and moose now sound like the real thing, and a far-off foghorn is a real recording.",
+    "Snow thumps off branches and bins clunk with real recordings."
+   ]
+  },
+  {
+   "date": "2026-11-11",
+   "time": "07:16",
+   "title": "No more lost lines",
+   "items": [
+    "The nisse thank-you gift line and the solstice captions now always get their voice."
+   ]
+  },
+  {
+   "date": "2026-11-11",
+   "time": "06:04",
+   "title": "Quieter during scenes",
+   "items": [
+    "Townspeople, shopkeepers and the smash shouts now stay quiet during cutscenes, on the phone and when you are down."
+   ]
+  },
+  {
+   "date": "2026-11-11",
+   "time": "05:56",
+   "title": "Witch in the cellar gives a warning",
+   "items": [
+    "When the witch turns on you down in the cellar there is now a short moment to react before she can strike."
+   ]
+  },
+  {
+   "date": "2026-11-11",
+   "time": "05:20",
+   "title": "Fairer hits",
+   "items": [
+    "You can no longer be hit twice in the same instant.",
+    "Nothing can hurt you during cutscenes, menus-in-scenes or in the first moment after you wake up."
+   ]
+  },
+  {
+   "date": "2026-11-10",
+   "time": "08:09",
+   "title": "Final story check",
+   "items": [
+    "Neighbours now share a bit of town gossip on the days it happens (the post being eaten, the cellar, the sky, the men in black coats, the grey lights).",
+    "The witch's chores game on Chris's fridge is closed once the spell is broken (from 13 December), and pays its 200 kr once a day."
+   ]
+  },
+  {
+   "date": "2026-11-10",
+   "time": "07:59",
+   "title": "Everybody talks when they should, and only then",
+   "items": [
+    "The Kvent card opponents (Kåre, Pins-Per, Sven, Ola, Ingeborg, Brit, Gunvald, Stempelsen and the Frost Troll) now say their lines out loud, in English and Norwegian.",
+    "Gertrud's cottage scenes have real voice files now (and Lykta in them), and the solstice night is voiced: Lykta, Gammel-Rød, Mor Blå, Pelle, the lost neighbours, Aasland and Vik.",
+    "156 townsperson lines that had been rewritten into the local dialect now sound like their subtitle again.",
+    "Lykta waits until a villager has finished talking, and after the witch is beaten she no longer talks as if the witch is around the corner: the old flat gets its own comments about Gertrud.",
+    "Nisse, Gertrud and Santa voices follow the voices volume slider, and Gertrud and Santa stay quiet while a scene is fast-forwarded."
+   ]
+  },
+  {
+   "date": "2026-11-10",
+   "time": "07:23",
+   "title": "The town hall has its real front door",
+   "items": [
+    "The Rådhus now has the proper entrance from real life under the RÅDHUS letters: a glass canopy with steel ribs on two slim columns, a teal glass double door that slides open when you walk up, and a doorway you can actually walk through into the hall.",
+    "Red-framed wooden benches and snowy flower bowls stand either side of the door."
+   ]
+  },
+  {
+   "date": "2026-11-10",
+   "time": "07:22",
+   "title": "Settings panel is resizable and tidy",
+   "items": [
+    "Drag any corner or edge of the Settings panel to make it bigger or smaller; it remembers its size, and double-clicking the title resets it.",
+    "New search box and A-/A+ text size at the top; every button now has a plain label and a tooltip, sorted into clearer sections."
+   ]
+  },
+  {
+   "date": "2026-11-10",
+   "time": "06:54",
+   "title": "Creature events panel",
+   "items": [
+    "Settings > CREATURE EVENTS now has a preview button for every creature: 14 woods creatures, 16 sightings, Wild Hunt, Mare, the Hush, 3 dragon scenes, frost trolls, Rødnisser/Blånisser, Hollows, capercaillie and wildlife",
+    "Each button stages the real interaction in front of you (Gentle mode and a health floor while previewing); Return and Clear buttons at the top"
+   ]
+  },
+  {
+   "date": "2026-11-10",
+   "time": "06:44",
+   "title": "Lykta has way more to say",
+   "items": [
+    "Lykta now has 20 to 30 different things to say for every moment (flying, crashing, chests, quests, police, places, bus, Mamma's letters and more), up from 2 to 5, all spoken aloud.",
+    "She no longer repeats a line until she has said all the others, and she remembers that even if you reload.",
+    "New calm chatter while you drive, and now and then a remark about the day, the night or the snow while you walk about."
+   ]
+  },
+  {
+   "date": "2026-11-10",
+   "time": "06:40",
+   "title": "The Mayor on day 1",
+   "items": [
+    "When you go downtown for the Christmas tree on the first day, you meet the Mayor: warm, chatty, wearing her chain of office with the town shield, and absolutely sure that everything is fine.",
+    "About a minute of talk with subtitles; hold Right to speed it up, double-tap Right or Esc to skip. It only plays once."
+   ]
+  },
+  {
+   "date": "2026-11-10",
+   "time": "05:28",
+   "title": "The Cloaks",
+   "items": [
+    "From the fourth day on, now and then something huge and dark glides slowly across the night sky. It never looks at you.",
+    "A new setting in the Threshold section: Sky wraiths Full / Gentle / Off. Gentle keeps the sky crossings only.",
+    "Townspeople have started to talk about what they saw up there."
+   ]
+  },
+  {
+   "date": "2026-11-10",
+   "time": "05:05",
+   "title": "Christmas Eve",
+   "items": [
+    "Something old is waiting at the end of the Liland road. Come by on 24 December.",
+    "Candles at the graveyard at dusk.",
+    "A closing scene at the tree. Every scene can be skipped: hold Right for 4x, or double-tap to jump to the end."
+   ]
+  },
+  {
+   "date": "2026-11-09",
+   "time": "22:24",
+   "title": "The opening flight starts out over the fjord",
+   "items": [
+    "The opening now begins in darkness, far out over the fjord: the picture fades up from black over a few seconds while you glide in under the moon and the northern lights, with nothing but the sound of the wind.",
+    "The music joins as you reach the old starting point, and the rest of the opening is exactly as before."
+   ]
+  },
+  {
+   "date": "2026-11-09",
+   "time": "21:22",
+   "title": "Christmas Eve night has an ending",
+   "items": [
+    "A last surprise is waiting for the night of the 24th.",
+    "Nothing changes before the day itself."
+   ]
+  },
+  {
+   "date": "2026-11-09",
+   "time": "20:21",
+   "title": "A long night and a quiet morning",
+   "items": [
+    "Two late-December days now have more going on: some old fires, some new neighbours, and one official statement.",
+    "Nothing changes before the day itself."
+   ]
+  },
+  {
+   "date": "2026-11-09",
+   "time": "20:21",
+   "title": "A little scene every morning",
+   "items": [
+    "Opening a door now plays a short news report, then a scene with Chris, Martin, Lykta and whoever is around, with one quick button moment, and ends on a card that tells you today's thing to do.",
+    "The button moment is forgiving: a miss never stops anything, it only changes a line. Hold Right to speed up, double-tap or press Esc to skip to the card.",
+    "A few days are done so far; the rest keep their short news report for now."
+   ]
+  },
+  {
+   "date": "2026-11-09",
+   "time": "20:18",
+   "title": "Something is out there",
+   "items": [
+    "A surprise for the last days before Christmas is in. Nothing to see before the 20th.",
+    "The woods get a little bolder in the days around it."
+   ]
+  },
+  {
+   "date": "2026-11-09",
+   "time": "19:51",
+   "title": "Something is off",
+   "items": [
+    "Every day, now and then, the lights flicker for a moment and the colour drains from the world. Nobody mentions it. Usually.",
+    "There is a new setting under Threshold World: Threshold glimpses Full, Gentle or Off. Gentle is one slow dim with no flicker."
+   ]
+  },
+  {
+   "date": "2026-11-09",
+   "time": "19:24",
+   "title": "A morning of candles",
+   "items": [
+    "Fresh lussekatter at the bakery for one day only.",
+    "A faint gold shimmer in the night air after a certain December day.",
+    "Posten is hiring after a quiet stretch.",
+    "The old stones by the church have something to say."
+   ]
+  },
+  {
+   "date": "2026-11-09",
+   "time": "19:10",
+   "title": "Morning news",
+   "items": [
+    "Every day now opens with a short news report from Downtown News: a flight over the valley, the people in it, and an anchor with the headline. Hold Right to speed it up, press Esc to skip it. It plays once, when you open the day's door.",
+    "At the end Lykta tells you today's thing to do. It is always optional."
+   ]
+  },
+  {
    "date": "2026-11-09",
    "time": "18:49",
    "title": "Two new cabinets",
