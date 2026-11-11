@@ -2,6 +2,16 @@
  "entries": [
   {
    "date": "2026-11-11",
+   "time": "19:15",
+   "title": "Tunnel mouths fixed (Feda to town)",
+   "items": [
+    "Tunnel portals now sit at the height of the road outside, so no more steep ramp up to a floating tunnel mouth (Feda, Kleven, Lervik and others)",
+    "Where a tunnel runs out of mountain (Oyesletta by the fjord) the roof and walls stop and the road is open, with a frame where the mountain starts",
+    "Tunnel lengths still match the real map"
+   ]
+  },
+  {
+   "date": "2026-11-11",
    "time": "18:20",
    "title": "Streetlights: first-mission road fully lit",
    "items": [

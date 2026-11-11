@@ -619,7 +619,7 @@ window.__devEff=eff;
 const isPhone=()=>eff()==='phone';
 const sync=()=>{try{document.body.classList.toggle('ph',isPhone());}catch(e){}};
 /* version label: the deploy script replaces the placeholder below; an unreplaced build shows DEV BUILD */
-const VRAW='11 Nov 2026 18:22';
+const VRAW='11 Nov 2026 19:22';
 const VER=(VRAW.indexOf('__BUILD'+'_')===0)?'DEV BUILD':VRAW;
 window.__VERSION=VER;
 const pill=()=>{const b=document.createElement('button');b.type='button';b.className='verpill';b.textContent=VER;b.title='Tap to copy';b.setAttribute('aria-label','Game version '+VER);b.addEventListener('click',e=>{e.stopPropagation();try{navigator.clipboard&&navigator.clipboard.writeText(VER);}catch(_){}});return b;};
@@ -1648,7 +1648,7 @@ function buildKragebrua(br,hw){/* green riveted steel Warren pony truss, crosswi
   window.__krg={x:P(tot/2,0,0).x,z:P(tot/2,0,0).z,y:prof(tot/2),ux,uz,tot,a:[x0,z0],cells:KRGC.length};}
 
 // ================= road tunnels (Liksteintunnelen on Vesterdalsvegen, Fedaheia, Lerviktunnelen …) =================
-const TUN=new Map();const TUNL=[];const TPORT=[];const TUNW=new Map();/* tunnelfix: wall ring cells outside the footprint */
+const TUN=new Map();const TUNL=[];const TPORT=[];const TUNW=new Map();/* tunnelfix: wall ring cells outside the footprint */const TUNO=new Set();const TPORTX=[];const TFOPEN=[];/* tunnelfix2: open (roof-less) cells, extra frames, open stretches */
 {// tunnels are one connected network: real portals take the road height outside; junctions deep in the mountain get smooth, consistent heights
  const pieces=(world.tunnels||[]).map(t=>({p:t.p.map(q=>q.slice()),w:t.w||4.5,n:t.n}));
  const nk=(x,z)=>Math.round(x/4)+','+Math.round(z/4);const deg=new Map(),pos=new Map();
@@ -1660,7 +1660,7 @@ const TUN=new Map();const TUNL=[];const TPORT=[];const TUNW=new Map();/* tunnelf
  const touchesOpen=(x,z)=>{const cx=Math.round(x/16),cz=Math.round(z/16);for(let a=-1;a<=1;a++)for(let b=-1;b<=1;b++){const l=OPEN.get((cx+a)+','+(cz+b));if(l)for(const [ox,oz] of l)if(Math.hypot(ox-x,oz-z)<10)return true;}return false;};
  const portKeys=new Set();
  for(const pc of pieces){const p=pc.p;for(const [i0,i1] of [[0,1],[p.length-1,p.length-2]]){const k=nk(...p[i0]);if(deg.get(k)!==1&&!touchesOpen(...p[i0]))continue;
-   const [ax,az]=p[i0],[bx,bz]=p[i1];const L=Math.hypot(ax-bx,az-bz)||1;const ux=(ax-bx)/L,uz=(az-bz)/L;let best=[0,Hm(ax,az)];/* tunnelfix: the portal stays on the real OSM end (it used to be pushed up to 30 m outward to the lowest ground, which made every tunnel up to 60 m too long) */
+   const [ax,az]=p[i0],[bx,bz]=p[i1];const L=Math.hypot(ax-bx,az-bz)||1;const ux=(ax-bx)/L,uz=(az-bz)/L;let best=[0,Hm(ax,az)];/*tunnelfix2:portalh*/{let lo=best[1];for(const s of [4,8,12]){const h=Hm(ax+ux*s,az+uz*s);if(h<lo)lo=h;}if(lo<best[1]-.8){best=[0,Math.max(lo,best[1]-20)];const wd=Math.max(4,pc.w)+.5,yE=best[1];for(let kk=0;kk<=16;kk+=.5)for(let o=-wd;o<=wd;o+=.5){const px=ax+ux*kk-uz*o,pz=az+uz*kk+ux*o,a2=Math.round(px),b2=Math.round(pz),key=(a2+32768)*65536+(b2+32768),t=kk/16,w=1-t*t*(3-2*t),lat=Math.min(1,(wd-Math.abs(o))/1.5),dl=(yE-Hm(a2,b2))*w*lat,old=RGRAMP.get(key);if(old===undefined||Math.abs(dl)>Math.abs(old))RGRAMP.set(key,dl);}}}/*/tunnelfix2:portalh*//* tunnelfix: the portal stays on the real OSM end (it used to be pushed up to 30 m outward to the lowest ground, which made every tunnel up to 60 m too long) */
    p[i0]=[ax+ux*best[0],az+uz*best[0]];if(!fixed.has(k)||best[1]<H.get(k))H.set(k,best[1]);fixed.add(k);if(portKeys.has(k))continue;portKeys.add(k);TPORT.push({x:p[i0][0],z:p[i0][1],y:best[1],ux:-ux,uz:-uz,hw:Math.max(4,pc.w)+.5});}}
  // relax junction heights along the network (weighted by distance), keeping them well underground
  const nb=new Map();const add=(a,b,L)=>{if(!nb.has(a))nb.set(a,[]);nb.get(a).push([b,L]);};
@@ -1676,15 +1676,24 @@ const TUN=new Map();const TUNL=[];const TPORT=[];const TUNW=new Map();/* tunnelf
          if(!e){e={y,edge,lv:[{y,edge}]};TUN.set(k,e);}else{const lv=e.lv.find(l=>Math.abs(l.y-y)<3.5);if(lv){if(!edge)lv.edge=false;}else e.lv.push({y,edge});}}
        if(Math.floor((acc+s2)/12)!==Math.floor((acc+s2-.5)/12))TUNL.push([ax+ux*s2,y,az+uz*s2]);}acc+=L;}}
  for(const e of TUN.values()){e.y=e.lv[0].y;e.edge=e.lv[0].edge;}
+ /*tunnelfix2:open*/{for(let pi=0;pi<pieces.length;pi++){const pc=pieces[pi],p=pc.p;const hw=Math.max(4,pc.w)+.5;let tot=0;const seg=[];for(let i=0;i<p.length-1;i++){const l=Math.hypot(p[i+1][0]-p[i][0],p[i+1][1]-p[i][1]);seg.push(l);tot+=l;}if(tot<40)continue;
+   const yA=H.get(pc.ka)??Hm(...p[0]),yB=H.get(pc.kb)??Hm(...p[p.length-1]);
+   const at=s=>{let acc=0;for(let i=0;i<seg.length;i++){if(acc+seg[i]>=s||i===seg.length-1){const t=Math.min(1,Math.max(0,(s-acc)/(seg[i]||1)));return [p[i][0]+(p[i+1][0]-p[i][0])*t,p[i][1]+(p[i+1][1]-p[i][1])*t];}acc+=seg[i];}return p[0];};
+   const low=[];for(let s=0;s<=tot;s+=2){const [x,z]=at(s);low.push(Hm(x,z)-(yA+(yB-yA)*s/tot)<3.5);}
+   let i=0;while(i<low.length){if(!low[i]){i++;continue;}let j=i;while(j+1<low.length&&low[j+1])j++;const s0=i*2,s1=Math.min(tot,j*2);i=j+1;
+    if(s1-s0<30)continue;const a=s0<=1?s0+6:s0,b=s1>=tot-1?s1-6:s1;if(b-a<12)continue;
+    for(let s=a;s<=b;s+=.5){const [x,z]=at(s),[x2,z2]=at(Math.min(tot,s+.5));let dx=x2-x,dz=z2-z;const dl=Math.hypot(dx,dz)||1;dx/=dl;dz/=dl;for(let o=-(hw+2);o<=hw+2;o+=.5){TUNO.add(Math.floor(x-dz*o)+','+Math.floor(z+dx*o));}}
+    TFOPEN.push({i:pi,s0:+a.toFixed(0),s1:+b.toFixed(0),len:+(b-a).toFixed(0)});
+    for(const [s,dir] of [[a,-1],[b,1]]){if(s<=7||s>=tot-7)continue;const [x,z]=at(s),[x2,z2]=at(Math.min(tot,s+1));let dx=x2-x,dz=z2-z;const dl=Math.hypot(dx,dz)||1;dx/=dl;dz/=dl;TPORTX.push({x,z,y:yA+(yB-yA)*s/tot,ux:dx*dir,uz:dz*dir,hw});}}}}/*/tunnelfix2:open*/
  /* tunnelfix: concrete wall ring one cell outside the footprint along the whole tunnel (stops exactly at the portals), so the tunnel is closed where the ground is low */
  {const cand=new Map();for(const pc of pieces){const p=pc.p;const hw=Math.max(4,pc.w)+.5;let tot=0;for(let i=0;i<p.length-1;i++)tot+=Math.hypot(p[i+1][0]-p[i][0],p[i+1][1]-p[i][1]);const yA=H.get(pc.ka)??Hm(...p[0]),yB=H.get(pc.kb)??Hm(...p[p.length-1]);let acc=0;
    for(let i=0;i<p.length-1;i++){const [ax,az]=p[i],[bx,bz]=p[i+1];const L=Math.hypot(bx-ax,bz-az);if(L<.01)continue;const ux=(bx-ax)/L,uz=(bz-az)/L;
-    for(let s2=0;s2<=L;s2+=.5){const y=yA+(yB-yA)*((acc+s2)/tot);const fy=Math.floor(y-.35);for(const sg of [-1,1])for(let o=hw+.25;o<=hw+1.6;o+=.5){const x=ax+ux*s2-uz*o*sg,z=az+uz*s2+ux*o*sg;const k=Math.floor(x)+','+Math.floor(z);if(TUN.has(k))continue;let l=cand.get(k);if(!l)cand.set(k,l=[]);if(!l.includes(fy))l.push(fy);}}acc+=L;}}
+    for(let s2=0;s2<=L;s2+=.5){const y=yA+(yB-yA)*((acc+s2)/tot);const fy=Math.floor(y-.35);for(const sg of [-1,1])for(let o=hw+.25;o<=hw+1.6;o+=.5){const x=ax+ux*s2-uz*o*sg,z=az+uz*s2+ux*o*sg;const k=Math.floor(x)+','+Math.floor(z);if(TUN.has(k)||TUNO.has(k))continue;let l=cand.get(k);if(!l)cand.set(k,l=[]);if(!l.includes(fy))l.push(fy);}}acc+=L;}}
   for(const [k,l] of cand)if(!TUN.has(k))TUNW.set(k,l);}
  /* tunnelfix: window.__TUNNELS = the real extent of every tunnel piece (plan length along the OSM line; start/end are the portals as built) */
  {const lst=pieces.map((pc,i)=>{const p=pc.p;let L=0;for(let i2=0;i2<p.length-1;i2++)L+=Math.hypot(p[i2+1][0]-p[i2][0],p[i2+1][1]-p[i2][1]);return {i,name:pc.n,width:pc.w,start:[+p[0][0].toFixed(1),+p[0][1].toFixed(1)],end:[+p[p.length-1][0].toFixed(1),+p[p.length-1][1].toFixed(1)],length:+L.toFixed(1),yStart:+(H.get(pc.ka)??0).toFixed(1),yEnd:+(H.get(pc.kb)??0).toFixed(1)};});
   const names={};for(const t of lst){const n=names[t.name]||(names[t.name]={pieces:0,total:0});n.pieces++;n.total+=t.length;}for(const n of Object.values(names))n.total=+n.total.toFixed(1);
-  window.__TUNNELS={pieces:lst,names,portals:TPORT.map(q=>({x:+q.x.toFixed(1),z:+q.z.toFixed(1),y:+q.y.toFixed(1)})),wallCells:TUNW.size,cells:TUN.size};}}
+  window.__TUNNELS={open:TFOPEN,pieces:lst,names,portals:TPORT.map(q=>({x:+q.x.toFixed(1),z:+q.z.toFixed(1),y:+q.y.toFixed(1)})),wallCells:TUNW.size,cells:TUN.size};}}
 function tunnelAt(x,z,yr){const e=TUN.get(Math.floor(x)+','+Math.floor(z));if(!e)return undefined;if(e.lv.length===1)return e.lv[0];const ref=yr??(typeof P!=='undefined'?P.y:e.lv[0].y);let best=e.lv[0];for(const l of e.lv)if(Math.abs(l.y-ref)<Math.abs(best.y-ref))best=l;return best;}
 function roadSurf(x,z,yr){{const SD=window.__STAIRS;if(SD&&SD.cells.size){const sv=SD.cells.get(Math.floor(x)+','+Math.floor(z));if(sv!==undefined){if(P.y>sv+.2&&Math.abs(x-P.x)<.01&&Math.abs(z-P.z)<.01)return null;return sv;}}}/*shopstairs-hook*/const tu=tunnelAt(x,z,yr);if(tu)return tu.y;if(LOT&&x>=LOT.x0&&x<LOT.x1&&z>=LOT.z0&&z<LOT.z1)return null;if(SIDE.has(Math.floor(x)+','+Math.floor(z))&&DECK.get(Math.floor(x)+','+Math.floor(z))===undefined)return RG.rs(x,z);const tr=typeAt(x,z);if((tr===1||tr===5||tr===4)&&!buildingAt(x,z)&&DECK.get(Math.floor(x)+','+Math.floor(z))===undefined)return RG.rs(x,z);return null;}
 // ================= trees (binary) =================
@@ -2235,7 +2244,7 @@ function vox(C,c,r,y){const {G,T,BB,BH,BW,DM,EG,FR,DOOR,DE,ND,BREF,N,x0,z0,LE}=C
   if(VKD!==null&&wx>=VKD.x0&&wx<VKD.x1&&wz>=VKD.z0&&wz<VKD.z1){const e=VKD.f(wx,y,wz);if(e!==undefined)return e;}/*dm-hook*/
   for(const Lt of LOTS){if(wx>=Lt.x0&&wx<Lt.x1&&wz>=Lt.z0&&wz<Lt.z1&&Lt.base!==undefined){const dy=y-Lt.base;const v=Lt.V.get(wx+','+dy+','+wz);if(v!==undefined){if((v===32||v===33)&&Lt.W){const wc=Lt.W.get(wx+','+dy+','+wz);if(wc!==undefined)return wc;}return v;}const gd=+(Lt.G.get(wx+','+wz)||0);if(dy<gd)return (dy===gd-1?VB.grass:VB.deep)+1;return 0;}}
   const k=r*N+c;const g=G[k];const id=BB[k];
-  {const tu=(C.TUNc&&!C.TUNc[k])?undefined:TUN.get(wx+','+wz);if(!tu&&!id&&TUNW.size&&(!C.TUNc||C.TUNc[k])){const wl=TUNW.get(wx+','+wz);if(wl!==undefined&&y>=g)for(const fy of wl)if(y<fy+8&&y>=fy-10)return TILE.stone+1;}/* tunnelfix: wall ring */if(tu&&!id){/* performance 2: TUNc marks the tunnel columns */for(const l of tu.lv){const fy=Math.floor(l.y-.35);if(y>=fy&&y<fy+7){if(l.edge&&y>=fy+5)return TILE.stone+1;return 0;}if(y===fy-1)return TILE.stone+1;if(y===fy+7&&y>=g)return TILE.stone+1;/* tunnelfix: concrete roof */if(tu.lv.length===1&&y<fy-1&&y>=g&&y>=fy-10)return TILE.stone+1;/* tunnelfix: support under a deck that is above the ground */}if(y<g)return (y===g-1?T2V[T[k]]:VB.deep)+1;return 0;}}
+  {const tu=(C.TUNc&&!C.TUNc[k])?undefined:TUN.get(wx+','+wz);if(!tu&&!id&&TUNW.size&&(!C.TUNc||C.TUNc[k])){const wl=TUNW.get(wx+','+wz);if(wl!==undefined&&y>=g)for(const fy of wl)if(y<fy+8&&y>=fy-10)return TILE.stone+1;}/* tunnelfix: wall ring */if(tu&&!id){/* performance 2: TUNc marks the tunnel columns */for(const l of tu.lv){const fy=Math.floor(l.y-.35);if(y>=fy&&y<fy+7){if(l.edge&&y>=fy+5&&!TUNO.has(wx+','+wz))return TILE.stone+1;return 0;}if(y===fy-1)return TILE.stone+1;if(y===fy+7&&y>=g&&!TUNO.has(wx+','+wz))return TILE.stone+1;/* tunnelfix: concrete roof */if(tu.lv.length===1&&y<fy-1&&y>=g&&y>=fy-10)return TILE.stone+1;/* tunnelfix: support under a deck that is above the ground */}if(y<g)return (y===g-1?T2V[T[k]]:VB.deep)+1;return 0;}}
   if(CASTLE&&Math.abs(wx-CASTLE.x)<=CASTLE.R+3&&Math.abs(wz-CASTLE.z)<=CASTLE.R+3){const cv=castleVox(wx,wz,y,g);if(cv>=0)return cv;if(y<g)return (y===g-1?T2V[T[k]]:VB.deep)+1;return 0;}
   if(id&&BURNV!==null&&BREF[id].burnt){const bv=BURNV(BREF[id],C,k,wx,wz,y,g,EG[k],DOOR[k]);if(bv>=0)return bv;}/*burnhouse*/
   if(id){if(y<g&&y>=g-2&&BREF[id].icat&&!EG[k]){const fv=intFloorAt(BREF[id],wx,wz,y-g);if(fv>=0)return fv;}if(y<g){if(y===g-1&&!EG[k]){const hf=homeFloor(BREF[id],wx,wz);if(hf)return hf;}/* house interiors v2: floor per room */return (y===g-1?(BREF[id].k==='roof'?VB.road:TILE.floorPlank):VB.deep)+1;}const h=y-g;if(h>=BH[k])return 0;const b=BREF[id];if(BW[k]===-1)return (h<15?TILE.wChurch:(h>=BH[k]-3?TILE.dome:TILE.roofRed))+1;
@@ -14731,7 +14740,7 @@ function eyeSpeak(kind){const now=performance.now();if(now-eyeLast<(kind==='see'
   const hit=all.find(a=>a.n.toLowerCase()===want)||all.find(a=>a.n.toLowerCase().includes(want));if(!hit)return;const x=hit.x+14,z=hit.z+14;window.__go(x,z,Math.atan2(-(hit.x-x),-(hit.z-z)),-.1,0);try{toast('Welcome to '+hit.n);}catch(_){}};
   const st=$('start');if(st)st.addEventListener('click',()=>setTimeout(window.__gotoPlace,400));}}
 // concrete portal frames at every tunnel mouth
-{const cm=new THREE.MeshLambertMaterial({color:0xb9bcc2});for(const t of TPORT){const g=new THREE.Group();const y=Math.floor(t.y-.35);g.position.set(t.x,y,t.z);g.rotation.y=Math.atan2(t.ux,t.uz);
+{const cm=new THREE.MeshLambertMaterial({color:0xb9bcc2});for(const t of TPORT.concat(TPORTX)){const g=new THREE.Group();const y=Math.floor(t.y-.35);g.position.set(t.x,y,t.z);g.rotation.y=Math.atan2(t.ux,t.uz);
   for(const sd of[-1,1]){const pl=new THREE.Mesh(new THREE.BoxGeometry(1.4,7.6,1.8),cm);pl.position.set(sd*(t.hw+.7),3.8,0);g.add(pl);}
   const li=new THREE.Mesh(new THREE.BoxGeometry(t.hw*2+2.8,1.6,1.8),cm);li.position.set(0,7.6,0);g.add(li);
   const lip=new THREE.Mesh(new THREE.BoxGeometry(t.hw*2+3.6,.5,3.2),cm);lip.position.set(0,8.6,-.6);g.add(lip);
