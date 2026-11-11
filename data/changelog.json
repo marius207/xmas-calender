@@ -2,6 +2,36 @@
  "entries": [
   {
    "date": "2026-11-11",
+   "time": "18:20",
+   "title": "Streetlights: first-mission road fully lit",
+   "items": [
+    "The road from Feda to Kvinesdal now has a lamp about every 30 m with no dark gaps, including bends, bridges and tunnel mouths",
+    "Lamps give a wide warm light pool on the road and snow, and a visible glow in the night air",
+    "Other roads outside towns: lamps every 35 m (main roads) and 45 m (smaller roads); fewer on low graphics levels",
+    "Bridge lamps now glow and light the deck"
+   ]
+  },
+  {
+   "date": "2026-11-11",
+   "time": "17:46",
+   "title": "The public game is the real player version",
+   "items": [
+    "A normal player no longer starts with developer items: no free jetpack, no planks, snow blocks or rockets. You start with the Vedøks axe, your flashlight with 3 batteries and the old bag. The jetpack is lent to you when you start the jetpack ring race.",
+    "Logging in as Marius on the public site now plays exactly like Chris and Martin: no owner mode (elytra, unlimited rockets), no saddle, animal food, panda mask, sound-mix panel, witch-look test or Eye-off. Localhost and ?dev=1 keep all of it.",
+    "The opening flight starts further out: the DERP STUDIOS and presents cards are smaller and seen from a distance, instead of filling the whole screen."
+   ]
+  },
+  {
+   "date": "2026-11-11",
+   "time": "17:45",
+   "title": "You can walk into the town hall",
+   "items": [
+    "The Rådhus front doors now really open into the building: the two door cells behind the glass doors were still solid wall, so the doors swung open onto a plain blue wall. They are open now, and you walk straight in to the lobby with the reception counter, carpet and ceiling lights.",
+    "A doormat and a warm pool of light just inside the door, so the entrance looks lit and open at night."
+   ]
+  },
+  {
+   "date": "2026-11-11",
    "time": "13:25",
    "title": "Your builder work is all there",
    "items": [
