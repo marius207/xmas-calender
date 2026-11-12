@@ -653,7 +653,7 @@ window.__devEff=eff;
 const isPhone=()=>eff()==='phone';
 const sync=()=>{try{document.body.classList.toggle('ph',isPhone());}catch(e){}};
 /* version label: the deploy script replaces the placeholder below; an unreplaced build shows DEV BUILD */
-const VRAW='12 Nov 2026 04:58';
+const VRAW='12 Nov 2026 06:26';
 const VER=(VRAW.indexOf('__BUILD'+'_')===0)?'DEV BUILD':VRAW;
 window.__VERSION=VER;
 const pill=()=>{const b=document.createElement('button');b.type='button';b.className='verpill';b.textContent=VER;b.title='Tap to copy';b.setAttribute('aria-label','Game version '+VER);b.addEventListener('click',e=>{e.stopPropagation();try{navigator.clipboard&&navigator.clipboard.writeText(VER);}catch(_){}});return b;};
@@ -51002,6 +51002,24 @@ function pickLine(ev){/*lyktalines*/const E=NV.D.lykta.events[ev];if(!E||!E.line
   const i=bag.pop();LY.bag[ev]=bag;LY.lastIdx[ev]=i;
   try{const o={};for(const k in LY.bag)o[k]={b:LY.bag[k],l:LY.lastIdx[k]};ls.set('kv-lybag',JSON.stringify(o));}catch(_){}
   return i;}
+/* lyktanutters */
+const NUT={due:0,last:0,bag:null,lastIdx:-1,n:0};NV.nut=NUT;
+const nutPool=()=>{const E=NV.D&&NV.D.lykta.events.nutter;if(!E||!E.days)return [];const d=window.__DAY|0,o=[];for(let i=0;i<E.lines.length;i++)if(E.days[i]<=d)o.push(i);return o;};
+function pickNutter(){const pool=nutPool();if(!pool.length)return -1;
+  if(!NUT.bag){NUT.bag=[];try{const s=JSON.parse(ls.get('kv-lynbag')||'{}');if(Array.isArray(s.b))NUT.bag=s.b.filter(x=>x===(x|0));if(s.l!=null)NUT.lastIdx=s.l;}catch(_){}}
+  let bag=NUT.bag.filter(x=>pool.indexOf(x)>=0);
+  if(!bag.length){bag=pool.slice();for(let i=bag.length-1;i>0;i--){const j=(Math.random()*(i+1))|0;[bag[i],bag[j]]=[bag[j],bag[i]];}
+    if(bag.length>1&&bag[bag.length-1]===NUT.lastIdx){const j=(Math.random()*(bag.length-1))|0;[bag[j],bag[bag.length-1]]=[bag[bag.length-1],bag[j]];}}
+  const i=bag.pop();NUT.bag=bag;NUT.lastIdx=i;NUT.last=now();NUT.n++;NUT.due=now()+(240+Math.random()*240)*1000;
+  try{ls.set('kv-lynbag',JSON.stringify({b:bag,l:i}));}catch(_){}
+  return i;}
+function nutterTick(t){if(!NV.D){if(t>(NUT.due||1e18)-20000||!NUT.due){NUT.due=NUT.due||t+(240+Math.random()*240)*1000;if(t>NUT.due-20000)loadData();}return;}if(!NUT.due)NUT.due=t+(240+Math.random()*240)*1000;
+  if(t<NUT.due||t-NUT.last<90000||!nutPool().length)return;
+  try{const POL=window.__POLICE;if(POL&&(POL.stars|0)>0)return;if(P.driving&&Math.abs(P.driving.v||0)>8)return;if(P.fly||P.glide)return;}catch(_){return;}
+  if(silent()||spBusy()||LY.busy)return;
+  want0('nutter',1,20000);}
+NUT.pick=pickNutter;NUT.pool=nutPool;
+/* /lyktanutters */
 /* a request: wanted(event, importance 1..9, how long it may wait in ms) */
 function want0(ev,pri,wait,key){if(MODE==='off'||!NV.on)return;if(LY.pend.some(p=>p.ev===ev))return;if(LY.pend.length>12)return;LY.pend.push({ev,pri:pri||3,t:now(),exp:now()+(wait||25000),key:key||''});lg('want',ev);}
 function pumpLy(){
@@ -51020,9 +51038,9 @@ function pumpLy(){
     const p=LY.pend.shift(),E=NV.D.lykta.events[p.ev];if(!E)continue;
     if(p.key&&S_.inside[p.key]===false){lg('left',p.ev);continue;}/* you walked away: the comment no longer fits */
     if(LY.cool[p.ev]&&LY.cool[p.ev]>t)continue;
-    if((LY.cnt[p.ev]|0)>=(C.maxPerEventPerSession||6))continue;
+    if(p.ev!=='nutter'&&(LY.cnt[p.ev]|0)>=(C.maxPerEventPerSession||6))continue;/*lyktanutters*/
     if(Math.random()>(C.chance==null?.85:C.chance)*modeChance()){LY.cool[p.ev]=t+Math.min(120,(E.cool||120)*.25)*1000;lg('skip-chance',p.ev);continue;}
-    const i=pickLine(p.ev);if(i<0)continue;speakLy(p.ev,i,E,p.key,p);return;}}
+    const i=p.ev==='nutter'?pickNutter():pickLine(p.ev);if(i<0)continue;speakLy(p.ev,i,E,p.key,p);return;}}
 function speakLy(ev,i,E,pkey,preq){
   const key=ev+'_'+(i+1),text=E.lines[i],SPd=window.__SPEECH;
   if(!SPd||!SPd.say){lg('nodirector',ev);return;}
@@ -51115,6 +51133,7 @@ function senseLy(){
     if(!P.driving&&!P.fly&&!P.glide&&!st){S_.idleSince=S_.idleSince||t;if(t-S_.idleSince>120000&&t-(S_.idleAsk||0)>170000){S_.idleAsk=t;
       const W=window.__WEATHER,wi=W&&typeof W.i==='number'?W.i:0,T=window.__TOD,h=T&&typeof T.h==='number'?T.h:12;
       const ev=wi>.6?'idle_snow':((h>=19||h<6)?'idle_night':'idle_day');want(ev,1,30000);}}else S_.idleSince=0;}catch(_){}
+  try{if(!warm)nutterTick(now());}catch(_){}/*lyktanutters*/
 }
 setInterval(()=>{try{senseLy();pumpLy();}catch(e){NV.err=String(e&&e.stack||e);}},500);
 /* ====================================================== VILLAGERS, SHOPKEEPERS, OFFICERS ====================================================== */
