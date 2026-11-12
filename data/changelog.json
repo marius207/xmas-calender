@@ -2,6 +2,64 @@
  "entries": [
   {
    "date": "2026-11-11",
+   "time": "22:56",
+   "title": "Pushers no longer see-through",
+   "items": [
+    "Fixed: on lower graphics settings (or when the lag guard thinned the crowd) some townspeople, like the one pushing a kick-sled, showed only their arms and looked see-through. The whole person now disappears together, or is shown whole."
+   ]
+  },
+  {
+   "date": "2026-11-11",
+   "time": "21:50",
+   "title": "Jump scares",
+   "items": [
+    "From day 3, rare short scares in town and on the road: crows bursting out behind you, a lamp that blinks out, a shape in the rear-view mirror, a face in a window, a door that opens by itself, a radio that knows your name, a figure in the fog. Never more than a few a day, never during missions, races, cutscenes or fast driving, and always followed by something cozy.",
+    "New setting: Jump scares: Full / Gentle / Off (Gentle = no shake, quieter, nothing lunges)."
+   ]
+  },
+  {
+   "date": "2026-11-11",
+   "time": "20:19",
+   "title": "Your own voice for every shout",
+   "items": [
+    "When you hit someone, ride a taxi, get chased by police, scare a kid, hurt someone or smash a lamp post or fence, the game now plays your own recording of that line if you have made one, and shows your own wording as the text. No recording: text only, as before.",
+    "10 new lamp post and fence lines can be recorded and are played when a car hits one."
+   ]
+  },
+  {
+   "date": "2026-11-11",
+   "time": "20:18",
+   "title": "The Nice List and Julestemning meters are on screen",
+   "items": [
+    "Two clear meters now sit at the top left under your hearts, always visible: the NICE LIST (a bar from coal and naughty in red, through nice in green, to angel in gold, with a marker showing where you stand) and JULESTEMNING (a warm bar that glows when your Christmas spirit is high, turns cold blue with a grumpy Grinch face when it is very low).",
+    "When either one changes you see a short pop next to it with the reason, like \"-1 Wrecked a bin\" or \"+3 You fed an animal\". Hover over a meter for a small hint, click or tap it to open the full card.",
+    "While driving or fighting they shrink to one small row, and they hide during talking, menus and cutscenes. On phones they are big enough to tap. Nothing shows before the game starts."
+   ]
+  },
+  {
+   "date": "2026-11-11",
+   "time": "20:30",
+   "title": "Chris's house glows, the choir and church can be seen",
+   "items": [
+    "Chris's house is warm and cozy inside at night now: the ceiling is not black any more, the lamps really light the rooms, there are glowing light pools, and strings of coloured fairy lights run along the walls on both floors.",
+    "From outside you see warm glowing windows all over Chris's house in the evening and at night, with a soft halo around each one.",
+    "The carolers and choirs are no longer standing in the dark: every group has a warm glow on the ground, a glowing lantern, and a much stronger lantern light.",
+    "Inside the churches it is warm and lit, with glowing candles around the choir.",
+    "The witch's flat downstairs is still dark and creepy on purpose."
+   ]
+  },
+  {
+   "date": "2026-11-11",
+   "time": "19:48",
+   "title": "Say yes or no to job calls",
+   "items": [
+    "When the phone rings with a job (drive, race, taxi, escape, odd jobs), the caller tells you about it and then you choose: YES or NO. Y or A on the pad takes it, N or B says no thanks. Buttons work with the mouse and by touch too.",
+    "Say no (or ignore it for 15 seconds) and nothing happens: no penalty, the job is still on the jobs board, and the phone will not ring with another job for about 5 minutes.",
+    "Story calls from Mamma and Lykta are not affected, only calls that start a job."
+   ]
+  },
+  {
+   "date": "2026-11-11",
    "time": "19:15",
    "title": "Tunnel mouths fixed (Feda to town)",
    "items": [
