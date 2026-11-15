@@ -84,7 +84,7 @@
   "axe": "th_axe left-click on a tree fells it. No axe: \"You need an axe.\" Hands still break blocks.",
   "blocks": "right-click places the held block item, left-click breaks it. Breaking drops only the block itself.",
   "trash": "Stand within 3 m of a bin, press G (tap the prompt): inventory opens with a TRASH slot; drag/tap item -> TRASH; confirm if stack value >= 100 kr.",
-  "snus": "DERP snus (snus_w LOW +15% 120 s, snus_o MID +25% 90 s, snus_l HIGH +40% 60 s): one tin per slot (stack 1), pouches left in slot.u; one pouch per use; refresh not stack; max 6 uses per game day; empty tin -> snus_empty (bin it). Every save gets one snus_o once (localStorage kv-snus-start). Sold: Bowlinghallen counter+Kiosk, Nico Mat, Extra Kvinesdal, DERP SNUS stall (Julemarked). Speed goes through __REALP.slow(\"snus\"). Earns nothing."
+  "snus": "DERP snus (snus_w LOW +15% 120 s, snus_o MID +25% 90 s, snus_l HIGH +40% 60 s): one tin per slot (stack 1), pouches left in slot.u; one pouch per use; refresh not stack; no daily limit (owner, 15 Nov); empty tin -> snus_empty (bin it). Every save gets one snus_o once (localStorage kv-snus-start). Sold: Bowlinghallen counter+Kiosk, Nico Mat, Extra Kvinesdal, DERP SNUS stall (Julemarked). Speed goes through __REALP.slow(\"snus\"). Earns nothing."
  },
  "inventory": {
   "today": 36,
@@ -2997,7 +2997,7 @@
    "from_": "Bowlinghallen counter + Kiosk, Nico Mat, Extra Kvinesdal (Coop), DERP SNUS stall at the Julemarked; one free DERP Original (MID) for every save",
    "today": "new",
    "decision": "add",
-   "new": "White dry portion. One pouch per use (hold + click, or USE in the inventory): +15% walking and running speed for 120 s. Not stacking: another one refreshes the time. Max 6 uses per game day (\"Your lip has had enough for today.\"). One tin per slot, pouches left shown on the slot. Empty tin becomes the item Empty snus tin.",
+   "new": "White dry portion. One pouch per use (hold + click, or USE in the inventory): +15% walking and running speed for 120 s. Not stacking: another one refreshes the time. One tin per slot, pouches left shown on the slot. Empty tin becomes the item Empty snus tin.",
    "price": 59,
    "stack": 1,
    "english": "DERP White snus",
@@ -3012,7 +3012,7 @@
    "from_": "Same shops as DERP White; every save starts with one",
    "today": "new",
    "decision": "add",
-   "new": "Brown moist portion. +25% speed for 90 s. Same rules as DERP White (daily cap 6, refresh not stack, one pouch per use).",
+   "new": "Brown moist portion. +25% speed for 90 s. Same rules as DERP White (refresh not stack, one pouch per use).",
    "price": 79,
    "stack": 1,
    "english": "DERP Original snus",
@@ -3027,7 +3027,7 @@
    "from_": "Same shops as DERP White",
    "today": "new",
    "decision": "add",
-   "new": "Loose snus. +40% speed for 60 s. Same rules (daily cap 6, refresh not stack, one pinch per use).",
+   "new": "Loose snus. +40% speed for 60 s. Same rules (refresh not stack, one pinch per use).",
    "price": 99,
    "stack": 1,
    "english": "DERP loose snus",

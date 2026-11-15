@@ -703,7 +703,7 @@ window.__devEff=eff;
 const isPhone=()=>eff()==='phone';
 const sync=()=>{try{document.body.classList.toggle('ph',isPhone());}catch(e){}};
 /* version label: the deploy script replaces the placeholder below; an unreplaced build shows DEV BUILD */
-const VRAW='15 Nov 2026 19:59';
+const VRAW='15 Nov 2026 21:29';
 const VER=(VRAW.indexOf('__BUILD'+'_')===0)?'DEV BUILD':VRAW;
 window.__VERSION=VER;
 const pill=()=>{const b=document.createElement('button');b.type='button';b.className='verpill';b.textContent=VER;b.title='Tap to copy';b.setAttribute('aria-label','Game version '+VER);b.addEventListener('click',e=>{e.stopPropagation();try{navigator.clipboard&&navigator.clipboard.writeText(VER);}catch(_){}});return b;};
@@ -7274,7 +7274,7 @@ window.__JET=(()=>{const J={on:false,fuel:420,max:420,thrust:false};
   let hiss=null;function sound(on){if(!ac)return;if(!hiss){const len=ac.sampleRate*2,b=ac.createBuffer(1,len,ac.sampleRate),d=b.getChannelData(0);for(let i=0;i<len;i++)d[i]=Math.random()*2-1;const s=ac.createBufferSource();s.buffer=b;s.loop=true;const f=ac.createBiquadFilter();f.type='lowpass';f.frequency.value=700;const g=ac.createGain();g.gain.value=0;s.connect(f);f.connect(g);g.connect(window.__AUDIO3D&&__AUDIO3D.ready?__AUDIO3D.ambient():master);s.start();hiss=g;}
     hiss.gain.setTargetAtTime(on?.22:0,ac.currentTime,.08);}
   const ui=$('jetFuel'),fill=ui.querySelector('.fill'),tm=ui.querySelector('.t');
-  J.toggle=()=>{if(P.driving)return;J.on=!J.on;ui.hidden=!J.on;pack.visible=J.on;if(J.on){if(P.fly)toggleFly();toast(J.fuel>0?'Jetpack on — hold Space to fly':'Jetpack is empty — refuel at a petrol station or at home');}else sound(false);};
+  J.toggle=()=>{if(P.driving)return;if(!J.on&&window.__ELY9&&!window.__ELY9.jetOk()){window.__ELY9.jetNo();return;}/*elytra9*/J.on=!J.on;ui.hidden=!J.on;pack.visible=J.on;if(J.on){if(P.fly)toggleFly();toast(J.fuel>0?'Jetpack on — hold Space to fly':'Jetpack is empty — refuel at a petrol station or at home');}else sound(false);};
   const homes=()=>[CHRISH&&CHRISH.front,typeof MARTINH!=='undefined'&&MARTINH&&MARTINH.front,typeof MARIUSH!=='undefined'&&MARIUSH&&MARIUSH.front,[TX,TZ]].filter(Boolean);
   const pumps=BL.filter(b=>b.fuel||/fuel|petrol|bensin|circle k|esso|shell|uno-x|best/i.test((b.k||'')+' '+(b.name||'')+' '+((b.svd&&b.svd.sign_text)||''))).map(b=>b.c);
   let lowWarn=false,refT=0;
@@ -8315,7 +8315,7 @@ try{const W=[];
 }catch(e){console.warn('town details #9',e&&e.stack||e);}
 // ===== /town details (#9) =====
 // a jetpack in the inventory to try out: holding it in your hand switches it on
-if(!window.__PUBLIC_HOST)setTimeout(()=>{try{if(countOf('jetpack')===0)give('jetpack',1);}catch(e){}},1500);/*playerbuild: not for players; the ring race lends it*/
+if(!window.__PUBLIC_HOST&&new URLSearchParams(location.search).get('storygate')!=='1')setTimeout(()=>{try{if(countOf('jetpack')===0)give('jetpack',1);}catch(e){}},1500);/*elytra9*//*playerbuild: not for players; the ring race lends it*/
 // clean film: H hides absolutely everything (panels, map, dev panel, hand) — only the picture is left
 {const h=document.createElement('div');h.id='filmHint';h.textContent='Clean screen — press H to bring everything back';h.style.cssText='position:fixed;left:50%;bottom:40px;transform:translateX(-50%);z-index:99;font:12px Silkscreen,monospace;color:#fff;background:rgba(0,0,0,.55);padding:8px 14px;opacity:0;transition:opacity .6s;pointer-events:none';document.body.appendChild(h);
  let was=false;setInterval(()=>{const on=document.body.classList.contains('film');if(on&&!was){h.style.opacity=1;setTimeout(()=>h.style.opacity=0,1600);}if(!on)h.style.opacity=0;was=on;if(on&&typeof arm!=='undefined')arm.visible=false;},120);}
@@ -9375,7 +9375,7 @@ RACES.jet=(()=>{const RS=RACES;const B=window.__bridge;const PAD={x:-82,z:8};
     const ar=new THREE.Group();const am=new THREE.MeshBasicMaterial({color:0xffc83a,depthTest:false,transparent:true,opacity:.9});const cone=new THREE.Mesh(new THREE.ConeGeometry(.16,.4,8),am);cone.rotation.x=Math.PI/2;cone.position.z=.25;ar.add(cone);const sh=new THREE.Mesh(new THREE.BoxGeometry(.07,.07,.4),am);sh.position.z=-.08;ar.add(sh);ar.renderOrder=999;cone.renderOrder=sh.renderOrder=999;scene.add(ar);J.arrow=ar;}
   function clear(){if(J.grp){J.grp.traverse(o=>{if(o.geometry)o.geometry.dispose();});scene.remove(J.grp);J.grp=null;}if(J.arrow){scene.remove(J.arrow);J.arrow=null;}for(const k of['matNext','matSoon','matFar','matFin'])if(J[k])J[k].dispose();J.rings=[];}
   function paint(){J.rings.forEach((r,i)=>{r.m.visible=i>=J.next;r.m.material=i===J.next?J.matNext:(r.fin?J.matFin:(i===J.next+1?J.matSoon:J.matFar));});}
-  J.start=()=>{if(RS.mode)return;try{if(window.__PUBLIC_HOST&&countOf('jetpack')===0)give('jetpack',1);}catch(e){}/*playerbuild: lent for the race*/RS.closeEnd();if(P.driving)exitCar();if(P.fly)toggleFly();P.glide=false;const JT=window.__JET;if(!JT)return;
+  J.start=()=>{if(RS.mode)return;if(window.__ELY9&&!window.__ELY9.raceOk()){window.__ELY9.raceNo();return;}/*elytra9*/try{if(window.__PUBLIC_HOST&&countOf('jetpack')===0)give('jetpack',1);}catch(e){}/*playerbuild: lent for the race*/RS.closeEnd();if(P.driving)exitCar();if(P.fly)toggleFly();P.glide=false;const JT=window.__JET;if(!JT)return;
     JT.fuel=JT.max;if(!JT.on)JT.toggle();build();J.next=0;paint();RS.mode='jet';RS.phase='count';RS.cd=3.6;RS.t=0;RS.setRace(true);hud.querySelector('.kick').hidden=true;
     P.x=PAD.x;P.z=PAD.z;P.y=spawnY(PAD.x,PAD.z);P.vx=P.vy=P.vz=0;P.yaw=Math.atan2(-(J.rings[0].x-PAD.x),-(J.rings[0].z-PAD.z));P.pitch=.05;J.prev=new THREE.Vector3(P.x,P.y+.9,P.z);J.lastC=4;};
   const hud=RS.hud;
@@ -9384,10 +9384,10 @@ RACES.jet=(()=>{const RS=RACES;const B=window.__bridge;const PAD={x:-82,z:8};
     const medal=T<J.GOLD?['🥇','GOLD']:T<J.SILVER?['🥈','SILVER']:T<J.BRONZE?['🥉','BRONZE']:['🏁','FINISHED'];
     const S_=window.__STORY;const first=!(S_&&S_.once)||S_.once('jet_prize');/*nightwing: rockets + cash once per player, later runs only pay a new best*/const pay=first?(medal[1]==='GOLD'?400:medal[1]==='SILVER'?250:medal[1]==='BRONZE'?150:60)+(nb?200:0):(nb?100:0);RS.pay(pay);if(first&&medal[1]==='GOLD'&&window.__RK)window.__RK.reward('rocket_l',3,'Gold medal bonus');
     /* the prize: the Elytra (equipped) + a stack of firework rockets */
-    let gotE=false;try{const has=(INV.armor.chest&&INV.armor.chest.id==='elytra')||INV.slots.some(s=>s&&s.id==='elytra');if(!has){if(INV.armor.chest){const i=INV.slots.findIndex(x=>!x);if(i>=0)INV.slots[i]=INV.armor.chest;}INV.armor.chest={id:'elytra',n:1};gotE=true;}else if(!(INV.armor.chest&&INV.armor.chest.id==='elytra')){const i=INV.slots.findIndex(s=>s&&s.id==='elytra');const old=INV.armor.chest;INV.armor.chest=INV.slots[i];INV.slots[i]=old||null;}if(first){give('rocket',64);give('rocket_l',3);}updateArmor();renderHotbar();saveInv();}catch(e){console.warn(e);}
+    let gotE=false;try{const has0=(INV.armor.chest&&INV.armor.chest.id==='elytra')||INV.slots.some(s=>s&&s.id==='elytra'),has=has0||(window.__DAY|0)<19;/*elytra9: the Elytra now comes on day 9 at Globen; the race only hands out a spare if it is missing on day 19+*/if(!has){if(INV.armor.chest){const i=INV.slots.findIndex(x=>!x);if(i>=0)INV.slots[i]=INV.armor.chest;}INV.armor.chest={id:'elytra',n:1};gotE=true;}else if(has0&&!(INV.armor.chest&&INV.armor.chest.id==='elytra')){const i=INV.slots.findIndex(s=>s&&s.id==='elytra');const old=INV.armor.chest;INV.armor.chest=INV.slots[i];INV.slots[i]=old||null;}if(first){give('rocket',64);give('rocket_l',3);}updateArmor();renderHotbar();saveInv();}catch(e){console.warn(e);}
     const JT=window.__JET;if(JT&&JT.on)JT.toggle();
     J.stop();RS.chime();setTimeout(()=>RS.tone(2093,.7,.18),180);
-    RS.showEnd('<h3>JETPACK RINGS — Nonskarknuten!</h3><div class="md">'+medal[0]+'</div><div class="ln">'+medal[1]+'</div><div class="ln">Time <b>'+RS.fmt(T)+'</b> &nbsp;·&nbsp; Best <b>'+RS.fmt(nb?T:best)+'</b>'+(nb?' &nbsp;NEW BEST!':'')+'</div><div class="ln" style="font-size:10px;color:#555">Gold &lt; '+RS.fmt(J.GOLD)+' · Silver &lt; '+RS.fmt(J.SILVER)+' · Bronze &lt; '+RS.fmt(J.BRONZE)+'</div><div class="rw">+'+pay+' kr</div><div class="gf">'+(first?'You earned the Elytra + 64 rockets. Jump off and fly!':'The Elytra is yours and stays equipped. The rockets were a one-time prize.')+(gotE||!first?'':'<br><small>(Elytra already yours — equipped in the chest slot)</small>')+'</div>');try{if(window.__ITEMGET&&first)setTimeout(()=>{window.__ITEMGET.got('elytra');window.__ITEMGET.got('rocket64');},900);}catch(_){}try{if(finT().cr&&window.__NIGHTWING)window.__NIGHTWING.raceDone(T);}catch(_){}};/*nightwing*/
+    RS.showEnd('<h3>JETPACK RINGS — Nonskarknuten!</h3><div class="md">'+medal[0]+'</div><div class="ln">'+medal[1]+'</div><div class="ln">Time <b>'+RS.fmt(T)+'</b> &nbsp;·&nbsp; Best <b>'+RS.fmt(nb?T:best)+'</b>'+(nb?' &nbsp;NEW BEST!':'')+'</div><div class="ln" style="font-size:10px;color:#555">Gold &lt; '+RS.fmt(J.GOLD)+' · Silver &lt; '+RS.fmt(J.SILVER)+' · Bronze &lt; '+RS.fmt(J.BRONZE)+'</div><div class="rw">+'+pay+' kr</div><div class="gf">'+(first?'You earned 64 rockets. Jump off and fly!':'The rockets were a one-time prize.')+(gotE?'<br><small>You had lost your wings, so here is a spare Elytra.</small>':'')+'</div>');try{if(window.__ITEMGET&&(first||gotE))setTimeout(()=>{if(gotE)window.__ITEMGET.got('elytra');if(first)window.__ITEMGET.got('rocket64');},900);}catch(_){}try{if(finT().cr&&window.__NIGHTWING)window.__NIGHTWING.raceDone(T);}catch(_){}};/*nightwing*/
   J.GOLD=225;J.SILVER=285;J.BRONZE=360;
   J.fail=(why)=>{RS.mode=null;RS.phase=null;J.stop();RS.tone(220,.5,.25,'square');RS.showEnd('<h3>JETPACK RINGS</h3><div class="md">💨</div><div class="ln">'+why+'</div><div class="ln">Rings '+J.next+' / '+J.rings.length+' &nbsp;·&nbsp; '+RS.fmt(RS.t)+'</div>');};
   const tmp=new THREE.Vector3(),cur=new THREE.Vector3();
@@ -38009,7 +38009,7 @@ setInterval(()=>{drain();migrate();},2500);
 if(window.__SNUS)return;
 const SN=window.__SNUS={ver:1,err:null,uses:0,refused:0,bought:0,wobbles:0,left:0,mult:1,tier:null,expired:0,starter:false,log:[]};
 const er=x=>{SN.err=String(x&&x.stack||x);};
-const CAP=6;
+const CAP=0;/*snus_05: no daily limit; kept for state() only*/
 const TIERS={
  snus_w:{k:'w',n:'DERP White',tier:'LOW',mult:1.15,dur:120,pouches:24,unit:'pouch',price:59,lid:'#f4f4ee',desc:'White dry portion. Small boost, lasts longest.'},
  snus_o:{k:'o',n:'DERP Original',tier:'MID',mult:1.25,dur:90,pouches:24,unit:'pouch',price:79,lid:'#6a4426',desc:'Brown moist portion. A solid boost.'},
@@ -38085,7 +38085,7 @@ const FIRST='Whoa. The ground just did a little dance. Is that normal? (Everyone
 function use(i){try{if(i===undefined)i=slot;const st=INV.slots[i];if(!st)return false;
   if(st.id==='snus_empty'){toast('Empty tin. Nothing left but the smell. Throw it in a bin.');return false;}
   const T=TIERS[st.id];if(!T)return false;
-  if(usedToday()>=CAP){SN.refused++;toast('Your lip has had enough for today.');return false;}
+  /*snus_05: no daily limit*/
   const left=leftOf(st);
   if(INV.mode!=='creative'){st.u=left-1;}
   addUse();SN.uses++;
@@ -45534,6 +45534,46 @@ NL.flush=()=>{if(S)save();return true;};
 (window.__LOGIN_READY||Promise.resolve()).then(init).catch(e=>{NL.err='init '+e;});
 })();}catch(e){console.warn('nicelist',e);}
 /* /nicelist */
+/* elytra9 */
+/* ===== THE FLYING LADDER (job elytra9, 15 Nov 2026): day 6 jetpack (tipi village, Camp Botnan) -> day 9 elytra + 16 rockets (Globen) -> day 19 Night Wing (jetpack ring race).
+   - JETPACK: window.__ELY9.jetOk() gates the only on-switch (window.__JET.toggle, used by X, the touch button, the menu, holding it in the hotbar). It is open when the dev bypass is on
+     (localhost / ?dev=1, unless ?storygate=1, same pattern as DEVOK elsewhere) or when the player carries/wears a jetpack. The jetpack race start needs day >= 6 (or dev / owning it).
+   - GRANTS: a 700 ms check. Day 6 and within 25 m of Camp Botnan (784,-1637): a battered jetpack. Day 9 and within 25 m of Globen (644,-2050): the Elytra (equipped) + 16 rockets.
+     Later days (day > 6 / day > 9): the same gift arrives quietly so saves past the day, or players who skipped the walk, still get it. Once per player (window.__STORY.once, fallback localStorage).
+     Someone who already has it (carrying or wearing) is marked done and never given a second one.
+   - DAY 19 SAFETY NET lives in the ring race finish (elytra if missing, day >= 19) and J.start (lends the jetpack on the public build).
+   - Dev hooks: window.__ELY9 {dev (bypass flag), pause (stop the check), pfx (once-key prefix, tests), tick(), jetOk(), hasEly(), owns(), state()}.
+   - Gate scan (15 Nov): no day gate on elytra flight (tryElytra needs the item, creative mode bypasses); nwgate / storygate gate the crater, the Night Wing, magic: nothing flight related. */
+(function(){try{
+const W=window,QS=new URLSearchParams(location.search);
+const E9=W.__ELY9={ver:1,err:null,pause:false,pfx:'',dev:(/^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname)||QS.get('dev')==='1')&&QS.get('storygate')!=='1',log:[]};
+const DAY=()=>typeof W.__DAY==='number'?W.__DAY:0;
+const SITES={jet:{x:784,z:-1637,r:25,day:6,key:'jetpack_tipi'},ely:{x:644,z:-2050,r:25,day:9,key:'elytra_globen'}};
+const hasBack=id=>{const a=INV.armor||{};return !!((a.chest&&a.chest.id===id)||(a.back&&a.back.id===id));};
+E9.owns=()=>{try{return countOf('jetpack')>0||hasBack('jetpack');}catch(_){return false;}};
+E9.hasEly=()=>{try{return hasBack('elytra')||INV.slots.some(s=>s&&s.id==='elytra');}catch(_){return false;}};
+let nt=0;const say=t=>{try{toast(t);}catch(_){}};
+E9.jetOk=()=>E9.dev||E9.owns();
+E9.jetNo=()=>{const n=performance.now();if(n-nt<2500)return;nt=n;say('Not yet. The folks up at the tipi village are patching an old jetpack for you. Visit them on 6 December.');};
+E9.raceOk=()=>E9.dev||DAY()>=6||E9.owns();
+E9.raceNo=()=>{say('The jetpack ring race needs a jetpack. The tipi village folk have one, from 6 December.');};
+const once=k=>{k=E9.pfx+k;try{const S=W.__STORY;if(S&&S.once)return S.once(k);}catch(_){}try{const K='kv-elytra9',m=JSON.parse(localStorage.getItem(K)||'{}');if(m[k])return false;m[k]=1;localStorage.setItem(K,JSON.stringify(m));return true;}catch(_){return true;}};
+const got=(id,x)=>{try{if(W.__ITEMGET&&W.__ITEMGET.got)W.__ITEMGET.got(id,x);}catch(_){}};
+const save=()=>{try{updateArmor();}catch(_){}try{renderHotbar();}catch(_){}try{saveInv();}catch(_){}};
+const giveJet=live=>{if(E9.owns())return false;give('jetpack',1);save();
+  setTimeout(()=>{say(live?'The tipi folk hand you a battered old jetpack. "It mostly works. Mostly." Press X to put it on, hold Space to fly.':'A battered old jetpack from the tipi village turned up in your things. It mostly works. Mostly. Press X to put it on.');
+    got('jetpack',{name:'Battered old jetpack',desc:'It mostly works. Mostly. Press X to put it on, hold Space to fly. Refuel at a petrol station or at home.',color:'#d8541a',big:true});},live?1800:600);return true;};
+const giveEly=live=>{if(E9.hasEly())return false;if(!INV.armor.chest)INV.armor.chest={id:'elytra',n:1};else give('elytra',1);give('rocket',16);save();
+  setTimeout(()=>{say(live?'Wings. Just lying here, on top of the world. Jump off the hill and see what happens.':'A pair of wings from Globen turned up in your things. Jump off something high and press Space.');
+    got('elytra',{desc:'Wings. Just lying here, on top of the world. Jump off the hill and see what happens. (Space in the air opens them, R for a rocket boost.)'});got('rocket16');},live?1800:600);return true;};
+const done={};
+E9.tick=()=>{try{if(E9.pause||typeof started==='undefined'||!started||W.__INTRO_ON||typeof INV==='undefined')return;const d=DAY();
+  for(const k of ['jet','ely']){const s=SITES[k];if(d<s.day||done[E9.pfx+k])continue;const near=Math.hypot(P.x-s.x,P.z-s.z)<s.r;const live=d===s.day;if(live&&!near)continue;
+    done[E9.pfx+k]=1;if(!once(s.key))continue;const r=k==='jet'?giveJet(live&&near):giveEly(live&&near);E9.log.push([k,d,r,live&&near]);}}catch(e){E9.err=String(e);}};
+setInterval(E9.tick,700);
+E9.state=()=>({dev:E9.dev,day:DAY(),jet:E9.owns(),ely:E9.hasEly(),jetOk:E9.jetOk(),done:Object.keys(done),log:E9.log,err:E9.err});
+}catch(e){console.warn('elytra9',e);window.__ELY9_ERR=String(e);}})();
+/* /elytra9 */
 /* merrychristmas */
 /* ===== MERRY CHRISTMAS (job merrychristmas, 12 Nov 2026). Marius: "you can say merry christmas to people you meet out on the trails and that goes to your nice/naughty list".
    - WHO: the strangers out on the trails (window.__TL.people: Greta, Ola, Agnes, the sled kids, Nils ... 20 of them) plus the skier who swishes past and the dog owner (they register through __MERRY.reg).
@@ -55995,7 +56035,7 @@ flag('__CF3_D22',()=>{const s=sol();return s&&s.aft&&s.aft.some(q=>q.done);});
 flag('__CF3_D23',()=>W.__BAKEDAY&&W.__BAKEDAY.ginger&&W.__BAKEDAY.ginger.done()&&churchSeen());
 /* ---------------- the chip text ---------------- */
 const TXT={
- 9:"Walk or drive up to Globen, the big globe on the hill",
+ 9:"Walk or drive up to Globen, the big globe on the hill (wings are waiting up there)",
  10:"Climb Orresteinen, the giant rock far to the west (car or jetpack)",
  11:"Bake Mamma's cookies: buy flour, butter, ginger spice, syrup, eggs, bake at Chris's stove (G)",
  14:"Go to the Christmas tree on the square and watch the town light up",
@@ -58778,7 +58818,7 @@ SH.state=function(){const h=SH.openIdx>=0?SH.hatches[SH.openIdx]:null;return {bu
   man:M.on?{x:+M.x.toFixed(1),z:+M.z.toFixed(1),y:+M.y.toFixed(1),state:M.state,seen:M.seen,hidden:M.hidden,d:+hyp(P.x-M.x,P.z-M.z).toFixed(1),mv:M.mv,inScene:!!(M.g&&M.g.parent)}:null,
   manInScene:!!(M.g&&M.g.parent),opens:SH.opens,closes:SH.closes,mans:SH.mans,contacts:SH.contacts,doors:SH.doors,knocks:SH.knocks,trail:SH.trail?{n:SH.trail.n,from:SH.trail.from}:null,trails:SH.trails|0,inStair:SW.in,day:day(),main:SH.main,
   prompt:ST.act||null,particles:ptOn,hum:!!HUM.o1,glow:!!(GL&&GL.visible),sirenHooked:!!sirenOff,log:SH.log.slice(-6)};};
-SH.dev={solid:(a,b,c)=>solidFn(a,b,c),tcs:()=>TCSOLID===solidFn?1:(TCSOLID===null?0:2),clock(ms){SH._off+=+ms||0;},tick(){slow=1;tick(0);},tp(i,dist){const h=SH.hatches[i];if(!h)return false;const dv=DIRS[h.dir];dist=dist==null?4:dist;const x=h.x-dv[0]*dist+(-dv[1])*1.5,z=h.z-dv[1]*dist+dv[0]*1.5;try{streamChunks(x,z,300);}catch(_){}P.x=x;P.z=z;P.y=groundY(x,z)+.02;P.vx=P.vy=P.vz=0;P.yaw=Math.atan2(-(h.x-x),-(h.z-z));P.pitch=-.12;return true;},
+SH.dev={P:()=>P,Hm:(x,z)=>Hm(x,z),solid:(a,b,c)=>solidFn(a,b,c),tcs:()=>TCSOLID===solidFn?1:(TCSOLID===null?0:2),clock(ms){SH._off+=+ms||0;},tick(){slow=1;tick(0);},tp(i,dist){const h=SH.hatches[i];if(!h)return false;const dv=DIRS[h.dir];dist=dist==null?4:dist;const x=h.x-dv[0]*dist+(-dv[1])*1.5,z=h.z-dv[1]*dist+dv[0]*1.5;try{streamChunks(x,z,300);}catch(_){}P.x=x;P.z=z;P.y=groundY(x,z)+.02;P.vx=P.vy=P.vz=0;P.yaw=Math.atan2(-(h.x-x),-(h.z-z));P.pitch=-.12;return true;},
   face(x,z){P.yaw=Math.atan2(-(x-P.x),-(z-P.z));P.pitch=0;},man:()=>M,sw:()=>SW,flash,layTrail,trailMesh:()=>TR&&TR.m,kit,mat:()=>MAT,lastLyk(){return SH.lastLyk;},stairU,stairV,useKey,prScan,hook:hookSiren};
 })();}catch(e){window.__SHELTER_ERR=String(e&&e.stack||e);console.warn('shelter1',e);}
 /* /shelter1 */
@@ -63965,6 +64005,22 @@ let ov=null,ifr=null,padGuard=0,curOpp=null;
 const clearKeys=()=>{try{for(const k in keys)keys[k]=false;P.vx=P.vz=0;P.run=false;}catch(_){}};
 const lockOff=()=>{try{document.exitPointerLock();}catch(_){}};
 const lockOn=()=>{if(!TOUCHY){try{const pr=view.requestPointerLock();pr&&pr.catch&&pr.catch(()=>{});}catch(_){}}};
+/* kventplaces: quiet lute music while a match is open. Lazy: the file is only fetched at the FIRST match. Goes through the 'music' mixer bus (the player's music volume), area music + ambient are ducked. */
+const KM={el:null,g:null,want:false,iv:0,bus:'',prev:null,a3:false,created:false};
+function kvMusic(on){try{if(typeof ac==='undefined'||!ac)return;const t=ac.currentTime;
+  if(on){KM.want=true;
+    if(!KM.el){KM.el=new Audio('sfx/kvent/music_lute_hearth.m4a');KM.el.loop=true;KM.el.preload='auto';try{KM.el.crossOrigin='anonymous';}catch(_){}
+      const src=ac.createMediaElementSource(KM.el);KM.g=ac.createGain();KM.g.gain.value=0;src.connect(KM.g);const bus=(window.SMIX&&SMIX.bus&&SMIX.bus('music'));KM.bus=bus?'music':'master';KM.g.connect(bus||master);KM.created=true;}
+    try{if(ac.state==='suspended')ac.resume().catch(()=>{});}catch(_){}
+    KM.el.play().catch(()=>{});KM.g.gain.cancelScheduledValues(t);KM.g.gain.setTargetAtTime(.2,t,.5);/* ~1.5 s fade in, quiet */
+    const duck=()=>{try{const M=window.__MUS;if(M&&M.vol&&ac)M.vol.gain.setTargetAtTime(0,ac.currentTime,.4);}catch(_){}try{const A3=window.__AUDIO3D;if(A3&&A3.ready){const n=A3.ambient();if(n&&n.gain)n.gain.setTargetAtTime(.1,ac.currentTime,.3);}}catch(_){}};
+    duck();if(!KM.iv)KM.iv=setInterval(()=>{if(KM.want)duck();},1000);}
+  else{KM.want=false;if(KM.iv){clearInterval(KM.iv);KM.iv=0;}
+    if(KM.g){KM.g.gain.cancelScheduledValues(t);KM.g.gain.setTargetAtTime(0,t,.45);setTimeout(()=>{if(!KM.want&&KM.el)KM.el.pause();},2200);}
+    try{const M=window.__MUS;if(M&&M.vol&&ac)M.vol.gain.setTargetAtTime(M.on?.55:0,ac.currentTime,1.2);}catch(_){}
+    try{const A3=window.__AUDIO3D;if(A3&&A3.ready){const n=A3.ambient();if(n&&n.gain)n.gain.setTargetAtTime(1,ac.currentTime,.6);}}catch(_){}}
+}catch(e){e8(e);}}
+KV.music={state:()=>({created:KM.created,want:KM.want,playing:!!(KM.el&&!KM.el.paused),gain:KM.g?+KM.g.gain.value.toFixed(3):0,bus:KM.bus,src:KM.el?KM.el.src:'',mus:(()=>{try{return +__MUS.vol.gain.value.toFixed(3);}catch(_){return null;}})()}),fn:kvMusic};
 function openKvent(id,deck,extra){id=String(id||'kare');if(ov)return false;/*kvent2: extra = '&view=packs' etc.*/
   try{if(typeof started!=='undefined'&&!started&&!QS.get('kventforce'))return false;}catch(_){}
   clearKeys();lockOff();hintEl.hidden=true;tipEl.hidden=true;bubEl.hidden=true;
@@ -63975,8 +64031,9 @@ function openKvent(id,deck,extra){id=String(id||'kare');if(ov)return false;/*kve
   ifr.addEventListener('load',()=>{try{ifr.contentWindow.focus();}catch(_){}});
   ov.appendChild(ifr);document.body.appendChild(ov);
   curOpp=id;KV.pending=null;
+  kvMusic(true);/*kventplaces*/
   return true;}
-function closeKvent(){if(!ov)return false;try{ifr.src='about:blank';}catch(_){}ov.remove();ov=null;ifr=null;padGuard=performance.now()+450;
+function closeKvent(){if(!ov)return false;try{ifr.src='about:blank';}catch(_){}ov.remove();ov=null;ifr=null;padGuard=performance.now()+450;kvMusic(false);/*kventplaces*/
   clearKeys();lockOn();try{W.focus();}catch(_){}
   const r=KV.pending;KV.pending=null;if(r)setTimeout(()=>after(r),250);
   return true;}
@@ -64033,7 +64090,7 @@ function placeKare(){if(KV.kare||!KV.spawnOn)return KV.kare;
   g.add(tb);scene.add(g);
   KV.kare={g,person,px:x,py:y,pz:z,face};
   return KV.kare;}
-KV.spawnNow=placeKare;
+KV.spawnNow=()=>KV.kare;/*kventplaces: no outdoor Kåre*/
 /* ---------------------------------------------------------------- interaction: hint chip, E, tap, Square. One 120 ms timer (cheap), nothing per frame */
 let hintOn=false,hintWho=null,padPrev=0,startAt=0,tipShown=false,tipUntil=0;
 const usable=()=>{try{if(typeof started==='undefined'||!started||P.driving||ov)return false;if(typeof shopUI!=='undefined'&&!shopUI.hidden)return false;return busy('scene,dead,ui')==='';}catch(_){return false;}};
@@ -64047,7 +64104,7 @@ function faceKare(){const k=KV.kare;if(!k||!k.person)return;const ud=k.person.us
 function tick(){try{
   const now=performance.now();
   if(typeof started!=='undefined'&&started){if(!startAt)startAt=now;
-    if(KV.spawnOn&&!KV.kare&&now-startAt>2500)placeKare();
+    /*kventplaces: Kåre sits in Bowlinghallen now (no outdoor spawn)*/
     /*kventtip: banner removed (Marius)*/}
   if(!tipEl.hidden&&now>tipUntil){tipEl.style.opacity=0;if(now>tipUntil+700)tipEl.hidden=true;}
   faceKare();
@@ -64091,14 +64148,14 @@ const dist=(x,z)=>hyp(x-P.x,z-P.z);
 const fmtD=d=>{try{return PL().fmtD(d);}catch(_){return Math.round(d)+'m';}};
 const arrow=(x,z)=>{try{return PL().arrow(x,z);}catch(_){return '';}};
 /* ---------- the opponents (fallback list; the real list is fetched from build/kvent/opponents.json) ---------- */
-let OPP=[['kare','Kåre the Card Player','Right here'],['sven','Sven the Cafe Owner','The Cafe'],['ola','Ola the Baker','The Bakery'],['ingeborg','Ingeborg the Librarian','The Library'],['brit','Brit the Shopkeeper','The Shop'],['gunvald','Chieftain Gunvald','The Red Cave'],['stempelsen','Chief Auditor Stempelsen','The Blue Cave'],['troll','The Frost Troll','The Troll Cave'],['witch','The Witch','The Forest']].map(a=>({id:a[0],name:a[1],place:a[2]}));
+let OPP=[['kare','Kåre the Card Player','Bowlinghallen, the Kvent corner'],['sven','Sven the Cafe Owner','Inside the cafe'],['ola','Ola the Baker','Inside the bakery'],['ingeborg','Ingeborg the Librarian','Inside the library'],['brit','Brit the Shopkeeper','Inside the shop'],['gunvald','Chieftain Gunvald','The Red Cave'],['stempelsen','Chief Auditor Stempelsen','The Blue Cave'],['troll','The Frost Troll','The Troll Cave'],['witch','The Witch','The Forest']].map(a=>({id:a[0],name:a[1],place:a[2]}));
 try{fetch('build/kvent/opponents.json',{cache:'no-store'}).then(r=>r.ok?r.json():null).then(j=>{try{if(j&&j.opponents&&j.opponents.length)OPP=j.opponents.map(o=>({id:o.id,name:o.name,place:o.place||'',faction:o.faction,level:o.level}));}catch(e){e8(e);}}).catch(()=>{});}catch(_){}
 const short=o=>String(o.name||o.id).replace(/ the .*$/i,'').replace(/^(Chieftain|Chief Auditor)\s+/i,'');
 /* ---------- where each opponent is (read from the live objects) ---------- */
 function pos(id){
   const x=KS.extra[id];if(x)return{built:true,x:x.x,z:x.z,y:x.y!=null?x.y:P.y,yaw:x.yaw||0};
   if(id==='kare'){const k=KV.kare;return k?{built:true,x:k.px,z:k.pz,y:k.py,yaw:k.face||0}:{built:false};}
-  if(id==='sven'||id==='ola'){const want=id==='sven'?'cafe':'bakery',re=id==='sven'?/^Caf/:/^Bakeri/;
+  if(false&&(id==='sven'||id==='ola')){/*kventplaces: placed indoors by the kventplaces block*/const want=id==='sven'?'cafe':'bakery',re=id==='sven'?/^Caf/:/^Bakeri/;
     try{let D=null,dd=1e9;try{for(const d of doors){if(!d.biz||!re.test(d.kind||''))continue;const q=hyp(d.x-P.x,d.z-P.z);if(q<dd){dd=q;D=d;}}}catch(_){}
       if(id==='sven')try{for(const d of (world.pois||[])){if(d.kind!=='cafe')continue;const q=hyp(d.x-P.x,d.z-P.z);if(q<dd){dd=q;D={x:d.x,z:d.z};}}}catch(_){}
       let best=null,bd=1e9;const n=W.__WORK&&W.__WORK.all;if(n)for(const o of n){if(o.cat!==want||!isFinite(o.x))continue;const d=hyp(o.x-P.x,o.z-P.z);if(d<bd){bd=d;best=o;}}
@@ -64529,7 +64586,7 @@ try{fetch('build/kvent/opponents.json',{cache:'no-store'}).then(r=>r.ok?r.json()
 const oppOf=id=>KT.opps.find(o=>o.id===id);
 /* ---------- names, work-counter opponents, hooks used by the kventgame block ---------- */
 Object.assign(KV.NAMES,{pinsper:'Pins-Per'});
-KV.workCats=Object.assign(KV.workCats||{},{cafe:['sven','the cafe'],bakery:['ola','the bakery'],library:['ingeborg','the library'],shop:['brit','the shop'],grocery:['brit','the shop']});
+KV.workCats={};/*kventplaces: the clerks are no longer opponents; Sven / Ola / Ingeborg / Brit sit at their own table (kventplaces block)*/
 KV.query=id=>{const r=rep();return'&rep=red:'+r.red+',blue:'+r.blue;};
 /* ---------- the wallet bridge ---------- */
 addEventListener('message',e=>{try{const w=KV.iframeWin&&KV.iframeWin();if(!w||e.source!==w)return;const d=e.data;if(!d||d.kventEmbed!==1)return;
@@ -64590,7 +64647,7 @@ function tick(){try{if(typeof started==='undefined'||!started)return;const t0=pe
     else{const v=hyp(d.pos.x-P.x,d.pos.z-P.z)<130;if(d.built.visible!==v)d.built.visible=v;}}
   const dt=performance.now()-t0;T.n++;T.sum+=dt;if(dt>T.max)T.max=dt;}catch(e){e8(e);}}
 /* library + shop workers: where is the nearest one (same idea the Sven / Ola lookup uses), so the phone, the map pins and Teleport know them */
-const WORKCAT={ingeborg:['library'],brit:['shop','grocery']};
+const WORKCAT={};/*kventplaces*/
 function workerPlace(){try{const KS=W.__KVENTSEARCH,all=W.__WORK&&W.__WORK.all;if(!KS||!all)return;
   for(const id in WORKCAT){let best=null,bd=1e9;for(const o of all){if(!o||!isFinite(o.x)||!WORKCAT[id].includes(o.cat))continue;const d=hyp(o.x-P.x,o.z-P.z);if(d<bd){bd=d;best=o;}}
     if(best){KS.place(id,best.x,best.z,best.yaw||0,(best.y<-900&&best._y0!=null)?best._y0:best.y);if(KS.extra[id])KS.extra[id].b=best.b;}
@@ -64625,6 +64682,130 @@ KT.place=id=>{const d=DEFS.find(q=>q.id===id);if(!d)return null;if(!d.built)buil
 KT.defs=DEFS;
 })();}catch(e){window.__KVENTTOWN_ERR=String(e&&e.stack||e);console.warn('kventtown',e);}
 /* /kventtown */
+/* kventplaces */
+/* ===== KVENT PLACES (job kventplaces, 15 Nov 2026). DEV ONLY (needs the kventgame block). Switch: ?kvent=0 off.
+   Marius: "no Kvent players out and about; they are only found INDOORS".
+   - WHERE: Kåre + Pins-Per = Bowlinghallen, the Kvent corner (Kåre has his own small card table at the east end of the corner, x 58); Sven = the cafe, Ola = the bakery, Ingeborg = the
+     library reading room, Brit = the grocery/shop. Each of those four is a SPECIFIC business (the one nearest the tree on the square that has a real interior), seated at one of the
+     interior's own tables (the cafe / bakery / library plans already put tables + chairs in), with a green felt and a fan of cards on it. A shop with no table (Brit) gets a free floor spot next to
+     the counter and a small card table of its own. No interior at all -> the player sits at an extra table in Bowlinghallen instead (KPL.homes[id].fallback).
+   - The old "any clerk of that business kind is the opponent" rule and Kåre standing outside are GONE (KV.workCats = {}, KV.spawnOn = false, no worker-door lookups).
+     Story duels are untouched: the two cave chiefs, the Frost Troll and the Witch (kventtown DEFS).
+   - E / tap / Square use the normal KV.reg route (reach 2.8 m, only while the player is INSIDE that building). The map pins, GPS search and Teleport read KS.place (+ .b = the building).
+   - Closed shop (shop hours): the player is gone with the clerk and cannot be challenged; the pin stays.
+   - Cost: ~12 boxes per opponent, built lazily within 90 m, hidden beyond 130 m; one 400 ms timer (head turn only within 12 m).
+   API: window.__KVPLACES {homes, state(id), list(), tick()}. ===== */
+try{(()=>{
+const W=window,QS=new URLSearchParams(location.search);
+const KV=W.__KVENT;if(!KV||!KV.on||QS.get('kvent')==='0')return;
+const KS=W.__KVENTSEARCH;
+const KPL=W.__KVPLACES={ver:1,err:null,homes:{},log:[],inited:false};
+const e8=e=>{KPL.err=String(e&&e.stack||e);try{console.warn('kventplaces',e);}catch(_){}};
+const hyp=Math.hypot;
+KV.spawnOn=false;KV.workCats={};
+/* ---------- shared bits ---------- */
+const lam=new Map();const mat=c=>{if(!lam.has(c))lam.set(c,new THREE.MeshLambertMaterial({color:c}));return lam.get(c);};
+const BOX=new THREE.BoxGeometry(1,1,1);
+function box(g,w,h,d,x,y,z,c,ry){const m=new THREE.Mesh(BOX,mat(c));m.scale.set(w,h,d);m.position.set(x,y,z);if(ry)m.rotation.y=ry;g.add(m);return m;}
+function cardsOn(g,x,topY,z,yaw){/* felt + a fan of three cards + a red-backed one + a mug, centred on (x,z) */
+  const t=new THREE.Group();t.position.set(x,topY,z);t.rotation.y=yaw;
+  box(t,.62,.01,.44,0,.005,0,0x2e6a3a);
+  for(let i=-1;i<=1;i++){const c=box(t,.14,.008,.2,i*.11,.014,.04,i===0?0xb02a2a:0xefe6d0,i*.22);}
+  box(t,.14,.008,.2,.2,.014,-.1,0xefe6d0,.4);
+  box(t,.1,.12,.1,-.24,.06,-.14,0xd8d8d8);
+  g.add(t);}
+const WORKP=()=>{try{return W.__WORK&&W.__WORK.person;}catch(_){return null;}};
+function sitDown(m,top){const l=m.children.filter(c=>c.isMesh);if(l[0])l[0].rotation.x=-Math.PI/2;if(l[1])l[1].rotation.x=-Math.PI/2;m.position.y=top-.58;}
+function holdCards(m){try{const u=m.userData;u.arms[0].rotation.x=-.95;u.arms[1].rotation.x=-.95;}catch(_){}}
+const insideB=b=>{try{return !!b&&buildingAt(P.x,P.z)===b;}catch(_){return false;}};
+const closedB=b=>{try{return !!(W.__REALT&&W.__REALT.closedB&&b&&b!==BOWL&&W.__REALT.closedB(b));}catch(_){return false;}};
+const BOWLX=()=>W.__BOWLX;
+/* ---------- picking the interior for each town opponent ---------- */
+const DEFS=[
+  {id:'sven',cats:['cafe'],look:'cafe',seed:4141,say:'the cafe'},
+  {id:'ola',cats:['bakery'],look:'bakery',seed:4242,say:'the bakery'},
+  {id:'ingeborg',cats:['library'],look:'library',seed:4343,say:'the library'},
+  {id:'brit',cats:['grocery','shop','kiosk'],look:'grocery',seed:4444,say:'the shop'}];
+function anchor(){try{if(typeof TRX!=='undefined'&&typeof TRZ!=='undefined'&&(TRX||TRZ))return[TRX,TRZ];}catch(_){}return[0,0];}
+function freeCell(L,b,x,z){const i=Math.floor(x)-L.x0,j=Math.floor(z)-L.z0;if(i<0||j<0||i>=L.W||j>=L.H)return false;const k=j*L.W+i;if(L.WL[k])return false;const c=L.COL[k];if(c&&(c.length?c.some(v=>v):true))return false;
+  try{return buildingAt(x,z)===b;}catch(_){return false;}}
+function homeAtTable(def,b,L){/* the interior's own table + chair for this business: the table nearest a worker of this category */
+  const ws=L.workers.filter(w=>w.biz&&def.cats.includes(w.biz.cat));if(!ws.length)return null;
+  const tabs=L.props.filter(p=>p.t==='table');if(!tabs.length)return null;
+  let best=null,bd=1e9;for(const t of tabs){const ch=L.props.filter(p=>p.t==='chair'&&hyp(p.x-t.x,p.z-t.z)<1.3);if(ch.length<1)continue;for(const w of ws){const d=hyp(t.x-w.x,t.z-w.z);if(d<bd){bd=d;best={t,ch,w};}}}
+  if(!best)return null;
+  let f=null;try{f=bestFacade(b);}catch(_){}
+  let chair=best.ch[0];if(f&&best.ch.length>1){/* sit with the face toward the door when possible */const dt=hyp(best.t.x-f.mx,best.t.z-f.mz);const far=best.ch.filter(c=>hyp(c.x-f.mx,c.z-f.mz)>dt);if(far.length)chair=far[0];}
+  const yaw=Math.atan2(best.t.x-chair.x,best.t.z-chair.z);
+  return{mode:'table',px:chair.x,pz:chair.z,yaw,tx:best.t.x,tz:best.t.z,sit:true,seatTop:.48,topY:.77,w:best.w};}
+function homeAtCounter(def,b,L){/* a shop without tables: a free floor spot near the counter clerk, with a small card table of its own in front */
+  const ws=L.workers.filter(w=>w.biz&&def.cats.includes(w.biz.cat));if(!ws.length)return null;
+  let f=null;try{f=bestFacade(b);}catch(_){}
+  const w0=ws[0];let best=null,bs=1e9;
+  const dirs=[[1,0],[-1,0],[0,1],[0,-1]];
+  for(let r=1.2;r<=7;r+=.5)for(let a=0;a<16;a++){const x=w0.x+Math.cos(a/16*Math.PI*2)*r,z=w0.z+Math.sin(a/16*Math.PI*2)*r;
+    if(!freeCell(L,b,x,z))continue;if(f&&hyp(x-f.mx,z-f.mz)<3.2)continue;
+    for(const [dx,dz] of dirs){const tx=x+dx*1.0,tz=z+dz*1.0;if(!freeCell(L,b,tx,tz)||!freeCell(L,b,x+dx*1.6,z+dz*1.6))continue;
+      const s=r+(f?Math.max(0,4-hyp(tx-f.mx,tz-f.mz))*2:0);if(s<bs){bs=s;best={px:x,pz:z,yaw:Math.atan2(dx,dz),tx,tz};}}}
+  if(!best)return null;
+  return Object.assign(best,{mode:'counter',sit:false,topY:.82,w:w0,ownTable:true});}
+function pickInterior(def){
+  const [ax,az]=anchor();const cands=[];
+  try{for(const b of INTB){if(!b||b.gone||b.k==='roof'||b===BOWL||!b.bizL)continue;if(!b.bizL.some(q=>def.cats.includes(q.cat)))continue;cands.push(b);}}catch(e){e8(e);}
+  /* the first listed category wins (grocery before shop before kiosk), then the nearest to the tree on the square */
+  const rank=b=>{let r=9;for(const q of b.bizL){const k=def.cats.indexOf(q.cat);if(k>=0&&k<r)r=k;}return r;};
+  cands.sort((p,q)=>rank(p)-rank(q)||hyp(p.c[0]-ax,p.c[1]-az)-hyp(q.c[0]-ax,q.c[1]-az));
+  for(const b of cands){let L=null;try{L=intLayout(b);}catch(_){}if(!L||!L.workers||!L.props)continue;
+    const h=homeAtTable(def,b,L)||homeAtCounter(def,b,L);if(!h)continue;
+    const biz=(b.bizL.find(q=>def.cats.includes(q.cat))||b.bizL[0]);
+    return Object.assign(h,{id:def.id,def,b,L,y:b.base,name:biz.name,cat:biz.cat});}
+  return null;}
+/* ---------- Bowlinghallen: Kåre's table in the Kvent corner (+ extra tables when a business has no interior) ---------- */
+const BT=[58.0,61.4,64.8],BTZ=-513.7;let btUsed=0;
+function bowlHome(def,x){const X=BOWLX();const y=X?X.base:BOWL.base;
+  return{id:def.id,def,b:BOWL,y,name:'Bowlinghallen',cat:'bowling',mode:'bowl',px:x,pz:BTZ-.95,yaw:0,tx:x,tz:BTZ,sit:true,seatTop:.55,topY:.815,ownTable:true,bowlTable:true};}
+/* ---------- building the scene for one home ---------- */
+function build(h){const mk=WORKP();if(!mk)return false;
+  const g=new THREE.Group();g.name='kventplaces_'+h.id;g.userData.noHide=1;
+  const m=mk(h.def.look,h.def.seed);m.position.set(h.px,h.y,h.pz);m.rotation.y=h.yaw;
+  if(h.sit)sitDown(m,h.y+h.seatTop);holdCards(m);g.add(m);
+  if(h.bowlTable){const y=h.y,t=h.tx,z=h.tz;
+    box(g,1.25,.07,.86,t,y+.78,z,0x7a4a26);for(const a of[-1,1])for(const b of[-1,1])box(g,.1,.78,.1,t+a*.52,y+.39,z+b*.34,0x3a2414);
+    for(const sg of[-1,1]){box(g,.5,.07,.5,t,y+.5,z+sg*.95,0x6a3a1a);box(g,.5,.55,.07,t,y+.82,z+sg*(.95+.25),0x6a3a1a);for(const a of[-1,1])for(const b of[-1,1])box(g,.06,.5,.06,t+a*.22,y+.25,z+sg*.95+b*.22,0x3a2414);}
+    cardsOn(g,t,y+.815,z,0);}
+  else{if(h.ownTable){const y=h.y,tx=h.tx,tz=h.tz;box(g,.8,.05,.8,tx,y+.77,tz,0x8a6440);box(g,.08,.75,.08,tx,y+.38,tz,0x2a2a2e);box(g,.5,.04,.5,tx,y+.02,tz,0x2a2a2e);}
+    cardsOn(g,h.tx,h.y+h.topY,h.tz,h.yaw);}
+  scene.add(g);h.g=g;h.person=m;h.built=true;return true;}
+/* ---------- registering: the E prompt (KV.reg), the map / GPS / teleport (KS.place) ---------- */
+function register(h){const id=h.id;
+  KV.reg=KV.reg||{};
+  KV.reg[id]={r:2.8,name:()=>(KV.NAMES[id]||id),pos:()=>{if(!insideB(h.b)||closedB(h.b))return null;return{x:h.px,y:h.y+.2,z:h.pz,name:KV.NAMES[id]||id};}};
+  try{if(KS){/* teleport lands the player in front of the face, along (yaw): side-on to the table keeps the landing spot on the open floor */
+    KS.place(id,h.px,h.pz,h.mode==='bowl'?h.yaw:h.yaw+Math.PI/2,h.y);if(KS.extra[id])KS.extra[id].b=h.b;}}catch(e){e8(e);}}
+function init(){if(KPL.inited)return;try{if(typeof INTB==='undefined'||!INTB.length)return;}catch(_){return;}
+  const X=BOWLX();
+  const kd={id:'kare',look:'library',seed:777,say:'the bowling alley'};
+  /* Kåre: always the Kvent corner at Bowlinghallen (his old look: library, seed 777) */
+  try{const h=bowlHome(kd,BT[btUsed++]);KPL.homes.kare=h;register(h);}catch(e){e8(e);}
+  /* Pins-Per sits at the corner's solo table (built by the kventlounge block): registered for the map + GPS only */
+  try{if(KS&&X){const y=X.base;KS.place('pinsper',41.9,-514.65,0,y);if(KS.extra.pinsper)KS.extra.pinsper.b=BOWL;KPL.homes.pinsper={id:'pinsper',b:BOWL,x:41.9,z:-514.65,y,name:'Bowlinghallen',cat:'bowling',mode:'lounge',px:41.9,pz:-514.65,built:true,nobuild:true};}}catch(e){e8(e);}
+  for(const def of DEFS){let h=null;try{h=pickInterior(def);}catch(e){e8(e);}
+    if(!h){KPL.log.push('no interior for '+def.id+' -> Bowlinghallen');if(btUsed<BT.length){h=bowlHome(def,BT[btUsed++]);h.fallback=true;}}
+    if(h){KPL.homes[def.id]=h;register(h);}}
+  KPL.inited=true;}
+/* ---------- the timer: build when near, hide when far / closed, turn the head toward the player ---------- */
+function tick(){try{if(typeof started==='undefined'||!started)return;if(!KPL.inited)init();if(!KPL.inited)return;
+  for(const id in KPL.homes){const h=KPL.homes[id];if(!h||h.nobuild)continue;const d=hyp(h.px-P.x,h.pz-P.z);
+    if(!h.built){if(d<90&&(h.tries=(h.tries||0)+1)<200){try{build(h);}catch(e){e8(e);h.tries=999;}}continue;}
+    const cl=closedB(h.b);h.closed=cl;const v=d<130&&!cl;if(h.g.visible!==v)h.g.visible=v;
+    if(v&&d<12&&h.person){const u=h.person.userData;if(u&&u.head){let a=Math.atan2(P.x-h.px,P.z-h.pz)-h.yaw;a=Math.atan2(Math.sin(a),Math.cos(a));u.head.rotation.y+=(Math.max(-1,Math.min(1,a))-u.head.rotation.y)*.35;}}}
+}catch(e){e8(e);}}
+setInterval(tick,400);KPL.tick=tick;
+KPL.state=id=>{const h=KPL.homes[id];if(!h)return null;const inb=(()=>{try{return buildingAt(h.px,h.pz)===h.b;}catch(_){return false;}})();
+  return{id,name:h.name,cat:h.cat,mode:h.mode,fallback:!!h.fallback,x:h.px,y:h.y,z:h.pz,built:!!h.built,visible:!!(h.g&&h.g.visible),closed:!!h.closed,insideBuilding:inb,table:{x:h.tx,z:h.tz},seated:!!h.sit};};
+KPL.list=()=>Object.keys(KPL.homes).map(KPL.state);
+})();}catch(e){window.__KVPLACES_ERR=String(e&&e.stack||e);console.warn('kventplaces',e);}
+/* /kventplaces */
 /* airsoft */
 /* ===== AIRSOFT ARENA + SHOP (job airsoft, 2 Nov 2026). DEV ONLY (localhost / 127.0.0.1 or ?dev=1). Switch: ?airsoft=0 off (or __AIRSOFT.on=false before load).
    Marius 1 Nov: open field with tree clusters beside Bowlinghallen. Arena polygon + cover list = data/airsoft_arena.json (inlined by build/patches/apply_airsoft_01.py).
