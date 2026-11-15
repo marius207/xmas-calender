@@ -83,7 +83,8 @@
   "battery": "use = flashlight 100% (10 min). No free idle recharge. Lamps and flares keep their slow recharge.",
   "axe": "th_axe left-click on a tree fells it. No axe: \"You need an axe.\" Hands still break blocks.",
   "blocks": "right-click places the held block item, left-click breaks it. Breaking drops only the block itself.",
-  "trash": "Stand within 3 m of a bin, press G (tap the prompt): inventory opens with a TRASH slot; drag/tap item -> TRASH; confirm if stack value >= 100 kr."
+  "trash": "Stand within 3 m of a bin, press G (tap the prompt): inventory opens with a TRASH slot; drag/tap item -> TRASH; confirm if stack value >= 100 kr.",
+  "snus": "DERP snus (snus_w LOW +15% 120 s, snus_o MID +25% 90 s, snus_l HIGH +40% 60 s): one tin per slot (stack 1), pouches left in slot.u; one pouch per use; refresh not stack; max 6 uses per game day; empty tin -> snus_empty (bin it). Every save gets one snus_o once (localStorage kv-snus-start). Sold: Bowlinghallen counter+Kiosk, Nico Mat, Extra Kvinesdal, DERP SNUS stall (Julemarked). Speed goes through __REALP.slow(\"snus\"). Earns nothing."
  },
  "inventory": {
   "today": 36,
@@ -2988,6 +2989,87 @@
    "price": 0,
    "stack": 16,
    "english": "troll penny"
+  },
+  {
+   "id": "snus_w",
+   "name": "DERP White (LOW, 24 pouches)",
+   "category": "consumable",
+   "from_": "Bowlinghallen counter + Kiosk, Nico Mat, Extra Kvinesdal (Coop), DERP SNUS stall at the Julemarked; one free DERP Original (MID) for every save",
+   "today": "new",
+   "decision": "add",
+   "new": "White dry portion. One pouch per use (hold + click, or USE in the inventory): +15% walking and running speed for 120 s. Not stacking: another one refreshes the time. Max 6 uses per game day (\"Your lip has had enough for today.\"). One tin per slot, pouches left shown on the slot. Empty tin becomes the item Empty snus tin.",
+   "price": 59,
+   "stack": 1,
+   "english": "DERP White snus",
+   "speed_mult": 1.15,
+   "duration_s": 120,
+   "pouches": 24
+  },
+  {
+   "id": "snus_o",
+   "name": "DERP Original (MID, 24 pouches)",
+   "category": "consumable",
+   "from_": "Same shops as DERP White; every save starts with one",
+   "today": "new",
+   "decision": "add",
+   "new": "Brown moist portion. +25% speed for 90 s. Same rules as DERP White (daily cap 6, refresh not stack, one pouch per use).",
+   "price": 79,
+   "stack": 1,
+   "english": "DERP Original snus",
+   "speed_mult": 1.25,
+   "duration_s": 90,
+   "pouches": 24
+  },
+  {
+   "id": "snus_l",
+   "name": "DERP Løs (HIGH, 20 pinches)",
+   "category": "consumable",
+   "from_": "Same shops as DERP White",
+   "today": "new",
+   "decision": "add",
+   "new": "Loose snus. +40% speed for 60 s. Same rules (daily cap 6, refresh not stack, one pinch per use).",
+   "price": 99,
+   "stack": 1,
+   "english": "DERP loose snus",
+   "speed_mult": 1.4,
+   "duration_s": 60,
+   "pouches": 20
+  },
+  {
+   "id": "snus_empty",
+   "name": "Empty snus tin",
+   "category": "junk",
+   "from_": "What a DERP tin turns into when the last pouch is used",
+   "today": "new",
+   "decision": "add",
+   "new": "Rubbish. Throw it in a trash bin (stack 16, worth nothing).",
+   "price": 0,
+   "stack": 16,
+   "english": "empty snus tin"
+  },
+  {
+   "id": "hanky",
+   "name": "White handkerchief",
+   "category": "tool",
+   "from_": "Every save gets one; the clothes shop sells more",
+   "today": "new",
+   "decision": "add",
+   "new": "Hold it and click to wave it. Waving it at the northern lights when they come down for you makes them lose interest (job nordlys). Not used up. Stack 16.",
+   "price": 19,
+   "stack": 16,
+   "english": "white handkerchief"
+  },
+  {
+   "id": "nordlys_shard",
+   "name": "Nordlys shard",
+   "category": "collectible",
+   "from_": "Reward for escaping the northern lights, once per night",
+   "today": "new",
+   "decision": "add",
+   "new": "A keepsake. Sells for 25 kr. Stack 16.",
+   "price": 25,
+   "stack": 16,
+   "english": "northern lights shard"
   }
  ]
 }

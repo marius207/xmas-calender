@@ -1,0 +1,362 @@
+{
+ "_note": "DERP SNUS sayings, recorded by Marius (studio) + CapCut voice, 15 Nov 2026. One random line of the tin tier plays when a pouch is taken. Old TTS-voice clips in voice/snus_tts_backup.",
+ "lines": [
+  {
+   "id": "low_01",
+   "tier": "low",
+   "text": "I feel fine.",
+   "file": "voice/snus/low_01.m4a",
+   "dur": 1.2
+  },
+  {
+   "id": "low_02",
+   "tier": "low",
+   "text": "Mmm. Minty.",
+   "file": "voice/snus/low_02.m4a",
+   "dur": 1.61
+  },
+  {
+   "id": "low_03",
+   "tier": "low",
+   "text": "Nice and easy.",
+   "file": "voice/snus/low_03.m4a",
+   "dur": 1.36
+  },
+  {
+   "id": "low_04",
+   "tier": "low",
+   "text": "Yeah, that's nice.",
+   "file": "voice/snus/low_04.m4a",
+   "dur": 2.57
+  },
+  {
+   "id": "low_05",
+   "tier": "low",
+   "text": "Smooth.",
+   "file": "voice/snus/low_05.m4a",
+   "dur": 1.27
+  },
+  {
+   "id": "low_06",
+   "tier": "low",
+   "text": "Just a little one.",
+   "file": "voice/snus/low_06.m4a",
+   "dur": 1.17
+  },
+  {
+   "id": "low_07",
+   "tier": "low",
+   "text": "Ahh. Better.",
+   "file": "voice/snus/low_07.m4a",
+   "dur": 1.45
+  },
+  {
+   "id": "low_08",
+   "tier": "low",
+   "text": "That's the good stuff.",
+   "file": "voice/snus/low_08.m4a",
+   "dur": 1.38
+  },
+  {
+   "id": "low_09",
+   "tier": "low",
+   "text": "Calm and cozy.",
+   "file": "voice/snus/low_09.m4a",
+   "dur": 1.3
+  },
+  {
+   "id": "low_10",
+   "tier": "low",
+   "text": "Fresh.",
+   "file": "voice/snus/low_10.m4a",
+   "dur": 0.79
+  },
+  {
+   "id": "low_11",
+   "tier": "low",
+   "text": "Okay. Okay. I'm good.",
+   "file": "voice/snus/low_11.m4a",
+   "dur": 2.23
+  },
+  {
+   "id": "low_12",
+   "tier": "low",
+   "text": "Gentle. Like a hug.",
+   "file": "voice/snus/low_12.m4a",
+   "dur": 1.78
+  },
+  {
+   "id": "low_13",
+   "tier": "low",
+   "text": "Feels like Sunday.",
+   "file": "voice/snus/low_13.m4a",
+   "dur": 1.66
+  },
+  {
+   "id": "low_14",
+   "tier": "low",
+   "text": "Oh, that's pleasant.",
+   "file": "voice/snus/low_14.m4a",
+   "dur": 1.49
+  },
+  {
+   "id": "low_15",
+   "tier": "low",
+   "text": "A small treat.",
+   "file": "voice/snus/low_15.m4a",
+   "dur": 1.23
+  },
+  {
+   "id": "low_16",
+   "tier": "low",
+   "text": "Ready to walk.",
+   "file": "voice/snus/low_16.m4a",
+   "dur": 1.0
+  },
+  {
+   "id": "low_17",
+   "tier": "low",
+   "text": "Tidy.",
+   "file": "voice/snus/low_17.m4a",
+   "dur": 0.76
+  },
+  {
+   "id": "mid_01",
+   "tier": "mid",
+   "text": "Oh yeah.",
+   "file": "voice/snus/mid_01.m4a",
+   "dur": 1.02
+  },
+  {
+   "id": "mid_02",
+   "tier": "mid",
+   "text": "Great stuff.",
+   "file": "voice/snus/mid_02.m4a",
+   "dur": 1.03
+  },
+  {
+   "id": "mid_03",
+   "tier": "mid",
+   "text": "That one hit.",
+   "file": "voice/snus/mid_03.m4a",
+   "dur": 1.1
+  },
+  {
+   "id": "mid_04",
+   "tier": "mid",
+   "text": "Now we're talking.",
+   "file": "voice/snus/mid_04.m4a",
+   "dur": 1.48
+  },
+  {
+   "id": "mid_05",
+   "tier": "mid",
+   "text": "Whoa, there it is.",
+   "file": "voice/snus/mid_05.m4a",
+   "dur": 2.08
+  },
+  {
+   "id": "mid_06",
+   "tier": "mid",
+   "text": "Let's go.",
+   "file": "voice/snus/mid_06.m4a",
+   "dur": 1.01
+  },
+  {
+   "id": "mid_07",
+   "tier": "mid",
+   "text": "Yep. Yep yep yep.",
+   "file": "voice/snus/mid_07.m4a",
+   "dur": 2.02
+  },
+  {
+   "id": "mid_08",
+   "tier": "mid",
+   "text": "Legs are awake.",
+   "file": "voice/snus/mid_08.m4a",
+   "dur": 1.31
+  },
+  {
+   "id": "mid_09",
+   "tier": "mid",
+   "text": "Oh, I'm moving now.",
+   "file": "voice/snus/mid_09.m4a",
+   "dur": 1.33
+  },
+  {
+   "id": "mid_10",
+   "tier": "mid",
+   "text": "Here we go.",
+   "file": "voice/snus/mid_10.m4a",
+   "dur": 0.95
+  },
+  {
+   "id": "mid_11",
+   "tier": "mid",
+   "text": "That's a proper one.",
+   "file": "voice/snus/mid_11.m4a",
+   "dur": 1.34
+  },
+  {
+   "id": "mid_12",
+   "tier": "mid",
+   "text": "Feeling quick.",
+   "file": "voice/snus/mid_12.m4a",
+   "dur": 0.9
+  },
+  {
+   "id": "mid_13",
+   "tier": "mid",
+   "text": "Zoom zoom.",
+   "file": "voice/snus/mid_13.m4a",
+   "dur": 1.2
+  },
+  {
+   "id": "mid_14",
+   "tier": "mid",
+   "text": "Hoo! Okay!",
+   "file": "voice/snus/mid_14.m4a",
+   "dur": 1.36
+  },
+  {
+   "id": "mid_15",
+   "tier": "mid",
+   "text": "That woke me up.",
+   "file": "voice/snus/mid_15.m4a",
+   "dur": 1.25
+  },
+  {
+   "id": "mid_16",
+   "tier": "mid",
+   "text": "Bring it on.",
+   "file": "voice/snus/mid_16.m4a",
+   "dur": 1.1
+  },
+  {
+   "id": "mid_17",
+   "tier": "mid",
+   "text": "Strong one.",
+   "file": "voice/snus/mid_17.m4a",
+   "dur": 1.08
+  },
+  {
+   "id": "high_01",
+   "tier": "high",
+   "text": "Fuck yeah!",
+   "file": "voice/snus/high_01.m4a",
+   "dur": 0.92
+  },
+  {
+   "id": "high_02",
+   "tier": "high",
+   "text": "My blood's boiling!",
+   "file": "voice/snus/high_02.m4a",
+   "dur": 1.36
+  },
+  {
+   "id": "high_03",
+   "tier": "high",
+   "text": "Oh god. Oh god. Okay!",
+   "file": "voice/snus/high_03.m4a",
+   "dur": 2.38
+  },
+  {
+   "id": "high_04",
+   "tier": "high",
+   "text": "My lip is on fire!",
+   "file": "voice/snus/high_04.m4a",
+   "dur": 1.73
+  },
+  {
+   "id": "high_05",
+   "tier": "high",
+   "text": "I can see sounds!",
+   "file": "voice/snus/high_05.m4a",
+   "dur": 1.6
+  },
+  {
+   "id": "high_06",
+   "tier": "high",
+   "text": "I am the wind!",
+   "file": "voice/snus/high_06.m4a",
+   "dur": 1.34
+  },
+  {
+   "id": "high_07",
+   "tier": "high",
+   "text": "Holy moly!",
+   "file": "voice/snus/high_07.m4a",
+   "dur": 1.25
+  },
+  {
+   "id": "high_08",
+   "tier": "high",
+   "text": "Who turned up the world?",
+   "file": "voice/snus/high_08.m4a",
+   "dur": 1.78
+  },
+  {
+   "id": "high_09",
+   "tier": "high",
+   "text": "Nobody can stop me!",
+   "file": "voice/snus/high_09.m4a",
+   "dur": 1.6
+  },
+  {
+   "id": "high_10",
+   "tier": "high",
+   "text": "My legs are gone. They left!",
+   "file": "voice/snus/high_10.m4a",
+   "dur": 1.98
+  },
+  {
+   "id": "high_11",
+   "tier": "high",
+   "text": "Whoa whoa whoa whoa!",
+   "file": "voice/snus/high_11.m4a",
+   "dur": 2.23
+  },
+  {
+   "id": "high_12",
+   "tier": "high",
+   "text": "I feel like a reindeer!",
+   "file": "voice/snus/high_12.m4a",
+   "dur": 1.56
+  },
+  {
+   "id": "high_13",
+   "tier": "high",
+   "text": "Tastes like a forest fire!",
+   "file": "voice/snus/high_13.m4a",
+   "dur": 1.91
+  },
+  {
+   "id": "high_14",
+   "tier": "high",
+   "text": "That was too much. More!",
+   "file": "voice/snus/high_14.m4a",
+   "dur": 3.09
+  },
+  {
+   "id": "high_15",
+   "tier": "high",
+   "text": "Yeeehaaaw!",
+   "file": "voice/snus/high_15.m4a",
+   "dur": 1.34
+  },
+  {
+   "id": "high_16",
+   "tier": "high",
+   "text": "I have never been faster!",
+   "file": "voice/snus/high_16.m4a",
+   "dur": 1.73
+  },
+  {
+   "id": "high_17",
+   "tier": "high",
+   "text": "I could outrun the witch!",
+   "file": "voice/snus/high_17.m4a",
+   "dur": 1.94
+  }
+ ]
+}

@@ -54,8 +54,8 @@
     {
       "day": 4,
       "title": "Voices in the cold",
-      "text": "Find the church and listen. Somewhere downtown, carolers are singing.",
-      "hint": "Follow the sound of singing.",
+      "text": "Go to the church and listen. Somewhere downtown, carolers are singing.",
+      "hint": "Follow the sound of singing. Stand still near the church doors and let it wash over you.",
       "kind": "explore",
       "target": {
         "x": -90,
@@ -66,20 +66,26 @@
         "type": "near",
         "radius": 18
       },
-      "done": "Beautiful singing."
+      "done": "Beautiful singing. Stay a while: the church is the warmest place in town tonight. Tomorrow a door about coins opens.",
+      "chip": "Go to the church and listen to the carolers"
     },
     {
       "day": 5,
       "title": "Pocket money",
-      "text": "Collect 10 coins along the roads. Every krone counts at Christmas.",
-      "hint": "Coins glow on the roads. Walk through them.",
+      "text": "Collect 10 coins along the road into town. Every krone counts at Christmas.",
+      "hint": "Gold coins glow on the main road. Follow the pin and walk through them.",
       "kind": "coins",
-      "target": null,
+      "target": {
+        "x": -250,
+        "z": 700,
+        "name": "The coin trail"
+      },
       "done_when": {
         "type": "coins",
         "n": 10
       },
-      "done": "Cha-ching!"
+      "done": "Cha-ching! Pockets a little heavier. Tomorrow: a visit up in the hills.",
+      "chip": "Collect 10 coins on the main road (follow the pin)"
     },
     {
       "day": 6,
@@ -96,47 +102,50 @@
         "type": "near",
         "radius": 25
       },
-      "done": "Cozy up there!"
+      "done": "Cozy up there! The tipis keep the wind out and the fire keeps the dark away. Tomorrow there is post for Chris.",
+      "chip": "Visit the tipi village at Camp Botnan"
     },
     {
       "day": 7,
       "title": "Mail from home",
-      "text": "Something is rattling in Chris's building. Go home and check the mailbox. A note might be waiting.",
-      "hint": "The mailbox is by Chris's house. Press G.",
+      "text": "Something is rattling in Chris's building. Go home and open the mailbox by the road. A letter from Mamma should be waiting.",
+      "hint": "The mailbox is the black box by the road in front of Chris's house. Look at it and press G.",
       "kind": "story",
       "target": {
         "x": 526.5,
         "z": -706.5,
-        "name": "Chris's house"
+        "name": "Chris's mailbox"
       },
       "done_when": {
         "type": "near",
-        "radius": 8
+        "radius": 6
       },
-      "done": "A note from mom? Hmm. Keep it secret."
+      "done": "A letter from Mamma, and cookies! Keep it secret: someone downstairs is listening.",
+      "chip": "Open the mailbox at Chris's house (G)"
     },
     {
       "day": 8,
       "title": "Under the floorboards",
-      "text": "The witch's flat is not what it seems. Go to Chris's house and listen for what is behind her door.",
-      "hint": "Stay quiet. She hates noise.",
+      "text": "The witch's flat is not what it seems. Find the trapdoor behind Chris's house and take a quiet look. It was locked yesterday.",
+      "hint": "Stay quiet. She hates noise. The trapdoor lies in the yard behind the house.",
       "kind": "story",
       "target": {
-        "x": 526.5,
-        "z": -706.5,
-        "name": "Chris's house"
+        "x": 530.5,
+        "z": -722.5,
+        "name": "The trapdoor"
       },
       "done_when": {
         "type": "near",
-        "radius": 8
+        "radius": 3.5
       },
-      "done": "I knew it. A dungeon."
+      "done": "I knew it. A dungeon.",
+      "chip": "Find the trapdoor behind Chris's house"
     },
     {
       "day": 9,
       "title": "The big globe",
-      "text": "Find Globen, the giant landmark out on the hill.",
-      "hint": "Follow the path past the tipi village.",
+      "text": "Find Globen, the giant landmark out on the hill. Walk, drive, whatever you like. Follow my arrow.",
+      "hint": "It is past the tipi village. Walk right up to it.",
       "kind": "explore",
       "target": {
         "x": 644,
@@ -147,13 +156,14 @@
         "type": "near",
         "radius": 25
       },
-      "done": "What a view!"
+      "done": "What a view! A big round thing on a hill, and it is looking back at us.",
+      "chip": "Walk or drive up to Globen, the big globe on the hill"
     },
     {
       "day": 10,
       "title": "Top of the rock",
-      "text": "Climb Orresteinen, the giant rock above Fedafjorden.",
-      "hint": "It is far. A car helps. Or a jetpack.",
+      "text": "Climb Orresteinen, the giant rock above Fedafjorden, far out west. It is a long way. Take a car, or a jetpack if you are brave.",
+      "hint": "Follow my arrow and keep going until you are on top of the rock.",
       "kind": "explore",
       "target": {
         "x": -7733,
@@ -164,13 +174,14 @@
         "type": "near",
         "radius": 30
       },
-      "done": "Top of the world!"
+      "done": "Top of the world! Do not look down. Do look around.",
+      "chip": "Climb Orresteinen, the giant rock far to the west (car or jetpack)"
     },
     {
       "day": 11,
       "title": "Baking Day",
-      "text": "Flour, butter, ginger, syrup, eggs. Different shops, and some of them are sold out. Please do not let it burn. I cannot smell, and I am still worried.",
-      "hint": "Start at the bakery on Nesgata. Mix, roll, cut, bake. Then take the batch to her.",
+      "text": "Baking Day. Mamma's cookie recipe needs flour, butter, ginger spice, syrup and eggs, from different shops, and some are sold out. Then bake in Chris's kitchen: press G at the stove. Please do not let it burn. I cannot smell, and I am still worried.",
+      "hint": "Start at the bakery on Nesgata. Buy, mix, roll, cut, bake. Then take the batch where it is needed.",
       "kind": "story",
       "target": {
         "x": 26.3,
@@ -178,16 +189,35 @@
         "name": "Smula Bakeriutsalg"
       },
       "done_when": {
-        "type": "near",
-        "radius": 14
+        "type": "flag",
+        "flag": "__CF3_D11"
       },
-      "done": "Not burnt. Almost. Now take it where it is needed."
+      "done": "Not burnt. Almost. Now take it where it is needed.",
+      "chip": "Bake Mamma's cookies: buy flour, butter, ginger spice, syrup, eggs, bake at Chris's stove (G)"
     },
     {
       "day": 12,
       "title": "Cookie monster",
-      "text": "The witch has been eating all the cookies. Go down into her dungeon and end this. Take a light.",
-      "hint": "Press L for the flashlight. She is very strong now.",
+      "text": "The witch has been eating all the cookies. The trapdoor behind Chris's house is open. Go down, take the old lantern from the hook by the stairs (press G), and walk into the cauldron room. End this.",
+      "hint": "Click to hit her when she is close. When it goes dark she comes back from behind: turn around and hit her. If she wins, go down and try again.",
+      "kind": "story",
+      "target": {
+        "x": 530.5,
+        "z": -722.5,
+        "name": "The trapdoor behind Chris's house"
+      },
+      "done_when": {
+        "type": "flag",
+        "flag": "__WITCH_GONE"
+      },
+      "done": "The spell is broken and she is gone for good! Go and get that last parcel where she fell.",
+      "chip": "Go down the trapdoor behind Chris's house, take the lantern (G), find the witch"
+    },
+    {
+      "day": 13,
+      "title": "Make it shine",
+      "text": "Decorate Chris's house. Now it will stay up! Stand in the front yard and press G: window stars, lights outside, the wreath. Put them all up.",
+      "hint": "Press G in the front yard of Chris's house. Stars, lights, wreath: go wild.",
       "kind": "story",
       "target": {
         "x": 526.5,
@@ -196,32 +226,16 @@
       },
       "done_when": {
         "type": "flag",
-        "flag": "__WITCH_GONE"
+        "flag": "__CF3_D13"
       },
-      "done": "She is gone for good! Go and get that last parcel."
-    },
-    {
-      "day": 13,
-      "title": "Make it shine",
-      "text": "Decorate Chris's house. Now it will stay up!",
-      "hint": "Open the dev decorating items and go wild.",
-      "kind": "story",
-      "target": {
-        "x": 526.5,
-        "z": -706.5,
-        "name": "Chris's house"
-      },
-      "done_when": {
-        "type": "near",
-        "radius": 8
-      },
-      "done": "Beautiful. The stones are warm. Not the stones, I mean everything. Is that your doing?"
+      "done": "Beautiful. The stones are warm. Not the stones, I mean everything. Is that your doing?",
+      "chip": "Decorate Chris's house (G in the front yard): stars, lights, wreath"
     },
     {
       "day": 14,
       "title": "Light the lights",
       "text": "Walk around town and light up Christmas. Start by the tree on the square.",
-      "hint": "",
+      "hint": "Go to the big tree by the town hall and stand under it. The whole town glows tonight.",
       "kind": "explore",
       "target": {
         "x": 7,
@@ -232,13 +246,14 @@
         "type": "near",
         "radius": 14
       },
-      "done": "Everything glows!"
+      "done": "Everything glows!",
+      "chip": "Go to the Christmas tree on the square and watch the town light up"
     },
     {
       "day": 15,
       "title": "Look up",
-      "text": "Astronomers said a fun night. I have looked up the word fun. They are using it differently. Go to the frozen river and look up.",
-      "hint": "Stay on the ice until something falls.",
+      "text": "Astronomers said a fun night. I have looked up the word fun. They are using it differently. After dark, go to the frozen river, stay on the ice, and look up.",
+      "hint": "Stay on the ice after dark until something falls. It will not be snow.",
       "kind": "explore",
       "target": {
         "x": -82,
@@ -246,16 +261,17 @@
         "name": "The frozen river"
       },
       "done_when": {
-        "type": "near",
-        "radius": 20
+        "type": "flag",
+        "flag": "__CF3_D15"
       },
-      "done": "That was not a fun night. That was a fireball."
+      "done": "That was not a fun night. That was a fireball.",
+      "chip": "After dark, go to the frozen river, stay on the ice and look up"
     },
     {
       "day": 16,
       "title": "The last parcel",
-      "text": "Check the mailbox. The last parcel from mom should be here.",
-      "hint": "Press G at the mailbox.",
+      "text": "Open the mailbox at Chris's house. The last parcel from Mamma should be here.",
+      "hint": "The mailbox is the black box by the road. Look at it and press G.",
       "kind": "story",
       "target": {
         "x": 526.5,
@@ -263,16 +279,17 @@
         "name": "Chris's house"
       },
       "done_when": {
-        "type": "near",
-        "radius": 8
+        "type": "flag",
+        "flag": "__CF3_D16"
       },
-      "done": "Cookies at last! Men in black coats are up at the crater now. Do not go near. ...Go near, but carefully."
+      "done": "Cookies at last! Men in black coats are up at the crater now. Do not go near. ...Go near, but carefully.",
+      "chip": "Open the mailbox at Chris's house (G): Mamma's last parcel is in it"
     },
     {
       "day": 17,
       "title": "Hill walk",
       "text": "Hike up to Hamrevarden and see the town from above.",
-      "hint": "Warm clothes help.",
+      "hint": "Warm clothes help. Follow my arrow up the hill.",
       "kind": "explore",
       "target": {
         "x": 1461,
@@ -283,7 +300,8 @@
         "type": "near",
         "radius": 25
       },
-      "done": "Cold and beautiful. I keep feeling counted. Please be warm somewhere."
+      "done": "Cold and beautiful. I keep feeling counted. Please be warm somewhere.",
+      "chip": "Hike up to Hamrevarden and look at the town from above"
     },
     {
       "day": 18,
@@ -300,13 +318,14 @@
         "type": "flag",
         "flag": "__NISSE_PEACE"
       },
-      "done": "They are still arguing, but at one table. That counts."
+      "done": "They are still arguing, but at one table. That counts.",
+      "chip": "Talk to both nisse chiefs (G), look at the footprints, bring them to the church"
     },
     {
       "day": 19,
       "title": "The Night Wing",
       "text": "The Night Wing is ready. Fly the jetpack ring race out toward the crater on Nonskarknuten. Rings, a crater, and a car with opinions. Fly.",
-      "hint": "Walk to the start sign and press G. The prize is the Elytra and 64 rockets.",
+      "hint": "Walk to the start sign on the riverbank and press G. Rings, jetpack, fuel. If you miss a ring, turn around. The prize is the Elytra and 64 rockets.",
       "kind": "race",
       "target": {
         "x": -82,
@@ -317,13 +336,14 @@
         "type": "race",
         "race": "jet"
       },
-      "done": "You made it to the rim. Do not look down into the crater."
+      "done": "You made it to the rim. Do not look down into the crater.",
+      "chip": "Fly the jetpack ring race: walk to the start sign and press G"
     },
     {
       "day": 20,
       "title": "The crater",
-      "text": "Something up on the mountain is moving, slowly, toward town. Go and look at the crater. Then run.",
-      "hint": "Stay on the flank, away from the light beam.",
+      "text": "Something up on the mountain is moving, slowly, toward town. Drive up to the crater on Nonskarknuten and have a look. Then run.",
+      "hint": "Stay on the flank, away from the light beam. Get within a few steps of the crater and that is enough.",
       "kind": "explore",
       "target": {
         "x": -1600,
@@ -331,16 +351,17 @@
         "name": "The crater"
       },
       "done_when": {
-        "type": "near",
-        "radius": 40
+        "type": "flag",
+        "flag": "__CF3_D20"
       },
-      "done": "It is slow. I do not like slow things that do not stop."
+      "done": "It is slow. I do not like slow things that do not stop.",
+      "chip": "Drive up to the crater on Nonskarknuten and have a look. Then run!"
     },
     {
       "day": 21,
       "title": "Longest night",
-      "text": "Fifteen small fires. We make them, or we are dark. Light the cairns on the way, then get to Bowlinghallen. It is the only place that stays warm.",
-      "hint": "If it gets dark, stay near me.",
+      "text": "Fifteen small fires. We make them, or we are dark. Light the cairns on the hills (press G beside one with your lantern), then get to Bowlinghallen. It is the only place that stays warm.",
+      "hint": "When it gets dark, stay near me and run for Bowlinghallen. Every fire you light buys us an earlier dawn.",
       "kind": "story",
       "target": {
         "x": 47,
@@ -348,15 +369,16 @@
         "name": "Bowlinghallen"
       },
       "done_when": {
-        "type": "near",
-        "radius": 14
+        "type": "flag",
+        "flag": "__CF3_D21"
       },
-      "done": "Safe and warm. Fifteen fires, and we kept the light."
+      "done": "Safe and warm. Fifteen fires, and we kept the light.",
+      "chip": "Light the cairns on the hills (G), then get to Bowlinghallen before the dark"
     },
     {
       "day": 22,
       "title": "Slightly embarrassed lights",
-      "text": "Check on someone. Anyone. Warm is a team sport. Start with the flat next door.",
+      "text": "Check on someone. Anyone. Warm is a team sport. Wave at the neighbours in the gardens near Chris's house, and help the grey lost ones standing on the square: hold the lantern up and press G.",
       "hint": "Coins can wait. Bring a few for the cafe if you like.",
       "kind": "story",
       "target": {
@@ -365,16 +387,17 @@
         "name": "Chris's house"
       },
       "done_when": {
-        "type": "near",
-        "radius": 8
+        "type": "flag",
+        "flag": "__CF3_D22"
       },
-      "done": "Somebody smiled back. Warm is a team sport."
+      "done": "Somebody smiled back. Warm is a team sport.",
+      "chip": "Check on your neighbours: wave at the gardens near Chris's house (G), help the grey ones on the square"
     },
     {
       "day": 23,
       "title": "Lille julaften",
-      "text": "Lille julaften. The dragon at Liland woke when the light went out. Make the gingerbread house anyway. Slowly. Then visit the church and say hello to everyone.",
-      "hint": "",
+      "text": "Lille julaften. The dragon at Liland woke when the light went out. Make the gingerbread house anyway: press G at the stove in Chris's kitchen. Slowly. Then visit the church and say hello to everyone.",
+      "hint": "Press T and type ginger and I will take you to the stove. You need the kit from Mamma's parcel, 3 candy and sugar.",
       "kind": "explore",
       "target": {
         "x": -90,
@@ -382,16 +405,17 @@
         "name": "The church"
       },
       "done_when": {
-        "type": "near",
-        "radius": 18
+        "type": "flag",
+        "flag": "__CF3_D23"
       },
-      "done": "Almost there. Tomorrow we find out what the dragon wants."
+      "done": "Almost there. Tomorrow we find out what the dragon wants.",
+      "chip": "Make the gingerbread house at Chris's stove (G), then say hello at the church"
     },
     {
       "day": 24,
       "title": "Christmas Eve",
-      "text": "Whatever happens, we kept the light. Go to the tree on the square. It is time.",
-      "hint": "",
+      "text": "Whatever happens, we kept the light. Tonight has three stops, in this order: the dragon at the Liland tower (from 11:00), the candles at the graveyard (from dusk), then the tree on the square: press E there and Santa reads the Nice List.",
+      "hint": "Press Y and I will show you the way to the next stop. Your Nice points plus your Julestemning decide who is the nicest.",
       "kind": "explore",
       "target": {
         "x": 7,
@@ -399,24 +423,25 @@
         "name": "The Christmas tree"
       },
       "done_when": {
-        "type": "near",
-        "radius": 10
+        "type": "flag",
+        "flag": "__DOOR24"
       },
-      "done": "Merry Christmas, Chris and Martin! The last door is open.",
+      "done": "Merry Christmas, Chris and Martin! The list has been read and the last door is open.",
       "later": [
         {
           "at": "afternoon",
-          "text": "The Liland dragon is stretching. We have an appointment at dusk, and it is not a dinner."
+          "text": "The Liland dragon is stretching. First stop: the tower, I will show the way. Press E there. Then the candles at dusk, then the tree."
         },
         {
           "at": "dusk",
-          "text": "The candles at the cemetery. Light one for everyone who is not here. Then go on."
+          "text": "The candles at the cemetery. Light one for everyone who is not here. Then go on to the tree and press E: Santa reads the list."
         },
         {
           "at": "night",
-          "text": "The Nice List. Whatever it says, you were kind to someone. Probably. Go and see."
+          "text": "The Nice List. Your Nice points and your Julestemning, added together. Whatever it says, you were kind to someone. Probably. Go and see."
         }
-      ]
+      ],
+      "chip": "Tonight: Liland tower, graveyard at dusk, then the tree (press E)"
     }
   ]
 }
