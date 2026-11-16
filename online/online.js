@@ -330,9 +330,9 @@ export default function init(ONL, cfg) {
   function wfIn(m) {
     const w = WF(), d = m.d || {}; if (!w || DAY() >= 12) return; SHARED.wf.got++;
     if (!fresh('wf', 60000) || !evOk()) { SHARED.dropped++; return; }
-    const r = R[m.n], sx = r && r.have ? r.tx : +d.x, sz = r && r.have ? r.tz : +d.z, dist = Math.hypot(P.x - sx, P.z - sz);
+    const r = R[m.n], okd = isFinite(d.x) && isFinite(d.z), sx = okd ? +d.x : (r && r.have ? r.tx : 1e9), sz = okd ? +d.z : (r && r.have ? r.tz : 1e9), dist = Math.hypot(P.x - sx, P.z - sz);
     if (!(dist < 150)) { SHARED.wf.far++; cackle(); say(null, 'Far away, somebody hears a cackle.'); return; }
-    const st = w.state(); if (st.today >= st.cap) { SHARED.dropped++; return; }     /* daily cap: a shared visit counts and never goes over */
+    const st = typeof w.state === 'function' ? w.state() : w.state; if (!st) return; if (st.today >= st.cap) { SHARED.dropped++; return; }     /* daily cap: a shared visit counts and never goes over */
     wfSkipUntil = Date.now() + 5000;
     if (w.visit() === 'ok') { try { w.test.setCount(st.today + 1); } catch (_) {} wfPh = 'visit'; say(null, 'The witch is after ' + nice(m.n) + ' and you.'); }
   }

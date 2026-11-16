@@ -59,6 +59,241 @@ body:not(.ph):not(.hudMin) #hudBar{grid-template-columns:minmax(0,1fr) auto minm
 #mapHead button{font:bold 13px system-ui,sans-serif;line-height:1;color:#ffe9a8;background:#22285a;border:1.5px solid #000;border-radius:4px;padding:1px 8px;cursor:pointer}
 body:not(.ph).mapMin .topr #map{display:none!important}
 </style>
+<script id="kvSetEarly">/* settingsmenu_early
+   PLAYER SETTINGS MENU (job settingsmenu, 16 Nov 2026). Classic script in <head>, BEFORE the game module: it only reads localStorage and sets a few classes / window numbers
+   (nothing heavy, safe for phones); the menu itself is built the first time it is opened. The game bindings (audio buses, haptics, graphics tier ...) live in the settingsmenu module block (settingsmenu_block.js).
+   window.__SETTINGS = { get(key), set(key,v), on(key,fn), open(tab), close(), isOpen(), section(id,label,tab), add(target,def), reset(), tabs, isDev(), devFor(host,search), list() }
+     get(key)         current value (stored one, else the def's default / its get())
+     set(key,v)       change it: clamps, stores in localStorage 'kv-settings-v1' (unless the def has its own set()), runs on() listeners, refreshes the menu
+     on(key,fn)       fn(value,key) whenever it changes ('*' = every key). Returns an unsubscribe function.
+     open('sound'|'controls'|'display'|'comfort'|'game'|'dev')   close()   toggle()
+     section(id,label,tab)   make (or find) a titled block in a tab. Tabs: sound, controls, display, comfort, game, dev (dev only on localhost / ?dev=1, never online)
+     add(target, def)  target = a section id or a tab id. def = ONE of
+         {key,label,type:'toggle'|'slider'|'choice'|'select'|'button'|'info', default, min,max,step,unit, options:[[value,label]..] (or a function), on:'otherToggleKey' (slider: small ON/OFF switch),
+          get(),set(v) (bridged: the game keeps the value, nothing is stored here), run() + button:'TEXT' + status():string (button rows), text:string|fn (info rows), show():bool, note:'small help'}
+         {type:'group',id,title,items:[def..]}      (the haptics helper uses this; ids become 'groupId.itemId')
+         a DOM element (the whistle microphone row): it is placed in that tab as it is
+       Adding the same key / group id again replaces the old row, never duplicates it.
+   Nothing here touches data/world_edits.json or the 3D world. */
+(function(){'use strict';
+var W=window,D=document;if(W.__SETTINGS)return;
+/* ---------- audio graph hook: installed before the game creates any audio, so EVERYTHING that ends at ac.destination goes through ONE master-out gain, and everything that connects to the game's `master` gain goes through ONE
+   sound-effects trim first (music and voices are re-routed round it by the settingsmenu block). Nothing is created until the game itself connects something. ---------- */
+try{var AN=W.AudioNode&&W.AudioNode.prototype;if(AN&&!AN.__kvAud){AN.__kvAud=1;var c0=AN.connect,d0=AN.disconnect,AD=W.AudioDestinationNode;
+  var X=W.__KVAUD={out:null,sfx:null,ctx:null,master:null,raw:function(a,b){return c0.call(a,b);},rawOff:function(a){return d0.call(a);}};
+  var outFor=function(ctx){if(X.out&&X.ctx===ctx)return X.out;if(X.ctx&&X.ctx!==ctx)return null;var g=ctx.createGain();c0.call(g,ctx.destination);X.out=g;X.ctx=ctx;return g;};
+  var sfxFor=function(){if(X.sfx)return X.sfx;var g=X.master.context.createGain();c0.call(g,X.master);X.sfx=g;return g;};
+  AN.connect=function(d){var r=d;try{if(d&&AD&&d instanceof AD&&this!==X.out){var o=outFor(d.context);if(o)arguments[0]=o;}else if(d&&X.master&&d===X.master&&this!==X.sfx&&!X.hold){arguments[0]=sfxFor();}}catch(e){}c0.apply(this,arguments);return r;};
+  AN.disconnect=function(d){try{if(d&&AD&&d instanceof AD&&X.out&&X.ctx===d.context){arguments[0]=X.out;}else if(d&&X.master&&d===X.master&&X.sfx){try{return d0.apply(this,[X.sfx].concat(Array.prototype.slice.call(arguments,1)));}catch(e2){}}}catch(e){}return d0.apply(this,arguments);};}}catch(e){}
+var KEY='kv-settings-v1',LOCALRE=/^(localhost|127\.0\.0\.1|\[::1\])$/;
+var store={},defs={},secs={},secOrder=[],subs={},openFlag=false,ui=null,curTab='sound',holder=null,rowEls={},nodeN=0,gpT=0,gpPrev={},lastFocus=null,rebuildT=0;
+var TABS=[['sound','SOUND'],['controls','CONTROLS'],['display','DISPLAY'],['comfort','COMFORT'],['game','GAME'],['dev','DEV']];
+function devFor(h,s){return LOCALRE.test(h||'')||/[?&]dev=1(&|$)/.test(s||'');}
+function isDev(){try{var b=D.body;if(b&&b.classList.contains('hudPlayer'))return false;if(/[?&]hud=player(&|$)/.test(location.search))return false;}catch(e){}return devFor(location.hostname,location.search);}
+function load(){try{var o=JSON.parse(localStorage.getItem(KEY)||'null');store=(o&&typeof o==='object'&&!Array.isArray(o))?o:{};}catch(e){store={};}}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(store));}catch(e){}}
+load();
+function clamp(d,v){if(d.type==='slider'){v=+v;if(!isFinite(v))v=d.default;if(d.min!=null)v=Math.max(d.min,v);if(d.max!=null)v=Math.min(d.max,v);if(d.step)v=Math.round(v/d.step)*d.step;return v;}if(d.type==='toggle')return !!v;return v;}
+function get(key){var d=defs[key];if(d&&typeof d.get==='function'){try{return d.get();}catch(e){}}if(key in store)return store[key];return d?d.default:undefined;}
+function fire(key,v){var a=(subs[key]||[]).concat(subs['*']||[]);for(var i=0;i<a.length;i++){try{a[i](v,key);}catch(e){try{console.warn('settings listener',key,e);}catch(_){}}}}
+function set(key,v,o){var d=defs[key];if(d)v=clamp(d,v);o=o||{};
+  if(d&&typeof d.set==='function'){try{d.set(v);}catch(e){try{console.warn('settings set',key,e);}catch(_){}}}else{store[key]=v;save();}
+  applyCss();if(!o.silent)fire(key,v);refreshRow(key);return v;}
+function on(key,fn){(subs[key]=subs[key]||[]).push(fn);return function(){var a=subs[key]||[],i=a.indexOf(fn);if(i>=0)a.splice(i,1);};}
+/* ---------- sections and rows ---------- */
+function section(id,label,tab,order){var s=secs[id];if(!s){s=secs[id]={id:id,label:label||id,tab:tab||'game',items:[],order:order==null?50:order};secOrder.push(id);}else{if(label)s.label=label;if(tab)s.tab=tab;if(order!=null)s.order=order;}schedule();return s;}
+function isTab(t){for(var i=0;i<TABS.length;i++)if(TABS[i][0]===t)return true;return false;}
+function norm(it,sec,gid){var k=it.key||(gid?gid+'.'+it.id:it.id);if(!k)k='row'+(++nodeN);it.key=k;it.sec=sec.id;it.tab=sec.tab;if(!it.type)it.type='toggle';return it;}
+function put(sec,it){var i;for(i=0;i<sec.items.length;i++)if(sec.items[i].key===it.key){sec.items[i]=it;return;}for(var id in secs){if(id===sec.id)continue;var o=secs[id].items;for(i=0;i<o.length;i++)if(o[i].key===it.key)o.splice(i,1);}sec.items.push(it);}
+function add(target,def){
+  if(def&&def.nodeType===1){var s0=section('more_'+(isTab(target)?target:'game'),'MORE',isTab(target)?target:'game',90);if(!holder){holder=D.createElement('div');holder.id='kvSetHold';holder.style.display='none';(D.body||D.documentElement).appendChild(holder);}
+    var key='node'+(++nodeN);holder.appendChild(def);put(s0,{key:key,type:'node',node:def,sec:s0.id,tab:s0.tab});schedule();return key;}
+  var sec=secs[target];if(!sec){if(isTab(target))sec=section(def&&def.type==='group'?(def.id||def.title):'more_'+target,def&&def.type==='group'?(def.title||def.id):'MORE',target,def&&def.type==='group'?def.order:90);else sec=section(target,String(target).toUpperCase(),'game');}
+  var items=def.type==='group'?def.items:[def],gid=def.type==='group'?def.id:null;
+  if(gid&&def.title)sec.label=def.title;
+  /* a group with an id replaces every row it made before */
+  if(gid){for(var id in secs){var o=secs[id].items;for(var j=o.length-1;j>=0;j--)if(o[j].gid===gid)o.splice(j,1);}}
+  var keys=[];for(var i=0;i<items.length;i++){var it=norm(items[i],sec,gid);it.gid=gid;if(def.type!=='group'||true){defs[it.key]=it;}if(it.default===undefined&&it.type==='toggle'&&!it.get)it.default=false;put(sec,it);keys.push(it.key);}
+  applyCss();schedule();return keys.length===1?keys[0]:keys;}
+function reset(){var keys=Object.keys(defs);store={};save();for(var i=0;i<keys.length;i++){var d=defs[keys[i]];if(!d)continue;if(typeof d.set==='function'&&d.default!==undefined){try{d.set(d.default);}catch(e){}}}applyCss();for(i=0;i<keys.length;i++){if(defs[keys[i]]&&defs[keys[i]].type!=='button'&&defs[keys[i]].type!=='info')fire(keys[i],get(keys[i]));}refreshAll();}
+/* ---------- the pure-CSS / window-number settings: applied at once, from the stored values only (nothing heavy) ---------- */
+var CSSEL=null;
+function sv(k,dflt){var d=defs[k];if(d&&typeof d.get==='function')return get(k);return k in store?store[k]:dflt;}
+function applyCss(){try{var h=D.documentElement,c=h.classList;
+  c.toggle('kv-nosubs',sv('subs',true)===false);c.toggle('kv-nohints',sv('hints',true)===false);
+  var br=+sv('brightness',100)/100;c.toggle('kv-br',Math.abs(br-1)>.005);h.style.setProperty('--kv-br',String(br));
+  var ts=+sv('textSize',1)||1;c.toggle('kv-ts',Math.abs(ts-1)>.005);h.style.setProperty('--kv-ts',String(ts));
+  var hs=(+sv('hudScale',100)||100)/100;c.toggle('kv-hs',Math.abs(hs-1)>.005);h.style.setProperty('--kv-hs',String(hs));
+  W.__KVSENS=(+sv('mouseSens',100)||100)/100;W.__KVFOVK=(+sv('fov',60)||60)/60;
+  W.__KVSHAKE=sv('reduceShake',false)?.2:1;W.__KVFLASH=sv('reduceFlash',false)?.25:1;W.__KVBOB=sv('noBob',false)?0:1;W.__KVNOGRAIN=!!sv('noGrain',false);
+  c.toggle('kv-noflash',!!sv('reduceFlash',false));
+  c.toggle('kv-pdev',!isDev());}catch(e){}}
+function mkCss(){if(CSSEL)return;CSSEL=D.createElement('style');CSSEL.id='kvSetCss';CSSEL.textContent=
+'html.kv-nosubs :is(#voLine,#qsSub,#tlLine,#witchLine,#eyeLine,#tvLine,#subLine,.subtitle){display:none!important}'+
+'html.kv-nohints #kvKeyHint{display:none!important}'+
+'html.kv-br #view{filter:brightness(var(--kv-br,1))}'+
+'html.kv-ts :is(#voLine,#qsSub,#tlLine,#witchLine,#eyeLine,#tvLine){zoom:var(--kv-ts,1)}'+
+'html.kv-hs .hud{zoom:var(--kv-hs,1)}'+
+/* players never see the old dev-ish Settings frame: it lives in the DEV tab of the menu (localhost / ?dev=1 only) */
+'html.kv-pdev #movie,html.kv-pdev #stFrame{display:none!important}'+
+/* the menu */
+'#kvSet{position:fixed;inset:0;z-index:90000;display:none;align-items:center;justify-content:center;background:rgba(6,4,12,.82);font:15px/1.35 "Pixelify Sans",system-ui,sans-serif;color:#fbf6e8;-webkit-text-size-adjust:100%;touch-action:manipulation}'+
+'#kvSet.on{display:flex}'+
+'#kvSet .kvP{box-sizing:border-box;width:min(760px,100vw);height:min(640px,100vh);max-height:100vh;display:flex;flex-direction:column;background:#161020;'+
+ 'box-shadow:0 -3px 0 rgba(255,211,110,.45),0 3px 0 rgba(255,211,110,.45),-3px 0 0 rgba(255,211,110,.45),3px 0 0 rgba(255,211,110,.45),0 8px 0 #000;margin:6px}'+
+'#kvSet .kvH{display:flex;align-items:center;gap:10px;padding:10px 12px 6px}'+
+'#kvSet .kvH h2{margin:0;flex:1;font:20px "Silkscreen",ui-monospace,monospace;letter-spacing:2px;color:#ffd36e;text-shadow:2px 2px 0 #000}'+
+'#kvSet button,#kvSet select{font-family:"Silkscreen",ui-monospace,monospace;cursor:pointer}'+
+'#kvSet .kvX{min-width:44px;min-height:44px;font-size:16px;color:#fbf6e8;background:#3a2230;border:0;box-shadow:inset 2px 2px 0 #6a4a5a,inset -2px -2px 0 #1a0e14,0 3px 0 #000}'+
+'#kvSet .kvTabs{display:flex;gap:4px;padding:0 10px;overflow-x:auto;scrollbar-width:none;flex:none}'+
+'#kvSet .kvTabs::-webkit-scrollbar{display:none}'+
+'#kvSet .kvTab{flex:1 0 auto;min-height:44px;padding:0 12px;font-size:12px;letter-spacing:1px;color:#b9aecb;background:#241a34;border:0;box-shadow:inset 2px 2px 0 #3d3054,inset -2px -2px 0 #120c1c}'+
+'#kvSet .kvTab[aria-selected=true]{color:#1a1208;background:#ffd36e;box-shadow:inset 2px 2px 0 #fff0b8,inset -2px -2px 0 #b8892a}'+
+'#kvSet .kvTab[hidden]{display:none}'+
+'#kvSet .kvB{flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain;padding:8px 12px 14px;scrollbar-width:thin}'+
+'#kvSet .kvS{margin:10px 0 4px;padding:0 0 3px;font:11px "Silkscreen",ui-monospace,monospace;letter-spacing:1.5px;color:#9fd8ff;border-bottom:1px solid #3d3054;text-transform:uppercase}'+
+'#kvSet .kvR{display:flex;align-items:center;gap:10px;min-height:46px;padding:4px 6px;border-bottom:1px solid rgba(255,255,255,.06)}'+
+'#kvSet .kvR>label,#kvSet .kvR>.kvL{flex:1 1 40%;min-width:0}'+
+'#kvSet .kvR small{display:block;font-size:12px;color:#8f86a3;line-height:1.2}'+
+'#kvSet .kvC{flex:1 1 55%;min-width:0;display:flex;align-items:center;gap:8px;justify-content:flex-end}'+
+'#kvSet .kvBtn{min-width:64px;min-height:44px;padding:0 12px;font-size:12px;letter-spacing:1px;color:#fbf6e8;background:#2c2140;border:0;box-shadow:inset 2px 2px 0 #4a3b68,inset -2px -2px 0 #140e20,0 3px 0 #000}'+
+'#kvSet .kvBtn.on{color:#10200f;background:#7fd36a;box-shadow:inset 2px 2px 0 #c4f2b4,inset -2px -2px 0 #3c7a2c,0 3px 0 #000}'+
+'#kvSet .kvBtn.off{color:#d8c8c8;background:#4a2a2e;box-shadow:inset 2px 2px 0 #7a4a50,inset -2px -2px 0 #240e12,0 3px 0 #000}'+
+'#kvSet .kvGrp{display:flex;flex-wrap:wrap;gap:6px;justify-content:flex-end}'+
+'#kvSet .kvRng{flex:1;min-width:90px;height:34px;accent-color:#ffd36e;cursor:pointer}'+
+'#kvSet .kvVal{min-width:50px;text-align:right;font:12px "Silkscreen",ui-monospace,monospace;color:#ffd36e}'+
+'#kvSet select{min-height:44px;max-width:100%;min-width:0;font-size:12px;color:#fbf6e8;background:#2c2140;border:2px solid #4a3b68}'+
+'#kvSet .kvInfo{padding:8px 6px;font-size:13px;color:#cfc6de;white-space:pre-wrap;overflow-wrap:anywhere}'+
+'#kvSet .kvSt{padding:0 6px 6px;font-size:12px;color:#ffe36e}'+
+'#kvSet .kvF{padding:6px 12px 10px;font:10px "Silkscreen",ui-monospace,monospace;color:#7d7490;letter-spacing:1px;text-align:center;flex:none}'+
+'#kvSet :is(button,input,select):focus-visible{outline:3px solid #ffe36e;outline-offset:2px}'+
+'#kvSet .kvKeys{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 12px;padding:2px 6px;font-size:13px}'+
+'#kvSet .kvKeys b{color:#ffd36e;font-weight:400;text-align:right;white-space:nowrap}'+
+'#kvSet .kvKeys .kvKh{grid-column:1/-1;margin-top:8px;font:10px "Silkscreen",monospace;color:#9fd8ff;letter-spacing:1px}'+
+'@media (max-width:700px),(max-height:520px){#kvSet .kvP{width:100vw;height:100vh;margin:0;box-shadow:none}#kvSet{font-size:14px}#kvSet .kvH h2{font-size:16px}#kvSet .kvR{flex-wrap:wrap}#kvSet .kvC{flex:1 1 100%}#kvSet .kvR>label,#kvSet .kvR>.kvL{flex:1 1 100%}}'+
+'#kvFps{position:fixed;left:8px;top:calc(env(safe-area-inset-top,0px) + 8px);z-index:30;display:none;padding:3px 8px;font:11px "Silkscreen",ui-monospace,monospace;color:#fbf6e8;background:rgba(12,9,18,.62);box-shadow:0 2px 0 rgba(255,211,110,.38),0 3px 0 #000;pointer-events:none}'+
+'#kvFps.on{display:block}';
+D.head.appendChild(CSSEL);}
+/* ---------- UI ---------- */
+function el(t,c,txt){var e=D.createElement(t);if(c)e.className=c;if(txt!=null)e.textContent=txt;return e;}
+function visibleItem(it){if(typeof it.show==='function'){try{return !!it.show();}catch(e){return true;}}return true;}
+function tabVisible(t){return t!=='dev'||isDev();}
+function schedule(){if(!ui||!openFlag)return;clearTimeout(rebuildT);rebuildT=setTimeout(function(){if(openFlag)renderBody(true);},60);}
+function build(){if(ui)return;mkCss();
+  ui=el('div');ui.id='kvSet';ui.setAttribute('role','dialog');ui.setAttribute('aria-modal','true');ui.setAttribute('aria-label','Settings');ui.setAttribute('data-hud','off');
+  var P=el('div','kvP'),H=el('div','kvH'),h=el('h2',null,'SETTINGS'),x=el('button','kvX','✕');x.type='button';x.setAttribute('aria-label','Close settings');x.onclick=function(){close();};
+  H.appendChild(h);H.appendChild(x);P.appendChild(H);
+  var T=el('div','kvTabs');T.setAttribute('role','tablist');ui._tabs={};
+  TABS.forEach(function(t){var b=el('button','kvTab',t[1]);b.type='button';b.setAttribute('role','tab');b.dataset.tab=t[0];b.onclick=function(){setTab(t[0]);};T.appendChild(b);ui._tabs[t[0]]=b;});
+  P.appendChild(T);var B=el('div','kvB');B.setAttribute('role','tabpanel');ui._body=B;P.appendChild(B);
+  var F=el('div','kvF','↑↓ MOVE · ←→ CHANGE · Q / E OR L1 / R1 TABS · ESC OR ◯ CLOSE');P.appendChild(F);ui.appendChild(P);D.body.appendChild(ui);
+  ui.addEventListener('click',function(e){if(e.target===ui)close();});
+  /* the game must not see clicks / touches on the menu (breaking blocks, shooting ...) */
+  ['mousedown','mouseup','pointerdown','pointerup','touchstart','touchend','wheel','contextmenu'].forEach(function(t){W.addEventListener(t,function(e){if(openFlag&&ui&&ui.contains(e.target)){e.stopImmediatePropagation();}},true);});}
+function setTab(t){if(!isTab(t)||!tabVisible(t))t='sound';curTab=t;if(ui){for(var k in ui._tabs){ui._tabs[k].setAttribute('aria-selected',String(k===t));ui._tabs[k].tabIndex=k===t?0:-1;ui._tabs[k].hidden=!tabVisible(k);}renderBody(false);ui._body.scrollTop=0;}}
+function stepTab(d){var v=TABS.filter(function(t){return tabVisible(t[0]);}).map(function(t){return t[0];});var i=v.indexOf(curTab);setTab(v[(i+d+v.length)%v.length]);}
+function fmt(it,v){if(it.fmt)return it.fmt(v);return Math.round(v)+(it.unit||'');}
+function mkToggleBtn(key,labels){var b=el('button','kvBtn');b.type='button';b.setAttribute('role','switch');b.dataset.key=key;b.onclick=function(){set(key,!get(key));};return b;}
+function paintToggle(b,v,labels){b.classList.toggle('on',!!v);b.classList.toggle('off',!v);b.setAttribute('aria-checked',String(!!v));b.textContent=(labels||['ON','OFF'])[v?0:1];}
+function buildRow(it){var r=el('div','kvR');r.dataset.key=it.key;var L=el('label','kvL',it.label||'');if(it.note){L.appendChild(el('small',null,it.note));}var C=el('div','kvC');
+  if(it.type==='toggle'){var b=mkToggleBtn(it.key);L.htmlFor='';r.appendChild(L);C.appendChild(b);r.appendChild(C);b.setAttribute('aria-label',it.label);r._upd=function(){paintToggle(b,get(it.key),it.labels);};}
+  else if(it.type==='slider'){var inp=el('input','kvRng');inp.type='range';inp.min=it.min;inp.max=it.max;inp.step=it.step||1;inp.setAttribute('aria-label',it.label);var val=el('b','kvVal');
+    inp.addEventListener('input',function(){set(it.key,+inp.value);});C.appendChild(inp);C.appendChild(val);
+    var sw=null;if(it.on){sw=el('button','kvBtn');sw.type='button';sw.style.minWidth='56px';sw.setAttribute('role','switch');sw.setAttribute('aria-label',it.label+' on or off');sw.onclick=function(){set(it.on,!get(it.on));};C.appendChild(sw);}
+    r.appendChild(L);r.appendChild(C);r._upd=function(){var v=+get(it.key);if(+inp.value!==v)inp.value=v;val.textContent=fmt(it,v);if(sw)paintToggle(sw,get(it.on),it.onLabels);};}
+  else if(it.type==='choice'){var g=el('div','kvGrp');g.setAttribute('role','radiogroup');var opts=typeof it.options==='function'?it.options():it.options;var bs=[];
+    (opts||[]).forEach(function(o){var b=el('button','kvBtn',o[1]);b.type='button';b.setAttribute('role','radio');b.dataset.v=String(o[0]);b.onclick=function(){set(it.key,o[0]);};g.appendChild(b);bs.push([o[0],b]);});C.appendChild(g);r.appendChild(L);r.appendChild(C);
+    r._upd=function(){var v=get(it.key);bs.forEach(function(p){var on=String(p[0])===String(v);p[1].classList.toggle('on',on);p[1].setAttribute('aria-checked',String(on));});};}
+  else if(it.type==='select'){var s=D.createElement('select');s.setAttribute('aria-label',it.label);s.onchange=function(){set(it.key,s.value);};C.appendChild(s);r.appendChild(L);r.appendChild(C);
+    r._upd=function(){var opts=typeof it.options==='function'?it.options():(it.options||[]);var sig=JSON.stringify(opts);if(s._sig!==sig){s._sig=sig;s.textContent='';opts.forEach(function(o){var op=el('option',null,o[1]);op.value=o[0];s.appendChild(op);});}var v=String(get(it.key));if(s.value!==v)s.value=v;};}
+  else if(it.type==='button'){var bb=el('button','kvBtn',it.button||'GO');bb.type='button';bb.onclick=function(){try{it.run&&it.run();}catch(e){try{console.warn('settings button',e);}catch(_){}}refreshRow(it.key);};C.appendChild(bb);r.appendChild(L);r.appendChild(C);
+    var st=el('div','kvSt');st.hidden=true;r._st=st;r._upd=function(){if(it.status){var t='';try{t=it.status();}catch(e){}st.textContent=t||'';st.hidden=!t;}};}
+  else if(it.type==='info'){r=el('div','kvInfo');r.dataset.key=it.key;r._upd=function(){var t=typeof it.text==='function'?it.text():it.text;if(t&&t.nodeType===1){if(r.firstChild!==t){r.textContent='';r.appendChild(t);}}else if(r.textContent!==String(t||''))r.textContent=String(t||'');};}
+  else if(it.type==='node'){r=el('div','kvR');r.dataset.key=it.key;r.style.display='block';r.appendChild(it.node);}
+  if(r._upd)r._upd();return r;}
+function renderBody(keep){if(!ui)return;var B=ui._body,top=B.scrollTop,fk=D.activeElement&&ui.contains(D.activeElement)?(D.activeElement.closest('[data-key]')||{}).dataset:null,fkey=fk?fk.key:null,fidx=null;
+  if(keep&&D.activeElement&&B.contains(D.activeElement)){var all=focusables();fidx=all.indexOf(D.activeElement);}
+  B.textContent='';rowEls={};var any=false;
+  secOrder.slice().sort(function(a,b){return (secs[a].order-secs[b].order)||(secOrder.indexOf(a)-secOrder.indexOf(b));}).forEach(function(id){var s=secs[id];if(s.tab!==curTab)return;var items=s.items.filter(visibleItem);if(!items.length)return;any=true;B.appendChild(el('div','kvS',s.label));
+    items.forEach(function(it){var r=buildRow(it);rowEls[it.key]=r;B.appendChild(r);if(r._st)B.appendChild(r._st);});});
+  if(!any)B.appendChild(el('div','kvInfo','Nothing here yet.'));
+  B.scrollTop=keep?top:0;if(keep&&fidx>=0){var a2=focusables();if(a2[fidx])try{a2[fidx].focus({preventScroll:true});}catch(e){}}}
+function refreshRow(key){var r=rowEls[key];if(r&&r._upd){try{r._upd();}catch(e){}}if(ui&&openFlag){for(var k in rowEls){var d=defs[k];if(d&&(d.type==='button'||d.type==='info')&&rowEls[k]._upd)try{rowEls[k]._upd();}catch(e){}}}}
+function refreshAll(){if(ui&&openFlag)renderBody(true);}
+function focusables(){if(!ui)return[];return Array.prototype.slice.call(ui.querySelectorAll('.kvTab:not([hidden]),.kvB button,.kvB input,.kvB select,.kvX')).filter(function(e){return !e.disabled&&e.offsetParent!==null;});}
+function moveFocus(d){var a=focusables();if(!a.length)return;var i=a.indexOf(D.activeElement);if(i<0)i=0;else i=(i+d+a.length)%a.length;try{a[i].focus();}catch(e){}}
+/* ---------- open / close ---------- */
+function open(tab){applyCss();build();try{D.exitPointerLock&&D.exitPointerLock();}catch(e){}
+  if(tab&&isTab(tab)&&tabVisible(tab))curTab=tab;else if(!tabVisible(curTab))curTab='sound';
+  lastFocus=D.activeElement;openFlag=true;ui.classList.add('on');D.body.classList.add('kvSetOpen');setTab(curTab);
+  try{ui._tabs[curTab].focus({preventScroll:true});}catch(e){}
+  gpPrev={};clearInterval(gpT);gpT=setInterval(gpPoll,90);fire('$open',true);return true;}
+function close(){if(!openFlag)return;openFlag=false;if(ui)ui.classList.remove('on');D.body.classList.remove('kvSetOpen');clearInterval(gpT);gpT=0;
+  try{if(lastFocus&&lastFocus.focus&&lastFocus!==D.body)lastFocus.focus({preventScroll:true});else if(D.activeElement&&D.activeElement.blur)D.activeElement.blur();}catch(e){}fire('$close',true);}
+function toggle(tab){if(openFlag)close();else open(tab);}
+/* controller: L1 / R1 switch tabs, Options / Start closes (the game's own pad code already moves the focus ring, presses with cross and backs out with circle) */
+function gpPoll(){try{var gs=navigator.getGamepads?navigator.getGamepads():[];for(var i=0;i<gs.length;i++){var g=gs[i];if(!g||!g.connected)continue;var b=g.buttons,p=gpPrev[i]||(gpPrev[i]=[]);
+  var dn=function(n){var v=b[n]&&(b[n].pressed||b[n].value>.5);var was=p[n];p[n]=!!v;return !!v&&!was;};
+  if(dn(4))stepTab(-1);if(dn(5))stepTab(1);if(dn(9)||dn(8))close();}}catch(e){}}
+/* ---------- keyboard: while the menu is open the game never sees a key ---------- */
+W.addEventListener('keydown',function(e){
+  if(!openFlag){if(e.key==='Escape'){try{e.__kvBusy=busyNow();}catch(x){e.__kvBusy=true;}}return;}
+  e.stopImmediatePropagation();var k=e.key,a=D.activeElement;
+  if(k==='Escape'||k==='F10'){e.preventDefault();close();return;}
+  if(k==='ArrowDown'||k==='ArrowUp'){e.preventDefault();moveFocus(k==='ArrowDown'?1:-1);return;}
+  if(k==='ArrowLeft'||k==='ArrowRight'){if(a&&a.tagName==='INPUT'&&a.type==='range')return;if(a&&a.classList&&a.classList.contains('kvTab')){e.preventDefault();stepTab(k==='ArrowRight'?1:-1);return;}
+    if(a&&a.closest&&a.closest('.kvGrp')){e.preventDefault();var bs=Array.prototype.slice.call(a.parentNode.children),i=bs.indexOf(a)+(k==='ArrowRight'?1:-1);if(bs[i])bs[i].focus();return;}
+    e.preventDefault();return;}
+  if(k==='q'||k==='Q'||k==='PageUp'||k==='['){e.preventDefault();stepTab(-1);return;}
+  if(k==='e'||k==='E'||k==='PageDown'||k===']'){e.preventDefault();stepTab(1);return;}
+  if(k==='Tab')return;if(k==='Enter'||k===' ')return;
+  e.preventDefault();},true);
+W.addEventListener('keyup',function(e){if(openFlag){if(e.key==='Escape')e.stopImmediatePropagation();}},true);
+function busyNow(){var b=D.body;if(!b)return true;if(openFlag)return true;var c=b.classList;if(c.contains('hm-talk')||c.contains('hm-modal')||c.contains('hm-cutscene')||c.contains('hm-dead')||c.contains('film'))return true;
+  var it=D.getElementById('intro');if(it&&!it.hidden)return true;var pm=D.getElementById('padMenu');if(pm&&!pm.hidden)return true;
+  try{if(W.__BUSY&&W.__BUSY('scene,dead,ui,phone,builder'))return true;}catch(e){return true;}return false;}
+/* ---------- the dev tab: the old Settings frame (#movie: time, weather, filming, look, scenes, Director mode ...) is only reachable from here, and only on localhost / ?dev=1 ---------- */
+function devShow(secKey){var mb=D.getElementById('bMenu');if(mb&&mb.getAttribute('aria-expanded')!=='true'){try{mb.click();}catch(e){}}close();setTimeout(function(){var mv=D.getElementById('movie');if(!mv)return;mv.style.display='';mv.classList.remove('mvMin');
+  if(secKey){var s=mv.querySelector('.st[data-sec="'+secKey+'"]');if(s){if(s.classList.contains('c')){var h=s.querySelector('.sth');if(h)h.click();}try{s.scrollIntoView({block:'start'});}catch(e){}}}else{try{mv.scrollIntoView({block:'start'});}catch(e){}}},120);}
+section('dev1','Developer tools (not shown to players)','dev',10);
+add('dev1',{key:'dev.open',type:'button',label:'Settings frame',note:'time, weather, filming, look and colour, scenes, models, scares ...',button:'OPEN',run:function(){devShow();}});
+[['time','Time and weather'],['cam','Camera, filming, view distance'],['look','Look and colour (film grade, fog, glow)'],['sound','Sound mix and speakers'],['cut','Cutscenes and quick-time events'],['models','Models: today vs new'],['life','World life, traffic, blood'],['crt','Creature events'],['scare','Scares'],['adv','Advent doors']].forEach(function(p){
+  add('dev1',{key:'dev.'+p[0],type:'button',label:p[1],button:'GO',run:function(){devShow(p[0]);}});});
+add('dev1',{key:'dev.dir',type:'info',text:'Director mode (clapperboard): F8 on/off, F9 record, F10 hide the HUD, F7 help. Dev game or ?director=1 only.'});
+/* ---------- the settings that need no game internals ---------- */
+section('vol','Volume','sound',10);section('speech','Speech and subtitles','sound',20);
+var P100={type:'slider',min:0,max:100,step:5,default:100,unit:'%'};function S(o,b){var r={};for(var k in o)r[k]=o[k];for(k in b)r[k]=b[k];return r;}
+add('vol',S(P100,{key:'master',label:'Master volume',on:'masterOn'}));add('vol',{key:'masterOn',type:'toggle',default:true,label:'Master sound',hidden:true,show:function(){return false;}});
+add('vol',S(P100,{key:'music',label:'Music',on:'musicOn'}));add('vol',{key:'musicOn',type:'toggle',default:true,label:'Music on',show:function(){return false;}});
+add('vol',S(P100,{key:'sfx',label:'Sound effects',note:'footsteps, doors, cars, weather',on:'sfxOn'}));add('vol',{key:'sfxOn',type:'toggle',default:true,show:function(){return false;}});
+add('vol',S(P100,{key:'voices',label:'Voices',note:'people, Lykta, the witch',on:'voicesOn'}));add('vol',{key:'voicesOn',type:'toggle',default:true,show:function(){return false;}});
+add('vol',S(P100,{key:'amb',label:'Ambience and creatures',note:'wind, water, birds, animals, night sounds',on:'ambOn'}));add('vol',{key:'ambOn',type:'toggle',default:true,show:function(){return false;}});
+add('speech',{key:'subs',type:'toggle',default:true,label:'Subtitles',note:'text for voices and narration'});
+section('look','Look and hints','controls',30);
+add('look',{key:'mouseSens',type:'slider',min:25,max:300,step:5,default:100,unit:'%',label:'Mouse look speed'});
+add('look',{key:'hints',type:'toggle',default:true,label:'Show control hints',note:'the key reminder at the bottom of the screen'});
+section('pic','Picture','display',20);
+add('pic',{key:'fov',type:'slider',min:50,max:100,step:2,default:60,unit:'°',label:'Field of view'});
+add('pic',{key:'brightness',type:'slider',min:60,max:140,step:2,default:100,unit:'%',label:'Brightness'});
+section('hud','Text and screen','display',30);
+add('hud',{key:'textSize',type:'choice',default:1,label:'Text size',note:'subtitles and speech',options:[[.9,'SMALL'],[1,'NORMAL'],[1.25,'LARGE'],[1.5,'HUGE']]});
+add('hud',{key:'hudScale',type:'slider',min:80,max:130,step:5,default:100,unit:'%',label:'HUD size'});
+add('hud',{key:'showFps',type:'toggle',default:false,label:'Show FPS'});
+section('ease','Camera and effects','comfort',10);
+add('ease',{key:'reduceShake',type:'toggle',default:false,label:'Reduce camera shake',note:'hits, car bumps, scares'});
+add('ease',{key:'reduceFlash',type:'toggle',default:false,label:'Reduce flashing lights',note:'police lights, gun flashes, strobes, jolts'});
+add('ease',{key:'noGrain',type:'toggle',default:false,label:'Film grain and lens effects off'});
+add('ease',{key:'noBob',type:'toggle',default:false,label:'Head bob off',note:'no up-and-down sway while walking'});
+/* the public API */
+W.__SETTINGS={version:1,get:get,set:set,on:on,open:open,close:close,toggle:toggle,isOpen:function(){return openFlag;},section:section,add:add,reset:reset,isDev:isDev,devFor:devFor,tabs:TABS.map(function(t){return t[0];}),
+  list:function(){return Object.keys(defs).map(function(k){var d=defs[k];return {key:k,tab:d.tab,sec:d.sec,type:d.type,label:d.label};});},
+  store:function(){return JSON.parse(JSON.stringify(store));},reload:function(){load();applyCss();for(var k in defs){if(defs[k].type!=='button'&&defs[k].type!=='info')fire(k,get(k));}refreshAll();},
+  refresh:refreshAll,busy:busyNow,tab:function(){return curTab;},stepTab:stepTab,setTab:setTab,_escLate:function(e){
+    if(e.key!=='Escape'||e.repeat||!e.isTrusted||e.__kvBusy||openFlag)return false;if(busyNow())return false;open();return true;}};
+applyCss();
+if(D.readyState==='loading')D.addEventListener('DOMContentLoaded',applyCss);
+})();
+/* /settingsmenu_early */</script>
 <script>addEventListener('DOMContentLoaded',()=>{
   let st={menu:false,map:true};try{st=Object.assign(st,JSON.parse(localStorage.getItem('kv-hud')||'{}'));}catch(e){}
   const save=()=>{try{localStorage.setItem('kv-hud',JSON.stringify(st));}catch(e){}};
@@ -736,7 +971,7 @@ window.__devEff=eff;
 const isPhone=()=>eff()==='phone';
 const sync=()=>{try{document.body.classList.toggle('ph',isPhone());}catch(e){}};
 /* version label: the deploy script replaces the placeholder below; an unreplaced build shows DEV BUILD */
-const VRAW='16 Nov 2026 11:11';
+const VRAW='16 Nov 2026 18:00';
 const VER=(VRAW.indexOf('__BUILD'+'_')===0)?'DEV BUILD':VRAW;
 window.__VERSION=VER;
 const pill=()=>{const b=document.createElement('button');b.type='button';b.className='verpill';b.textContent=VER;b.title='Tap to copy';b.setAttribute('aria-label','Game version '+VER);b.addEventListener('click',e=>{e.stopPropagation();try{navigator.clipboard&&navigator.clipboard.writeText(VER);}catch(_){}});return b;};
@@ -3124,6 +3359,39 @@ function intBuild(b){
   const waiting=(cx,d0,d1)=>{let n=0;for(const c of cx.cells){if(c.d<d0||c.d>d1||!free(c)||n>=6)continue;if(c.sA){prop('wchair',c.d,c.l-.15,faceRot(0,1));n++;}else if(c.sB){prop('wchair',c.d,c.l+.15,faceRot(0,-1));n++;}}};
   const plant=(cx,d,l)=>{const c=get(d,l);if(free(c))prop('plant',d,l);};
   const xtree=cx=>{for(const c of cx.cells){if(c.d>=2&&c.d<=5&&c.wd===2&&!RES[c.k]&&free(c)&&(c.sA||c.sB)){prop('xtree',c.d,c.l);return;}}};
+  /* mayoroffice: the Mayor's office, a walled room behind the town hall counter (the hall is a big chevron; the area behind the bookshelf wall was empty and sealed).
+     Opens a 2-wide flap in the counter + a 2-wide doorway in the shelf wall (same lateral position, straight in from the front door), walls the room with plaster partitions, floor, rug, desk row across the room
+     (desk + filing cabinets + bookshelves seal off the back zone where she stands), visitor chairs, tree, plant. Voxel columns only: collision is free. The dynamic dressing (Mayor, cables, charger, window, flag, photo) lives in the mayoroffice block. */
+  const MOFF=(cx,Dc)=>{try{
+    const bk=Math.min(cx.D,Dc+3);if(bk>=cx.D)return;
+    const here=(d,l)=>{const c=get(d,l);return c&&!RES[c.k]&&!COL[c.k]?c:null;};
+    const tillAt=c=>c&&COL[c.k]&&COL[c.k].includes(E(ITL.till));
+    let best=null;
+    for(const dm of [0,-1,1,-2,2,-3,3]){const m=Math.min(0,sec)+dm;
+      if(!get(bk,m)||!get(bk,m+1)||!get(Dc,m)||!get(Dc,m+1)||tillAt(get(Dc,m))||tillAt(get(Dc,m+1)))continue;
+      for(const DD of [6,5])for(const Wd of [9,7])for(let a=m-Wd+2;a<=m;a++){const bb=a+Wd-1,d0=bk+1,d1=bk+DD;let ok=true;
+        for(let d=d0;d<=d1&&ok;d++)for(let l=a;l<=bb;l++)if(!here(d,l)){ok=false;break;}
+        if(!ok)continue;
+        for(let l=a-1;l<=bb+1&&ok;l++){const c=get(d1+1,l);if(c&&RES[c.k])ok=false;}
+        for(let d=d0;d<=d1+1&&ok;d++)for(const l of [a-1,bb+1]){const c=get(d,l);if(c&&RES[c.k])ok=false;}
+        if(!ok)continue;
+        const sc=Wd*DD*10-Math.abs((a+bb)/2-(m+.5))-Math.abs(dm)*3;if(!best||sc>best.sc)best={a,bb,d0,d1,m,sc,DD,Wd};}
+      if(best)break;}
+    if(!best)return;
+    const {a,bb,d0,d1,m}=best,dDesk=d1-2,cen=Math.round((a+bb)/2);
+    for(const l of [m,m+1]){COL[get(Dc,l).k]=null;COL[get(bk,l).k]=null;}/* counter flap open + the doorway in the shelf wall */
+    for(let d=d0;d<=d1;d++)for(let l=a;l<=bb;l++){const c=get(d,l);FL[c.k]=E(TILE.floorPlank);if(d<dDesk&&l>a&&l<bb)FL[c.k]=E(TILE.rug);}
+    const wall=c=>{if(c&&!RES[c.k])COL[c.k]=Array(TOPH).fill(E(TILE.wPlaster));};
+    for(let l=a-1;l<=bb+1;l++)wall(get(d1+1,l));
+    for(let d=d0;d<=d1;d++){wall(get(d,a-1));wall(get(d,bb+1));}
+    for(let l=a;l<=bb;l++){const c=get(dDesk,l);
+      if(l===a||l===bb)put(c,[ITL.steel,ITL.steel]);else if(l===a+1||l===bb-1)put(c,[TILE.bookshelf,TILE.bookshelf,TILE.bookshelf]);else put(c,[TILE.counter]);}
+    for(const l of [cen-1,cen+1])prop('wchair',dDesk-1,l,faceRot(1,0));
+    prop('chair',d1-1,cen+2,faceRot(1,0));/* her own chair, pushed back from the desk, turned to the window */
+    prop('xtree',d0,a);prop('plant',d0,bb);
+    for(const [d,l] of [[d0+1,cen],[d1-1,cen]]){const c=get(d,l);if(c)LAMP[c.k]=1;}
+    const [ox,oz]=WX(0,0);b.mo={ox,oz,Fx,Fz,Lx,Lz,a,bb,d0,d1,m,dDesk,bk,Dc,cen,TOPH};
+  }catch(e){b.moErr=String(e);}};
   const PLAN={
    grocery(cx){const {D}=cx;for(const c of cx.cells){if(c.back&&c.d>=6){put(c,((c.l%4)+4)%4===0?[ITL.drinkFridge,ITL.drinkFridge,ITL.drinkFridge]:[TILE.fridge,TILE.fridge,ITL.drinkFridge]);continue;}if(cx.side(c)&&c.d>=6&&c.d<D)put(c,[TILE.shelfGoods,TILE.shelfGoods,TILE.shelfGoods]);}
      checkout(cx,2);for(const c of cx.cells)if(c.d>=6&&c.d<=7&&c.wd>=4&&((c.l-cx.lA)%4+4)%4>=1&&((c.l-cx.lA)%4+4)%4<=2)put(c,[ITL.produce]);
@@ -3158,7 +3426,7 @@ function intBuild(b){
    library(cx){checkout(cx,1);const D=cx.D;wallShelves(cx,3,D,[TILE.bookshelf,TILE.bookshelf,TILE.bookshelf]);for(const c of cx.cells)if(c.back)put(c,[TILE.bookshelf,TILE.bookshelf,TILE.bookshelf]);gondolas(cx,8,D-3,[TILE.bookshelf,TILE.bookshelf]);
      for(const c of cx.cells)if(c.d>=4&&c.d<=6&&c.wd>=4&&free(c)&&(c.l%4)===0)prop('table',c.d,c.l),prop('chair',c.d-.7,c.l,faceRot(1,0)),prop('chair',c.d+.7,c.l,faceRot(-1,0));floorAll(TILE.floorPlank,cx.cells);},
    townhall(cx){const Dc=counterBack(cx,{maxDc:7,tills:2,counter:()=>[TILE.counter],till:()=>[TILE.counter,ITL.till],back:()=>[TILE.bookshelf,TILE.bookshelf,TILE.bookshelf]});
-     waiting(cx,2,Dc-2);xtree(cx);floorAll(ITL.marble,cx.cells);for(const c of cx.cells)if(c.d>=2&&c.d<Dc-1&&c.wd>=4)FL[c.k]=E(TILE.rug);},
+     waiting(cx,2,Dc-2);xtree(cx);floorAll(ITL.marble,cx.cells);for(const c of cx.cells)if(c.d>=2&&c.d<Dc-1&&c.wd>=4)FL[c.k]=E(TILE.rug);MOFF(cx,Dc);},
    clinic(cx){const Dc=counterBack(cx,{maxDc:6,counter:()=>[TILE.counter],till:()=>[TILE.counter,ITL.till],back:()=>[TILE.bookshelf,TILE.bookshelf]});waiting(cx,2,Dc-2);plant(cx,2,cx.lA+1);floorAll(TILE.floorTile,cx.cells);},
    hotel(cx){const Dc=counterBack(cx,{maxDc:6,counter:()=>[TILE.counter],till:()=>[TILE.counter,ITL.till],back:()=>[TILE.bookshelf,TILE.bookshelf]});wallShelves(cx,2,Dc-2,[ITL.seat]);xtree(cx);floorAll(ITL.marble,cx.cells);for(const c of cx.cells)if(c.d>=2&&c.d<Dc-1&&c.wd>=3)FL[c.k]=E(TILE.rug);},
    wine(cx){const Dc=counterBack(cx,{maxDc:8,counter:()=>[TILE.counter],till:()=>[TILE.counter,ITL.till],back:()=>[ITL.wineShelf,ITL.wineShelf,ITL.wineShelf]});wallShelves(cx,2,Dc-1,[ITL.wineShelf,ITL.wineShelf,ITL.wineShelf]);gondolas(cx,3,Dc-3,[ITL.wineShelf,ITL.wineShelf]);floorAll(TILE.floorTile,cx.cells);},
@@ -3910,7 +4178,7 @@ view.addEventListener('pointerdown',e=>{if(window.__PHDOWN&&window.__PHDOWN(e))r
       dragId=e.pointerId;dragX=e.clientX;dragY=e.clientY;dragMoved=0;return;}
     if(e.button===0)breakBlock();else if(e.button===2)placeBlock();return;}
   if(dragId!==null)return;dragId=e.pointerId;dragX=e.clientX;dragY=e.clientY;dragMoved=0;view.setPointerCapture(e.pointerId);});
-addEventListener('mousemove',e=>{if(document.pointerLockElement===view)look(e.movementX*.0024,e.movementY*.0024);});
+addEventListener('mousemove',e=>{if(document.pointerLockElement===view)look(e.movementX*.0024*(window.__KVSENS||1),(window.__KVINV?-1:1)*e.movementY*.0024*(window.__KVSENS||1));});/*settingsmenu: mouse speed + invert Y*/
 view.addEventListener('pointermove',e=>{if(e.pointerId!==dragId||document.pointerLockElement===view)return;const dx=e.clientX-dragX,dy=e.clientY-dragY;dragMoved+=Math.abs(dx)+Math.abs(dy);look(dx*.005*(window.__PHS?window.__PHS.sens:1),dy*.005*(window.__PHS?window.__PHS.sens:1));dragX=e.clientX;dragY=e.clientY;});
 const endDrag=e=>{if(e.pointerId===dragId)dragId=null;};view.addEventListener('pointerup',endDrag);view.addEventListener('pointercancel',endDrag);
 view.addEventListener('contextmenu',e=>e.preventDefault());
@@ -5420,7 +5688,7 @@ try{fetch('data/soundmix.json',{cache:'no-cache'}).then(r=>r.ok?r.json():null).t
 return S;})();
 /* /soundmix-core */
 // audio
-let ac,master;function audioInit(){if(ac)return;try{ac=new (window.AudioContext||window.webkitAudioContext)();master=ac.createGain();master.gain.value=.7;master.connect(ac.destination);try{window.__GFA&&window.__GFA.hook(ac);}catch(e){}/*gamefeel_09*/try{SMIX.mk(ac,master);}catch(e){}try{__AUDIO3D.init();}catch(e){console.warn('audio3d init',e);}
+let ac,master;function audioInit(){if(ac)return;try{ac=new (window.AudioContext||window.webkitAudioContext)();master=ac.createGain();master.gain.value=.7;if(window.__KVAUD)window.__KVAUD.master=master;master.connect(ac.destination);/*settingsmenu: the audio graph hook knows master*/try{window.__GFA&&window.__GFA.hook(ac);}catch(e){}/*gamefeel_09*/try{SMIX.mk(ac,master);}catch(e){}try{__AUDIO3D.init();}catch(e){console.warn('audio3d init',e);}
   const len=ac.sampleRate*4,b=ac.createBuffer(1,len,ac.sampleRate),d=b.getChannelData(0);let l=0;for(let i=0;i<len;i++){l=(l+.02*(Math.random()*2-1))/1.02;d[i]=l*3;}const s=ac.createBufferSource();s.buffer=b;s.loop=true;const f=ac.createBiquadFilter();f.type='lowpass';f.frequency.value=500;const g=ac.createGain();g.gain.value=.05;s.connect(f);f.connect(g);g.connect(master);s.start();MUS.init();}catch(e){}}
 // background music: a looping Kvinesdal theme, crossfading to a dark version in the Threshold world. M toggles it.
 const MUS={on:true,dark:false,src:{},gain:{},init(){const vol=ac.createGain();vol.gain.value=.55;vol.connect(SMIX.bus('music')||master);this.vol=vol;this.ld={};const KS=['merry','dark','witch','bowl'];for(const k of KS){const gn=ac.createGain();gn.gain.value=k==='merry'?1:0;gn.connect(vol);this.gain[k]=gn;}
@@ -6177,7 +6445,7 @@ def('parachute','Parachute (while falling)','KeyP','P',['fly'],{when:'falling',p
 def('answer','Answer a ringing call','KeyP','P',ALL,{when:'ringing',pad:'tap the screen',touch:'tap the phone'});
 def('quests','Quests · journal','KeyQ','Q',ALL,{touch:'QUESTS (menu)',pk:{touch:'QUESTS'}});
 def('casefile','Case file','KeyU','U',ALL,{touch:'CASE FILE (menu)',pk:{touch:'CASE FILE'}});
-def('sense','Hollow sense (hold)','KeyZ','Z',['foot'],{pad:'PS button',touch:'sense button'});def('whistle','Whistle (hold) · never under the northern lights',['Quote','Backslash'],"' / Æ",['foot'],{name:'apostrophe (the Æ key on a Norwegian keyboard)',pad:'hold ◯',touch:'WHISTLE (shows outdoors under the northern lights)',panel:18,how:{pad:'hold ◯',touch:'tap and hold WHISTLE'}});/*nordlys*/
+def('sense','Hollow sense (hold)','KeyZ','Z',['foot'],{pad:'PS button',touch:'sense button'});def('whistle','Whistle (hold) · never under the northern lights',['Quote','Backslash','IntlBackslash'],"' / Æ",['foot'],{name:'apostrophe (the Æ key on a Norwegian keyboard)',pad:'hold ◯',touch:'WHISTLE (shows outdoors under the northern lights)',panel:18,how:{pad:'hold ◯',touch:'tap and hold WHISTLE'}});/*nordlys*/
 /* vehicles and flying */
 def('rocket','Rocket · glide boost','KeyR','R',FD,{pad:'R2 or touchpad',touch:'ROCKET',primary:true,pk:{ps:'touchpad',touch:'ROCKET'}});
 def('reload','Reload (gun in hand)','KeyR','R',['foot'],{when:'gun held',pad:'touchpad',touch:'tap'});
@@ -6351,15 +6619,26 @@ function padFrame(now){const gp=padCur();if(!gp){padLoop.on=false;return;}
   for(let i=0;i<gp.buttons.length;i++)pr[i]=B(i);}
 /* haptics engine: window.__HAPTIC. One loop (~every 85 ms) sums every active layer and sends ONE clamped dual-rumble effect (older Chrome: hapticActuators[0].pulse). Polls game state, no hooks into other blocks. */
 const HAP={calls:[],tr:[],forced:[],cur:[],last:0,nz:false,force:false,m:{s:1,w:1},type:'none',mode:'none',padId:null,pp:null,v3s:0,pc:null,pcv:0,pvy:0,pyaw:0,pg:false,pGl:false,pvy2:0,hp:null,rkL:0,rkT:0,rkCr:0,ig:false,coins:null,coinT:0,combo:0,bw:null,stride:0,snow:null,mashT:'',mashE:null,mashS:0,prtT:0,err:''};
-const HAP_ZERO=[0,0];
-function hapDetect(gp){if(HAP.padId===gp.id)return;HAP.padId=gp.id;const id=(gp.id||'').toLowerCase();HAP.type=/dualsense|0ce6/.test(id)?'dualsense':/dualshock|054c|09cc|05c4/.test(id)?'dualshock4':/xbox|xinput|045e/.test(id)?'xbox':'generic';HAP.m={dualsense:{s:1,w:1},dualshock4:{s:1,w:.85},xbox:{s:.9,w:1.15},generic:{s:1,w:1}}[HAP.type];const a=gp.vibrationActuator;HAP.mode=(a&&typeof a.playEffect==='function')?'dual':(gp.hapticActuators&&gp.hapticActuators[0]&&typeof gp.hapticActuators[0].pulse==='function')?'pulse':'none';}
+const HAP_ZERO=[0,0];const HAPX={last:-1,sig:{},fails:0,via:''};
+function hapModeOf(gp){const a=gp&&gp.vibrationActuator;if(a&&typeof a.playEffect==='function')return'dual';const h=gp&&gp.hapticActuators;if(h&&h[0]&&typeof h[0].pulse==='function')return'pulse';return'none';}
+function hapDetect(gp){HAP.mode=hapModeOf(gp);if(HAP.padId===gp.id)return;HAP.padId=gp.id;const id=(gp.id||'').toLowerCase();HAP.type=/dualsense|0ce6/.test(id)?'dualsense':/dualshock|054c|09cc|05c4/.test(id)?'dualshock4':/xbox|xinput|045e/.test(id)?'xbox':'generic';HAP.m={dualsense:{s:1,w:1},dualshock4:{s:1,w:.85},xbox:{s:.9,w:1.15},generic:{s:1,w:1}}[HAP.type];}
+/* always a FRESH gamepad object; prefer the pad touched last that can vibrate, then any standard pad that can, then any that can */
+function hapPad(){let gs=[];try{gs=Array.from(navigator.getGamepads?navigator.getGamepads():[]);}catch(_){}gs=gs.filter(g=>g&&g.connected);if(!gs.length)return null;const can=g=>hapModeOf(g)!=='none';return gs.find(g=>g.index===HAPX.last&&can(g))||gs.find(g=>g.mapping==='standard'&&can(g))||gs.find(can)||gs.find(g=>g.mapping==='standard')||gs[0];}
+const hapBlur=()=>document.hidden||(typeof document.hasFocus==='function'&&!document.hasFocus());
 const hapSafari=()=>/^((?!chrome|android|crios|edg|fxios).)*safari/i.test(navigator.userAgent||'');
-function hapInfo(){const gp=padCur();if(!gp)return hapSafari()?'No controller seen yet. Safari has no rumble: use Chrome or Edge.':'No controller seen yet. Press any button on it.';hapDetect(gp);const t={dualsense:'DualSense',dualshock4:'DualShock 4',xbox:'Xbox controller',generic:'Generic controller'}[HAP.type];if(HAP.mode==='none')return t+': this browser exposes no rumble'+(hapSafari()?' (Safari has none: use Chrome or Edge)':' (Chrome and Edge support it; Firefox only on some pads)')+'.';return t+': rumble ready ('+(HAP.mode==='dual'?'dual-rumble':'pulse')+').';}
-function hapSend(s,w,ms){if(!PAD.vib||document.hidden)return;const gp=padCur();if(!gp)return;hapDetect(gp);if(HAP.mode==='none')return;
-  s=Math.min(1,Math.max(0,s*HAP.m.s*PAD.hint));w=Math.min(1,Math.max(0,w*HAP.m.w*PAD.hint));if(PAD.hint<=0)return;
+function hapInfo(){try{return hapDiag().text;}catch(e){return 'Vibration status unavailable.';}}
+function hapSend(s,w,ms){return hapCore(s,w,ms,false);}
+/* the ONE exit to the hardware. force=true: one-shot from __HAPTIC.rumble / Test (also phones). Returns true if something was sent. */
+function hapCore(s,w,ms,one){if(!PAD.vib||PAD.hint<=0||hapBlur())return false;ms=Math.min(2000,Math.max(10,Math.round(+ms||100)));
+  const gp=hapPad();
+  if(!gp){if(one&&/Android/i.test(navigator.userAgent||'')&&navigator.vibrate&&Math.max(s,w)*PAD.hint>.08){try{navigator.vibrate(Math.min(ms,300));HAPX.via='vibrate';return true;}catch(_){}}return false;}
+  hapDetect(gp);if(HAP.mode==='none')return false;
+  s=Math.min(1,Math.max(0,s*HAP.m.s*PAD.hint));w=Math.min(1,Math.max(0,w*HAP.m.w*PAD.hint));
   HAP.calls.push({t:performance.now(),s:+s.toFixed(3),w:+w.toFixed(3),ms});if(HAP.calls.length>400)HAP.calls.splice(0,200);HAP.nz=true;
-  try{let r;if(HAP.mode==='dual')r=gp.vibrationActuator.playEffect('dual-rumble',{startDelay:0,duration:ms,weakMagnitude:w,strongMagnitude:s});else r=gp.hapticActuators[0].pulse(Math.max(s,w),ms);if(r&&r.catch)r.catch(()=>{});}catch(e){HAP.err=String(e);}}
-function hapStop(){HAP.nz=false;const gp=padCur();if(!gp)return;try{const a=gp.vibrationActuator;if(a&&typeof a.reset==='function'){const r=a.reset();if(r&&r.catch)r.catch(()=>{});}else if(a&&a.playEffect){const r=a.playEffect('dual-rumble',{startDelay:0,duration:1,weakMagnitude:0,strongMagnitude:0});if(r&&r.catch)r.catch(()=>{});}}catch(_){}HAP.calls.push({t:performance.now(),s:0,w:0,ms:0,stop:1});}
+  const pulse=()=>{try{const h=gp.hapticActuators&&gp.hapticActuators[0];if(h&&typeof h.pulse==='function'){HAPX.via='pulse';const r=h.pulse(Math.max(s,w),ms);if(r&&r.catch)r.catch(()=>{});return true;}}catch(e){HAP.err=String(e);}return false;};
+  if(HAP.mode==='dual'){try{HAPX.via='dual-rumble';const r=gp.vibrationActuator.playEffect('dual-rumble',{startDelay:0,duration:ms,weakMagnitude:w,strongMagnitude:s});if(r&&r.catch)r.catch(e=>{HAPX.fails++;HAP.err=String(e);pulse();});return true;}catch(e){HAPX.fails++;HAP.err=String(e);return pulse();}}
+  return pulse();}
+function hapStop(){HAP.nz=false;let gs=[];try{gs=Array.from(navigator.getGamepads?navigator.getGamepads():[]);}catch(_){}for(const gp of gs){if(!gp||!gp.connected)continue;try{const a=gp.vibrationActuator;if(a&&typeof a.reset==='function'){const r=a.reset();if(r&&r.catch)r.catch(()=>{});}else if(a&&a.playEffect){const r=a.playEffect('dual-rumble',{startDelay:0,duration:1,weakMagnitude:0,strongMagnitude:0});if(r&&r.catch)r.catch(()=>{});}}catch(_){}}HAP.calls.push({t:performance.now(),s:0,w:0,ms:0,stop:1});}
 /* one-shot effects: a decaying pulse or a pattern [[start,len,strong,weak],...] (seconds) */
 function hapPulse(name,s,w,ms,flat){if(!PAD.vib)return;HAP.tr.push({name,t0:performance.now(),s,w,dur:(ms||100)/1000,flat:!!flat});HAP.force=true;}
 function hapPat(name,pat){if(!PAD.vib)return;let d=0;for(const p of pat)d=Math.max(d,p[0]+p[1]);HAP.tr.push({name,t0:performance.now(),pat,dur:d});HAP.force=true;}
@@ -6452,6 +6731,40 @@ function hapTick(now,dt,ov,mod,dn,up){
 addEventListener('visibilitychange',()=>{if(document.hidden){hapStop();HAP.tr.length=0;HAP.forced.length=0;}});
 window.__HAPTIC={layers(){return HAP.cur.slice();},total(){return HAP.cur.total||{strong:0,weak:0};},test:hapTest,names:()=>HAP_LIST.flatMap(g=>g[1].map(x=>x[0])),list:HAP_LIST,stop(){HAP.tr.length=0;HAP.forced.length=0;hapStop();},get calls(){return HAP.calls;},clearLog(){HAP.calls.length=0;},get mode(){return HAP.mode;},get type(){return HAP.type;},info:hapInfo,get supported(){const g=padCur();if(g)hapDetect(g);return HAP.mode!=='none';},setIntensity(x){PAD.hint=Math.max(0,Math.min(1,+x));padSave();},get intensity(){return PAD.hint;},event:(n,...a)=>HAP_ONE[n]&&HAP_ONE[n](...a),state:()=>HAP};
 function padRumble(s,w,ms){hapPulse('custom',s,w,ms||100);}
+/* haptics_robust */
+/* STORAGE (for the settings menu): localStorage 'kv-pad' = JSON {vib:boolean (Controller vibration on/off, default true), hi:0..1 (strength, default 1), sens, inv}.
+   Read/write through window.__HAPTIC.enabled / setEnabled(b) / strength / setStrength(0..1) so nothing else has to touch the key. */
+const HAPD={t:0};
+function hapDiag(){const gp=hapPad();const ua=navigator.userAgent||'';const droid=/Android/i.test(ua)&&!!navigator.vibrate;
+ if(!gp){if(droid)return{pad:'',api:'vibrate',ok:true,text:'No controller found. This phone can buzz (navigator.vibrate).'};
+  return{pad:'',api:'none',ok:false,text:hapSafari()?'No controller seen. Safari has no controller vibration: use Chrome.':'No controller detected. Plug it in (or pair it), press any button on it, then try again.'};}
+ const m=hapModeOf(gp);const id=String(gp.id||'unknown').slice(0,70);
+ if(m==='none'){const ff=/firefox/i.test(ua);return{pad:id,api:'none',ok:false,text:'Controller: '+id+' - '+(ff||hapSafari()?"Your browser doesn't support controller vibration — use Chrome.":"Your browser doesn't support controller vibration for this controller — use Chrome (or plug it in with USB).")};}
+ const a=gp.vibrationActuator;const tr=!!(a&&a.effects&&a.effects.indexOf&&a.effects.indexOf('trigger-rumble')>=0);
+ return{pad:id,api:m==='dual'?'dual-rumble':'pulse',ok:true,trigger:tr,text:'Controller: '+id+' - vibration API: '+(m==='dual'?'dual-rumble':'pulse')+(tr?' (+trigger-rumble)':'')};}
+function hapDiagShow(msg){const t=msg||hapDiag().text;for(const id of['hapDiagM','pcHapInfo']){const e=document.getElementById(id);if(e)e.textContent=t;}return t;}
+function hapTestBuzz(){const d=hapDiag();if(!d.ok){hapDiagShow();return d;}
+ if(!PAD.vib){hapDiagShow(d.text+' - Controller vibration is switched OFF in Settings.');return d;}
+ if(PAD.hint<=0){hapDiagShow(d.text+' - Vibration strength is 0%.');return d;}
+ const ok=hapCore(.9,.9,400,true);hapDiagShow(d.text+(ok?' - buzzing 0.4 s now. Feel it?':' - sent, but the browser refused. Press a button on the controller and try again.'));return d;}
+HAP_TEST.diag=hapTestBuzz;
+/* scan: remember which pad was touched last */
+setInterval(()=>{try{const gs=navigator.getGamepads?navigator.getGamepads():[];for(const g of gs){if(!g||!g.connected)continue;let s='';for(let i=0;i<g.buttons.length;i++)if(g.buttons[i].pressed)s+=i+',';for(let i=0;i<g.axes.length;i++)if(Math.abs(g.axes[i])>.4)s+='a'+i+',';const o=HAPX.sig[g.index];if(s&&s!==o)HAPX.last=g.index;HAPX.sig[g.index]=s;}}catch(_){}},150);
+addEventListener('gamepadconnected',e=>{HAPX.last=e.gamepad.index;});
+addEventListener('blur',()=>{try{if(HAP.nz)hapStop();}catch(_){}});
+/* UI: Test button + diagnostic line in the pause menu (and in the HAPTICS TEST panel through padHapPanel) */
+{const row=padMenu.querySelectorAll('.row')[1];if(row&&!row.querySelector('[data-a=hapt]')){const b=document.createElement('button');b.type='button';b.dataset.a='hapt';b.textContent='Test vibration';row.appendChild(b);}
+ const h=padMenu.querySelector('.pmh');if(h&&!document.getElementById('hapDiagM')){const p=document.createElement('p');p.className='pmh';p.id='hapDiagM';p.style.cssText='color:#ffe36e;max-width:520px';h.parentNode.insertBefore(p,h);}
+ padMenu.addEventListener('click',e=>{const b=e.target.closest('button');if(b&&b.dataset.a==='hapt')hapTestBuzz();});}
+/* settings menu hook: window.__SETTINGS (job settingsmenu) if it exists at runtime; the pause-menu controls above stay as well */
+{let tries=0;const reg=()=>{try{const S=window.__SETTINGS;if(S&&typeof S.add==='function'){if(HAPD.reg)return true;HAPD.reg=true;
+  S.add('controls',{id:'haptics',title:'Controller vibration',type:'group',items:[
+   {id:'vib',label:'Controller vibration',type:'toggle',get:()=>PAD.vib,set:v=>window.__HAPTIC.setEnabled(!!v)},
+   {id:'str',label:'Vibration strength',type:'slider',min:0,max:100,step:10,get:()=>Math.round(PAD.hint*100),set:v=>window.__HAPTIC.setStrength(v/100)},
+   {id:'test',label:'Test vibration',type:'button',run:hapTestBuzz,status:()=>hapDiag().text}]});return true;}}catch(e){HAP.err=String(e);}return false;};
+  if(!reg()){const iv=setInterval(()=>{if(reg()||++tries>60)clearInterval(iv);},2000);}}
+Object.assign(window.__HAPTIC,{rumble:(s,w,ms)=>hapCore(+s||0,+w||0,ms,true),diag:hapDiag,testBuzz:hapTestBuzz,pad:hapPad,get enabled(){return PAD.vib;},setEnabled(b){PAD.vib=!!b;if(!PAD.vib)hapStop();padSave();try{padMenuRefresh();}catch(_){}},get strength(){return PAD.hint;},setStrength(x){PAD.hint=Math.max(0,Math.min(1,+x));padSave();try{padMenuRefresh();}catch(_){}},get fails(){return HAPX.fails;},get via(){return HAPX.via;}});
+/* /haptics_robust */
 
 /* haptics UI: slider in the pause menu, HAPTICS TEST tab in the Controls screen */
 const HAP_NOTE='Rumble works in Chrome and Edge on Mac and Windows with a DualSense, DualShock 4 or Xbox controller. Safari has no rumble; Firefox supports it on some pads only.';
@@ -6460,7 +6773,7 @@ PAD_CTX.push(['Vibration (rumble)',[['Flying · elytra','wind with speed, dive s
 {const l=document.createElement('label');l.className='pmi';l.innerHTML='Rumble intensity <input type="range" data-a="int" min="0" max="100" step="10"><b></b>';const r=padMenu.querySelector('[data-a=doors]');if(r&&r.parentNode)r.parentNode.parentNode.insertBefore(l,r.parentNode);}
 function hapSlider(v){PAD.hint=Math.max(0,Math.min(1,v/100));padSave();padMenuRefresh();clearTimeout(hapSlider.t);hapSlider.t=setTimeout(()=>{hapPulse('slider',.5,.5,140);},120);}
 padMenu.addEventListener('input',e=>{if(e.target.dataset&&e.target.dataset.a==='int')hapSlider(+e.target.value);});
-function padHapPanel(){const pc=Math.round(PAD.hint*100);let h='<div class="pc-body"><div class="pc-dia"><h3>Rumble</h3><p class="pc-note" id="pcHapInfo">'+padEsc(hapInfo())+'</p><div class="pc-hb"><button type="button" data-a="vib">Vibration: '+(PAD.vib?'On':'Off')+'</button><button type="button" data-h="stop">Stop</button></div><label class="pc-int">Intensity <input type="range" data-a="int" min="0" max="100" step="10" value="'+pc+'"><b>'+pc+'%</b></label><p class="pc-note">'+padEsc(HAP_NOTE)+'</p><p class="pc-note">In the game the rumble follows what you do: wind grows with speed, engines follow the revs, the road texture depends on the surface. Press a button on the right to feel each effect on its own.</p></div><div class="pc-tab">';
+function padHapPanel(){const pc=Math.round(PAD.hint*100);let h='<div class="pc-body"><div class="pc-dia"><h3>Rumble</h3><p class="pc-note" id="pcHapInfo">'+padEsc(hapInfo())+'</p><div class="pc-hb"><button type="button" data-a="vib">Vibration: '+(PAD.vib?'On':'Off')+'</button><button type="button" data-h="stop">Stop</button><button type="button" data-h="diag">Test vibration</button></div><label class="pc-int">Intensity <input type="range" data-a="int" min="0" max="100" step="10" value="'+pc+'"><b>'+pc+'%</b></label><p class="pc-note">'+padEsc(HAP_NOTE)+'</p><p class="pc-note">In the game the rumble follows what you do: wind grows with speed, engines follow the revs, the road texture depends on the surface. Press a button on the right to feel each effect on its own.</p></div><div class="pc-tab">';
  for(const [g,items] of HAP_LIST){h+='<h3>'+padEsc(g)+'</h3><div class="pc-hb">'+items.map(x=>'<button type="button" data-h="'+x[0]+'">'+padEsc(x[1])+'</button>').join('')+'</div>';}return h+'</div></div>';}
 const padCtlRender0b=padCtlRender0;
 function padCtlRender(){if(PAD.ctlTab!=='hap'){padCtlRender0();const kb=padCtl.querySelector('.pc-head [data-t=kb]');if(kb)kb.insertAdjacentHTML('afterend','<button type="button" data-t="hap">HAPTICS TEST</button>');const n=padCtl.querySelector('.pc-note');if(n)n.insertAdjacentHTML('afterend','<p class="pc-note">'+padEsc(HAP_NOTE)+'</p>');return;}
@@ -6513,7 +6826,7 @@ function frame(now){if(window.__DIRNOW)now=window.__DIRNOW(now);/*director*/cons
   const dcx=P.x-chris.position.x,dcz=P.z-chris.position.z;if(Math.hypot(dcx,dcz)<12){let a=Math.atan2(dcx,dcz)-chris.rotation.y;a=Math.atan2(Math.sin(a),Math.cos(a));chris.rotation.y+=a*dt*3;}
   chris.userData.arms[0].rotation.x=Math.sin(t*1.3)*.06;
   // camera
-  const bob=(!P.fly&&!P.glide&&P.onGround)?Math.sin(walkPh*2)*.04*amp:0;if(window.__RIDE){__RIDE.tick(dt);__RIDE.pose(dt);}/*riding*/const eye=new THREE.Vector3(P.x,P.y+1.62-(window.__MOVE?__MOVE.dip():0)+bob+(window.__RIDE?__RIDE.up():0),P.z);/*mcmove riding*/
+  const bob=(!P.fly&&!P.glide&&P.onGround)?Math.sin(walkPh*2)*.04*amp*(window.__KVBOB??1):0;if(window.__RIDE){__RIDE.tick(dt);__RIDE.pose(dt);}/*riding*/const eye=new THREE.Vector3(P.x,P.y+1.62-(window.__MOVE?__MOVE.dip():0)+bob+(window.__RIDE?__RIDE.up():0),P.z);/*mcmove riding*/
   cam.rotation.set(P.pitch+(window.__RKC?__RKC.p:0),P.yaw+(window.__RKC?__RKC.y:0),window.__RKC?__RKC.r:0,'YXZ');if(window.__SNUSCAM){const q_=window.__SNUSCAM();if(q_){cam.rotation.x+=q_[0];cam.rotation.y+=q_[1];cam.rotation.z+=q_[2];}}/*snus_04*/arm.visible=!thirdPerson&&!document.body.classList.contains('film');const walking=!P.fly&&!P.glide&&P.onGround&&!P.driving;arm.rotation.x=-.2+(walking?Math.sin(walkPh)*.025*amp:0)+(armSwing>0?-Math.sin(armSwing*Math.PI)*.9:0);if(armSwing>0)armSwing=Math.max(0,armSwing-dt*4);
   if(window.__PCH)__PCH.tick(dt,fwd,str);if(window.__CAMS&&window.__CAMS.step(dt,eye)){}else if(window.__NRUN&&__NRUN.on&&__NRUN.cam(dt,eye)){}
   else if(P.driving){const c=P.driving;const bx=Math.sin(c.yaw),bz=Math.cos(c.yaw);const want=new THREE.Vector3(c.x+bx*9,c.y+3.6,c.z+bz*9);cam.position.lerp(want,Math.min(1,dt*5));cam.lookAt(c.x-bx*3,c.y+1.4,c.z-bz*3);arm.visible=false;}
@@ -6553,7 +6866,7 @@ function frame(now){if(window.__DIRNOW)now=window.__DIRNOW(now);/*director*/cons
    if(vg)vg.style.opacity=sn*(.55+.2*Math.sin(t*4));
    if(EYE.lock&&!EYE.wasLock)eyeSpeak('see');if(!EYE.lock&&EYE.wasLock)eyeSpeak('lost');EYE.wasLock=EYE.lock;}}EYE.eyeQ.lookAt(cam.position);EYE.EU.t.value=t;}{const st=starTop.userData;st.star.rotation.y=t*.6;st.rays.rotation.z=t*.15;st.rays.lookAt(cam.position);st.rays.rotation.z=t*.15;st.halo.material.opacity=.45+.2*Math.sin(t*2.2);for(const o of ORN){o.rotation.y=Math.sin(t*.8+o.userData.ph)*.4;}
     if(Math.random()<dt*14)spark(starTop.position.x+(Math.random()-.5)*3,starTop.position.y+(Math.random()-.5)*3,starTop.position.z+(Math.random()-.5)*3,0xfff0c0,(Math.random()-.5)*1.5,(Math.random()-.2)*1.5,(Math.random()-.5)*1.5,1.2);}{const tw=.75+.25*Math.sin(t*3.1);bulbMatA.color.setScalar(tw*(window.__TODB||1));bulbMatB.color.setScalar((1.75-tw)*(window.__TODB||1));for(const m of STARM)m.rotation.y=t*.8;}for(const fl of FLAGS)fl.rotation.y=Math.sin(t*2.2+fl.position.x)*.35;$('bRocket').style.opacity=P.glide?1:.55;
-  {const want=(window.__MOVE?__MOVE.fovK():1)*/*mcmove*/((window.__NRUN&&__NRUN.on)?__NRUN.fov():window.__CAMS&&window.__CAMS.fov()?(innerWidth<innerHeight?72:60)+window.__CAMS.fov():P.glide&&window.__RK?window.__RK.fov():P.glide?60+Math.min(25,Math.hypot(P.vx,P.vy,P.vz)*.5):(innerWidth<innerHeight?72:60));if(window.__LENS&&window.__LENS.fovWant&&window.__LENS.fovWant()){const wl=window.__LENS.fovWant();if(Math.abs(cam.fov-wl)>.05){cam.fov=wl;cam.updateProjectionMatrix();}}else if(Math.abs(cam.fov-want)>.1){cam.fov+=(want-cam.fov)*Math.min(1,dt*4);cam.updateProjectionMatrix();}}
+  {const want=(window.__KVFOVK||1)*/*settingsmenu: field of view*/(window.__MOVE?__MOVE.fovK():1)*/*mcmove*/((window.__NRUN&&__NRUN.on)?__NRUN.fov():window.__CAMS&&window.__CAMS.fov()?(innerWidth<innerHeight?72:60)+window.__CAMS.fov():P.glide&&window.__RK?window.__RK.fov():P.glide?60+Math.min(25,Math.hypot(P.vx,P.vy,P.vz)*.5):(innerWidth<innerHeight?72:60));if(window.__LENS&&window.__LENS.fovWant&&window.__LENS.fovWant()){const wl=window.__LENS.fovWant();if(Math.abs(cam.fov-wl)>.05){cam.fov=wl;cam.updateProjectionMatrix();}}else if(Math.abs(cam.fov-want)>.1){cam.fov+=(want-cam.fov)*Math.min(1,dt*4);cam.updateProjectionMatrix();}}
   for(let i=parts.length-1;i>=0;i--){const m=parts[i];m.userData.life-=dt;m.userData.v.y-=12*dt;m.position.addScaledVector(m.userData.v,dt);if(m.userData.life<=0){scene.remove(m);parts.splice(i,1);}}
   if(SHOT==='1'){cam.position.set(P.x+14,P.y+9,P.z+16);cam.lookAt(P.x-4,P.y+3,P.z-6);}
   
@@ -15730,8 +16043,8 @@ window.__THF=(dt,t)=>{
   const now=performance.now();const frozen=now<F.until||!!G;
   if(frozen){const ox=P.x,oz=P.z;P.x=F.x;P.z=F.z;P.vx=P.vz=0;P.yaw=F.yaw;P.pitch=F.pitch;cam.position.x+=P.x-ox;cam.position.z+=P.z-oz;
     const a=G?.012:.02*Math.max(.3,(F.until-now)/1750);cam.rotation.set(P.pitch+(Math.random()-.5)*a,P.yaw+(Math.random()-.5)*a,(Math.random()-.5)*a,'YXZ');}
-  if(shakeV>0){const a=shakeV*.05;cam.rotation.x+=(Math.random()-.5)*a;cam.rotation.y+=(Math.random()-.5)*a;cam.position.y+=(Math.random()-.5)*a*2;shakeV=Math.max(0,shakeV-dt*1.6);}
-  FXF.style.opacity=flashV>0?Math.min(1,flashV):0;flashV=Math.max(0,flashV-dt*2.2);
+  if(shakeV>0){const a=shakeV*.05*(window.__KVSHAKE??1);cam.rotation.x+=(Math.random()-.5)*a;cam.rotation.y+=(Math.random()-.5)*a;cam.position.y+=(Math.random()-.5)*a*2;shakeV=Math.max(0,shakeV-dt*1.6);}
+  FXF.style.opacity=flashV>0?Math.min(1,flashV)*(window.__KVFLASH??1):0;flashV=Math.max(0,flashV-dt*2.2);
   FXV.style.opacity=frozen?(G?.85:.75):0;FXR.style.opacity=G?(.45+.4*Math.max(0,Math.sin(t*9))):0;};
 /* threshfolk */
 /* The Threshold is the underworld. Everyone human gets the grey, faceless, cold look (K.thSet), and every WORK.person figure that nothing else animates
@@ -22709,7 +23022,7 @@ function driveCam(dt,eff,c,now){
  const free=clearDist(px,py,pz,sA*ce,se,cA*ce,ST.D,py),fcw=Math.max(pr.minD,free-.55);if(fcw<ST.fc)ST.fc+=(fcw-ST.fc)*(1-Math.exp(-dt*(ST.snap?60:SRATE)));else ST.fc+=(fcw-ST.fc)*(1-Math.exp(-dt*3.5));
  const L=Math.min(ST.D,ST.fc);let cx=px+sA*ce*L,cy=py+se*L,cz=pz+cA*ce*L;
  cy+=liftOut(cx,cy,cz,py,dt);
- cam.position.set(cx,cy,cz);{const s=c.df?c.df.sh+(c.df.sk||0):0;if(s>.002){const q=now*37;cam.position.x+=Math.sin(q)*s;cam.position.y+=Math.sin(q*1.31+1.7)*s*.6;cam.position.z+=Math.cos(q*.79)*s;}}const la=V.la*(1-ST.lb)*pr.sz;
+ cam.position.set(cx,cy,cz);{const s=(c.df?c.df.sh+(c.df.sk||0):0)*(window.__KVSHAKE??1);if(s>.002){const q=now*37;cam.position.x+=Math.sin(q)*s;cam.position.y+=Math.sin(q*1.31+1.7)*s*.6;cam.position.z+=Math.cos(q*.79)*s;}}const la=V.la*(1-ST.lb)*pr.sz;
  {const lx=V.ao?Math.sin(ka):sA,lz=V.ao?Math.cos(ka):cA,lk=DV1.lk*(1-ST.lb);cam.lookAt(px-lx*la+lz*lk,py+.15+Math.tan(ST.vp)*la*.6,pz-lz*la-lx*lk);}
  if(pr.nw&&c.roll)cam.rotateZ(-c.roll*.3);
  return setFov(V.fv+drvFov(c,sf,pr,dt));}
@@ -35811,7 +36124,7 @@ function plLights(dt,near){plLT+=dt;const ph=((plLT*3.4)|0)&1,night=plNight();
     const hs=night?1:.45;PLA.haloA.opacity=ph?.1:.9*hs;PLA.haloB.opacity=ph?.9*hs:.1;
     for(const c of POL.cars){const sc=(night?3.6:2.2)*(near>90?1.3:1);c.ha.scale.set(sc,sc,1);c.hb.scale.set(sc,sc,1);}}
   const vol=near<170?.05*Math.pow(1-near/170,1.6):0;POL.sirenVol=POL.cars.some(c=>c.pl.mode!=='leave')?vol:0;plSirenSet(POL.sirenVol);
-  const k=near<60?(1-near/60):0,tint=k*(night?.85:.25);const fl=PLHUD.fl;fl.className=ph?'a':'b';fl.style.opacity=tint.toFixed(3);}
+  const k=near<60?(1-near/60):0,tint=k*(night?.85:.25);const fl=PLHUD.fl;fl.className=ph?'a':'b';fl.style.opacity=(tint*(window.__KVFLASH??1)).toFixed(3);}
 let plLast=performance.now(),plAcc=0;
 (function plLoop(now){requestAnimationFrame(plLoop);const dt=Math.min(.1,(now-plLast)/1000);plLast=now;if(document.hidden||!POL.on)return;
   try{if(!POL.active){plAcc+=dt;if(plAcc<.15)return;const d=plAcc;plAcc=0;if(plBusy())return;plCrimes();if(POL.stars>0)POL.active=true;else if(POL.heat>0){POL.heat=Math.max(0,POL.heat-d*.05);}return;}plFrame(dt);}
@@ -38299,7 +38612,7 @@ MIC.snap=()=>({state:MIC.state,opted:MIC.opted,asked:MIC.asked,denied:MIC.denied
 MIC.stateOf=MIC.snap;
 async function micStart(){if(MIC.state!=='off'||MIC.denied)return;MIC.state='starting';
   try{const md=navigator.mediaDevices;if(!md||!md.getUserMedia)throw new Error('no mic api');MIC.calls++;
-    const stream=await md.getUserMedia({audio:{echoCancellation:false,noiseSuppression:false,autoGainControl:false}});
+    const stream=await (window.__WHISTLEMIC?window.__WHISTLEMIC.open(md):md.getUserMedia({audio:{echoCancellation:false,noiseSuppression:false,autoGainControl:false}}));/*whistlemic*/
     if(!micWant()){for(const t of stream.getTracks())t.stop();MIC.state='off';return;}
     const AC_=window.AudioContext||window.webkitAudioContext;const cx=new AC_();const src=cx.createMediaStreamSource(stream);const an=cx.createAnalyser();an.fftSize=2048;an.smoothingTimeConstant=.15;an.minDecibels=-110;an.maxDecibels=0;src.connect(an);/* never to cx.destination: nothing is played back or recorded */
     const bw=cx.sampleRate/2048;MIC.lo=Math.max(1,Math.floor(800/bw));MIC.hi=Math.min(1023,Math.ceil(3000/bw));MIC.l1=Math.max(1,Math.floor(100/bw));MIC.l2=Math.floor(700/bw);
@@ -38308,10 +38621,10 @@ async function micStart(){if(MIC.state!=='off'||MIC.denied)return;MIC.state='sta
 function micStop(){try{clearInterval(MIC.iv);MIC.iv=0;if(MIC.stream){for(const t of MIC.stream.getTracks())t.stop();}if(MIC.ctx&&MIC.ctx.close)MIC.ctx.close();}catch(_){}MIC.stream=null;MIC.ctx=null;MIC.an=null;MIC.buf=null;MIC.whistle=false;MIC.run=0;MIC.last=-1;if(MIC.state!=='denied')MIC.state='off';}
 function micTick(){try{const an=MIC.an,b=MIC.buf;if(!an||!b)return;an.getFloatFrequencyData(b);const lo=MIC.lo,hi=MIC.hi;let pk=-1e9,pi=-1;for(let i=lo;i<=hi;i++){const v=b[i];if(v>pk){pk=v;pi=i;}}
   let s=0,n=0;for(let i=lo;i<=hi;i++){if(i<pi-8||i>pi+8){s+=b[i];n++;}}const mean=n?s/n:-200;let low=-1e9;for(let i=MIC.l1;i<=MIC.l2;i++)if(b[i]>low)low=b[i];
-  MIC.pk=pk;MIC.hz=pi*MIC.bw;const ok=pk>-62&&(pk-mean)>22&&low<pk-8&&(MIC.last<0||Math.abs(pi-MIC.last)<=14);
+  MIC.pk=pk;MIC.hz=pi*MIC.bw;MIC.fl=(MIC.fl===undefined)?mean:(MIC.run>0?MIC.fl:MIC.fl+(mean-MIC.fl)*.04);MIC.mean=mean;const gate=Math.max(-84,Math.min(-62,MIC.fl+26));const ok=pk>gate&&(pk-mean)>20&&low<pk-8&&/*whistlemic*/(MIC.last<0||Math.abs(pi-MIC.last)<=14);
   if(ok){MIC.run++;MIC.last=pi;}else{MIC.run=0;MIC.last=-1;}MIC.whistle=MIC.run>=8;}catch(e){er(e);}}
 /* wanted: opted in, an aurora really up, you outdoors (and not busy) */
-function micWant(){return MIC.opted&&!MIC.denied&&NL.k>.3&&!busy()&&!indoors();}
+function micWant(){return MIC.opted&&!MIC.denied&&((NL.k>.3&&!busy()&&!indoors())||(MIC.testing&&typeof started!=='undefined'&&started));}NL.micStop=()=>micStop();/*whistlemic*/
 function micStep(){if(MIC.stubOn){return;}const want=micWant();if(want&&MIC.state==='off'){micStart();}else if(!want&&MIC.state==='on'){micStop();lg('mic off');}}
 /* ---------------- fingers ---------------- */
 const FG={m:[],mat:null,n:0,fy:[],yT:0,built:false};
@@ -38373,7 +38686,7 @@ NL.equipHanky=()=>{try{const i=INV.slots.findIndex(q=>q&&q.id==='hanky');if(i<0)
 NL.click=()=>{try{placeBlock();return true;}catch(e){return false;}};
 try{const _bb=breakBlock,_pb=placeBlock;breakBlock=function(){if(heldHanky()){clickUse();return;}return _bb.apply(this,arguments);};placeBlock=function(){if(heldHanky()){clickUse();return;}return _pb.apply(this,arguments);};NL.wrapped=true;}catch(e){er(e);}
 /* ---------------- input: key, pad, phone ---------------- */
-const WK=['Quote','Backslash'];
+const WK=['Quote','Backslash','IntlBackslash'];/*whistlemic*/
 const typing=()=>/INPUT|TEXTAREA|SELECT/.test((document.activeElement||{}).tagName||'');
 addEventListener('keydown',e=>{if(!WK.includes(e.code)||e.ctrlKey||e.metaKey||e.altKey||typing())return;if(typeof started==='undefined'||!started)return;e.preventDefault();NL.keyHeld=true;},true);
 addEventListener('keyup',e=>{if(WK.includes(e.code))NL.keyHeld=false;},true);
@@ -38397,7 +38710,7 @@ function step(dt){const T=window.__TOD;const AU=AU_(),AG=AG_();if(!T||!AU||!AG)r
   if(NL.k>.3){if(!dom)ensureDom();regHud();if(!MIC.asked&&visible&&out&&dom&&dom.ask.style.display!=='block'&&!MIC.promptShown){MIC.promptShown=true;dom.ask.style.display='block';setTimeout(()=>{try{if(!MIC.asked){dom.ask.style.display='none';}}catch(_){}},25000);}}
   else if(dom&&dom.ask.style.display==='block'){dom.ask.style.display='none';}
   micStep();
-  if(dom&&typeof TOUCH!=='undefined'&&TOUCH){const sb=visible&&out;if(sb!==dom.btnV){dom.btnV=sb;dom.btn.style.display=sb?'block':'none';if(!sb){NL.touchHeld=false;}}}
+  if(dom&&((typeof TOUCH!=='undefined'&&TOUCH)||window.__WM_TOUCH)){const sb=(visible||(NL.k>.3&&!isBusy))&&out;/*whistlemic*/if(sb!==dom.btnV){dom.btnV=sb;dom.btn.style.display=sb?'block':'none';if(!sb){NL.touchHeld=false;}}}
   if(visible&&out&&NL.stage===0){NL.barkT-=dt;if(NL.barkT<=0){NL.barkT=35+rnd()*40;bark(false);}}
   /* stages */
   if(NL.stage===0){if(visible&&out&&NL.cool<=0&&NL.whistling){NL.w0+=dt;if(NL.w0>=.5)enter1();}else NL.w0=Math.max(0,NL.w0-dt*2);}
@@ -38435,6 +38748,86 @@ NL.state=()=>{const AU=AU_(),AG=AG_();return {err:NL.err,k:+NL.k.toFixed(3),tgt:
   tonight:NL.tonight(),nightId:nightOf(),barks:NL.barks,reacts:NL.reacts,wrapped:NL.wrapped,waves:NL.waves||0,home:!!NL.home,mic:MIC.snap(),btn:dom?dom.btn.style.display:'',ask:dom?dom.ask.style.display:'',ducked,starts:NL.starts,log:NL.log.slice(-8)};};
 })();
 /* /nordlys */
+/* whistlemic */
+/* WHISTLEMIC (job whistlemic, 16 Nov 2026): whistle into the controller mic, a headset or the built-in mic, or use the buttons.
+   Works with the nordlys mic code: that code asks WM.open(mediaDevices) for the stream. AUTO = prefer a game-controller mic (label /DualSense|Wireless Controller|DUALSHOCK|PS5|PlayStation|Gamepad|Xbox/i) when one is plugged in
+   (USB; a DualSense over Bluetooth has no mic on Mac and simply does not appear, then the default mic is used silently), else the default mic. Re-checked on devicechange (plug / unplug).
+   SETTINGS: "Whistle microphone" in the SOUND section: Off / Auto (controller first) / each real input. Remembered (kv-whistlemic = {mode,id,label}; opt-in itself stays kv-nordlys-mic). Live level meter + "whistle now to test"
+   (the mic is only open while this row is on screen and the mic is on). Detection uses an adaptive noise floor (patched into micTick), so a quiet controller mic works.
+   STORAGE (for the settings menu): localStorage 'kv-whistlemic' = JSON {mode:'auto'|'dev', id, label}; 'kv-nordlys-mic' = '1' (mic on) / '0' (off); API: __WHISTLEMIC.setPref('off'|'auto'|'dev',id,label), .reload(), .state(). If window.__SETTINGS.add exists the row element (#mvWhistleMic) is handed to __SETTINGS.add('controls',row), else it goes into the old panel (SOUND section).
+   BUTTONS stay: ' / Backslash, pad ◯ held, phone WHISTLE (shows outdoors on aurora nights). One-time aurora-night hint. Dev: window.__WHISTLEMIC = {state(), pick(list,pref), setPref(mode,id,label), refresh(), open(md)}. */
+try{(()=>{
+if(window.__WHISTLEMIC)return;
+const NL=window.__NORDLYS;if(!NL||!NL.mic)return;
+const MIC=NL.mic;
+const WM=window.__WHISTLEMIC={err:null,list:[],pref:{mode:'auto',id:'',label:''},lastConstraints:null,hinted:false,hintErr:null,testing:false};
+const er=e=>{WM.err=String(e&&e.stack||e);try{console.warn('whistlemic',e);}catch(_){}};
+const ls=k=>{try{return localStorage.getItem(k);}catch(_){return null;}},lss=(k,v)=>{try{localStorage.setItem(k,v);}catch(_){}};
+const CTRL=/DualSense|Wireless Controller|DUALSHOCK|PS5|PlayStation|Gamepad|Xbox/i;
+const KEY='kv-whistlemic',HK='kv-whistlemic-hint';
+function load(){try{const o=JSON.parse(ls(KEY)||'null');if(o&&(o.mode==='auto'||o.mode==='dev'))WM.pref={mode:o.mode,id:String(o.id||''),label:String(o.label||'')};else WM.pref={mode:'auto',id:'',label:''};}catch(_){WM.pref={mode:'auto',id:'',label:''};}}
+function save(){lss(KEY,JSON.stringify(WM.pref));}
+load();
+const virt=d=>d.deviceId==='default'||d.deviceId==='communications';
+function pick(list,pref){const inputs=(list||[]).filter(d=>d&&d.kind==='audioinput');pref=pref||WM.pref;
+  if(pref.mode==='dev'){const d=inputs.find(x=>x.deviceId&&x.deviceId===pref.id)||(pref.label&&inputs.find(x=>x.label===pref.label));if(d)return d;}
+  const c=inputs.filter(d=>CTRL.test(d.label||''));return c.find(d=>!virt(d))||c[0]||null;}
+WM.pick=pick;
+async function enumerate(md){try{return await md.enumerateDevices();}catch(_){return [];}}
+const trackId=s=>{try{const t=s.getAudioTracks()[0];return (t&&t.getSettings&&t.getSettings().deviceId)||'';}catch(_){return '';}};
+const stopS=s=>{try{for(const t of s.getTracks())t.stop();}catch(_){}};
+/* the stream for the nordlys mic: controller first when AUTO, the chosen one when picked, else the default */
+WM.open=async function(md){
+  const base={echoCancellation:false,noiseSuppression:false,autoGainControl:false};
+  const tryOpen=async id=>{const c={audio:id?Object.assign({deviceId:{exact:id}},base):Object.assign({},base)};WM.lastConstraints=c;return md.getUserMedia(c);};
+  let list=await enumerate(md);const labels=list.some(d=>d.kind==='audioinput'&&d.label);
+  let want=labels?pick(list):null,stream=null,picked='';
+  if(want){try{stream=await tryOpen(want.deviceId);picked=want.deviceId;}catch(e){if(e&&/NotAllowed|Security|Permission/.test(e.name||''))throw e;stream=null;picked='';}}
+  if(!stream){stream=await tryOpen(null);
+    if(!labels){list=await enumerate(md);want=pick(list);const cur=trackId(stream);
+      if(want&&want.deviceId&&want.deviceId!==cur&&!(virt(want)&&!cur)){try{const s2=await tryOpen(want.deviceId);stopS(stream);stream=s2;picked=want.deviceId;}catch(e){WM.lastConstraints=null;}}}}
+  WM.list=list;MIC.devPicked=picked;MIC.devId=picked||trackId(stream);MIC.fl=undefined;MIC.mean=-100;
+  const dv=list.find(d=>d.kind==='audioinput'&&d.deviceId&&d.deviceId===(picked||MIC.devId));MIC.devLabel=dv?dv.label:(list.some(d=>d.kind==='audioinput'&&d.label)?(list.find(d=>d.kind==='audioinput'&&d.deviceId==='default')||{}).label||'Default microphone':'Default microphone');
+  try{const t=stream.getAudioTracks()[0];if(t)t.addEventListener('ended',()=>{if(MIC.stream===stream&&NL.micStop)NL.micStop();});}catch(_){}
+  setTimeout(()=>WM.refresh(),50);return stream;};
+WM.refresh=async function(){try{const md=navigator.mediaDevices;if(!md||!md.enumerateDevices)return WM.list;WM.list=await enumerate(md);fillSel();return WM.list;}catch(e){er(e);return WM.list;}};
+/* plug / unplug */
+async function onChange(){try{await WM.refresh();if(MIC.state!=='on'||!MIC.opted)return;const w=pick(WM.list),want=(w&&w.deviceId)||'';
+  if(want!==(MIC.devPicked||'')&&NL.micStop){NL.micStop();}}catch(e){er(e);}}
+try{if(navigator.mediaDevices&&navigator.mediaDevices.addEventListener)navigator.mediaDevices.addEventListener('devicechange',onChange);}catch(_){}
+WM.setPref=function(mode,id,label){if(mode==='off'){NL.mic.optOut();}else{WM.pref=mode==='dev'?{mode:'dev',id:String(id||''),label:String(label||'')}:{mode:'auto',id:'',label:''};save();MIC.denied=false;NL.mic.optIn();if(NL.micStop&&MIC.state==='on')NL.micStop();}paintUi();return true;};
+WM.reload=()=>{load();paintUi();return WM.pref;};
+/* ---------------- settings row ---------------- */
+let row=null,sel=null,bar=null,stat=null,hint=null;
+function selValue(){return !MIC.opted?'off':(WM.pref.mode==='dev'?'d:'+WM.pref.id:'auto');}
+function fillSel(){if(!sel)return;try{const inputs=WM.list.filter(d=>d.kind==='audioinput'&&!virt(d));const cur=selValue();
+  let h='<option value="off">Off (buttons only)</option><option value="auto">Auto (controller first)</option>';
+  inputs.forEach((d,i)=>{h+='<option value="d:'+String(d.deviceId).replace(/"/g,'')+'">'+(d.label||('Microphone '+(i+1))).replace(/</g,'&lt;')+'</option>';});
+  if(cur.startsWith('d:')&&!inputs.some(d=>'d:'+d.deviceId===cur))h+='<option value="'+cur.replace(/"/g,'')+'">'+(WM.pref.label||'Saved microphone').replace(/</g,'&lt;')+' (not connected)</option>';
+  if(sel.dataset.h!==h){sel.innerHTML=h;sel.dataset.h=h;}sel.value=cur;}catch(e){er(e);}}
+function paintUi(){fillSel();}
+function mkRow(){try{if(row)return true;const mb=document.querySelector('#movie>.mvb');const SM=window.__SETTINGS;if(!mb&&!(SM&&SM.add))return false;if(document.getElementById('mvWhistleMic')){row=document.getElementById('mvWhistleMic');return true;}
+  row=document.createElement('div');row.id='mvWhistleMic';row.style.cssText='grid-column:1/-1;display:flex;flex-direction:column;gap:4px;font-size:12px';
+  row.innerHTML='<span style="font-family:var(--label);font-size:10px;color:#ffd78c">Whistle microphone</span><select id="mvWhistleSel" style="width:100%;min-width:0;max-width:100%;font-size:12px" aria-label="Whistle microphone"></select>'+
+   '<div style="height:10px;background:#111;border:2px solid #000;position:relative"><div id="mvWhistleBar" style="height:100%;width:0;background:#4aa;transition:width .08s"></div></div><small id="mvWhistleStat" style="color:#9ad;min-height:14px"></small>';
+  let placed=false;try{if(SM&&SM.add){SM.add('controls',row);placed=!!row.parentNode;}}catch(_){placed=!!row.parentNode;}if(!placed&&mb)mb.appendChild(row);sel=row.querySelector('select');bar=row.querySelector('#mvWhistleBar');stat=row.querySelector('#mvWhistleStat');
+  sel.addEventListener('keydown',e=>e.stopPropagation());
+  sel.addEventListener('change',()=>{const v=sel.value;if(v==='off')WM.setPref('off');else if(v==='auto')WM.setPref('auto');else{const id=v.slice(2);const d=WM.list.find(x=>x.deviceId===id);WM.setPref('dev',id,d?d.label:'');}});
+  try{const sp=window.__settingsPanel;if(sp&&sp.SECS){const s=sp.SECS.find(x=>x.k==='sound');if(s&&!s.items.includes('mvWhistleMic'))s.items.push('mvWhistleMic');sp.pass&&sp.pass();}}catch(_){}
+  fillSel();WM.refresh();return true;}catch(e){er(e);return true;}}
+if(!mkRow()){let n=0;const t=setInterval(()=>{if(mkRow()||++n>40)clearInterval(t);},1500);}
+/* the mic is only open for the meter while this row is on screen */
+setInterval(()=>{try{if(!row||!MIC)return;const on=MIC.opted&&!MIC.denied&&!!row.offsetParent&&row.offsetHeight>0&&!document.hidden;
+  if(on!==MIC.testing){MIC.testing=on;WM.testing=on;}
+  if(!on){if(bar)bar.style.width='0';if(stat)stat.textContent=!MIC.opted?'Off. The buttons still work (hold the apostrophe key, ◯ on a pad, or tap WHISTLE).':(MIC.denied?'Microphone blocked by the browser. The buttons still work.':'');return;}
+  const lv=MIC.state==='on'?Math.max(0,Math.min(1,((MIC.pk||-100)+100)/70)):0;bar.style.width=(lv*100).toFixed(0)+'%';bar.style.background=MIC.whistle?'#3de88c':'#4aa';
+  stat.textContent=MIC.state!=='on'?'Starting the microphone...':(MIC.whistle?'Whistle heard!':'Listening on: '+(MIC.devLabel||'default microphone')+'. Whistle now to test.');}catch(e){er(e);}},120);
+/* ---------------- the one-time aurora-night hint ---------------- */
+setInterval(()=>{try{if(WM.hinted||ls(HK)==='1')return;if(!(NL.visible&&NL.out&&NL.stage===0))return;WM.hinted=true;lss(HK,'1');
+  const t='Whistle — hold ◯, or whistle into your controller/mic';if(typeof say==='function')say(t);else if(typeof toast==='function')toast(t);}catch(e){WM.hintErr=String(e);}},2500);
+WM.state=()=>({err:WM.err,pref:WM.pref,sel:sel?sel.value:null,opts:sel?Array.from(sel.options).map(o=>o.value):[],devId:MIC.devId,devPicked:MIC.devPicked,devLabel:MIC.devLabel,lastConstraints:WM.lastConstraints,testing:MIC.testing,hinted:WM.hinted,hintErr:WM.hintErr,fl:MIC.fl,row:!!row,stat:stat?stat.textContent:''});
+})();}catch(e){console.warn('whistlemic',e);}
+/* /whistlemic */
 /* snus2 */
 (()=>{const SN=window.__SNUS;if(!SN||SN.pavInit)return;SN.pavInit=1;
 SN.pavirka=0;SN.sways=0;SN.pulses=0;SN.pavLines=0;const ADD={w:20,o:35,l:55},DRAIN=1;let swT=0,puT=0,lnT=0;
@@ -55704,7 +56097,7 @@ setInterval(check,1250);
 if(DEV&&QP.get('mayor')==='1'){let n=0;const iv=setInterval(()=>{if(ready()){clearInterval(iv);setTimeout(()=>MY.play(),2500);}else if(++n>200)clearInterval(iv);},1500);}
 /* ---------- studio: plain-background renders of the Mayor (dev only, for the model sheet) ---------- */
 const ST_={on:false,save:[],grp:null,bg:null,fog:null,pf:null};
-MY.studio=(view,opt)=>{opt=opt||{};const C=C0();
+MY.parts={makeChain,makeSmile,mayorLook,makeClip};MY.studio=(view,opt)=>{opt=opt||{};const C=C0();
   if(!view){if(!ST_.on)return false;ST_.on=false;for(const [o,v] of ST_.save)o.visible=v;ST_.save=[];if(ST_.grp)scene.remove(ST_.grp);ST_.grp=null;scene.background=ST_.bg;C.fogFar=ST_.ff[0];C.fogNear=ST_.ff[1];document.body.classList.remove('mayStudio');C.f=ST_.pf;return true;}
   if(!ST_.on){ST_.on=true;ST_.save=[];for(const o of scene.children){ST_.save.push([o,o.visible]);if(!o.isLight)o.visible=false;}
     ST_.bg=scene.background;ST_.fog=scene.fog;scene.background=new THREE.Color(opt.bg||0x8a93a6);ST_.ff=[C.fogFar,C.fogNear];C.fogFar=1e6;C.fogNear=5e5;document.body.classList.add('mayStudio');ST_.pf=C.f;if(!document.getElementById('mayCss')){const st=document.createElement('style');st.id='mayCss';st.textContent='body.mayStudio *:not(canvas){visibility:hidden!important}body.mayStudio canvas:not(#glmain){visibility:hidden!important}body.mayStudio #glmain{visibility:visible!important}';document.head.appendChild(st);}
@@ -55718,6 +56111,241 @@ MY.studio=(view,opt)=>{opt=opt||{};const C=C0();
   return true;};
 })();}catch(e){window.__MAYOR_ERR=String(e&&e.stack||e);console.warn('mayorday1',e);}
 /* /mayorday1 */
+/* mayoroffice */
+/* THE MAYOR'S OFFICE (job mayoroffice, 16 Nov 2026). Marius: "Can the Mayor have an office in the RÅDHUS? In that office she just stands there smiling, connected to a charger, and she doesn't do anything after that first day.
+   Plugged into the wall, with wires coming out of her." Hinted, never said: she is not quite human. Show, never explain.
+   THE ROOM: part of the town hall interior (voxel columns made by intBuild via the MOFF plan, see mayoroffice_plan.js): a flap in the counter and a doorway in the bookshelf wall behind it, straight in from the front door, into a walled office behind
+   (floor, rug, desk row with filing cabinets + bookshelves, two visitor chairs, a little tree, a plant, her own chair pushed back and turned to the window). RHB.mo holds the room's frame. It exists on every day.
+   THE DRESSING + HER: built ONLY while you are inside the Rådhus and disposed 2 s after you leave (one rAF loop only while built). About 14 draw calls: window / photo / flag / nameplate in ONE atlas quad mesh, one merged mesh of furniture bits + charger brick + sockets,
+   one merged mesh of the black cables (a faint pulse of light runs along them to her), the green LED, her smile (1 mesh), the town rig + chain of office.
+   DAY 2 ONWARDS only (day 1 and before = empty office, no Mayor, no cables, no charger: never before or during her day-1 scene): she stands behind the desk facing the door with a fixed, slightly too wide smile, arms at her sides, black cables from her back to a chunky charger brick on the floor
+   (a green LED blinks slowly) and a wall socket, a power strip too. A faint 50 Hz hum comes from her. She does nothing: no lines, no walking. Her upper body turns very slowly (max 17 degrees) to follow you. G / tap near her: a soft electrical buzz and the LED + the pulse in the cables go fast for 3 s. No words, no reward (nothing to farm).
+   MAP: from day 2 the office is a place on the map / GPS ("Rådhuset: Mayor's office"). Debug: window.__MAYOROFFICE = {state(), dev({day,view:'wide'|'desk'|'close'|'hall'|'door'}), poke(), build(), dispose()}. Off: ?mayoroffice=0 */
+try{(()=>{
+if(window.__MAYOROFFICE&&window.__MAYOROFFICE.ver)return;
+const W=window,QS=new URLSearchParams(location.search);
+const MO=W.__MAYOROFFICE={ver:1,err:null,log:[],enabled:QS.get('mayoroffice')!=='0',builds:0,pokes:0,disposes:0};
+const er=x=>{MO.err=String(x&&x.stack||x);try{console.warn('mayoroffice',x);}catch(_){}};
+const hyp=Math.hypot,PI=Math.PI;
+const day=()=>{const d=W.__DAY;return typeof d==='number'?d:0;};
+const started_=()=>{try{return typeof started!=='undefined'&&!!started;}catch(_){return false;}};
+const AC=()=>{try{return typeof ac!=='undefined'&&ac?ac:null;}catch(_){return null;}};
+const MS=()=>{try{return typeof master!=='undefined'?master:null;}catch(_){return null;}};
+const busy=()=>{try{return W.__BUSY?W.__BUSY('scene,dead'):'';}catch(_){return '';}};
+const todH=()=>{try{const h=W.__TOD&&W.__TOD.h;return typeof h==='number'?h:12;}catch(_){return 12;}};
+const KEYTXT=()=>(typeof TOUCH!=='undefined'&&TOUCH)?'TAP':'G';
+/* ---------- small helpers ---------- */
+function mergeBoxes(L){const P=[],N=[],C=[],IX=[];let off=0;const col=new THREE.Color();
+  for(const b of L){const g=new THREE.BoxGeometry(b[0],b[1],b[2]);const p=g.attributes.position,nm=g.attributes.normal,ix=g.index;col.setHex(b[3]);
+    for(let i=0;i<p.count;i++){P.push(p.getX(i)+b[4],p.getY(i)+b[5],p.getZ(i)+b[6]);const ny=nm.getY(i);N.push(nm.getX(i),ny,nm.getZ(i));const s=.84+.16*ny;C.push(col.r*s,col.g*s,col.b*s);}
+    for(let i=0;i<ix.count;i++)IX.push(ix.getX(i)+off);off+=p.count;g.dispose();}
+  const G=new THREE.BufferGeometry();G.setAttribute('position',new THREE.Float32BufferAttribute(P,3));G.setAttribute('normal',new THREE.Float32BufferAttribute(N,3));G.setAttribute('color',new THREE.Float32BufferAttribute(C,3));G.setIndex(IX);G.computeBoundingSphere();return G;}
+function mergeGeos(gs){const P=[],N=[],U=[],IX=[];let off=0;
+  for(const g of gs){const p=g.attributes.position,n=g.attributes.normal,u=g.attributes.uv,ix=g.index;
+    for(let i=0;i<p.count;i++){P.push(p.getX(i),p.getY(i),p.getZ(i));N.push(n.getX(i),n.getY(i),n.getZ(i));U.push(u.getX(i),u.getY(i));}
+    for(let i=0;i<ix.count;i++)IX.push(ix.getX(i)+off);off+=p.count;g.dispose();}
+  const G=new THREE.BufferGeometry();G.setAttribute('position',new THREE.Float32BufferAttribute(P,3));G.setAttribute('normal',new THREE.Float32BufferAttribute(N,3));G.setAttribute('uv',new THREE.Float32BufferAttribute(U,2));G.setIndex(IX);G.computeBoundingSphere();return G;}
+let NB=null;
+function noiseBuf(){const a=AC();if(!a)return null;if(NB&&NB.sampleRate===a.sampleRate)return NB;const n=(a.sampleRate*2)|0;const b=a.createBuffer(1,n,a.sampleRate);const d=b.getChannelData(0);let l=0;for(let i=0;i<n;i++){const w=Math.random()*2-1;l=l*.7+w*.3;d[i]=l*1.6;}NB=b;return b;}
+function out3(x,y,z,life,o){const A=W.__AUDIO3D;try{if(A&&A.ready&&A.source)return A.source(Object.assign({x,y,z,vol:1,ref:3,roll:1,max:60,rev:.5,occ:true,prio:1.2,life:life||5},o||{}));}catch(_){}return {in:MS(),set(){},stop(){},dead:false,fake:true};}
+function office(){try{if(typeof RHB==='undefined'||!RHB)return null;if(typeof intLayout==='function')intLayout(RHB);return RHB.mo||null;}catch(e){return null;}}
+function frameOf(mo){const th=Math.atan2(-mo.Fx,-mo.Fz);const s=(mo.Lx*Math.cos(th)-mo.Lz*Math.sin(th))>=0?1:-1;return {th,s};}
+const insideNow=()=>{try{return !P.driving&&typeof RHB!=='undefined'&&!!RHB&&buildingAt(P.x,P.z)===RHB;}catch(_){return false;}};
+/* ---------- the atlas: window | photo | flag | nameplate ---------- */
+const AT={W:512,H:256,win:[0,0,256,192],photo:[256,0,128,96],flag:[256,96,96,64],name:[256,160,128,32]};
+function drawWindow(g,cls){const [x0,y0,w,h]=AT.win;g.save();g.beginPath();g.rect(x0,y0,w,h);g.clip();g.translate(x0,y0);
+  const sk=g.createLinearGradient(0,0,0,h);
+  if(cls==='night'){sk.addColorStop(0,'#05081a');sk.addColorStop(1,'#1a2748');}else if(cls==='dusk'){sk.addColorStop(0,'#262746');sk.addColorStop(1,'#b8836a');}else{sk.addColorStop(0,'#a9b3c2');sk.addColorStop(1,'#e2e7ee');}
+  g.fillStyle=sk;g.fillRect(0,0,w,h);
+  g.fillStyle=cls==='night'?'#7f8fb4':cls==='dusk'?'#c9b4b0':'#f2f5f8';g.beginPath();g.moveTo(0,h*.66);g.quadraticCurveTo(w*.3,h*.6,w*.55,h*.68);g.quadraticCurveTo(w*.8,h*.74,w,h*.64);g.lineTo(w,h);g.lineTo(0,h);g.fill();
+  g.fillStyle=cls==='night'?'#0a1410':'#2a3a34';for(const [px,s] of [[20,26],[44,34],[70,22],[200,30],[226,38],[176,24]]){g.beginPath();g.moveTo(px,h*.68);g.lineTo(px-s*.32,h*.68);g.lineTo(px,h*.68-s);g.lineTo(px+s*.32,h*.68);g.fill();}
+  if(cls!=='day'){g.fillStyle='#ffc66a';g.fillRect(118,h*.62,6,5);g.fillRect(134,h*.64,5,4);g.fillStyle='rgba(255,198,106,.25)';g.fillRect(114,h*.62,14,9);}
+  let sd=7;const rr=()=>{sd=(sd*16807)%2147483647;return sd/2147483647;};
+  g.fillStyle='#ffffff';for(let i=0;i<70;i++){const sz=rr()<.2?3:2;g.globalAlpha=.5+rr()*.5;g.fillRect(rr()*w,rr()*h*.9,sz,sz);}g.globalAlpha=1;
+  g.fillStyle='#d9d4c6';g.fillRect(w/2-3,0,6,h);g.fillRect(0,h/2-3,w,6);g.fillRect(0,0,w,7);g.fillRect(0,h-7,w,7);g.fillRect(0,0,7,h);g.fillRect(w-7,0,7,h);
+  g.fillStyle='rgba(0,0,0,.18)';g.fillRect(w/2+3,0,2,h);g.fillRect(0,h/2+3,w,2);g.restore();}
+function drawPhoto(g){const [x0,y0,w,h]=AT.photo;g.save();g.beginPath();g.rect(x0,y0,w,h);g.clip();g.translate(x0,y0);
+  const sk=g.createLinearGradient(0,0,0,h);sk.addColorStop(0,'#8fa1b8');sk.addColorStop(1,'#c9d3de');g.fillStyle=sk;g.fillRect(0,0,w,h);
+  g.fillStyle='#dfe7ee';g.fillRect(0,72,w,24);
+  g.fillStyle='#b9bcc0';g.fillRect(6,26,52,48);g.fillStyle='#8c9196';g.fillRect(6,26,52,4);g.fillStyle='#2a3140';for(let i=0;i<5;i++)for(let j=0;j<2;j++)g.fillRect(10+i*10,34+j*16,6,9);
+  g.fillStyle='#b82030';for(let i=0;i<5;i++)g.fillRect(10+i*10,43+0,6,2);
+  g.fillStyle='#1f5a2e';for(let i=0;i<4;i++){const y=22+i*14,ww=30-i*5;g.beginPath();g.moveTo(104-ww/2,y+16);g.lineTo(104+ww/2,y+16);g.lineTo(104,y);g.fill();}g.fillStyle='#ffd23f';g.fillRect(102,16,5,5);
+  g.fillStyle='#6a2a4a';g.beginPath();g.moveTo(52,86);g.lineTo(58,52);g.lineTo(80,52);g.lineTo(88,86);g.fill();
+  g.fillStyle='#e6b99a';g.beginPath();g.arc(69,42,11,0,7);g.fill();
+  g.fillStyle='#c8ccd4';g.beginPath();g.arc(69,40,12,PI,0);g.fill();g.fillRect(57,38,3,14);g.fillRect(78,38,3,14);
+  g.fillStyle='#1a1014';g.fillRect(64,40,2,3);g.fillRect(73,40,2,3);
+  g.fillStyle='#2a1014';g.beginPath();g.moveTo(60,46);g.quadraticCurveTo(69,57,78,46);g.lineTo(78,47);g.quadraticCurveTo(69,53,60,47);g.fill();g.fillStyle='#faf6ee';g.beginPath();g.moveTo(61,47);g.quadraticCurveTo(69,54,77,47);g.quadraticCurveTo(69,50,61,47);g.fill();
+  g.strokeStyle='#d0d4dc';g.lineWidth=1.5;g.beginPath();g.moveTo(60,54);g.quadraticCurveTo(69,66,78,54);g.stroke();
+  g.fillStyle='rgba(30,20,10,.12)';g.fillRect(0,0,w,h);g.restore();}
+function drawFlag(g,hoistRight){const [x0,y0]=AT.flag;g.save();g.beginPath();g.rect(x0,y0,88,64);g.clip();g.translate(x0,y0);if(hoistRight){g.translate(88,0);g.scale(-1,1);}
+  g.fillStyle='#b80c2c';g.fillRect(0,0,88,64);g.fillStyle='#f2f2f0';g.fillRect(24,0,16,64);g.fillRect(0,24,88,16);g.fillStyle='#0a1f5c';g.fillRect(28,0,8,64);g.fillRect(0,28,88,8);
+  g.fillStyle='rgba(0,0,0,.14)';for(let i=0;i<88;i+=11)g.fillRect(i,0,2,64);g.restore();}
+function drawName(g){const [x0,y0,w,h]=AT.name;g.save();g.beginPath();g.rect(x0,y0,w,h);g.clip();g.translate(x0,y0);g.fillStyle='#2b2216';g.fillRect(0,0,w,h);g.strokeStyle='#8a6a2a';g.lineWidth=2;g.strokeRect(2,2,w-4,h-4);
+  g.fillStyle='#d8b868';g.font='bold 20px Georgia,"Times New Roman",serif';g.textAlign='center';g.textBaseline='middle';g.fillText('MAYOR',w/2,h/2+1);g.restore();}
+const hClass=()=>{const h=todH();return (h>=22||h<6.5)?'night':(h>=15.5&&h<22)||(h>=6.5&&h<8)?'dusk':'day';};
+/* ===================== THE ROOM DRESSING + HER ===================== */
+const S={on:false,g:null,raf:0,last:0,out:0,present:false,fastUntil:0,geos:[],mats:[],texs:[],A:null,rig:null,led:null,cmap:null,chain:null,smile:null,atlas:null,actx:null,cls:'',clsT:0,mw:null,prompt:null,mo:null,s:1,xm:0,zm:0,twist:0,cd:0,nCables:0,brick:false,socket:false,scanT:0,act:false};
+const V3=new THREE.Vector3();
+function build(){
+  if(S.on)return true;const mo=office();if(!mo||typeof RHB==='undefined')return false;
+  const K=W.__KF,present=day()>=2;const {th,s}=frameOf(mo);const X=l=>s*l,Z=d=>-d;
+  const g=new THREE.Group();g.position.set(mo.ox,RHB.base,mo.oz);g.rotation.y=th;g.name='mayoroffice';
+  const geos=[],mats=[],texs=[];S.geos=geos;S.mats=mats;S.texs=texs;
+  const xm=X(mo.cen),zm=Z(mo.d1-.15),zw=Z(mo.d1+.5),zD=Z(mo.dDesk);
+  /* ---- furniture bits (vertex colours, one mesh) ---- */
+  const L=[];const bx=(w,h,d,c,x,y,z)=>L.push([w,h,d,c,x,y,z]);
+  /* desk top */
+  bx(.95,.02,.55,0x1f3b2c,xm,1.01,zD);bx(.24,.04,.32,0xe9e3d3,xm+.55,1.03,zD-.02);bx(.2,.02,.28,0xd8d2c2,xm+.52,1.06,zD-.02);
+  bx(.14,.025,.14,0x1b1b1d,xm-.85,1.0125,zD-.05);bx(.025,.32,.025,0x8a6a2a,xm-.85,1.18,zD-.05);bx(.2,.07,.12,0x1e4a32,xm-.85,1.36,zD-.02);
+  bx(.32,.06,.05,0x3a2a1a,xm,1.04,zD+.2);bx(.06,.09,.06,0x2a2a30,xm+.85,1.045,zD+.12);bx(.01,.07,.01,0xc8102e,xm+.84,1.12,zD+.12);bx(.01,.07,.01,0x1d4f91,xm+.87,1.12,zD+.11);bx(.14,.05,.1,0x15161a,xm+.3,1.025,zD-.16);
+  /* filing cabinet handles */
+  const zF=zD+.5;for(const lx of [X(mo.a),X(mo.bb)])for(const y of [.4,.95,1.5]){bx(.22,.035,.03,0xb0b4ba,lx,y,zF+.015);bx(.1,.05,.006,0xe9e3d3,lx,y+.13,zF+.004);}
+  /* window: sill, curtains, rod */
+  bx(2.7,.05,.2,0xd9d5c9,xm,.9,zw+.1);bx(.5,2.3,.1,0x5a1f26,xm-1.55,1.95,zw+.06);bx(.5,2.3,.1,0x5a1f26,xm+1.55,1.95,zw+.06);bx(3.6,.04,.04,0x8a6a2a,xm,3.1,zw+.08);
+  /* flag pole in the front corner */
+  const px=X(mo.bb-.1),pz=Z(mo.d0+1.1),fdir=-s;bx(.035,2.75,.035,0x8a6a2a,px,1.375,pz);bx(.3,.03,.3,0x2a2a2a,px,.015,pz);bx(.07,.07,.07,0xd8b868,px,2.78,pz);bx(1.0,.025,.025,0x8a6a2a,px+fdir*.5,2.62,pz);
+  /* photo frame on the left wall (inner face of the partition at lateral a-.5) */
+  const wx=s*(mo.a-.5)+s*.02,phz=Z(mo.d0+2),phy=1.9;
+  bx(.04,.045,.64,0x8a6a2a,wx,phy+.2+.0225,phz);bx(.04,.045,.64,0x8a6a2a,wx,phy-.2-.0225,phz);bx(.04,.4,.045,0x8a6a2a,wx,phy,phz-.3);bx(.04,.4,.045,0x8a6a2a,wx,phy,phz+.3);
+  if(present){
+    /* charger brick, wall socket, power strip */
+    const xb=xm+1.3,zb=zw+.3,xs=xm+.95;
+    bx(.36,.15,.24,0x25272b,xb,.075,zb);bx(.34,.01,.22,0x303338,xb,.155,zb);for(let i=0;i<4;i++)bx(.3,.012,.02,0x101012,xb,.162,zb-.07+i*.05);bx(.14,.06,.006,0xcfcfcf,xb-.05,.08,zb+.123);bx(.04,.03,.06,0x15161a,xb+.1,.025,zb-.16);
+    bx(.13,.13,.015,0xe8e6de,xs,.45,zw+.0075);bx(.012,.03,.006,0x15161a,xs-.025,.45,zw+.017);bx(.012,.03,.006,0x15161a,xs+.025,.45,zw+.017);bx(.06,.07,.05,0x15161a,xs,.45,zw+.04);
+    const xp=xm-1.5,zp=zm-.4;bx(.32,.045,.07,0xdad8ce,xp,.0225,zp);bx(.025,.012,.025,0xd02020,xp-.1,.05,zp);
+    bx(.13,.13,.015,0xe8e6de,xp-.5,.3,zw+.0075);bx(.06,.07,.05,0x15161a,xp-.5,.3,zw+.04);
+    S.brick=true;S.socket=true;
+  }
+  const sg=mergeBoxes(L);geos.push(sg);const sm=new THREE.MeshLambertMaterial({vertexColors:true,emissive:0x0d0d10});mats.push(sm);g.add(new THREE.Mesh(sg,sm));
+  /* ---- atlas quads: window, photo, flag, nameplate ---- */
+  const ac_=document.createElement('canvas');ac_.width=AT.W;ac_.height=AT.H;const ag=ac_.getContext('2d');S.actx=ag;S.cls=hClass();
+  drawWindow(ag,S.cls);drawPhoto(ag);drawFlag(ag,s>0);drawName(ag);
+  const tx=new THREE.CanvasTexture(ac_);tx.colorSpace=THREE.SRGBColorSpace;tx.anisotropy=4;texs.push(tx);S.atlas=tx;
+  const am=new THREE.MeshBasicMaterial({map:tx,side:THREE.DoubleSide,fog:false,toneMapped:false});mats.push(am);
+  const Pq=[],Uq=[],Iq=[];const uvr=r=>[r[0]/AT.W,1-(r[1]+r[3])/AT.H,(r[0]+r[2])/AT.W,1-r[1]/AT.H];
+  const quad=(a,b,c,d,r)=>{const n=Pq.length/3;Pq.push(...a,...b,...c,...d);const [u0,v0,u1,v1]=uvr(r);Uq.push(u0,v1,u1,v1,u1,v0,u0,v0);Iq.push(n,n+1,n+2,n,n+2,n+3);};
+  {const cx=xm,hw=1.2,y0=.95,y1=2.75,z=zw+.012;quad([cx-hw,y1,z],[cx+hw,y1,z],[cx+hw,y0,z],[cx-hw,y0,z],AT.win);}
+  {const hw=.25,hh=.195,z0=phz-hw,z1=phz+hw;const za=s>0?z1:z0,zb_=s>0?z0:z1;quad([wx-s*.005,phy+hh,za],[wx-s*.005,phy+hh,zb_],[wx-s*.005,phy-hh,zb_],[wx-s*.005,phy-hh,za],AT.photo);}
+  {const xa=px,xb2=px+fdir*.9,y1=2.6,y0=1.95;/* u runs from the viewer's left to right: left = smaller local x */const lo=Math.min(xa,xb2),hi=Math.max(xa,xb2);quad([lo,y1,pz],[hi,y1,pz],[hi,y0,pz],[lo,y0,pz],AT.flag);}
+  {const cx=xm,z=zD+.2+.027,y=1.07;quad([cx-.15,y+.045,z],[cx+.15,y+.045,z],[cx+.15,y-.045,z],[cx-.15,y-.045,z],AT.name);}
+  const qg=new THREE.BufferGeometry();qg.setAttribute('position',new THREE.Float32BufferAttribute(Pq,3));qg.setAttribute('uv',new THREE.Float32BufferAttribute(Uq,2));qg.setIndex(Iq);qg.computeBoundingSphere();geos.push(qg);g.add(new THREE.Mesh(qg,am));
+  S.mo=mo;S.s=s;S.xm=xm;S.zm=zm;S.present=present;S.rig=null;S.led=null;S.nCables=0;S.mw=null;
+  /* ---- her, the cables, the charger LED ---- */
+  if(present&&K&&K.rig){
+    const parts=(W.__MAYOR&&W.__MAYOR.parts)||{};
+    let look=null;try{look=parts.mayorLook?parts.mayorLook():K.rigLook('folk',1,null);}catch(e){er(e);}
+    const r=look?K.rig(look,{lift:0}):null;
+    if(r){const rg=r.userData.rig;r.position.set(xm,0,zm);r.rotation.y=0;rg.armL.rotation.x=.03;rg.armR.rotation.x=.03;rg.armL.rotation.z=.045;rg.armR.rotation.z=-.045;
+      if(parts.makeChain){try{const ch=parts.makeChain();rg.up.add(ch);S.chain=ch;}catch(e){er(e);}}
+      /* the fixed smile: a little too wide, a little too many teeth (1 mesh) */
+      {const Ls=[];const b=(w,h,d,c,x,y,z)=>Ls.push([w,h,d,c,x,y,z]);b(.33,.095,.01,0x2a1014,0,1.745,.226);b(.29,.055,.01,0xfaf6ee,0,1.75,.232);for(const t of [-.1,-.05,0,.05,.1])b(.006,.055,.01,0x9a8f84,t,1.75,.234);b(.036,.045,.01,0x2a1014,-.185,1.785,.226);b(.036,.045,.01,0x2a1014,.185,1.785,.226);
+        const gg=mergeBoxes(Ls);geos.push(gg);const mm=new THREE.MeshBasicMaterial({vertexColors:true});mats.push(mm);const sm_=new THREE.Mesh(gg,mm);rg.up.add(sm_);S.smile=sm_;}
+      /* her back: a black plate with three cable sockets + a little one at the hip (children of the torso so they turn with her) */
+      {const Lb=[];const b=(w,h,d,c,x,y,z)=>Lb.push([w,h,d,c,x,y,z]);b(.3,.17,.035,0x101114,0,1.27,-.215);b(.06,.06,.06,0x25272b,-.08,1.27,-.25);b(.06,.06,.06,0x25272b,.08,1.27,-.25);b(.024,.02,.01,0x3dff72,0,1.33,-.236);b(.14,.12,.035,0x101114,0,.92,-.2);b(.06,.06,.06,0x25272b,0,.92,-.235);b(.14,.12,.035,0x101114,.16,1.08,-.2);b(.05,.05,.05,0x25272b,.16,1.08,-.23);
+        const gg=mergeBoxes(Lb);geos.push(gg);const mm=new THREE.MeshLambertMaterial({vertexColors:true});mats.push(mm);rg.up.add(new THREE.Mesh(gg,mm));}
+      g.add(r);S.rig=r;S.A={rg,pose:[rg.armL.rotation.x,rg.armR.rotation.x,rg.legL.rotation.x,rg.legR.rotation.x]};
+    }
+    /* cables: five tubes into the brick / the strip, one merged mesh; a faint light runs along them to her */
+    {const xb=xm+1.3,zb=zw+.3,xs=xm+.95,xp=xm-1.5,zp=zm-.4;
+      const cvv=document.createElement('canvas');cvv.width=64;cvv.height=8;const cg=cvv.getContext('2d');cg.fillStyle='#08090a';cg.fillRect(0,0,64,8);const gr=cg.createLinearGradient(0,0,64,0);gr.addColorStop(0,'rgba(61,255,114,0)');gr.addColorStop(.5,'rgba(80,150,105,.26)');gr.addColorStop(1,'rgba(61,255,114,0)');cg.fillStyle=gr;cg.fillRect(0,0,64,8);
+      const cm=new THREE.CanvasTexture(cvv);cm.wrapS=THREE.RepeatWrapping;cm.repeat.set(3,1);cm.colorSpace=THREE.SRGBColorSpace;texs.push(cm);S.cmap=cm;
+      const cmat=new THREE.MeshLambertMaterial({map:cm,color:0xffffff,emissive:0x020302});mats.push(cmat);
+      const T=(pts,rad)=>{const c=new THREE.CatmullRomCurve3(pts.map(p=>new THREE.Vector3(p[0],p[1],p[2])),false,'centripetal');return new THREE.TubeGeometry(c,Math.max(28,pts.length*10),rad,6,false);};
+      const tubes=[
+        T([[xb-.05,.14,zb+.02],[xb-.3,.03,zb+.3],[xm+.75,.02,zm-.62],[xm+.3,.04,zm-.5],[xm+.12,.5,zm-.34],[xm+.08,1.25,zm-.24]],.034),
+        T([[xb-.12,.14,zb-.02],[xb-.35,.025,zb+.22],[xm+.55,.02,zm-.5],[xm-.1,.03,zm-.52],[xm-.16,.8,zm-.36],[xm-.08,1.27,zm-.25]],.028),
+        T([[xb-.1,.12,zb+.04],[xb-.5,.025,zb+.34],[xm+.2,.02,zm-.2],[xm-.25,.03,zm-.3],[xm-.12,.5,zm-.26],[xm,.92,zm-.24]],.024),
+        T([[xb+.1,.03,zb-.16],[xb+.12,.25,zb-.2],[xs+.1,.5,zw+.07],[xs,.46,zw+.045]],.02),
+        T([[xp+.15,.04,zp],[xp+.6,.02,zp+.1],[xm-.9,.02,zm-.35],[xm-.4,.35,zm-.3],[xm+.16,1.08,zm-.25]],.022),
+        T([[xp-.12,.04,zp-.02],[xp-.3,.03,zp-.2],[xp-.5,.2,zw+.07],[xp-.5,.3,zw+.045]],.02)];
+      S.nCables=tubes.length;const cg2=mergeGeos(tubes);geos.push(cg2);const cmesh=new THREE.Mesh(cg2,cmat);g.add(cmesh);
+      /* the charger's green LED */
+      const lm=new THREE.MeshBasicMaterial({color:0x0b3a1a,fog:false});mats.push(lm);const lg=new THREE.BoxGeometry(.04,.025,.012);geos.push(lg);const led=new THREE.Mesh(lg,lm);led.position.set(xb+.11,.12,zb+.123);g.add(led);S.led=led;
+    }
+  }
+  /* ---- hum ---- */
+  S.snd=null;try{const a=AC();if(a&&present){g.updateMatrixWorld(true);const wpp=g.localToWorld(new THREE.Vector3(xm,1.2,zm));
+      const so=out3(wpp.x,RHB.base+1.2,wpp.z,900,{vol:1,ref:1.4,roll:1.3,max:14,rev:.3,prio:1.1});
+      const o1=a.createOscillator();o1.type='triangle';o1.frequency.value=50;const o2=a.createOscillator();o2.type='sine';o2.frequency.value=100;const f=a.createBiquadFilter();f.type='lowpass';f.frequency.value=380;const hg=a.createGain();hg.gain.value=.022;const lf=a.createOscillator();lf.frequency.value=.23;const lg2=a.createGain();lg2.gain.value=.006;lf.connect(lg2);lg2.connect(hg.gain);
+      o1.connect(f);o2.connect(f);f.connect(hg);hg.connect(so.in);const t=a.currentTime;o1.start(t);o2.start(t);lf.start(t);S.snd={so,o1,o2,lf,hg,f,pos:wpp};}}catch(e){er(e);}
+  scene.add(g);g.updateMatrixWorld(true);S.g=g;S.on=true;S.last=performance.now()/1000;S.out=0;S.twist=0;S.cd=0;MO.builds++;
+  if(S.rig){S.mw=g.localToWorld(new THREE.Vector3(xm,0,zm));}
+  S.raf=requestAnimationFrame(loop);return true;}
+function dispose(){
+  if(!S.on)return;S.on=false;cancelAnimationFrame(S.raf);const g=S.g;S.g=null;MO.disposes++;
+  try{if(g)scene.remove(g);}catch(_){}
+  try{if(S.chain)S.chain.traverse(o=>{if(o.isInstancedMesh)o.dispose();if(o.geometry)o.geometry.dispose();if(o.material&&!o.material.map)o.material.dispose();});}catch(_){}
+  for(const x of S.geos){try{x.dispose();}catch(_){}}for(const x of S.mats){try{x.dispose();}catch(_){}}for(const x of S.texs){try{x.dispose();}catch(_){}}
+  try{if(S.snd){const b=S.snd,a=AC(),t=a?a.currentTime:0;b.hg.gain.cancelScheduledValues(t);b.hg.gain.setTargetAtTime(0,t,.06);setTimeout(()=>{try{b.o1.stop();b.o2.stop();b.lf.stop();if(b.so.stop)b.so.stop(.1);b.hg.disconnect();}catch(_){}},400);}}catch(_){}
+  S.snd=null;S.geos=[];S.mats=[];S.texs=[];S.rig=null;S.led=null;S.cmap=null;S.chain=null;S.smile=null;S.atlas=null;S.actx=null;S.A=null;S.mw=null;S.brick=false;S.socket=false;S.nCables=0;S.act=false;setPrompt('');}
+/* ---------- the loop (only while built) ---------- */
+function loop(){
+  if(!S.on)return;S.raf=requestAnimationFrame(loop);
+  const now=performance.now()/1000,dt=Math.min(.1,now-S.last);S.last=now;
+  try{
+    const fast=now<S.fastUntil;
+    if(S.cmap)S.cmap.offset.x-=dt*(fast?.9:.14);
+    if(S.led){const on=fast?((now*5)%1)<.5:((now%3.6)<1.1);S.led.material.color.setHex(on?0x3dff72:0x0b3a1a);}
+    if(S.rig&&S.A){const rg=S.A.rg;let tw=0;
+      const g=S.g;V3.set(P.x,0,P.z);g.worldToLocal(V3);const dx=V3.x-S.xm,dz=V3.z-S.zm,dist=hyp(dx,dz);
+      if(dist<14&&dz>-.4){const ang=Math.atan2(dx,dz);tw=Math.max(-.3,Math.min(.3,ang));}
+      const d=tw-S.twist,mx=dt*.28;S.twist+=Math.max(-mx,Math.min(mx,d));rg.up.rotation.y=S.twist;
+      rg.armL.rotation.x=S.A.pose[0];rg.armR.rotation.x=S.A.pose[1];}
+    if((S.clsT+=dt)>4){S.clsT=0;const c=hClass();if(c!==S.cls&&S.actx){S.cls=c;drawWindow(S.actx,c);if(S.atlas)S.atlas.needsUpdate=true;}}
+    if((S.scanT+=dt)>.2){S.scanT=0;scan();}
+  }catch(e){er(e);}}
+/* ---------- the prompt + the poke ---------- */
+function ensurePrompt(){if(S.prompt)return;const st=document.createElement('style');st.textContent='#moPrompt{position:fixed;left:50%;bottom:calc(env(safe-area-inset-bottom,0px) + 28%);transform:translateX(-50%);z-index:4;background:rgba(20,20,24,.72);border:3px solid #111;color:#fff;font:13px var(--label,Silkscreen,monospace);text-shadow:1px 1px 0 #000;padding:8px 14px;text-align:center;cursor:pointer;display:none;max-width:86vw}#moPrompt b{color:#7dffa0;margin-right:8px}';document.head.appendChild(st);
+  const el=document.createElement('div');el.id='moPrompt';document.body.appendChild(el);const act=e=>{e.preventDefault();e.stopPropagation();poke();};el.addEventListener('click',act);el.addEventListener('touchend',act);
+  try{const H=W.__HUDLAYOUT;if(H&&H.register)H.register(el,{priority:55,anchor:'bottom'});}catch(_){}S.prompt=el;}
+let prTxt='';
+function setPrompt(t){if(!S.prompt){if(!t)return;ensurePrompt();}if(t===prTxt)return;prTxt=t;S.prompt.innerHTML=t;S.prompt.style.display=t?'block':'none';}
+function scan(){let on=false;if(S.rig&&S.mw&&insideNow()&&!busy()){const d=hyp(P.x-S.mw.x,P.z-S.mw.z);on=d<3.8&&performance.now()/1000>S.cd;}S.act=on;setPrompt(on?'<b>'+KEYTXT()+'</b>Greet the Mayor':'');}
+function buzz(){try{const a=AC();if(!a||!S.snd||!noiseBuf())return;const p=S.snd.pos;const so=out3(p.x,RHB.base+.5,p.z,4,{vol:1,ref:2,roll:1.2,max:20,rev:.2,prio:1.5});const t=a.currentTime;
+  const s=a.createBufferSource();s.buffer=noiseBuf();s.loop=true;const f=a.createBiquadFilter();f.type='bandpass';f.frequency.value=2100;f.Q.value=1.4;const o=a.createOscillator();o.type='sawtooth';o.frequency.value=100;const og=a.createGain();og.gain.value=.5;const g=a.createGain();g.gain.value=0;
+  g.gain.setValueAtTime(0,t);for(let i=0;i<12;i++){g.gain.setValueAtTime(.05+Math.random()*.03,t+i*.07);g.gain.setValueAtTime(.008,t+i*.07+.035);}g.gain.setTargetAtTime(0,t+.84,.05);
+  s.connect(f);f.connect(g);o.connect(og);og.connect(g);g.connect(so.in);s.start(t);o.start(t);setTimeout(()=>{try{s.stop();o.stop();g.disconnect();if(so.stop)so.stop(.1);}catch(_){}},1500);}catch(e){er(e);}}
+function poke(){if(!S.on||!S.rig)return false;const now=performance.now()/1000;if(now<S.cd)return false;S.cd=now+6;S.fastUntil=now+3;MO.pokes++;buzz();S.act=false;setPrompt('');return true;}
+addEventListener('keydown',e=>{if(e.repeat||e.ctrlKey||e.metaKey||e.altKey)return;const k=(e.key||'').toLowerCase();if(k!=='g')return;if(!S.act)return;e.stopImmediatePropagation();e.preventDefault();poke();},true);
+/* ---------- the map marker (from day 2) + the 700 ms poll ---------- */
+let marked=false;
+function marker(){if(day()<2){if(marked){try{W.__PLACES.drop('mayor:office');}catch(_){}marked=false;}return;}
+  const PL=W.__PLACES;if(!PL||!PL.put)return;let x,z;const mo=(typeof RHB!=='undefined'&&RHB&&RHB.mo)||null;
+  if(mo){x=mo.ox+mo.Fx*(mo.d0+mo.d1)/2+mo.Lx*mo.cen;z=mo.oz+mo.Fz*(mo.d0+mo.d1)/2+mo.Lz*mo.cen;}
+  else if(typeof RHP!=='undefined'&&RHP){x=RHP.x;z=RHP.z;}else return;
+  if(marked&&MO.markX===x&&MO.markZ===z)return;
+  try{PL.put('mayor:office',{name:"Rådhuset: Mayor's office",aliases:["Mayor's office","Mayors office","Ordfører","Ordforer"],kind:"Town hall · the Mayor's office",cat:'svc',gl:'R',x,z,short:"Mayor's office",map:true});marked=true;MO.markX=x;MO.markZ=z;}catch(e){er(e);}}
+setInterval(()=>{try{
+  if(!MO.enabled||!started_())return;
+  if(!W.__INTRO_ON){if(!(typeof RHB!=='undefined'&&RHB&&RHB.mo)){try{const dd=typeof RHB!=='undefined'&&RHB?hyp(RHB.c[0]-P.x,RHB.c[1]-P.z):1e9;if(dd<260)office();}catch(_){}}marker();}
+  const inside=insideNow();
+  if(inside&&!S.on&&!W.__INTRO_ON){build();}
+  else if(S.on){if(S.present!==(day()>=2)){dispose();if(inside)build();}else if(!inside){if(++S.out>=3)dispose();}else S.out=0;}
+}catch(e){er(e);}},700);
+/* ---------- state + dev ---------- */
+function draws(){let n=0;if(S.g)S.g.traverse(o=>{if(o.isMesh&&o.visible)n++;});return n;}
+MO.build=build;MO.dispose=dispose;MO.poke=poke;
+MO.state=()=>{const mo=(typeof RHB!=='undefined'&&RHB&&RHB.mo)||null;let wm=null;if(S.g&&S.rig){S.g.updateMatrixWorld(true);const v=S.g.localToWorld(new THREE.Vector3(S.xm,0,S.zm));wm={x:v.x,y:v.y,z:v.z};}
+  return {ver:1,err:MO.err,enabled:MO.enabled,day:day(),present:day()>=2,built:S.on,inside:insideNow(),builds:MO.builds,disposes:MO.disposes,pokes:MO.pokes,
+    office:mo?{a:mo.a,bb:mo.bb,d0:mo.d0,d1:mo.d1,m:mo.m,dDesk:mo.dDesk,cen:mo.cen}:null,planErr:(typeof RHB!=='undefined'&&RHB&&RHB.moErr)||null,
+    mayor:!!S.rig,mayorWorld:wm,twist:S.twist,arms:S.A?[S.A.rg.armL.rotation.x,S.A.rg.armR.rotation.x,S.A.rg.legL.rotation.x,S.A.rg.legR.rotation.x]:null,smile:!!S.smile,chain:!!S.chain,cables:S.nCables,charger:S.brick,socket:S.socket,led:!!S.led,
+    ledOn:S.led?S.led.material.color.getHex()===0x3dff72:null,fast:performance.now()/1000<S.fastUntil,draws:draws(),marker:marked,prompt:S.act,audio:!!S.snd};};
+MO.dev=(o)=>{o=o||{};W.__DAY=o.day==null?2:+o.day;const mo=office();if(!mo)return false;const view=o.view||'wide';const {th,s}=frameOf(mo);
+  const wp=(d,l)=>({x:mo.ox+mo.Fx*d+mo.Lx*l,z:mo.oz+mo.Fz*d+mo.Lz*l});
+  const mayor=wp(mo.d1-.15,mo.cen);let pos,tgt=mayor,pitch=-.06,yaw=null,y=RHB.base+.05;
+  if(view==='wide'){pos=wp(mo.d0+.4,mo.m+.5);tgt=wp(mo.d1-.2,mo.cen);}
+  else if(view==='desk'){pos=wp(mo.dDesk-1.6,mo.cen+s*.6);tgt=wp(mo.d1-.15,mo.cen);pitch=-.12;}
+  else if(view==='close'){pos=wp(mo.d1-.95,mo.cen+s*3);tgt=wp(mo.d1,mo.cen+s*.5);pitch=-.3;}
+  else if(view==='hall'){pos=wp(1.5,mo.m+.5);tgt=wp(mo.d1,mo.m+.5);pitch=-.02;}
+  else if(view==='door'){pos=wp(-6,mo.m+.5);tgt=wp(2,mo.m+.5);pitch=.05;y=RHB.base+1.2;}
+  else if(view==='inside'){pos=wp(mo.d0+1.5,mo.cen);tgt=wp(mo.d1-.15,mo.cen);}
+  else{pos=wp(mo.d0+.4,mo.m+.5);}
+  yaw=Math.atan2(-(tgt.x-pos.x),-(tgt.z-pos.z));
+  try{streamChunks(pos.x,pos.z,260);}catch(_){}
+  P.x=pos.x;P.z=pos.z;P.y=y;P.vx=P.vy=P.vz=0;P.yaw=yaw;P.pitch=pitch;P.driving=false;
+  return {x:pos.x,z:pos.z,yaw};};
+})();}catch(e){window.__MAYOROFFICE_ERR=String(e&&e.stack||e);console.warn('mayoroffice',e);}
+/* /mayoroffice */
 /* witchfinale */
 /* ===== WITCH FINALE (job witchfinale, 4 Nov 2026). Marius: the witch is NOT gone for good. After the day-12 boss fight the spell breaks and she is GERTRUD, a nice old lady (American, CapCut grandma voice)
    who leaves a basket at Chris's front door every day from 12/13 Dec (her way of saying sorry). She is also the ONLY source of guns in the game.
@@ -60905,7 +61533,7 @@ function tick(dt){
   U.uPat.value.set(CH.A,CH.B,CH.bl,CH.B===4?CH.bl:CH.A===4?1-CH.bl:0);
   if(CH.cueHold>0)CH.cueHold-=dt;else CH.cueK=Math.max(0,CH.cueK-dt*.5);
   U.uCueK.value=CH.cueK;
-  const sT=CH.strobeT-T;U.uStrobe.value=sT>0?CH.strobeAmp*((Math.floor(T*14)&1)?1:.15):0;
+  const sT=CH.strobeT-T;U.uStrobe.value=sT>0&&(window.__KVFLASH??1)>=1?CH.strobeAmp*((Math.floor(T*14)&1)?1:.15):0;
   CH.flashK=Math.max(0,CH.flashK-dt*.9);U.uFlash.value=CH.flashK;
   if(CH.fwT&&T>=CH.fwT){CH.fwT=0;fireworks(V?V.nFw:0);}
   /* beat */
@@ -64757,7 +65385,7 @@ function fireGun(s,d,opt){
   /* feel */
   const k=d.kick;S.K.pv+=k*13*(.85+rnd()*.3)*(1-.35*S.aimK);S.K.yv+=(rnd()-.5)*2*d.yaw*13;S.K.rv+=(rnd()-.5)*2*d.yaw*7;
   S.A.zv+=d.back*14;S.A.rxv+=k*11;
-  S.fl=.07+d.flash*.1;S.flMax=S.fl;S.flCol=d.flash;S.pl=d.light;S.flashV=Math.min(.8,d.flashK*(ind?1.2:1));S.shakeV=Math.max(S.shakeV,d.shake);
+  S.fl=.07+d.flash*.1;S.flMax=S.fl;S.flCol=d.flash;S.pl=d.light;S.flashV=Math.min(.8,d.flashK*(ind?1.2:1));S.shakeV=Math.max(S.shakeV,d.shake*(window.__KVSHAKE??1));
   const fl=m.parts.flash;fl.visible=true;fl.rotation.z=rnd()*6.283;const fs=d.flash*(.85+rnd()*.35);fl.scale.set(fs,fs,1);fl.position.set(m.parts.mu.position.x,m.parts.mu.position.y,m.parts.mu.position.z-.02);
   GM.color.setScalar(1.7);
   /* smoke, brass */
@@ -64868,7 +65496,7 @@ function tick(dt,t){
       const f=DP.life[i]/DP.max[i];dO.position.set(DP.px[i],DP.py[i],DP.pz[i]);dO.scale.setScalar(DP.sz[i]*(DP.brass[i]?1:(f<.3?f/.3:1)));dO.rotation.set(DP.sp[i]*f,DP.sp[i]*f*.7,0);dO.updateMatrix();DI.setMatrixAt(i,dO.matrix);}
     DI.instanceMatrix.needsUpdate=true;if(a2)any=1;else{dN=0;DI.visible=false;}}
   /* screen flash / hit marker / muzzle light */
-  if(DOM){if(S.flashV>0){S.flashV=Math.max(0,S.flashV-dt*5);DOM.f.style.opacity=S.flashV.toFixed(3);any=1;}else if(DOM.f.style.opacity!=='0')DOM.f.style.opacity='0';
+  if(DOM){if(S.flashV>0){S.flashV=Math.max(0,S.flashV-dt*5);DOM.f.style.opacity=(S.flashV*(window.__KVFLASH??1)).toFixed(3);any=1;}else if(DOM.f.style.opacity!=='0')DOM.f.style.opacity='0';
     if(S.hitV>0){S.hitV=Math.max(0,S.hitV-dt*5);DOM.h.style.opacity=Math.min(1,S.hitV).toFixed(2);any=1;}else if(DOM.h.style.opacity!=='0')DOM.h.style.opacity='0';}
   if(S.pl>1){const PL=findPL();PL.color.setRGB(1,.72,.38);PL.distance=low()?16:26;PL.intensity=S.pl*Math.max(0,S.fl/S.flMax);PL.position.set(cam.position.x-Math.sin(P.yaw)*1.0,cam.position.y,cam.position.z-Math.cos(P.yaw)*1.0);if(S.fl<=0){S.pl=0;PL.intensity=0;}any=1;}
   const KK=S.K;if(KK.p||KK.pv||KK.y||KK.yv||KK.r||KK.rv||S.shakeV>0){any=1;const k=130,c=15;
@@ -68887,4 +69515,121 @@ try{(()=>{
   })();
 })();}catch(e){window.__PHFIT_ERR=String(e&&e.stack||e);console.warn('phoneheld',e);}
 /* /phoneheld */
+/* settingsmenu */
+/* PLAYER SETTINGS MENU, game bindings (job settingsmenu, 16 Nov 2026). The menu, the store (localStorage 'kv-settings-v1') and window.__SETTINGS come from the classic script in <head>
+   (build/patches/settingsmenu_early.js); this block wires the settings to the real game:
+   AUDIO  master -> ONE gain after `master` (all sound, also what connects to ac.destination later) | music -> a gain on the SMIX music bus (everything music: MUS, zoned map music, radio, the speech duck all sit before it)
+          voices -> a gain on the SMIX voices bus | sound effects -> a trim after `master` (music and voices are compensated so they stay independent) | ambience and creatures -> a scale on SMIX.v wind/water/birds/animals/scape
+          music on/off = MUS.on (the M key stays in step) | voice-over = the game's own switch | subtitles = CSS (early script)
+   CONTROLS  vibration + strength + test (the haptics helper's own API when it exists) | look speed (PAD.sens) | mouse speed (window.__KVSENS read by the mouse-look line) | invert Y (pad + mouse) | control list from __KEYS
+   DISPLAY  graphics level = __QT | view distance = the game's render-distance slider | fullscreen | FPS counter (registered with __HUDLAYOUT)
+   COMFORT  scary moments (Gentle / Off = the game's own switch) | film grain + lens effects off (wraps the film pass) | shake / flash / head-bob numbers read by the game (window.__KVSHAKE / __KVFLASH / __KVBOB)
+   OPEN     Esc (a real key press with nothing else open) | pointer-lock released by Esc | MENU bar button | pause menu (Options) button | __SETTINGS.open()
+   Phones: nothing here is heavy; the audio re-route and the FPS loop wait for `started`. */
+try{(function(){
+const W=window,D=document,S=W.__SETTINGS;if(!S||W.__SETTINGS_BLOCK)return;W.__SETTINGS_BLOCK=1;
+const er=e=>{W.__SETTINGS_ERR=String(e&&e.stack||e);try{console.warn('settingsmenu',e);}catch(_){}};
+const ok=f=>{try{return f();}catch(e){er(e);}};
+const $id=id=>D.getElementById(id);
+/* ---------------- GAME tab ---------------- */
+S.section('lang','Language','game',10);S.section('about','About','game',20);S.section('rst','Settings','game',30);
+S.add('lang',{key:'lang.info',type:'info',text:'Language: English.\nThe words of downtown are in English. More languages may come later.'});
+let credTxt=null,credOpen=false,credBusy=false;
+const credFetch=()=>{if(credTxt!==null||credBusy)return;credBusy=true;
+  fetch('CREDITS.md',{cache:'no-cache'}).then(r=>r.ok?r.text():Promise.reject(0)).then(t=>{credTxt=t.replace(/^#+\s*/gm,'').replace(/\*\*|`/g,'').trim();}).catch(()=>{credTxt='downtown is made by Derp Studios.\nSounds, music and models: see the licence lists that come with the files (CC0 and free-licence recordings from Freesound, OpenGameArt and Mixkit).';}).then(()=>{credBusy=false;S.refresh();});};
+S.add('about',{key:'about.studio',type:'info',text:'downtown\nMade by Derp Studios.'});
+S.add('about',{key:'about.credits',type:'button',label:'Credits',note:'sounds, music and thanks',button:'SHOW / HIDE',run(){credOpen=!credOpen;if(credOpen)credFetch();S.refresh();}});
+S.add('about',{key:'about.creditsText',type:'info',show:()=>credOpen,text:()=>credTxt===null?'Loading ...':credTxt});
+let rstArm=0;
+S.add('rst',{key:'rst.reset',type:'button',label:'Reset settings to defaults',note:'sound, controls, picture and comfort go back to how they started',button:'RESET',status:()=>rstArm&&performance.now()<rstArm?'Press RESET once more to be sure.':'',run(){const n=performance.now();if(rstArm&&n<rstArm){rstArm=0;S.reset();S.refresh();}else rstArm=n+4000;}});
+S.add('rst',{key:'rst.pad',type:'button',label:'Controller help screen',note:'every button, and the vibration test',button:'OPEN',show:()=>typeof padCtlShow==='function',run(){S.close();setTimeout(()=>ok(()=>padCtlShow()),60);}});
+/* ---------------- SOUND: the real buses ---------------- */
+const AU={ready:false,uM:null,uV:null};
+const eff=()=>{const on=S.get('sfxOn')!==false;return on?(+S.get('sfx')||0)/100:0;};
+function levels(){const X=W.__KVAUD;if(!X||typeof ac==='undefined'||!ac)return;const ct=ac.currentTime,sm=(p,v)=>{try{p.setTargetAtTime(Math.max(0,v),ct,.03);}catch(_){p.value=v;}};
+  const on=k=>S.get(k)!==false,lv=(k,o)=>on(o)?(+S.get(k)||0)/100:0;
+  if(X.out)sm(X.out.gain,lv('master','masterOn'));if(X.sfx)sm(X.sfx.gain,eff());
+  if(AU.uM)sm(AU.uM.gain,lv('music','musicOn')>0?(+S.get('music')||0)/100:0);
+  if(AU.uV)sm(AU.uV.gain,lv('voices','voicesOn'));}
+let ambK=1,rtry=0;const ambNow=()=>S.get('ambOn')===false?0:(+S.get('amb')||0)/100;
+function route(){if(AU.ready)return true;const X=W.__KVAUD;if(!X||typeof ac==='undefined'||!ac||typeof master==='undefined'||!master||rtry>=5)return false;rtry++;
+  try{const SM=W.SMIX;
+    if(SM&&SM.buses){for(const [k,key] of [['music','uM'],['voices','uV']]){const b=SM.buses[k];if(b){const u=ac.createGain();AU[key]=u;X.rawOff(b);X.raw(b,u);X.raw(u,master);/* round the sound-effects trim, still inside master (hush / deafen / cinema mute keep working) */}}
+      /* ambience: the game reads SMIX.v.<name> when it starts or updates a sound; the player's level scales it (the dev mix keeps the raw value) */
+      for(const k of ['wind','water','birds','animals','scape']){if(!(k in SM.v))continue;let b0=SM.v[k];try{Object.defineProperty(SM.v,k,{get:()=>b0*ambK,set:x=>{b0=x;},enumerable:true,configurable:true});}catch(_){}}
+      if(typeof SM.saveNow==='function'){const sn=SM.saveNow;SM.saveNow=function(){const k0=ambK;ambK=1;try{return sn.apply(this,arguments);}finally{ambK=k0;}};}}
+    AU.ready=true;ambK=ambNow();levels();}catch(e){er(e);AU.ready=false;}
+  return AU.ready;}
+for(const k of ['master','masterOn','music','sfx','sfxOn','voices','voicesOn'])S.on(k,()=>levels());
+S.on('amb',()=>{ambK=ambNow();});S.on('ambOn',()=>{ambK=ambNow();});
+S.on('musicOn',v=>{ok(()=>applyMusic(v));S.refresh();});
+function applyMusic(v){if(typeof MUS==='undefined'||!MUS)return;v=v!==false;if(MUS.on===v)return;MUS.on=v;if(MUS.vol&&typeof ac!=='undefined'&&ac)MUS.vol.gain.setTargetAtTime(v?.55:0,ac.currentTime,.3);}
+/* voice-over narration: the game's own switch (it keeps the choice itself) */
+S.section('speech','Speech and subtitles','sound',20);
+S.add('speech',{key:'vo',type:'toggle',label:'Voice-over narration',note:'the spoken thoughts and story lines',show:()=>!!W.__VO,get:()=>!!(W.__VO&&W.__VO.on),default:true,set(v){const b=$id('mvVO');if(W.__VO&&!!W.__VO.on!==!!v){if(b)b.click();else W.__VO.on=!!v;}}});
+/* ---------------- CONTROLS ---------------- */
+S.add('controls',{id:'haptics',title:'Controller vibration',order:10,type:'group',items:[
+  {id:'vib',label:'Controller vibration',type:'toggle',default:true,get:()=>PAD.vib,set:v=>{const H=W.__HAPTIC;if(H&&H.setEnabled)H.setEnabled(!!v);else{PAD.vib=!!v;padSave();}}},
+  {id:'str',label:'Vibration strength',type:'slider',min:0,max:100,step:10,default:100,unit:'%',get:()=>Math.round(PAD.hint*100),set:v=>{const H=W.__HAPTIC;if(H&&H.setStrength)H.setStrength(v/100);else{PAD.hint=Math.max(0,Math.min(1,v/100));padSave();}}},
+  {id:'test',label:'Test vibration',type:'button',button:'TEST',run(){const H=W.__HAPTIC;if(H&&H.testBuzz)H.testBuzz();else hapPulse('custom',.9,.9,400);},status:()=>{const H=W.__HAPTIC;try{return H&&H.diag?H.diag().text:'Plug in a controller and press any button on it first.';}catch(_){return '';}}}]});
+S.add('look',{key:'padSens',type:'slider',min:30,max:300,step:10,default:100,unit:'%',label:'Controller look speed',get:()=>Math.round(PAD.sens*100),set:v=>{PAD.sens=v/100;padSave();}});
+S.add('look',{key:'invertY',type:'toggle',default:false,label:'Invert Y (look up and down)',note:'mouse and controller',get:()=>!!PAD.invertY,set:v=>{PAD.invertY=!!v;W.__KVINV=!!v;padSave();}});
+S.section('keys','Controls list','controls',40);
+const KEYSEL=D.createElement('div');KEYSEL.className='kvKeys';
+function keysEl(){ok(()=>{const K=W.__KEYS;KEYSEL.textContent='';if(!K||!K.list){KEYSEL.textContent='The controls list is not ready yet.';return;}
+  const mode=K.mode?K.mode():'kb';const names={foot:'On foot',drive:'In a car',fly:'Flying',map:'Big map'};const groups={};
+  for(const a of K.list()){if(a.dev)continue;const c=(a.ctx&&a.ctx[0])||'foot';if(!names[c])continue;(groups[c]=groups[c]||[]).push(a);}
+  const h=D.createElement('div');h.className='kvKh';h.style.gridColumn='1/-1';h.textContent=mode==='pad'?'SHOWING CONTROLLER BUTTONS':mode==='touch'?'SHOWING TOUCH BUTTONS':'SHOWING KEYBOARD AND MOUSE';KEYSEL.appendChild(h);
+  for(const c of ['foot','drive','fly','map']){const L=groups[c];if(!L)continue;const hh=D.createElement('div');hh.className='kvKh';hh.textContent=names[c].toUpperCase();KEYSEL.appendChild(hh);
+    for(const a of L){const t=D.createElement('span');t.textContent=a.label||a.id;const b=D.createElement('b');b.textContent=(K.say?K.say(a.id):a.cap)||a.cap;KEYSEL.appendChild(t);KEYSEL.appendChild(b);}}});return KEYSEL;}
+S.add('keys',{key:'keys.list',type:'info',text:keysEl});
+/* ---------------- DISPLAY ---------------- */
+S.section('gfx','Graphics level','display',10);
+const QT=()=>W.__QT;
+S.add('gfx',{key:'gfx.tier',type:'choice',label:'Graphics level',note:'lower it if the picture stutters; the look stays the same',default:'high',options:()=>{const q=QT();return q?q.order.map(t=>[t,q.tiers[t].name]):[['high','HIGH']];},
+  get:()=>{const q=QT();return q?q.tier:'high';},set(v){const q=QT();if(!q)return;q.set(v,{save:true,by:'user'});ok(()=>{if(q.reload&&q.offerReload)q.offerReload();});}});
+S.add('gfx',{key:'gfx.info',type:'info',text:()=>{const q=QT();if(!q||!q.cfg)return '';return q.cfg.name+': '+(q.cfg.who||'')+(q.reload?'\nThe game has to restart to finish this change.':'');}});
+S.add('gfx',{key:'gfx.restart',type:'button',label:'Restart to finish',button:'RESTART',show:()=>!!(QT()&&QT().reload),run(){location.reload();}});
+ok(()=>{const q=QT();if(q&&q.onChange)q.onChange(()=>S.refresh());});
+S.add('pic',{key:'viewDist',type:'choice',default:'auto',label:'View distance',note:'AUTO lets the graphics level decide',show:()=>!!$id('mvRad'),options:[['auto','AUTO'],['4','NEAR'],['7','FAR'],['10','FARTHEST']]});
+S.on('viewDist',v=>{ok(()=>{const r=$id('mvRad');if(!r)return;if(v==='auto'){const q=QT();if(q&&q.tier)q.set(q.tier,{save:false,by:'user'});}else{r.value=v;r.dispatchEvent(new Event('input',{bubbles:true}));r.dispatchEvent(new Event('change',{bubbles:true}));}});});
+S.add('pic',{key:'fullscreen',type:'toggle',default:false,label:'Fullscreen',show:()=>!!(D.documentElement.requestFullscreen||D.documentElement.webkitRequestFullscreen),get:()=>!!(D.fullscreenElement||D.webkitFullscreenElement),
+  set(v){ok(()=>{const e=D.documentElement;if(v&&!D.fullscreenElement){(e.requestFullscreen||e.webkitRequestFullscreen).call(e);}else if(!v&&D.fullscreenElement){(D.exitFullscreen||D.webkitExitFullscreen).call(D);}});}});
+D.addEventListener('fullscreenchange',()=>S.refresh());
+/* FPS counter: a small chip registered with the HUD layout guard; the frame loop only runs while it is on */
+const FPS={el:null,on:false,raf:0,n:0,t0:0};
+function fpsLoop(t){if(!FPS.on)return;FPS.n++;if(!FPS.t0)FPS.t0=t;if(t-FPS.t0>=500){const f=Math.round(FPS.n*1000/(t-FPS.t0));FPS.el.textContent=f+' FPS';FPS.n=0;FPS.t0=t;}FPS.raf=requestAnimationFrame(fpsLoop);}
+function fpsSet(v){if(v&&!(typeof started!=='undefined'&&started))return;if(v){if(!FPS.el){FPS.el=D.createElement('div');FPS.el.id='kvFps';FPS.el.setAttribute('aria-hidden','true');D.body.appendChild(FPS.el);try{W.__HUDLAYOUT&&W.__HUDLAYOUT.register(FPS.el,{priority:20,anchor:'top'});}catch(_){}}
+  FPS.el.classList.add('on');if(!FPS.on){FPS.on=true;FPS.n=0;FPS.t0=0;FPS.raf=requestAnimationFrame(fpsLoop);}}else{FPS.on=false;cancelAnimationFrame(FPS.raf);if(FPS.el)FPS.el.classList.remove('on');}}
+S.on('showFps',v=>fpsSet(!!v));
+/* ---------------- COMFORT ---------------- */
+S.add('ease',{key:'scary',type:'choice',default:'on',label:'Scary moments',note:'Gentle: no jump scares, still dark and spooky',show:()=>!!(W.__SCARES&&W.__SCARES.js&&W.__SCARES.js.mode),options:[['on','ON'],['gentle','GENTLE'],['off','OFF']],
+  get:()=>(W.__SCARES&&W.__SCARES.js&&W.__SCARES.js.mode)||'on',set(v){ok(()=>{const J=W.__SCARES&&W.__SCARES.js;if(!J)return;for(let i=0;i<3&&J.mode!==v;i++){const b=[...D.querySelectorAll('button')].find(x=>/^Scary moments:/.test(x.textContent||''));if(!b)break;b.click();}});}});
+/* film grain / vignette / fringe / softness off: wraps the film-look pass, remembers the values and puts them back */
+function grainWrap(){const FL=W.__FILMLOOK;if(!FL||!FL.pass||FL.pass.__kv)return !!(FL&&FL.pass&&FL.pass.__kv);const p=FL.pass,r0=p.render,U=['uGrain','uVig','uCA','uSoft'];let saved=null;
+  p.__kv=1;p.render=function(){const u=p.uniforms;if(W.__KVNOGRAIN){if(!saved)saved={};for(const k of U){if(u[k]&&u[k].value){saved[k]=u[k].value;u[k].value=0;}}}else if(saved){for(const k of U)if(u[k]&&saved[k]!==undefined&&u[k].value===0)u[k].value=saved[k];saved=null;}return r0.apply(this,arguments);};return true;}
+/* ---------------- opening it ---------------- */
+function hudButton(){const L=D.querySelector('#hudBar .hbL');if(!L||$id('bSettings'))return !!$id('bSettings');const b=D.createElement('button');b.id='bSettings';b.type='button';b.textContent='⚙ SETTINGS';b.setAttribute('aria-label','Settings');
+  b.addEventListener('click',e=>{e.stopPropagation();S.open();});const m=$id('bMenu');if(m&&m.nextSibling)L.insertBefore(b,m.nextSibling);else L.appendChild(b);return true;}
+function padButton(){if(typeof padMenu==='undefined'||!padMenu)return false;if(padMenu.querySelector('[data-a=kvset]'))return true;const row=padMenu.querySelector('.row');if(!row)return false;const b=D.createElement('button');b.type='button';b.dataset.a='kvset';b.textContent='Settings';row.insertBefore(b,row.firstChild);
+  padMenu.addEventListener('click',e=>{const t=e.target.closest('button');if(t&&t.dataset.a==='kvset'){e.stopImmediatePropagation();padMenu.hidden=true;PAD.focus=null;setTimeout(()=>S.open(),30);}},true);return true;}
+addEventListener('keydown',e=>{if(typeof started!=='undefined'&&started)S._escLate(e);});
+{const ex=Document.prototype.exitPointerLock;D.exitPointerLock=function(){W.__kvPLx=performance.now();return ex.call(D);};}
+D.addEventListener('pointerlockchange',()=>{if(D.pointerLockElement||typeof started==='undefined'||!started||TOUCH)return;const now=performance.now();if(now-(W.__kvPLx||0)<600||S.isOpen())return;
+  setTimeout(()=>{if(D.pointerLockElement||S.isOpen()||!D.hasFocus()||D.visibilityState!=='visible'||performance.now()-(W.__kvPLx||0)<900)return;if(S.busy())return;S.open();},140);});
+ok(()=>{if(W.__BUSY&&W.__BUSY.add)W.__BUSY.add('settings','ui',()=>S.isOpen());});
+/* ---------------- start-up: apply what the player saved, only once the game has started (phones: after the intro) ---------------- */
+let begun=false;
+function begin(){if(begun)return true;if(typeof started==='undefined'||!started||W.__INTRO_ON||(W.__OPENING&&W.__OPENING.on))return false;begun=true;
+  ok(()=>{W.__KVINV=!!PAD.invertY;});
+  ok(()=>{if(S.get('showFps'))fpsSet(true);});
+  ok(()=>{const v=S.get('viewDist');if(v&&v!=='auto'){const r=$id('mvRad');if(r){r.value=v;r.dispatchEvent(new Event('input',{bubbles:true}));}}});
+  return true;}
+let tries=0;
+const iv=setInterval(()=>{ok(()=>{hudButton();padButton();route();if(AU.ready&&typeof MUS!=='undefined'&&MUS&&MUS.vol&&!AU.mus){AU.mus=1;applyMusic(S.get('musicOn'));}
+  if(AU.ready&&typeof MUS!=='undefined'&&MUS&&S.get('musicOn')!==MUS.on&&AU.mus){S.set('musicOn',MUS.on,{silent:true});}
+  grainWrap();begin();});if(++tries>7200)clearInterval(iv);},1000);
+W.__SETTINGS_BIND={audio:AU,route,levels,fps:FPS,state:()=>({ready:AU.ready,begun,ambK,eff:eff(),out:!!(W.__KVAUD&&W.__KVAUD.out),sfx:!!(W.__KVAUD&&W.__KVAUD.sfx)})};
+})();}catch(e){window.__SETTINGS_ERR=String(e&&e.stack||e);console.warn('settingsmenu',e);}
+/* /settingsmenu */
 </script>

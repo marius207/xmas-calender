@@ -2,6 +2,59 @@
  "entries": [
   {
    "date": "2026-11-16",
+   "time": "16:39",
+   "title": "A proper settings menu",
+   "items": [
+    "Press Esc (or Options on the controller, or the SETTINGS button in the menu bar) to open the new settings menu in downtown. Tabs: Sound, Controls, Display, Comfort and Game; switch with Q / E, the shoulder buttons or a tap.",
+    "Sound: master, music, sound effects, voices and ambience each have their own slider and an on/off switch, plus subtitles and voice-over. Everything changes live.",
+    "Controls: controller vibration (on/off, strength, test), look speed, invert Y, control hints and a list of every key and button. Display: graphics level, view distance, field of view, brightness, fullscreen, FPS, text and HUD size.",
+    "Comfort: reduce camera shake and flashing lights, turn off film grain and head bob, and set scary moments to Gentle or Off. Everything is remembered in your browser, and Reset puts it all back."
+   ]
+  },
+  {
+   "date": "2026-11-16",
+   "time": "16:22",
+   "title": "Play downtown together",
+   "items": [
+    "Marius, Chris and Martin can now be in downtown at the same time and see each other walk around, chat and wave.",
+    "When the air-raid siren sounds for one of you, everybody hears the same siren and the same hatch opens for all three.",
+    "The witch's visits, the northern lights and the time of day are shared too: you all get the same nights. If someone whistles at the northern lights, the sky leans in over everybody, but only the whistler is hunted.",
+    "If you are far away from the witch's visit you only hear her cackle in the distance."
+   ]
+  },
+  {
+   "date": "2026-11-16",
+   "time": "16:10",
+   "title": "Controller vibration that works on every PC",
+   "items": [
+    "Vibration now finds the controller you actually use (even with two plugged in) and works with PlayStation and Xbox controllers in Chrome and Edge on Windows and Mac.",
+    "New: pause menu (Options) has a \"Test vibration\" button. It buzzes for a short moment and tells you which controller it found and whether your browser can vibrate. If it can't, it says so in plain words.",
+    "You can switch vibration off or turn it down in the same menu. It stays quiet when the game isn't the window in front."
+   ]
+  },
+  {
+   "date": "2026-11-16",
+   "time": "15:51",
+   "title": "Whistle microphone: whistle into your controller",
+   "items": [
+    "New in Settings (Sound): \"Whistle microphone\". Off, Auto (a game controller mic first, like a DualSense plugged in by USB, otherwise your normal mic) or any microphone in the list. It remembers your choice and shows a small level meter that lights up when it hears a whistle.",
+    "Plug in or unplug the controller and the game switches by itself. The mic is still only asked for when you turn it on, and only listens while it matters. Nothing is recorded or sent.",
+    "The buttons still work everywhere: the apostrophe key (Æ) on PC and Mac, hold ◯ on a pad, the WHISTLE button on a phone. A quiet controller mic works too, the game learns how quiet your room is. On the first northern-lights night a small hint tells you how to whistle."
+   ]
+  },
+  {
+   "date": "2026-11-16",
+   "time": "14:00",
+   "title": "The Mayor has an office",
+   "items": [
+    "Behind the counter in the town hall there is a door you can walk through now. It leads to the Mayor's office: a desk, two chairs, a flag, a filing cabinet, a framed photo, a window and a little tree.",
+    "From day 2 the Mayor is in there. She stands behind the desk, smiling, and does not do anything. She is plugged into the wall. There are cables.",
+    "If you stand close and press G, something buzzes softly and a little green light blinks faster for a moment. That is all.",
+    "The office is on the map and in the phone's place list as the Mayor's office."
+   ]
+  },
+  {
+   "date": "2026-11-16",
    "time": "06:42",
    "title": "Only real voices in downtown",
    "items": [
