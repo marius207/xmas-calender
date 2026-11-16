@@ -181,7 +181,7 @@ export default function init(ONL, cfg) {
   }
 
   /* ---------- network ---------- */
-  let ws = null, retry = 2000, retryT = 0, pingT = 0, force = true, closedFor = '';
+  let handleMsg = () => {}, ws = null, retry = 2000, retryT = 0, pingT = 0, force = true, closedFor = '';
   function send(o) { if (ws && ws.readyState === 1) { try { ws.send(JSON.stringify(o)); } catch (_) {} } }
   function connect() {
     clearTimeout(retryT); status = 'connecting'; refreshBadge();
@@ -190,8 +190,8 @@ export default function init(ONL, cfg) {
     if (L) ws = L; else { try { ws = new WebSocket(cfg.url); } catch (_) { later(); return; } }
     const mine = ws;
     if (!L) ws.onopen = () => { mine.send(JSON.stringify({ t: 'hello', name: ME, room: cfg.room, where: 'game' })); };
-    ws.onmessage = (ev) => {
-      let m; try { m = JSON.parse(ev.data); } catch (_) { return; }
+    ws.onmessage = (ev) => { let m; try { m = JSON.parse(ev.data); } catch (_) { return; } handleMsg(m); };
+    handleMsg = (m) => {
       if (m.t === 'pos') { const r = R[m.n] || addRemote(m.n); if (!r) return; r.tx = m.x; r.ty = m.y; r.tz = m.z; r.tyaw = m.yaw + 0; r.tpitch = m.pitch; r.a = m.a | 0; r.v = m.v | 0; r.seen = performance.now(); if (!r.have) { r.have = true; refreshBadge(); r.x = m.x; r.y = m.y; r.z = m.z; r.yaw = m.yaw; } }
       else if (m.t === 'hi') { status = 'open'; retry = 2000; for (const n of m.players) { const sv = m.states && m.states[n]; if (!sv || sv.where === 'game') addRemote(n); } force = true; say(null, m.players.length ? 'Online: ' + m.players.map(nice).join(' and ') + (m.players.length > 1 ? ' are' : ' is') + ' here.' : 'You are online. Nobody else is here yet.'); refreshBadge(); }
       else if (m.t === 'join') { if (m.where === 'lobby' || m.where === 'title') { say(null, nice(m.n) + ' is in the lobby.'); } else { addRemote(m.n); force = true; say(null, nice(m.n) + ' joined.'); } refreshBadge(); }
@@ -347,7 +347,7 @@ export default function init(ONL, cfg) {
     witch: () => { const w = WF(); wfSkipUntil = 0; return w.visit(); },
     nordlys: (s) => { evSend('nl', { s: s || 2 }); SHARED.nl.sent++; },
     clock: () => sendClock(), fresh: () => { for (const k in seen) delete seen[k]; }, shared: SHARED,
-    force: (k, d) => evSend(k, d),
+    force: (k, d) => evSend(k, d), feed: (m) => handleMsg(m),
   };
   window.__ONLINE = { dev, SHARED,  R, get status() { return status; }, send, say, names: () => Object.keys(R), emote: doEmote, ws: () => ws };
 }

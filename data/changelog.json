@@ -2,6 +2,15 @@
  "entries": [
   {
    "date": "2026-11-16",
+   "time": "19:09",
+   "title": "The hand is back on the phone, and the title screen is clean",
+   "items": [
+    "The chunky blocky hand holds your phone again when it rings or you answer: a palm under the phone and three blocky fingers over its edge. The phone still stays in one piece and above the hotbar.",
+    "The little '+ Jetpack (hold it, Space to fly)' pickup message no longer prints on top of the DERP STUDIOS title and the opening film. It waits until they are gone."
+   ]
+  },
+  {
+   "date": "2026-11-16",
    "time": "16:39",
    "title": "A proper settings menu",
    "items": [

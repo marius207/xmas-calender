@@ -971,7 +971,7 @@ window.__devEff=eff;
 const isPhone=()=>eff()==='phone';
 const sync=()=>{try{document.body.classList.toggle('ph',isPhone());}catch(e){}};
 /* version label: the deploy script replaces the placeholder below; an unreplaced build shows DEV BUILD */
-const VRAW='16 Nov 2026 18:00';
+const VRAW='16 Nov 2026 19:40';
 const VER=(VRAW.indexOf('__BUILD'+'_')===0)?'DEV BUILD':VRAW;
 window.__VERSION=VER;
 const pill=()=>{const b=document.createElement('button');b.type='button';b.className='verpill';b.textContent=VER;b.title='Tap to copy';b.setAttribute('aria-label','Game version '+VER);b.addEventListener('click',e=>{e.stopPropagation();try{navigator.clipboard&&navigator.clipboard.writeText(VER);}catch(_){}});return b;};
@@ -68554,7 +68554,8 @@ H.css('05',css());
 const el=$('hudToast')||(()=>{const e=D.createElement('div');e.id='hudToast';e.className='hudChip';e.setAttribute('role','status');D.body.appendChild(e);return e;})();
 const Q=H.toastQ=[];let cur=null,until=0,minUntil=0;const MIN=1600;
 const bodyc=D.body.classList;
-const hold=()=>H.mode==='cutscene'||H.mode==='dead';
+const introUp=()=>{try{if(window.__INTRO_ON===true)return true;const t=D.getElementById('intro');return !!(t&&!t.hidden&&t.offsetWidth>0);}catch(_){return false;}};/*phonehand: title + opening film*/
+const hold=()=>H.mode==='cutscene'||H.mode==='dead'||introUp();
 H.toast=(text,o)=>{o=o||{};text=String(text==null?'':text).replace(/[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}\u{FE0F}\u{1F000}-\u{1F2FF}]/gu,'').replace(/\s+/g,' ').trim();if(!text)return H;/* no emoji in the HUD */
  const it={text,prio:o.prio==null?1:o.prio,ms:o.ms||Math.max(2600,Math.min(7000,1400+text.length*55)),icon:o.icon||'',key:o.key||'',onTap:o.onTap||null,t:performance.now()};
  if(cur&&(cur.text===text||(it.key&&cur.key===it.key))){cur.text=text;until=performance.now()+it.ms;paint();return H;}
@@ -68567,6 +68568,7 @@ function paint(){if(!cur){el.classList.remove('on','tap','pol');bodyc.remove('hu
  el.classList.toggle('pol',cur.icon==='sms'||cur.icon==='police');el.classList.toggle('tap',!!cur.onTap);el.onclick=cur.onTap?(e=>{e.stopPropagation();try{cur.onTap();}catch(_){}}):null;
  el.classList.add('on');bodyc.add('hudToastOn');}
 function step(){const now=performance.now();
+ if(introUp()){for(const q of Q)q.t=now;}/*phonehand: toasts wait for the title/intro, not dropped*/
  if(cur&&now>=until){cur=null;}
  if(!cur&&!hold()&&H.mode!=='modal'){Q.sort((a,b)=>b.prio-a.prio||a.t-b.t);while(Q.length&&now-Q[0].t>12000)Q.shift();
   if(Q.length){cur=Q.shift();until=now+cur.ms;minUntil=now+MIN;}}
@@ -69479,17 +69481,20 @@ restart();setTimeout(layout,1500);
    MAMMA left in the middle), and its 'held' size (up to 94% of the screen height, bottom 3vh below the edge) pushed it off screen too.
    Now: #nokiaPh is ONE HUD unit (priority 95, never moved or split; smaller pieces dodge it), old per-piece translates are wiped, and the
    held size is fitted to the free space ABOVE the hotbar (top margin 8 px, at most 44% of the width, never past the left / right edge).
-   The blocky hand under the phone is dropped (it hung below the phone, over the hotbar). __PHFIT(el) is the fit, __PHFIT.last the last result. */
+   The blocky hand is back (phonehand job): palm .bd:after + three fingers .bd:before; fit reserves HAND px under the phone so it stays above the hotbar. __PHFIT(el) is the fit, __PHFIT.last the last result. */
 try{(()=>{
   const W=window,D=document;
   const st=D.createElement('style');st.id='phHeldCss';
-  st.textContent='#nokiaPh .bd:after{display:none!important}#nokiaPh .fl-lid,#nokiaPh .fl-in,#nokiaPh .fl-out,#nokiaPh .fl-base,#nokiaPh .lcd,#nokiaPh .nkk,#nokiaPh .nkp{translate:none!important}'+
+  st.textContent='#nokiaPh .fl-lid,#nokiaPh .fl-in,#nokiaPh .fl-out,#nokiaPh .fl-base,#nokiaPh .lcd,#nokiaPh .nkk,#nokiaPh .nkp{translate:none!important}'+
     /* the outer box stays still (the guard measures it); the idle sway and the ring buzz move only the inside */
     '#nokiaPh.on,#nokiaPh.on.ring{animation:none!important}#nokiaPh.on.flr{animation:flRise calc(300ms*var(--flk,1)) cubic-bezier(.2,.85,.3,1.05) both!important}'+
     '#nokiaPh.on:not(.ring) .bd{animation:phHold2 4.5s ease-in-out infinite}@keyframes phHold2{0%,100%{translate:0 0}50%{translate:3px 4px}}'+
-    '@media (prefers-reduced-motion:reduce){#nokiaPh.on .bd{animation:none!important}}';
+    '@media (prefers-reduced-motion:reduce){#nokiaPh.on .bd{animation:none!important}}'+
+    /* the blocky hand (16 Nov 2026, phonehand): palm behind the key half, below the phone (kept above the hotbar by fit), and a column of three chunky fingers wrapped over the left edge of the key half */
+    '#nokiaPh .bd{position:relative}#nokiaPh .bd:after{content:"";display:block!important;position:absolute;left:18%;right:-6%;bottom:-34px;height:46px;background:linear-gradient(#e0b48e,#c99a75);border:3px solid #7a5238;border-radius:6px 6px 0 0;z-index:-1;box-shadow:0 -2px 0 #f0cba8 inset;pointer-events:none}'+
+    '#nokiaPh .bd:before{content:"";display:block;position:absolute;left:-12px;bottom:22px;width:30px;height:84px;box-sizing:border-box;z-index:6;pointer-events:none;border:3px solid #7a5238;border-radius:5px;background:repeating-linear-gradient(#e0b48e 0 22px,#7a5238 22px 25px,#e0b48e 25px 28px);box-shadow:0 -2px 0 #f0cba8 inset,3px 3px 0 rgba(0,0,0,.28)}';
   D.head.appendChild(st);
-  const GAP=10,TOP=8;
+  const GAP=10,TOP=8,HAND=38;/* the palm hangs 34 px under the phone (+ border) */
   function hotTop(vh){try{const h=D.getElementById('hotbar');if(!h)return vh;const cs=getComputedStyle(h);if(cs.display==='none'||cs.visibility==='hidden')return vh;const r=h.getBoundingClientRect();
     if(r.height<4||r.top<vh*.5)return vh;return r.top;}catch(e){return vh;}}
   function fit(ph){try{ph=ph||D.getElementById('nokiaPh');if(!ph)return null;
@@ -69498,8 +69503,8 @@ try{(()=>{
     /* closed (ringing): the shut lid folds down over the key half; where the lid is taller (compact landscape) it hangs below the box */
     let over=0;try{if(ph.classList.contains('fl-shut')){const lid=ph.querySelector('.fl-lid'),base=ph.querySelector('.fl-base');if(lid&&base)over=Math.max(0,lid.offsetHeight-base.offsetHeight);}}catch(e){}
     /* rotate(-5deg) round the bottom middle drops one bottom corner by w*s/2*sin5 (~4.4% of the width) and lifts the top a little; +4 px idle sway */
-    const k=.044*w;let s=Math.min(2.4,(floor-TOP-4)*.95/(h+over+k),vw*.44/w);s=Math.max(.45,s);
-    const bottom=Math.max(4,Math.round(vh-floor+(over+k)*s+4));
+    const k=.044*w;let s=Math.min(2.4,(floor-TOP-4)*.95/(h+over+k+HAND),vw*.44/w);s=Math.max(.45,s);
+    const bottom=Math.max(4,Math.round(vh-floor+(over+k+HAND)*s+4));
     const sw=w*s*1.08;let right=Math.round(Math.min(vw*.16,Math.max(8,vw-sw-8)));
     ph.style.setProperty('--s',s.toFixed(3));ph.style.setProperty('bottom',bottom+'px','important');ph.style.setProperty('right',right+'px','important');
     fit.last={s:+s.toFixed(3),bottom,right,hot:Math.round(ht),vw,vh};return fit.last;}catch(e){fit.err=String(e);return null;}}
