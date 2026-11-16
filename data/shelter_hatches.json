@@ -1,0 +1,80 @@
+{
+ "_note": "Shelter hatch spots + main entrance. x east, z south (metres, same as the game). dir 0..3 = which way the steps run (0 +z, 1 +x, 2 -z, 3 -x). Edit freely; the game nudges a spot that is blocked.",
+ "hatches": [
+  {
+   "id": "h1",
+   "name": "Torget vest (west edge of the square)",
+   "x": -42.6,
+   "z": 15.3,
+   "dir": 1
+  },
+  {
+   "id": "h2",
+   "name": "Bak rådhuset (behind the town hall)",
+   "x": 55.0,
+   "z": -32.0,
+   "dir": 2
+  },
+  {
+   "id": "h3",
+   "name": "Kirkebakken (by the church)",
+   "x": -65.8,
+   "z": -120.8,
+   "dir": 0
+  },
+  {
+   "id": "h4",
+   "name": "Skolebakken (hillside by Liknes skole)",
+   "x": 217.4,
+   "z": 274.7,
+   "dir": 3
+  },
+  {
+   "id": "h5",
+   "name": "Parkeringen ved Circle K",
+   "x": 67.4,
+   "z": 118.3,
+   "dir": 2
+  },
+  {
+   "id": "h6",
+   "name": "Parkeringen ved Extra / Vinmonopolet",
+   "x": -246.8,
+   "z": -182.7,
+   "dir": 1
+  },
+  {
+   "id": "h7",
+   "name": "Busstoppen (waiting room by the road)",
+   "x": -21.3,
+   "z": -71.3,
+   "dir": 0
+  },
+  {
+   "id": "h8",
+   "name": "Kulturhuset (parking by the library)",
+   "x": -261.2,
+   "z": -374.3,
+   "dir": 1
+  },
+  {
+   "id": "h9",
+   "name": "Sparebanken Sør (north-east lot)",
+   "x": 89.7,
+   "z": 82.4,
+   "dir": 3
+  },
+  {
+   "id": "h10",
+   "name": "Videregående skole (west yard)",
+   "x": -280.0,
+   "z": 95.0,
+   "dir": 1
+  }
+ ],
+ "main": {
+  "x": 12.1,
+  "z": 14.5,
+  "name": "Hovedinngang (the main entrance, under the square)"
+ }
+}

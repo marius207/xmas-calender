@@ -703,7 +703,7 @@ window.__devEff=eff;
 const isPhone=()=>eff()==='phone';
 const sync=()=>{try{document.body.classList.toggle('ph',isPhone());}catch(e){}};
 /* version label: the deploy script replaces the placeholder below; an unreplaced build shows DEV BUILD */
-const VRAW='15 Nov 2026 21:29';
+const VRAW='16 Nov 2026 05:32';
 const VER=(VRAW.indexOf('__BUILD'+'_')===0)?'DEV BUILD':VRAW;
 window.__VERSION=VER;
 const pill=()=>{const b=document.createElement('button');b.type='button';b.className='verpill';b.textContent=VER;b.title='Tap to copy';b.setAttribute('aria-label','Game version '+VER);b.addEventListener('click',e=>{e.stopPropagation();try{navigator.clipboard&&navigator.clipboard.writeText(VER);}catch(_){}});return b;};
@@ -5353,7 +5353,8 @@ function placeInfo(){const x=P.x,z=P.z;let name=null;
   if(!name&&typeAt(x,z)===3){const w=nearestName(x,z,WATERN,1500);name=w?w.n:'Kvina';}
   if(!name){const st=streetAt(x,z,16);if(st)name=st;}
   if(!name){const nn=nearestName(x,z,/./,450);if(nn&&!/^Adressenavn$/.test(nn.t))name=nn.n;else if(nn)name=nn.n;}
-  return {kick,name:name||(ar?ar.n:'Downtown')};}/*namescrub*/
+  {const nm=name||(ar?ar.n:'Downtown');if(window.__PUBLIC_HOST){/*testfix_04*/const sc=s=>String(s).replace(/Fedafjord(en)?/gi,m=>m===m.toUpperCase()?'THE FJORD':'the fjord').replace(/\bFeda\b/g,'the fjord').replace(/\bFEDA\b/g,'THE FJORD').replace(/Storekvina/gi,m=>m===m.toUpperCase()?'THE RIVER':'the river').replace(/Kvinesdal/gi,m=>m===m.toUpperCase()?'DOWNTOWN':'Downtown').replace(/Liknes/gi,m=>m===m.toUpperCase()?'DOWNTOWN':'Downtown');return {kick:sc(kick),name:sc(nm)};}
+  return {kick,name:nm};}}/*namescrub*/
 function placeName(){return placeInfo().name;}
 
 /* soundmix-core */
@@ -6488,7 +6489,7 @@ function frame(now){const dt=Math.min(.05,(now-last)/1000);last=now;const t=now/
   target=(started&&!P.driving)?raycast():null;if(target){outline.visible=true;outline.position.set(target.x+.5,target.y+.5,target.z+.5);}else outline.visible=false;
   {const ib=buildingAt(P.x,P.z);const inside=!!ib&&!P.driving&&P.y<ib.base+ib.eaveH;indoorLight.visible=inside;if(inside){indoorLight.position.set(P.x,P.y+(ib.gh?2.6:1.7),P.z);indoorLight.distance=ib.gh?16:9;indoorLight.intensity=ib.gh?3.2:5;indoorLight.color.setHex(ib.gh?0xfff4ea:0xffe0b0);}}
   window.__sky.position.copy(cam.position);SKYU.t.value=t;if(window.__stars)window.__stars.position.copy(cam.position);WU.t.value=t;WU.cam.value.copy(cam.position);try{RFSTEP();RFU.t.value=performance.now()/1000;}catch(_){}/*riverflow*/WU.fogN.value=scene.fog.near;WU.fogF.value=scene.fog.far;
-  stepLife(dt,t);updateGuide();updateFX(dt);if(EYE&&window.__eyeOff){EYE.lock=false;EYE.beamG.visible=false;EYE.spot.visible=false;EYE.spotL.intensity=0;EYE.laser.visible=false;for(const id of['eyeWarn','eyeGlare','eyeVign']){const e=$(id);if(e){e.style.opacity=0;if(id==='eyeWarn')e.hidden=true;}}if(window.__HEALTH)window.__HEALTH.step(dt,false);}else if(EYE){EYE.halo.material.opacity=.18+.1*Math.sin(t*1.7);{const ex=EYE.g.position;const dx=P.x-ex.x,dy=(P.y+1.6)-ex.y,dz=P.z-ex.z;const D=Math.hypot(dx,dz);
+  stepLife(dt,t);updateGuide();updateFX(dt);const eD_=!!(EYE&&window.__EYEDORM&&window.__EYEDORM());if(EYE&&eD_!==!!EYE._dorm){EYE._dorm=eD_;try{window.__EYEDORMVIS&&window.__EYEDORMVIS(EYE,eD_);}catch(_){}}/*eyeday17*/if(EYE&&(window.__eyeOff||eD_)){EYE.lock=false;EYE.beamG.visible=false;EYE.spot.visible=false;EYE.spotL.intensity=0;EYE.laser.visible=false;for(const id of['eyeWarn','eyeGlare','eyeVign']){const e=$(id);if(e){e.style.opacity=0;if(id==='eyeWarn')e.hidden=true;}}if(window.__HEALTH)window.__HEALTH.step(dt,false);}else if(EYE){EYE.halo.material.opacity=.18+.1*Math.sin(t*1.7);{const ex=EYE.g.position;const dx=P.x-ex.x,dy=(P.y+1.6)-ex.y,dz=P.z-ex.z;const D=Math.hypot(dx,dz);
   // line of sight over the real terrain and buildings
   EYE.losT=(EYE.losT||0)-dt;let los=EYE.los??true;if(EYE.losT<=0){EYE.losT=.15;los=eyeContact(ex);EYE.los=los;}
   const pYaw=Math.atan2(dx,dz),pPit=-Math.atan2((P.y+.2)-ex.y,D);// aim at the feet so the pool of light lands on the player
@@ -7261,6 +7262,20 @@ H.step=function(dt,seen){const now=performance.now();
 H.hurt=function(n,src){if(src==='eye'&&(window.__DAY|0)<=1&&!window.__RACE){if(H.hp-n<5){E.mercy++;return;}}return oHurt.apply(H,arguments);};
 })();}catch(e){window.__COLDFIX1_ERR=String(e&&e.stack||e);console.warn('coldfix1_eye',e);}
 /* /coldfix1_eye */
+/* eyeday17 */
+try{(()=>{if(window.__EYEGATE17)return;
+const QS=new URLSearchParams(location.search);
+const G=window.__EYEGATE17={day:17,dev:(/^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname)||QS.get('dev')==='1')&&QS.get('storygate')!=='1',force:null,flips:0};
+window.__EYEDORM=()=>{if(G.force!==null)return !!G.force;if(G.dev)return false;return (window.__DAY|0)<G.day;};
+/* what the tower looks like while the Eye sleeps: the Eye plane hidden, the halo a faint red, its own light turned down; restored on waking */
+window.__EYEDORMVIS=(E,dorm)=>{G.flips++;try{let rl=E._rl;if(rl===undefined){rl=null;E.g.traverse(o=>{if(!rl&&o.isPointLight)rl=o;});E._rl=rl;E._rlI=rl?rl.intensity:0;}
+  if(dorm){E.eyeQ.visible=false;E.halo.material.opacity=.07;if(rl)rl.intensity=E._rlI*.06;E.lock=false;E.seen=0;E.wasLock=false;}
+  else{E.eyeQ.visible=true;if(rl)rl.intensity=E._rlI;if(!window.__eyeOff){E.beamG.visible=true;E.spot.visible=true;}}}catch(e){G.err=String(e&&e.stack||e);}};
+G.state=()=>{const E=window.__CINE&&window.__CINE.EYE;const g=id=>{const e=document.getElementById(id);return e?{op:+(e.style.opacity||0),hidden:!!e.hidden}:null;};
+  return {day:window.__DAY|0,dormant:window.__EYEDORM(),dev:G.dev,force:G.force,eyeOff:!!window.__eyeOff,beam:!!(E&&E.beamG.visible),spot:!!(E&&E.spot.visible),eyeVisible:!!(E&&E.eyeQ.visible),
+    lock:!!(E&&E.lock),meter:g('eyeMeter'),glare:g('eyeGlare'),vign:g('eyeVign'),warn:g('eyeWarn'),eyeLevel:window.__HEALTH?+window.__HEALTH.eye.toFixed(3):null,err:G.err||null};};
+})();}catch(e){console.warn('eyeday17',e);}
+/* /eyeday17 */
 
 // ================= jetpack: X puts it on, hold Space to fly up; 7 minutes of fuel, refill at a petrol station or at home =================
 window.__JET=(()=>{const J={on:false,fuel:420,max:420,thrust:false};
@@ -45571,6 +45586,7 @@ E9.tick=()=>{try{if(E9.pause||typeof started==='undefined'||!started||W.__INTRO_
   for(const k of ['jet','ely']){const s=SITES[k];if(d<s.day||done[E9.pfx+k])continue;const near=Math.hypot(P.x-s.x,P.z-s.z)<s.r;const live=d===s.day;if(live&&!near)continue;
     done[E9.pfx+k]=1;if(!once(s.key))continue;const r=k==='jet'?giveJet(live&&near):giveEly(live&&near);E9.log.push([k,d,r,live&&near]);}}catch(e){E9.err=String(e);}};
 setInterval(E9.tick,700);
+E9.x={INV,P,countOf,updateArmor,Hm,tryElytra};/* test access to the module-scoped game objects */
 E9.state=()=>({dev:E9.dev,day:DAY(),jet:E9.owns(),ely:E9.hasEly(),jetOk:E9.jetOk(),done:Object.keys(done),log:E9.log,err:E9.err});
 }catch(e){console.warn('elytra9',e);window.__ELY9_ERR=String(e);}})();
 /* /elytra9 */
@@ -46018,7 +46034,7 @@ function usable(){try{if(typeof started==='undefined'||!started||P.driving)retur
 let hintEls=[],hintAt=0;
 const visEl=e=>{try{if(e.hidden)return false;const cs=getComputedStyle(e);if(cs.display==='none'||cs.visibility==='hidden'||+cs.opacity<.05)return false;const r=e.getBoundingClientRect();return r.width>2&&r.height>2&&r.bottom>0&&r.top<innerHeight&&r.right>0&&r.left<innerWidth;}catch(_){return false;}};
 const GKEY=/\bG\b|▢|\bUSE\b/;
-function otherHint(why){const n=performance.now();if(n-hintAt>2500){hintAt=n;hintEls=[...document.querySelectorAll('[id$="Hint"],#hint,#prompt')].filter(e=>e.id!=='hudPrompt');}
+function otherHint(why){const n=performance.now();if(n-hintAt>2500){hintAt=n;hintEls=[...document.querySelectorAll('[id$="Hint"],#hint,#prompt')].filter(e=>e.id!=='hudPrompt'&&e.id!=='kvKeyHint'/*testfix_03*/);}
   for(const e of hintEls){if(!visEl(e))continue;const t=(e.textContent||'').trim();if(e.id==='prompt'){if(e.classList.contains('show')){if(why)why.push(e.id);return true;}continue;}if(t&&GKEY.test(t)){if(why)why.push(e.id+':'+t.slice(0,30));return true;}}
   try{if(typeof near!=='undefined'&&near){if(why)why.push('near');return true;}}catch(_){}try{if(typeof nearCar==='function'&&nearCar()){if(why)why.push('car');return true;}}catch(_){}
   try{const H=W.__HUD;if(H&&H.prompts){const o=H.prompts().filter(x=>x!=='treedeco');if(o.length){if(why)why.push('hud:'+o.join(','));return true;}}}catch(_){}return false;}
@@ -58553,7 +58569,7 @@ SH.open=function(i){if(!SH.built||!SH.enabled)return false;if(i==null)i=pickIdx(
   sndCreak(h);humOn(h);glowOn(h);partsOn(h);placePut(h);mapDot(true,h);SH.manDue=now()+10000+rnd()*10000;SH.manDone=false;return true;};
 function closeNow(silent){const i=SH.openIdx;if(i<0)return false;const h=SH.hatches[i];SH.openIdx=-1;ST.tgt=0;SH.closes++;setLamp(h,false);
   humOff();glowOff();partsOff();placeDrop();mapDot(false);if(!silent){ST.clangAt=now()+(1-h.k)*600;ST.clangH=h;}else{lidSet(h,0);h.pit.visible=false;}
-  if(SH.man)manLeave();SH.manDue=0;return true;}
+  if(M.on)manLeave();SH.manDue=0;return true;}
 SH.close=function(){return closeNow(false);};
 /* ---------- the map dot (map markers layer 'mx', shape 'cr' = bright circle with a pulsing ring) + a GPS/search place ---------- */
 const DOT={x:0,z:0,layer:'mx',kind:'mk',id:'shelter_hatch',name:'Open shelter hatch',lab:'Open hatch',sh:'cr',gl:'!',col:'#e0261c',live:true,min:0};
@@ -58641,7 +58657,7 @@ function darkOff(){const s=SW.sv;try{if(s.hm&&s.h!==null)s.hm.intensity=s.h;moon
 const fadeEl=()=>{if(!SW.fade){const f=document.createElement('div');f.style.cssText='position:fixed;inset:0;background:#000;opacity:0;pointer-events:none;z-index:99990;transition:opacity .32s ease';document.body.appendChild(f);SW.fade=f;}return SW.fade;};
 function trans(fn){if(SW.busy)return false;SW.busy=true;const f=fadeEl();f.style.opacity=1;setTimeout(()=>{try{fn();}catch(e){er(e);try{cleanupStair(true);}catch(_){}}setTimeout(()=>{f.style.opacity=0;SW.busy=false;},90);},340);return true;}
 function canEnter(h){if(!h||SW.in||SW.busy||typeof TCSOLID==='undefined'||TCSOLID!==null)return false;if(SH.openIdx!==SH.hatches.indexOf(h))return false;if(!gate()||P.driving||P.fly)return false;if(W.__LASER_IN||W.__ARENA_IN||W.__DERPMAX_IN)return false;return true;}
-function doEnter(h){buildStair();const dv=DIRS[h.dir];SW.h=h;SW.dx=dv[0];SW.dz=dv[1];SW.Ox=Math.floor(h.x)+.5;SW.Oz=Math.floor(h.z)+.5;SW.Y0=h.y;SW.sx=P.x;SW.sy=P.y;SW.sz=P.z;SW.syaw=P.yaw;
+function doEnter(h){buildStair();const dv=DIRS[h.dir];SW.h=h;SW.dx=dv[0];SW.dz=dv[1];SW.Ox=Math.floor(h.x)+.5;SW.Oz=Math.floor(h.z)+.5;SW.Y0=Math.round(h.y);SW.sx=P.x;SW.sy=P.y;SW.sz=P.z;SW.syaw=P.yaw;
   SW.g.position.set(SW.Ox,SW.Y0,SW.Oz);SW.g.rotation.y=Math.atan2(SW.dx,SW.dz);scene.add(SW.g);
   scene.traverse(o=>{if(o.isLight)o.layers.enable(1);});try{cam.traverse(o=>o.layers.enable(1));}catch(_){}
   TCSOLID=solidFn;SW.in=true;SH.inStair=true;SH.cur=SH.hatches.indexOf(h);cam.layers.set(1);darkOn();W.__AUDIO3D_ZONE='tunnel';
@@ -58818,7 +58834,7 @@ SH.state=function(){const h=SH.openIdx>=0?SH.hatches[SH.openIdx]:null;return {bu
   man:M.on?{x:+M.x.toFixed(1),z:+M.z.toFixed(1),y:+M.y.toFixed(1),state:M.state,seen:M.seen,hidden:M.hidden,d:+hyp(P.x-M.x,P.z-M.z).toFixed(1),mv:M.mv,inScene:!!(M.g&&M.g.parent)}:null,
   manInScene:!!(M.g&&M.g.parent),opens:SH.opens,closes:SH.closes,mans:SH.mans,contacts:SH.contacts,doors:SH.doors,knocks:SH.knocks,trail:SH.trail?{n:SH.trail.n,from:SH.trail.from}:null,trails:SH.trails|0,inStair:SW.in,day:day(),main:SH.main,
   prompt:ST.act||null,particles:ptOn,hum:!!HUM.o1,glow:!!(GL&&GL.visible),sirenHooked:!!sirenOff,log:SH.log.slice(-6)};};
-SH.dev={P:()=>P,Hm:(x,z)=>Hm(x,z),solid:(a,b,c)=>solidFn(a,b,c),tcs:()=>TCSOLID===solidFn?1:(TCSOLID===null?0:2),clock(ms){SH._off+=+ms||0;},tick(){slow=1;tick(0);},tp(i,dist){const h=SH.hatches[i];if(!h)return false;const dv=DIRS[h.dir];dist=dist==null?4:dist;const x=h.x-dv[0]*dist+(-dv[1])*1.5,z=h.z-dv[1]*dist+dv[0]*1.5;try{streamChunks(x,z,300);}catch(_){}P.x=x;P.z=z;P.y=groundY(x,z)+.02;P.vx=P.vy=P.vz=0;P.yaw=Math.atan2(-(h.x-x),-(h.z-z));P.pitch=-.12;return true;},
+SH.dev={P:()=>P,Hm:(x,z)=>Hm(x,z),solid:(a,b,c)=>solidFn(a,b,c),tcs:()=>TCSOLID===solidFn?1:(TCSOLID===null?0:2),clock(ms){SH._off+=+ms||0;},tick(){slow=1;tick(0);},tp(i,dist){const h=SH.hatches[i];if(!h)return false;const dv=DIRS[h.dir];dist=dist==null?4:dist;const x=h.x+dv[0]*dist+(-dv[1])*1.5,z=h.z+dv[1]*dist+dv[0]*1.5;try{streamChunks(x,z,300);}catch(_){}P.x=x;P.z=z;P.y=groundY(x,z)+.02;P.vx=P.vy=P.vz=0;P.yaw=Math.atan2(-(h.x-x),-(h.z-z));P.pitch=-.12;return true;},
   face(x,z){P.yaw=Math.atan2(-(x-P.x),-(z-P.z));P.pitch=0;},man:()=>M,sw:()=>SW,flash,layTrail,trailMesh:()=>TR&&TR.m,kit,mat:()=>MAT,lastLyk(){return SH.lastLyk;},stairU,stairV,useKey,prScan,hook:hookSiren};
 })();}catch(e){window.__SHELTER_ERR=String(e&&e.stack||e);console.warn('shelter1',e);}
 /* /shelter1 */
@@ -64153,7 +64169,7 @@ try{fetch('build/kvent/opponents.json',{cache:'no-store'}).then(r=>r.ok?r.json()
 const short=o=>String(o.name||o.id).replace(/ the .*$/i,'').replace(/^(Chieftain|Chief Auditor)\s+/i,'');
 /* ---------- where each opponent is (read from the live objects) ---------- */
 function pos(id){
-  const x=KS.extra[id];if(x)return{built:true,x:x.x,z:x.z,y:x.y!=null?x.y:P.y,yaw:x.yaw||0};
+  const x=KS.extra[id];if(x)return{built:true,x:x.x,z:x.z,y:x.y!=null?x.y:P.y,yaw:x.yaw||0,b:x.b,land:x.land};/*kventplaces*/
   if(id==='kare'){const k=KV.kare;return k?{built:true,x:k.px,z:k.pz,y:k.py,yaw:k.face||0}:{built:false};}
   if(false&&(id==='sven'||id==='ola')){/*kventplaces: placed indoors by the kventplaces block*/const want=id==='sven'?'cafe':'bakery',re=id==='sven'?/^Caf/:/^Bakeri/;
     try{let D=null,dd=1e9;try{for(const d of doors){if(!d.biz||!re.test(d.kind||''))continue;const q=hyp(d.x-P.x,d.z-P.z);if(q<dd){dd=q;D=d;}}}catch(_){}
@@ -64187,7 +64203,7 @@ KS.tele=(id,_try)=>{const o=OPP.find(q=>q.id===id),p=o&&pos(id);if(!DEV)return f
     try{toast('Kvent: '+o.name+' (walking in...)');}catch(_){}return true;}
   const y0=(p.y!=null&&p.y>-900)?p.y:gY(p.x,p.z),fx=Math.sin(p.yaw),fz=Math.cos(p.yaw);let pick=null;
   const okSpot=(x,z)=>{try{if(p.b){if(buildingAt(x,z)!==p.b)return false;}else if(buildingAt(x,z))return false;}catch(_){}return spotOK(x,z,y0)||(p.b&&Math.abs(gY(x,z)-y0)<1.7);};
-  outer:for(const r of [3,2.6,2.2,1.8,1.4]){for(const a of [0,.35,-.35,.7,-.7,1.05,-1.05,1.6,-1.6,2.3,-2.3,3.14]){const c=Math.cos(a),s=Math.sin(a),dx=fx*c-fz*s,dz=fx*s+fz*c;const x=p.x+dx*r,z=p.z+dz*r;if(okSpot(x,z)){pick=[x,z];break outer;}}}
+  if(p.land)pick=p.land;else outer:for(const r of [3,2.6,2.2,1.8,1.4]){/*kventplaces*/for(const a of [0,.35,-.35,.7,-.7,1.05,-1.05,1.6,-1.6,2.3,-2.3,3.14]){const c=Math.cos(a),s=Math.sin(a),dx=fx*c-fz*s,dz=fx*s+fz*c;const x=p.x+dx*r,z=p.z+dz*r;if(okSpot(x,z)){pick=[x,z];break outer;}}}
   if(!pick)pick=[p.x+fx*3,p.z+fz*3];
   try{W.__go(pick[0],pick[1],Math.atan2(-(p.x-pick[0]),-(p.z-pick[1])),-.05,0);}catch(e){e8(e);return false;}
   const face=()=>{try{P.yaw=Math.atan2(-(p.x-P.x),-(p.z-P.z));P.pitch=-.05;}catch(_){}};setTimeout(face,150);setTimeout(face,600);
@@ -64717,7 +64733,7 @@ function cardsOn(g,x,topY,z,yaw){/* felt + a fan of three cards + a red-backed o
 const WORKP=()=>{try{return W.__WORK&&W.__WORK.person;}catch(_){return null;}};
 function sitDown(m,top){const l=m.children.filter(c=>c.isMesh);if(l[0])l[0].rotation.x=-Math.PI/2;if(l[1])l[1].rotation.x=-Math.PI/2;m.position.y=top-.58;}
 function holdCards(m){try{const u=m.userData;u.arms[0].rotation.x=-.95;u.arms[1].rotation.x=-.95;}catch(_){}}
-const insideB=b=>{try{return !!b&&buildingAt(P.x,P.z)===b;}catch(_){return false;}};
+const insideB=b=>{try{if(b===BOWL){const X=BOWLX();return !!(X&&X.inHall());}return !!b&&buildingAt(P.x,P.z)===b;}catch(_){return false;}};
 const closedB=b=>{try{return !!(W.__REALT&&W.__REALT.closedB&&b&&b!==BOWL&&W.__REALT.closedB(b));}catch(_){return false;}};
 const BOWLX=()=>W.__BOWLX;
 /* ---------- picking the interior for each town opponent ---------- */
@@ -64781,7 +64797,7 @@ function register(h){const id=h.id;
   KV.reg=KV.reg||{};
   KV.reg[id]={r:2.8,name:()=>(KV.NAMES[id]||id),pos:()=>{if(!insideB(h.b)||closedB(h.b))return null;return{x:h.px,y:h.y+.2,z:h.pz,name:KV.NAMES[id]||id};}};
   try{if(KS){/* teleport lands the player in front of the face, along (yaw): side-on to the table keeps the landing spot on the open floor */
-    KS.place(id,h.px,h.pz,h.mode==='bowl'?h.yaw:h.yaw+Math.PI/2,h.y);if(KS.extra[id])KS.extra[id].b=h.b;}}catch(e){e8(e);}}
+    KS.place(id,h.px,h.pz,h.yaw,h.y);if(KS.extra[id]){KS.extra[id].b=h.b;KS.extra[id].land=[h.px+Math.sin(h.yaw)*1.6,h.pz+Math.cos(h.yaw)*1.6];}}}catch(e){e8(e);}}
 function init(){if(KPL.inited)return;try{if(typeof INTB==='undefined'||!INTB.length)return;}catch(_){return;}
   const X=BOWLX();
   const kd={id:'kare',look:'library',seed:777,say:'the bowling alley'};
@@ -64801,7 +64817,7 @@ function tick(){try{if(typeof started==='undefined'||!started)return;if(!KPL.ini
     if(v&&d<12&&h.person){const u=h.person.userData;if(u&&u.head){let a=Math.atan2(P.x-h.px,P.z-h.pz)-h.yaw;a=Math.atan2(Math.sin(a),Math.cos(a));u.head.rotation.y+=(Math.max(-1,Math.min(1,a))-u.head.rotation.y)*.35;}}}
 }catch(e){e8(e);}}
 setInterval(tick,400);KPL.tick=tick;
-KPL.state=id=>{const h=KPL.homes[id];if(!h)return null;const inb=(()=>{try{return buildingAt(h.px,h.pz)===h.b;}catch(_){return false;}})();
+KPL.state=id=>{const h=KPL.homes[id];if(!h)return null;const inb=(()=>{try{if(h.b===BOWL)return h.px>29&&h.px<66&&h.pz>-522&&h.pz<-476;return buildingAt(h.px,h.pz)===h.b;}catch(_){return false;}})();
   return{id,name:h.name,cat:h.cat,mode:h.mode,fallback:!!h.fallback,x:h.px,y:h.y,z:h.pz,built:!!h.built,visible:!!(h.g&&h.g.visible),closed:!!h.closed,insideBuilding:inb,table:{x:h.tx,z:h.tz},seated:!!h.sit};};
 KPL.list=()=>Object.keys(KPL.homes).map(KPL.state);
 })();}catch(e){window.__KVPLACES_ERR=String(e&&e.stack||e);console.warn('kventplaces',e);}
@@ -66983,6 +66999,9 @@ function read(){
  for(const e of [qs,fq,mt]){if(!e)continue;const t=(e.textContent||'').trim();if(!t||e.style.display==='none')continue;src=e;full=t;break;}
  if(!src)return null;
  const b=src.querySelector('b');let title=(b?b.textContent:full.split('\n')[0]).trim();title=title.replace(/^first quest:\s*/i,'');
+ /*testfix_02: the day-1 tree quest must not pin the tracker for ever; from day 2 today's goal (the day chip) takes over until it is done*/
+ if(/tree for chris/i.test(title)){try{const L=W.__LANTERNGUIDE,s=L&&L.state?L.state():null,gs=D.querySelector('#hudDay .hdG span');const dy=s&&(s.today|0);
+  if(dy>=2&&dy<=24&&gs&&gs.textContent.trim()&&!(Array.isArray(s.done)&&s.done.indexOf(String(dy))>=0)){const gt=gs.textContent.trim();const pm2=/(\d+\/\d+)\s*$/.exec(gt);return {title:gt.replace(/\s*\u00b7\s*\d+\/\d+\s*$/,''),progress:pm2?pm2[1]:'',dist:'',full:gt};}}catch(e){}}
  const pm=/\((\d+\s*\/\s*\d+)\)/.exec(full);const g=$('lgComp');let dist='';
  if(g&&g.style.display!=='none'){const gt=(g.textContent||'').replace(/^[^A-Za-z0-9(]+/,'').trim();const dm=/([\d.,]+\s*(?:km|m))\s*$/i.exec(gt);if(dm)dist=dm[1];}
  return {title,progress:pm?pm[1].replace(/\s/g,''):'',dist,full};}
