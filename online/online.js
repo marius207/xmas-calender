@@ -201,6 +201,7 @@ export default function init(ONL, cfg) {
       else if (m.t === 'emote') { const r = R[m.n]; const i = m.e | 0; if (i < 0 || i > 3) return;
         if (r) { r.emote = i; r.et = performance.now() / 1000; r.edur = EMOTES[i][2]; r.em.material.map = emoteTex[i]; r.em.visible = true; } say(null, nice(m.n) + ' ' + EMOTES[i][1] + '.'); }
       else if (m.t === 'book') { try { window.dispatchEvent(new CustomEvent('vbook-in', { detail: { n: String(m.n || ''), id: String(m.id || ''), text: String(m.text || ''), ts: +m.ts || 0, d: String(m.d || ''), day: m.day | 0 } })); } catch (_) {} }
+      else if (m.t === 'ev') { try { onEv(m); } catch (_) {} }
       else if (m.t === 'bad') { closedFor = m.why; }
     };
     ws.onclose = () => {
@@ -234,5 +235,119 @@ export default function init(ONL, cfg) {
       ws.send(JSON.stringify({ t: 'pos', x: q(x), y: q(y), z: q(z), yaw: q(yaw), pitch: q(P.pitch), a, v }));
     } else if (t - tPing > 25) { tPing = t; ws.send('p'); }
   };
-  window.__ONLINE = { R, get status() { return status; }, send, say, names: () => Object.keys(R), emote: doEmote, ws: () => ws };
+
+  /* ---------- shared big moments (job onlinemp): siren, northern lights, witch visit, one shared clock ----------
+     Message: ev{k,seed,ts,d}. One source of truth: whoever starts a moment first broadcasts; a duplicate inside its window is ignored.
+     Everything is dropped during cutscenes/intro/hidden tab (and on phones before the intro was seen). Nothing here runs when online is off. */
+  const W = window, LSg = (k) => { try { return localStorage.getItem(k); } catch (_) { return null; } };
+  const T0 = performance.now(), seen = {};          /* k -> last time (ms) we handled/sent it */
+  const age = () => (performance.now() - T0) / 1000;
+  const fresh = (k, win) => { const n = performance.now(); if (seen[k] && n - seen[k] < win) return false; seen[k] = n; return true; };
+  function evOk() {
+    try {
+      if (!ONL.started() || document.hidden || status !== 'open') return false;
+      if (W.__INTRO_ON || (W.__OPENING && W.__OPENING.on) || W.__CINE_MUTE || W.__ITEMGET_ON || W.__BOSS_ON) return false;
+      if (ONL.touch && LSg('kv-intro-seen') !== '1') return false;
+      if (document.body.classList.contains('film') && !W.__ONLINE_DEVFORCE) { /* film mode is allowed for sound, not for the rest */ }
+      return true;
+    } catch (_) { return false; }
+  }
+  const evSend = (k, d, seed) => send({ t: 'ev', k, seed: (seed === undefined ? (Math.random() * 4294967295) >>> 0 : seed), ts: Date.now(), d: d || {} });
+  const SH = () => W.__SHELTER, SI = () => W.__SIRENS, NL = () => W.__NORDLYS, WF = () => W.__WITCHFIRE, TD = () => W.__TOD;
+  const DAY = () => +W.__DAY || 0;
+  const SHARED = { siren: { sent: 0, got: 0 }, wf: { sent: 0, got: 0, far: 0 }, nl: { sent: 0, got: 0 }, clk: { sent: 0, got: 0, adopted: 0 }, dropped: 0, last: '' };
+
+  /* --- air-raid siren: the starter sends the clip + the hatch; the others play the same clip now and open the same hatch --- */
+  let remoteSiren = 0, sirenOff = null;
+  function hookSiren() {
+    const S = SI(); if (sirenOff || !S || !S.on) return !!sirenOff;
+    sirenOff = S.on('start', (c) => {
+      if (Date.now() < remoteSiren) return;                  /* this one came from somebody else */
+      if (!fresh('siren', 30000)) return;
+      setTimeout(() => { const h = SH(); evSend('siren', { i: c.clip, p: c.pole, h: h && h.openIdx >= 0 ? h.openIdx : -1 }); SHARED.siren.sent++; }, 0);
+    });
+    return true;
+  }
+  function sirenIn(m) {
+    const S = SI(), d = m.d || {}; if (!S || !S.play || !S.enabled) return;
+    if (!fresh('siren', 30000)) { SHARED.dropped++; return; }
+    if (!evOk()) { SHARED.dropped++; return; }
+    const st = S.state(); if (st.playing || (st.sinceLast !== null && st.sinceLast < 240)) { SHARED.dropped++; return; }  /* own cooldown: never farmed */
+    remoteSiren = Date.now() + 6000; SHARED.siren.got++;
+    const i = ((d.i | 0) % 4 + 4) % 4, h = d.h | 0;
+    S.play(i).then((ok) => {
+      if (!ok) return;
+      try { const sh = SH(); if (sh && sh.built && sh.enabled && h >= 0 && sh.hatches[h] && sh.openIdx !== h) sh.open(h); } catch (_) {}
+      say(null, 'The siren is going off for ' + nice(m.n) + ' too.');
+    });
+  }
+
+  /* --- one shared clock: the player who has been online longest is the clock; the others follow (so the same nights, the same northern lights, the same dusk) --- */
+  let clkT = 0;
+  function sendClock() { const T = TD(); if (!T || !evOk()) return; evSend('clk', { h: +T.h.toFixed(4), d: T.d | 0, sp: T.speed, a: +age().toFixed(1) }); SHARED.clk.sent++; }
+  function clockIn(m) {
+    const T = TD(), d = m.d || {}; if (!T || typeof d.h !== 'number' || !isFinite(d.h)) return; SHARED.clk.got++;
+    if (!ONL.started() || W.__INTRO_ON || T.paused || T.urlForced || T.speed !== d.sp) return;
+    const mine = age(), theirs = +d.a || 0;
+    if (theirs < mine || (theirs === mine && m.n > ME)) return;       /* the older player wins; ties go to the first name */
+    const lat = Math.max(0, Math.min(3, (Date.now() - (m.ts || Date.now())) / 1000)) * T.speed / 60;
+    let h = d.h + lat, dd = d.d | 0; if (h >= 24) { h -= 24; dd++; }
+    const diff = (dd * 24 + h) - (T.d * 24 + T.h);
+    if (Math.abs(diff) < .1) return;
+    try { T.d = dd; T.h = h; if (T.set) T.set(h); } catch (_) { return; }
+    SHARED.clk.adopted++; SHARED.last = 'clock from ' + m.n;
+  }
+
+  /* --- northern lights: same nights come from the shared clock. A whistler who calls the red fingers makes everybody's sky lean in; only the whistler is hunted --- */
+  let nlStage = 0, nlRemote = { n: '', s: 0, until: 0 }, nlK = 0;
+  function nlPoll() {
+    const n = NL(); if (!n || typeof n.stage !== 'number') return;
+    if (n.stage !== nlStage) { nlStage = n.stage; if (nlStage >= 1 && evOk()) { evSend('nl', { s: nlStage }); SHARED.nl.sent++; } }
+  }
+  function nlIn(m) {
+    const n = NL(), d = m.d || {}; if (!n) return; SHARED.nl.got++;
+    if (!evOk() || !n.tonight || !n.tonight()) { SHARED.dropped++; return; }
+    nlRemote = { n: m.n, s: Math.max(1, Math.min(2, d.s | 0)), until: performance.now() + (d.s >= 2 ? 22000 : 9000) };
+    say(null, nice(m.n) + ' whistled at the northern lights. The sky is listening.');
+  }
+  function nlFrame() {
+    requestAnimationFrame(nlFrame);
+    const n = NL(); if (!n) return;
+    const on = performance.now() < nlRemote.until && n.stage === 0 && n.k > .3;
+    nlK += ((on ? nlRemote.s : 0) - nlK) * .04;
+    if (nlK > .01 && n.stage === 0) { W.__NORDK = (W.__NORDK || 0) * (1 + .5 * nlK); W.__NORDS = (W.__NORDS || 1) * (1 - .06 * nlK); }
+  }
+  requestAnimationFrame(nlFrame);
+
+  /* --- witch visit: whoever she visits broadcasts. Players within 150 m get her too (their own visit, their own daily cap, all safety gates); far players hear a distant cackle. Before day 12 only --- */
+  let wfPh = 'idle', wfSkipUntil = 0;
+  function wfPoll() {
+    const w = WF(); if (!w) return; const ph = w.ph;
+    if (ph === 'visit' && wfPh !== 'visit' && Date.now() > wfSkipUntil && evOk() && DAY() < 12 && fresh('wf', 60000)) { evSend('wf', { x: Math.round(P.x), z: Math.round(P.z) }); SHARED.wf.sent++; }
+    wfPh = ph;
+  }
+  function cackle() { try { const a = new Audio('voice/witch_cackle_' + (1 + ((Math.random() * 3) | 0)) + '.mp4'); a.volume = .12; a.play().catch(() => {}); } catch (_) {} }
+  function wfIn(m) {
+    const w = WF(), d = m.d || {}; if (!w || DAY() >= 12) return; SHARED.wf.got++;
+    if (!fresh('wf', 60000) || !evOk()) { SHARED.dropped++; return; }
+    const r = R[m.n], sx = r && r.have ? r.tx : +d.x, sz = r && r.have ? r.tz : +d.z, dist = Math.hypot(P.x - sx, P.z - sz);
+    if (!(dist < 150)) { SHARED.wf.far++; cackle(); say(null, 'Far away, somebody hears a cackle.'); return; }
+    const st = w.state(); if (st.today >= st.cap) { SHARED.dropped++; return; }     /* daily cap: a shared visit counts and never goes over */
+    wfSkipUntil = Date.now() + 5000;
+    if (w.visit() === 'ok') { try { w.test.setCount(st.today + 1); } catch (_) {} wfPh = 'visit'; say(null, 'The witch is after ' + nice(m.n) + ' and you.'); }
+  }
+
+  function onEv(m) {
+    if (m.k === 'siren') sirenIn(m); else if (m.k === 'clk') clockIn(m); else if (m.k === 'nl') nlIn(m); else if (m.k === 'wf') wfIn(m);
+  }
+  setInterval(() => { try { hookSiren(); nlPoll(); wfPoll(); if (status === 'open' && Object.keys(R).length) { if (++clkT >= 20) { clkT = 0; sendClock(); } } else clkT = 18; } catch (_) {} }, 500);
+  /* dev helpers (tests): fire each moment from this page */
+  const dev = {
+    siren: (i) => { const S = SI(); return S.play(i == null ? 1 : i); },
+    witch: () => { const w = WF(); wfSkipUntil = 0; return w.visit(); },
+    nordlys: (s) => { evSend('nl', { s: s || 2 }); SHARED.nl.sent++; },
+    clock: () => sendClock(), fresh: () => { for (const k in seen) delete seen[k]; }, shared: SHARED,
+    force: (k, d) => evSend(k, d),
+  };
+  window.__ONLINE = { dev, SHARED,  R, get status() { return status; }, send, say, names: () => Object.keys(R), emote: doEmote, ws: () => ws };
 }
