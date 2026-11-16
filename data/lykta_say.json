@@ -1,0 +1,3880 @@
+{
+"_about": "Lykta bubble texts (index.html LG.say pools + lantern_days + slots). Made by build/lyktavoice/build_say_set.py. Clips: voice/lykta_say/ (make_say_voices.py).",
+"lines": [
+{
+"text": "Psst! Over here! Door 1: Welcome downtown. Welcome downtown! Find the Christmas tree on the square. (It stands in the middle of town, by the town hall.)",
+"norm": "psstoverheredoor1welcomedowntownwelcomedowntownfindthechristmastreeonthesquareitstandsinthemiddleoftownbythetownhall",
+"src": [
+"lantern_days:tell"
+]
+},
+{
+"text": "Door 1 is open! The tree is lit and so are you. The first door is open!",
+"norm": "door1isopenthetreeislitandsoareyouthefirstdoorisopen",
+"src": [
+"lantern_days:done"
+]
+},
+{
+"text": "Psst! Over here! Door 1 is open: Welcome downtown. Y to hear more.",
+"norm": "psstoverheredoor1isopenwelcomedowntownytohearmore",
+"src": [
+"lantern_days:hi"
+]
+},
+{
+"text": "Psst! Over here! Door 1 is open: Welcome downtown. hold ▢ to hear more.",
+"norm": "psstoverheredoor1isopenwelcomedowntownholdtohearmore",
+"src": [
+"lantern_days:hi"
+]
+},
+{
+"text": "Door 1 is already open. Come back tomorrow!",
+"norm": "door1isalreadyopencomebacktomorrow",
+"src": [
+"lantern_days:again1"
+]
+},
+{
+"text": "Door 1 is already open. Go and explore downtown.",
+"norm": "door1isalreadyopengoandexploredowntown",
+"src": [
+"lantern_days:again2"
+]
+},
+{
+"text": "Psst! Over here! Door 2: Down the hill. Hop on a kick-sled and ride the spark race down Hamrevegen! (Walk to the start sign and press G.)",
+"norm": "psstoverheredoor2downthehillhoponakicksledandridethesparkracedownhamrevegenwalktothestartsignandpressg",
+"src": [
+"lantern_days:tell"
+]
+},
+{
+"text": "Door 2 is open! What a ride!",
+"norm": "door2isopenwhataride",
+"src": [
+"lantern_days:done"
+]
+},
+{
+"text": "Psst! Over here! Door 2 is open: Down the hill. Y to hear more.",
+"norm": "psstoverheredoor2isopendownthehillytohearmore",
+"src": [
+"lantern_days:hi"
+]
+},
+{
+"text": "Psst! Over here! Door 2 is open: Down the hill. hold ▢ to hear more.",
+"norm": "psstoverheredoor2isopendownthehillholdtohearmore",
+"src": [
+"lantern_days:hi"
+]
+},
+{
+"text": "Door 2 is already open. Come back tomorrow!",
+"norm": "door2isalreadyopencomebacktomorrow",
+"src": [
+"lantern_days:again1"
+]
+},
+{
+"text": "Door 2 is already open. Go and explore downtown.",
+"norm": "door2isalreadyopengoandexploredowntown",
+"src": [
+"lantern_days:again2"
+]
+},
+{
+"text": "Psst! Over here! Door 3: Strike!. Go to Bowlinghallen and play one whole game of bowling. (Rent a lane at the counter, then press G at a lane.)",
+"norm": "psstoverheredoor3strikegotobowlinghallenandplayonewholegameofbowlingrentalaneatthecounterthenpressgatalane",
+"src": [
+"lantern_days:tell"
+]
+},
+{
+"text": "Door 3 is open! Nice rolling!",
+"norm": "door3isopennicerolling",
+"src": [
+"lantern_days:done"
+]
+},
+{
+"text": "Psst! Over here! Door 3 is open: Strike!. Y to hear more.",
+"norm": "psstoverheredoor3isopenstrikeytohearmore",
+"src": [
+"lantern_days:hi"
+]
+},
+{
+"text": "Psst! Over here! Door 3 is open: Strike!. hold ▢ to hear more.",
+"norm": "psstoverheredoor3isopenstrikeholdtohearmore",
+"src": [
+"lantern_days:hi"
+]
+},
+{
+"text": "Door 3 is already open. Come back tomorrow!",
+"norm": "door3isalreadyopencomebacktomorrow",
+"src": [
+"lantern_days:again1"
+]
+},
+{
+"text": "Door 3 is already open. Go and explore downtown.",
+"norm": "door3isalreadyopengoandexploredowntown",
+"src": [
+"lantern_days:again2"
+]
+},
+{
+"text": "Psst! Over here! Door 4: Voices in the cold. Find the church and listen. Somewhere downtown, carolers are singing. (Follow the sound of singing.)",
+"norm": "psstoverheredoor4voicesinthecoldfindthechurchandlistensomewheredowntowncarolersaresingingfollowthesoundofsinging",
+"src": [
+"lantern_days:tell"
+]
+},
+{
+"text": "Door 4 is open! Beautiful singing.",
+"norm": "door4isopenbeautifulsinging",
+"src": [
+"lantern_days:done"
+]
+},
+{
+"text": "Psst! Over here! Door 4 is open: Voices in the cold. Y to hear more.",
+"norm": "psstoverheredoor4isopenvoicesinthecoldytohearmore",
+"src": [
+"lantern_days:hi"
+]
+},
+{
+"text": "Psst! Over here! Door 4 is open: Voices in the cold. hold ▢ to hear more.",
+"norm": "psstoverheredoor4isopenvoicesinthecoldholdtohearmore",
+"src": [
+"lantern_days:hi"
+]
+},
+{
+"text": "Door 4 is already open. Come back tomorrow!",
+"norm": "door4isalreadyopencomebacktomorrow",
+"src": [
+"lantern_days:again1"
+]
+},
+{
+"text": "Door 4 is already open. Go and explore downtown.",
+"norm": "door4isalreadyopengoandexploredowntown",
+"src": [
+"lantern_days:again2"
+]
+},
+{
+"text": "Psst! Over here! Door 5: Pocket money. Collect 10 coins along the roads. Every krone counts at Christmas. (Coins glow on the roads. Walk through them.)",
+"norm": "psstoverheredoor5pocketmoneycollect10coinsalongtheroadseverykronecountsatchristmascoinsglowontheroadswalkthroughthem",
+"src": [
+"lantern_days:tell"
+]
+},
+{
+"text": "Door 5 is open! Cha-ching!",
+"norm": "door5isopenchaching",
+"src": [
+"lantern_days:done"
+]
+},
+{
+"text": "Psst! Over here! Door 5 is open: Pocket money. Y to hear more.",
+"norm": "psstoverheredoor5isopenpocketmoneyytohearmore",
+"src": [
+"lantern_days:hi"
+]
+},
+{
+"text": "Psst! Over here! Door 5 is open: Pocket money. hold ▢ to hear more.",
+"norm": "psstoverheredoor5isopenpocketmoneyholdtohearmore",
+"src": [
+"lantern_days:hi"
+]
+},
+{
+"text": "Door 5 is already open. Come back tomorrow!",
+"norm": "door5isalreadyopencomebacktomorrow",
+"src": [
+"lantern_days:again1"
+]
+},
+{
+"text": "Door 5 is already open. Go and explore downtown.",
+"norm": "door5isalreadyopengoandexploredowntown",
+"src": [
+"lantern_days:again2"
+]
+},
+{
+"text": "Psst! Over here! Door 6: Tipi village. Visit Camp Botnan and look around the tipi village. The folks up there have something for you. (It is up in the hills east of town. Walk right in among the tipis. They have an old, rattly thing that lets you leave the ground.)",
+"norm": "psstoverheredoor6tipivillagevisitcampbotnanandlookaroundthetipivillagethefolksuptherehavesomethingforyouitisupinthehillseastoftownwalkrightinamongthetipistheyhaveanoldrattlythingthatletsyouleavetheground",
+"src": [
+"lantern_days:tell"
+]
+},
+{
+"text": "Door 6 is open! Cozy up there! The tipis keep the wind out and the fire keeps the dark away. And look: a battered old jetpack, handed over by the tipi folk. It mostly works. Mostly. Press X to put it on. Tomorrow there is post for Chris.",
+"norm": "door6isopencozyuptherethetipiskeepthewindoutandthefirekeepsthedarkawayandlookabatteredoldjetpackhandedoverbythetipifolkitmostlyworksmostlypressxtoputitontomorrowthereispostforchris",
+"src": [
+"lantern_days:done"
+]
+},
+{
+"text": "Psst! Over here! Door 6 is open: Tipi village. Y to hear more.",
+"norm": "psstoverheredoor6isopentipivillageytohearmore",
+"src": [
+"lantern_days:hi"
+]
+},
+{
+"text": "Psst! Over here! Door 6 is open: Tipi village. hold ▢ to hear more.",
+"norm": "psstoverheredoor6isopentipivillageholdtohearmore",
+"src": [
+"lantern_days:hi"
+]
+},
+{
+"text": "Door 6 is already open. Come back tomorrow!",
+"norm": "door6isalreadyopencomebacktomorrow",
+"src": [
+"lantern_days:again1"
+]
+},
+{
+"text": "Door 6 is already open. Go and explore downtown.",
+"norm": "door6isalreadyopengoandexploredowntown",
+"src": [
+"lantern_days:again2"
+]
+},
+{
+"text": "Psst! Over here! Door 7: Mail from home. Something is rattling in Chris's building. Go home and check the mailbox. A note might be waiting. (The mailbox is by Chris's house. Press G.)",
+"norm": "psstoverheredoor7mailfromhomesomethingisrattlinginchrissbuildinggohomeandcheckthemailboxanotemightbewaitingthemailboxisbychrisshousepressg",
+"src": [
+"lantern_days:tell"
+]
+},
+{
+"text": "Door 7 is open! A note from mom? Hmm. Keep it secret.",
+"norm": "door7isopenanotefrommomhmmkeepitsecret",
+"src": [
+"lantern_days:done"
+]
+},
+{
+"text": "Psst! Over here! Door 7 is open: Mail from home. Y to hear more.",
+"norm": "psstoverheredoor7isopenmailfromhomeytohearmore",
+"src": [
+"lantern_days:hi"
+]
+},
+{
+"text": "Psst! Over here! Door 7 is open: Mail from home. hold ▢ to hear more.",
+"norm": "psstoverheredoor7isopenmailfromhomeholdtohearmore",
+"src": [
+"lantern_days:hi"
+]
+},
+{
+"text": "Door 7 is already open. Come back tomorrow!",
+"norm": "door7isalreadyopencomebacktomorrow",
+"src": [
+"lantern_days:again1"
+]
+},
+{
+"text": "Door 7 is already open. Go and explore downtown.",
+"norm": "door7isalreadyopengoandexploredowntown",
+"src": [
+"lantern_days:again2"
+]
+},
+{
+"text": "Psst! Over here! Door 8: Under the floorboards. The witch's flat is not what it seems. Go to Chris's house and listen for what is behind her door. (Stay quiet. She hates noise.)",
+"norm": "psstoverheredoor8underthefloorboardsthewitchsflatisnotwhatitseemsgotochrisshouseandlistenforwhatisbehindherdoorstayquietshehatesnoise",
+"src": [
+"lantern_days:tell"
+]
+},
+{
+"text": "Door 8 is open! I knew it. A dungeon.",
+"norm": "door8isopeniknewitadungeon",
+"src": [
+"lantern_days:done"
+]
+},
+{
+"text": "Psst! Over here! Door 8 is open: Under the floorboards. Y to hear more.",
+"norm": "psstoverheredoor8isopenunderthefloorboardsytohearmore",
+"src": [
+"lantern_days:hi"
+]
+},
+{
+"text": "Psst! Over here! Door 8 is open: Under the floorboards. hold ▢ to hear more.",
+"norm": "psstoverheredoor8isopenunderthefloorboardsholdtohearmore",
+"src": [
+"lantern_days:hi"
+]
+},
+{
+"text": "Door 8 is already open. Come back tomorrow!",
+"norm": "door8isalreadyopencomebacktomorrow",
+"src": [
+"lantern_days:again1"
+]
+},
+{
+"text": "Door 8 is already open. Go and explore downtown.",
+"norm": "door8isalreadyopengoandexploredowntown",
+"src": [
+"lantern_days:again2"
+]
+},
+{
+"text": "Psst! Over here! Door 9: The big globe. Find Globen, the giant landmark out on the hill. Walk, drive, whatever you like. Follow my arrow. I have a feeling there is something up there for a person who likes to jump. (It is past the tipi village. Walk right up to it. They say a pair of wings is lying around on top of the world. Afterwards, jump off the hill.)",
+"norm": "psstoverheredoor9thebigglobefindglobenthegiantlandmarkoutonthehillwalkdrivewhateveryoulikefollowmyarrowihaveafeelingthereissomethingupthereforapersonwholikestojumpitispastthetipivillagewalkrightuptoittheysayapairofwingsislyingaroundontopoftheworldafterwardsjumpoffthehill",
+"src": [
+"lantern_days:tell"
+]
+},
+{
+"text": "Door 9 is open! What a view! A big round thing on a hill, and it is looking back at us. And look: wings, just lying there. Jump off the hill and see what happens.",
+"norm": "door9isopenwhataviewabigroundthingonahillanditislookingbackatusandlookwingsjustlyingtherejumpoffthehillandseewhathappens",
+"src": [
+"lantern_days:done"
+]
+},
+{
+"text": "Psst! Over here! Door 9 is open: The big globe. Y to hear more.",
+"norm": "psstoverheredoor9isopenthebigglobeytohearmore",
+"src": [
+"lantern_days:hi"
+]
+},
+{
+"text": "Psst! Over here! Door 9 is open: The big globe. hold ▢ to hear more.",
+"norm": "psstoverheredoor9isopenthebigglobeholdtohearmore",
+"src": [
+"lantern_days:hi"
+]
+},
+{
+"text": "Door 9 is already open. Come back tomorrow!",
+"norm": "door9isalreadyopencomebacktomorrow",
+"src": [
+"lantern_days:again1"
+]
+},
+{
+"text": "Door 9 is already open. Go and explore downtown.",
+"norm": "door9isalreadyopengoandexploredowntown",
+"src": [
+"lantern_days:again2"
+]
+},
+{
+"text": "Psst! Over here! Door 10: Top of the rock. Climb Orresteinen, the giant rock above Fedafjorden. (It is far. A car helps. Or a jetpack.)",
+"norm": "psstoverheredoor10topoftherockclimborresteinenthegiantrockabovefedafjordenitisfaracarhelpsorajetpack",
+"src": [
+"lantern_days:tell"
+]
+},
+{
+"text": "Door 10 is open! Top of the world!",
+"norm": "door10isopentopoftheworld",
+"src": [
+"lantern_days:done"
+]
+},
+{
+"text": "Psst! Over here! Door 10 is open: Top of the rock. Y to hear more.",
+"norm": "psstoverheredoor10isopentopoftherockytohearmore",
+"src": [
+"lantern_days:hi"
+]
+},
+{
+"text": "Psst! Over here! Door 10 is open: Top of the rock. hold ▢ to hear more.",
+"norm": "psstoverheredoor10isopentopoftherockholdtohearmore",
+"src": [
+"lantern_days:hi"
+]
+},
+{
+"text": "Door 10 is already open. Come back tomorrow!",
+"norm": "door10isalreadyopencomebacktomorrow",
+"src": [
+"lantern_days:again1"
+]
+},
+{
+"text": "Door 10 is already open. Go and explore downtown.",
+"norm": "door10isalreadyopengoandexploredowntown",
+"src": [
+"lantern_days:again2"
+]
+},
+{
+"text": "Psst! Over here! Door 11: Baking Day. Flour, butter, ginger, syrup, eggs. Different shops, and some of them are sold out. Please do not let it burn. I cannot smell, and I am still worried. (Start at the bakery on Nesgata. Mix, roll, cut, bake. Then take the batch to her.)",
+"norm": "psstoverheredoor11bakingdayflourbuttergingersyrupeggsdifferentshopsandsomeofthemaresoldoutpleasedonotletitburnicannotsmellandiamstillworriedstartatthebakeryonnesgatamixrollcutbakethentakethebatchtoher",
+"src": [
+"lantern_days:tell"
+]
+},
+{
+"text": "Door 11 is open! Not burnt. Almost. Now take it where it is needed.",
+"norm": "door11isopennotburntalmostnowtakeitwhereitisneeded",
+"src": [
+"lantern_days:done"
+]
+},
+{
+"text": "Psst! Over here! Door 11 is open: Baking Day. Y to hear more.",
+"norm": "psstoverheredoor11isopenbakingdayytohearmore",
+"src": [
+"lantern_days:hi"
+]
+},
+{
+"text": "Psst! Over here! Door 11 is open: Baking Day. hold ▢ to hear more.",
+"norm": "psstoverheredoor11isopenbakingdayholdtohearmore",
+"src": [
+"lantern_days:hi"
+]
+},
+{
+"text": "Door 11 is already open. Come back tomorrow!",
+"norm": "door11isalreadyopencomebacktomorrow",
+"src": [
+"lantern_days:again1"
+]
+},
+{
+"text": "Door 11 is already open. Go and explore downtown.",
+"norm": "door11isalreadyopengoandexploredowntown",
+"src": [
+"lantern_days:again2"
+]
+},
+{
+"text": "Psst! Over here! Door 12: Cookie monster. The witch has been eating all the cookies. Go down into her dungeon and end this. Take a light. (Press L for the flashlight. She is very strong now.)",
+"norm": "psstoverheredoor12cookiemonsterthewitchhasbeeneatingallthecookiesgodownintoherdungeonandendthistakealightpresslfortheflashlightsheisverystrongnow",
+"src": [
+"lantern_days:tell"
+]
+},
+{
+"text": "Door 12 is open! She is gone for good! Go and get that last parcel.",
+"norm": "door12isopensheisgoneforgoodgoandgetthatlastparcel",
+"src": [
+"lantern_days:done"
+]
+},
+{
+"text": "Psst! Over here! Door 12 is open: Cookie monster. Y to hear more.",
+"norm": "psstoverheredoor12isopencookiemonsterytohearmore",
+"src": [
+"lantern_days:hi"
+]
+},
+{
+"text": "Psst! Over here! Door 12 is open: Cookie monster. hold ▢ to hear more.",
+"norm": "psstoverheredoor12isopencookiemonsterholdtohearmore",
+"src": [
+"lantern_days:hi"
+]
+},
+{
+"text": "Door 12 is already open. Come back tomorrow!",
+"norm": "door12isalreadyopencomebacktomorrow",
+"src": [
+"lantern_days:again1"
+]
+},
+{
+"text": "Door 12 is already open. Go and explore downtown.",
+"norm": "door12isalreadyopengoandexploredowntown",
+"src": [
+"lantern_days:again2"
+]
+},
+{
+"text": "Psst! Over here! Door 13: Make it shine. Decorate Chris's house. Now it will stay up! (Open the dev decorating items and go wild.)",
+"norm": "psstoverheredoor13makeitshinedecoratechrisshousenowitwillstayupopenthedevdecoratingitemsandgowild",
+"src": [
+"lantern_days:tell"
+]
+},
+{
+"text": "Door 13 is open! Beautiful. The stones are warm. Not the stones, I mean everything. Is that your doing?",
+"norm": "door13isopenbeautifulthestonesarewarmnotthestonesimeaneverythingisthatyourdoing",
+"src": [
+"lantern_days:done"
+]
+},
+{
+"text": "Psst! Over here! Door 13 is open: Make it shine. Y to hear more.",
+"norm": "psstoverheredoor13isopenmakeitshineytohearmore",
+"src": [
+"lantern_days:hi"
+]
+},
+{
+"text": "Psst! Over here! Door 13 is open: Make it shine. hold ▢ to hear more.",
+"norm": "psstoverheredoor13isopenmakeitshineholdtohearmore",
+"src": [
+"lantern_days:hi"
+]
+},
+{
+"text": "Door 13 is already open. Come back tomorrow!",
+"norm": "door13isalreadyopencomebacktomorrow",
+"src": [
+"lantern_days:again1"
+]
+},
+{
+"text": "Door 13 is already open. Go and explore downtown.",
+"norm": "door13isalreadyopengoandexploredowntown",
+"src": [
+"lantern_days:again2"
+]
+},
+{
+"text": "Psst! Over here! Door 14: Light the lights. Walk around town and light up Christmas. Start by the tree on the square.",
+"norm": "psstoverheredoor14lightthelightswalkaroundtownandlightupchristmasstartbythetreeonthesquare",
+"src": [
+"lantern_days:tell"
+]
+},
+{
+"text": "Door 14 is open! Everything glows!",
+"norm": "door14isopeneverythingglows",
+"src": [
+"lantern_days:done"
+]
+},
+{
+"text": "Psst! Over here! Door 14 is open: Light the lights. Y to hear more.",
+"norm": "psstoverheredoor14isopenlightthelightsytohearmore",
+"src": [
+"lantern_days:hi"
+]
+},
+{
+"text": "Psst! Over here! Door 14 is open: Light the lights. hold ▢ to hear more.",
+"norm": "psstoverheredoor14isopenlightthelightsholdtohearmore",
+"src": [
+"lantern_days:hi"
+]
+},
+{
+"text": "Door 14 is already open. Come back tomorrow!",
+"norm": "door14isalreadyopencomebacktomorrow",
+"src": [
+"lantern_days:again1"
+]
+},
+{
+"text": "Door 14 is already open. Go and explore downtown.",
+"norm": "door14isalreadyopengoandexploredowntown",
+"src": [
+"lantern_days:again2"
+]
+},
+{
+"text": "Psst! Over here! Door 15: Look up. Astronomers said a fun night. I have looked up the word fun. They are using it differently. Go to the frozen river and look up. (Stay on the ice until something falls.)",
+"norm": "psstoverheredoor15lookupastronomerssaidafunnightihavelookedupthewordfuntheyareusingitdifferentlygotothefrozenriverandlookupstayontheiceuntilsomethingfalls",
+"src": [
+"lantern_days:tell"
+]
+},
+{
+"text": "Door 15 is open! That was not a fun night. That was a fireball.",
+"norm": "door15isopenthatwasnotafunnightthatwasafireball",
+"src": [
+"lantern_days:done"
+]
+},
+{
+"text": "Psst! Over here! Door 15 is open: Look up. Y to hear more.",
+"norm": "psstoverheredoor15isopenlookupytohearmore",
+"src": [
+"lantern_days:hi"
+]
+},
+{
+"text": "Psst! Over here! Door 15 is open: Look up. hold ▢ to hear more.",
+"norm": "psstoverheredoor15isopenlookupholdtohearmore",
+"src": [
+"lantern_days:hi"
+]
+},
+{
+"text": "Door 15 is already open. Come back tomorrow!",
+"norm": "door15isalreadyopencomebacktomorrow",
+"src": [
+"lantern_days:again1"
+]
+},
+{
+"text": "Door 15 is already open. Go and explore downtown.",
+"norm": "door15isalreadyopengoandexploredowntown",
+"src": [
+"lantern_days:again2"
+]
+},
+{
+"text": "Psst! Over here! Door 16: The last parcel. Check the mailbox. The last parcel from mom should be here. (Press G at the mailbox.)",
+"norm": "psstoverheredoor16thelastparcelcheckthemailboxthelastparcelfrommomshouldbeherepressgatthemailbox",
+"src": [
+"lantern_days:tell"
+]
+},
+{
+"text": "Door 16 is open! Cookies at last! Men in black coats are up at the crater now. Do not go near. ...Go near, but carefully.",
+"norm": "door16isopencookiesatlastmeninblackcoatsareupatthecraternowdonotgoneargonearbutcarefully",
+"src": [
+"lantern_days:done"
+]
+},
+{
+"text": "Psst! Over here! Door 16 is open: The last parcel. Y to hear more.",
+"norm": "psstoverheredoor16isopenthelastparcelytohearmore",
+"src": [
+"lantern_days:hi"
+]
+},
+{
+"text": "Psst! Over here! Door 16 is open: The last parcel. hold ▢ to hear more.",
+"norm": "psstoverheredoor16isopenthelastparcelholdtohearmore",
+"src": [
+"lantern_days:hi"
+]
+},
+{
+"text": "Door 16 is already open. Come back tomorrow!",
+"norm": "door16isalreadyopencomebacktomorrow",
+"src": [
+"lantern_days:again1"
+]
+},
+{
+"text": "Door 16 is already open. Go and explore downtown.",
+"norm": "door16isalreadyopengoandexploredowntown",
+"src": [
+"lantern_days:again2"
+]
+},
+{
+"text": "Psst! Over here! Door 17: Hill walk. Hike up to Hamrevarden and see the town from above. (Warm clothes help.)",
+"norm": "psstoverheredoor17hillwalkhikeuptohamrevardenandseethetownfromabovewarmclotheshelp",
+"src": [
+"lantern_days:tell"
+]
+},
+{
+"text": "Door 17 is open! Cold and beautiful. I keep feeling counted. Please be warm somewhere.",
+"norm": "door17isopencoldandbeautifulikeepfeelingcountedpleasebewarmsomewhere",
+"src": [
+"lantern_days:done"
+]
+},
+{
+"text": "Psst! Over here! Door 17 is open: Hill walk. Y to hear more.",
+"norm": "psstoverheredoor17isopenhillwalkytohearmore",
+"src": [
+"lantern_days:hi"
+]
+},
+{
+"text": "Psst! Over here! Door 17 is open: Hill walk. hold ▢ to hear more.",
+"norm": "psstoverheredoor17isopenhillwalkholdtohearmore",
+"src": [
+"lantern_days:hi"
+]
+},
+{
+"text": "Door 17 is already open. Come back tomorrow!",
+"norm": "door17isalreadyopencomebacktomorrow",
+"src": [
+"lantern_days:again1"
+]
+},
+{
+"text": "Door 17 is already open. Go and explore downtown.",
+"norm": "door17isalreadyopengoandexploredowntown",
+"src": [
+"lantern_days:again2"
+]
+},
+{
+"text": "Psst! Over here! Door 18: Two hats. Red hats, blue hats, one very old argument. Gammel-Rød waits in the red cave and Mor Blå in the blue one, and both blame the other for the grey footprints. Bring them to one table at the church. I would knock their heads together, but I have no hands. (Look at the footprints in both caves, hear both chiefs out, then meet them at the church table.)",
+"norm": "psstoverheredoor18twohatsredhatsbluehatsoneveryoldargumentgammelrødwaitsintheredcaveandmorblåintheblueoneandbothblametheotherforthegreyfootprintsbringthemtoonetableatthechurchiwouldknocktheirheadstogetherbutihavenohandslookatthefootprintsinbothcaveshearbothchiefsoutthenmeetthematthechurchtable",
+"src": [
+"lantern_days:tell"
+]
+},
+{
+"text": "Door 18 is open! They are still arguing, but at one table. That counts.",
+"norm": "door18isopentheyarestillarguingbutatonetablethatcounts",
+"src": [
+"lantern_days:done"
+]
+},
+{
+"text": "Psst! Over here! Door 18 is open: Two hats. Y to hear more.",
+"norm": "psstoverheredoor18isopentwohatsytohearmore",
+"src": [
+"lantern_days:hi"
+]
+},
+{
+"text": "Psst! Over here! Door 18 is open: Two hats. hold ▢ to hear more.",
+"norm": "psstoverheredoor18isopentwohatsholdtohearmore",
+"src": [
+"lantern_days:hi"
+]
+},
+{
+"text": "Door 18 is already open. Come back tomorrow!",
+"norm": "door18isalreadyopencomebacktomorrow",
+"src": [
+"lantern_days:again1"
+]
+},
+{
+"text": "Door 18 is already open. Go and explore downtown.",
+"norm": "door18isalreadyopengoandexploredowntown",
+"src": [
+"lantern_days:again2"
+]
+},
+{
+"text": "Psst! Over here! Door 19: The Night Wing. The Night Wing is ready. Fly the jetpack ring race out toward the crater on Nonskarknuten. Rings, a crater, and a car with opinions. Fly. (Walk to the start sign on the riverbank and press G. Rings, jetpack, fuel. If you miss a ring, turn around. The prize is 64 rockets. You already have the jetpack and the wings, so use them both.)",
+"norm": "psstoverheredoor19thenightwingthenightwingisreadyflythejetpackringraceouttowardthecrateronnonskarknutenringsacraterandacarwithopinionsflywalktothestartsignontheriverbankandpressgringsjetpackfuelifyoumissaringturnaroundtheprizeis64rocketsyoualreadyhavethejetpackandthewingssousethemboth",
+"src": [
+"lantern_days:tell"
+]
+},
+{
+"text": "Door 19 is open! You made it to the rim. Do not look down into the crater.",
+"norm": "door19isopenyoumadeittotherimdonotlookdownintothecrater",
+"src": [
+"lantern_days:done"
+]
+},
+{
+"text": "Psst! Over here! Door 19 is open: The Night Wing. Y to hear more.",
+"norm": "psstoverheredoor19isopenthenightwingytohearmore",
+"src": [
+"lantern_days:hi"
+]
+},
+{
+"text": "Psst! Over here! Door 19 is open: The Night Wing. hold ▢ to hear more.",
+"norm": "psstoverheredoor19isopenthenightwingholdtohearmore",
+"src": [
+"lantern_days:hi"
+]
+},
+{
+"text": "Door 19 is already open. Come back tomorrow!",
+"norm": "door19isalreadyopencomebacktomorrow",
+"src": [
+"lantern_days:again1"
+]
+},
+{
+"text": "Door 19 is already open. Go and explore downtown.",
+"norm": "door19isalreadyopengoandexploredowntown",
+"src": [
+"lantern_days:again2"
+]
+},
+{
+"text": "Psst! Over here! Door 20: The crater. Something up on the mountain is moving, slowly, toward town. Go and look at the crater. Then run. (Stay on the flank, away from the light beam.)",
+"norm": "psstoverheredoor20thecratersomethinguponthemountainismovingslowlytowardtowngoandlookatthecraterthenrunstayontheflankawayfromthelightbeam",
+"src": [
+"lantern_days:tell"
+]
+},
+{
+"text": "Door 20 is open! It is slow. I do not like slow things that do not stop.",
+"norm": "door20isopenitisslowidonotlikeslowthingsthatdonotstop",
+"src": [
+"lantern_days:done"
+]
+},
+{
+"text": "Psst! Over here! Door 20 is open: The crater. Y to hear more.",
+"norm": "psstoverheredoor20isopenthecraterytohearmore",
+"src": [
+"lantern_days:hi"
+]
+},
+{
+"text": "Psst! Over here! Door 20 is open: The crater. hold ▢ to hear more.",
+"norm": "psstoverheredoor20isopenthecraterholdtohearmore",
+"src": [
+"lantern_days:hi"
+]
+},
+{
+"text": "Door 20 is already open. Come back tomorrow!",
+"norm": "door20isalreadyopencomebacktomorrow",
+"src": [
+"lantern_days:again1"
+]
+},
+{
+"text": "Door 20 is already open. Go and explore downtown.",
+"norm": "door20isalreadyopengoandexploredowntown",
+"src": [
+"lantern_days:again2"
+]
+},
+{
+"text": "Psst! Over here! Door 21: Longest night. Fifteen small fires. We make them, or we are dark. Light the cairns on the way, then get to Bowlinghallen. It is the only place that stays warm. (If it gets dark, stay near me.)",
+"norm": "psstoverheredoor21longestnightfifteensmallfireswemakethemorwearedarklightthecairnsonthewaythengettobowlinghallenitistheonlyplacethatstayswarmifitgetsdarkstaynearme",
+"src": [
+"lantern_days:tell"
+]
+},
+{
+"text": "Door 21 is open! Safe and warm. Fifteen fires, and we kept the light.",
+"norm": "door21isopensafeandwarmfifteenfiresandwekeptthelight",
+"src": [
+"lantern_days:done"
+]
+},
+{
+"text": "Psst! Over here! Door 21 is open: Longest night. Y to hear more.",
+"norm": "psstoverheredoor21isopenlongestnightytohearmore",
+"src": [
+"lantern_days:hi"
+]
+},
+{
+"text": "Psst! Over here! Door 21 is open: Longest night. hold ▢ to hear more.",
+"norm": "psstoverheredoor21isopenlongestnightholdtohearmore",
+"src": [
+"lantern_days:hi"
+]
+},
+{
+"text": "Door 21 is already open. Come back tomorrow!",
+"norm": "door21isalreadyopencomebacktomorrow",
+"src": [
+"lantern_days:again1"
+]
+},
+{
+"text": "Door 21 is already open. Go and explore downtown.",
+"norm": "door21isalreadyopengoandexploredowntown",
+"src": [
+"lantern_days:again2"
+]
+},
+{
+"text": "Psst! Over here! Door 22: Slightly embarrassed lights. Check on someone. Anyone. Warm is a team sport. Start with the flat next door. (Coins can wait. Bring a few for the cafe if you like.)",
+"norm": "psstoverheredoor22slightlyembarrassedlightscheckonsomeoneanyonewarmisateamsportstartwiththeflatnextdoorcoinscanwaitbringafewforthecafeifyoulike",
+"src": [
+"lantern_days:tell"
+]
+},
+{
+"text": "Door 22 is open! Somebody smiled back. Warm is a team sport.",
+"norm": "door22isopensomebodysmiledbackwarmisateamsport",
+"src": [
+"lantern_days:done"
+]
+},
+{
+"text": "Psst! Over here! Door 22 is open: Slightly embarrassed lights. Y to hear more.",
+"norm": "psstoverheredoor22isopenslightlyembarrassedlightsytohearmore",
+"src": [
+"lantern_days:hi"
+]
+},
+{
+"text": "Psst! Over here! Door 22 is open: Slightly embarrassed lights. hold ▢ to hear more.",
+"norm": "psstoverheredoor22isopenslightlyembarrassedlightsholdtohearmore",
+"src": [
+"lantern_days:hi"
+]
+},
+{
+"text": "Door 22 is already open. Come back tomorrow!",
+"norm": "door22isalreadyopencomebacktomorrow",
+"src": [
+"lantern_days:again1"
+]
+},
+{
+"text": "Door 22 is already open. Go and explore downtown.",
+"norm": "door22isalreadyopengoandexploredowntown",
+"src": [
+"lantern_days:again2"
+]
+},
+{
+"text": "Psst! Over here! Door 23: Lille julaften. Lille julaften. The dragon at Liland woke when the light went out. Make the gingerbread house anyway. Slowly. Then visit the church and say hello to everyone.",
+"norm": "psstoverheredoor23lillejulaftenlillejulaftenthedragonatlilandwokewhenthelightwentoutmakethegingerbreadhouseanywayslowlythenvisitthechurchandsayhellotoeveryone",
+"src": [
+"lantern_days:tell"
+]
+},
+{
+"text": "Door 23 is open! Almost there. Tomorrow we find out what the dragon wants.",
+"norm": "door23isopenalmosttheretomorrowwefindoutwhatthedragonwants",
+"src": [
+"lantern_days:done"
+]
+},
+{
+"text": "Psst! Over here! Door 23 is open: Lille julaften. Y to hear more.",
+"norm": "psstoverheredoor23isopenlillejulaftenytohearmore",
+"src": [
+"lantern_days:hi"
+]
+},
+{
+"text": "Psst! Over here! Door 23 is open: Lille julaften. hold ▢ to hear more.",
+"norm": "psstoverheredoor23isopenlillejulaftenholdtohearmore",
+"src": [
+"lantern_days:hi"
+]
+},
+{
+"text": "Door 23 is already open. Come back tomorrow!",
+"norm": "door23isalreadyopencomebacktomorrow",
+"src": [
+"lantern_days:again1"
+]
+},
+{
+"text": "Door 23 is already open. Go and explore downtown.",
+"norm": "door23isalreadyopengoandexploredowntown",
+"src": [
+"lantern_days:again2"
+]
+},
+{
+"text": "Psst! Over here! Door 24: Christmas Eve. Whatever happens, we kept the light. Go to the tree on the square. It is time.",
+"norm": "psstoverheredoor24christmasevewhateverhappenswekeptthelightgotothetreeonthesquareitistime",
+"src": [
+"lantern_days:tell"
+]
+},
+{
+"text": "Door 24 is open! Merry Christmas, Chris and Martin! The last door is open.",
+"norm": "door24isopenmerrychristmaschrisandmartinthelastdoorisopen",
+"src": [
+"lantern_days:done"
+]
+},
+{
+"text": "Psst! Over here! Door 24 is open: Christmas Eve. Y to hear more.",
+"norm": "psstoverheredoor24isopenchristmaseveytohearmore",
+"src": [
+"lantern_days:hi"
+]
+},
+{
+"text": "Psst! Over here! Door 24 is open: Christmas Eve. hold ▢ to hear more.",
+"norm": "psstoverheredoor24isopenchristmaseveholdtohearmore",
+"src": [
+"lantern_days:hi"
+]
+},
+{
+"text": "Door 24 is already open. Come back tomorrow!",
+"norm": "door24isalreadyopencomebacktomorrow",
+"src": [
+"lantern_days:again1"
+]
+},
+{
+"text": "Door 24 is already open. Go and explore downtown.",
+"norm": "door24isalreadyopengoandexploredowntown",
+"src": [
+"lantern_days:again2"
+]
+},
+{
+"text": "Psst! Over here! The first door opens on 1 December. See you then!",
+"norm": "psstoverherethefirstdooropenson1decemberseeyouthen",
+"src": [
+"lantern_days"
+]
+},
+{
+"text": "Psst! Over here! I have nothing for this door yet.",
+"norm": "psstoverhereihavenothingforthisdooryet",
+"src": [
+"lantern_days"
+]
+},
+{
+"text": "I do not know where that is. Have a look around downtown!",
+"norm": "idonotknowwherethatishavealookarounddowntown",
+"src": [
+"lantern_days"
+]
+},
+{
+"text": "Follow me!",
+"norm": "followme",
+"src": [
+"lantern_days"
+]
+},
+{
+"text": "The road home is this way.",
+"norm": "theroadhomeisthisway",
+"src": [
+"introstory"
+]
+},
+{
+"text": "Psst! Press L for the flashlight. It gets dark out there.",
+"norm": "psstpresslfortheflashlightitgetsdarkoutthere",
+"src": [
+"tips"
+]
+},
+{
+"text": "Psst! Press R to change the radio in a car.",
+"norm": "psstpressrtochangetheradioinacar",
+"src": [
+"tips"
+]
+},
+{
+"text": "Psst! Press T to search for any place downtown.",
+"norm": "psstpressttosearchforanyplacedowntown",
+"src": [
+"tips"
+]
+},
+{
+"text": "Psst! Press E to open your backpack and crafting.",
+"norm": "psstpressetoopenyourbackpackandcrafting",
+"src": [
+"tips"
+]
+},
+{
+"text": "Psst! Hold ▢ near me and I will tell you today's task.",
+"norm": "psstholdnearmeandiwilltellyoutodaystask",
+"src": [
+"tips"
+]
+},
+{
+"text": "Psst! Press Y and I will tell you today's task.",
+"norm": "psstpressyandiwilltellyoutodaystask",
+"src": [
+"tips"
+]
+},
+{
+"text": "Psst! Press O to look at all 24 doors.",
+"norm": "psstpressotolookatall24doors",
+"src": [
+"tips"
+]
+},
+{
+"text": "Psst! Hold Shift to run.",
+"norm": "psstholdshifttorun",
+"src": [
+"tips"
+]
+},
+{
+"text": "Psst! Press M to turn the music on or off.",
+"norm": "psstpressmtoturnthemusiconoroff",
+"src": [
+"tips"
+]
+},
+{
+"text": "Psst! Press G to use things, talk, and get in cars.",
+"norm": "psstpressgtousethingstalkandgetincars",
+"src": [
+"tips"
+]
+},
+{
+"text": "Psst! Channel guide: press ▢ at a TV to change the channel. 1 Været og Nytt (the news), 2 Midnatt i Sentrum, 3 Nisse-TV.",
+"norm": "psstchannelguidepressatatvtochangethechannel1væretognyttthenews2midnattisentrum3nissetv",
+"src": [
+"tips"
+]
+},
+{
+"text": "Psst! Channel guide: press G at a TV to change the channel. 1 Været og Nytt (the news), 2 Midnatt i Sentrum, 3 Nisse-TV.",
+"norm": "psstchannelguidepressgatatvtochangethechannel1væretognyttthenews2midnattisentrum3nissetv",
+"src": [
+"tips"
+]
+},
+{
+"text": "1 of 15 burning. Keep going.",
+"norm": "1of15burningkeepgoing",
+"src": [
+"cairns:count"
+]
+},
+{
+"text": "2 of 15 burning. Keep going.",
+"norm": "2of15burningkeepgoing",
+"src": [
+"cairns:count"
+]
+},
+{
+"text": "3 of 15 burning. Keep going.",
+"norm": "3of15burningkeepgoing",
+"src": [
+"cairns:count"
+]
+},
+{
+"text": "4 of 15 burning. Keep going.",
+"norm": "4of15burningkeepgoing",
+"src": [
+"cairns:count"
+]
+},
+{
+"text": "5 of 15 burning. Keep going.",
+"norm": "5of15burningkeepgoing",
+"src": [
+"cairns:count"
+]
+},
+{
+"text": "6 of 15 burning. Keep going.",
+"norm": "6of15burningkeepgoing",
+"src": [
+"cairns:count"
+]
+},
+{
+"text": "7 of 15 burning. Keep going.",
+"norm": "7of15burningkeepgoing",
+"src": [
+"cairns:count"
+]
+},
+{
+"text": "8 of 15 burning. Keep going.",
+"norm": "8of15burningkeepgoing",
+"src": [
+"cairns:count"
+]
+},
+{
+"text": "9 of 15 burning. Keep going.",
+"norm": "9of15burningkeepgoing",
+"src": [
+"cairns:count"
+]
+},
+{
+"text": "10 of 15 burning. Keep going.",
+"norm": "10of15burningkeepgoing",
+"src": [
+"cairns:count"
+]
+},
+{
+"text": "11 of 15 burning. Keep going.",
+"norm": "11of15burningkeepgoing",
+"src": [
+"cairns:count"
+]
+},
+{
+"text": "12 of 15 burning. Keep going.",
+"norm": "12of15burningkeepgoing",
+"src": [
+"cairns:count"
+]
+},
+{
+"text": "13 of 15 burning. Keep going.",
+"norm": "13of15burningkeepgoing",
+"src": [
+"cairns:count"
+]
+},
+{
+"text": "14 of 15 burning. Keep going.",
+"norm": "14of15burningkeepgoing",
+"src": [
+"cairns:count"
+]
+},
+{
+"text": "15 of 15 burning. Keep going.",
+"norm": "15of15burningkeepgoing",
+"src": [
+"cairns:count"
+]
+},
+{
+"text": "Hear that? That was not the wind. Something on the dark mountain to the north just answered.",
+"norm": "hearthatthatwasnotthewindsomethingonthedarkmountaintothenorthjustanswered",
+"src": [
+"cairns:dir"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 10 metres north. Follow me.",
+"norm": "pocketsfullthenearestbinis10metresnorthfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 20 metres north. Follow me.",
+"norm": "pocketsfullthenearestbinis20metresnorthfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 30 metres north. Follow me.",
+"norm": "pocketsfullthenearestbinis30metresnorthfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 40 metres north. Follow me.",
+"norm": "pocketsfullthenearestbinis40metresnorthfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 50 metres north. Follow me.",
+"norm": "pocketsfullthenearestbinis50metresnorthfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 60 metres north. Follow me.",
+"norm": "pocketsfullthenearestbinis60metresnorthfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 70 metres north. Follow me.",
+"norm": "pocketsfullthenearestbinis70metresnorthfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 80 metres north. Follow me.",
+"norm": "pocketsfullthenearestbinis80metresnorthfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 90 metres north. Follow me.",
+"norm": "pocketsfullthenearestbinis90metresnorthfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 100 metres north. Follow me.",
+"norm": "pocketsfullthenearestbinis100metresnorthfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 110 metres north. Follow me.",
+"norm": "pocketsfullthenearestbinis110metresnorthfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 120 metres north. Follow me.",
+"norm": "pocketsfullthenearestbinis120metresnorthfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 130 metres north. Follow me.",
+"norm": "pocketsfullthenearestbinis130metresnorthfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 140 metres north. Follow me.",
+"norm": "pocketsfullthenearestbinis140metresnorthfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 150 metres north. Follow me.",
+"norm": "pocketsfullthenearestbinis150metresnorthfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 160 metres north. Follow me.",
+"norm": "pocketsfullthenearestbinis160metresnorthfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 170 metres north. Follow me.",
+"norm": "pocketsfullthenearestbinis170metresnorthfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 180 metres north. Follow me.",
+"norm": "pocketsfullthenearestbinis180metresnorthfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 190 metres north. Follow me.",
+"norm": "pocketsfullthenearestbinis190metresnorthfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 200 metres north. Follow me.",
+"norm": "pocketsfullthenearestbinis200metresnorthfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is more than 200 metres north. Follow me.",
+"norm": "pocketsfullthenearestbinismorethan200metresnorthfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Hear that? That was not the wind. Something on the dark mountain to the north-east just answered.",
+"norm": "hearthatthatwasnotthewindsomethingonthedarkmountaintothenortheastjustanswered",
+"src": [
+"cairns:dir"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 10 metres north-east. Follow me.",
+"norm": "pocketsfullthenearestbinis10metresnortheastfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 20 metres north-east. Follow me.",
+"norm": "pocketsfullthenearestbinis20metresnortheastfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 30 metres north-east. Follow me.",
+"norm": "pocketsfullthenearestbinis30metresnortheastfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 40 metres north-east. Follow me.",
+"norm": "pocketsfullthenearestbinis40metresnortheastfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 50 metres north-east. Follow me.",
+"norm": "pocketsfullthenearestbinis50metresnortheastfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 60 metres north-east. Follow me.",
+"norm": "pocketsfullthenearestbinis60metresnortheastfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 70 metres north-east. Follow me.",
+"norm": "pocketsfullthenearestbinis70metresnortheastfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 80 metres north-east. Follow me.",
+"norm": "pocketsfullthenearestbinis80metresnortheastfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 90 metres north-east. Follow me.",
+"norm": "pocketsfullthenearestbinis90metresnortheastfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 100 metres north-east. Follow me.",
+"norm": "pocketsfullthenearestbinis100metresnortheastfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 110 metres north-east. Follow me.",
+"norm": "pocketsfullthenearestbinis110metresnortheastfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 120 metres north-east. Follow me.",
+"norm": "pocketsfullthenearestbinis120metresnortheastfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 130 metres north-east. Follow me.",
+"norm": "pocketsfullthenearestbinis130metresnortheastfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 140 metres north-east. Follow me.",
+"norm": "pocketsfullthenearestbinis140metresnortheastfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 150 metres north-east. Follow me.",
+"norm": "pocketsfullthenearestbinis150metresnortheastfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 160 metres north-east. Follow me.",
+"norm": "pocketsfullthenearestbinis160metresnortheastfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 170 metres north-east. Follow me.",
+"norm": "pocketsfullthenearestbinis170metresnortheastfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 180 metres north-east. Follow me.",
+"norm": "pocketsfullthenearestbinis180metresnortheastfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 190 metres north-east. Follow me.",
+"norm": "pocketsfullthenearestbinis190metresnortheastfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 200 metres north-east. Follow me.",
+"norm": "pocketsfullthenearestbinis200metresnortheastfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is more than 200 metres north-east. Follow me.",
+"norm": "pocketsfullthenearestbinismorethan200metresnortheastfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Hear that? That was not the wind. Something on the dark mountain to the east just answered.",
+"norm": "hearthatthatwasnotthewindsomethingonthedarkmountaintotheeastjustanswered",
+"src": [
+"cairns:dir"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 10 metres east. Follow me.",
+"norm": "pocketsfullthenearestbinis10metreseastfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 20 metres east. Follow me.",
+"norm": "pocketsfullthenearestbinis20metreseastfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 30 metres east. Follow me.",
+"norm": "pocketsfullthenearestbinis30metreseastfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 40 metres east. Follow me.",
+"norm": "pocketsfullthenearestbinis40metreseastfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 50 metres east. Follow me.",
+"norm": "pocketsfullthenearestbinis50metreseastfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 60 metres east. Follow me.",
+"norm": "pocketsfullthenearestbinis60metreseastfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 70 metres east. Follow me.",
+"norm": "pocketsfullthenearestbinis70metreseastfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 80 metres east. Follow me.",
+"norm": "pocketsfullthenearestbinis80metreseastfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 90 metres east. Follow me.",
+"norm": "pocketsfullthenearestbinis90metreseastfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 100 metres east. Follow me.",
+"norm": "pocketsfullthenearestbinis100metreseastfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 110 metres east. Follow me.",
+"norm": "pocketsfullthenearestbinis110metreseastfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 120 metres east. Follow me.",
+"norm": "pocketsfullthenearestbinis120metreseastfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 130 metres east. Follow me.",
+"norm": "pocketsfullthenearestbinis130metreseastfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 140 metres east. Follow me.",
+"norm": "pocketsfullthenearestbinis140metreseastfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 150 metres east. Follow me.",
+"norm": "pocketsfullthenearestbinis150metreseastfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 160 metres east. Follow me.",
+"norm": "pocketsfullthenearestbinis160metreseastfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 170 metres east. Follow me.",
+"norm": "pocketsfullthenearestbinis170metreseastfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 180 metres east. Follow me.",
+"norm": "pocketsfullthenearestbinis180metreseastfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 190 metres east. Follow me.",
+"norm": "pocketsfullthenearestbinis190metreseastfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 200 metres east. Follow me.",
+"norm": "pocketsfullthenearestbinis200metreseastfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is more than 200 metres east. Follow me.",
+"norm": "pocketsfullthenearestbinismorethan200metreseastfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Hear that? That was not the wind. Something on the dark mountain to the south-east just answered.",
+"norm": "hearthatthatwasnotthewindsomethingonthedarkmountaintothesoutheastjustanswered",
+"src": [
+"cairns:dir"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 10 metres south-east. Follow me.",
+"norm": "pocketsfullthenearestbinis10metressoutheastfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 20 metres south-east. Follow me.",
+"norm": "pocketsfullthenearestbinis20metressoutheastfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 30 metres south-east. Follow me.",
+"norm": "pocketsfullthenearestbinis30metressoutheastfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 40 metres south-east. Follow me.",
+"norm": "pocketsfullthenearestbinis40metressoutheastfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 50 metres south-east. Follow me.",
+"norm": "pocketsfullthenearestbinis50metressoutheastfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 60 metres south-east. Follow me.",
+"norm": "pocketsfullthenearestbinis60metressoutheastfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 70 metres south-east. Follow me.",
+"norm": "pocketsfullthenearestbinis70metressoutheastfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 80 metres south-east. Follow me.",
+"norm": "pocketsfullthenearestbinis80metressoutheastfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 90 metres south-east. Follow me.",
+"norm": "pocketsfullthenearestbinis90metressoutheastfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 100 metres south-east. Follow me.",
+"norm": "pocketsfullthenearestbinis100metressoutheastfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 110 metres south-east. Follow me.",
+"norm": "pocketsfullthenearestbinis110metressoutheastfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 120 metres south-east. Follow me.",
+"norm": "pocketsfullthenearestbinis120metressoutheastfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 130 metres south-east. Follow me.",
+"norm": "pocketsfullthenearestbinis130metressoutheastfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 140 metres south-east. Follow me.",
+"norm": "pocketsfullthenearestbinis140metressoutheastfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 150 metres south-east. Follow me.",
+"norm": "pocketsfullthenearestbinis150metressoutheastfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 160 metres south-east. Follow me.",
+"norm": "pocketsfullthenearestbinis160metressoutheastfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 170 metres south-east. Follow me.",
+"norm": "pocketsfullthenearestbinis170metressoutheastfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 180 metres south-east. Follow me.",
+"norm": "pocketsfullthenearestbinis180metressoutheastfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 190 metres south-east. Follow me.",
+"norm": "pocketsfullthenearestbinis190metressoutheastfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 200 metres south-east. Follow me.",
+"norm": "pocketsfullthenearestbinis200metressoutheastfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is more than 200 metres south-east. Follow me.",
+"norm": "pocketsfullthenearestbinismorethan200metressoutheastfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Hear that? That was not the wind. Something on the dark mountain to the south just answered.",
+"norm": "hearthatthatwasnotthewindsomethingonthedarkmountaintothesouthjustanswered",
+"src": [
+"cairns:dir"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 10 metres south. Follow me.",
+"norm": "pocketsfullthenearestbinis10metressouthfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 20 metres south. Follow me.",
+"norm": "pocketsfullthenearestbinis20metressouthfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 30 metres south. Follow me.",
+"norm": "pocketsfullthenearestbinis30metressouthfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 40 metres south. Follow me.",
+"norm": "pocketsfullthenearestbinis40metressouthfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 50 metres south. Follow me.",
+"norm": "pocketsfullthenearestbinis50metressouthfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 60 metres south. Follow me.",
+"norm": "pocketsfullthenearestbinis60metressouthfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 70 metres south. Follow me.",
+"norm": "pocketsfullthenearestbinis70metressouthfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 80 metres south. Follow me.",
+"norm": "pocketsfullthenearestbinis80metressouthfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 90 metres south. Follow me.",
+"norm": "pocketsfullthenearestbinis90metressouthfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 100 metres south. Follow me.",
+"norm": "pocketsfullthenearestbinis100metressouthfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 110 metres south. Follow me.",
+"norm": "pocketsfullthenearestbinis110metressouthfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 120 metres south. Follow me.",
+"norm": "pocketsfullthenearestbinis120metressouthfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 130 metres south. Follow me.",
+"norm": "pocketsfullthenearestbinis130metressouthfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 140 metres south. Follow me.",
+"norm": "pocketsfullthenearestbinis140metressouthfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 150 metres south. Follow me.",
+"norm": "pocketsfullthenearestbinis150metressouthfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 160 metres south. Follow me.",
+"norm": "pocketsfullthenearestbinis160metressouthfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 170 metres south. Follow me.",
+"norm": "pocketsfullthenearestbinis170metressouthfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 180 metres south. Follow me.",
+"norm": "pocketsfullthenearestbinis180metressouthfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 190 metres south. Follow me.",
+"norm": "pocketsfullthenearestbinis190metressouthfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 200 metres south. Follow me.",
+"norm": "pocketsfullthenearestbinis200metressouthfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is more than 200 metres south. Follow me.",
+"norm": "pocketsfullthenearestbinismorethan200metressouthfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Hear that? That was not the wind. Something on the dark mountain to the south-west just answered.",
+"norm": "hearthatthatwasnotthewindsomethingonthedarkmountaintothesouthwestjustanswered",
+"src": [
+"cairns:dir"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 10 metres south-west. Follow me.",
+"norm": "pocketsfullthenearestbinis10metressouthwestfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 20 metres south-west. Follow me.",
+"norm": "pocketsfullthenearestbinis20metressouthwestfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 30 metres south-west. Follow me.",
+"norm": "pocketsfullthenearestbinis30metressouthwestfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 40 metres south-west. Follow me.",
+"norm": "pocketsfullthenearestbinis40metressouthwestfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 50 metres south-west. Follow me.",
+"norm": "pocketsfullthenearestbinis50metressouthwestfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 60 metres south-west. Follow me.",
+"norm": "pocketsfullthenearestbinis60metressouthwestfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 70 metres south-west. Follow me.",
+"norm": "pocketsfullthenearestbinis70metressouthwestfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 80 metres south-west. Follow me.",
+"norm": "pocketsfullthenearestbinis80metressouthwestfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 90 metres south-west. Follow me.",
+"norm": "pocketsfullthenearestbinis90metressouthwestfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 100 metres south-west. Follow me.",
+"norm": "pocketsfullthenearestbinis100metressouthwestfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 110 metres south-west. Follow me.",
+"norm": "pocketsfullthenearestbinis110metressouthwestfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 120 metres south-west. Follow me.",
+"norm": "pocketsfullthenearestbinis120metressouthwestfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 130 metres south-west. Follow me.",
+"norm": "pocketsfullthenearestbinis130metressouthwestfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 140 metres south-west. Follow me.",
+"norm": "pocketsfullthenearestbinis140metressouthwestfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 150 metres south-west. Follow me.",
+"norm": "pocketsfullthenearestbinis150metressouthwestfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 160 metres south-west. Follow me.",
+"norm": "pocketsfullthenearestbinis160metressouthwestfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 170 metres south-west. Follow me.",
+"norm": "pocketsfullthenearestbinis170metressouthwestfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 180 metres south-west. Follow me.",
+"norm": "pocketsfullthenearestbinis180metressouthwestfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 190 metres south-west. Follow me.",
+"norm": "pocketsfullthenearestbinis190metressouthwestfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 200 metres south-west. Follow me.",
+"norm": "pocketsfullthenearestbinis200metressouthwestfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is more than 200 metres south-west. Follow me.",
+"norm": "pocketsfullthenearestbinismorethan200metressouthwestfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Hear that? That was not the wind. Something on the dark mountain to the west just answered.",
+"norm": "hearthatthatwasnotthewindsomethingonthedarkmountaintothewestjustanswered",
+"src": [
+"cairns:dir"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 10 metres west. Follow me.",
+"norm": "pocketsfullthenearestbinis10metreswestfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 20 metres west. Follow me.",
+"norm": "pocketsfullthenearestbinis20metreswestfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 30 metres west. Follow me.",
+"norm": "pocketsfullthenearestbinis30metreswestfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 40 metres west. Follow me.",
+"norm": "pocketsfullthenearestbinis40metreswestfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 50 metres west. Follow me.",
+"norm": "pocketsfullthenearestbinis50metreswestfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 60 metres west. Follow me.",
+"norm": "pocketsfullthenearestbinis60metreswestfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 70 metres west. Follow me.",
+"norm": "pocketsfullthenearestbinis70metreswestfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 80 metres west. Follow me.",
+"norm": "pocketsfullthenearestbinis80metreswestfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 90 metres west. Follow me.",
+"norm": "pocketsfullthenearestbinis90metreswestfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 100 metres west. Follow me.",
+"norm": "pocketsfullthenearestbinis100metreswestfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 110 metres west. Follow me.",
+"norm": "pocketsfullthenearestbinis110metreswestfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 120 metres west. Follow me.",
+"norm": "pocketsfullthenearestbinis120metreswestfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 130 metres west. Follow me.",
+"norm": "pocketsfullthenearestbinis130metreswestfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 140 metres west. Follow me.",
+"norm": "pocketsfullthenearestbinis140metreswestfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 150 metres west. Follow me.",
+"norm": "pocketsfullthenearestbinis150metreswestfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 160 metres west. Follow me.",
+"norm": "pocketsfullthenearestbinis160metreswestfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 170 metres west. Follow me.",
+"norm": "pocketsfullthenearestbinis170metreswestfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 180 metres west. Follow me.",
+"norm": "pocketsfullthenearestbinis180metreswestfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 190 metres west. Follow me.",
+"norm": "pocketsfullthenearestbinis190metreswestfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 200 metres west. Follow me.",
+"norm": "pocketsfullthenearestbinis200metreswestfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is more than 200 metres west. Follow me.",
+"norm": "pocketsfullthenearestbinismorethan200metreswestfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Hear that? That was not the wind. Something on the dark mountain to the north-west just answered.",
+"norm": "hearthatthatwasnotthewindsomethingonthedarkmountaintothenorthwestjustanswered",
+"src": [
+"cairns:dir"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 10 metres north-west. Follow me.",
+"norm": "pocketsfullthenearestbinis10metresnorthwestfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 20 metres north-west. Follow me.",
+"norm": "pocketsfullthenearestbinis20metresnorthwestfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 30 metres north-west. Follow me.",
+"norm": "pocketsfullthenearestbinis30metresnorthwestfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 40 metres north-west. Follow me.",
+"norm": "pocketsfullthenearestbinis40metresnorthwestfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 50 metres north-west. Follow me.",
+"norm": "pocketsfullthenearestbinis50metresnorthwestfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 60 metres north-west. Follow me.",
+"norm": "pocketsfullthenearestbinis60metresnorthwestfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 70 metres north-west. Follow me.",
+"norm": "pocketsfullthenearestbinis70metresnorthwestfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 80 metres north-west. Follow me.",
+"norm": "pocketsfullthenearestbinis80metresnorthwestfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 90 metres north-west. Follow me.",
+"norm": "pocketsfullthenearestbinis90metresnorthwestfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 100 metres north-west. Follow me.",
+"norm": "pocketsfullthenearestbinis100metresnorthwestfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 110 metres north-west. Follow me.",
+"norm": "pocketsfullthenearestbinis110metresnorthwestfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 120 metres north-west. Follow me.",
+"norm": "pocketsfullthenearestbinis120metresnorthwestfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 130 metres north-west. Follow me.",
+"norm": "pocketsfullthenearestbinis130metresnorthwestfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 140 metres north-west. Follow me.",
+"norm": "pocketsfullthenearestbinis140metresnorthwestfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 150 metres north-west. Follow me.",
+"norm": "pocketsfullthenearestbinis150metresnorthwestfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 160 metres north-west. Follow me.",
+"norm": "pocketsfullthenearestbinis160metresnorthwestfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 170 metres north-west. Follow me.",
+"norm": "pocketsfullthenearestbinis170metresnorthwestfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 180 metres north-west. Follow me.",
+"norm": "pocketsfullthenearestbinis180metresnorthwestfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 190 metres north-west. Follow me.",
+"norm": "pocketsfullthenearestbinis190metresnorthwestfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is 200 metres north-west. Follow me.",
+"norm": "pocketsfullthenearestbinis200metresnorthwestfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "Pockets full! The nearest bin is more than 200 metres north-west. Follow me.",
+"norm": "pocketsfullthenearestbinismorethan200metresnorthwestfollowme",
+"src": [
+"items2:bin"
+]
+},
+{
+"text": "That is already five pieces. You are a walking skip. Find a bin.",
+"norm": "thatisalreadyfivepiecesyouareawalkingskipfindabin",
+"src": [
+"litter"
+]
+},
+{
+"text": "Five is the limit. Any more and the bags start telling you what to do.",
+"norm": "fiveisthelimitanymoreandthebagsstarttellingyouwhattodo",
+"src": [
+"litter"
+]
+},
+{
+"text": "Your hands are full of other people's mistakes. Bin first.",
+"norm": "yourhandsarefullofotherpeoplesmistakesbinfirst",
+"src": [
+"litter"
+]
+},
+{
+"text": "No room. The bags are filing a complaint about overcrowding.",
+"norm": "noroomthebagsarefilingacomplaintaboutovercrowding",
+"src": [
+"litter"
+]
+},
+{
+"text": "Even the gnomes have a limit. Five. Go find a bin.",
+"norm": "eventhegnomeshavealimitfivegofindabin",
+"src": [
+"litter"
+]
+},
+{
+"text": "Someone mutters: \"Finally, a decent human.\"",
+"norm": "someonemuttersfinallyadecenthuman",
+"src": [
+"litter"
+]
+},
+{
+"text": "A passer-by gives you a thumbs-up and a tiny smile.",
+"norm": "apasserbygivesyouathumbsupandatinysmile",
+"src": [
+"litter"
+]
+},
+{
+"text": "Someone dropped this. Rude.",
+"norm": "someonedroppedthisrude",
+"src": [
+"litter"
+]
+},
+{
+"text": "You are a bag with legs now.",
+"norm": "youareabagwithlegsnow",
+"src": [
+"litter"
+]
+},
+{
+"text": "Bin first, hero second.",
+"norm": "binfirstherosecond",
+"src": [
+"litter"
+]
+},
+{
+"text": "That bin has never been this happy.",
+"norm": "thatbinhasneverbeenthishappy",
+"src": [
+"litter"
+]
+},
+{
+"text": "The town thanks you. Silently. Mostly silently.",
+"norm": "thetownthanksyousilentlymostlysilently",
+"src": [
+"litter"
+]
+},
+{
+"text": "Both hands are on the tree. One haul at a time.",
+"norm": "bothhandsareonthetreeonehaulatatime",
+"src": [
+"litter"
+]
+},
+{
+"text": "You put it all down. The litter sighs with relief.",
+"norm": "youputitalldownthelittersighswithrelief",
+"src": [
+"litter"
+]
+},
+{
+"text": "(in the boot)",
+"norm": "intheboot",
+"src": [
+"litter"
+]
+},
+{
+"text": "(haul is full, find a bin)",
+"norm": "haulisfullfindabin",
+"src": [
+"litter"
+]
+},
+{
+"text": "That was a tree. A very tall tree. With elbows.",
+"norm": "thatwasatreeaverytalltreewithelbows",
+"src": [
+"woodscares"
+]
+},
+{
+"text": "Do not look at it. It gets bored, and then it gets closer.",
+"norm": "donotlookatititgetsboredandthenitgetscloser",
+"src": [
+"woodscares"
+]
+},
+{
+"text": "Pandas are not native to Norway. Just saying.",
+"norm": "pandasarenotnativetonorwayjustsaying",
+"src": [
+"woodscares"
+]
+},
+{
+"text": "Pretty lights in the forest at night. Nothing ever goes wrong with those.",
+"norm": "prettylightsintheforestatnightnothingevergoeswrongwiththose",
+"src": [
+"woodscares"
+]
+},
+{
+"text": "One red mitten. Somebody's mother is furious.",
+"norm": "oneredmittensomebodysmotherisfurious",
+"src": [
+"woodscares"
+]
+},
+{
+"text": "Snowmen do not walk. That is the whole point of snowmen.",
+"norm": "snowmendonotwalkthatisthewholepointofsnowmen",
+"src": [
+"woodscares"
+]
+},
+{
+"text": "A lit window. And now it is not. Cozy, in a way.",
+"norm": "alitwindowandnowitisnotcozyinaway",
+"src": [
+"woodscares"
+]
+},
+{
+"text": "Draugen. Headless, half a boat, no ticket. Wave politely.",
+"norm": "draugenheadlesshalfaboatnoticketwavepolitely",
+"src": [
+"woodscares"
+]
+},
+{
+"text": "Standing on the ice, perfectly still. Probably just waiting for spring.",
+"norm": "standingontheiceperfectlystillprobablyjustwaitingforspring",
+"src": [
+"woodscares"
+]
+},
+{
+"text": "Lunge (jump scare)",
+"norm": "lungejumpscare",
+"src": [
+"woodscares"
+]
+},
+{
+"text": "Fast. Whatever it was, it had somewhere to be. Good for it.",
+"norm": "fastwhateveritwasithadsomewheretobegoodforit",
+"src": [
+"jumpscares"
+]
+},
+{
+"text": "Funny how the whole forest holds its breath. Wonder what it knows.",
+"norm": "funnyhowthewholeforestholdsitsbreathwonderwhatitknows",
+"src": [
+"jumpscares"
+]
+},
+{
+"text": "Footsteps in the snow. Yours, probably. Both sets.",
+"norm": "footstepsinthesnowyoursprobablybothsets",
+"src": [
+"jumpscares"
+]
+},
+{
+"text": "Dark in here. The dark is mostly just dark. Mostly.",
+"norm": "darkinherethedarkismostlyjustdarkmostly",
+"src": [
+"jumpscares"
+]
+},
+{
+"text": "Faces are overrated.",
+"norm": "facesareoverrated",
+"src": [
+"jumpscares"
+]
+},
+{
+"text": "Cheap batteries. Always the cheap batteries.",
+"norm": "cheapbatteriesalwaysthecheapbatteries",
+"src": [
+"jumpscares"
+]
+},
+{
+"text": "A draught. Houses have those. Doors do that.",
+"norm": "adraughthouseshavethosedoorsdothat",
+"src": [
+"jumpscares"
+]
+},
+{
+"text": "Press L for your flashlight.",
+"norm": "presslforyourflashlight",
+"src": [
+"jumpscares"
+]
+},
+{
+"text": "Gentle (no jump scares)",
+"norm": "gentlenojumpscares",
+"src": [
+"jumpscares"
+]
+},
+{
+"text": "Peace table (the nisse chiefs, at the church)",
+"norm": "peacetablethenissechiefsatthechurch",
+"src": [
+"nissebridge"
+]
+},
+{
+"text": "Somebody still needs this. Keep it for now.",
+"norm": "somebodystillneedsthiskeepitfornow",
+"src": [
+"items2"
+]
+},
+{
+"text": "Pick an item up, then click here to throw it away (right-click: just one)",
+"norm": "pickanitemupthenclickheretothrowitawayrightclickjustone",
+"src": [
+"items2"
+]
+},
+{
+"text": "The tree lot (JULETRESALG)",
+"norm": "thetreelotjuletresalg",
+"src": [
+"firstquest"
+]
+},
+{
+"text": "Chris's door (the arch at the back)",
+"norm": "chrissdoorthearchattheback",
+"src": [
+"firstquest"
+]
+},
+{
+"text": "The seller has gone home. Come back in the morning; the tree lot opens early.",
+"norm": "thesellerhasgonehomecomebackinthemorningthetreelotopensearly",
+"src": [
+"firstquest"
+]
+},
+{
+"text": "Your tree has arrived. It's lying by Chris's front step. Pick it up and carry it up to the living room.",
+"norm": "yourtreehasarriveditslyingbychrissfrontsteppickitupandcarryituptothelivingroom",
+"src": [
+"firstquest"
+]
+},
+{
+"text": "The tree is gone. It happens. Buy another one at the lot.",
+"norm": "thetreeisgoneithappensbuyanotheroneatthelot",
+"src": [
+"firstquest"
+]
+},
+{
+"text": "This way. By the west window there's a glowing spot. Press G to stand the tree up.",
+"norm": "thiswaybythewestwindowtheresaglowingspotpressgtostandthetreeup",
+"src": [
+"firstquest"
+]
+},
+{
+"text": "Mamma's box of baubles is in your pockets. Press G at the tree and dress it. Be quick: the witch will hate this.",
+"norm": "mammasboxofbaublesisinyourpocketspressgatthetreeanddressitbequickthewitchwillhatethis",
+"src": [
+"firstquest"
+]
+},
+{
+"text": "(press G at the tree)",
+"norm": "pressgatthetree",
+"src": [
+"firstquest"
+]
+},
+{
+"text": "Beautiful! Hear that? She's coming. Until the 13th she'll rip it all down. Let her. Come back and do it again, and again. Then it stays.",
+"norm": "beautifulhearthatshescominguntilthe13thshellripitalldownlethercomebackanddoitagainandagainthenitstays",
+"src": [
+"firstquest"
+]
+},
+{
+"text": "Ordered. They'll leave it by Chris's front step in under a minute. Walk home.",
+"norm": "orderedtheyllleaveitbychrissfrontstepinunderaminutewalkhome",
+"src": [
+"firstquest"
+]
+},
+{
+"text": "That's the spot. A tree in the living room. Now it needs dressing.",
+"norm": "thatsthespotatreeinthelivingroomnowitneedsdressing",
+"src": [
+"firstquest"
+]
+},
+{
+"text": "Word travels fast in a small town. Faster than a Volvo.",
+"norm": "wordtravelsfastinasmalltownfasterthanavolvo",
+"src": [
+"morality"
+]
+},
+{
+"text": "Mind the pavement. It has feelings. And witnesses.",
+"norm": "mindthepavementithasfeelingsandwitnesses",
+"src": [
+"morality"
+]
+},
+{
+"text": "Look at that. Friends who cannot talk back. The best kind.",
+"norm": "lookatthatfriendswhocannottalkbackthebestkind",
+"src": [
+"morality"
+]
+},
+{
+"text": "A small kindness, and look how far it walked.",
+"norm": "asmallkindnessandlookhowfaritwalked",
+"src": [
+"morality"
+]
+},
+{
+"text": "There. Lighter pockets, lighter lantern.",
+"norm": "therelighterpocketslighterlantern",
+"src": [
+"morality"
+]
+},
+{
+"text": "Sorry costs money. It also buys sleep.",
+"norm": "sorrycostsmoneyitalsobuyssleep",
+"src": [
+"morality"
+]
+},
+{
+"text": "Do you smell that? Floor polish, fried chips and very bad 90s music. The Other Side hates it. Nothing from out there comes in here. Breathe. Stay a while, and get your Christmas back.",
+"norm": "doyousmellthatfloorpolishfriedchipsandverybad90smusictheothersidehatesitnothingfromouttherecomesinherebreathestayawhileandgetyourchristmasback",
+"src": [
+"thresholdspirit"
+]
+},
+{
+"text": "The cairns were never trail markers. Each one is a candle for the night that is coming. Lit, they tell the dark that somebody is home.",
+"norm": "thecairnswerenevertrailmarkerseachoneisacandleforthenightthatiscominglittheytellthedarkthatsomebodyishome",
+"src": [
+"cairns"
+]
+},
+{
+"text": "The wind just tried to blow it out. Rude. It lost.",
+"norm": "thewindjusttriedtoblowitoutrudeitlost",
+"src": [
+"cairns"
+]
+},
+{
+"text": "Someone stacked these a very long time ago. Someone tidy. Someone who did not trust the dark.",
+"norm": "someonestackedtheseaverylongtimeagosomeonetidysomeonewhodidnottrustthedark",
+"src": [
+"cairns"
+]
+},
+{
+"text": "The nisser built them in a single autumn, from stones that were already standing in a ring round the valley. They kept one for themselves and told nobody which.",
+"norm": "thenisserbuilttheminasingleautumnfromstonesthatwerealreadystandinginaringroundthevalleytheykeptoneforthemselvesandtoldnobodywhich",
+"src": [
+"cairns"
+]
+},
+{
+"text": "A troll lived here once. He left a note: \"Back in a century.\" That was a century ago.",
+"norm": "atrolllivedhereonceheleftanotebackinacenturythatwasacenturyago",
+"src": [
+"cairns"
+]
+},
+{
+"text": "Shh. The hill is shaped like a sleeping bear. Light it quietly. Quietly. QUIETLY.",
+"norm": "shhthehillisshapedlikeasleepingbearlightitquietlyquietlyquietly",
+"src": [
+"cairns"
+]
+},
+{
+"text": "Something lives in the mountain to the west. Not something bad. Something old. It likes to be asked politely.",
+"norm": "somethinglivesinthemountaintothewestnotsomethingbadsomethingolditlikestobeaskedpolitely",
+"src": [
+"cairns"
+]
+},
+{
+"text": "Pointy, red-ish, a little judgemental. A nisse cap, in rock.",
+"norm": "pointyredishalittlejudgementalanissecapinrock",
+"src": [
+"cairns"
+]
+},
+{
+"text": "Fifteen fires, fifteen answers. The old folk said: light them all and the mountain says hello. Nobody tried. The cairns are too far apart for one pair of legs.",
+"norm": "fifteenfiresfifteenanswerstheoldfolksaidlightthemallandthemountainsayshellonobodytriedthecairnsaretoofarapartforonepairoflegs",
+"src": [
+"cairns"
+]
+},
+{
+"text": "Cold hill, warm fire. Physics is doing its best.",
+"norm": "coldhillwarmfirephysicsisdoingitsbest",
+"src": [
+"cairns"
+]
+},
+{
+"text": "The valley is lighting up like somebody is counting. Somebody is.",
+"norm": "thevalleyislightinguplikesomebodyiscountingsomebodyis",
+"src": [
+"cairns"
+]
+},
+{
+"text": "No light, no fire. Here, take these three flares. I had them in a pocket. I do not have pockets. Do not ask.",
+"norm": "nolightnofireheretakethesethreeflaresihadtheminapocketidonothavepocketsdonotask",
+"src": [
+"cairns"
+]
+},
+{
+"text": "The valley burns.",
+"norm": "thevalleyburns",
+"src": [
+"cairns"
+]
+},
+{
+"text": "The mountain is awake.",
+"norm": "themountainisawake",
+"src": [
+"cairns"
+]
+},
+{
+"text": "Dark varde (a rumour)",
+"norm": "darkvardearumour",
+"src": [
+"cairns"
+]
+},
+{
+"text": "Psst. Up in the hills there are fifteen old stone cairns, and every one of them is dark. I marked the nearest on your map. Bring me to each and press G: lantern or flare, and they burn.",
+"norm": "psstupinthehillstherearefifteenoldstonecairnsandeveryoneofthemisdarkimarkedthenearestonyourmapbringmetoeachandpressglanternorflareandtheyburn",
+"src": [
+"cairns"
+]
+},
+{
+"text": "In my defence, I called it cosy. I never said safe.",
+"norm": "inmydefenceicalleditcosyineversaidsafe",
+"src": [
+"trolls2"
+]
+},
+{
+"text": "The troll sends his regards. Mostly with the club.",
+"norm": "thetrollsendshisregardsmostlywiththeclub",
+"src": [
+"trolls2"
+]
+},
+{
+"text": "Lesson of the day: when it raises a club, it is not waving.",
+"norm": "lessonofthedaywhenitraisesaclubitisnotwaving",
+"src": [
+"trolls2"
+]
+},
+{
+"text": "The troll was not in the mood for visitors.",
+"norm": "thetrollwasnotinthemoodforvisitors",
+"src": [
+"trolls2"
+]
+},
+{
+"text": "Witch opening (she wrecks the decorations)",
+"norm": "witchopeningshewrecksthedecorations",
+"src": [
+"meteorday"
+]
+},
+{
+"text": "Something fell on Nonskarknuten tonight. It is glowing. Somebody should drive up and have a look. (Lykta would rather it was not her.)",
+"norm": "somethingfellonnonskarknutentonightitisglowingsomebodyshoulddriveupandhavealooklyktawouldratheritwasnother",
+"src": [
+"meteorday"
+]
+},
+{
+"text": "EXPERT: \"A LARGE PEA\"",
+"norm": "expertalargepea",
+"src": [
+"meteorday"
+]
+},
+{
+"text": "That was no shooting star. Shall we go and look? Carefully?",
+"norm": "thatwasnoshootingstarshallwegoandlookcarefully",
+"src": [
+"meteorday"
+]
+},
+{
+"text": "Meteor night (day 15)",
+"norm": "meteornightday15",
+"src": [
+"meteorday"
+]
+},
+{
+"text": "Intro, then the witch (day 1 default)",
+"norm": "introthenthewitchday1default",
+"src": [
+"meteorday"
+]
+},
+{
+"text": "(not made yet)",
+"norm": "notmadeyet",
+"src": [
+"meteorday"
+]
+},
+{
+"text": "Reset meteor (crater + quest)",
+"norm": "resetmeteorcraterquest",
+"src": [
+"meteorday"
+]
+},
+{
+"text": "Hold still. Do you hear that? Slow and deep, like a very large cat in a very large blanket.",
+"norm": "holdstilldoyouhearthatslowanddeeplikeaverylargecatinaverylargeblanket",
+"src": [
+"dragonfinale"
+]
+},
+{
+"text": "The old guardian of the valley. It slept up in that tower for longer than the cairns have stood.",
+"norm": "theoldguardianofthevalleyitsleptupinthattowerforlongerthanthecairnshavestood",
+"src": [
+"dragonfinale"
+]
+},
+{
+"text": "It woke when the light went out. I do not think it is angry. I think it is cold. ...I admit I do not actually know.",
+"norm": "itwokewhenthelightwentoutidonotthinkitisangryithinkitiscoldiadmitidonotactuallyknow",
+"src": [
+"dragonfinale"
+]
+},
+{
+"text": "It cannot find its way home. The light that used to show it the way went dim. But we kept some. Lift me. Higher!",
+"norm": "itcannotfinditswayhomethelightthatusedtoshowitthewaywentdimbutwekeptsomeliftmehigher",
+"src": [
+"dragonfinale"
+]
+},
+{
+"text": "Look at that. The whole valley is pointing the way.",
+"norm": "lookatthatthewholevalleyispointingtheway",
+"src": [
+"dragonfinale"
+]
+},
+{
+"text": "It is going to the tree. Of course it is. Everybody does.",
+"norm": "itisgoingtothetreeofcourseitiseverybodydoes",
+"src": [
+"dragonfinale"
+]
+},
+{
+"text": "Hello, old one. Merry Christmas. You are late, but so is everyone.",
+"norm": "hellooldonemerrychristmasyouarelatebutsoiseveryone",
+"src": [
+"dragonfinale"
+]
+},
+{
+"text": "Ah. It has seen us. That is not a look that wants a hug. That is a look that wants a duel.",
+"norm": "ahithasseenusthatisnotalookthatwantsahugthatisalookthatwantsaduel",
+"src": [
+"dragonfinale"
+]
+},
+{
+"text": "Rules: dodge the big breath, hit it when it comes low or sits down. Shine me at it, it hates that. Beyond that I am only a lantern.",
+"norm": "rulesdodgethebigbreathhititwhenitcomesloworsitsdownshinemeatitithatesthatbeyondthatiamonlyalantern",
+"src": [
+"dragonfinale"
+]
+},
+{
+"text": "It is down. It is... breathing. Slowly. It did not want to fight, it just did not know what else to do.",
+"norm": "itisdownitisbreathingslowlyitdidnotwanttofightitjustdidnotknowwhatelsetodo",
+"src": [
+"dragonfinale"
+]
+},
+{
+"text": "We won. Mostly. The tree will notice. It is a very honest tree.",
+"norm": "wewonmostlythetreewillnoticeitisaveryhonesttree",
+"src": [
+"dragonfinale"
+]
+},
+{
+"text": "Nothing came. I checked twice. No dragon, no carols, just a quiet valley and a dark tree.",
+"norm": "nothingcameicheckedtwicenodragonnocarolsjustaquietvalleyandadarktree",
+"src": [
+"dragonfinale"
+]
+},
+{
+"text": "That is worse. I would have taken the dragon.",
+"norm": "thatisworseiwouldhavetakenthedragon",
+"src": [
+"dragonfinale"
+]
+},
+{
+"text": "It is open a crack. I think it says: next year. I would not wait by it. Go and light a candle.",
+"norm": "itisopenacrackithinkitsaysnextyeariwouldnotwaitbyitgoandlightacandle",
+"src": [
+"dragonfinale"
+]
+},
+{
+"text": "One for everyone who is not here. Do not hurry. They are not going anywhere.",
+"norm": "oneforeveryonewhoisnotheredonothurrytheyarenotgoinganywhere",
+"src": [
+"dragonfinale"
+]
+},
+{
+"text": "Thousands. Every single one is somebody's.",
+"norm": "thousandseverysingleoneissomebodys",
+"src": [
+"dragonfinale"
+]
+},
+{
+"text": "The dragon is asleep somewhere high and warm. The tree is lit. The Nice List has spoken. I count that as a good year.",
+"norm": "thedragonisasleepsomewherehighandwarmthetreeislitthenicelisthasspokenicountthatasagoodyear",
+"src": [
+"dragonfinale"
+]
+},
+{
+"text": "Half a tree. Half a victory. I have seen worse years, and I am a lantern that remembers all of them.",
+"norm": "halfatreehalfavictoryihaveseenworseyearsandiamalanternthatremembersallofthem",
+"src": [
+"dragonfinale"
+]
+},
+{
+"text": "A dark tree and a small open door. Nobody won, and nobody lost. Next year, then.",
+"norm": "adarktreeandasmallopendoornobodywonandnobodylostnextyearthen",
+"src": [
+"dragonfinale"
+]
+},
+{
+"text": "Merry Christmas. Whatever happens, we kept the light.",
+"norm": "merrychristmaswhateverhappenswekeptthelight",
+"src": [
+"dragonfinale"
+]
+},
+{
+"text": "Next year, the dragon will want to visit again. Bring a bigger lantern.",
+"norm": "nextyearthedragonwillwanttovisitagainbringabiggerlantern",
+"src": [
+"dragonfinale"
+]
+},
+{
+"text": "Next year, somebody is going to have to apologise to a dragon.",
+"norm": "nextyearsomebodyisgoingtohavetoapologisetoadragon",
+"src": [
+"dragonfinale"
+]
+},
+{
+"text": "Next year, the little door under the tree will open a bit wider.",
+"norm": "nextyearthelittledoorunderthetreewillopenabitwider",
+"src": [
+"dragonfinale"
+]
+},
+{
+"text": "The crater (Nonskarknuten)",
+"norm": "thecraternonskarknuten",
+"src": [
+"meteornight"
+]
+},
+{
+"text": "LOUDSPEAKER: Viktig melding. A meteor shower is expected over the valley tonight. Please look up. Please remain calm.",
+"norm": "loudspeakerviktigmeldingameteorshowerisexpectedoverthevalleytonightpleaselookuppleaseremaincalm",
+"src": [
+"meteornight"
+]
+},
+{
+"text": "LOUDSPEAKER: Residents are asked to stay away from the mountain. This is not because of the meteors. We would just like you to.",
+"norm": "loudspeakerresidentsareaskedtostayawayfromthemountainthisisnotbecauseofthemeteorswewouldjustlikeyouto",
+"src": [
+"meteornight"
+]
+},
+{
+"text": "That is the loudspeaker. It says look up. I am looking up. Nothing yet, which is exactly what worries me.",
+"norm": "thatistheloudspeakeritsayslookupiamlookingupnothingyetwhichisexactlywhatworriesme",
+"src": [
+"meteornight"
+]
+},
+{
+"text": "Somebody tied it down very carefully. I think it is waiting for a particular day. I do not know which. Ask the calendar.",
+"norm": "somebodytieditdownverycarefullyithinkitiswaitingforaparticulardayidonotknowwhichaskthecalendar",
+"src": [
+"nightwing"
+]
+},
+{
+"text": "Rings. Lit ones. I did not hang them and I would rather not meet whoever did. Fly through each one. They push, which I did not expect.",
+"norm": "ringslitonesididnothangthemandiwouldrathernotmeetwhoeverdidflythrougheachonetheypushwhichididnotexpect",
+"src": [
+"nightwing"
+]
+},
+{
+"text": "The air is thin and the engine just went quiet in a way I do not like. It is only listening. Probably.",
+"norm": "theairisthinandtheenginejustwentquietinawayidonotlikeitisonlylisteningprobably",
+"src": [
+"nightwing"
+]
+},
+{
+"text": "That is the rim. Do not look down. I mean it. Slowly turn the wing around.",
+"norm": "thatistherimdonotlookdownimeanitslowlyturnthewingaround",
+"src": [
+"nightwing"
+]
+},
+{
+"text": "Down in the crater the glow goes out, one patch at a time.",
+"norm": "downinthecratertheglowgoesoutonepatchatatime",
+"src": [
+"nightwing"
+]
+},
+{
+"text": "I did not see that. You did not see that. We are going home now, on the long way.",
+"norm": "ididnotseethatyoudidnotseethatwearegoinghomenowonthelongway",
+"src": [
+"nightwing"
+]
+},
+{
+"text": "The Night Wing hums at night. Somebody hung rings across the sky toward the crater. It was not me. I would have used fewer.",
+"norm": "thenightwinghumsatnightsomebodyhungringsacrosstheskytowardthecrateritwasnotmeiwouldhaveusedfewer",
+"src": [
+"nightwing"
+]
+},
+{
+"text": "You made it to the rim on a jetpack. Of course you did. Do not look down into the crater.",
+"norm": "youmadeittotherimonajetpackofcourseyoudiddonotlookdownintothecrater",
+"src": [
+"nightwing"
+]
+},
+{
+"text": "Hear that? The lamps are humming a note nobody wrote. Find something warm. Bowlinghallen is warm. It smells of chips. It is basically a hug.",
+"norm": "hearthatthelampsarehumminganotenobodywrotefindsomethingwarmbowlinghalleniswarmitsmellsofchipsitisbasicallyahug",
+"src": [
+"thresholdpulse"
+]
+},
+{
+"text": "It is here. Stay near me. Do not look at the sky for too long. It looks back.",
+"norm": "itisherestaynearmedonotlookattheskyfortoolongitlooksback",
+"src": [
+"thresholdpulse"
+]
+},
+{
+"text": "And gone. Like a sneeze. Everybody will pretend it did not happen. I will pretend loudest.",
+"norm": "andgonelikeasneezeeverybodywillpretenditdidnothappeniwillpretendloudest",
+"src": [
+"thresholdpulse"
+]
+},
+{
+"text": "Hear that silence? It gave up. It hates fried chips and bad 90s music. I knew I liked this place.",
+"norm": "hearthatsilenceitgaveupithatesfriedchipsandbad90smusiciknewilikedthisplace",
+"src": [
+"thresholdpulse"
+]
+},
+{
+"text": "The dark is climbing the valley. Fifteen small fires, remember. And Bowlinghallen is the only place that stays warm. Go there when you need to.",
+"norm": "thedarkisclimbingthevalleyfifteensmallfiresrememberandbowlinghallenistheonlyplacethatstayswarmgotherewhenyouneedto",
+"src": [
+"thresholdpulse"
+]
+},
+{
+"text": "This is the long one. Light what you can. If it gets dark, stay near me.",
+"norm": "thisisthelongonelightwhatyoucanifitgetsdarkstaynearme",
+"src": [
+"thresholdpulse"
+]
+},
+{
+"text": "Fifteen fires. Do you hear that? The mountain just said hello. Politely.",
+"norm": "fifteenfiresdoyouhearthatthemountainjustsaidhellopolitely",
+"src": [
+"thresholdpulse"
+]
+},
+{
+"text": "Dawn. We are still here. Slightly singed, slightly proud.",
+"norm": "dawnwearestillhereslightlysingedslightlyproud",
+"src": [
+"thresholdpulse"
+]
+},
+{
+"text": "Do not run yet. Walk backwards. It is slow. I do not know how I know that it is slow.",
+"norm": "donotrunyetwalkbackwardsitisslowidonotknowhowiknowthatitisslow",
+"src": [
+"craterhush"
+]
+},
+{
+"text": "Now run. Go. Fires and lamps are the only thing it respects, so find some.",
+"norm": "nowrungofiresandlampsaretheonlythingitrespectssofindsome",
+"src": [
+"craterhush"
+]
+},
+{
+"text": "It lost interest. That was not mercy. That was a schedule.",
+"norm": "itlostinterestthatwasnotmercythatwasaschedule",
+"src": [
+"craterhush"
+]
+},
+{
+"text": "It stopped at the edge of the lights. It is waiting for them to go out.",
+"norm": "itstoppedattheedgeofthelightsitiswaitingforthemtogoout",
+"src": [
+"craterhush"
+]
+},
+{
+"text": "It turned around. It did not look angry. It looked like something that has to be somewhere else.",
+"norm": "itturnedarounditdidnotlookangryitlookedlikesomethingthathastobesomewhereelse",
+"src": [
+"craterhush"
+]
+},
+{
+"text": "Grey footprints. Cold ones. Do not step in them. I cannot tell you what happens. I just do not like it.",
+"norm": "greyfootprintscoldonesdonotstepinthemicannottellyouwhathappensijustdonotlikeit",
+"src": [
+"craterhush"
+]
+},
+{
+"text": "Do not touch it. Is that the kind of thing I have to say out loud now?",
+"norm": "donottouchitisthatthekindofthingihavetosayoutloudnow",
+"src": [
+"craterhush"
+]
+},
+{
+"text": "Something is circling. Light helps. Raise the lantern, or get somewhere warm. Quickly.",
+"norm": "somethingiscirclinglighthelpsraisethelanternorgetsomewherewarmquickly",
+"src": [
+"skywraiths"
+]
+},
+{
+"text": "You pushed it off. Good. Keep a light close tonight.",
+"norm": "youpusheditoffgoodkeepalightclosetonight",
+"src": [
+"skywraiths"
+]
+},
+{
+"text": "That was cold. Colder than the snow. Get warm and the colours will come back.",
+"norm": "thatwascoldcolderthanthesnowgetwarmandthecolourswillcomeback",
+"src": [
+"skywraiths"
+]
+},
+{
+"text": "Gentle (crossings only)",
+"norm": "gentlecrossingsonly",
+"src": [
+"skywraiths"
+]
+},
+{
+"text": "(gentle: reduced motion)",
+"norm": "gentlereducedmotion",
+"src": [
+"skywraiths"
+]
+},
+{
+"text": "The golden statue (Santa’s Nice List)",
+"norm": "thegoldenstatuesantasnicelist",
+"src": [
+"nicelistreveal"
+]
+},
+{
+"text": "YOUR HOUSE · the Nice List prize (G at the door: sleep, call the wing)",
+"norm": "yourhousethenicelistprizegatthedoorsleepcallthewing",
+"src": [
+"nicelistreveal"
+]
+},
+{
+"text": "Bells. Real ones. I did not hang bells. Stand still and look clever, it is the lantern rule.",
+"norm": "bellsrealonesididnothangbellsstandstillandlookcleveritisthelanternrule",
+"src": [
+"nicelistreveal"
+]
+},
+{
+"text": "Ho. Ho. Ho. Do not mind the sleigh. It is parked perfectly. The snow is just in the way.",
+"norm": "hohohodonotmindthesleighitisparkedperfectlythesnowisjustintheway",
+"src": [
+"nicelistreveal"
+]
+},
+{
+"text": "I have a list, downtown. I check it twice. This year I checked it three times, once with a magnifying glass, because some of you are very good at hiding things in plain sight.",
+"norm": "ihavealistdowntownicheckittwicethisyearicheckeditthreetimesoncewithamagnifyingglassbecausesomeofyouareverygoodathidingthingsinplainsight",
+"src": [
+"nicelistreveal"
+]
+},
+{
+"text": "A quiet year. Santa respects a quiet year.",
+"norm": "aquietyearsantarespectsaquietyear",
+"src": [
+"nicelistreveal"
+]
+},
+{
+"text": "A steady year, a good year, a year with cake in it.",
+"norm": "asteadyyearagoodyearayearwithcakeinit",
+"src": [
+"nicelistreveal"
+]
+},
+{
+"text": "Now, the lump of coal. It is not a punishment. Coal is warm, coal is honest, and nobody was ever hurt by being given a rock that burns for hours.",
+"norm": "nowthelumpofcoalitisnotapunishmentcoaliswarmcoalishonestandnobodywaseverhurtbybeinggivenarockthatburnsforhours",
+"src": [
+"nicelistreveal"
+]
+},
+{
+"text": "It is a good lump. I checked. I am not allowed to say it is a gift. It is a lump. A good one, with character.",
+"norm": "itisagoodlumpicheckediamnotallowedtosayitisagiftitisalumpagoodonewithcharacter",
+"src": [
+"nicelistreveal"
+]
+},
+{
+"text": "That is not a punishment either. Check the label. It says: a joke, with warm hands.",
+"norm": "thatisnotapunishmenteithercheckthelabelitsaysajokewithwarmhands",
+"src": [
+"nicelistreveal"
+]
+},
+{
+"text": "And last place is a tie. Santa will not give one lump of coal to one of two equally lumpy people. The coal stays in the sack until next year.",
+"norm": "andlastplaceisatiesantawillnotgiveonelumpofcoaltooneoftwoequallylumpypeoplethecoalstaysinthesackuntilnextyear",
+"src": [
+"nicelistreveal"
+]
+},
+{
+"text": "And the nicest in downtown, this year, and I checked it three times...",
+"norm": "andthenicestindowntownthisyearandicheckeditthreetimes",
+"src": [
+"nicelistreveal"
+]
+},
+{
+"text": "A golden statue on the square, so every pigeon knows. A house, built how you like and where you like. A flying car that never breaks and never needs fuel, because Santa has seen your insurance. And twenty million kroner. Spend it wisely or foolishly. The elves accept both.",
+"norm": "agoldenstatueonthesquaresoeverypigeonknowsahousebuilthowyoulikeandwhereyoulikeaflyingcarthatneverbreaksandneverneedsfuelbecausesantahasseenyourinsuranceandtwentymillionkronerspenditwiselyorfoolishlytheelvesacceptboth",
+"src": [
+"nicelistreveal"
+]
+},
+{
+"text": "That is you. I am not going to say anything clever. Well. Maybe one thing: please do not put the statue on a fountain.",
+"norm": "thatisyouiamnotgoingtosayanythingcleverwellmaybeonethingpleasedonotputthestatueonafountain",
+"src": [
+"nicelistreveal"
+]
+},
+{
+"text": "A statue. And you have a lump. Between the two of you the square is going to look very festive.",
+"norm": "astatueandyouhavealumpbetweenthetwoofyouthesquareisgoingtolookveryfestive",
+"src": [
+"nicelistreveal"
+]
+},
+{
+"text": "Congratulations, whoever that is. I will not say it is the best statue in the valley, but it is the only one that sparkles.",
+"norm": "congratulationswhoeverthatisiwillnotsayitisthebeststatueinthevalleybutitistheonlyonethatsparkles",
+"src": [
+"nicelistreveal"
+]
+},
+{
+"text": "You will find the elves at your door. Choose the place, the style and the colour. Be nice to the pigeons.",
+"norm": "youwillfindtheelvesatyourdoorchoosetheplacethestyleandthecolourbenicetothepigeons",
+"src": [
+"nicelistreveal"
+]
+},
+{
+"text": "The rest of you: the list is long, the winter is longer, and there is always cake. Be kind. Or at least be quiet.",
+"norm": "therestofyouthelistislongthewinterislongerandthereisalwayscakebekindoratleastbequiet",
+"src": [
+"nicelistreveal"
+]
+},
+{
+"text": "Merry Christmas, downtown. Ho. Ho. Ho.",
+"norm": "merrychristmasdowntownhohoho",
+"src": [
+"nicelistreveal"
+]
+},
+{
+"text": "Well. That happened. I will not be telling the moon.",
+"norm": "wellthathappenediwillnotbetellingthemoon",
+"src": [
+"nicelistreveal"
+]
+}
+],
+"already_voiced": [
+{
+"text": "Be careful… the witch is close!",
+"norm": "becarefulthewitchisclose",
+"file": "voice/ml/g152_x.m4a",
+"src": [
+"react"
+]
+},
+{
+"text": "Be careful… a Hollow is near!",
+"norm": "becarefulahollowisnear",
+"file": "voice/ml/g154_x.m4a",
+"src": [
+"react"
+]
+},
+{
+"text": "It is so dark… stay close, I will be your light.",
+"norm": "itissodarkstaycloseiwillbeyourlight",
+"file": "voice/ml/g153_x.m4a",
+"src": [
+"react"
+]
+},
+{
+"text": "Skogvokteren. The forest keeper. He only checks that you are still here.",
+"norm": "skogvokterentheforestkeeperheonlychecksthatyouarestillhere",
+"file": "voice/ml/g176_x.m4a",
+"src": [
+"woodscares"
+]
+},
+{
+"text": "Lysglytt. They only want company. Do not follow them. ...A little, maybe.",
+"norm": "lysglytttheyonlywantcompanydonotfollowthemalittlemaybe",
+"file": "voice/ml/g177_x.m4a",
+"src": [
+"woodscares"
+]
+},
+{
+"text": "Never tell her you saw the tail. It is rude. And you did not see it.",
+"norm": "nevertellheryousawthetailitisrudeandyoudidnotseeit",
+"file": "voice/ml/g178_x.m4a",
+"src": [
+"woodscares"
+]
+},
+{
+"text": "Her back is hollow, you know. Do not walk around to check.",
+"norm": "herbackishollowyouknowdonotwalkaroundtocheck",
+"file": "voice/ml/g179_x.m4a",
+"src": [
+"woodscares"
+]
+},
+{
+"text": "Small prints, going in. None coming out. I would rather not count them.",
+"norm": "smallprintsgoinginnonecomingoutiwouldrathernotcountthem",
+"file": "voice/ml/g180_x.m4a",
+"src": [
+"woodscares"
+]
+},
+{
+"text": "I counted. There was one fewer snowman yesterday.",
+"norm": "icountedtherewasonefewersnowmanyesterday",
+"file": "voice/ml/g181_x.m4a",
+"src": [
+"woodscares"
+]
+},
+{
+"text": "Funny. I do not remember a cabin there. Do not go back to check.",
+"norm": "funnyidonotrememberacabintheredonotgobacktocheck",
+"file": "voice/ml/g182_x.m4a",
+"src": [
+"woodscares"
+]
+},
+{
+"text": "Footprints that just stop. I would walk on the other side.",
+"norm": "footprintsthatjuststopiwouldwalkontheotherside",
+"file": "voice/ml/g183_x.m4a",
+"src": [
+"woodscares"
+]
+},
+{
+"text": "Sorry about that. He gets lonely. I told him to wave first.",
+"norm": "sorryaboutthathegetslonelyitoldhimtowavefirst",
+"file": "voice/ml/g184_x.m4a",
+"src": [
+"jumpscares"
+]
+},
+{
+"text": "That was not a tree. Probably. I would not look it up.",
+"norm": "thatwasnotatreeprobablyiwouldnotlookitup",
+"file": "voice/ml/g185_x.m4a",
+"src": [
+"jumpscares"
+]
+},
+{
+"text": "I saw it too. We will both pretend we did not.",
+"norm": "isawittoowewillbothpretendwedidnot",
+"file": "voice/ml/g186_x.m4a",
+"src": [
+"jumpscares"
+]
+},
+{
+"text": "Nobody behind you. Keep walking at a relaxed speed, though.",
+"norm": "nobodybehindyoukeepwalkingatarelaxedspeedthough",
+"file": "voice/ml/g187_x.m4a",
+"src": [
+"jumpscares"
+]
+},
+{
+"text": "The flashlight is flat. You strike a match. Find the door.",
+"norm": "theflashlightisflatyoustrikeamatchfindthedoor",
+"file": "voice/ml/g188_x.m4a",
+"src": [
+"jumpscares"
+]
+},
+{
+"text": "First things first: Christmas needs a tree. Chris has none. Go to the JULETRESALG on the square and buy one with what you picked up on the road.",
+"norm": "firstthingsfirstchristmasneedsatreechrishasnonegotothejuletresalgonthesquareandbuyonewithwhatyoupickedupontheroad",
+"file": "voice/ml/g290_x.m4a",
+"src": [
+"firstquest"
+]
+},
+{
+"text": "I said nothing. The whole street said it for me.",
+"norm": "isaidnothingthewholestreetsaiditforme",
+"file": "voice/ml/g334_en_w.m4a",
+"src": [
+"morality"
+]
+},
+{
+"text": "I am not saying it was your fault. I am saying the whole street is saying it.",
+"norm": "iamnotsayingitwasyourfaultiamsayingthewholestreetissayingit",
+"file": "voice/ml/g335_en_w.m4a",
+"src": [
+"morality"
+]
+},
+{
+"text": "They remembered you. I would be flattered.",
+"norm": "theyrememberedyouiwouldbeflattered",
+"file": "voice/ml/g336_en_w.m4a",
+"src": [
+"morality"
+]
+},
+{
+"text": "She is pleased. I think it is the gingerbread. I am almost sure.",
+"norm": "sheispleasedithinkitisthegingerbreadiamalmostsure",
+"file": "voice/ml/g337_en_w.m4a",
+"src": [
+"morality"
+]
+},
+{
+"text": "I will not tell. But notes are very loud.",
+"norm": "iwillnottellbutnotesareveryloud",
+"file": "voice/ml/g338_en_w.m4a",
+"src": [
+"morality"
+]
+},
+{
+"text": "You do not have to. That is exactly why it counts.",
+"norm": "youdonothavetothatisexactlywhyitcounts",
+"file": "voice/ml/g339_en_w.m4a",
+"src": [
+"morality"
+]
+},
+{
+"text": "There. A little fire on a little pile of stones. I have seen stranger career paths.",
+"norm": "therealittlefireonalittlepileofstonesihaveseenstrangercareerpaths",
+"file": "voice/ml/g355_x.m4a",
+"src": [
+"cairns"
+]
+},
+{
+"text": "Warm! Ooh. Do not stand in it. I am a lantern, I get ideas.",
+"norm": "warmoohdonotstandinitiamalanternigetideas",
+"file": "voice/ml/g356_x.m4a",
+"src": [
+"cairns"
+]
+},
+{
+"text": "Smells like porridge up here. I have no nose. I smell it anyway.",
+"norm": "smellslikeporridgeuphereihavenonoseismellitanyway",
+"file": "voice/ml/g357_x.m4a",
+"src": [
+"cairns"
+]
+},
+{
+"text": "From here you can see the whole valley. It can see you too. Wave.",
+"norm": "fromhereyoucanseethewholevalleyitcanseeyoutoowave",
+"file": "voice/ml/g358_x.m4a",
+"src": [
+"cairns"
+]
+},
+{
+"text": "This hill is shaped like gingerbread. I checked. I did not bite it. Much.",
+"norm": "thishillisshapedlikegingerbreadicheckedididnotbiteitmuch",
+"file": "voice/ml/g359_x.m4a",
+"src": [
+"cairns"
+]
+},
+{
+"text": "Fog on the back of the neck. That is what \"nakken\" means. Also what I feel.",
+"norm": "fogonthebackoftheneckthatiswhatnakkenmeansalsowhatifeel",
+"file": "voice/ml/g360_x.m4a",
+"src": [
+"cairns"
+]
+},
+{
+"text": "Far from everything. Nobody comes out here. The fire does not mind. I mind a little.",
+"norm": "farfromeverythingnobodycomesoutherethefiredoesnotmindimindalittle",
+"file": "voice/ml/g361_x.m4a",
+"src": [
+"cairns"
+]
+},
+{
+"text": "I should tell you: I remember the last time they were all lit. I mostly remember being very bright. And somebody clapping.",
+"norm": "ishouldtellyouirememberthelasttimetheywerealllitimostlyrememberbeingverybrightandsomebodyclapping",
+"file": "voice/ml/g362_x.m4a",
+"src": [
+"cairns"
+]
+},
+{
+"text": "Last of the north. It looks lonely, so I will stay a minute. A very warm minute.",
+"norm": "lastofthenorthitlookslonelysoiwillstayaminuteaverywarmminute",
+"file": "voice/ml/g363_x.m4a",
+"src": [
+"cairns"
+]
+},
+{
+"text": "Fifteen of these, round the whole valley. If they are all burning, something will notice. I am not saying that is good. I am not saying it is bad.",
+"norm": "fifteenoftheseroundthewholevalleyiftheyareallburningsomethingwillnoticeiamnotsayingthatisgoodiamnotsayingitisbad",
+"file": "voice/ml/g364_x.m4a",
+"src": [
+"cairns"
+]
+},
+{
+"text": "It opened its eyes. Two of them. I am going to say it was waving. It was WAVING. Nobody check.",
+"norm": "itopeneditseyestwoofthemiamgoingtosayitwaswavingitwaswavingnobodycheck",
+"file": "voice/ml/g365_x.m4a",
+"src": [
+"cairns"
+]
+},
+{
+"text": "You are the Keeper of the Valley now. Please do not tell the mountain I was scared.",
+"norm": "youarethekeeperofthevalleynowpleasedonottellthemountainiwasscared",
+"file": "voice/ml/g366_x.m4a",
+"src": [
+"cairns"
+]
+},
+{
+"text": "I did say they were not the hugging kind.",
+"norm": "ididsaytheywerenotthehuggingkind",
+"file": "voice/ml/g367_x.m4a",
+"src": [
+"trolls2"
+]
+},
+{
+"text": "It is warm. Something is humming down there. I do not like it. We should come back in the daylight. If it is daylight. It is December.",
+"norm": "itiswarmsomethingishummingdownthereidonotlikeitweshouldcomebackinthedaylightifitisdaylightitisdecember",
+"file": "voice/ml/g388_x.m4a",
+"src": [
+"meteorday"
+]
+}
+]
+}

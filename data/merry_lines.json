@@ -1,0 +1,16 @@
+{"_note":"Replies when you say Merry Christmas to a stranger on the trails (job merrychristmas). mood: cozy | grumpy | odd | spooked (spooked = night only). vf/vm = voice for female / male strangers. Voice files: voice/trail/merry_<id>_<f|m>.m4a (build/make_merry_voices.py).",
+"lines":[
+{"id":"c1","mood":"cozy","text":"Merry Christmas! You are the first person I have seen in hours. I am counting that as a present.","vf":"en-US-JennyNeural","vm":"en-GB-ThomasNeural"},
+{"id":"c2","mood":"cozy","text":"Merry Christmas to you too. Listen. The snow is quiet on purpose.","vf":"en-GB-SoniaNeural","vm":"en-GB-RyanNeural"},
+{"id":"c3","mood":"cozy","text":"Oh! Merry Christmas. Here, have the last warm thought I was saving.","vf":"en-US-AriaNeural","vm":"en-US-GuyNeural"},
+{"id":"c4","mood":"cozy","text":"Merry Christmas. Mind the ice. It is festive, but it has opinions.","vf":"en-GB-LibbyNeural","vm":"en-NZ-MitchellNeural"},
+{"id":"g1","mood":"grumpy","text":"Merry Christmas. Yes. Fine. Now let me stand here in peace.","vf":"en-GB-SoniaNeural","vm":"en-GB-ThomasNeural","rate":"-8%"},
+{"id":"g2","mood":"grumpy","text":"Hmph. Merry Christmas. Do not make it a habit.","vf":"en-US-JennyNeural","vm":"en-GB-RyanNeural","rate":"-8%"},
+{"id":"g3","mood":"grumpy","text":"It is not Christmas yet. Merry Christmas anyway. Do not tell anyone I said it.","vf":"en-AU-NatashaNeural","vm":"en-AU-WilliamNeural","rate":"-6%"},
+{"id":"o1","mood":"odd","text":"Merry Christmas. The trees said it first, but they mumble.","vf":"en-GB-LibbyNeural","vm":"en-IE-ConnorNeural"},
+{"id":"o2","mood":"odd","text":"Merry Christmas. I counted the stars earlier. One of them waved back.","vf":"en-IE-EmilyNeural","vm":"en-NZ-MitchellNeural"},
+{"id":"o3","mood":"odd","text":"And to you. Somewhere downtown, a clock just agreed with you.","vf":"en-CA-ClaraNeural","vm":"en-GB-RyanNeural"},
+{"id":"s1","mood":"spooked","text":"Merry... Christmas. Please keep talking. I would rather hear you than the woods.","vf":"en-US-MichelleNeural","vm":"en-AU-WilliamNeural","rate":"-4%"},
+{"id":"s2","mood":"spooked","text":"Oh! You are real. Good. Merry Christmas. Walk with me for a bit. Not far.","vf":"en-US-JennyNeural","vm":"en-GB-ThomasNeural","rate":"-4%"},
+{"id":"s3","mood":"spooked","text":"Merry Christmas. Shh. Did you hear that? ... No. Nothing. Merry Christmas.","vf":"en-GB-SoniaNeural","vm":"en-IE-ConnorNeural","rate":"-6%"}
+]}

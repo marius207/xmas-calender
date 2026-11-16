@@ -1,0 +1,1120 @@
+{
+"version": 1,
+"about": "game lookup for hard-coded lines: group|normalised text -> {id,text,files}. Written by build/studio/studioall_add.py",
+"items": {
+"narr|thewindowislitnobodyisinside": {
+"id": "shout/narr_the_window_is_lit_nobody_is_inside",
+"text": "The window is lit. Nobody is inside.",
+"files": [
+"voice/shout/narr_the_window_is_lit_nobody_is_inside.m4a"
+]
+},
+"narr|someonewrote24onthefrostontheglass": {
+"id": "shout/narr_someone_wrote_24_on_the_frost_on_t",
+"text": "Someone wrote 24 on the frost on the glass.",
+"files": [
+"voice/shout/narr_someone_wrote_24_on_the_frost_on_t.m4a"
+]
+},
+"narr|aknockfrominsidethreetimes": {
+"id": "shout/narr_a_knock_from_inside_three_times",
+"text": "A knock from inside. Three times.",
+"files": [
+"voice/shout/narr_a_knock_from_inside_three_times.m4a"
+]
+},
+"narr|thedooriswarmlikesomeonejusttouchedit": {
+"id": "shout/narr_the_door_is_warm_like_someone_just",
+"text": "The door is warm, like someone just touched it.",
+"files": [
+"voice/shout/narr_the_door_is_warm_like_someone_just.m4a"
+]
+},
+"narr|thereisareceiptstucktothedoordatedtomorrow": {
+"id": "shout/narr_there_is_a_receipt_stuck_to_the_do",
+"text": "There is a receipt stuck to the door, dated tomorrow.",
+"files": [
+"voice/shout/narr_there_is_a_receipt_stuck_to_the_do.m4a"
+]
+},
+"narr|snowisfallinginsidetheshop": {
+"id": "shout/narr_snow_is_falling_inside_the_shop",
+"text": "Snow is falling inside the shop.",
+"files": [
+"voice/shout/narr_snow_is_falling_inside_the_shop.m4a"
+]
+},
+"lykta|thetreehasbeendarkallweekpeoplewalkpastitlikeitsnormal": {
+"id": "shout/lykta_the_tree_has_been_dark_all_week_pe",
+"text": "The tree has been dark all week. People walk past it like it's normal.",
+"files": [
+"voice/shout/lykta_the_tree_has_been_dark_all_week_pe.m4a"
+]
+},
+"lykta|tomorrowatsixthefirstdoorwakesgetsomesleepprobably": {
+"id": "shout/lykta_tomorrow_at_six_the_first_door_wak",
+"text": "Tomorrow at six the first door wakes. Get some sleep. Probably.",
+"files": [
+"voice/shout/lykta_tomorrow_at_six_the_first_door_wak.m4a"
+]
+},
+"narr|aneighbournodstakkforatdurydderdu": {
+"id": "shout/narr_a_neighbour_nods_takk_for_at_du_ry",
+"text": "A neighbour nods: \"Takk for at du rydder, du.\"",
+"files": [
+"voice/shout/narr_a_neighbour_nods_takk_for_at_du_ry.m4a"
+]
+},
+"narr|detdervarpentgjortsaysawomanwithadog": {
+"id": "shout/narr_det_der_var_pent_gjort_says_a_woma",
+"text": "\"Det der var pent gjort,\" says a woman with a dog.",
+"files": [
+"voice/shout/narr_det_der_var_pent_gjort_says_a_woma.m4a"
+]
+},
+"narr|anoldmansånnskaldetvære": {
+"id": "shout/narr_an_old_man_sann_skal_det_vaere",
+"text": "An old man: \"Sånn skal det være.\"",
+"files": [
+"voice/shout/narr_an_old_man_sann_skal_det_vaere.m4a"
+]
+},
+"witch|dontturnaround": {
+"id": "shout/witch_don_t_turn_around",
+"text": "DON'T TURN AROUND",
+"files": [
+"voice/shout/witch_don_t_turn_around.m4a"
+]
+},
+"witch|nissenissenisse": {
+"id": "shout/witch_nisse_nisse_nisse",
+"text": "NISSE? NISSE? NISSE?",
+"files": [
+"voice/shout/witch_nisse_nisse_nisse.m4a"
+]
+},
+"narr|heredeepinthemountainthetrollsleeps": {
+"id": "shout/narr_here_deep_in_the_mountain_the_trol",
+"text": "HERE, DEEP IN THE MOUNTAIN, THE TROLL SLEEPS.",
+"files": [
+"voice/shout/narr_here_deep_in_the_mountain_the_trol.m4a"
+]
+},
+"narr|heisshyheisalsoveryhungry": {
+"id": "shout/narr_he_is_shy_he_is_also_very_hungry",
+"text": "HE IS SHY. HE IS ALSO VERY HUNGRY.",
+"files": [
+"voice/shout/narr_he_is_shy_he_is_also_very_hungry.m4a"
+]
+},
+"narr|notepleasedonotfeedthetroll": {
+"id": "shout/narr_note_please_do_not_feed_the_troll",
+"text": "NOTE: PLEASE DO NOT FEED THE TROLL.",
+"files": [
+"voice/shout/narr_note_please_do_not_feed_the_troll.m4a"
+]
+},
+"narr|thewarmglownobodyknows": {
+"id": "shout/narr_the_warm_glow_nobody_knows",
+"text": "THE WARM GLOW? NOBODY KNOWS.",
+"files": [
+"voice/shout/narr_the_warm_glow_nobody_knows.m4a"
+]
+},
+"narr|hehasbeenwatchingthecamera": {
+"id": "shout/narr_he_has_been_watching_the_camera",
+"text": "HE HAS BEEN WATCHING THE CAMERA.",
+"files": [
+"voice/shout/narr_he_has_been_watching_the_camera.m4a"
+]
+},
+"narr|thecrewwasunavailableforcomment": {
+"id": "shout/narr_the_crew_was_unavailable_for_comme",
+"text": "THE CREW WAS UNAVAILABLE FOR COMMENT.",
+"files": [
+"voice/shout/narr_the_crew_was_unavailable_for_comme.m4a"
+]
+},
+"narr|coldgrandiosastraightfromtheboxperfect": {
+"id": "shout/narr_cold_grandiosa_straight_from_the_b",
+"text": "Cold Grandiosa, straight from the box. Perfect.",
+"files": [
+"voice/shout/narr_cold_grandiosa_straight_from_the_b.m4a"
+]
+},
+"narr|leftoverlapskausstillgood": {
+"id": "shout/narr_leftover_lapskaus_still_good",
+"text": "Leftover lapskaus. Still good.",
+"files": [
+"voice/shout/narr_leftover_lapskaus_still_good.m4a"
+]
+},
+"narr|asliceofbrunostonasliceofbread": {
+"id": "shout/narr_a_slice_of_brunost_on_a_slice_of_b",
+"text": "A slice of brunost on a slice of bread.",
+"files": [
+"voice/shout/narr_a_slice_of_brunost_on_a_slice_of_b.m4a"
+]
+},
+"narr|twopepperkakerfromthejarontheshelf": {
+"id": "shout/narr_two_pepperkaker_from_the_jar_on_th",
+"text": "Two pepperkaker from the jar on the shelf.",
+"files": [
+"voice/shout/narr_two_pepperkaker_from_the_jar_on_th.m4a"
+]
+},
+"narr|halfakvikklunsjtheotherhalfisgone": {
+"id": "shout/narr_half_a_kvikk_lunsj_the_other_half",
+"text": "Half a Kvikk Lunsj. The other half is gone.",
+"files": [
+"voice/shout/narr_half_a_kvikk_lunsj_the_other_half.m4a"
+]
+},
+"narr|aspoonofcloudberryjamstraightfromthejar": {
+"id": "shout/narr_a_spoon_of_cloudberry_jam_straight",
+"text": "A spoon of cloudberry jam. Straight from the jar.",
+"files": [
+"voice/shout/narr_a_spoon_of_cloudberry_jam_straight.m4a"
+]
+},
+"lykta|lampsaresafeinherestandunderoneandrestiwillrememberwhereyousaved": {
+"id": "shout/lykta_lamps_are_safe_in_here_stand_under",
+"text": "Lamps are safe in here. Stand under one and rest. I will remember where you saved.",
+"files": [
+"voice/shout/lykta_lamps_are_safe_in_here_stand_under.m4a"
+]
+},
+"lykta|apagefromanotebooksomeonewrotethisforustoreadallyourpages": {
+"id": "shout/lykta_a_page_from_a_notebook_someone_wro",
+"text": "A page from a notebook… someone wrote this for us. To read all your pages,",
+"files": [
+"voice/shout/lykta_a_page_from_a_notebook_someone_wro.m4a"
+]
+},
+"shop|velkommentilfôrogdyrholdmatenfremmeogståheltstille": {
+"id": "shout/shop_velkommen_til_f_r_og_dyr_hold_mate",
+"text": "Velkommen til Fôr og Dyr! Hold maten fremme og stå helt stille.",
+"files": [
+"voice/shout/shop_velkommen_til_f_r_og_dyr_hold_mate_w_adult.m4a",
+"voice/shout/shop_velkommen_til_f_r_og_dyr_hold_mate_m_adult.m4a"
+]
+},
+"shop|nøttertilekornetrightthisway": {
+"id": "shout/shop_notter_til_ekornet_right_this_way",
+"text": "Nøtter til ekornet? Right this way.",
+"files": [
+"voice/shout/shop_notter_til_ekornet_right_this_way_w_adult.m4a",
+"voice/shout/shop_notter_til_ekornet_right_this_way_m_adult.m4a"
+]
+},
+"shop|carefulwiththemooseseriouslyandthewolfespeciallythewolf": {
+"id": "shout/shop_careful_with_the_moose_seriously_a",
+"text": "Careful with the moose. Seriously. And the wolf. Especially the wolf.",
+"files": [
+"voice/shout/shop_careful_with_the_moose_seriously_a_w_adult.m4a",
+"voice/shout/shop_careful_with_the_moose_seriously_a_m_adult.m4a"
+]
+},
+"shop|reinlavforreinsdyrhundegodtforhundersimple": {
+"id": "shout/shop_reinlav_for_reinsdyr_hundegodt_for",
+"text": "Reinlav for reinsdyr, hundegodt for hunder. Simple.",
+"files": [
+"voice/shout/shop_reinlav_for_reinsdyr_hundegodt_for_w_adult.m4a",
+"voice/shout/shop_reinlav_for_reinsdyr_hundegodt_for_m_adult.m4a"
+]
+},
+"lykta|nissesecuritycentralfencesfloodlightsandabarrierthathasneveronceliftedforavisitor": {
+"id": "shout/lykta_nisse_security_central_fences_floo",
+"text": "Nisse Security Central. Fences, floodlights and a barrier that has never once lifted for a visitor.",
+"files": [
+"voice/shout/lykta_nisse_security_central_fences_floo.m4a"
+]
+},
+"lykta|flawlessitisalibrarycardtheynevercheck": {
+"id": "shout/lykta_flawless_it_is_a_library_card_they",
+"text": "Flawless. It is a library card. They never check.",
+"files": [
+"voice/shout/lykta_flawless_it_is_a_library_card_they.m4a"
+]
+},
+"lykta|eyebrowssavedbarely": {
+"id": "shout/lykta_eyebrows_saved_barely",
+"text": "Eyebrows saved. Barely.",
+"files": [
+"voice/shout/lykta_eyebrows_saved_barely.m4a"
+]
+},
+"lykta|scanningholdstillbeasnowman": {
+"id": "shout/lykta_scanning_hold_still_be_a_snowman",
+"text": "SCANNING. Hold still. Be a snowman.",
+"files": [
+"voice/shout/lykta_scanning_hold_still_be_a_snowman.m4a"
+]
+},
+"lykta|filedundersuspicioussnowmanexpectaletter": {
+"id": "shout/lykta_filed_under_suspicious_snowman_exp",
+"text": "Filed under suspicious snowman. Expect a letter.",
+"files": [
+"voice/shout/lykta_filed_under_suspicious_snowman_exp.m4a"
+]
+},
+"lykta|thetrapdoorsheleftitwideopenlikeawomanwhohasstoppedcaringaboutherdeposit": {
+"id": "shout/lykta_the_trapdoor_she_left_it_wide_open",
+"text": "The trapdoor. She left it wide open, like a woman who has stopped caring about her deposit.",
+"files": [
+"voice/shout/lykta_the_trapdoor_she_left_it_wide_open.m4a"
+]
+},
+"lykta|thetrapdoorlockedfrombelowwhichisnothowtrapdoorsaresupposedtowork": {
+"id": "shout/lykta_the_trapdoor_locked_from_below_whi",
+"text": "The trapdoor. Locked from below, which is not how trapdoors are supposed to work.",
+"files": [
+"voice/shout/lykta_the_trapdoor_locked_from_below_whi.m4a"
+]
+},
+"lykta|holdstillitiscountingyourbreaths": {
+"id": "shout/lykta_hold_still_it_is_counting_your_bre",
+"text": "Hold still. It is counting your breaths.",
+"files": [
+"voice/shout/lykta_hold_still_it_is_counting_your_bre.m4a"
+]
+},
+"lykta|silentasamouseinsocks": {
+"id": "shout/lykta_silent_as_a_mouse_in_socks",
+"text": "Silent as a mouse in socks.",
+"files": [
+"voice/shout/lykta_silent_as_a_mouse_in_socks.m4a"
+]
+},
+"lykta|wrongrhythmnowitissulking": {
+"id": "shout/lykta_wrong_rhythm_now_it_is_sulking",
+"text": "Wrong rhythm. Now it is sulking.",
+"files": [
+"voice/shout/lykta_wrong_rhythm_now_it_is_sulking.m4a"
+]
+},
+"lykta|thelidbouncedonetinyverypoliteowfloatedup": {
+"id": "shout/lykta_the_lid_bounced_one_tiny_very_poli",
+"text": "The lid bounced. One tiny, very polite ow floated up.",
+"files": [
+"voice/shout/lykta_the_lid_bounced_one_tiny_very_poli.m4a"
+]
+},
+"lykta|ohohnoeverylightwentoutatoncethisisthethresholdanditislookingatus": {
+"id": "shout/lykta_oh_oh_no_every_light_went_out_at_o",
+"text": "Oh. Oh no. Every light went out at once. This is the Threshold, and it is looking at us.",
+"files": [
+"voice/shout/lykta_oh_oh_no_every_light_went_out_at_o.m4a"
+]
+},
+"lykta|bootsexcellentverytrustworthyboots": {
+"id": "shout/lykta_boots_excellent_very_trustworthy_b",
+"text": "Boots: excellent. Very trustworthy boots.",
+"files": [
+"voice/shout/lykta_boots_excellent_very_trustworthy_b.m4a"
+]
+},
+"lykta|hushsomethingisrightbehindyou": {
+"id": "shout/lykta_hush_something_is_right_behind_you",
+"text": "Hush. Something is right behind you.",
+"files": [
+"voice/shout/lykta_hush_something_is_right_behind_you.m4a"
+]
+},
+"lykta|turnaroundnow": {
+"id": "shout/lykta_turn_around_now",
+"text": "TURN AROUND NOW!",
+"files": [
+"voice/shout/lykta_turn_around_now.m4a"
+]
+},
+"lykta|justahollowbinthistime": {
+"id": "shout/lykta_just_a_hollow_bin_this_time",
+"text": "Just a hollow bin. This time.",
+"files": [
+"voice/shout/lykta_just_a_hollow_bin_this_time.m4a"
+]
+},
+"lykta|acairnsomebodystackedthesestonesverycarefullythenleftwhichiswhatcairnpeopledo": {
+"id": "shout/lykta_a_cairn_somebody_stacked_these_sto",
+"text": "A cairn. Somebody stacked these stones very carefully, then left, which is what cairn people do.",
+"files": [
+"voice/shout/lykta_a_cairn_somebody_stacked_these_sto.m4a"
+]
+},
+"lykta|clickitsitsperfectly": {
+"id": "shout/lykta_click_it_sits_perfectly",
+"text": "Click. It sits perfectly.",
+"files": [
+"voice/shout/lykta_click_it_sits_perfectly.m4a"
+]
+},
+"lykta|plopitrolledawayrude": {
+"id": "shout/lykta_plop_it_rolled_away_rude",
+"text": "Plop. It rolled away. Rude.",
+"files": [
+"voice/shout/lykta_plop_it_rolled_away_rude.m4a"
+]
+},
+"lykta|steadyholdwhileitsettles": {
+"id": "shout/lykta_steady_hold_while_it_settles",
+"text": "STEADY. Hold while it settles.",
+"files": [
+"voice/shout/lykta_steady_hold_while_it_settles.m4a"
+]
+},
+"lykta|itstandsatriumphofbalanceandbadideas": {
+"id": "shout/lykta_it_stands_a_triumph_of_balance_and",
+"text": "It stands. A triumph of balance and bad ideas.",
+"files": [
+"voice/shout/lykta_it_stands_a_triumph_of_balance_and.m4a"
+]
+},
+"lykta|backwheretheyweremostlyoneofthemwinked": {
+"id": "shout/lykta_back_where_they_were_mostly_one_of",
+"text": "Back where they were. Mostly. One of them winked.",
+"files": [
+"voice/shout/lykta_back_where_they_were_mostly_one_of.m4a"
+]
+},
+"lykta|theyleanedanywayverycommittedstones": {
+"id": "shout/lykta_they_leaned_anyway_very_committed",
+"text": "They leaned anyway. Very committed stones.",
+"files": [
+"voice/shout/lykta_they_leaned_anyway_very_committed.m4a"
+]
+},
+"shout|heywatchit": {
+"id": "shout/shout_hey_watch_it",
+"text": "Hey! Watch it!",
+"files": [
+"voice/shout/shout_hey_watch_it_w_adult.m4a",
+"voice/shout/shout_hey_watch_it_m_adult.m4a"
+]
+},
+"shout|areyoublind": {
+"id": "shout/shout_are_you_blind",
+"text": "Are you blind?!",
+"files": [
+"voice/shout/shout_are_you_blind_w_adult.m4a",
+"voice/shout/shout_are_you_blind_m_adult.m4a"
+]
+},
+"shout|mylegmyleg": {
+"id": "shout/shout_my_leg_my_leg",
+"text": "My leg! My leg!",
+"files": [
+"voice/shout/shout_my_leg_my_leg_w_adult.m4a",
+"voice/shout/shout_my_leg_my_leg_m_adult.m4a"
+]
+},
+"shout|unbelievable": {
+"id": "shout/shout_unbelievable",
+"text": "Unbelievable.",
+"files": [
+"voice/shout/shout_unbelievable_w_adult.m4a",
+"voice/shout/shout_unbelievable_m_adult.m4a"
+]
+},
+"shout|iamtellingeveryoneaboutthis": {
+"id": "shout/shout_i_am_telling_everyone_about_this",
+"text": "I am telling everyone about this!",
+"files": [
+"voice/shout/shout_i_am_telling_everyone_about_this_w_adult.m4a",
+"voice/shout/shout_i_am_telling_everyone_about_this_m_adult.m4a"
+]
+},
+"shout|owjustow": {
+"id": "shout/shout_ow_just_ow",
+"text": "Ow. Just ow.",
+"files": [
+"voice/shout/shout_ow_just_ow_w_adult.m4a",
+"voice/shout/shout_ow_just_ow_m_adult.m4a"
+]
+},
+"shout|excuseme": {
+"id": "shout/shout_excuse_me",
+"text": "Excuse me?!",
+"files": [
+"voice/shout/shout_excuse_me_w_adult.m4a",
+"voice/shout/shout_excuse_me_m_adult.m4a"
+]
+},
+"shout|oi": {
+"id": "shout/shout_oi",
+"text": "Oi!",
+"files": [
+"voice/shout/shout_oi_w_adult.m4a",
+"voice/shout/shout_oi_m_adult.m4a"
+]
+},
+"shout|careful": {
+"id": "shout/shout_careful",
+"text": "Careful!",
+"files": [
+"voice/shout/shout_careful_w_adult.m4a",
+"voice/shout/shout_careful_m_adult.m4a"
+]
+},
+"shout|whatthe": {
+"id": "shout/shout_what_the",
+"text": "What the...?!",
+"files": [
+"voice/shout/shout_what_the_w_adult.m4a",
+"voice/shout/shout_what_the_m_adult.m4a"
+]
+},
+"police|stopppolitiet": {
+"id": "shout/police_stopp_politiet",
+"text": "STOPP! POLITIET!",
+"files": [
+"voice/shout/police_stopp_politiet_cop_f.m4a",
+"voice/shout/police_stopp_politiet_cop_m.m4a"
+]
+},
+"police|ståstille": {
+"id": "shout/police_sta_stille",
+"text": "Stå stille!",
+"files": [
+"voice/shout/police_sta_stille_cop_f.m4a",
+"voice/shout/police_sta_stille_cop_m.m4a"
+]
+},
+"police|holddegiro": {
+"id": "shout/police_hold_deg_i_ro",
+"text": "Hold deg i ro!",
+"files": [
+"voice/shout/police_hold_deg_i_ro_cop_f.m4a",
+"voice/shout/police_hold_deg_i_ro_cop_m.m4a"
+]
+},
+"police|blistående": {
+"id": "shout/police_bli_staende",
+"text": "Bli stående!",
+"files": [
+"voice/shout/police_bli_staende_cop_f.m4a",
+"voice/shout/police_bli_staende_cop_m.m4a"
+]
+},
+"taxi|whoaeasy": {
+"id": "shout/taxi_whoa_easy",
+"text": "Whoa! Easy!",
+"files": [
+"voice/shout/taxi_whoa_easy_w_adult.m4a",
+"voice/shout/taxi_whoa_easy_m_adult.m4a"
+]
+},
+"taxi|ouchmycoffee": {
+"id": "shout/taxi_ouch_my_coffee",
+"text": "Ouch, my coffee!",
+"files": [
+"voice/shout/taxi_ouch_my_coffee_w_adult.m4a",
+"voice/shout/taxi_ouch_my_coffee_m_adult.m4a"
+]
+},
+"taxi|watchtheroad": {
+"id": "shout/taxi_watch_the_road",
+"text": "Watch the road!",
+"files": [
+"voice/shout/taxi_watch_the_road_w_adult.m4a",
+"voice/shout/taxi_watch_the_road_m_adult.m4a"
+]
+},
+"taxi|areyouevenlooking": {
+"id": "shout/taxi_are_you_even_looking",
+"text": "Are you even looking?!",
+"files": [
+"voice/shout/taxi_are_you_even_looking_w_adult.m4a",
+"voice/shout/taxi_are_you_even_looking_m_adult.m4a"
+]
+},
+"taxi|slowdownplease": {
+"id": "shout/taxi_slow_down_please",
+"text": "Slow down, please!",
+"files": [
+"voice/shout/taxi_slow_down_please_w_adult.m4a",
+"voice/shout/taxi_slow_down_please_m_adult.m4a"
+]
+},
+"shop|skåltoyoutoobutpleaseholdtheshelfnottheshop": {
+"id": "shout/shop_skal_to_you_too_but_please_hold_th",
+"text": "Skål to you too, but please hold the shelf, not the shop.",
+"files": [
+"voice/shout/shop_skal_to_you_too_but_please_hold_th_w_adult.m4a",
+"voice/shout/shop_skal_to_you_too_but_please_hold_th_m_adult.m4a"
+]
+},
+"shop|carefulwiththeeggsvennenandthedoorandthefloor": {
+"id": "shout/shop_careful_with_the_eggs_vennen_and_t",
+"text": "Careful with the eggs, vennen. And the door. And the floor.",
+"files": [
+"voice/shout/shop_careful_with_the_eggs_vennen_and_t_w_adult.m4a",
+"voice/shout/shop_careful_with_the_eggs_vennen_and_t_m_adult.m4a"
+]
+},
+"shop|vinmonopoletdoesnotservewobblingcustomerscomebacksoberwithid": {
+"id": "shout/shop_vinmonopolet_does_not_serve_wobbli",
+"text": "Vinmonopolet does not serve wobbling customers. Come back sober, with ID.",
+"files": [
+"voice/shout/shop_vinmonopolet_does_not_serve_wobbli_w_adult.m4a",
+"voice/shout/shop_vinmonopolet_does_not_serve_wobbli_m_adult.m4a"
+]
+},
+"shop|thebottlesarestayingontheshelfandsoareyouholdthecounter": {
+"id": "shout/shop_the_bottles_are_staying_on_the_she",
+"text": "The bottles are staying on the shelf, and so are you. Hold the counter.",
+"files": [
+"voice/shout/shop_the_bottles_are_staying_on_the_she_w_adult.m4a",
+"voice/shout/shop_the_bottles_are_staying_on_the_she_m_adult.m4a"
+]
+},
+"lykta|iceeverywherethereisnogritthereisice": {
+"id": "shout/lykta_ice_everywhere_there_is_no_grit_th",
+"text": "Ice. Everywhere there is no grit, there is ice.",
+"files": [
+"voice/shout/lykta_ice_everywhere_there_is_no_grit_th.m4a"
+]
+},
+"lykta|whooshseewoodensignsknowthingsdontaskhow": {
+"id": "shout/lykta_whoosh_see_wooden_signs_know_thing",
+"text": "Whoosh. See? Wooden signs know things. Don't ask how.",
+"files": [
+"voice/shout/lykta_whoosh_see_wooden_signs_know_thing.m4a"
+]
+},
+"lykta|arrivedeverythingstillhasallitsfingersgood": {
+"id": "shout/lykta_arrived_everything_still_has_all_i",
+"text": "Arrived. Everything still has all its fingers. Good.",
+"files": [
+"voice/shout/lykta_arrived_everything_still_has_all_i.m4a"
+]
+},
+"lykta|thepoststalktoeachotheratnightmostlygossip": {
+"id": "shout/lykta_the_posts_talk_to_each_other_at_ni",
+"text": "The posts talk to each other at night. Mostly gossip.",
+"files": [
+"voice/shout/lykta_the_posts_talk_to_each_other_at_ni.m4a"
+]
+},
+"shop|orensandflorensnotherevekslingskontoretonthesquaredealsinthataskforthehat": {
+"id": "shout/shop_orens_and_florens_not_here_vekslin",
+"text": "Orens and florens? Not here. Vekslingskontoret on the square deals in that. Ask for the hat.",
+"files": [
+"voice/shout/shop_orens_and_florens_not_here_vekslin_w_adult.m4a",
+"voice/shout/shop_orens_and_florens_not_here_vekslin_m_adult.m4a"
+]
+},
+"shop|coinsfromlandsthatdonotexiststrongbusiness": {
+"id": "shout/shop_coins_from_lands_that_do_not_exist",
+"text": "Coins from lands that do not exist. Strong business.",
+"files": [
+"voice/shout/shop_coins_from_lands_that_do_not_exist_w_adult.m4a",
+"voice/shout/shop_coins_from_lands_that_do_not_exist_m_adult.m4a"
+]
+},
+"shop|holdituptothelightisitwinkinggoodcoin": {
+"id": "shout/shop_hold_it_up_to_the_light_is_it_wink",
+"text": "Hold it up to the light. Is it winking? Good coin.",
+"files": [
+"voice/shout/shop_hold_it_up_to_the_light_is_it_wink_w_adult.m4a",
+"voice/shout/shop_hold_it_up_to_the_light_is_it_wink_m_adult.m4a"
+]
+},
+"shop|noreceiptsnoquestionsbadrate": {
+"id": "shout/shop_no_receipts_no_questions_bad_rate",
+"text": "No receipts. No questions. Bad rate.",
+"files": [
+"voice/shout/shop_no_receipts_no_questions_bad_rate_w_adult.m4a",
+"voice/shout/shop_no_receipts_no_questions_bad_rate_m_adult.m4a"
+]
+},
+"shop|thegravespaywelldonotask": {
+"id": "shout/shop_the_graves_pay_well_do_not_ask",
+"text": "The graves pay well. Do not ask.",
+"files": [
+"voice/shout/shop_the_graves_pay_well_do_not_ask_w_adult.m4a",
+"voice/shout/shop_the_graves_pay_well_do_not_ask_m_adult.m4a"
+]
+},
+"lykta|theyarelitblueidonotlikethatdonotlookforfacesinthemcomeon": {
+"id": "shout/lykta_they_are_lit_blue_i_do_not_like_th",
+"text": "They are lit blue. I do not like that. Do not look for faces in them. Come on.",
+"files": [
+"voice/shout/lykta_they_are_lit_blue_i_do_not_like_th.m4a"
+]
+},
+"gossip|sådudetigårkveldnoestortogmørktgledoverhimmelen": {
+"id": "shout/gossip_sa_du_det_i_gar_kveld_noe_stort_og",
+"text": "Så du det i går kveld? Noe stort og mørkt gled over himmelen.",
+"files": [
+"voice/shout/gossip_sa_du_det_i_gar_kveld_noe_stort_og_w_adult.m4a",
+"voice/shout/gossip_sa_du_det_i_gar_kveld_noe_stort_og_m_adult.m4a"
+]
+},
+"gossip|detfløynoeoverdaleninattdetvarikkeenfuglikkeetflyheller": {
+"id": "shout/gossip_det_floy_noe_over_dalen_i_natt_det",
+"text": "Det fløy noe over dalen i natt. Det var ikke en fugl. Ikke et fly heller.",
+"files": [
+"voice/shout/gossip_det_floy_noe_over_dalen_i_natt_det_w_adult.m4a",
+"voice/shout/gossip_det_floy_noe_over_dalen_i_natt_det_m_adult.m4a"
+]
+},
+"gossip|hundennektetågåutetteratdenstoreskyggenpasserte": {
+"id": "shout/gossip_hunden_nektet_a_ga_ut_etter_at_den",
+"text": "Hunden nektet å gå ut etter at den store skyggen passerte.",
+"files": [
+"voice/shout/gossip_hunden_nektet_a_ga_ut_etter_at_den_w_adult.m4a",
+"voice/shout/gossip_hunden_nektet_a_ga_ut_etter_at_den_m_adult.m4a"
+]
+},
+"gossip|jegtrorjegsåenkappepåhimmelenutennoeni": {
+"id": "shout/gossip_jeg_tror_jeg_sa_en_kappe_pa_himmel",
+"text": "Jeg tror jeg så en kappe. På himmelen! Uten noen i.",
+"files": [
+"voice/shout/gossip_jeg_tror_jeg_sa_en_kappe_pa_himmel_w_adult.m4a",
+"voice/shout/gossip_jeg_tror_jeg_sa_en_kappe_pa_himmel_m_adult.m4a"
+]
+},
+"gossip|detvarheltstilledadenfløyoverikkeenlydbarevinden": {
+"id": "shout/gossip_det_var_helt_stille_da_den_floy_ov",
+"text": "Det var helt stille da den fløy over. Ikke en lyd. Bare vinden.",
+"files": [
+"voice/shout/gossip_det_var_helt_stille_da_den_floy_ov_w_adult.m4a",
+"voice/shout/gossip_det_var_helt_stille_da_den_floy_ov_m_adult.m4a"
+]
+},
+"gossip|mormorsierdeterskyermormorhardårligeøyne": {
+"id": "shout/gossip_mormor_sier_det_er_skyer_mormor_ha",
+"text": "Mormor sier det er skyer. Mormor har dårlige øyne.",
+"files": [
+"voice/shout/gossip_mormor_sier_det_er_skyer_mormor_ha_w_adult.m4a",
+"voice/shout/gossip_mormor_sier_det_er_skyer_mormor_ha_m_adult.m4a"
+]
+},
+"gossip|lysenedirretigårdadenkomjeggikkinnoglåstedøra": {
+"id": "shout/gossip_lysene_dirret_i_gar_da_den_kom_jeg",
+"text": "Lysene dirret i går da den kom. Jeg gikk inn og låste døra.",
+"files": [
+"voice/shout/gossip_lysene_dirret_i_gar_da_den_kom_jeg_w_adult.m4a",
+"voice/shout/gossip_lysene_dirret_i_gar_da_den_kom_jeg_m_adult.m4a"
+]
+},
+"kid|hey": {
+"id": "shout/kid_hey",
+"text": "Hey!",
+"files": [
+"voice/shout/kid_hey_kid_f.m4a",
+"voice/shout/kid_hey_kid_m.m4a"
+]
+},
+"kid|mamma": {
+"id": "shout/kid_mamma",
+"text": "Mamma!",
+"files": [
+"voice/shout/kid_mamma_kid_f.m4a",
+"voice/shout/kid_mamma_kid_m.m4a"
+]
+},
+"kid|austopthat": {
+"id": "shout/kid_au_stop_that",
+"text": "Au! Stop that!",
+"files": [
+"voice/shout/kid_au_stop_that_kid_f.m4a",
+"voice/shout/kid_au_stop_that_kid_m.m4a"
+]
+},
+"kid|iamtelling": {
+"id": "shout/kid_i_am_telling",
+"text": "I am telling!",
+"files": [
+"voice/shout/kid_i_am_telling_kid_f.m4a",
+"voice/shout/kid_i_am_telling_kid_m.m4a"
+]
+},
+"kid|nei": {
+"id": "shout/kid_nei",
+"text": "Nei!",
+"files": [
+"voice/shout/kid_nei_kid_f.m4a",
+"voice/shout/kid_nei_kid_m.m4a"
+]
+},
+"hurt|au": {
+"id": "shout/hurt_au",
+"text": "Au!",
+"files": [
+"voice/shout/hurt_au_w_adult.m4a",
+"voice/shout/hurt_au_m_adult.m4a"
+]
+},
+"hurt|heihvai": {
+"id": "shout/hurt_hei_hva_i",
+"text": "Hei! Hva i...?",
+"files": [
+"voice/shout/hurt_hei_hva_i_w_adult.m4a",
+"voice/shout/hurt_hei_hva_i_m_adult.m4a"
+]
+},
+"hurt|ikkegjørdet": {
+"id": "shout/hurt_ikke_gjor_det",
+"text": "Ikke gjør det!",
+"files": [
+"voice/shout/hurt_ikke_gjor_det_w_adult.m4a",
+"voice/shout/hurt_ikke_gjor_det_m_adult.m4a"
+]
+},
+"hurt|stopp": {
+"id": "shout/hurt_stopp",
+"text": "Stopp!",
+"files": [
+"voice/shout/hurt_stopp_w_adult.m4a",
+"voice/shout/hurt_stopp_m_adult.m4a"
+]
+},
+"hurt|hjelp": {
+"id": "shout/hurt_hjelp",
+"text": "Hjelp!",
+"files": [
+"voice/shout/hurt_hjelp_w_adult.m4a",
+"voice/shout/hurt_hjelp_m_adult.m4a"
+]
+},
+"card|ooh": {
+"id": "shout/card_ooh",
+"text": "Ooh!",
+"files": [
+"voice/shout/card_ooh.m4a"
+]
+},
+"card|scorch": {
+"id": "shout/card_scorch",
+"text": "Scorch!",
+"files": [
+"voice/shout/card_scorch.m4a"
+]
+},
+"card|hmm": {
+"id": "shout/card_hmm",
+"text": "Hmm...",
+"files": [
+"voice/shout/card_hmm.m4a"
+]
+},
+"card|pass": {
+"id": "shout/card_pass",
+"text": "Pass.",
+"files": [
+"voice/shout/card_pass.m4a"
+]
+},
+"card|goodcard": {
+"id": "shout/card_good_card",
+"text": "Good card.",
+"files": [
+"voice/shout/card_good_card.m4a"
+]
+},
+"card|yourmove": {
+"id": "shout/card_your_move",
+"text": "Your move.",
+"files": [
+"voice/shout/card_your_move.m4a"
+]
+},
+"card|carefulnow": {
+"id": "shout/card_careful_now",
+"text": "Careful now...",
+"files": [
+"voice/shout/card_careful_now.m4a"
+]
+},
+"card|skål": {
+"id": "shout/card_skal",
+"text": "Skål!",
+"files": [
+"voice/shout/card_skal.m4a"
+]
+},
+"card|oohaspy": {
+"id": "shout/card_ooh_a_spy",
+"text": "Ooh, a spy!",
+"files": [
+"voice/shout/card_ooh_a_spy.m4a"
+]
+},
+"card|thatisbrutal": {
+"id": "shout/card_that_is_brutal",
+"text": "That is brutal.",
+"files": [
+"voice/shout/card_that_is_brutal.m4a"
+]
+},
+"santa|santalikedthatonesantahadalittlesitdown": {
+"id": "shout/santa_santa_liked_that_one_santa_had_a_l",
+"text": "Santa liked that one. Santa had a little sit-down.",
+"files": [
+"voice/shout/santa_santa_liked_that_one_santa_had_a_l.m4a"
+]
+},
+"santa|thatwentstraighttothetopofthepage": {
+"id": "shout/santa_that_went_straight_to_the_top_of_t",
+"text": "That went straight to the top of the page.",
+"files": [
+"voice/shout/santa_that_went_straight_to_the_top_of_t.m4a"
+]
+},
+"santa|eventhereindeerclappedwiththeirhooveswhichistheloudway": {
+"id": "shout/santa_even_the_reindeer_clapped_with_the",
+"text": "Even the reindeer clapped, with their hooves, which is the loud way.",
+"files": [
+"voice/shout/santa_even_the_reindeer_clapped_with_the.m4a"
+]
+},
+"santa|santaunderlinedthatingold": {
+"id": "shout/santa_santa_underlined_that_in_gold",
+"text": "Santa underlined that in gold.",
+"files": [
+"voice/shout/santa_santa_underlined_that_in_gold.m4a"
+]
+},
+"santa|santawroteitdownthenhecrosseditoutbecauseitischristmas": {
+"id": "shout/santa_santa_wrote_it_down_then_he_crosse",
+"text": "Santa wrote it down. Then he crossed it out, because it is Christmas.",
+"files": [
+"voice/shout/santa_santa_wrote_it_down_then_he_crosse.m4a"
+]
+},
+"santa|santahadtofindtheotherpenforthatone": {
+"id": "shout/santa_santa_had_to_find_the_other_pen_fo",
+"text": "Santa had to find the other pen for that one.",
+"files": [
+"voice/shout/santa_santa_had_to_find_the_other_pen_fo.m4a"
+]
+},
+"santa|thereindeerlookedawaytheyareverypolite": {
+"id": "shout/santa_the_reindeer_looked_away_they_are",
+"text": "The reindeer looked away. They are very polite.",
+"files": [
+"voice/shout/santa_the_reindeer_looked_away_they_are.m4a"
+]
+},
+"santa|itisonthelistitisalsoforgivenmostly": {
+"id": "shout/santa_it_is_on_the_list_it_is_also_forgi",
+"text": "It is on the list. It is also forgiven. Mostly.",
+"files": [
+"voice/shout/santa_it_is_on_the_list_it_is_also_forgi.m4a"
+]
+},
+"santa|youholdthecoalitisnotwarmitisthinkingaboutit": {
+"id": "shout/santa_you_hold_the_coal_it_is_not_warm_i",
+"text": "You hold the coal. It is not warm. It is thinking about it.",
+"files": [
+"voice/shout/santa_you_hold_the_coal_it_is_not_warm_i.m4a"
+]
+},
+"santa|warmhandscoldtruthitisaverygoodlump": {
+"id": "shout/santa_warm_hands_cold_truth_it_is_a_very",
+"text": "Warm hands. Cold truth. It is a very good lump.",
+"files": [
+"voice/shout/santa_warm_hands_cold_truth_it_is_a_very.m4a"
+]
+},
+"santa|yourubthecoalitleavesalittleblackonyouwhichisalsoagift": {
+"id": "shout/santa_you_rub_the_coal_it_leaves_a_littl",
+"text": "You rub the coal. It leaves a little black on you, which is also a gift.",
+"files": [
+"voice/shout/santa_you_rub_the_coal_it_leaves_a_littl.m4a"
+]
+},
+"santa|somewhereareindeerislaughingkindly": {
+"id": "shout/santa_somewhere_a_reindeer_is_laughing_k",
+"text": "Somewhere a reindeer is laughing, kindly.",
+"files": [
+"voice/shout/santa_somewhere_a_reindeer_is_laughing_k.m4a"
+]
+},
+"wreck|wk_bin": {
+"id": "shout/wreck_bin",
+"text": "Hei! Søppelkassa mi!",
+"files": [
+"voice/ml/wk_bin_w_adult.m4a",
+"voice/ml/wk_bin_m_adult.m4a"
+]
+},
+"wreck|wk_mailbox": {
+"id": "shout/wreck_mailbox",
+"text": "Hei! Min postkasse!",
+"files": [
+"voice/ml/wk_mailbox_w_adult.m4a",
+"voice/ml/wk_mailbox_m_adult.m4a"
+]
+},
+"wreck|wk_snowman": {
+"id": "shout/wreck_snowman",
+"text": "Nei! Snømannen min!",
+"files": [
+"voice/ml/wk_snowman_w_adult.m4a",
+"voice/ml/wk_snowman_m_adult.m4a"
+]
+},
+"wreck|wk_fence": {
+"id": "shout/wreck_fence",
+"text": "Gjerdet mitt!",
+"files": [
+"voice/ml/wk_fence_w_adult.m4a",
+"voice/ml/wk_fence_m_adult.m4a"
+]
+},
+"wreck|wk_stall": {
+"id": "shout/wreck_stall",
+"text": "Mine pepperkaker! Se opp!",
+"files": [
+"voice/ml/wk_stall_w_adult.m4a",
+"voice/ml/wk_stall_m_adult.m4a"
+]
+},
+"wreck|wk_xtree": {
+"id": "shout/wreck_xtree",
+"text": "Juletreet! Du ødela juletreet!",
+"files": [
+"voice/ml/wk_xtree_w_adult.m4a",
+"voice/ml/wk_xtree_m_adult.m4a"
+]
+},
+"wreck|wk_gnome": {
+"id": "shout/wreck_gnome",
+"text": "Nissen min!",
+"files": [
+"voice/ml/wk_gnome_w_adult.m4a",
+"voice/ml/wk_gnome_m_adult.m4a"
+]
+},
+"wreck|wk_lamp": {
+"id": "shout/wreck_lamp",
+"text": "Lyktestolpen! Passer du ikke på?",
+"files": [
+"voice/ml/wk_lamp_w_adult.m4a",
+"voice/ml/wk_lamp_m_adult.m4a"
+]
+},
+"wreck|wk_glass": {
+"id": "shout/wreck_glass",
+"text": "Bussholdeplassen! Er du gal?",
+"files": [
+"voice/ml/wk_glass_w_adult.m4a",
+"voice/ml/wk_glass_m_adult.m4a"
+]
+},
+"wreck|wk_any": {
+"id": "shout/wreck_any",
+"text": "Hva i all verden skjer her?!",
+"files": [
+"voice/ml/wk_any_w_adult.m4a",
+"voice/ml/wk_any_m_adult.m4a"
+]
+},
+"wreckNew": {
+"wk_lamp": [
+"shout/wreck_new_lamp_that_was_a_lamp_post",
+"shout/wreck_new_lamp_watch_the_pole",
+"shout/wreck_new_lamp_seriously_a_lamp_post",
+"shout/wreck_new_lamp_well_that_was_in_the_way",
+"shout/wreck_new_lamp_ow_the_lamp_post_started_it",
+"shout/wreck_new_lamp_is_the_lamp_okay",
+"shout/wreck_new_lamp_who_put_that_there"
+],
+"wk_fence": [
+"shout/wreck_new_fence_not_the_fence",
+"shout/wreck_new_fence_that_fence_was_somebody_s",
+"shout/wreck_new_fence_sorry_fence"
+]
+},
+"wreckNewText": {
+"shout/wreck_new_lamp_that_was_a_lamp_post": "That was a lamp post!",
+"shout/wreck_new_lamp_watch_the_pole": "Watch the pole!",
+"shout/wreck_new_lamp_seriously_a_lamp_post": "Seriously? A lamp post?",
+"shout/wreck_new_lamp_well_that_was_in_the_way": "Well, that was in the way.",
+"shout/wreck_new_lamp_ow_the_lamp_post_started_it": "Ow. The lamp post started it.",
+"shout/wreck_new_fence_not_the_fence": "Not the fence!",
+"shout/wreck_new_fence_that_fence_was_somebody_s": "That fence was somebody's!",
+"shout/wreck_new_fence_sorry_fence": "Sorry, fence.",
+"shout/wreck_new_lamp_is_the_lamp_okay": "Is the lamp okay?",
+"shout/wreck_new_lamp_who_put_that_there": "Who put that there?!"
+},
+"gossip|ikkeplystretilnordlysetvennenminaldri": {
+"id": "shout/gossip_ikke_plystre_til_nordlyset_vennen",
+"text": "Ikke plystre til nordlyset, vennen min. Aldri.",
+"files": [
+"voice/shout/gossip_ikke_plystre_til_nordlyset_vennen_w_adult.m4a",
+"voice/shout/gossip_ikke_plystre_til_nordlyset_vennen_m_adult.m4a"
+]
+},
+"gossip|bestemorsaplystrerdutilnordlysetplystrerdettilbakeogsåtardetdeg": {
+"id": "shout/gossip_bestemor_sa_plystrer_du_til_nordly",
+"text": "Bestemor sa: plystrer du til nordlyset, plystrer det tilbake. Og så tar det deg.",
+"files": [
+"voice/shout/gossip_bestemor_sa_plystrer_du_til_nordly_w_adult.m4a",
+"voice/shout/gossip_bestemor_sa_plystrer_du_til_nordly_m_adult.m4a"
+]
+},
+"gossip|munnenigjenunderlysenegamleregler": {
+"id": "shout/gossip_munnen_igjen_under_lysene_gamle_re",
+"text": "Munnen igjen under lysene. Gamle regler.",
+"files": [
+"voice/shout/gossip_munnen_igjen_under_lysene_gamle_re_w_adult.m4a",
+"voice/shout/gossip_munnen_igjen_under_lysene_gamle_re_m_adult.m4a"
+]
+},
+"gossip|seoppmenholdleppenesammen": {
+"id": "shout/gossip_se_opp_men_hold_leppene_sammen",
+"text": "Se opp, men hold leppene sammen!",
+"files": [
+"voice/shout/gossip_se_opp_men_hold_leppene_sammen_w_adult.m4a",
+"voice/shout/gossip_se_opp_men_hold_leppene_sammen_m_adult.m4a"
+]
+},
+"gossip|naboenplystraigårviharikkesetthamsidenhankomhjempåmorgenenlittgrønn": {
+"id": "shout/gossip_naboen_plystra_i_gar_vi_har_ikke_s",
+"text": "Naboen plystra i går. Vi har ikke sett ham siden. Han kom hjem på morgenen, litt grønn.",
+"files": [
+"voice/shout/gossip_naboen_plystra_i_gar_vi_har_ikke_s_w_adult.m4a",
+"voice/shout/gossip_naboen_plystra_i_gar_vi_har_ikke_s_m_adult.m4a"
+]
+},
+"lykta|ertheskyjustleanedtowarduspleasestopwhistling": {
+"id": "shout/lykta_er_the_sky_just_leaned_toward_us_p",
+"text": "Er... the sky just leaned toward us. Please. Stop. Whistling.",
+"files": [
+"voice/shout/lykta_er_the_sky_just_leaned_toward_us_p.m4a"
+]
+},
+"lykta|runinsideorwavesomethingwhitefast": {
+"id": "shout/lykta_run_inside_or_wave_something_white",
+"text": "RUN INSIDE! Or wave something white, fast!!",
+"files": [
+"voice/shout/lykta_run_inside_or_wave_something_white.m4a"
+]
+},
+"lykta|youwakeupinyourownbed0700dazedonebootonmumsaysthenordlysdroppedyouatthedoorpolitely": {
+"id": "shout/lykta_you_wake_up_in_your_own_bed_07_00",
+"text": "You wake up in your own bed, 07:00, dazed, one boot on. Mum says the nordlys dropped you at the door. Politely.",
+"files": [
+"voice/shout/lykta_you_wake_up_in_your_own_bed_07_00.m4a"
+]
+},
+"lykta|thelightsputyoubackinbedandtuckedtheduvetinthereisanotenowhistlinglovethesky": {
+"id": "shout/lykta_the_lights_put_you_back_in_bed_and",
+"text": "The lights put you back in bed and tucked the duvet in. There is a note: \"No whistling. Love, the sky.\"",
+"files": [
+"voice/shout/lykta_the_lights_put_you_back_in_bed_and.m4a"
+]
+},
+"lykta|youdreamedofalonggreenhallwayandsomebodyhummingflatyouwakeupathomeearsringinghairslightlygreen": {
+"id": "shout/lykta_you_dreamed_of_a_long_green_hallwa",
+"text": "You dreamed of a long green hallway and somebody humming flat. You wake up at home, ears ringing, hair slightly green.",
+"files": [
+"voice/shout/lykta_you_dreamed_of_a_long_green_hallwa.m4a"
+]
+}
+}
+}

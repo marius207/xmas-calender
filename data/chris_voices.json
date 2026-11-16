@@ -1,0 +1,455 @@
+{
+ "about": "Chris's own voice (job chrisvoices, 3 Nov 2026). Merged into the morelines data by the loader; clips in voice/chris/. DEV only.",
+ "credit": "Voice: Chris",
+ "lines": {
+  "chris_001": [
+   "Good morning.",
+   "chris_morning",
+   "chris",
+   "",
+   null,
+   "voice/chris/line_001.m4a"
+  ],
+  "chris_002": [
+   "It's first December today.",
+   "chris_dec1",
+   "chris",
+   "",
+   1,
+   "voice/chris/line_002.m4a"
+  ],
+  "chris_003": [
+   "Hvem er det som har bygd denne snømannen?",
+   "chris_snowman",
+   "chris",
+   "",
+   null,
+   "voice/chris/line_003.m4a"
+  ],
+  "chris_004": [
+   "Jeg liker julebrus. Jeg er så glad i den der sjokoladegreia.",
+   "chris_self",
+   "chris",
+   "",
+   null,
+   "voice/chris/line_004.m4a"
+  ],
+  "chris_005": [
+   "Ja, men jeg synes vel det er litt koselig å se på julefilm da!",
+   "chris_player",
+   "chris",
+   "",
+   null,
+   "voice/chris/line_005.m4a"
+  ],
+  "chris_006": [
+   "Se her da! Det snør, det snør, det snør ute!",
+   "chris_snow",
+   "chris",
+   "",
+   null,
+   "voice/chris/line_006.m4a"
+  ],
+  "chris_007": [
+   "(sings) Pepperkaker, pepperkaker...",
+   "chris_hum",
+   "chris",
+   "",
+   null,
+   "voice/chris/line_007.m4a"
+  ],
+  "chris_008": [
+   "untagged (general chatter)",
+   "chris_misc",
+   "chris",
+   "",
+   null,
+   "voice/chris/line_008.m4a"
+  ],
+  "chris_009": [
+   "tagged shout (man, happy)",
+   "chris_shout_m",
+   "chris",
+   "",
+   null,
+   "voice/chris/line_009.m4a"
+  ],
+  "chris_010": [
+   "tagged someone (non-binary, proud)",
+   "chris_pair_a",
+   "chris",
+   "",
+   null,
+   "voice/chris/line_010.m4a"
+  ],
+  "chris_011": [
+   "tagged someone (any, silly)",
+   "chris_pair_b",
+   "chris",
+   "",
+   null,
+   "voice/chris/line_011.m4a"
+  ],
+  "chris_012": [
+   "tagged greeting (man, happy)",
+   "chris_greet_m",
+   "chris",
+   "",
+   null,
+   "voice/chris/line_012.m4a"
+  ],
+  "chris_013": [
+   "tagged player (woman, proud)",
+   "chris_player_f1",
+   "chris",
+   "",
+   null,
+   "voice/chris/line_013.m4a"
+  ],
+  "chris_014": [
+   "tagged player (woman, other)",
+   "chris_player_f2",
+   "chris",
+   "",
+   null,
+   "voice/chris/line_014.m4a"
+  ],
+  "chris_015": [
+   "tagged other (man, happy)",
+   "chris_misc_m",
+   "chris",
+   "",
+   null,
+   "voice/chris/line_015.m4a"
+  ]
+ },
+ "pools": {
+  "chris_morning": {
+   "who": "any",
+   "sex": "m",
+   "far": 12,
+   "trig": {
+    "tod": "5-11"
+   },
+   "ids": [
+    "chris_001"
+   ]
+  },
+  "chris_dec1": {
+   "who": "any",
+   "sex": "m",
+   "far": 12,
+   "day": true,
+   "trig": {
+    "tod": "5-13"
+   },
+   "ids": [
+    "chris_002"
+   ]
+  },
+  "chris_snowman": {
+   "who": "any",
+   "sex": "f",
+   "far": 12,
+   "trig": {},
+   "ids": [
+    "chris_003"
+   ]
+  },
+  "chris_self": {
+   "who": "any",
+   "sex": "m",
+   "far": 12,
+   "trig": {},
+   "ids": [
+    "chris_004"
+   ]
+  },
+  "chris_player": {
+   "who": "any",
+   "sex": "m",
+   "far": 12,
+   "trig": {
+    "tod": "16-23"
+   },
+   "ids": [
+    "chris_005"
+   ]
+  },
+  "chris_snow": {
+   "who": "any",
+   "sex": "f",
+   "far": 12,
+   "trig": {
+    "wx": "snow"
+   },
+   "ids": [
+    "chris_006"
+   ]
+  },
+  "chris_hum": {
+   "who": "kid",
+   "far": 12,
+   "trig": {
+    "tod": "15-23"
+   },
+   "ids": [
+    "chris_007"
+   ]
+  },
+  "chris_hum_ev": {
+   "who": "kid",
+   "far": 12,
+   "trig": {
+    "ev": "spirit_high"
+   },
+   "ev": "spirit_high",
+   "ids": [
+    "chris_007"
+   ]
+  },
+  "chris_misc": {
+   "who": "any",
+   "far": 12,
+   "trig": {},
+   "ids": [
+    "chris_008"
+   ]
+  },
+  "chris_shout_m": {
+   "who": "any",
+   "far": 12,
+   "trig": {
+    "ev": "spirit_cheer"
+   },
+   "ids": [
+    "chris_009"
+   ],
+   "sex": "m",
+   "ev": "spirit_cheer"
+  },
+  "chris_shout_m2": {
+   "who": "any",
+   "far": 12,
+   "trig": {
+    "ev": "race_win"
+   },
+   "ids": [
+    "chris_009"
+   ],
+   "sex": "m",
+   "ev": "race_win"
+  },
+  "chris_pair_a": {
+   "who": "any",
+   "far": 12,
+   "trig": {},
+   "ids": [
+    "chris_010"
+   ],
+   "pair": 1
+  },
+  "chris_pair_b": {
+   "who": "any",
+   "far": 12,
+   "trig": {},
+   "ids": [
+    "chris_011"
+   ],
+   "pair": 1
+  },
+  "chris_greet_m": {
+   "who": "any",
+   "far": 7,
+   "trig": {
+    "tod": "6-20"
+   },
+   "ids": [
+    "chris_012"
+   ],
+   "sex": "m"
+  },
+  "chris_player_f1": {
+   "who": "any",
+   "far": 8,
+   "trig": {},
+   "ids": [
+    "chris_013"
+   ],
+   "sex": "f"
+  },
+  "chris_player_f2": {
+   "who": "any",
+   "far": 8,
+   "trig": {
+    "tod": "7-22"
+   },
+   "ids": [
+    "chris_014"
+   ],
+   "sex": "f"
+  },
+  "chris_misc_m": {
+   "who": "any",
+   "far": 12,
+   "trig": {},
+   "ids": [
+    "chris_015"
+   ],
+   "sex": "m"
+  }
+ },
+ "meta": {
+  "chris_001": {
+   "file": "voice/chris/line_001.m4a",
+   "transcript": "Good morning.",
+   "lang": "en?",
+   "persona": "man",
+   "kind": "",
+   "mood": "happy",
+   "source": "Chris, chris_2026-11-03T18-45-19_001.m4a (cut 1.28-2.75 s)",
+   "dur": 1.46
+  },
+  "chris_002": {
+   "file": "voice/chris/line_002.m4a",
+   "transcript": "It's first December today.",
+   "lang": "en?",
+   "persona": "man",
+   "kind": "",
+   "mood": "happy",
+   "source": "Chris, chris_2026-11-03T18-45-19_001.m4a (cut 3.25-6.55 s)",
+   "dur": 3.34
+  },
+  "chris_003": {
+   "file": "voice/chris/line_003.m4a",
+   "transcript": "Hvem er det som har bygd denne snømannen?",
+   "lang": "no",
+   "persona": "woman",
+   "kind": "other",
+   "mood": "",
+   "source": "Chris, chris_2026-11-03T18-45-50_002.m4a (cut 0.5-4.4 s)",
+   "dur": 3.94
+  },
+  "chris_004": {
+   "file": "voice/chris/line_004.m4a",
+   "transcript": "Jeg liker julebrus. Jeg er så glad i den der sjokoladegreia.",
+   "lang": "no",
+   "persona": "man",
+   "kind": "self",
+   "mood": "",
+   "source": "Chris, chris_2026-11-03T18-46-22_003.m4a (cut 0.88-8.6 s)",
+   "dur": 7.74
+  },
+  "chris_005": {
+   "file": "voice/chris/line_005.m4a",
+   "transcript": "Ja, men jeg synes vel det er litt koselig å se på julefilm da!",
+   "lang": "no",
+   "persona": "man",
+   "kind": "player",
+   "mood": "",
+   "source": "Chris, chris_2026-11-03T18-47-18_004.m4a (cut 0.52-5.5 s)",
+   "dur": 4.94
+  },
+  "chris_006": {
+   "file": "voice/chris/line_006.m4a",
+   "transcript": "Se her da! Det snør, det snør, det snør ute!",
+   "lang": "no",
+   "persona": "woman",
+   "kind": "shout",
+   "mood": "",
+   "source": "Chris, chris_2026-11-03T18-47-52_005.m4a (cut 1.0-6.2 s)",
+   "dur": 5.14
+  },
+  "chris_007": {
+   "file": "voice/chris/line_007.m4a",
+   "transcript": "(sings) Pepperkaker, pepperkaker...",
+   "lang": "no",
+   "persona": "any",
+   "kind": "sing",
+   "mood": "",
+   "source": "Chris, chris_2026-11-03T18-48-39_006.m4a (cut 0.55-7.2 s)",
+   "dur": 6.65,
+   "persona_note": "Marius 3 Nov: this humming is a CHILD (played by kid villagers)"
+  },
+  "chris_008": {
+   "file": "voice/chris/line_008.m4a",
+   "transcript": "untagged (general chatter)",
+   "lang": "not transcribed",
+   "persona": "",
+   "kind": "",
+   "mood": "",
+   "source": "Chris, chris_2026-11-03T19-24-35_001.m4a (whole clip, silence trimmed)",
+   "dur": 1.84
+  },
+  "chris_009": {
+   "file": "voice/chris/line_009.m4a",
+   "transcript": "tagged shout (man, happy)",
+   "lang": "not transcribed",
+   "persona": "man",
+   "kind": "shout",
+   "mood": "happy",
+   "source": "Chris, chris_2026-11-03T20-25-23_001.m4a (whole clip, silence trimmed)",
+   "dur": 3.84
+  },
+  "chris_010": {
+   "file": "voice/chris/line_010.m4a",
+   "transcript": "tagged someone (non-binary, proud)",
+   "lang": "not transcribed",
+   "persona": "nb",
+   "kind": "someone",
+   "mood": "proud",
+   "source": "Chris, chris_2026-11-03T20-25-53_002.m4a (whole clip, silence trimmed)",
+   "dur": 4.24
+  },
+  "chris_011": {
+   "file": "voice/chris/line_011.m4a",
+   "transcript": "tagged someone (any, silly)",
+   "lang": "not transcribed",
+   "persona": "any",
+   "kind": "someone",
+   "mood": "silly",
+   "source": "Chris, chris_2026-11-03T20-26-19_003.m4a (whole clip, silence trimmed)",
+   "dur": 2.3
+  },
+  "chris_012": {
+   "file": "voice/chris/line_012.m4a",
+   "transcript": "tagged greeting (man, happy)",
+   "lang": "not transcribed",
+   "persona": "man",
+   "kind": "greet",
+   "mood": "happy",
+   "source": "Chris, chris_2026-11-03T20-27-23_004.m4a (whole clip, silence trimmed)",
+   "dur": 8.74
+  },
+  "chris_013": {
+   "file": "voice/chris/line_013.m4a",
+   "transcript": "tagged player (woman, proud)",
+   "lang": "not transcribed",
+   "persona": "woman",
+   "kind": "player",
+   "mood": "proud",
+   "source": "Chris, chris_2026-11-03T20-27-54_005.m4a (whole clip, silence trimmed)",
+   "dur": 4.04
+  },
+  "chris_014": {
+   "file": "voice/chris/line_014.m4a",
+   "transcript": "tagged player (woman, other)",
+   "lang": "not transcribed",
+   "persona": "woman",
+   "kind": "player",
+   "mood": "other",
+   "source": "Chris, chris_2026-11-03T20-29-00_006.m4a (whole clip, silence trimmed)",
+   "dur": 7.24
+  },
+  "chris_015": {
+   "file": "voice/chris/line_015.m4a",
+   "transcript": "tagged other (man, happy)",
+   "lang": "not transcribed",
+   "persona": "man",
+   "kind": "other",
+   "mood": "happy",
+   "source": "Chris, chris_2026-11-03T20-29-46_007.m4a (whole clip, silence trimmed)",
+   "dur": 6.74
+  }
+ }
+}
