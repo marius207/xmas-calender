@@ -978,5 +978,93 @@
   "source": "Wikimedia Commons",
   "page": "https://commons.wikimedia.org/wiki/File:Civil-defense-siren-waver.ogg",
   "licence": "Public domain"
+ },
+ {
+  "title": "Sedan engine loop",
+  "author": "Dmitry_mansurev64",
+  "source": "Freesound",
+  "page": "https://freesound.org/people/Dmitry_mansurev64/sounds/748027/",
+  "licence": "CC0",
+  "used_for": "car engine (sfx/engine): i4_idle: four-cylinder idle (sedan, hatch, estate, small car)"
+ },
+ {
+  "title": "R20-37-Constant Fast Car Engine",
+  "author": "craigsmith",
+  "source": "Freesound",
+  "page": "https://freesound.org/people/craigsmith/sounds/481726/",
+  "licence": "CC0",
+  "used_for": "car engine (sfx/engine): i4_mid: four-cylinder on load ~3000 rpm (also the VW boxer top end)"
+ },
+ {
+  "title": "Renault 19 underhood acceleration",
+  "author": "lovretta",
+  "source": "Freesound",
+  "page": "https://freesound.org/people/lovretta/sounds/141240/",
+  "licence": "CC0",
+  "used_for": "car engine (sfx/engine): i4_high: four-cylinder top of a rev ~5700 rpm (0.55 s cut, pitch flattened)"
+ },
+ {
+  "title": "Muscle_Idle.ogg",
+  "author": "FreeCarSoundsGaming",
+  "source": "Freesound",
+  "page": "https://freesound.org/people/FreeCarSoundsGaming/sounds/535038/",
+  "licence": "CC0",
+  "used_for": "car engine (sfx/engine): v8_idle: V8 idle (sport car; V6 SUV/police pitched)"
+ },
+ {
+  "title": "Revving_3.ogg",
+  "author": "FreeCarSoundsGaming",
+  "source": "Freesound",
+  "page": "https://freesound.org/people/FreeCarSoundsGaming/sounds/535039/",
+  "licence": "CC0",
+  "used_for": "car engine (sfx/engine): v8_mid: V8 revving ~2700 rpm (sport car; V6 SUV/police pitched)"
+ },
+ {
+  "title": "Chevrolet Caprice (motor at different speeds & driving away)",
+  "author": "romanholtwick",
+  "source": "Freesound",
+  "page": "https://freesound.org/people/romanholtwick/sounds/391671/",
+  "licence": "CC0",
+  "used_for": "car engine (sfx/engine): truck_idle: big V8 idle (pickup)"
+ },
+ {
+  "title": "R03-32-Old Truck Engine Working Hard",
+  "author": "craigsmith",
+  "source": "Freesound",
+  "page": "https://freesound.org/people/craigsmith/sounds/487152/",
+  "licence": "CC0",
+  "used_for": "car engine (sfx/engine): truck_mid: truck engine on load (pickup)"
+ },
+ {
+  "title": "Vw bus ride interior + turn signal and handbrake",
+  "author": "Cinetony",
+  "source": "Freesound",
+  "page": "https://freesound.org/people/Cinetony/sounds/559375/",
+  "licence": "CC0",
+  "used_for": "car engine (sfx/engine): boxer_idle + boxer_load: air-cooled VW bus idle and pulling in gear (van, Martin's T3)"
+ },
+ {
+  "title": "Single Cylinder Motorcycle",
+  "author": "richwise",
+  "source": "Freesound",
+  "page": "https://freesound.org/people/richwise/sounds/361407/",
+  "licence": "CC0",
+  "used_for": "car engine (sfx/engine): single_idle + single_mid: single-cylinder idle and pulling through a gear (ATV, six-wheeler)"
+ },
+ {
+  "title": "Gilera Runner 2007 revs backfire cold idle",
+  "author": "lovretta",
+  "source": "Freesound",
+  "page": "https://freesound.org/people/lovretta/sounds/140384/",
+  "licence": "CC0",
+  "used_for": "car engine (sfx/engine): moped_idle/mid/high: two-stroke scooter idle and two rev levels (moped)"
+ },
+ {
+  "title": "Electric Scooter Loop.WAV",
+  "author": "pkri",
+  "source": "Freesound",
+  "page": "https://freesound.org/people/pkri/sounds/587511/",
+  "licence": "CC0",
+  "used_for": "car engine (sfx/engine): ev_whine: electric motor whine, band-limited 150-4500 Hz, pitched by speed (electric cars)"
  }
 ]

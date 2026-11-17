@@ -2,12 +2,51 @@
  "entries": [
   {
    "date": "2026-11-17",
+   "time": "12:57",
+   "title": "Converter halls easier to see by day",
+   "items": [
+    "The big dark halls of the Feda converter are a little lighter in daylight, so you can see the ribs and the cladding. At night they look the same as before."
+   ]
+  },
+  {
+   "date": "2026-11-17",
+   "time": "12:52",
+   "title": "The Mayor's cable, on poles",
+   "items": [
+    "Day 22 (the day the investigators close the case): a thick black cable comes out of the town hall wall, climbs a pole and hangs from pole to pole along the road all the way to the converter by the fjord, over the bridges. New quest in the journal: Follow the cable. It stays until day 24.",
+    "The last moment of the warm ending is easier to see: Bjørn (with his post bag) and Tormod (grey hair, a steaming coffee) walk home into the light by the tree, and the camera stays on them."
+   ]
+  },
+  {
+   "date": "2026-11-17",
+   "time": "12:48",
+   "title": "Real engine recordings in the cars",
+   "items": [
+    "The cars now use real recorded engines instead of made-up ones: four-cylinder family cars, a rumbly V8 in the sports car, a big old V8 in the pickup, an air-cooled VW bus engine in the vans and Martin's T3, a two-stroke scooter for the moped and a single-cylinder thumper for the ATVs.",
+    "The recording follows your revs: idle when you stand still, then it blends into the higher recordings as you floor it, dips when the gear changes and goes quiet and dark when you let go.",
+    "Electric cars hum with a real electric motor whine that rises with your speed.",
+    "The sounds load the first time you get into a car, so the start of the game is not slower."
+   ]
+  },
+  {
+   "date": "2026-11-17",
+   "time": "12:21",
+   "title": "Cars sound like real engines - and electric cars are here",
+   "items": [
+    "Flooring it is no longer one droning note: the engine revs up through each gear, dips when it shifts, crackles and pops when you let go, and still breathes at top speed.",
+    "Every kind of car has its own engine: family cars buzz like a four-cylinder, the sports car burbles like a V8, pickups rumble like a big truck, vans and Martin's T3 clatter like an old air-cooled boxer, mopeds and ATVs thump and ring.",
+    "Electric cars! About a quarter of the sedans, hatchbacks, SUVs and small cars are electric. Spot them by the teal strip on the front and the teal plate on the back.",
+    "Electric cars hum and whine instead of roaring, are almost silent standing still, play a soft warning hum for people walking nearby when they drive slowly, and shoot off the line faster (same top speed).",
+    "Traffic sounds different per car too: sports cars and pickups deeper, small cars higher, electric traffic whines past."
+   ]
+  },
+  {
+   "date": "2026-11-17",
    "time": "11:53",
    "title": "Clues about the Mayor",
    "items": [
     "A red and yellow post bicycle lies tipped over in the snow behind the town hall, the post bag open and letters blown across the snow. Nobody has picked it up.",
     "About fifty MISSING: TORMOD posters hang on lamp posts, notice boards and stakes around town, along the far roads and by the converter. Look closely: from day 9 a cheerful FOUND! sticker starts to appear over them.",
-    "Day 17: a thick black cable comes out of the Mayor's office window. Follow it (new quest in the journal): it leads to the tower with the red Eye, and on to the converter by the fjord.",
     "Day 24: the ending now has a last moment by the tree for the Mayor. It depends on how warm the town got."
    ]
   },

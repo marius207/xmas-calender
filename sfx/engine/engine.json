@@ -1,0 +1,256 @@
+{
+ "note": "engine loops (build/engsample/make_loops.py); sources in build/sfx/ENGINE_SOURCES.md. rpm = engine rpm the loop was recorded at; start/len = seamless loop region in seconds",
+ "loops": {
+  "i4_idle": {
+   "src": "748027",
+   "t": [
+    3.0,
+    5.7
+   ],
+   "f0": 33.64,
+   "rpm": 1009,
+   "flat": 0,
+   "rise": 1.017,
+   "per": 0.6,
+   "file": "sfx/engine/i4_idle.m4a",
+   "start": 0.2,
+   "len": 2.658526,
+   "seam": 0.903,
+   "bytes": 44326
+  },
+  "i4_mid": {
+   "src": "481726",
+   "t": [
+    1.5,
+    4.4
+   ],
+   "f0": 102.55,
+   "rpm": 3077,
+   "flat": 0,
+   "rise": 1.026,
+   "per": 0.42,
+   "file": "sfx/engine/i4_mid.m4a",
+   "start": 0.2,
+   "len": 2.875601,
+   "seam": 0.644,
+   "bytes": 47314
+  },
+  "i4_high": {
+   "src": "141240",
+   "t": [
+    42.75,
+    43.3
+   ],
+   "f0": 191.46,
+   "rpm": 5744,
+   "flat": 1,
+   "rise": 1.061,
+   "per": 0.84,
+   "file": "sfx/engine/i4_high.m4a",
+   "start": 0.2,
+   "len": 0.549048,
+   "seam": 0.205,
+   "bytes": 14538
+  },
+  "v8_idle": {
+   "src": "535038",
+   "t": [
+    0.05,
+    2.1
+   ],
+   "f0": 109.16,
+   "rpm": 1092,
+   "flat": 0,
+   "rise": 1.017,
+   "per": 0.58,
+   "file": "sfx/engine/v8_idle.m4a",
+   "start": 0.2,
+   "len": 1.9978,
+   "seam": 0.938,
+   "bytes": 35876
+  },
+  "v8_mid": {
+   "src": "535039",
+   "t": [
+    0.05,
+    1.45
+   ],
+   "f0": 199.69,
+   "rpm": 2738,
+   "flat": 0,
+   "rise": 1.017,
+   "per": 0.53,
+   "file": "sfx/engine/v8_mid.m4a",
+   "start": 0.2,
+   "len": 1.33678,
+   "seam": 0.778,
+   "bytes": 25609,
+   "rpm_tracked": 2995
+  },
+  "truck_idle": {
+   "src": "391671",
+   "t": [
+    37.0,
+    40.0
+   ],
+   "f0": 50.9,
+   "rpm": 764,
+   "flat": 0,
+   "rise": 1.053,
+   "per": 0.48,
+   "file": "sfx/engine/truck_idle.m4a",
+   "start": 0.2,
+   "len": 2.952086,
+   "seam": 0.819,
+   "bytes": 49239
+  },
+  "truck_mid": {
+   "src": "487152",
+   "t": [
+    12.0,
+    15.0
+   ],
+   "f0": 159.62,
+   "rpm": 2394,
+   "flat": 0,
+   "rise": 1.15,
+   "per": 0.35,
+   "file": "sfx/engine/truck_mid.m4a",
+   "start": 0.2,
+   "len": 2.962948,
+   "seam": 0.22,
+   "bytes": 48969
+  },
+  "boxer_idle": {
+   "src": "559375",
+   "t": [
+    70.0,
+    73.0
+   ],
+   "f0": 33.03,
+   "rpm": 991,
+   "flat": 0,
+   "rise": 1.026,
+   "per": 0.55,
+   "file": "sfx/engine/boxer_idle.m4a",
+   "start": 0.2,
+   "len": 2.93907,
+   "seam": 0.969,
+   "bytes": 48044
+  },
+  "boxer_load": {
+   "src": "559375",
+   "t": [
+    104.0,
+    105.9
+   ],
+   "f0": 57.27,
+   "rpm": 1718,
+   "flat": 0,
+   "rise": 1.024,
+   "per": 0.55,
+   "file": "sfx/engine/boxer_load.m4a",
+   "start": 0.2,
+   "len": 1.813311,
+   "seam": 0.97,
+   "bytes": 33184
+  },
+  "single_idle": {
+   "src": "361407",
+   "t": [
+    9.8,
+    11.1
+   ],
+   "f0": 18.88,
+   "rpm": 1133,
+   "flat": 0,
+   "rise": 1.031,
+   "per": 0.62,
+   "file": "sfx/engine/single_idle.m4a",
+   "start": 0.2,
+   "len": 1.276236,
+   "seam": 0.91,
+   "bytes": 26376
+  },
+  "single_mid": {
+   "src": "361407",
+   "t": [
+    21.0,
+    22.8
+   ],
+   "f0": 42.9,
+   "rpm": 2574,
+   "flat": 1,
+   "rise": 1.227,
+   "per": 0.59,
+   "file": "sfx/engine/single_mid.m4a",
+   "start": 0.2,
+   "len": 1.73,
+   "seam": 0.329,
+   "bytes": 31519
+  },
+  "moped_idle": {
+   "src": "140384",
+   "t": [
+    5.2,
+    7.8
+   ],
+   "f0": 37.46,
+   "rpm": 2248,
+   "flat": 0,
+   "rise": 1.036,
+   "per": 0.14,
+   "file": "sfx/engine/moped_idle.m4a",
+   "start": 0.2,
+   "len": 2.43483,
+   "seam": 0.711,
+   "bytes": 41373
+  },
+  "moped_mid": {
+   "src": "140384",
+   "t": [
+    43.2,
+    44.0
+   ],
+   "f0": 58.72,
+   "rpm": 3523,
+   "flat": 0,
+   "rise": 1.07,
+   "per": 0.43,
+   "file": "sfx/engine/moped_mid.m4a",
+   "start": 0.2,
+   "len": 0.749365,
+   "seam": 0.338,
+   "bytes": 18043
+  },
+  "moped_high": {
+   "src": "140384",
+   "t": [
+    29.2,
+    30.7
+   ],
+   "f0": 81.37,
+   "rpm": 4882,
+   "flat": 0,
+   "rise": 1.019,
+   "per": 0.41,
+   "file": "sfx/engine/moped_high.m4a",
+   "start": 0.2,
+   "len": 1.458844,
+   "seam": 0.634,
+   "bytes": 28018
+  },
+  "ev_whine": {
+   "src": "587511",
+   "t": [
+    2.0,
+    5.0
+   ],
+   "file": "sfx/engine/ev_whine.m4a",
+   "start": 0.2,
+   "len": 2.898866,
+   "seam": 0.232,
+   "bytes": 47676
+  }
+ }
+}

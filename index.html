@@ -971,7 +971,7 @@ window.__devEff=eff;
 const isPhone=()=>eff()==='phone';
 const sync=()=>{try{document.body.classList.toggle('ph',isPhone());}catch(e){}};
 /* version label: the deploy script replaces the placeholder below; an unreplaced build shows DEV BUILD */
-const VRAW='17 Nov 2026 11:56';
+const VRAW='17 Nov 2026 15:55';
 const VER=(VRAW.indexOf('__BUILD'+'_')===0)?'DEV BUILD':VRAW;
 window.__VERSION=VER;
 const pill=()=>{const b=document.createElement('button');b.type='button';b.className='verpill';b.textContent=VER;b.title='Tap to copy';b.setAttribute('aria-label','Game version '+VER);b.addEventListener('click',e=>{e.stopPropagation();try{navigator.clipboard&&navigator.clipboard.writeText(VER);}catch(_){}});return b;};
@@ -5478,7 +5478,7 @@ NP.rigHollow=(g,on)=>{const R=g.userData&&g.userData.R;if(!R||!R.head)return;let
 // --- traffic: one instanced car body per colour, headlights as points
 const carParts=[[1.9,.7,4.2,0,.75,0,0xffffff],[1.72,.62,2.1,0,1.41,.25,0x1c2a38],[1.78,.12,2.2,0,1.78,.25,0xffffff],[1.6,.1,2,0,1.86,.25,0xeef4fb],[.34,.72,.72,-.92,.36,-1.35,0x111114],[.34,.72,.72,.92,.36,-1.35,0x111114],[.34,.72,.72,-.92,.36,1.35,0x111114],[.34,.72,.72,.92,.36,1.35,0x111114],[1.5,.22,.06,0,.6,-2.12,0x111114]];
 const TRAFK=['sedan','hatch','estate','suv','van','pickup','small','sport'];const trafficMeshes=TRAFK.map(k=>{const im=new THREE.InstancedMesh(vcGeo(CAR_KINDS[k]),new THREE.MeshLambertMaterial({vertexColors:true}),NC);im.castShadow=true;im.frustumCulled=false;const z=new THREE.Matrix4().makeScale(0,0,0);for(let i=0;i<NC;i++)im.setMatrixAt(i,z);scene.add(im);return im;});
-const trafficMesh={setColorAt(i,c){trafficMeshes[traffic[i]?traffic[i].k:0].setColorAt(i,c);},getColorAt(i,c){trafficMeshes[traffic[i].k].getColorAt(i,c);},setMatrixAt(i,m){trafficMeshes[traffic[i].k].setMatrixAt(i,m);},set needsUp(v){for(const im of trafficMeshes)im.instanceMatrix.needsUpdate=true;}};
+const trafficMesh={setColorAt(i,c){trafficMeshes[traffic[i]?traffic[i].k:0].setColorAt(i,c);},getColorAt(i,c){trafficMeshes[traffic[i].k].getColorAt(i,c);},setMatrixAt(i,m){trafficMeshes[traffic[i].k].setMatrixAt(i,m);if(traffic[i].ev&&window.__EVB)window.__EVB(i,m);},set needsUp(v){for(const im of trafficMeshes)im.instanceMatrix.needsUpdate=true;if(window.__EVBIM)window.__EVBIM.instanceMatrix.needsUpdate=true;}};/*carsound*/
 const lightsGeo=new THREE.BufferGeometry();const LP=new Float32Array(NC*4*3),LC=new Float32Array(NC*4*3);lightsGeo.setAttribute('position',new THREE.BufferAttribute(LP,3));lightsGeo.setAttribute('color',new THREE.BufferAttribute(LC,3));
 const carLights=new THREE.Points(lightsGeo,new THREE.PointsMaterial({size:.45,vertexColors:true,toneMapped:false}));carLights.frustumCulled=false;scene.add(carLights);
 const CARC=[0xc8102e,0x1d4f91,0xe8e8e8,0x2a2a2e,0x4a7a3a,0xe0b030,0x7a7d84,0xffffff,0x5a2a6a,0x0f6a7a];const traffic=[];
@@ -5629,7 +5629,7 @@ function makeCar(col,kind){if(kind==='nightwing')return makeNightwing(col);kind=
 const cars=[];window.__CARS=cars;/* worldcheck01 diag */
 function carSolid(ix,iy,iz){if(blockSolid(ix,iy,iz)){if(!RG.on)return true;const dz=DECKY.get(ix+','+iz);if(dz===undefined||iy+1>dz+.6||iy+1<=dz-1.2)return true;/* roadgrade5: a bank voxel level with the deck is no wall */}if(TSC&&!(TUN.size&&tunAirI(ix,iy,iz))&&DECK.get(ix+','+iz)===undefined&&TSC(ix,iy,iz))return true;/* solidtrees: cars hit trunks */const dk=DECK.get(ix+','+iz);if(dk===undefined)return false;const dy=RG.on?DECKY.get(ix+','+iz):undefined;return iy===(dy!==undefined?Math.floor(dy-.15):Math.round(dk))-1;/* roadgrade: deck block under the float deck surface */}
 function groundTop(x,z,ref){const rs=roadSurf(x,z);if(rs!==null&&Math.abs(rs-ref)<3)return rs;if(RG.on){const dy=RG.dh(x,z);if(dy!==null&&Math.abs(dy-ref)<3)return dy;const vy=RG.vy(x,z);if(vy!==null&&Math.abs(vy-ref)<3)return vy;}/* roadgrade */const ix=Math.floor(x),iz=Math.floor(z);if(TUN.size){const k_=ix+','+iz;if((TUN.has(k_)||TUNW.has(k_))&&carSolid(ix,Math.floor(ref+1.6),iz))return ref;}/*tunnels02: embedded in the rock by a tunnel: stay, do not climb to the mountain top*/for(let iy=Math.floor(ref+1.6);iy>ref-8;iy--){if(carSolid(ix,iy,iz))return iy+1;}return Math.round(Hm(x,z));}
-function addCar(x,z,yaw,col,kind){kind=kind||CAR_KIND_LIST[(hash(Math.floor(x),Math.floor(z))*CAR_KIND_LIST.length)|0];const m=makeCar(col,kind);scene.add(m);const c={m,x,z,y:spawnY(x,z),yaw,v:0,pitch:0,kind};cars.push(c);m.position.set(c.x,c.y,c.z);m.rotation.y=yaw;return c;}
+function addCar(x,z,yaw,col,kind){kind=kind||CAR_KIND_LIST[(hash(Math.floor(x),Math.floor(z))*CAR_KIND_LIST.length)|0];const m=makeCar(col,kind);scene.add(m);const c={m,x,z,y:spawnY(x,z),yaw,v:0,pitch:0,kind};cars.push(c);c.ev=(kind==='sedan'||kind==='hatch'||kind==='suv'||kind==='small')&&hash(Math.floor(x*5)+17,Math.floor(z*5)+29)<.24;c.es=hash(Math.floor(x*3)+5,Math.floor(z*3)+3);if(c.ev&&window.__ENGSND)__ENGSND.dress(c);/*carsound*/m.position.set(c.x,c.y,c.z);m.rotation.y=yaw;return c;}
 {const spot=(x,z)=>{for(let r=4;r<30;r+=3)for(let a=0;a<6.28;a+=.7){const px=x+Math.cos(a)*r,pz=z+Math.sin(a)*r;if(typeAt(px,pz)!==3&&!buildingAt(px,pz)&&Math.abs(Hm(px+2,pz)-Hm(px-2,pz))<1.5&&Math.abs(Hm(px,pz+2)-Hm(px,pz-2))<1.5)return [px,pz];}return null;};
   const OFF=[0xc8102e,0x2f6b3a,0xe0b030,0x1d4f91,0xe8e8e8,0x6b4a2a];let n=0;
   for(const o of world.outdoor||[]){const p1=spot(o.x,o.z);if(p1)addCar(...ncPark(p1,hash(n,7)*6.28,.75,1.3),OFF[n%OFF.length],n%3===2?'six':'atv');n++;const p2=spot(o.x+18,o.z-12);if(p2)addCar(...ncPark(p2,hash(n,9)*6.28,.75,1.3),OFF[(n+2)%OFF.length],n%2?'atv':'six');n++;}
@@ -5650,7 +5650,7 @@ sqClearCars();setTimeout(sqClearCars,1500);setTimeout(sqClearCars,6000);
 /* /squareapply cars */
 function nearCar(){let best=null,bd=3.6;for(const c of cars){if(c.police)continue;/* police1 */const d=Math.hypot(c.x-P.x,c.z-P.z);if(d<bd){bd=d;best=c;}}
   if(typeof traffic!=='undefined')for(let i=0;i<traffic.length;i++){const t=traffic[i];if(!t.r||t.y<-900)continue;const d=Math.hypot(t.x-P.x,t.z-P.z);if(d<bd){bd=d;best={traffic:i};}}return best;}
-function claimTraffic(i){const t=traffic[i];const col=new THREE.Color();trafficMesh.getColorAt(i,col);const c=addCar(t.x,t.z,t.yaw,col.getHex(),TRAFK[t.k]);c.y=t.y;c.m.position.y=t.y;t.r=null;t.y=-999;return c;}
+function claimTraffic(i){const t=traffic[i];const col=new THREE.Color();trafficMesh.getColorAt(i,col);const c=addCar(t.x,t.z,t.yaw,col.getHex(),TRAFK[t.k]);c.y=t.y;if(window.__ENGSND)__ENGSND.claim(c,i);/*carsound*/c.m.position.y=t.y;t.r=null;t.y=-999;return c;}
 function enterCar(c){if(c&&c.kind==='nightwing'&&window.__NIGHTWING&&window.__NIGHTWING.deny(c))return;/*nightwing*/if(window.__GTASTEAL&&window.__GTASTEAL.pre&&window.__GTASTEAL.pre(c)===false)return;/* police2 */if(c&&c.traffic!==undefined)c=claimTraffic(c.traffic);P.driving=c;try{window.__SFXREAL&&__SFXREAL.carIn(c);}catch(_){}/*sfxreal*/P.fly=false;$('bFly').classList.remove('on');thirdPerson=true;showCarHint(false);}
 function exitCar(){const c=P.driving;if(c&&c.ga&&c.ga.air&&!(c.dm&&c.dm.wreck)){try{toast('Land first! Ease off and glide down.');}catch(e){}return;}try{window.__SFXREAL&&__SFXREAL.carOut(c);}catch(_){}/*sfxreal*/DFOff(c);P.driving=null;if(c.m.userData.rider)c.m.userData.rider.visible=false;const sx=Math.cos(c.yaw)*1.8,sz=-Math.sin(c.yaw)*1.8;let [x,z]=[c.x+sx,c.z+sz];if(overlaps(x,c.y,z)){x=c.x-sx;z=c.z-sz;}P.x=x;P.z=z;P.y=spawnY(x,z);P.vx=P.vz=P.vy=0;P.yaw=c.yaw;thirdPerson=false;unstick();}
 function showCarHint(on){const p=$('prompt');if(!on){return;}$('pKick').textContent='CAR';$('pTitle').textContent='Drive';$('pText').textContent=TOUCH?'Tap LOOK to get in. Stick to drive.':'Press G to get in. W/S gas and brake, A/D steer, Space handbrake, Shift for more speed.';p.classList.add('show');}
@@ -25414,7 +25414,7 @@ function update(dt){
     const rate=1/(1-Math.max(-.25,Math.min(.25,closing*3/343)));
     v.src.set(e.x,e.y+.7,e.z);
     const sp=e.v,u=Math.min(1,sp/13),snow=WEATHER?Math.min(1,WEATHER.i*1.4):0;
-    const fb=bus?(20+sp*2.6):(34+sp*3.1+(e.c?e.c.k%3*1.5:0));
+    const fb=(bus?(20+sp*2.6):(34+sp*3.1+(e.c?e.c.k%3*1.5:0)))*(!bus&&e.c&&window.__ENGSND?__ENGSND.tm(e.c):1);/*carsound*/
     v.o1.frequency.setTargetAtTime(fb*rate,T,.07);v.o2.frequency.setTargetAtTime(fb*(bus?.5:.5)*rate,T,.07);
     v.g2.gain.setTargetAtTime(bus?1.1:.55,T,.1);
     v.lp.frequency.setTargetAtTime((bus?150+sp*14:230+sp*30)*(1-.45*Math.min(1,d/RANGE)),T,.1);
@@ -25423,12 +25423,13 @@ function update(dt){
     const pass=1+1.6*Math.exp(-(d*d)/(12*12));
     v.bp.frequency.setTargetAtTime((snow>.15?520:900)+sp*(snow>.15?35:60),T,.1);v.bp.Q.value=snow>.15?.5:.8;
     v.tg.gain.setTargetAtTime(Math.pow(u,1.3)*(.05+.035*snow)*(bus?1.4:1)*pass,T,.08);
+    if(window.__ENGSND)__ENGSND.traf(v,e,T,rate);/*carsound*/
     v.d=d;v.rate=rate;v.e=sp;
     v.vg.gain.setTargetAtTime(gMul,T,.18);
   }
   for(let i=voices.length-1;i>=0;i--)if(!voices[i])voices.splice(i,1);
   // moped / ATV
-  const c=P.driving;const m=!why&&c&&(c.kind==='moped'||c.kind==='atv'||c.kind==='six');
+  const c=P.driving;const m=!why&&c&&(c.kind==='moped'||c.kind==='atv'||c.kind==='six')&&!(window.__ENGSND&&__ENGSND.on);/*carsound*/
   try{mopedBuzz(!!m,m?Math.abs(c.v||0):0,m?((typeof VSPEC!=='undefined'&&VSPEC[c.kind])?VSPEC[c.kind].max:14):14);}catch(_){}
   // horn lifetime + phone button
   if(H.on){if(performance.now()-H.t0>3500||why||(!P.driving&&!H.forced))hornStop();else if(H.src&&c){H.src.set(c.x,c.y+1,c.z);}}
@@ -35709,11 +35710,14 @@ function drvAudio(){const A=dfAudio();if(!A)return null;if(A.w2)return A;const X
   A.w2={f,g};return A;}
 function drvSound(c,d,VS,thr,brk,av,max){const A=drvAudio();if(!A)return;const t=ac.currentTime,fq=d.rpm/60*2,sf=drvC(av/Math.max(max,10),0,1.2);
   A.out.gain.setTargetAtTime(c.dm&&c.dm.wreck?.15:1,t,.05);
-  A.e1.o.frequency.setTargetAtTime(fq,t,.03);A.e2.o.frequency.setTargetAtTime(fq*.5,t,.03);
   const load=drvC(thr,0,1);
+  const _es=engDrive(c,d,thr,av,max,A);/*carsound*/
+  if(!_es){
+  A.e1.o.frequency.setTargetAtTime(fq,t,.03);A.e2.o.frequency.setTargetAtTime(fq*.5,t,.03);
   A.e1.f.frequency.setTargetAtTime(330+d.rpm*.05+260*load,t,.05);
   A.e1.g.gain.setTargetAtTime(.025+.085*load+(thr<=0&&d.rpm>2500?.012:0),t,.05);A.e2.g.gain.setTargetAtTime(.018+.045*load,t,.05);
-  A.rg.gain.setTargetAtTime(.1*Math.max(0,(thr-.6)/.4)+(d.ws>.2?.05:0),t,.1);
+  }else{A.e1.g.gain.setTargetAtTime(0,t,.05);A.e2.g.gain.setTargetAtTime(0,t,.05);}
+  A.rg.gain.setTargetAtTime((.1*Math.max(0,(thr-.6)/.4)+(d.ws>.2?.05:0))*(_es?(c.ev?0:.5):1),t,.1);
   /* squeal: louder with the slide, higher with the speed; on snow a softer hiss */
   const soft=d.mu<.62*DRV.p.gripK?.55:1;
   A.sg.gain.setTargetAtTime(.1*d.sq*soft+(brk>0&&c.v>5&&d.lock>0?.03*d.lock:0),t,.04);A.sf.frequency.setTargetAtTime(1400+500*d.sq+16*av,t,.05);
@@ -35777,7 +35781,7 @@ function driveNew(c,dt,fwd,str){
   let gi=d.gi;
   while(gi<4&&av>drvTop(gi,max)*.985)gi++;
   while(gi>0&&av<drvTop(gi-1,max)*(thr>.7?.7:.8))gi--;
-  if(gi>d.gi){d.shT=.14;d.pvv-=.2;}d.gi=gi;d.gear=gi;
+  if(gi>d.gi&&!c.ev){d.shT=.14;d.pvv-=.2;}d.gi=gi;/*carsound: EVs do not shift*/d.gear=gi;
   d.shT=Math.max(0,d.shT-dt);
   {let rpmT=900+5600*Math.min(1.08,Math.max(0,av/Math.max(drvTop(gi,max),1)));
    if(thr>0)rpmT=Math.max(rpmT,900+2800*thr*(gi===0?1.2:1));
@@ -35802,7 +35806,7 @@ function driveNew(c,dt,fwd,str){
       const capF=cap0*Nf*p.gF,capR=cap0*Nr*p.gR;
       /* longitudinal demands */
       let fe=0,bu=0;const fw=v>.3?1:v<-.3?-1:0;
-      if(thr>0){if(v>-.5){fe=drvEng(p,gi,d.rpm,thr*(d.shT>0?.35:1),vaA,max)*accS;}else bu+=p.brake*thr;}
+      if(thr>0){if(v>-.5){fe=(c.ev?drvEvAcc(p,thr,vaA,max):drvEng(p,gi,d.rpm,thr*(d.shT>0?.35:1),vaA,max))*accS;/*carsound*/}else bu+=p.brake*thr;}
       if(brk>0){if(v>.5)bu+=p.brake*brk;else if(thr<.02){fe=-p.revAcc*brk*Math.max(0,1-Math.pow(Math.max(-v,0)/p.rev,2));}}
       let eb=0;if(!thr&&!brk&&fw)eb=(p.engB*(.3+.7*Math.min(1,vaA/Math.max(max,5)))+p.roll)*(gi>=1?1:.7);
       const dragF=p.drag*v*vaA+(fw?p.roll*.3*fw:0);
@@ -35944,6 +35948,288 @@ let drvPanelRef=()=>{};
   const sec=[...document.querySelectorAll('#movie .st')].find(s=>/^\s*DRIVING/i.test((s.querySelector('.sth')||{}).textContent||''));const sb=sec&&sec.querySelector('.stb');if(!sb)return false;sb.appendChild(R);return true;}
  SPT=setInterval(()=>{try{if(mk()||++tries>600){clearInterval(SPT);}}catch(_){}},1500);}
 /* /drivefeel2 */
+/* carsound */
+/* ===== CAR SOUND + ELECTRIC CARS (job carsound, 17 Nov 2026). Marius: "full pedal is just one note, it's annoying", "a V8 sounds different than something else",
+   "if it's an electric car it doesn't sound like the other ones - there should be electric cars".
+   - ONE engine voice for the player's car (built when you drive, torn down 2.5 s after you get out). Updated from drvSound with setTargetAtTime only: no per-frame allocation.
+   - Engine types (ENG_KIND): i4 = sedan, hatch, estate, small | v6 = suv, police | v8 cross-plane = sport | truck V8 = pickup | air-cooled flat-4 boxer = van + Martin's T3 |
+     single-cylinder thumper = ATV, six-wheeler | two-stroke single = moped | ev = electric cars.
+   - Each type has its own waveform: one engine cycle of exhaust pulses at that engine's firing angles and pulse strengths (the uneven V8 / boxer firing is the burble),
+     turned into a PeriodicWave once per type. A second, detuned copy beats against it. rpm sets the pitch through the gears (rise, shift dip, rise), throttle = load
+     (louder + brighter), noise AM + FM = combustion roughness, lift-off at high rpm = overrun pops, rev limiter only right at the top. Top gear is a tall overdrive so
+     top speed is not at the limiter, and at a steady top speed the note keeps moving (slow wobble, beating, road roughness).
+   - Per-car variation (c.es seed): pitch +-4 %, brightness, roughness.
+   - Electric cars (c.ev): about a quarter of sedans, hatches, SUVs and small cars (deterministic per parking spot / traffic slot). Teal closed-grille strip + teal plate accent
+     (shared box + one MeshBasicMaterial, a Group so cars3 dressing keeps it; traffic EVs share one InstancedMesh). No gears, harder pull off the line, same top speeds.
+     Sound: motor whine rising with speed, gear-mesh + stepped inverter tones, tyre roar, near silent at a standstill, a soft pedestrian warning hum under 30 km/h.
+   - Traffic voices (carsfx) get a per-kind pitch (V8 / truck deeper, small cars higher) and EV traffic whines instead of rumbling.
+   window.__ENGSND = {on, kind:ENG_KIND, types:ENGT, typeOf(c), last, voice, render(type,trace,sr), stats()}. ===== */
+const ENGT={
+  i4:   {ev:[0,180,360,540],am:[1,.95,1.04,.97],cyc:720,w:.2,ring:1.3,idle:800,red:6800,lp:[320,.22,1400],q:1.6,pk:[420,4],rough:.06,fm:.004,burb:.3,vol:.085,b2:.32,det:.003,top:.8},
+  v6:   {ev:[0,120,240,360,480,600],am:[1,.93,1.05,.96,1.03,.95],cyc:720,w:.17,ring:1.1,idle:700,red:6400,lp:[260,.18,1100],q:1.8,pk:[260,5],rough:.07,fm:.005,burb:.5,vol:.09,b2:.4,det:.004,top:.8},
+  v8:   {ev:[0,102,178,272,360,447,536,633],am:[1.14,.84,1.07,.9,1.1,.83,1.05,.93],cyc:720,w:.16,ring:.8,idle:750,red:7200,lp:[190,.16,1300],q:2.2,pk:[140,7],rough:.11,fm:.007,burb:1,vol:.11,b2:.5,det:.006,top:.78},
+  truck:{ev:[0,98,182,268,360,450,532,630],am:[1.16,.82,1.08,.88,1.12,.8,1.06,.9],cyc:720,w:.2,ring:.6,idle:620,red:5200,lp:[140,.12,800],q:2,pk:[105,8],rough:.13,fm:.008,burb:.6,vol:.11,b2:.5,det:.007,top:.76},
+  boxer:{ev:[0,196,354,550],am:[1.1,.78,1.06,.84],cyc:720,w:.13,ring:2.6,idle:900,red:5000,lp:[380,.3,1100],q:3,pk:[620,6],rough:.16,fm:.009,burb:.45,vol:.085,b2:.6,det:.009,top:.82},
+  single:{ev:[0],am:[1],cyc:720,w:.3,ring:1.5,idle:1100,red:8000,lp:[300,.2,1200],q:2.4,pk:[480,6],rough:.2,fm:.012,burb:.3,vol:.08,b2:.3,det:.005,top:.85},
+  moped:{ev:[0],am:[1],cyc:360,w:.45,ring:3,idle:1700,red:9500,lp:[900,.35,2500],q:4,pk:[1400,8],rough:.12,fm:.01,burb:.1,vol:.06,b2:.4,det:.004,top:.9},
+  ev:   {elec:true,vol:.075}};
+const ENG_KIND={sedan:'i4',hatch:'i4',estate:'i4',small:'i4',suv:'v6',police:'v6',sport:'v8',pickup:'truck',van:'boxer',martin_t3:'boxer',atv:'single',six:'single',moped:'moped'};
+const ENG_TRAFM={sedan:1,hatch:1.08,estate:1,suv:.9,van:.95,pickup:.72,small:1.15,sport:.8};
+const ENG={V:null,lastT:0,s:{rpm:900,gi:0,thr:0,av:0,max:22,shT:0,rough:0,seed:.5,wreck:false},last:{type:null,f:0,R:0,L:0,g:0,ev:false,n:0},waves:new WeakMap(),nbuf:new WeakMap(),built:0,killed:0,err:null};
+const engC=(v,a,b)=>v<a?a:v>b?b:v;
+const engHash=(a,b)=>{let h=(a*374761393+b*668265263)|0;h=(h^(h>>>13))*1274126177|0;return ((h^(h>>>16))>>>0)/4294967296;};/* same as the world hash */
+/* one engine cycle of exhaust pulses -> Fourier series -> PeriodicWave (once per type and audio context) */
+function engWave(X,type,alt){let M=ENG.waves.get(X);if(!M){M={};ENG.waves.set(X,M);}const key=type+(alt?'b':'a');if(M[key])return M[key];
+  const T=ENGT[type],lite=typeof TOUCH!=='undefined'&&TOUCH,N=lite?512:1024,H=lite?48:72,x=new Float32Array(N),n=T.ev.length;
+  for(let j=0;j<n;j++){const a0=(T.ev[j]+(alt?(j%2?7:-5):0))/T.cyc,am=T.am[(j+(alt?1:0))%n],rg=T.ring*(alt?1.15:1);
+    for(let i=0;i<N;i++){let ph=i/N-a0;ph-=Math.floor(ph);const u=ph/T.w;if(u>=3)continue;x[i]+=am*Math.exp(-u*2.2)*(1-Math.exp(-u*30))*Math.cos(2*Math.PI*rg*u);}}
+  let m=0;for(let i=0;i<N;i++)m+=x[i];m/=N;
+  const re=new Float32Array(H+1),im=new Float32Array(H+1);
+  for(let k=1;k<=H;k++){let a=0,b=0;const w=2*Math.PI*k/N;for(let i=0;i<N;i++){const v=x[i]-m;a+=v*Math.cos(w*i);b+=v*Math.sin(w*i);}re[k]=a/N;im[k]=b/N;}
+  return (M[key]=X.createPeriodicWave(re,im));}
+function engMotorWave(X){let M=ENG.waves.get(X);if(!M){M={};ENG.waves.set(X,M);}if(M.motor)return M.motor;
+  const re=new Float32Array(8),im=new Float32Array(8);im[1]=1;im[2]=.18;im[3]=.32;im[5]=.12;im[7]=.06;return (M.motor=X.createPeriodicWave(re,im));}
+function engNoise(X){let b=ENG.nbuf.get(X);if(b)return b;const n=(X.sampleRate*3)|0;b=X.createBuffer(1,n,X.sampleRate);const d=b.getChannelData(0);let s=12345;
+  for(let i=0;i<n;i++){s=(s*1103515245+12345)&0x7fffffff;d[i]=s/0x3fffffff-1;}ENG.nbuf.set(X,b);return b;}
+/* build a voice of one type into dest (live: the drivefeel bus; offline: an OfflineAudioContext) */
+function engBuild(X,dest,type){const T=ENGT[type],V={X,type,T,src:[],st:{ph:0,pt:0,burT:0,lim:0,limT:0,R:0}};
+  const out=X.createGain();out.gain.value=0;out.connect(dest);V.out=out;
+  const ns=X.createBufferSource();ns.buffer=engNoise(X);ns.loop=true;V.src.push(ns);
+  /* tyre roar for every car (the main thing you hear in an electric one) */
+  const tLP=X.createBiquadFilter();tLP.type='lowpass';tLP.frequency.value=300;tLP.Q.value=.4;const tG=X.createGain();tG.gain.value=0;ns.connect(tLP);tLP.connect(tG);tG.connect(out);V.tLP=tLP;V.tG=tG;
+  if(T.elec){
+    const mA=X.createOscillator();mA.setPeriodicWave(engMotorWave(X));const mG=X.createGain();mG.gain.value=0;mA.connect(mG);mG.connect(out);
+    const mB=X.createOscillator();mB.type='sine';const mBG=X.createGain();mBG.gain.value=0;mB.connect(mBG);mBG.connect(out);
+    const mC=X.createOscillator();mC.type='sine';const mCG=X.createGain();mCG.gain.value=0;mC.connect(mCG);mCG.connect(out);
+    const aO=X.createOscillator();aO.type='triangle';const aLP=X.createBiquadFilter();aLP.type='lowpass';aLP.frequency.value=900;const aG=X.createGain();aG.gain.value=0;aO.connect(aLP);aLP.connect(aG);aG.connect(out);
+    mA.frequency.value=30;mB.frequency.value=100;mC.frequency.value=700;aO.frequency.value=180;
+    for(const o of [mA,mB,mC,aO]){o.start();V.src.push(o);}Object.assign(V,{mA,mG,mB,mBG,mC,mCG,aO,aG});
+  }else{
+    const oA=X.createOscillator(),oB=X.createOscillator();oA.setPeriodicWave(engWave(X,type,0));oB.setPeriodicWave(engWave(X,type,1));oA.frequency.value=T.idle/120;oB.frequency.value=T.idle/120;
+    const gB=X.createGain();gB.gain.value=T.b2;
+    const lp=X.createBiquadFilter();lp.type='lowpass';lp.Q.value=T.q;lp.frequency.value=T.lp[0]+T.lp[1]*T.idle;
+    const pk=X.createBiquadFilter();pk.type='peaking';pk.frequency.value=T.pk[0];pk.gain.value=T.pk[1];pk.Q.value=1.1;
+    const gE=X.createGain();gE.gain.value=0;
+    oA.connect(lp);oB.connect(gB);gB.connect(lp);lp.connect(pk);pk.connect(gE);gE.connect(out);
+    /* roughness: slow noise -> AM on the engine level + FM on both oscillators */
+    const rLP=X.createBiquadFilter();rLP.type='lowpass';rLP.frequency.value=28;rLP.Q.value=.7;ns.connect(rLP);
+    const rA=X.createGain();rA.gain.value=0;rLP.connect(rA);rA.connect(gE.gain);
+    const rF=X.createGain();rF.gain.value=0;rLP.connect(rF);rF.connect(oA.frequency);rF.connect(oB.frequency);
+    /* intake roar under load */
+    const iBP=X.createBiquadFilter();iBP.type='bandpass';iBP.Q.value=1.4;iBP.frequency.value=500;const iG=X.createGain();iG.gain.value=0;ns.connect(iBP);iBP.connect(iG);iG.connect(out);
+    /* overrun pops when you lift off at high rpm */
+    const pBP=X.createBiquadFilter();pBP.type='bandpass';pBP.frequency.value=(type==='v8'||type==='truck')?650:1100;pBP.Q.value=.9;const pG=X.createGain();pG.gain.value=0;ns.connect(pBP);pBP.connect(pG);pG.connect(out);
+    oA.start();oB.start();V.src.push(oA,oB);Object.assign(V,{oA,oB,lp,gE,rA,rF,iBP,iG,pG});}
+  ns.start(0,1.3);ENG.built++;return V;}
+function engKill(V){if(!V)return;try{V.out.gain.cancelScheduledValues(0);V.out.gain.value=0;}catch(_){}for(const s of V.src){try{s.stop();}catch(_){}try{s.disconnect();}catch(_){}}try{V.out.disconnect();}catch(_){}ENG.killed++;}
+/* s = {rpm (drive model, 900..~6950), gi (0..4), thr, av (m/s), max, shT (shift cut timer), rough (surface), seed (0..1), wreck} */
+function engUpd(V,s,t,dt){const T=V.T,S=V.st,sf=engC(s.av/Math.max(s.max,10),0,1.2),sf1=Math.min(sf,1),pv=1+(s.seed-.5)*.08,L0=engC(s.thr,0,1),last=ENG.last;
+  S.ph+=dt;
+  V.tLP.frequency.setTargetAtTime(220+sf1*900,t,.1);V.tG.gain.setTargetAtTime((T.elec?.07:.045)*Math.pow(sf1,1.3)*(1+s.rough*1.5),t,.1);
+  if(T.elec){const sp=s.av,on=Math.min(1,sp/3),regen=(L0<.05&&sp>2)?1:0;
+    const fm=(28+sp*24)*pv*(1+.003*Math.sin(S.ph*2.3)+.002*Math.sin(S.ph*.7));
+    V.mA.frequency.setTargetAtTime(fm,t,.03);V.mB.frequency.setTargetAtTime(fm*3.62,t,.03);
+    const stepI=sp<7;V.mC.frequency.setTargetAtTime(stepI?700+Math.floor(sp*1.4)*140:1700+sp*8,t,stepI?.006:.1);
+    const g=T.vol*on*(.15+.55*L0+.25*regen)*(.45+.55*Math.min(1,sf1*1.5))*(s.wreck?.4:1);
+    V.mG.gain.setTargetAtTime(g,t,.05);V.mBG.gain.setTargetAtTime(T.vol*.14*sf1*(L0+.4*regen),t,.06);V.mCG.gain.setTargetAtTime(T.vol*.05*L0*on*(stepI?1:.4),t,.05);
+    /* pedestrian warning hum (AVAS) below ~30 km/h, a whisper at a standstill */
+    const a=sp<8.3?(1-sp/8.3):0,trem=.65+.35*Math.sin(S.ph*2*Math.PI*1.4);
+    V.aO.frequency.setTargetAtTime(180+sp*16,t,.08);V.aG.gain.setTargetAtTime(T.vol*.3*a*trem*(sp<.3?.3:1),t,.06);
+    V.out.gain.setTargetAtTime(1,t,.08);last.type='ev';last.f=fm;last.R=0;last.L=L0;last.g=g;last.ev=true;last.n++;return;}
+  const x=Math.max(0,(s.rpm-900)/5600);
+  let R=T.idle+x*(T.red-T.idle)*(s.gi>=4?T.top:1);
+  const wob=.008*Math.sin(S.ph*1.9+s.seed*6)+.005*Math.sin(S.ph*4.7+s.seed*3)+.004*Math.sin(S.ph*.53);
+  R*=1+wob*(.6+L0*.6);if(R>T.red*1.01)R=T.red*1.01;S.R=R;
+  let L=L0;if(L0>.9)L-=.08*(.5+.5*Math.sin(S.ph*1.3+s.seed*4))*(.6+.4*Math.sin(S.ph*.31));/* a steady full pedal still breathes */if(s.shT>0)L*=.15;
+  if(x>1.02&&L0>.85){/* limiter only past the top of the gear (boost, downhill in top) */S.limT-=dt;if(S.limT<=0){S.limT=.055;S.lim=S.lim?0:1;}}else S.lim=0;
+  const f=R/60*360/T.cyc*pv,rn=engC((R-T.idle)/(T.red-T.idle),0,1.05);
+  V.oA.frequency.setTargetAtTime(f,t,.025);V.oB.frequency.setTargetAtTime(f*(1+T.det*(1+.5*Math.sin(S.ph*.37))),t,.025);
+  const cut=(T.lp[0]+T.lp[1]*R+T.lp[2]*L)*(1+.06*Math.sin(S.ph*.8+s.seed*9))*(.9+.2*s.seed);
+  V.lp.frequency.setTargetAtTime(Math.min(cut,9000),t,.04);
+  let g=T.vol*(.32+.5*L+.25*rn)*(S.lim?.25:1)*(s.wreck?.4:1);if(L<.05&&rn>.4)g*=.8;
+  V.gE.gain.setTargetAtTime(g,t,S.lim?.004:.03);
+  V.rA.gain.setTargetAtTime(g*T.rough*(1+s.rough)*20,t,.05);V.rF.gain.setTargetAtTime(f*T.fm*(1+s.rough)*40,t,.05);
+  V.iBP.frequency.setTargetAtTime(250+R*.22,t,.05);V.iG.gain.setTargetAtTime(T.vol*.7*L*rn*rn,t,.05);
+  if(S.pt>.4&&L0<.05&&rn>.45)S.burT=.5+.9*T.burb;S.pt=L0;
+  if(S.burT>0){S.burT-=dt;if(L0>.2)S.burT=0;else if(Math.random()<T.burb*14*rn*dt){const a=T.vol*(1.5+Math.random()*3)*Math.min(1,.4+T.burb);V.pG.gain.setValueAtTime(a,t);V.pG.gain.setTargetAtTime(0,t+.004,.016+Math.random()*.012);}}
+  V.out.gain.setTargetAtTime(1,t,.08);last.type=V.type;last.f=f;last.R=R;last.L=L;last.g=g;last.ev=false;last.n++;}
+/* electric drive: no gears, full torque from standstill, same fade to the same top speed */
+function drvEvAcc(p,thr,av,max){const u=Math.min(av/Math.max(max,1),1);return p.acc*thr*Math.max(.45,1.55-1.1*u)*Math.max(0,1-Math.pow(u,2.4));}/* strong off the line, the same pull as a petrol car in top gear near the top: same top speed */
+/* called from drvSound every frame while you drive */
+function engDrive(c,d,thr,av,max,A){try{if(!c||c.kind==='nightwing'||!ac)return false;const type=c.ev?'ev':(ENG_KIND[c.kind]||'i4');
+    if(window.__ENGS&&__ENGS.drive(c,d,thr,av,max,A,type)){if(ENG.V){engKill(ENG.V);ENG.V=null;}return true;}/*engsample: the real recordings win once loaded; the synth below is the fallback*/
+    ENG.last.real=false;
+    if(ENG.V&&ENG.V.type!==type){engKill(ENG.V);ENG.V=null;}
+    if(!ENG.V)ENG.V=engBuild(ac,A.out,type);
+    const now=performance.now(),dt=ENG.lastT?engC((now-ENG.lastT)/1000,0,.1):.016;ENG.lastT=now;
+    const s=ENG.s;s.rpm=d.rpm||900;s.gi=d.gi|0;s.thr=thr;s.av=av;s.max=max;s.shT=d.shT||0;s.rough=d.rough||0;s.seed=c.es!=null?c.es:.5;s.wreck=!!(c.dm&&c.dm.wreck);
+    engUpd(ENG.V,s,ac.currentTime,dt);return true;}catch(e){if(!ENG.err){ENG.err=String(e&&e.message||e);console.warn('carsound',e);}return false;}}
+setInterval(()=>{if(ENG.V&&performance.now()-ENG.lastT>2500){engKill(ENG.V);ENG.V=null;}},1000);
+/* ---------- electric cars: the look ---------- */
+const EVB={g:null,m:null,im:null,off:null,tmp:null};
+function evbGM(){if(!EVB.g){EVB.g=new THREE.BoxGeometry(1,1,1);EVB.m=new THREE.MeshBasicMaterial({color:0x00e8c8});}}
+function evDims(kind){const K=CAR_KINDS[kind]||CAR_KINDS.sedan,L=K.len;
+  /* the Blender cars (cars3) are a little longer than the box cars: sit on their bumpers when they are loaded */
+  try{const C=window.__CARS3,Q=C&&C.on&&C.ready&&C.kinds[kind];if(Q){const bb=Q.geo('body').boundingBox;return {zf:bb.min.z-.02,zr:bb.max.z+.02,gw:(bb.max.x-bb.min.x)*.5,gy:bb.min.y+.3,ry:bb.min.y+.42,c3:1};}}catch(_){}
+  let gr=null;for(const q of K)if(q[6]===0x111114&&q[2]<.1&&q[5]<0)gr=q;
+  const hy=(kind==='van'||kind==='suv')?1.05:.85;return {zf:-L-.03,zr:L+.03,gw:gr?gr[0]*.8:1.2,gy:gr?gr[4]+.03:.6,ry:hy-.32,c3:0};}
+function evDress(c){try{const m=c&&c.m;if(!m)return;let b=m.userData.evb;
+  if(c.ev&&!b){evbGM();const D=evDims(c.kind);b=new THREE.Group();b.name='ev-badge';
+    const f=new THREE.Mesh(EVB.g,EVB.m);f.scale.set(D.gw,.14,.05);f.position.set(0,D.gy,D.zf);
+    const r=new THREE.Mesh(EVB.g,EVB.m);r.scale.set(.5,.13,.05);r.position.set(0,D.ry,D.zr);b.add(f);b.add(r);m.add(b);m.userData.evb=b;}
+  else if(!c.ev&&b){m.remove(b);m.userData.evb=null;}}catch(e){console.warn('carsound evDress',e);}}
+const EV_KINDS=new Set(['sedan','hatch','suv','small']);
+function evbOffsets(){const n=traffic.length,o=new THREE.Object3D();EVB.off=[];
+  for(let i=0;i<n;i++){if(!traffic[i].ev){EVB.off.push(null);continue;}const D=evDims(TRAFK[traffic[i].k]);
+    o.position.set(0,D.gy,D.zf);o.scale.set(D.gw,.14,.05);o.updateMatrix();const a=o.matrix.clone();o.position.set(0,D.ry,D.zr);o.scale.set(.5,.13,.05);o.updateMatrix();EVB.off.push([a,o.matrix.clone()]);}}
+/* traffic: slots decide once (deterministic), badges ride along in one InstancedMesh (2 per car) */
+try{evbGM();const n=traffic.length;let ne=0;
+  for(let i=0;i<n;i++){const t=traffic[i];t.ev=EV_KINDS.has(TRAFK[t.k])&&engHash(i*7+3,913)<.4;t.es=engHash(i,41);if(t.ev)ne++;}
+  if(ne){const im=new THREE.InstancedMesh(EVB.g,EVB.m,n*2);im.frustumCulled=false;im.castShadow=false;im.name='ev-badges';const z=new THREE.Matrix4().makeScale(0,0,0);for(let i=0;i<n*2;i++)im.setMatrixAt(i,z);
+    evbOffsets();
+    EVB.tmp=new THREE.Matrix4();scene.add(im);EVB.im=im;window.__EVBIM=im;
+    window.__EVB=(i,m)=>{const q=EVB.off[i];if(!q)return;EVB.im.setMatrixAt(i*2,EVB.tmp.multiplyMatrices(m,q[0]));EVB.im.setMatrixAt(i*2+1,EVB.tmp.multiplyMatrices(m,q[1]));};}}catch(e){console.warn('carsound traffic ev',e);}
+/* cars made before this block ran (parked, lots) get their badge now; later ones in addCar */
+try{for(const c of cars){if(c.ev)evDress(c);}}catch(_){}
+/* when the Blender cars finish loading, refit the badges once (cheap: a handful of EVs) */
+{let n=0;const T=setInterval(()=>{try{const C=window.__CARS3;if(++n>120||!C||C.failed||!C.on){clearInterval(T);return;}if(!C.ready)return;clearInterval(T);
+  for(const c of cars){const b=c.m&&c.m.userData.evb;if(b){c.m.remove(b);c.m.userData.evb=null;evDress(c);}}if(EVB.im)evbOffsets();}catch(e){clearInterval(T);}},2000);}
+window.__ENGSND={
+  get on(){return !!ENG.V;},kind:ENG_KIND,types:ENGT,evKinds:EV_KINDS,
+  typeOf(c){return c&&c.ev?'ev':(ENG_KIND[c&&c.kind]||'i4');},isEV(c){return !!(c&&c.ev);},
+  get last(){return ENG.last;},get voice(){return ENG.V;},
+  dress:evDress,
+  claim(c,i){const t=traffic[i];if(!c||!t)return;c.ev=!!t.ev;c.es=t.es;evDress(c);},
+  tm(c){return c&&!c.ev?(ENG_TRAFM[TRAFK[c.k]]||1):1;},
+  traf(v,e,T,rate){const c=e.c,ev=!!(c&&c.ev);
+    if(ev!==!!v.evT){v.evT=ev;try{v.o1.type=ev?'sine':'sawtooth';v.o2.type=ev?'triangle':'square';}catch(_){}}
+    if(!ev)return;const sp=e.v,f=(60+sp*22)*rate;
+    v.o1.frequency.setTargetAtTime(f,T,.07);v.o2.frequency.setTargetAtTime(f*3.62,T,.07);v.g2.gain.setTargetAtTime(.12,T,.1);v.lp.frequency.setTargetAtTime(4000,T,.1);
+    v.eg.gain.setTargetAtTime(.022*Math.min(1,sp/10)+(sp>.3&&sp<8.3?.008:0),T,.1);},
+  /* test + clip helper: render a trace [{rpm,gi,thr,av,max,shT}] at 60 Hz through the same synth, offline */
+  render(type,trace,sr){sr=sr||44100;const dt=1/60,X=new OfflineAudioContext(1,Math.ceil((trace.length*dt+.6)*sr),sr);const V=engBuild(X,X.destination,type);
+    const s={rpm:900,gi:0,thr:0,av:0,max:29,shT:0,rough:0,seed:.5,wreck:false};const fs=[];
+    for(let i=0;i<trace.length;i++){Object.assign(s,trace[i]);engUpd(V,s,.05+i*dt,dt);fs.push(ENG.last.f);}
+    return X.startRendering().then(b=>({buf:b,fs}));},
+  stats(){return {on:!!ENG.V,type:ENG.V?ENG.V.type:null,built:ENG.built,killed:ENG.killed,err:ENG.err,last:Object.assign({},ENG.last),
+    ev:{cars:cars.filter(c=>c.ev).length,cars_eligible:cars.filter(c=>EV_KINDS.has(c.kind)).length,traffic:traffic.filter(t=>t.ev).length,traffic_n:traffic.length}};},
+  VERSION:'carsound 17 Nov 2026'};
+/* /carsound */
+/* engsample */
+/* ===== REAL ENGINE RECORDINGS (job engsample, 17 Nov 2026). Marius: "find proper ones online then and implement them instead of trying to make them."
+   - Short seamless loops cut from free CC0 / CC-BY recordings (sfx/engine/*.m4a + engine.json, made by build/engsample/make_loops.py, sources in
+     build/sfx/ENGINE_SOURCES.md): idle + on-load loops per engine type, each recorded at a known rpm.
+   - ONE voice for the player's car: 2-3 looping buffer sources that run all the time (no per-frame allocation). The drive-model rpm picks where you
+     are between the loops (equal-power crossfade), each loop is pitched by playbackRate inside its band, throttle = load (louder + brighter filter),
+     lift-off = quieter and darker, gear shifts dip the load (d.shT), lifting at high revs pops (the same noise pops as the synth), rev limiter at the top.
+   - Electric cars: a real electric motor whine pitched by road speed + the soft pedestrian hum under 30 km/h (oscillator, as before) + tyre roar.
+   - Lazy: a type's loops are fetched + decoded the first time you drive a car of that type, never while the intro / opening runs. Until they are
+     ready (or if any file fails) the synth from carsound plays, so a missing file never means silence.
+   - V6 (SUV, police) uses the V8 loops pitched for three firings per turn; the VW boxer borrows the four-cylinder mid loop for its top end.
+   - Traffic keeps the carsound synth voices (pooled oscillators): cheap, and too far / too quiet for recordings to matter.
+   window.__ENGS = {on, sets, man, stats(), load(type), ready(type), render(type,trace,sr), reset(), test:{missing}} ===== */
+const ENGS_SET={
+  i4:   {l:['i4_idle','i4_mid','i4_high'],idle:1009,max:6200,lp:[700,.55,5200],vol:.5},
+  v6:   {l:['v8_idle','v8_mid'],k:4/3,idle:1456,max:7300,lp:[600,.45,4200],vol:.5},
+  v8:   {l:['v8_idle','v8_mid'],idle:1092,max:6000,lp:[600,.6,5200],vol:.55},
+  truck:{l:['truck_idle','truck_mid'],idle:764,max:4400,lp:[450,.7,3600],vol:.55},
+  boxer:{l:['boxer_idle','boxer_load','i4_mid'],idle:991,max:4600,lp:[600,.6,3800],vol:.5},
+  single:{l:['single_idle','single_mid'],idle:1133,max:5600,lp:[700,.6,4500],vol:.45},
+  moped:{l:['moped_idle','moped_mid','moped_high'],idle:2248,max:9000,lp:[900,.5,5000],vol:.4},
+  ev:   {l:['ev_whine'],ev:true,vol:.32}};
+const ENGS={man:null,manP:null,buf:{},pend:{},fail:{},V:null,lastT:0,err:null,loads:0,fails:0,built:0,killed:0,test:{missing:null},
+  last:{type:null,R:0,L:0,g:0,w:[],rate:[],n:0}};
+const engsC=(v,a,b)=>v<a?a:v>b?b:v;
+const engsGate=()=>{try{return !window.__INTRO_ON&&!(window.__OPENING&&window.__OPENING.on);}catch(_){return false;}};
+const engsUrl=(f)=>f+'?v='+(typeof VER!=='undefined'?VER:'1');
+function engsMan(){if(ENGS.man)return Promise.resolve(ENGS.man);if(ENGS.manP)return ENGS.manP;
+  ENGS.manP=fetch(engsUrl('sfx/engine/engine.json')).then(r=>{if(!r.ok)throw new Error('engine.json http '+r.status);return r.json();}).then(j=>(ENGS.man=j.loops||{}))
+    .catch(e=>{ENGS.err=String(e&&e.message||e);ENGS.manP=null;throw e;});return ENGS.manP;}
+function engsDecode(ab){return new Promise((ok,bad)=>{try{const p=ac.decodeAudioData(ab,ok,bad);if(p&&p.then)p.then(ok,bad);}catch(e){bad(e);}});}
+/* fetch + decode every loop a type needs (each file once, shared between types) */
+function engsLoad(type){const S=ENGS_SET[type];if(!S||!ac)return Promise.resolve(false);if(ENGS.fail[type])return Promise.resolve(false);
+  if(ENGS.pend[type])return ENGS.pend[type];
+  ENGS.pend[type]=engsMan().then(M=>Promise.all(S.l.map(n=>{if(ENGS.buf[n])return ENGS.buf[n];const m=M[n];if(!m)throw new Error('no loop '+n);
+      const url=ENGS.test.missing===n?'sfx/engine/engine.json':m.file;ENGS.loads++;/* test: a file that is not audio -> decode fails like a broken download (no 404 noise in the console) */
+      return fetch(engsUrl(url)).then(r=>{if(!r.ok)throw new Error(n+' http '+r.status);return r.arrayBuffer();}).then(engsDecode).then(b=>(ENGS.buf[n]=b));})))
+    .then(()=>true).catch(e=>{ENGS.fail[type]=true;ENGS.fails++;ENGS.err=String(e&&e.message||e);console.warn('engsample: '+type+' falls back to the synth:',ENGS.err);return false;});
+  return ENGS.pend[type];}
+const engsReady=(type)=>{const S=ENGS_SET[type];return !!(S&&!ENGS.fail[type]&&S.l.every(n=>ENGS.buf[n]));};
+/* the voice: loops -> own gain each -> shared low-pass -> out; tyre roar + lift-off pops from the synth's noise buffer */
+function engsBuild(X,dest,type){const S=ENGS_SET[type],M=ENGS.man,V={X,type,S,src:[],L:[],st:{ph:0,pt:0,burT:0,lim:0,limT:0}};
+  const out=X.createGain();out.gain.value=0;out.connect(dest);V.out=out;
+  const lp=X.createBiquadFilter();lp.type='lowpass';lp.Q.value=.6;lp.frequency.value=2000;lp.connect(out);V.lp=lp;
+  for(const n of S.l){const m=M[n],b=ENGS.buf[n],s=X.createBufferSource();s.buffer=b;s.loop=true;s.loopStart=m.start;s.loopEnd=m.start+m.len;
+    const g=X.createGain();g.gain.value=0;s.connect(g);g.connect(lp);s.start(0,m.start+Math.random()*m.len*.9);V.src.push(s);V.L.push({g,s,ref:(m.rpm||1000)*(S.k||1)});}
+  const ns=X.createBufferSource();ns.buffer=engNoise(X);ns.loop=true;V.src.push(ns);
+  const tLP=X.createBiquadFilter();tLP.type='lowpass';tLP.frequency.value=300;tLP.Q.value=.4;const tG=X.createGain();tG.gain.value=0;ns.connect(tLP);tLP.connect(tG);tG.connect(out);V.tLP=tLP;V.tG=tG;
+  if(S.ev){const aO=X.createOscillator();aO.type='triangle';const aLP=X.createBiquadFilter();aLP.type='lowpass';aLP.frequency.value=900;const aG=X.createGain();aG.gain.value=0;
+    aO.connect(aLP);aLP.connect(aG);aG.connect(out);aO.frequency.value=180;aO.start();V.src.push(aO);V.aO=aO;V.aG=aG;}
+  else{const pBP=X.createBiquadFilter();pBP.type='bandpass';pBP.frequency.value=(type==='v8'||type==='truck'||type==='v6')?650:1100;pBP.Q.value=.9;
+    const pG=X.createGain();pG.gain.value=0;ns.connect(pBP);pBP.connect(pG);pG.connect(out);V.pG=pG;}
+  ns.start(0,1.3);ENGS.built++;return V;}
+function engsKill(V){if(!V)return;try{V.out.gain.cancelScheduledValues(0);V.out.gain.value=0;}catch(_){}for(const s of V.src){try{s.stop();}catch(_){}try{s.disconnect();}catch(_){}}try{V.out.disconnect();}catch(_){}ENGS.killed++;}
+/* s = {rpm (drive model 900..~6950), gi, thr, av, max, shT, rough, seed, wreck}; same inputs as the synth (engUpd) */
+function engsUpd(V,s,t,dt){const S=V.S,st=V.st,last=ENGS.last,L0=engsC(s.thr,0,1),sf=Math.min(1,engsC(s.av/Math.max(s.max,10),0,1.2)),pv=1+(s.seed-.5)*.06;
+  st.ph+=dt;
+  V.tLP.frequency.setTargetAtTime(220+sf*900,t,.1);V.tG.gain.setTargetAtTime((S.ev?.07:.045)*Math.pow(sf,1.3)*(1+s.rough*1.5),t,.1);
+  if(S.ev){const sp=s.av,on=Math.min(1,sp/3),regen=(L0<.05&&sp>2)?1:0,u=Math.min(1.15,sp/Math.max(s.max,10));
+    const r=(.32+1.25*u)*pv*(1+.003*Math.sin(st.ph*2.3));const l=V.L[0];l.s.playbackRate.setTargetAtTime(r,t,.04);
+    const g=S.vol*on*(.2+.55*L0+.3*regen)*(.4+.6*Math.min(1,u*1.6))*(s.wreck?.4:1);l.g.gain.setTargetAtTime(g,t,.05);
+    V.lp.frequency.setTargetAtTime(1800+4200*u+1500*L0,t,.08);
+    const a=sp<8.3?(1-sp/8.3):0,trem=.65+.35*Math.sin(st.ph*2*Math.PI*1.4);
+    V.aO.frequency.setTargetAtTime(180+sp*16,t,.08);V.aG.gain.setTargetAtTime(.075*.3*a*trem*(sp<.3?.3:1),t,.06);
+    V.out.gain.setTargetAtTime(1,t,.08);last.type='ev';last.f=(28+sp*24)*pv;last.R=0;last.L=L0;last.g=g;last.w[0]=1;last.rate[0]=r;last.ev=true;last.n++;return;}
+  const T=ENGT[V.type]||ENGT.i4,x=Math.max(0,(s.rpm-900)/5600);
+  let R=S.idle+x*(S.max-S.idle)*(s.gi>=4?T.top:1);
+  R*=1+(.008*Math.sin(st.ph*1.9+s.seed*6)+.005*Math.sin(st.ph*4.7+s.seed*3)+.004*Math.sin(st.ph*.53))*(.6+L0*.6);
+  if(R>S.max*1.01)R=S.max*1.01;
+  let L=L0;if(L0>.9)L-=.08*(.5+.5*Math.sin(st.ph*1.3+s.seed*4))*(.6+.4*Math.sin(st.ph*.31));if(s.shT>0)L*=.15;
+  if(x>1.02&&L0>.85){st.limT-=dt;if(st.limT<=0){st.limT=.055;st.lim=st.lim?0:1;}}else st.lim=0;
+  /* where R sits between the loops (log rpm), equal power */
+  const Ls=V.L,n=Ls.length;let i=0;while(i<n-1&&R>Ls[i+1].ref)i++;
+  let u=0;if(n>1&&i<n-1&&R>Ls[i].ref)u=engsC(Math.log(R/Ls[i].ref)/Math.log(Ls[i+1].ref/Ls[i].ref),0,1);
+  if(n>1&&R<=Ls[0].ref){i=0;u=0;}
+  const rn=engsC((R-S.idle)/(S.max-S.idle),0,1.05);
+  const g=S.vol*(.42+.48*L+.2*rn)*(st.lim?.25:1)*(s.wreck?.4:1)*((L<.05&&rn>.4)?.72:1);
+  for(let j=0;j<n;j++){const l=Ls[j];let w=0;if(j===i)w=Math.cos(u*Math.PI/2);else if(j===i+1)w=Math.sin(u*Math.PI/2);
+    /* the idle loop thins out once you are on the throttle, the on-load loops come in a little earlier */
+    let rate=R/l.ref*pv;if(rate>1.6)rate=1.6+(rate-1.6)*.75;rate=engsC(rate,.35,2.6);
+    l.s.playbackRate.setTargetAtTime(rate,t,.025);l.g.gain.setTargetAtTime(g*w,t,st.lim?.004:.03);last.w[j]=w;last.rate[j]=rate;}
+  const cut=(S.lp[0]+S.lp[1]*R+S.lp[2]*L)*(1+.05*Math.sin(st.ph*.8+s.seed*9));
+  V.lp.frequency.setTargetAtTime(Math.min(cut,14000),t,.04);
+  const bur=T.burb||.3;
+  if(st.pt>.4&&L0<.05&&rn>.45)st.burT=.5+.9*bur;st.pt=L0;
+  if(st.burT>0){st.burT-=dt;if(L0>.2)st.burT=0;else if(Math.random()<bur*14*rn*dt){const a=(T.vol||.09)*(1.5+Math.random()*3)*Math.min(1,.4+bur);V.pG.gain.setValueAtTime(a,t);V.pG.gain.setTargetAtTime(0,t+.004,.016+Math.random()*.012);}}
+  V.out.gain.setTargetAtTime(1,t,.08);
+  last.type=V.type;last.R=R;last.f=R/30*pv;last.L=L;last.g=g;last.ev=false;last.i=i;last.u=u;last.n++;}
+/* called from carsound's engDrive: true = the real recordings play this frame (the synth voice is then torn down) */
+function engsDrive(c,d,thr,av,max,A,type){   if(window.__ENGREAL===undefined)window.__ENGREAL=/[?&]engreal=1/.test(location.search);if(!window.__ENGREAL)return false;/*engsample_02: Marius prefers the synth*/
+  if(!ENGS_SET[type]||ENGS.fail[type])return false;
+  if(!engsReady(type)){if(engsGate()&&ac&&ac.state==='running')engsLoad(type);return false;}
+  if(ENGS.V&&ENGS.V.type!==type){engsKill(ENGS.V);ENGS.V=null;}
+  if(!ENGS.V)ENGS.V=engsBuild(ac,A.out,type);
+  const now=performance.now(),dt=ENGS.lastT?engsC((now-ENGS.lastT)/1000,0,.1):.016;ENGS.lastT=now;
+  const s=ENG.s;s.rpm=d.rpm||900;s.gi=d.gi|0;s.thr=thr;s.av=av;s.max=max;s.shT=d.shT||0;s.rough=d.rough||0;s.seed=c.es!=null?c.es:.5;s.wreck=!!(c.dm&&c.dm.wreck);
+  engsUpd(ENGS.V,s,ac.currentTime,dt);
+  const L=ENG.last,E=ENGS.last;L.type=E.type;L.f=E.f;L.R=E.R;L.L=E.L;L.g=E.g;L.ev=!!E.ev;L.n++;L.real=true;/* carsound tests + HUD read ENG.last */
+  return true;}
+setInterval(()=>{if(ENGS.V&&performance.now()-ENGS.lastT>2500){engsKill(ENGS.V);ENGS.V=null;}},1000);
+window.__ENGS={
+  get on(){return !!ENGS.V;},sets:ENGS_SET,get man(){return ENGS.man;},test:ENGS.test,
+  load:engsLoad,ready:engsReady,drive:engsDrive,get voice(){return ENGS.V;},get last(){return ENGS.last;},
+  /* forget loaded / failed state (tests) */
+  reset(){if(ENGS.V){engsKill(ENGS.V);ENGS.V=null;}ENGS.buf={};ENGS.pend={};ENGS.fail={};},
+  /* clips + tests: render a 60 Hz trace [{rpm,gi,thr,av,max,shT}] through the real-recording voice offline (loads the loops first) */
+  render(type,trace,sr){sr=sr||44100;return engsLoad(type).then(ok=>{if(!ok)throw new Error('engsample: loops for '+type+' did not load');
+    const dt=1/60,X=new OfflineAudioContext(1,Math.ceil((trace.length*dt+.6)*sr),sr);const V=engsBuild(X,X.destination,type);
+    const s={rpm:900,gi:0,thr:0,av:0,max:29,shT:0,rough:0,seed:.5,wreck:false};const fs=[],ws=[];
+    for(let i=0;i<trace.length;i++){Object.assign(s,trace[i]);engsUpd(V,s,.05+i*dt,dt);fs.push(ENGS.last.f);ws.push(ENGS.last.w.slice());}
+    return X.startRendering().then(b=>({buf:b,fs,ws}));});},
+  stats(){return {on:!!ENGS.V,type:ENGS.V?ENGS.V.type:null,loaded:Object.keys(ENGS.buf),failed:Object.keys(ENGS.fail).filter(k=>ENGS.fail[k]),loads:ENGS.loads,fails:ENGS.fails,
+    built:ENGS.built,killed:ENGS.killed,err:ENGS.err,last:JSON.parse(JSON.stringify(ENGS.last))};},
+  VERSION:'engsample 17 Nov 2026'};
+/* /engsample */
 /* police */
 /* ===== POLICE (job gta-police): wanted level 1-5, Norwegian police cars, officers on foot, roadblocks, arrest. Everything sleeps until a crime is seen.
    - STARS (HUD, pixel style, above the hearts): hitting / killing villagers with a car, ramming cars, wrecking cars, ramming the police, (patch 2) stealing cars.
@@ -59456,17 +59742,18 @@ setInterval(()=>{try{tick();}catch(e){S.err=String(e&&e.message||e);}},250);
 })();}catch(e){window.__SIRENS_ERR=String(e&&e.stack||e);console.warn('sirens',e);}
 /* /sirens */
 /* mayorclues */
-/* THE MAYOR'S CLUES (job mayorclues, 17 Nov 2026). The Mayor is a machine draining the town's power; her cable runs from her office to the tower with the red Eye and on to the Feda converter. Four clues, all hinted, never explained:
+/* THE MAYOR'S CLUES (job mayorclues, 17 Nov 2026). The Mayor is a machine draining the town's power; her cable runs from her office along the road to the Feda converter. Four clues, all hinted, never explained:
    1. BJØRN'S POST BIKE: a red/yellow post bicycle tipped over in the snow behind the town hall (the Mayor's office side), his post bag open, letters blown across the snow (one is for "Fru Haugen" and smells of burnt wire). From day 1.
       Gone after the warm ending. One merged mesh, built within 170 m only. G / tap = a Lykta line (no reward).
    2. MISSING: TORMOD posters, about 54 of them (data/tormod_posters.json, edit freely): lamp posts + notice boards + stakes in town, along the far roads and by the Feda converter. ONE canvas atlas (3 looks x plain / FOUND-stickered),
       6 instanced planes + 2 instanced stake / board meshes, only the ones within 260 m are drawn (refresh every 1.2 s, no per-frame work; a 4 Hz timer flutters the loose ones). From day 9 a cheerful FOUND! sticker appears over more
       and more of them (day 9: 11 %, +11 % a day). G = a Lykta line. Gone after the warm ending (Tormod came home).
-   3. THE CABLE QUEST (from day 17, when the Eye wakes): a thick black cable comes out of the Mayor's office window, runs over the hills to the base of the tower with the red Eye (it plugs in, the Eye pulses) and a branch runs on to a junction
-      box by the Feda converter ("MAYOR - DO NOT UNPLUG"). Journal quest "Follow the cable" (side-quest journal, tracker chip, map mark, Lykta compass). Three steps, a once-only reward at the end (__STORY.once 'cable_done': Julestemning +3, 150 kr).
-      Cheap: a few long tube meshes (one per ~350 m, distance-culled), built only when the quest is active; a 4 Hz timer scrolls the faint red pulse texture while you are within 220 m.
+   3. THE CABLE QUEST (DAY 22 to 24, "Slightly embarrassed lights": the investigators close the case with the wrong answer, the player finds the real one; before day 22 no cable, no quest): a thick black cable comes out of the Mayor's wall at the town hall, climbs a wooden pole and hangs from pole to pole (a pole every ~42 m, catenary sag) along the real roads
+      (data/mayor_cable_route.json, made by build/mayorclues/make_cable_route.py from data/streetlines.json: shortest road path, bridges followed, never over open water) to a junction box by the Feda converter ("MAYOR - DO NOT UNPLUG").
+      Journal quest "Follow the cable" (side-quest journal, tracker chip, map mark, Lykta compass), steps: find the cable at the town hall -> follow it along the road to the converter (the hum is loudest within 90 m) -> the box. Once-only reward at the box (__STORY.once 'cable_done': Julestemning +3, 150 kr).
+      Cheap: ~30 merged tube meshes (distance-culled) + ONE instanced pole mesh, built only when the quest is active (days 22-24); a 4 Hz timer scrolls the faint red pulse texture while you are within 220 m.
    4. THE MAYOR SWITCHES OFF (day 24): after the closing scene + the shelter all-clear. WARM: by the tree her battery runs out ("Warm citizens... are..." stops mid-word, she slumps down, eyes go dark), the chime + silence (__MAYORPA.finale('warm')),
-      then Bjorn (post bag) and Tormod (grey hair, coffee) walk in from the dark and join the crowd and the lights come back brighter. GREY / GRINCH: she stands at 100 %, eyes glowing red like the Eye, "Happy citizens." (__MAYORPA.finale('grey')).
+      then Bjorn (post bag) and Tormod (grey hair, coffee) walk in from the dark and join the crowd and the lights come back brighter. GREY / GRINCH: she stands at 100 %, eyes glowing red, "Happy citizens." (__MAYORPA.finale('grey')).
       Played by the director (__DRAGON.dev.playScene): hold Right = 4x, double-tap Right / Space / Esc = skip. Once per player (__STORY.once 'mayor_final'). A still tableau stays by the tree afterwards (built within 220 m only).
    Debug: window.__MAYORCLUES = {state(), finale(ending,{dry}), dev:{tp(what), warm(on), poster(i)}, objective()}. Off: ?mayorclues=0. Error global: __MAYORCLUES_ERR. */
 try{(()=>{
@@ -59634,60 +59921,64 @@ function readPoster(s){s=s||posterNear(3);if(!s)return false;const st=isStick(s)
 fetch('data/tormod_posters.json',{cache:'no-cache'}).then(r=>r.ok?r.json():null).then(j=>{if(!j||!Array.isArray(j.spots))return;PS.spots=j.spots.map(s=>Object.assign({y:null,ex:false},s));PS.ready=true;lg('posters '+PS.spots.length);}).catch(e=>er('posters fetch',e));
 /* ============================================================ 3. THE CABLE QUEST ============================================================ */
 const QID='mayor_cable';
-const CB={on:false,built:false,segs:[],mats:[],geos:[],route:null,plug:null,box:null,boxMesh:null,tex:null,cm:null,len:0,step:0,sc:0,pulseT:0,hum:null,pts:[],tick:0};
-const CAB_LINES=["Something thick and black is coming out of the Mayor's office window. A cable. It goes into the snow and does not come out where it should.","Follow the cable.","It plugs straight into the foundations. The Eye is on the other end of this. Look up. Then look away. Quickly.","The hum is loudest here. The box says MAYOR, DO NOT UNPLUG. I would very much like to unplug it. I would also very much like to stay a lantern. Hands off."];
-function castle(){try{if(typeof CASTLE!=='undefined'&&CASTLE)return CASTLE;}catch(_){}return {x:-542,z:2141,R:44,base:167,TOP:118};}
+const CB={on:false,built:false,segs:[],mats:[],geos:[],route:null,box:null,boxMesh:null,poles:null,tex:null,cm:null,len:0,step:0,hum:null,pts:[],data:null,nPoles:0,bridgePoles:0,tick:0};
+const CAB_LINES=["Something thick and black is coming out of the Mayor's wall. A cable. It climbs a brand new pole and marches off down the road.","Follow the cable. Poles all the way, along the road, over every bridge.","Do you hear that? That hum is not the wind. It is loudest right here. It is the converter by the fjord, and the cable ends in it.","The hum is loudest here. The box says MAYOR, DO NOT UNPLUG. I would very much like to unplug it. I would also very much like to stay a lantern. Hands off."];
+fetch('data/mayor_cable_route.json',{cache:'no-cache'}).then(r=>r.ok?r.json():null).then(j=>{if(j&&Array.isArray(j.route)){CB.data=j;lg('cable route '+j.route.length);}}).catch(e=>er('route fetch',e));
 function pickBox(){/* the junction box: just south of the compound fence, on open ground */
   for(const [x,z] of [[-5458,3743],[-5462,3745],[-5450,3746],[-5470,3742],[-5446,3743],[-5478,3746]]){if(free(x,z)&&free(x+2,z)&&free(x-2,z)&&free(x,z+2)&&free(x,z-2))return {x,z};}return {x:-5458,z:3743};}
-function cableRoute(){if(CB.route)return CB.route;const w=exitPt();if(!w)return null;const C=castle();
-  const p0={x:w.x+w.nx*3,z:w.z+w.nz*3};const wA={x:p0.x+w.F[0]*26,z:p0.z+w.F[1]*26};const sg=C.x<wA.x?-1:1;
-  const w1={x:wA.x+sg*48,z:wA.z};
-  const ux=w1.x-C.x,uz=w1.z-C.z,m=Math.max(Math.abs(ux),Math.abs(uz))||1,k=(C.R+1.1)/m;const plug={x:C.x+ux*k,z:C.z+uz*k};
-  const box=pickBox();CB.box=box;CB.plug=plug;
-  CB.route={w,p0,wA,w1,plug,box};return CB.route;}
-function sampleLine(a,b,out,stepNear,stepFar,nearA,nearB){const L=hyp(b.x-a.x,b.z-a.z);let d=0;while(d<L){const x=a.x+(b.x-a.x)*d/L,z=a.z+(b.z-a.z)*d/L;out.push({x,z});const dn=Math.min(hyp(x-a.x,z-a.z)<nearA?stepNear:stepFar,hyp(x-b.x,z-b.z)<nearB?stepNear:stepFar);d+=Math.max(2,dn);}}
-function cableBuild(){if(CB.built)return true;const R=cableRoute();if(!R)return false;const w=R.w,C=castle();
+function surfY(x,z){const h=hm0(x,z);let d=NaN;try{d=groundTop(x,z,h+14);}catch(_){}return (isFinite(d)&&d>=h-1&&d<=h+14)?d:h;}/* terrain or bridge deck */
+const overWater=(x,z)=>{try{return W.__PHYS&&W.__PHYS.typeAt&&W.__PHYS.typeAt(x,z)===3;}catch(_){return false;}};
+function cableRoute(){if(CB.route)return CB.route;const w=exitPt();if(!w||!CB.data)return null;
+  const p0={x:w.x+w.nx*5,z:w.z+w.nz*5};const box=pickBox();CB.box=box;CB.route={w,p0,box};return CB.route;}
+function cableBuild(){if(CB.built)return true;const R=cableRoute();if(!R)return false;const w=R.w;
+  /* ---- the pole nodes: the town hall wall, a pole in the courtyard, then a pole every ~42 m along the roadside (route = real roads from data/mayor_cable_route.json), the box ---- */
+  const N=[];const wallY=surfY(w.x+w.nx*1.4,w.z+w.nz*1.4)+3.3;N.push({x:w.x-w.nx*.2,z:w.z-w.nz*.2,y:wallY,kind:'wall'});
+  const poles=[];const addPole=(x,z,dx,dz)=>{const b=surfY(x,z);if(overWater(x,z)&&b<=hm0(x,z)+.5)return false;const n={x,z,y:b+7.1,base:b,kind:'pole',yaw:Math.atan2(dx,dz)};N.push(n);poles.push(n);return true;};
+  addPole(R.p0.x,R.p0.z,w.nx,w.nz);
+  const rt=[[R.p0.x,R.p0.z]].concat(CB.data.route);let acc=0,next=40,wasB=0;
+  for(let i=1;i<rt.length;i++){const a=rt[i-1],b=rt[i];const L=hyp(b[0]-a[0],b[1]-a[1]);if(L<.01)continue;const dx=(b[0]-a[0])/L,dz=(b[1]-a[1])/L;
+    while(acc+L>=next){const t=next-acc;const cx=a[0]+dx*t,cz=a[1]+dz*t;let ok=false;
+      for(const off of [5,-5,8,-8]){const x=cx-dz*off,z=cz+dx*off;if(free(x,z)&&addPole(x,z,dx,dz)){ok=true;break;}}
+      next+=42;}
+    acc+=L;}
+  const bx=R.box;const lastDX=bx.x-N[N.length-1].x,lastDZ=bx.z-N[N.length-1].z;const gb=surfY(bx.x,bx.z);N.push({x:bx.x,z:bx.z,y:gb+1.5,kind:'box'});CB.boxY=gb;
+  CB.nPoles=poles.length;CB.bridgePoles=poles.filter(q=>overWater(q.x+.01,q.z)||false).length;
+  /* ---- the cable: a catenary between neighbouring tops, never lower than 0.9 m over the ground / bridge deck ---- */
   const pts=[];
-  /* the stub out of the wall: from 1.5 m up, bowing down to the ground */
-  const wy=gy(w.x+w.nx*1.4,w.z+w.nz*1.4)+1.7,g0=gy(R.p0.x,R.p0.z)+.3;
-  for(let i=0;i<=8;i++){const t=i/8,o=-.3+3.3*t;const e=1-Math.pow(1-t,1.8);pts.push({x:w.x+w.nx*o,z:w.z+w.nz*o,y:lerp(wy,g0,e)});}
-  const line=[];sampleLine(R.p0,R.wA,line,2,3,6,6);sampleLine(R.wA,R.w1,line,3,4,6,6);sampleLine(R.w1,R.plug,line,4,9,200,500);sampleLine(R.plug,R.box,line,8,10,500,60);line.push({x:R.box.x,z:R.box.z});
-  const tb=C.base;
-  for(let i=0;i<line.length;i++){const q=line[i];let y=hm0(q.x,q.z)+.3;const dc=Math.max(Math.abs(q.x-C.x),Math.abs(q.z-C.z));if(dc<C.R+16&&isFinite(tb))y=Math.max(y,tb+.35);pts.push({x:q.x,z:q.z,y});}
-  /* smooth the heights a little so a voxel step does not make a spike */
-  for(let it=0;it<2;it++)for(let i=9;i<pts.length-1;i++)pts[i].y=Math.max(pts[i].y*.5+(pts[i-1].y+pts[i+1].y)*.25,pts[i].y-.4);
+  for(let i=0;i<N.length-1;i++){const a=N[i],b=N[i+1];const L=hyp(b.x-a.x,b.z-a.z);const m=Math.max(2,Math.ceil(L/4));const sag=(a.kind!=='pole'||b.kind!=='pole')?Math.min(.8,L*.03):Math.min(2.4,L*.05);
+    for(let k=0;k<m;k++){const t=k/m;const x=lerp(a.x,b.x,t),z=lerp(a.z,b.z,t);let y=lerp(a.y,b.y,t)-sag*4*t*(1-t);y=Math.max(y,surfY(x,z)+.9);pts.push({x,z,y});}}
+  pts.push({x:N[N.length-1].x,z:N[N.length-1].z,y:N[N.length-1].y});
   CB.pts=pts;let len=0;for(let i=1;i<pts.length;i++)len+=hyp(pts[i].x-pts[i-1].x,pts[i].z-pts[i-1].z);CB.len=len;
   /* the faint pulse texture: dark cable with a dull red streak that travels along it */
   const cv=document.createElement('canvas');cv.width=128;cv.height=8;const g=cv.getContext('2d');g.fillStyle='#14161a';g.fillRect(0,0,128,8);g.fillStyle='#3c4048';g.fillRect(0,0,128,2);
   const gr=g.createLinearGradient(30,0,128,0);gr.addColorStop(0,'rgba(255,40,30,0)');gr.addColorStop(.5,'rgba(255,70,45,.6)');gr.addColorStop(1,'rgba(255,40,30,0)');g.fillStyle=gr;g.fillRect(30,2,98,6);
-  g.fillStyle='#d8b400';for(let i=0;i<4;i++)g.fillRect(i*5,0,3,8);/* a yellow-black warning band once every 7 m */
+  g.fillStyle='#d8b400';for(let i=0;i<4;i++)g.fillRect(i*5,0,3,8);
   const tex=new THREE.CanvasTexture(cv);tex.wrapS=tex.wrapT=THREE.RepeatWrapping;tex.colorSpace=THREE.SRGBColorSpace;CB.tex=tex;
   const mat=new THREE.MeshBasicMaterial({map:tex,side:THREE.DoubleSide});CB.cm=mat;CB.mats.push(mat);
-  const RAD=.22,SEG=6,CH=36;let acc=0;
+  const RAD=.13,SEG=5,CH=90;let acc2=0;
   for(let a=0;a<pts.length-1;a+=CH){const b=Math.min(pts.length-1,a+CH);const P=[],U=[],I=[];let dist=0;
     for(let i=a;i<=b;i++){const p=pts[i],pn=pts[Math.min(pts.length-1,i+1)],pp=pts[Math.max(0,i-1)];let tx=pn.x-pp.x,ty=pn.y-pp.y,tz=pn.z-pp.z;const tl=hyp(tx,ty,tz)||1;tx/=tl;ty/=tl;tz/=tl;
-      let ux=-tz,uy=0,uz=tx;const ul=hyp(ux,uz)||1;ux/=ul;uz/=ul;/* side */let vx=ty*uz-tz*uy,vy=tz*ux-tx*uz,vz=tx*uy-ty*ux;const vl=hyp(vx,vy,vz)||1;vx/=vl;vy/=vl;vz/=vl;
+      let ux=-tz,uy=0,uz=tx;const ul=hyp(ux,uz)||1;ux/=ul;uz/=ul;let vx=ty*uz-tz*uy,vy=tz*ux-tx*uz,vz=tx*uy-ty*ux;const vl=hyp(vx,vy,vz)||1;vx/=vl;vy/=vl;vz/=vl;
       if(i>a)dist+=hyp(p.x-pts[i-1].x,p.y-pts[i-1].y,p.z-pts[i-1].z);
-      for(let s=0;s<=SEG;s++){const an=s/SEG*PI*2,ca=Math.cos(an)*RAD,sa=Math.sin(an)*RAD;P.push(p.x+ux*ca+vx*sa,p.y+uy*ca+vy*sa,p.z+uz*ca+vz*sa);U.push((acc+dist)/7,s/SEG);}}
-    const rows=b-a+1;for(let i=0;i<rows-1;i++)for(let s=0;s<SEG;s++){const i0=i*(SEG+1)+s,i1=i0+SEG+1;I.push(i0,i1,i0+1,i0+1,i1,i1+1);}
-    acc+=dist;const G=new THREE.BufferGeometry();G.setAttribute('position',new THREE.Float32BufferAttribute(P,3));G.setAttribute('uv',new THREE.Float32BufferAttribute(U,2));G.setIndex(I);G.computeBoundingSphere();CB.geos.push(G);
+      for(let s2=0;s2<=SEG;s2++){const an=s2/SEG*PI*2,ca=Math.cos(an)*RAD,sa=Math.sin(an)*RAD;P.push(p.x+ux*ca+vx*sa,p.y+uy*ca+vy*sa,p.z+uz*ca+vz*sa);U.push((acc2+dist)/7,s2/SEG);}}
+    const rows=b-a+1;for(let i=0;i<rows-1;i++)for(let s2=0;s2<SEG;s2++){const i0=i*(SEG+1)+s2,i1=i0+SEG+1;I.push(i0,i1,i0+1,i0+1,i1,i1+1);}
+    acc2+=dist;const G=new THREE.BufferGeometry();G.setAttribute('position',new THREE.Float32BufferAttribute(P,3));G.setAttribute('uv',new THREE.Float32BufferAttribute(U,2));G.setIndex(I);G.computeBoundingSphere();CB.geos.push(G);
     const m=new THREE.Mesh(G,mat);m.frustumCulled=true;m.name='mayorclues-cable';m.visible=false;scene.add(m);CB.segs.push({m,cx:G.boundingSphere.center.x,cz:G.boundingSphere.center.z,r:G.boundingSphere.radius});}
-  /* the plug on the tower wall (a dark socket block, a red LED glow) and the junction box by the converter */
-  {const B=GB();const pl=R.plug,C0=castle();const gp=Math.max(hm0(pl.x,pl.z),isFinite(C0.base)?C0.base:0);const nx=pl.x-C0.x,nz=pl.z-C0.z;
-    addBox(B,1.9,2.3,.8,0x1c1d20,0,1.15,0);addBox(B,1.2,1.3,.3,0x2c2e34,0,1.2,.5);addBox(B,.4,.4,.16,0xc8102e,0,1.2,.7);addBox(B,.2,.2,.2,0x0b0b0d,.6,1.9,.5);addBox(B,2.1,.14,.9,0xf2c200,0,.07,0);
-    const G=finG(B);const mt=new THREE.MeshLambertMaterial({vertexColors:true});CB.geos.push(G);CB.mats.push(mt);const me=new THREE.Mesh(G,mt);me.position.set(pl.x,gp,pl.z);me.rotation.y=Math.atan2(nx,nz);me.name='mayorclues-plug';me.visible=false;scene.add(me);CB.plugMesh=me;
-    const gl=mkGlow(0xff2a1a,6,.0);gl.position.set(pl.x+nx/(hyp(nx,nz)||1)*.9,gp+1.2,pl.z+nz/(hyp(nx,nz)||1)*.9);gl.visible=false;scene.add(gl);CB.plugGlow=gl;CB.plugY=gp;}
-  {const bx=R.box;const B=GB();const gp=gy(bx.x,bx.z);
+  /* ---- the poles: one instanced mesh (trunk, cross-arm, two insulators) ---- */
+  {const B=GB();addBox(B,.26,7.4,.26,0x5a4630,0,3.7,0);addBox(B,1.6,.14,.14,0x4a3a28,0,6.9,0);addBox(B,.1,.2,.1,0xcfd6da,-.5,7.1,0);addBox(B,.1,.2,.1,0xcfd6da,.5,7.1,0);addBox(B,.1,.2,.1,0xcfd6da,0,7.15,0);addBox(B,.36,.1,.36,0x3a2e20,0,7.45,0);
+    const G=finG(B);CB.geos.push(G);const vm=new THREE.MeshLambertMaterial({vertexColors:true});CB.mats.push(vm);const im=new THREE.InstancedMesh(G,vm,Math.max(1,poles.length));const m4=new THREE.Matrix4(),rq=new THREE.Matrix4();
+    poles.forEach((q,i)=>{m4.makeTranslation(q.x,q.base-.25,q.z);rq.makeRotationY(q.yaw);m4.multiply(rq);im.setMatrixAt(i,m4);});im.instanceMatrix.needsUpdate=true;im.frustumCulled=false;im.name='mayorclues-poles';scene.add(im);CB.poles=im;}
+  /* ---- the junction box by the converter ---- */
+  {const gp=gb;const B=GB();
     addBox(B,.16,.9,.16,0x3a3c42,-.55,.45,-.22);addBox(B,.16,.9,.16,0x3a3c42,.55,.45,-.22);addBox(B,1.5,1.15,.7,0x6e747c,0,1.3,0);addBox(B,1.54,.08,.76,0x4a5058,0,1.9,0);addBox(B,1.52,.06,.72,0xf2c200,0,.78,0);addBox(B,.6,.12,.02,0x14161a,-.35,.95,.36);
     addBox(B,.1,.5,.1,0xc8102e,.5,1.5,.38);addBox(B,.22,.1,.1,0xc8102e,.5,1.78,.4);addBox(B,.07,.07,.02,0x3dff72,.2,1.7,.36);addBox(B,.07,.07,.02,0xff3030,.34,1.7,.36);addBox(B,.3,.3,.3,0x2a2c32,-.95,.18,.1);
     const G=finG(B);const mt=new THREE.MeshLambertMaterial({vertexColors:true});CB.geos.push(G);CB.mats.push(mt);const grp=new THREE.Group();grp.add(new THREE.Mesh(G,mt));
-    /* the label, drawn */
     const lc=document.createElement('canvas');lc.width=256;lc.height=128;const lg2=lc.getContext('2d');lg2.fillStyle='#f2c200';lg2.fillRect(0,0,256,128);lg2.fillStyle='#14110e';lg2.fillRect(6,6,244,116);lg2.fillStyle='#f2c200';lg2.textAlign='center';lg2.font='bold 40px Impact,"Arial Black",sans-serif';lg2.fillText('MAYOR',128,52);lg2.font='bold 24px Impact,"Arial Black",sans-serif';lg2.fillText('DO NOT UNPLUG',128,90);lg2.fillStyle='#c8102e';lg2.fillRect(20,100,216,4);
     const lt=new THREE.CanvasTexture(lc);lt.colorSpace=THREE.SRGBColorSpace;const lm=new THREE.MeshBasicMaterial({map:lt});const lgm=new THREE.PlaneGeometry(.9,.45);CB.geos.push(lgm);CB.mats.push(lm);CB.texs=[lt];const lab=new THREE.Mesh(lgm,lm);lab.position.set(0,1.38,.372);grp.add(lab);
-    grp.position.set(bx.x,gp,bx.z);grp.rotation.y=.05;grp.name='mayorclues-box';grp.visible=false;scene.add(grp);CB.boxMesh=grp;CB.boxY=gp;}
-  CB.built=true;lg('cable built '+Math.round(len)+' m, '+CB.segs.length+' segments');return true;}
-function cableDispose(){for(const s of CB.segs){try{scene.remove(s.m);}catch(_){}}for(const o of [CB.plugMesh,CB.plugGlow,CB.boxMesh]){if(o)try{scene.remove(o);}catch(_){}}for(const g of CB.geos)g.dispose();for(const m of CB.mats)m.dispose();if(CB.tex)CB.tex.dispose();if(CB.texs)for(const t of CB.texs)t.dispose();
-  CB.segs=[];CB.geos=[];CB.mats=[];CB.built=false;CB.plugMesh=CB.plugGlow=CB.boxMesh=null;CB.route=null;CB.tex=null;humStop();}
+    grp.position.set(bx.x,gp,bx.z);grp.rotation.y=.05;grp.name='mayorclues-box';grp.visible=false;scene.add(grp);CB.boxMesh=grp;}
+  CB.built=true;lg('cable built '+Math.round(len)+' m, '+poles.length+' poles, '+CB.segs.length+' segments');return true;}
+function cableDispose(){for(const s of CB.segs){try{scene.remove(s.m);}catch(_){}}for(const o of [CB.poles,CB.boxMesh]){if(o)try{scene.remove(o);if(o.dispose)o.dispose();}catch(_){}}for(const g of CB.geos)g.dispose();for(const m of CB.mats)m.dispose();if(CB.tex)CB.tex.dispose();if(CB.texs)for(const t of CB.texs)t.dispose();
+  CB.segs=[];CB.geos=[];CB.mats=[];CB.built=false;CB.poles=CB.boxMesh=null;CB.route=null;CB.tex=null;humStop();}
 function humStop(){const b=CB.hum;if(!b)return;CB.hum=null;try{const a=AC(),t=a?a.currentTime:0;b.hg.gain.cancelScheduledValues(t);b.hg.gain.setTargetAtTime(0,t,.1);setTimeout(()=>{try{b.o1.stop();b.o2.stop();if(b.so.stop)b.so.stop(.1);b.hg.disconnect();}catch(_){}},600);}catch(_){}}
 function humStart(){if(CB.hum||!CB.box)return;try{const a=AC();if(!a)return;const so=out3(CB.box.x,CB.boxY+1.4,CB.box.z,900,{vol:1,ref:2,roll:1.2,max:70,rev:.2,occ:false,prio:1.3});
   const o1=a.createOscillator();o1.type='sawtooth';o1.frequency.value=50;const o2=a.createOscillator();o2.type='triangle';o2.frequency.value=100.6;const f=a.createBiquadFilter();f.type='lowpass';f.frequency.value=320;const hg=a.createGain();hg.gain.value=0;
@@ -59695,41 +59986,38 @@ function humStart(){if(CB.hum||!CB.box)return;try{const a=AC();if(!a)return;cons
 /* the quest in the side-quest journal */
 function qObjective(){const s=CB.step;const p=ply();const dd=(x,z)=>{if(!p)return '';const d=hyp(p.x-x,p.z-z);return d>1000?' ('+(d/1000).toFixed(1)+' km)':' ('+Math.round(d)+' m)';};
   if(CB.step>=3)return 'Done. All of it goes to her';if(s===0){const w=exitPt();return "Find the Mayor's cable at the town hall"+(w?dd(w.x,w.z):'');}
-  if(s===1)return 'Follow the cable to the tower with the red Eye'+(CB.plug?dd(CB.plug.x,CB.plug.z):'');
-  return 'Follow the branch on to the Feda converter'+(CB.box?dd(CB.box.x,CB.box.z):'');}
-function qTarget(){if(CB.step===0){const w=exitPt();return w?{x:w.x+w.nx*3,z:w.z+w.nz*3,label:"the Mayor's cable"}:null;}if(CB.step===1&&CB.plug)return {x:CB.plug.x,z:CB.plug.z,label:'the tower'};if(CB.step===2&&CB.box)return {x:CB.box.x,z:CB.box.z,label:'the Feda converter'};return null;}
-function questInject(){const Q=W.__QUESTS;if(!Q||!Q.ready||day()<17)return false;
+  if(s===1)return 'Follow the cable along the road to the Feda converter'+(CB.box?dd(CB.box.x,CB.box.z):'');
+  return 'Find where the cable ends, at the converter'+(CB.box?dd(CB.box.x,CB.box.z):'');}
+function qTarget(){if(CB.step===0){const w=exitPt();return w?{x:w.x+w.nx*3,z:w.z+w.nz*3,label:"the Mayor's cable"}:null;}if(CB.step>=1&&CB.step<3&&CB.box)return {x:CB.box.x,z:CB.box.z,label:'the Feda converter'};return null;}
+function questInject(){const Q=W.__QUESTS;if(!Q||!Q.ready||day()<22||day()>24)return false;
   if(!Q.giv.lykta_c)Q.giv.lykta_c={id:'lykta_c',def:{name:'Lykta',cat:'ncc',seed:3,x:1e7,z:1e7,place:'The lantern',ncc:'x'},grp:null,in:false,x:0,z:0,y:0};
-  if(!Q.byId[QID]){const q={id:QID,title:'Follow the cable',giver:'lykta_c',type:'reach',minDay:0,ask:"A thick black cable comes out of the Mayor's office window and runs off over the hills. Follow it. See where it goes. (Lykta would rather it was not her.)",wait:'The cable starts behind the town hall.',done:'It all goes to her.',targets:{x:0,z:0,r:30,label:'the cable'},reward:{kr:0},repeatable:false};Q.list.push(q);Q.byId[QID]=q;
+  if(!Q.byId[QID]){const q={id:QID,title:'Follow the cable',giver:'lykta_c',type:'reach',minDay:0,ask:"A thick black cable comes out of the Mayor's wall at the town hall, climbs a pole and runs off along the road. Follow it. See where it ends. (Lykta would rather it was not her.)",wait:'The cable starts at the town hall courtyard.',done:'It all goes to her.',targets:{x:0,z:0,r:30,label:'the cable'},reward:{kr:0},repeatable:false};Q.list.push(q);Q.byId[QID]=q;
     if(!Q.track&&CB.step<3)Q.track=QID;}
   const q=Q.byId[QID];const t=qTarget();if(t){q.targets.x=t.x;q.targets.z=t.z;q.targets.label=t.label;}
   const st=CB.step>=3?'done':'active';if(Q.st[QID]!==st){Q.st[QID]=st;Q._mmT=0;}return true;}
-function stepFromFlags(){return seen('cable_done')?3:seen('cable_conv')?3:seen('cable_tower')?2:seen('cable_town')?1:0;}
-function cableTick(){if(!started_()){return;}const d=day();const want=MC.enabled&&d>=17&&!warmDone();
+function stepFromFlags(){return seen('cable_done')?3:seen('cable_conv')?3:seen('cable_near')?2:seen('cable_town')?1:0;}
+const pointBox=()=>{try{const L=W.__LANTERNGUIDE;if(L&&L.point&&CB.box)L.point(CB.box.x,CB.box.z,'the Feda converter');}catch(_){}};
+function cableTick(){if(!started_()){return;}const d=day();const want=MC.enabled&&d>=22&&d<=24&&!warmDone();
   if(!want){if(CB.on){CB.on=false;cableDispose();const Q=W.__QUESTS;if(Q&&Q.byId&&Q.byId[QID]&&warmDone())Q.st[QID]='done';}return;}
   if(!CB.on){CB.on=true;CB.step=stepFromFlags();}
   if(!W.__INTRO_ON&&!CB.built){if(!cableBuild())return;}
   try{questInject();}catch(e){er('quest',e);}
   const p=ply();if(!p)return;let near=false;
-  for(const s of CB.segs){const vis=hyp(p.x-s.cx,p.z-s.cz)<s.r+700;if(s.m.visible!==vis)s.m.visible=vis;if(hyp(p.x-s.cx,p.z-s.cz)<s.r+220)near=true;}CB.near=near;
-  if(CB.plugMesh){const dp=hyp(p.x-CB.plug.x,p.z-CB.plug.z);const v=dp<900;CB.plugMesh.visible=v;CB.plugGlow.visible=v;const db=hyp(p.x-CB.box.x,p.z-CB.box.z);CB.boxMesh.visible=db<700;
-    if(db<75)humStart();else if(db>130)humStop();}
+  for(const s of CB.segs){const dd=hyp(p.x-s.cx,p.z-s.cz);const vis=dd<s.r+600;if(s.m.visible!==vis)s.m.visible=vis;if(dd<s.r+220)near=true;}CB.near=near;
+  if(CB.boxMesh){const db=hyp(p.x-CB.box.x,p.z-CB.box.z);CB.boxMesh.visible=db<700;if(db<75)humStart();else if(db>130)humStop();}
   if(busy()||W.__INTRO_ON)return;
   const w=exitPt();
-  if(CB.step===0&&w&&hyp(p.x-(w.x+w.nx*2.5),p.z-(w.z+w.nz*2.5))<7){if(once('cable_town')){CB.step=1;lyk(CAB_LINES[0],7,'task');setTimeout(()=>{lyk(CAB_LINES[1],3,'task');try{const L=W.__LANTERNGUIDE;if(L&&L.point&&CB.plug)L.point(CB.plug.x,CB.plug.z,'the tower');}catch(_){}},7200);try{toast('The cable runs away over the hills. Follow it.');}catch(_){}}else CB.step=Math.max(CB.step,1);}
-  if(CB.step===1&&CB.plug&&hyp(p.x-CB.plug.x,p.z-CB.plug.z)<20){if(once('cable_tower')){CB.step=2;eyePulse();lyk(CAB_LINES[2],8,'task');try{const L=W.__LANTERNGUIDE;if(L&&L.point&&CB.box)L.point(CB.box.x,CB.box.z,'the Feda converter');}catch(_){}}else CB.step=Math.max(CB.step,2);}
+  if(CB.step===0&&w&&hyp(p.x-w.x,p.z-w.z)<130&&once('cable_hint')){lyk("They closed the case. Funny. Nobody followed the cable.",6,'task');}
+  if(CB.step===0&&w&&hyp(p.x-(w.x+w.nx*2.5),p.z-(w.z+w.nz*2.5))<12){if(once('cable_town')){CB.step=1;lyk(CAB_LINES[0],7,'task');setTimeout(()=>{lyk(CAB_LINES[1],4,'task');pointBox();},7200);try{toast('The cable runs away along the road. Follow it.');}catch(_){}}else CB.step=Math.max(CB.step,1);}
+  if(CB.step===1&&CB.box&&hyp(p.x-CB.box.x,p.z-CB.box.z)<90){if(once('cable_near')){CB.step=2;lyk(CAB_LINES[2],7,'task');pointBox();}else CB.step=Math.max(CB.step,2);}
   if(CB.step===2&&CB.box&&hyp(p.x-CB.box.x,p.z-CB.box.z)<6){if(once('cable_conv')){CB.step=3;lyk(CAB_LINES[3],8,'task');finishQuest();}else CB.step=3;}
-  if(CB.step<3&&CB.step!==CB.lastStep){CB.lastStep=CB.step;}
 }
-function eyePulse(){CB.pulseT=performance.now();try{const E=W.__CINE&&W.__CINE.EYE;if(E&&E.g){let n=0;const iv=setInterval(()=>{n++;const k=1+.16*Math.sin(n/6*PI*3)*Math.max(0,1-n/22);try{E.g.scale.setScalar(k);}catch(_){}if(n>=24){clearInterval(iv);try{E.g.scale.setScalar(1);}catch(_){}}},80);}}catch(e){er('eyepulse',e);}
-  try{const a=AC(),m=MS();if(a&&m){const t=a.currentTime,o=a.createOscillator(),g=a.createGain();o.type='sine';o.frequency.setValueAtTime(70,t);o.frequency.exponentialRampToValueAtTime(38,t+.8);g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(.3,t+.04);g.gain.exponentialRampToValueAtTime(.001,t+1.1);o.connect(g);g.connect(m);o.start(t);o.stop(t+1.2);}}catch(_){}
-  try{const f=document.createElement('div');f.style.cssText='position:fixed;inset:0;z-index:3;pointer-events:none;background:radial-gradient(circle,rgba(255,30,20,0) 40%,rgba(255,30,20,.45) 100%);opacity:0;transition:opacity .25s';document.body.appendChild(f);requestAnimationFrame(()=>{f.style.opacity='1';setTimeout(()=>{f.style.opacity='0';setTimeout(()=>f.remove(),700);},900);});}catch(_){}}
 function finishQuest(){if(!once('cable_done'))return;const Q=W.__QUESTS;if(Q&&Q.st)Q.st[QID]='done';
   try{if(W.__MONEY){W.__MONEY.cash+=150;W.__MONEY.save&&W.__MONEY.save();}}catch(_){}try{if(W.__SPIRIT&&W.__SPIRIT.add)W.__SPIRIT.add(3,'Followed the cable','mayor');}catch(_){}
   try{toast('Quest done: Follow the cable (+150 kr)');}catch(_){}MC.paid=(MC.paid|0)+1;}
 function readBox(){lyk("MAYOR. DO NOT UNPLUG. In capital letters, on a box that hums. I read that as a request, and a warning, and a little bit of a dare. I will not be doing the third one.",7,'note');}
 setInterval(()=>{try{if(MC.enabled)cableTick();}catch(e){er('cabletick',e);}},700);
-setInterval(()=>{try{if(CB.on&&CB.near&&CB.tex){CB.tex.offset.x-=.09;const q=Math.abs(Math.sin(performance.now()/1000*3));if(CB.plugGlow)CB.plugGlow.material.opacity=(performance.now()-CB.pulseT<4000?.95:.35)*(.5+.5*q);}}catch(_){}},250);
+setInterval(()=>{try{if(CB.on&&CB.near&&CB.tex){CB.tex.offset.x-=.09;const q=Math.abs(Math.sin(performance.now()/1000*3));}}catch(_){}},250);
 /* ============================================================ the scan (prompt) + posters poll ============================================================ */
 setInterval(()=>{try{if(!MC.enabled)return;
   if(PS.ready)posterRefresh(false);
@@ -59762,18 +60050,25 @@ function dressMayor(r,o){const rg=r.userData.rig;const M=W.__MAYOR&&W.__MAYOR.pa
   r.userData.eyes=eyes;r.userData.eyeGlow=gl;r.userData.own={mats,geos};
   r.userData.setEyes=(hex,glow)=>{for(const e of eyes)e.material.color.setHex(hex);for(const g of gl){g.material.color.setHex(hex);g.material.opacity=glow;}};
   r.userData.setEyes(0xfff0c0,.25);return r;}
-function mkCup(){const g=new THREE.Group();const m1=new THREE.Mesh(new THREE.BoxGeometry(.085,.1,.085),new THREE.MeshLambertMaterial({color:0xf2efe6}));const m2=new THREE.Mesh(new THREE.BoxGeometry(.07,.012,.07),new THREE.MeshLambertMaterial({color:0x3a2010}));m2.position.y=.05;g.add(m1,m2);return g;}
-function mkBag(){const g=new THREE.Group();const b=new THREE.Mesh(new THREE.BoxGeometry(.36,.26,.14),new THREE.MeshLambertMaterial({color:0xa00d24}));const f=new THREE.Mesh(new THREE.BoxGeometry(.38,.05,.16),new THREE.MeshLambertMaterial({color:0xffd23f}));f.position.y=.14;g.add(b,f);return g;}
+function mkCup(){const g=new THREE.Group();const M=c=>new THREE.MeshLambertMaterial({color:c,emissive:0x302010});
+  const m1=new THREE.Mesh(new THREE.BoxGeometry(.13,.15,.13),M(0xf6f2e8));const m2=new THREE.Mesh(new THREE.BoxGeometry(.11,.016,.11),new THREE.MeshBasicMaterial({color:0x4a2a12}));m2.position.y=.078;const h=new THREE.Mesh(new THREE.BoxGeometry(.04,.09,.03),M(0xf6f2e8));h.position.set(.09,0,0);g.add(m1,m2,h);
+  const st=[];for(let i=0;i<3;i++){const sp=new THREE.Sprite(new THREE.SpriteMaterial({map:glowTex(),color:0xffffff,transparent:true,opacity:.5,depthWrite:false,toneMapped:false,fog:false}));sp.scale.set(.2,.2,1);sp.position.set((i-1)*.03,.16+i*.12,0);sp.userData.i=i;g.add(sp);st.push(sp);}g.userData.steam=st;return g;}
+function steamTick(cup,t){if(!cup||!cup.userData.steam)return;for(const sp of cup.userData.steam){const i=sp.userData.i,ph=(t*.7+i*.33)%1;sp.position.y=.12+ph*.42;sp.position.x=(i-1)*.03+Math.sin(t*2+i)*.025;sp.material.opacity=.55*Math.sin(ph*PI);sp.scale.setScalar(.14+ph*.2);}}
+function mkBag(){const g=new THREE.Group();const M=(c,e)=>new THREE.MeshLambertMaterial({color:c,emissive:e||0x200a0a});
+  const b=new THREE.Mesh(new THREE.BoxGeometry(.5,.36,.2),M(0xc8102e));const f=new THREE.Mesh(new THREE.BoxGeometry(.52,.08,.22),M(0xffd23f,0x302408));f.position.y=.2;
+  const pl=new THREE.Mesh(new THREE.BoxGeometry(.2,.15,.02),M(0xffd23f,0x302408));pl.position.set(0,0,.11);const hn=new THREE.Mesh(new THREE.BoxGeometry(.05,.09,.025),M(0xc8102e));hn.position.set(-.02,0,.125);const hn2=new THREE.Mesh(new THREE.BoxGeometry(.1,.03,.025),M(0xc8102e));hn2.position.set(.02,.04,.125);g.add(b,f,pl,hn,hn2);return g;}
+function warmUp(r,own){r.traverse(o=>{if(o.isMesh&&o.material&&o.material.emissive){const m=o.material.clone();m.emissive=new THREE.Color(0x6a4420);m.emissiveIntensity=.4;o.material=m;own.push(m);}});}
 function groundAtT(T,x,z){return hyp(x-T.x,z-T.z)<16?T.y:gy(x,z);}
 function buildActors(T,kind){const A={g:new THREE.Group(),mayor:null,bjorn:null,tormod:null,crowd:[],bag:null,cup:null,glows:[],T};A.g.name='mayorclues-scene';
   const my=mkPerson('mayor');if(!my)return null;dressMayor(my,{});A.mayor=my;A.mx=T.x+2.9,A.mz=T.z+3.4;my.position.set(A.mx,T.y,A.mz);my.rotation.y=-.45;A.g.add(my);
   if(kind==='warm'){
-    const arc=[[-5.2,6.6],[-3.6,8.0],[-1.6,8.8],[.6,9.1],[2.6,8.7],[4.9,7.9],[6.4,6.2],[-6.4,4.6]];arc.forEach((o,i)=>{const r=mkPerson(i+1);if(!r)return;const x=T.x+o[0],z=T.z+o[1];r.position.set(x,T.y,z);r.rotation.y=Math.atan2(T.x-x,T.z-z)+(i%2?.12:-.1);if(i===2||i===6)r.scale.setScalar(.72);A.g.add(r);A.crowd.push(r);const gl=mkGlow(0xffc070,3.6,0);gl.position.set(x,T.y+1.4,z);A.g.add(gl);A.glows.push(gl);});
-    const bj=mkPerson('bjorn'),tm=mkPerson('tormod');if(bj&&tm){A.bjorn=bj;A.tormod=tm;bj.visible=tm.visible=false;A.g.add(bj,tm);const bag=mkBag();bag.position.set(.3,.8,.05);bj.add(bag);A.bag=bag;
-      const cup=mkCup();cup.position.set(0,-.62,.1);tm.userData.rig.armR.add(cup);tm.userData.rig.armR.rotation.x=-1.05;A.cup=cup;
-      for(const r of [bj,tm]){const gl=mkGlow(0xffc070,3.6,0);gl.position.set(0,1.4,0);r.add(gl);A.glows.push(gl);}}}
+    const arc=[[-3.6,8.8],[-1.6,9.3],[.6,9.4],[2.6,8.9],[4.9,8.0],[6.4,6.2],[5.7,3.4],[-5.8,8.4]];arc.forEach((o,i)=>{const r=mkPerson(i+1);if(!r)return;const x=T.x+o[0],z=T.z+o[1];r.position.set(x,T.y,z);r.rotation.y=Math.atan2(T.x-x,T.z-z)+(i%2?.12:-.1);if(i===2||i===6)r.scale.setScalar(.72);A.g.add(r);A.crowd.push(r);const gl=mkGlow(0xffc070,3.6,0);gl.position.set(x,T.y+1.4,z);A.g.add(gl);A.glows.push(gl);});
+    const bj=mkPerson('bjorn'),tm=mkPerson('tormod');A.own=[];A.rim=[];if(bj&&tm){A.bjorn=bj;A.tormod=tm;bj.visible=tm.visible=false;A.g.add(bj,tm);warmUp(bj,A.own);warmUp(tm,A.own);
+      const bag=mkBag();bag.position.set(.36,.86,.04);bj.add(bag);A.bag=bag;{const sg=new THREE.Mesh(new THREE.BoxGeometry(.07,.85,.03),new THREE.MeshLambertMaterial({color:0x5a2a14}));sg.position.set(-.02,1.1,.17);sg.rotation.z=.62;bj.userData.rig.up.add(sg);A.own.push(sg.material);}
+      const cup=mkCup();cup.position.set(0,-.62,.12);cup.scale.setScalar(1.15);tm.userData.rig.armR.add(cup);tm.userData.rig.armR.rotation.x=-1.25;A.cup=cup;
+      for(const r of [bj,tm]){const gl=mkGlow(0xffb860,4.6,0);gl.position.set(0,1.2,0);A.g.add(gl);A.rim.push({gl,r});}}}
   scene.add(A.g);return A;}
-function disposeActors(A){if(!A)return;try{scene.remove(A.g);}catch(_){}A.g.traverse(o=>{try{if(o.material&&o.material.isSpriteMaterial)o.material.dispose();if(o.material&&o.material.isMeshBasicMaterial&&o.geometry&&o.geometry.type==='BoxGeometry')o.material.dispose();}catch(_){}});}
+function disposeActors(A){if(!A)return;try{scene.remove(A.g);}catch(_){}try{for(const m of (A.own||[]))m.dispose();}catch(_){}A.g.traverse(o=>{try{if(o.material&&o.material.isSpriteMaterial)o.material.dispose();if(o.material&&o.material.isMeshBasicMaterial&&o.geometry&&o.geometry.type==='BoxGeometry')o.material.dispose();}catch(_){}});}
 function poseMayor(r,s,head){const rg=r.userData.rig;/* s: 0 standing .. 1 slumped on the ground */
   rg.legL.rotation.x=rg.legR.rotation.x=-1.5*s;rg.legL.rotation.z=.08*s;rg.legR.rotation.z=-.08*s;r.position.y=r.userData.y0-.58*s;
   lean(rg,.1*head+.62*s);rg.armL.rotation.x=.03-.2*s;rg.armR.rotation.x=.03-.1*s;rg.armL.rotation.z=.045+.22*s+.1*head;rg.armR.rotation.z=-.045-.22*s-.1*head;}
@@ -59791,9 +60086,9 @@ const expoReset=()=>{try{if(ST.exp0!=null&&typeof r!=='undefined'&&r)r.toneMappi
 const LYK=t=>({who:'LYKTA',text:t}),MAY=t=>({who:'MAYOR',text:t});
 function sceneWarm(){const D=DRG();const T=D.treeAt();const CAM=D.cam;let A=null;const dur=64;
   const caps=[Object.assign({t:1.6,len:5},LYK('She has been standing there since the tree lit. Smiling at it. Not blinking once.')),Object.assign({t:7.6,len:5},MAY('Warm citizens… are… hap—')),Object.assign({t:15,len:5.5},LYK('Oh. Her battery. Nobody is draining the town tonight, and that is all she ever ran on.')),
-    Object.assign({t:22.5,len:5},LYK('Listen. No hum. No hum anywhere. Just snow, and a very quiet Mayor.')),Object.assign({t:31,len:5},LYK('Somebody is coming. Two somebodies, out of the dark. One of them is carrying coffee.')),
-    Object.assign({t:39.4,len:4.2},{who:'BJØRN',text:'Sorry I am late. The post was… resting.'}),Object.assign({t:44,len:5},{who:'TORMOD',text:'Was I gone? I only went looking for coffee.'}),
-    Object.assign({t:50,len:6},LYK('And the lights. Look at the lights. They did not come back. They came back brighter.')),Object.assign({t:57,len:6.4},LYK('Warm citizens are happy citizens. She was right. She was just very wrong about how.'))];
+    Object.assign({t:22.5,len:5},LYK('Listen. No hum. No hum anywhere. Just snow, and a very quiet Mayor.')),Object.assign({t:28.5,len:5},LYK('Somebody is coming. Two somebodies, out of the dark. One of them is carrying coffee.')),
+    Object.assign({t:42,len:4.2},{who:'BJØRN',text:'Sorry I am late. The post was… resting.'}),Object.assign({t:46.4,len:4.8},{who:'TORMOD',text:'Was I gone? I only went looking for coffee.'}),
+    Object.assign({t:51.6,len:5.4},LYK('And the lights. Look at the lights. They did not come back. They came back brighter.')),Object.assign({t:57,len:6.4},LYK('Warm citizens are happy citizens. She was right. She was just very wrong about how.'))];
   const marks=[{t:0,fn:()=>{A=ST.actors=buildActors(T,'warm');if(A){A.mayor.userData.y0=T.y;poseMayor(A.mayor,0,0);}},commit:true},
     {t:7.5,fn:ff=>{if(!ff)playWarmClip();}},
     {t:12.4,fn:ff=>{if(!ff)powerDownSound();}},
@@ -59806,24 +60101,27 @@ function sceneWarm(){const D=DRG();const T=D.treeAt();const CAM=D.cam;let A=null
     const sw=(t<9)?Math.sin(t*.9)*.03:0;my.rotation.y=-.45+sw;
     /* the crowd sways, Bjorn and Tormod walk in from the dark */
     A.crowd.forEach((r,i)=>{r.userData.rig.up.rotation.z=Math.sin(t*.8+i)*.012;});
-    if(A.bjorn){const w0=29,w1=45;const k=sm((t-w0)/(w1-w0)),vis=t>=w0-.1;A.bjorn.visible=A.tormod.visible=vis;
+    if(A.bjorn){const w0=28,w1=41;const u=clamp((t-w0)/(w1-w0),0,1),k=1-Math.pow(1-u,1.6),vis=t>=w0-.1;A.bjorn.visible=A.tormod.visible=vis;
       const path=(kk,ox,oz,ex,ez)=>({x:lerp(T.x+ox,T.x+ex,kk),z:lerp(T.z+oz,T.z+ez,kk)});
-      const pb=path(k,-38,-5,-3.2,5.2),pt=path(clamp(k-.03,0,1),-41,-8,-1.9,6.1);
-      for(const [r,p,ph] of [[A.bjorn,pb,0],[A.tormod,pt,1.4]]){r.position.set(p.x,groundAtT(T,p.x,p.z),p.z);r.rotation.y=k<.96?Math.atan2(34.8,10.2):Math.atan2(T.x-p.x,T.z-p.z);
-        const moving=k>0&&k<.985;const sp=moving?1:0,w=t*6.5+ph;const rg=r.userData.rig;rg.legL.rotation.x=Math.sin(w)*.6*sp;rg.legR.rotation.x=-Math.sin(w)*.6*sp;rg.armL.rotation.x=-Math.sin(w)*.4*sp;if(r===A.bjorn)rg.armR.rotation.x=Math.sin(w)*.4*sp;r.position.y+=Math.abs(Math.sin(w))*.05*sp;}}
+      const pb=path(k,-20,-3,-3.6,4.0),pt=path(clamp(k-.02,0,1),-22.5,-3,-2.4,6.7);const cx=T.x-9,cz=T.z+3.9;
+      for(const [r,p,ph] of [[A.bjorn,pb,0],[A.tormod,pt,1.4]]){r.position.set(p.x,groundAtT(T,p.x,p.z),p.z);const arrived=u>=.97;r.rotation.y=arrived?Math.atan2(cx-p.x,cz-p.z)+(r===A.bjorn?.1:-.1):Math.atan2(17,8.2);
+        const sp=(u>0&&!arrived)?1:0,w=t*6.2+ph;const rg=r.userData.rig;rg.legL.rotation.x=Math.sin(w)*.6*sp;rg.legR.rotation.x=-Math.sin(w)*.6*sp;rg.armL.rotation.x=-Math.sin(w)*.4*sp;if(r===A.bjorn)rg.armR.rotation.x=Math.sin(w)*.4*sp;r.position.y+=Math.abs(Math.sin(w))*.05*sp;}
+      steamTick(A.cup,t);
+      for(const q of A.rim){const r=q.r;const dx=r.position.x-(T.x-9),dz=r.position.z-(T.z+3.9),l=hyp(dx,dz)||1;q.gl.position.set(r.position.x+dx/l*.9,r.position.y+1.15,r.position.z+dz/l*.9);q.gl.material.opacity=vis?.4*sm((t-w0)/2):0;}}
     /* the lights come back brighter */
-    const br=sm((t-47)/9);for(const g of A.glows)g.material.opacity=br*.42;expo(1+.14*br);
+    const br=sm((t-44)/9);for(const g of A.glows)g.material.opacity=br*.42;expo(1+.08*sm((t-28)/6)+.12*br);
     /* camera */
     const MX=A.mx,MZ=A.mz;
     if(t<8.5){const k=sm(t/8.5);CAM[0]=T.x-8+k*3;CAM[1]=T.y+3.2;CAM[2]=T.z+17-k*1.2;CAM[3]=T.x+1.2;CAM[4]=T.y+2.6;CAM[5]=T.z+2;CAM[6]=56;}
     else if(t<21){const k=sm((t-8.5)/12.5);CAM[0]=lerp(MX-1.9,MX-1.1,k);CAM[1]=lerp(T.y+1.8,T.y+1.15,k);CAM[2]=lerp(MZ+4.4,MZ+2.9,k);CAM[3]=MX;CAM[4]=lerp(T.y+1.65,T.y+.9,sm((t-12)/4));CAM[5]=MZ;CAM[6]=lerp(44,40,k);}
     else if(t<30){const k=sm((t-21)/9);CAM[0]=lerp(MX-3.6,T.x-4,k);CAM[1]=lerp(T.y+1.5,T.y+2.4,k);CAM[2]=lerp(MZ+5.2,T.z+13,k);CAM[3]=lerp(MX,T.x,k);CAM[4]=T.y+lerp(.9,2,k);CAM[5]=lerp(MZ,T.z+3,k);CAM[6]=50;}
-    else if(t<47){const k=sm((t-30)/17);CAM[0]=T.x-9;CAM[1]=T.y+2.1;CAM[2]=T.z+13.5;CAM[3]=lerp(T.x-30,T.x-3.4,k);CAM[4]=T.y+1.4;CAM[5]=lerp(T.z-2,T.z+5.4,k);CAM[6]=50;}
+    else if(t<47){const u=clamp((t-28)/13,0,1),h=clamp((t-41)/6,0,1);const bx=A.bjorn.position,tx_=A.tormod.position;const mx=(bx.x+tx_.x)/2,mz=(bx.z+tx_.z)/2;
+      CAM[0]=lerp(T.x-9,T.x-7.3,h);CAM[1]=T.y+1.55;CAM[2]=lerp(T.z+3.9,T.z+4.5,h);CAM[3]=mx;CAM[4]=T.y+1.3;CAM[5]=mz;CAM[6]=lerp(50,34,sm(u))-h*1;}
     else{const k=sm((t-47)/17);const a=lerp(.2,1.05,k);CAM[0]=T.x+Math.sin(a)*(14+k*4)-4;CAM[1]=T.y+lerp(2.4,11,k);CAM[2]=T.z+Math.cos(a)*(14+k*4)+8;CAM[3]=T.x;CAM[4]=T.y+lerp(3,9,k);CAM[5]=T.z+2;CAM[6]=lerp(52,58,k);}
     const gh=gy(CAM[0],CAM[2]);if(CAM[1]<gh+1.1)CAM[1]=gh+1.1;};
   return {name:'mayorclues-warm',dur,upd,marks,caps,fadeIn:1.4,fadeOut:1.2,end:()=>{cleanScene();},endPos:{x:T.x+1.5,z:T.z+8.5,yaw:0}};}
 function sceneGrey(kind){const D=DRG();const T=D.treeAt();const CAM=D.cam;let A=null;const dur=46;
-  const caps=[Object.assign({t:1.5,len:5},LYK('She is at a hundred percent. I can read it off her back. Every little light on her is green.')),Object.assign({t:9,len:5.5},LYK('Look at her eyes. The same red as the Eye on the tower. It was never the tower. It was always her.')),
+  const caps=[Object.assign({t:1.5,len:5},LYK('She is at a hundred percent. I can read it off her back. Every little light on her is green.')),Object.assign({t:9,len:5.5},LYK('Look at her eyes. Red, like the Eye on the tower. Somebody lent her that colour.')),
     Object.assign({t:21,len:4.5},MAY('Happy citizens.')),Object.assign({t:30,len:6},LYK('Nobody warm enough. Nobody to switch her off. And the whole town smiling, very carefully, as told.'))];
   const marks=[{t:0,fn:()=>{A=ST.actors=buildActors(T,'grey');if(A){A.mayor.userData.y0=T.y;poseMayor(A.mayor,0,0);A.mayor.userData.setEyes(0xff2a1a,.9);}},commit:true},
     {t:18.4,fn:ff=>{try{if(!ff&&W.__MAYORPA&&W.__MAYORPA.finale)W.__MAYORPA.finale(kind==='grey'?'grey':'grinch');}catch(e){er('paFinale',e);}}},
@@ -59851,12 +60149,13 @@ function finalePoll(){try{if(!MC.enabled||ST.running||ST.pend||!started_()||W.__
   const e=s.ending||s.cur||'grey';ST.pend=true;MC.finale(e).then(()=>{ST.pend=false;}).catch(()=>{ST.pend=false;});}catch(e){er('finalepoll',e);}}
 setInterval(finalePoll,2500);
 /* the still tableau by the tree afterwards */
-function tabDispose(){const t=ST.tableau;if(!t)return;ST.tableau=null;try{scene.remove(t.g);}catch(_){}}
+function tabDispose(){const t=ST.tableau;if(!t)return;ST.tableau=null;try{scene.remove(t.g);}catch(_){}try{for(const m of (ST.tabOwn||[]))m.dispose();}catch(_){}ST.tabOwn=[];}
 function tabBuild(kind){const D=DRG();if(!D)return;const T=D.treeAt();const g=new THREE.Group();g.name='mayorclues-tableau';const my=mkPerson('mayor');if(!my)return;dressMayor(my,{});
   const mx=T.x+2.9,mz=T.z+3.4;my.position.set(mx,T.y,mz);my.userData.y0=T.y;my.rotation.y=.2;g.add(my);
   if(kind==='warm'){poseMayor(my,1,1);my.userData.setEyes(0x050504,0);
-    const bj=mkPerson('bjorn'),tm=mkPerson('tormod');if(bj&&tm){bj.position.set(T.x-3.2,T.y,T.z+5.2);bj.rotation.y=Math.atan2(T.x-bj.position.x,T.z-bj.position.z)+.3;tm.position.set(T.x-1.9,T.y,T.z+6.1);tm.rotation.y=Math.atan2(T.x-tm.position.x+2,T.z-tm.position.z)-.2;
-      const bag=mkBag();bag.position.set(.3,.8,.05);bj.add(bag);const cup=mkCup();cup.position.set(0,-.62,.1);tm.userData.rig.armR.add(cup);tm.userData.rig.armR.rotation.x=-1.05;g.add(bj,tm);}}
+    const bj=mkPerson('bjorn'),tm=mkPerson('tormod');if(bj&&tm){const own=[];bj.position.set(T.x-3.6,T.y,T.z+4.0);bj.rotation.y=.4;tm.position.set(T.x-2.4,T.y,T.z+6.7);tm.rotation.y=-.3;warmUp(bj,own);warmUp(tm,own);
+      const bag=mkBag();bag.position.set(.36,.86,.04);bj.add(bag);{const sg=new THREE.Mesh(new THREE.BoxGeometry(.07,.85,.03),new THREE.MeshLambertMaterial({color:0x5a2a14}));sg.position.set(-.02,1.1,.17);sg.rotation.z=.62;bj.userData.rig.up.add(sg);}const cup=mkCup();cup.position.set(0,-.62,.12);cup.scale.setScalar(1.15);tm.userData.rig.armR.add(cup);tm.userData.rig.armR.rotation.x=-1.25;steamTick(cup,.4);g.add(bj,tm);ST.tabOwn=own;
+      for(const r of [bj,tm]){const gl=mkGlow(0xffb860,4.6,.5);gl.position.set(r.position.x,r.position.y+1.2,r.position.z-.9);g.add(gl);}}}
   else{poseMayor(my,0,0);my.userData.setEyes(0xff2a1a,.8);my.rotation.y=0;}
   scene.add(g);ST.tableau={g,kind};}
 setInterval(()=>{try{if(!MC.enabled||!started_()||ST.running)return;const D=DRG();const p=ply();if(!D||!p||!D.treeAt)return;
@@ -59868,16 +60167,17 @@ MC.objective=qObjective;
 MC.state=()=>{const p=ply();const bp=BK.pos;return {ver:1,err:MC.err,enabled:MC.enabled,day:day(),warmDone:warmDone(),
   bike:{active:bikeActive(),pos:bp?{x:bp.x,z:bp.z}:null,built:BK.built,reads:BK.reads,draws:BK.built?2:0},
   posters:{n:PS.spots.length,ready:PS.ready,drawn:PS.drawn,stickered:PS.spots.filter(isStick).length,stickFrac:sticFrac(day()),active:PS.act.length,flap:PS.flap.length,meshes:PS.meshes.filter(m=>m.count>0).length,areas:PS.spots.reduce((a,s)=>{a[s.area]=(a[s.area]||0)+1;return a;},{})},
-  cable:{active:CB.on,built:CB.built,step:CB.step,len:Math.round(CB.len),segs:CB.segs.length,visSegs:CB.segs.filter(s=>s.m.visible).length,plug:CB.plug,box:CB.box,hum:!!CB.hum,quest:(W.__QUESTS&&W.__QUESTS.st)?W.__QUESTS.st[QID]||null:null,paid:MC.paid|0,objective:CB.on?qObjective():null},
+  cable:{active:CB.on,built:CB.built,step:CB.step,len:Math.round(CB.len),segs:CB.segs.length,visSegs:CB.segs.filter(s=>s.m.visible).length,poles:CB.nPoles,box:CB.box,hum:!!CB.hum,quest:(W.__QUESTS&&W.__QUESTS.st)?W.__QUESTS.st[QID]||null:null,paid:MC.paid|0,objective:CB.on?qObjective():null},
   finale:{running:ST.running,pend:ST.pend,final:seen('mayor_final'),tableau:ST.tableau?ST.tableau.kind:null,actors:!!ST.actors},prompt:PR.txt,log:MC.log.slice(-6)};};
 MC.stickered=d=>{const f=sticFrac(d);return PS.spots.filter(s=>s.th<f).length;};
 MC.dev={
   tp(what){const p=ply();if(!p)return false;let x,z,yaw=0;
     if(what==='bike'){const bp=bikePos();if(!bp)return false;const e=bp.e;x=bp.x+e.nx*4.2+e.tx*1;z=bp.z+e.nz*4.2+e.tz*1;yaw=Math.atan2(-(bp.x-x),-(bp.z-z));}
-    else if(what==='hall'){const w=exitPt();if(!w)return false;x=w.x+w.nx*7+w.tx*3;z=w.z+w.nz*7+w.tz*3;yaw=Math.atan2(-(w.x+w.nx*2-x),-(w.z+w.nz*2-z));}
-    else if(what==='tower'){cableRoute();const pl=CB.plug;if(!pl)return false;const C=castle();const dx=pl.x-C.x,dz=pl.z-C.z,l=hyp(dx,dz)||1;x=pl.x+dx/l*9+dz/l*4;z=pl.z+dz/l*9-dx/l*4;yaw=Math.atan2(-(pl.x-x),-(pl.z-z));}
+    else if(what==='hall'){const w=exitPt();if(!w)return false;x=w.x+w.nx*11+w.tx*5;z=w.z+w.nz*11+w.tz*5;yaw=Math.atan2(-(w.x+w.nx*2-x),-(w.z+w.nz*2-z));}
+    else if(what==='near'){cableRoute();const b=CB.box;if(!b)return false;x=b.x+78;z=b.z+22;yaw=Math.atan2(-(b.x-x),-(b.z-z));}
     else if(what==='box'){cableRoute();const b=CB.box;if(!b)return false;x=b.x+2.6;z=b.z+4.2;yaw=Math.atan2(-(b.x-x),-(b.z-z));}
-    else if(typeof what==='string'&&what[0]==='c'){cableBuild();const i=+what.slice(1)|0,q=CB.pts[Math.min(CB.pts.length-1,i)];if(!q)return false;const q2=CB.pts[Math.min(CB.pts.length-1,i+6)];const dx=q2.x-q.x,dz=q2.z-q.z,l=hyp(dx,dz)||1;x=q.x-dx/l*6+dz/l*4;z=q.z-dz/l*6-dx/l*4;yaw=Math.atan2(-(q.x-x),-(q.z-z));}
+    else if(typeof what==='string'&&what[0]==='c'){cableBuild();const i=+what.slice(1)|0,q=CB.pts[Math.min(CB.pts.length-1,i)];if(!q)return false;const q2=CB.pts[Math.min(CB.pts.length-1,i+8)];const dx=q2.x-q.x,dz=q2.z-q.z,l=hyp(dx,dz)||1;x=q.x-dx/l*16+dz/l*7;z=q.z-dz/l*16-dx/l*7;yaw=Math.atan2(-dx,-dz);}
+    else if(what==='tab'){const D=DRG();if(!D)return false;const T=D.treeAt();x=T.x-2.2;z=T.z+11.4;yaw=0;}
     else if(what==='tree'){const D=DRG();if(!D)return false;const T=D.treeAt();x=T.x+1;z=T.z+11;yaw=0;}
     else if(typeof what==='number'){const s=PS.spots[what];if(!s)return false;x=s.x+Math.sin(s.yaw)*2.2;z=s.z+Math.cos(s.yaw)*2.2;yaw=Math.atan2(-(s.x-x),-(s.z-z));}
     else return false;
@@ -70586,7 +70886,7 @@ function build(){
   const fenTex=mkCanvas(32,32,(g,w,h)=>{g.clearRect(0,0,w,h);g.strokeStyle='#ffffff';g.lineWidth=4;g.beginPath();g.moveTo(0,16);g.lineTo(16,0);g.lineTo(32,16);g.lineTo(16,32);g.closePath();g.stroke();});fenTex.wrapS=fenTex.wrapT=THREE.RepeatWrapping;texs.push(fenTex);
   const fenM=new THREE.MeshBasicMaterial({map:fenTex,vertexColors:true,color:0x8a9298,transparent:true,alphaTest:.3,depthWrite:true,side:THREE.DoubleSide});
   const lineM=new THREE.LineBasicMaterial({color:0x1a1d21});
-  mats.push(hallM,steelM,padM,slitM,fenM,lineM);dyn.slitM=slitM;dyn.fenM=fenM;
+  mats.push(hallM,steelM,padM,slitM,fenM,lineM);dyn.slitM=slitM;dyn.hallM=hallM;dyn.steelM=steelM;/*converter_02*/dyn.fenM=fenM;
   const add=(G,M,o,name)=>{const g=toGeo(G);geos.push(g);const m=new THREE.Mesh(g,M);m.name=name;m.matrixAutoUpdate=false;(o||grp).add(m);return m;};
   add(HG,hallM,grp,'cv-halls');add(SG,steelM,grp,'cv-steel');add(LG,slitM,grp,'cv-slits');add(pad,padM,grp,'cv-yard');add(fg,fenM,grp,'cv-fence');
   /* conductors */
@@ -70644,7 +70944,7 @@ function tick(){if(!grp)return;let d=1e9;try{d=hyp(P.x-CV.cx,P.z-CV.cz);}catch(_
   dyn.slitM.color.setRGB(.22+.78*n,.26+.72*n,.3+.66*n);if(n>.5)dyn.slitM.color.multiplyScalar(1.15);
   dyn.fenM.color.setScalar(.5-.3*n);dyn.floodM.opacity=n>.15?Math.min(1,n*1.1):0;if(dyn.poolM)dyn.poolM.opacity=n*.5;
   const ph=(t%1.6)<.55;dyn.redM.opacity=n>.1?(ph?1:.12):(ph?.0:0);
-  for(const m of dyn.signs||[])m.color.setScalar(1-.55*n);}
+  for(const m of dyn.signs||[])m.color.setScalar(1-.55*n);if(dyn.hallM){dyn.hallM.color.setScalar(1+1.3*(1-n));dyn.steelM.color.setScalar(1+.5*(1-n));}/*converter_02: lighter by day, night unchanged*/}
 /* ---------------- 5. scan: build lazily when near (and the intro is over), nothing per frame ---------------- */
 function scan(){try{if(typeof started==='undefined'||!started||window.__INTRO_ON||(window.__OPENING&&__OPENING.on)||typeof P==='undefined'||P.x===undefined)return;
   const d=hyp(P.x-CV.cx,P.z-CV.cz);if(!CV.built){if(d<900){if(window.__CONV_HOLD)return;build();}return;}tick();}catch(e){if(!CV.err){CV.err='scan: '+(e&&e.stack||e);window.__CONV_ERR=CV.err;console.warn('converter',e);}}}
