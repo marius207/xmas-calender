@@ -1,6 +1,104 @@
 {
  "entries": [
   {
+   "date": "2026-11-17",
+   "time": "11:53",
+   "title": "Clues about the Mayor",
+   "items": [
+    "A red and yellow post bicycle lies tipped over in the snow behind the town hall, the post bag open and letters blown across the snow. Nobody has picked it up.",
+    "About fifty MISSING: TORMOD posters hang on lamp posts, notice boards and stakes around town, along the far roads and by the converter. Look closely: from day 9 a cheerful FOUND! sticker starts to appear over them.",
+    "Day 17: a thick black cable comes out of the Mayor's office window. Follow it (new quest in the journal): it leads to the tower with the red Eye, and on to the converter by the fjord.",
+    "Day 24: the ending now has a last moment by the tree for the Mayor. It depends on how warm the town got."
+   ]
+  },
+  {
+   "date": "2026-11-17",
+   "time": "10:13",
+   "title": "The converter by the fjord hums now",
+   "items": [
+    "The converter station at Øyekleiva (Feda) is no longer a few plain boxes: a long row of tall, dark, ribbed halls with stepped roofs, silver cooling units, a steel stair tower and big dark doors.",
+    "Behind the halls is the switchyard: transformers, steel gantries with insulators, lattice masts with spikes, floodlights, and two power lines marching off over the hills on pylons.",
+    "The whole compound sits behind a tall wire fence with a sliding steel gate, a yellow ADVARSEL sign and a grid-company sign. At night: cold white floodlights and red lights blinking on top of the masts."
+   ]
+  },
+  {
+   "date": "2026-11-17",
+   "time": "08:54",
+   "title": "The Mayor has something to say",
+   "items": [
+    "The town loudspeakers now crackle to life now and then: a soft chime, then a word from your Mayor. One or two notices a day, more often in the evening and at night. They start out cheerful and get a little stranger as December goes on.",
+    "Each notice is only heard once. The sound comes from the loudspeaker poles, so it is loud in town and faint out in the woods, and the words show as subtitles.",
+    "She reacts when somebody breaks a snowman, a bench or a tree, or when the police are chasing someone.",
+    "There is a low, faint hum by the converter down by the fjord."
+   ]
+  },
+  {
+   "date": "2026-11-17",
+   "time": "08:31",
+   "title": "Click the map, get a GPS",
+   "items": [
+    "Click or tap anything on the big map (N) and the GPS guides you there: quests, chests, shops, doors, camps, trail finds and everything else on the map. The label under the map shows where you are going and how far; click the same thing again, or press CANCEL GPS, to stop.",
+    "Click an empty spot on the big map to drop a waypoint pin and get a GPS route to it. On the little round map, click a quest or door marker for a GPS; click anywhere else to open the big map as before.",
+    "On a controller, move the big map with the left stick: the little cross in the middle is your cursor. Press Triangle to start the GPS to whatever is under it."
+   ]
+  },
+  {
+   "date": "2026-11-17",
+   "time": "08:09",
+   "title": "Each night a new door lights up",
+   "items": [
+    "Each day only that day's door shows on the map. It pulses gold (green for door 24), and a tall soft pillar of light stands over it so you can see it from far away. Open the door and the light goes out; the next night the next one lights up.",
+    "Doors you missed stay on the map as plain yellow numbers with a smaller, dimmer light. Opened doors turn grey with a tick. Future doors are hidden.",
+    "The 23 doors now stand on houses spread across town instead of in a bunch at the centre. When a door lights up you get a small message: \"Door 7 is lit. Follow the light.\""
+   ]
+  },
+  {
+   "date": "2026-11-17",
+   "time": "07:54",
+   "title": "Tunnels from Feda fixed",
+   "items": [
+    "Fedaheitunnelen no longer climbs up to the mountain top in the middle: the ramps and both tubes now run at the right height inside the mountain",
+    "No more jumps, steps or half-hidden roofs where two tubes or ramps meet",
+    "Getting out of the car, respawning or getting unstuck inside a tunnel puts you on the tunnel road, not on top of the mountain",
+    "A car pushed into the tunnel wall no longer climbs up through the rock onto the mountain",
+    "Lakes and streams on the mountain above no longer make invisible walls inside the tunnels (Øyesletta, Fedaheia)",
+    "The Fedaheia tunnel mouths are open now: no dirt bank or invisible wall where you drive or walk out",
+    "No more tunnel ceiling lights hanging in the open air along Øyesletta",
+    "Checked every tunnel from Feda into town by walking and driving through both ways"
+   ]
+  },
+  {
+   "date": "2026-11-17",
+   "time": "06:50",
+   "title": "Walk up to the house when you land",
+   "items": [
+    "After the flyover you get to walk around the decorated house while Lykta says hello",
+    "Then the witch bursts out and takes over",
+    "The witch is now lit by the Christmas lights around her, so you can see her properly when she flies"
+   ]
+  },
+  {
+   "date": "2026-11-17",
+   "time": "06:36",
+   "title": "Quiet town while you play Kvent",
+   "items": [
+    "Sit down for a game of Kvent and the town hushes: no bowling pins, no chatter, just the lute and the cards",
+    "Everything comes back when you stand up"
+   ]
+  },
+  {
+   "date": "2026-11-17",
+   "time": "06:11",
+   "title": "Kvent cards now fly, burn, freeze and count up like the real thing",
+   "items": [
+    "Cards fly from your hand (or from the other player's panel) to their row; turncoats slide across, healed cards glow in from the discard pile, gangs cascade in one by one",
+    "Snowstorm creeps in with falling flakes, fog drifts, rain falls, and Thaw sweeps it all away with a warm glow",
+    "Blaze sets cards alight (flicker, char, fade into the discard pile); the Horn sends a golden flash across its row; Pals and Cheer pulse when they buff",
+    "Scores tick up and down with a colour flash, the opening coin really flips, lost round gems crack and fall, and the board sweeps to the discard piles at round end",
+    "New 'Anim' button in the Kvent top bar: normal / fast / off. Click anywhere to skip an animation. Off automatically if your system asks for reduced motion"
+   ]
+  },
+  {
    "date": "2026-11-16",
    "time": "19:09",
    "title": "The hand is back on the phone, and the title screen is clean",
