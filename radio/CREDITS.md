@@ -83,3 +83,4 @@ Radio Kvina plays carols already listed above (Kor & Kirke). Nattevakt plays tra
 Creepy Ambient Loop (epb9000, CC0), Spooky Waltz from 4 Music Box Tracks (Aureolus_Omicron, CC0), Cathedral in the Forest (congusbongus, CC0), Background Space Track (yd, CC0),
 "Inside the Mountain" by tcarisland, CC BY 4.0, https://opengameart.org/content/inside-the-mountain.
 All DJ, ad, news and ident lines (voice/radio/, build/make_radio.py): written for this game, voiced with Microsoft Edge text-to-speech. Every ad is invented.
+World news bulletins (voice/radio/kvina|fm|natt/world_*.m4a, 27 clips; text in data/world_news.json, made by build/make_radio.py): written for this game, all invented, read by the same announcers with Microsoft Edge text-to-speech (Randi en-IE-EmilyNeural, Ole en-GB-RyanNeural, Julius Jolly en-US-GuyNeural, Night Owl Nils en-US-SteffanNeural) and the synthesised news chime.

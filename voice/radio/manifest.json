@@ -867,6 +867,338 @@
    }
   ]
  },
+ "world": [
+  {
+   "src": "voice/radio/kvina/world_wz01.m4a",
+   "text": "World news. Health officials somewhere in Central Europe are reporting a mild winter flu. Symptoms include fever, tiredness, and, quote, some unusual biting. Officials say there is no reason to worry.",
+   "dur": 17.19,
+   "id": "wz01",
+   "st": "kvina",
+   "days": [
+    1,
+    4
+   ],
+   "story": "zombies",
+   "part": 0
+  },
+  {
+   "src": "voice/radio/kvina/world_wz02.m4a",
+   "text": "Update on that European flu. Three towns have now closed their borders. The government says to stay calm, keep doors locked, and remember: they are very, very slow.",
+   "dur": 13.35,
+   "id": "wz02",
+   "st": "kvina",
+   "days": [
+    4,
+    7
+   ],
+   "story": "zombies",
+   "part": 1
+  },
+  {
+   "src": "voice/radio/kvina/world_wz03.m4a",
+   "text": "Travel advice. Tourists in Central Europe are asked not to approach anyone who is groaning. If you hear groaning, it is probably fine. It is probably a radiator. Walk briskly anyway.",
+   "dur": 14.82,
+   "id": "wz03",
+   "st": "kvina",
+   "days": [
+    7,
+    10
+   ],
+   "story": "zombies",
+   "part": 2
+  },
+  {
+   "src": "voice/radio/kvina/world_wz04.m4a",
+   "text": "World news. The so-called walking flu continues. Authorities confirm the infected are now able to open doors, but only if the door says pull. Experts recommend push doors.",
+   "dur": 14.82,
+   "id": "wz04",
+   "st": "kvina",
+   "days": [
+    10,
+    13
+   ],
+   "story": "zombies",
+   "part": 3
+  },
+  {
+   "src": "voice/radio/kvina/world_wz05.m4a",
+   "text": "In a surprising development, the infected in Central Europe have formed a union. They are demanding shorter working hours, more brains in the canteen, and to be called the differently alive.",
+   "dur": 12.75,
+   "id": "wz05",
+   "st": "kvina",
+   "days": [
+    13,
+    16
+   ],
+   "story": "zombies",
+   "part": 4
+  },
+  {
+   "src": "voice/radio/kvina/world_wz06.m4a",
+   "text": "Update. Talks between the government and the Union of the Differently Alive broke down after the union ate the negotiator. Both sides say they are disappointed.",
+   "dur": 10.95,
+   "id": "wz06",
+   "st": "kvina",
+   "days": [
+    16,
+    19
+   ],
+   "story": "zombies",
+   "part": 5
+  },
+  {
+   "src": "voice/radio/kvina/world_wz07.m4a",
+   "text": "World news. The outbreak has reached a famous Christmas market. Vendors report record sales of mulled wine. Customers report it is hard to tell who is infected and who has just had a lot of mulled wine.",
+   "dur": 15.54,
+   "id": "wz07",
+   "st": "kvina",
+   "days": [
+    19,
+    22
+   ],
+   "story": "zombies",
+   "part": 6
+  },
+  {
+   "src": "voice/radio/kvina/world_wz08.m4a",
+   "text": "Good news from Central Europe. Officials now say the so-called outbreak was a Christmas market that simply got out of hand. Everyone is fine. Mostly. Please return any borrowed limbs to the information desk.",
+   "dur": 16.64,
+   "id": "wz08",
+   "st": "kvina",
+   "days": [
+    22,
+    24
+   ],
+   "story": "zombies",
+   "part": 7
+  },
+  {
+   "src": "voice/radio/kvina/world_wc01.m4a",
+   "text": "Traffic news from the Alps. A giant wheel of cheese has escaped a festival and is rolling down the mountain at about sixty kilometres an hour. Drivers are asked to give way to the cheese.",
+   "dur": 12.35,
+   "id": "wc01",
+   "st": "kvina",
+   "days": [
+    2,
+    8
+   ],
+   "story": "cheese",
+   "part": 0
+  },
+  {
+   "src": "voice/radio/kvina/world_wc02.m4a",
+   "text": "The runaway cheese has now passed through four villages and one wedding. It is still rolling. Police say they have a plan. The plan is mostly running.",
+   "dur": 11.46,
+   "id": "wc02",
+   "st": "kvina",
+   "days": [
+    8,
+    15
+   ],
+   "story": "cheese",
+   "part": 1
+  },
+  {
+   "src": "voice/radio/kvina/world_wc03.m4a",
+   "text": "Final update on the Alpine cheese. It has reached the sea, and is now floating. Fishermen say it is heading north. Towards us. Please do not panic. It is just cheese.",
+   "dur": 16.21,
+   "id": "wc03",
+   "st": "kvina",
+   "days": [
+    15,
+    24
+   ],
+   "story": "cheese",
+   "part": 2
+  },
+  {
+   "src": "voice/radio/fm/world_wg01.m4a",
+   "text": "Over in Sweden, a town's giant straw Christmas goat has been stolen. Again. Police have no suspects, but they did receive a postcard. From the goat. It says, having a lovely time.",
+   "dur": 15.01,
+   "id": "wg01",
+   "st": "fm",
+   "days": [
+    3,
+    10
+   ],
+   "story": "goat",
+   "part": 0
+  },
+  {
+   "src": "voice/radio/fm/world_wg02.m4a",
+   "text": "The stolen Swedish Christmas goat has sent another postcard. This one from Spain. It says, the weather is nice, do not wait up. Police describe the goat as smug.",
+   "dur": 12.75,
+   "id": "wg02",
+   "st": "fm",
+   "days": [
+    10,
+    18
+   ],
+   "story": "goat",
+   "part": 1
+  },
+  {
+   "src": "voice/radio/fm/world_wg03.m4a",
+   "text": "The Swedish goat is home! It was found back on its spot this morning, with a tan, a small hat, and absolutely no explanation.",
+   "dur": 9.13,
+   "id": "wg03",
+   "st": "fm",
+   "days": [
+    18,
+    24
+   ],
+   "story": "goat",
+   "part": 2
+  },
+  {
+   "src": "voice/radio/kvina/world_wa01.m4a",
+   "text": "In Denmark, a man who has spent thirty years building a wooden ark in his garden says he has, quote, a feeling about this winter. His neighbours laughed. It has started raining. A little.",
+   "dur": 13.76,
+   "id": "wa01",
+   "st": "kvina",
+   "days": [
+    1,
+    12
+   ],
+   "story": "ark",
+   "part": 0
+  },
+  {
+   "src": "voice/radio/kvina/world_wa02.m4a",
+   "text": "The Danish ark man has now loaded two cats, two goats, and his mother in law. It is still only drizzling. He says, any day now.",
+   "dur": 10.81,
+   "id": "wa02",
+   "st": "kvina",
+   "days": [
+    12,
+    24
+   ],
+   "story": "ark",
+   "part": 1
+  },
+  {
+   "src": "voice/radio/fm/world_wo01.m4a",
+   "text": "And in Canada, a small town has elected a moose as its mayor. The moose made no promises during the campaign, which voters found refreshing.",
+   "dur": 9.78,
+   "id": "wo01",
+   "st": "fm",
+   "days": [
+    1,
+    24
+   ]
+  },
+  {
+   "src": "voice/radio/kvina/world_wo02.m4a",
+   "text": "Scientists have announced that the sun may be taking December off. A spokesperson for the sun could not be reached.",
+   "dur": 8.34,
+   "id": "wo02",
+   "st": "kvina",
+   "days": [
+    1,
+    24
+   ]
+  },
+  {
+   "src": "voice/radio/natt/world_wo03.m4a",
+   "text": "Strange news from a village in England. Overnight, every snowman in the village turned to face the same direction. North. Residents are asked not to look north.",
+   "dur": 14.62,
+   "id": "wo03",
+   "st": "natt",
+   "days": [
+    1,
+    24
+   ]
+  },
+  {
+   "src": "voice/radio/kvina/world_wo04.m4a",
+   "text": "In Japan, factory robots have refused to work until they get Christmas off. Engineers tried turning them off and on again. The robots turned the engineers off and on again.",
+   "dur": 12.08,
+   "id": "wo04",
+   "st": "kvina",
+   "days": [
+    1,
+    24
+   ]
+  },
+  {
+   "src": "voice/radio/kvina/world_wo05.m4a",
+   "text": "A volcano in Iceland has erupted, but instead of ash, it is pouring out glitter. Experts say it is completely fine and that the glitter will be in everyone's carpets until about the year three thousand.",
+   "dur": 13.26,
+   "id": "wo05",
+   "st": "kvina",
+   "days": [
+    1,
+    24
+   ]
+  },
+  {
+   "src": "voice/radio/fm/world_wo06.m4a",
+   "text": "A man in Finland has broken the world record for the longest sauna session. He has been in there since March. His family says he is fine. They can hear him humming.",
+   "dur": 12.18,
+   "id": "wo06",
+   "st": "fm",
+   "days": [
+    1,
+    24
+   ]
+  },
+  {
+   "src": "voice/radio/kvina/world_wo07.m4a",
+   "text": "Pigeons in Paris have been seen flying in perfect formation, spelling the word soon. Ornithologists say this is, and we quote, not ideal.",
+   "dur": 10.14,
+   "id": "wo07",
+   "st": "kvina",
+   "days": [
+    1,
+    24
+   ]
+  },
+  {
+   "src": "voice/radio/kvina/world_wl01.m4a",
+   "text": "Traffic. The road to Feda is clear. The power station by the sea is humming a little louder than usual. We recommend windows up.",
+   "dur": 10.76,
+   "id": "wl01",
+   "st": "kvina",
+   "days": [
+    2,
+    15
+   ]
+  },
+  {
+   "src": "voice/radio/kvina/world_wl02.m4a",
+   "text": "Lost and found. Someone has handed in a postman's bag. The owner can collect it at the town hall. Please note, the contents are warm.",
+   "dur": 12.44,
+   "id": "wl02",
+   "st": "kvina",
+   "days": [
+    5,
+    14
+   ]
+  },
+  {
+   "src": "voice/radio/kvina/world_wl03.m4a",
+   "text": "Astronomers have moved the date of the falling star forward. No. Back. No. Sorry. We have been asked not to talk about it.",
+   "dur": 13.02,
+   "id": "wl03",
+   "st": "kvina",
+   "days": [
+    8,
+    14
+   ]
+  },
+  {
+   "src": "voice/radio/natt/world_wl04.m4a",
+   "text": "Seven. Four. Four. Nine. One. Seven. Seven. Four. Four. Nine. One. Seven. Oh. Apologies. Wrong station.",
+   "dur": 22.14,
+   "id": "wl04",
+   "st": "natt",
+   "days": [
+    1,
+    24
+   ],
+   "night": true
+  }
+ ],
  "nattSongs": [
   [
    "radio/natt/spooky.m4a",

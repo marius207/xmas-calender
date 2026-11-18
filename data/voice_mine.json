@@ -35068,6 +35068,601 @@
    },
    "rendered": "2026-11-17 13:53:10",
    "character": "townsperson"
+  },
+  "shout/lykta_back_where_they_were_mostly_one_of": {
+   "capcut_tts": true,
+   "files": {
+    "voice/shout/lykta_back_where_they_were_mostly_one_of.m4a": "voice/_mine/shout__lykta_back_where_they_were_mostly_one_of__capcut.m4a"
+   },
+   "raw": "",
+   "source": "capcut",
+   "renders": {
+    "__capcut": {
+     "preset": "raw",
+     "file": "voice/_mine/shout__lykta_back_where_they_were_mostly_one_of__capcut.m4a",
+     "seconds": 4.06
+    }
+   },
+   "rendered": "2026-11-18 09:55:54",
+   "character": "Lykta"
+  },
+  "shout/lykta_nisse_security_central_fences_floo": {
+   "capcut_tts": true,
+   "files": {
+    "voice/shout/lykta_nisse_security_central_fences_floo.m4a": "voice/_mine/shout__lykta_nisse_security_central_fences_floo__capcut.m4a"
+   },
+   "raw": "",
+   "source": "capcut",
+   "renders": {
+    "__capcut": {
+     "preset": "raw",
+     "file": "voice/_mine/shout__lykta_nisse_security_central_fences_floo__capcut.m4a",
+     "seconds": 7.09
+    }
+   },
+   "rendered": "2026-11-18 09:55:55",
+   "character": "Lykta"
+  },
+  "shout/lykta_hush_something_is_right_behind_you": {
+   "capcut_tts": true,
+   "files": {
+    "voice/shout/lykta_hush_something_is_right_behind_you.m4a": "voice/_mine/shout__lykta_hush_something_is_right_behind_you__capcut.m4a"
+   },
+   "raw": "",
+   "source": "capcut",
+   "renders": {
+    "__capcut": {
+     "preset": "raw",
+     "file": "voice/_mine/shout__lykta_hush_something_is_right_behind_you__capcut.m4a",
+     "seconds": 3.04
+    }
+   },
+   "rendered": "2026-11-18 09:55:57",
+   "character": "Lykta"
+  },
+  "shout/lykta_wrong_rhythm_now_it_is_sulking": {
+   "capcut_tts": true,
+   "files": {
+    "voice/shout/lykta_wrong_rhythm_now_it_is_sulking.m4a": "voice/_mine/shout__lykta_wrong_rhythm_now_it_is_sulking__capcut.m4a"
+   },
+   "raw": "",
+   "source": "capcut",
+   "renders": {
+    "__capcut": {
+     "preset": "raw",
+     "file": "voice/_mine/shout__lykta_wrong_rhythm_now_it_is_sulking__capcut.m4a",
+     "seconds": 2.87
+    }
+   },
+   "rendered": "2026-11-18 09:55:58",
+   "character": "Lykta"
+  },
+  "shout/lykta_just_a_hollow_bin_this_time": {
+   "capcut_tts": true,
+   "files": {
+    "voice/shout/lykta_just_a_hollow_bin_this_time.m4a": "voice/_mine/shout__lykta_just_a_hollow_bin_this_time__capcut.m4a"
+   },
+   "raw": "",
+   "source": "capcut",
+   "renders": {
+    "__capcut": {
+     "preset": "raw",
+     "file": "voice/_mine/shout__lykta_just_a_hollow_bin_this_time__capcut.m4a",
+     "seconds": 2.74
+    }
+   },
+   "rendered": "2026-11-18 09:56:01",
+   "character": "Lykta"
+  },
+  "shout/lykta_a_cairn_somebody_stacked_these_sto": {
+   "capcut_tts": true,
+   "files": {
+    "voice/shout/lykta_a_cairn_somebody_stacked_these_sto.m4a": "voice/_mine/shout__lykta_a_cairn_somebody_stacked_these_sto__capcut.m4a"
+   },
+   "raw": "",
+   "source": "capcut",
+   "renders": {
+    "__capcut": {
+     "preset": "raw",
+     "file": "voice/_mine/shout__lykta_a_cairn_somebody_stacked_these_sto__capcut.m4a",
+     "seconds": 6.75
+    }
+   },
+   "rendered": "2026-11-18 09:56:01",
+   "character": "Lykta"
+  },
+  "shout/lykta_you_dreamed_of_a_long_green_hallwa": {
+   "capcut_tts": true,
+   "files": {
+    "voice/shout/lykta_you_dreamed_of_a_long_green_hallwa.m4a": "voice/_mine/shout__lykta_you_dreamed_of_a_long_green_hallwa__capcut.m4a"
+   },
+   "raw": "",
+   "source": "capcut",
+   "renders": {
+    "__capcut": {
+     "preset": "raw",
+     "file": "voice/_mine/shout__lykta_you_dreamed_of_a_long_green_hallwa__capcut.m4a",
+     "seconds": 7.89
+    }
+   },
+   "rendered": "2026-11-18 09:56:02",
+   "character": "Lykta"
+  },
+  "shout/lykta_er_the_sky_just_leaned_toward_us_p": {
+   "capcut_tts": true,
+   "files": {
+    "voice/shout/lykta_er_the_sky_just_leaned_toward_us_p.m4a": "voice/_mine/shout__lykta_er_the_sky_just_leaned_toward_us_p__capcut.m4a"
+   },
+   "raw": "",
+   "source": "capcut",
+   "renders": {
+    "__capcut": {
+     "preset": "raw",
+     "file": "voice/_mine/shout__lykta_er_the_sky_just_leaned_toward_us_p__capcut.m4a",
+     "seconds": 6.04
+    }
+   },
+   "rendered": "2026-11-18 09:56:02",
+   "character": "Lykta"
+  },
+  "shout/lykta_eyebrows_saved_barely": {
+   "capcut_tts": true,
+   "files": {
+    "voice/shout/lykta_eyebrows_saved_barely.m4a": "voice/_mine/shout__lykta_eyebrows_saved_barely__capcut.m4a"
+   },
+   "raw": "",
+   "source": "capcut",
+   "renders": {
+    "__capcut": {
+     "preset": "raw",
+     "file": "voice/_mine/shout__lykta_eyebrows_saved_barely__capcut.m4a",
+     "seconds": 2.5
+    }
+   },
+   "rendered": "2026-11-18 09:56:03",
+   "character": "Lykta"
+  },
+  "shout/lykta_turn_around_now": {
+   "capcut_tts": true,
+   "files": {
+    "voice/shout/lykta_turn_around_now.m4a": "voice/_mine/shout__lykta_turn_around_now__capcut.m4a"
+   },
+   "raw": "",
+   "source": "capcut",
+   "renders": {
+    "__capcut": {
+     "preset": "raw",
+     "file": "voice/_mine/shout__lykta_turn_around_now__capcut.m4a",
+     "seconds": 1.49
+    }
+   },
+   "rendered": "2026-11-18 09:56:03",
+   "character": "Lykta"
+  },
+  "shout/lykta_run_inside_or_wave_something_white": {
+   "capcut_tts": true,
+   "files": {
+    "voice/shout/lykta_run_inside_or_wave_something_white.m4a": "voice/_mine/shout__lykta_run_inside_or_wave_something_white__capcut.m4a"
+   },
+   "raw": "",
+   "source": "capcut",
+   "renders": {
+    "__capcut": {
+     "preset": "raw",
+     "file": "voice/_mine/shout__lykta_run_inside_or_wave_something_white__capcut.m4a",
+     "seconds": 3.91
+    }
+   },
+   "rendered": "2026-11-18 09:56:04",
+   "character": "Lykta"
+  },
+  "shout/lykta_flawless_it_is_a_library_card_they": {
+   "capcut_tts": true,
+   "files": {
+    "voice/shout/lykta_flawless_it_is_a_library_card_they.m4a": "voice/_mine/shout__lykta_flawless_it_is_a_library_card_they__capcut.m4a"
+   },
+   "raw": "",
+   "source": "capcut",
+   "renders": {
+    "__capcut": {
+     "preset": "raw",
+     "file": "voice/_mine/shout__lykta_flawless_it_is_a_library_card_they__capcut.m4a",
+     "seconds": 4.32
+    }
+   },
+   "rendered": "2026-11-18 09:56:06",
+   "character": "Lykta"
+  },
+  "shout/lykta_steady_hold_while_it_settles": {
+   "capcut_tts": true,
+   "files": {
+    "voice/shout/lykta_steady_hold_while_it_settles.m4a": "voice/_mine/shout__lykta_steady_hold_while_it_settles__capcut.m4a"
+   },
+   "raw": "",
+   "source": "capcut",
+   "renders": {
+    "__capcut": {
+     "preset": "raw",
+     "file": "voice/_mine/shout__lykta_steady_hold_while_it_settles__capcut.m4a",
+     "seconds": 2.86
+    }
+   },
+   "rendered": "2026-11-18 09:56:06",
+   "character": "Lykta"
+  },
+  "shout/lykta_they_leaned_anyway_very_committed": {
+   "capcut_tts": true,
+   "files": {
+    "voice/shout/lykta_they_leaned_anyway_very_committed.m4a": "voice/_mine/shout__lykta_they_leaned_anyway_very_committed__capcut.m4a"
+   },
+   "raw": "",
+   "source": "capcut",
+   "renders": {
+    "__capcut": {
+     "preset": "raw",
+     "file": "voice/_mine/shout__lykta_they_leaned_anyway_very_committed__capcut.m4a",
+     "seconds": 3.54
+    }
+   },
+   "rendered": "2026-11-18 09:56:07",
+   "character": "Lykta"
+  },
+  "shout/lykta_you_wake_up_in_your_own_bed_07_00": {
+   "capcut_tts": true,
+   "files": {
+    "voice/shout/lykta_you_wake_up_in_your_own_bed_07_00.m4a": "voice/_mine/shout__lykta_you_wake_up_in_your_own_bed_07_00__capcut.m4a"
+   },
+   "raw": "",
+   "source": "capcut",
+   "renders": {
+    "__capcut": {
+     "preset": "raw",
+     "file": "voice/_mine/shout__lykta_you_wake_up_in_your_own_bed_07_00__capcut.m4a",
+     "seconds": 8.97
+    }
+   },
+   "rendered": "2026-11-18 09:56:09",
+   "character": "Lykta"
+  },
+  "shout/lykta_scanning_hold_still_be_a_snowman": {
+   "capcut_tts": true,
+   "files": {
+    "voice/shout/lykta_scanning_hold_still_be_a_snowman.m4a": "voice/_mine/shout__lykta_scanning_hold_still_be_a_snowman__capcut.m4a"
+   },
+   "raw": "",
+   "source": "capcut",
+   "renders": {
+    "__capcut": {
+     "preset": "raw",
+     "file": "voice/_mine/shout__lykta_scanning_hold_still_be_a_snowman__capcut.m4a",
+     "seconds": 3.68
+    }
+   },
+   "rendered": "2026-11-18 09:56:09",
+   "character": "Lykta"
+  },
+  "shout/lykta_it_stands_a_triumph_of_balance_and": {
+   "capcut_tts": true,
+   "files": {
+    "voice/shout/lykta_it_stands_a_triumph_of_balance_and.m4a": "voice/_mine/shout__lykta_it_stands_a_triumph_of_balance_and__capcut.m4a"
+   },
+   "raw": "",
+   "source": "capcut",
+   "renders": {
+    "__capcut": {
+     "preset": "raw",
+     "file": "voice/_mine/shout__lykta_it_stands_a_triumph_of_balance_and__capcut.m4a",
+     "seconds": 4.15
+    }
+   },
+   "rendered": "2026-11-18 09:56:10",
+   "character": "Lykta"
+  },
+  "shout/lykta_the_lights_put_you_back_in_bed_and": {
+   "capcut_tts": true,
+   "files": {
+    "voice/shout/lykta_the_lights_put_you_back_in_bed_and.m4a": "voice/_mine/shout__lykta_the_lights_put_you_back_in_bed_and__capcut.m4a"
+   },
+   "raw": "",
+   "source": "capcut",
+   "renders": {
+    "__capcut": {
+     "preset": "raw",
+     "file": "voice/_mine/shout__lykta_the_lights_put_you_back_in_bed_and__capcut.m4a",
+     "seconds": 7.56
+    }
+   },
+   "rendered": "2026-11-18 09:56:10",
+   "character": "Lykta"
+  },
+  "shout/lykta_the_trapdoor_she_left_it_wide_open": {
+   "capcut_tts": true,
+   "files": {
+    "voice/shout/lykta_the_trapdoor_she_left_it_wide_open.m4a": "voice/_mine/shout__lykta_the_trapdoor_she_left_it_wide_open__capcut.m4a"
+   },
+   "raw": "",
+   "source": "capcut",
+   "renders": {
+    "__capcut": {
+     "preset": "raw",
+     "file": "voice/_mine/shout__lykta_the_trapdoor_she_left_it_wide_open__capcut.m4a",
+     "seconds": 6.21
+    }
+   },
+   "rendered": "2026-11-18 09:56:10",
+   "character": "Lykta"
+  },
+  "shout/lykta_plop_it_rolled_away_rude": {
+   "capcut_tts": true,
+   "files": {
+    "voice/shout/lykta_plop_it_rolled_away_rude.m4a": "voice/_mine/shout__lykta_plop_it_rolled_away_rude__capcut.m4a"
+   },
+   "raw": "",
+   "source": "capcut",
+   "renders": {
+    "__capcut": {
+     "preset": "raw",
+     "file": "voice/_mine/shout__lykta_plop_it_rolled_away_rude__capcut.m4a",
+     "seconds": 3.21
+    }
+   },
+   "rendered": "2026-11-18 09:56:11",
+   "character": "Lykta"
+  },
+  "shout/lykta_silent_as_a_mouse_in_socks": {
+   "capcut_tts": true,
+   "files": {
+    "voice/shout/lykta_silent_as_a_mouse_in_socks.m4a": "voice/_mine/shout__lykta_silent_as_a_mouse_in_socks__capcut.m4a"
+   },
+   "raw": "",
+   "source": "capcut",
+   "renders": {
+    "__capcut": {
+     "preset": "raw",
+     "file": "voice/_mine/shout__lykta_silent_as_a_mouse_in_socks__capcut.m4a",
+     "seconds": 2.26
+    }
+   },
+   "rendered": "2026-11-18 09:56:11",
+   "character": "Lykta"
+  },
+  "shout/lykta_the_trapdoor_locked_from_below_whi": {
+   "capcut_tts": true,
+   "files": {
+    "voice/shout/lykta_the_trapdoor_locked_from_below_whi.m4a": "voice/_mine/shout__lykta_the_trapdoor_locked_from_below_whi__capcut.m4a"
+   },
+   "raw": "",
+   "source": "capcut",
+   "renders": {
+    "__capcut": {
+     "preset": "raw",
+     "file": "voice/_mine/shout__lykta_the_trapdoor_locked_from_below_whi__capcut.m4a",
+     "seconds": 5.49
+    }
+   },
+   "rendered": "2026-11-18 09:56:11",
+   "character": "Lykta"
+  },
+  "shout/lykta_hold_still_it_is_counting_your_bre": {
+   "capcut_tts": true,
+   "files": {
+    "voice/shout/lykta_hold_still_it_is_counting_your_bre.m4a": "voice/_mine/shout__lykta_hold_still_it_is_counting_your_bre__capcut.m4a"
+   },
+   "raw": "",
+   "source": "capcut",
+   "renders": {
+    "__capcut": {
+     "preset": "raw",
+     "file": "voice/_mine/shout__lykta_hold_still_it_is_counting_your_bre__capcut.m4a",
+     "seconds": 3.2
+    }
+   },
+   "rendered": "2026-11-18 09:56:11",
+   "character": "Lykta"
+  },
+  "shout/lykta_whoosh_see_wooden_signs_know_thing": {
+   "capcut_tts": true,
+   "files": {
+    "voice/shout/lykta_whoosh_see_wooden_signs_know_thing.m4a": "voice/_mine/shout__lykta_whoosh_see_wooden_signs_know_thing__capcut.m4a"
+   },
+   "raw": "",
+   "source": "capcut",
+   "renders": {
+    "__capcut": {
+     "preset": "raw",
+     "file": "voice/_mine/shout__lykta_whoosh_see_wooden_signs_know_thing__capcut.m4a",
+     "seconds": 5.34
+    }
+   },
+   "rendered": "2026-11-18 09:56:12",
+   "character": "Lykta"
+  },
+  "shout/lykta_a_page_from_a_notebook_someone_wro": {
+   "capcut_tts": true,
+   "files": {
+    "voice/shout/lykta_a_page_from_a_notebook_someone_wro.m4a": "voice/_mine/shout__lykta_a_page_from_a_notebook_someone_wro__capcut.m4a"
+   },
+   "raw": "",
+   "source": "capcut",
+   "renders": {
+    "__capcut": {
+     "preset": "raw",
+     "file": "voice/_mine/shout__lykta_a_page_from_a_notebook_someone_wro__capcut.m4a",
+     "seconds": 5.48
+    }
+   },
+   "rendered": "2026-11-18 09:56:12",
+   "character": "Lykta"
+  },
+  "shout/lykta_boots_excellent_very_trustworthy_b": {
+   "capcut_tts": true,
+   "files": {
+    "voice/shout/lykta_boots_excellent_very_trustworthy_b.m4a": "voice/_mine/shout__lykta_boots_excellent_very_trustworthy_b__capcut.m4a"
+   },
+   "raw": "",
+   "source": "capcut",
+   "renders": {
+    "__capcut": {
+     "preset": "raw",
+     "file": "voice/_mine/shout__lykta_boots_excellent_very_trustworthy_b__capcut.m4a",
+     "seconds": 4.09
+    }
+   },
+   "rendered": "2026-11-18 09:56:12",
+   "character": "Lykta"
+  },
+  "shout/lykta_click_it_sits_perfectly": {
+   "capcut_tts": true,
+   "files": {
+    "voice/shout/lykta_click_it_sits_perfectly.m4a": "voice/_mine/shout__lykta_click_it_sits_perfectly__capcut.m4a"
+   },
+   "raw": "",
+   "source": "capcut",
+   "renders": {
+    "__capcut": {
+     "preset": "raw",
+     "file": "voice/_mine/shout__lykta_click_it_sits_perfectly__capcut.m4a",
+     "seconds": 2.56
+    }
+   },
+   "rendered": "2026-11-18 09:56:12",
+   "character": "Lykta"
+  },
+  "shout/lykta_oh_oh_no_every_light_went_out_at_o": {
+   "capcut_tts": true,
+   "files": {
+    "voice/shout/lykta_oh_oh_no_every_light_went_out_at_o.m4a": "voice/_mine/shout__lykta_oh_oh_no_every_light_went_out_at_o__capcut.m4a"
+   },
+   "raw": "",
+   "source": "capcut",
+   "renders": {
+    "__capcut": {
+     "preset": "raw",
+     "file": "voice/_mine/shout__lykta_oh_oh_no_every_light_went_out_at_o__capcut.m4a",
+     "seconds": 7.45
+    }
+   },
+   "rendered": "2026-11-18 09:56:13",
+   "character": "Lykta"
+  },
+  "shout/lykta_they_are_lit_blue_i_do_not_like_th": {
+   "capcut_tts": true,
+   "files": {
+    "voice/shout/lykta_they_are_lit_blue_i_do_not_like_th.m4a": "voice/_mine/shout__lykta_they_are_lit_blue_i_do_not_like_th__capcut.m4a"
+   },
+   "raw": "",
+   "source": "capcut",
+   "renders": {
+    "__capcut": {
+     "preset": "raw",
+     "file": "voice/_mine/shout__lykta_they_are_lit_blue_i_do_not_like_th__capcut.m4a",
+     "seconds": 6.36
+    }
+   },
+   "rendered": "2026-11-18 09:56:13",
+   "character": "Lykta"
+  },
+  "shout/lykta_the_lid_bounced_one_tiny_very_poli": {
+   "capcut_tts": true,
+   "files": {
+    "voice/shout/lykta_the_lid_bounced_one_tiny_very_poli.m4a": "voice/_mine/shout__lykta_the_lid_bounced_one_tiny_very_poli__capcut.m4a"
+   },
+   "raw": "",
+   "source": "capcut",
+   "renders": {
+    "__capcut": {
+     "preset": "raw",
+     "file": "voice/_mine/shout__lykta_the_lid_bounced_one_tiny_very_poli__capcut.m4a",
+     "seconds": 4.45
+    }
+   },
+   "rendered": "2026-11-18 09:56:13",
+   "character": "Lykta"
+  },
+  "shout/lykta_filed_under_suspicious_snowman_exp": {
+   "capcut_tts": true,
+   "files": {
+    "voice/shout/lykta_filed_under_suspicious_snowman_exp.m4a": "voice/_mine/shout__lykta_filed_under_suspicious_snowman_exp__capcut.m4a"
+   },
+   "raw": "",
+   "source": "capcut",
+   "renders": {
+    "__capcut": {
+     "preset": "raw",
+     "file": "voice/_mine/shout__lykta_filed_under_suspicious_snowman_exp__capcut.m4a",
+     "seconds": 4.07
+    }
+   },
+   "rendered": "2026-11-18 09:56:14",
+   "character": "Lykta"
+  },
+  "shout/lykta_ice_everywhere_there_is_no_grit_th": {
+   "capcut_tts": true,
+   "files": {
+    "voice/shout/lykta_ice_everywhere_there_is_no_grit_th.m4a": "voice/_mine/shout__lykta_ice_everywhere_there_is_no_grit_th__capcut.m4a"
+   },
+   "raw": "",
+   "source": "capcut",
+   "renders": {
+    "__capcut": {
+     "preset": "raw",
+     "file": "voice/_mine/shout__lykta_ice_everywhere_there_is_no_grit_th__capcut.m4a",
+     "seconds": 3.88
+    }
+   },
+   "rendered": "2026-11-18 09:56:14",
+   "character": "Lykta"
+  },
+  "shout/lykta_the_posts_talk_to_each_other_at_ni": {
+   "capcut_tts": true,
+   "files": {
+    "voice/shout/lykta_the_posts_talk_to_each_other_at_ni.m4a": "voice/_mine/shout__lykta_the_posts_talk_to_each_other_at_ni__capcut.m4a"
+   },
+   "raw": "",
+   "source": "capcut",
+   "renders": {
+    "__capcut": {
+     "preset": "raw",
+     "file": "voice/_mine/shout__lykta_the_posts_talk_to_each_other_at_ni__capcut.m4a",
+     "seconds": 4.06
+    }
+   },
+   "rendered": "2026-11-18 09:56:14",
+   "character": "Lykta"
+  },
+  "shout/lykta_lamps_are_safe_in_here_stand_under": {
+   "capcut_tts": true,
+   "files": {
+    "voice/shout/lykta_lamps_are_safe_in_here_stand_under.m4a": "voice/_mine/shout__lykta_lamps_are_safe_in_here_stand_under__capcut.m4a"
+   },
+   "raw": "",
+   "source": "capcut",
+   "renders": {
+    "__capcut": {
+     "preset": "raw",
+     "file": "voice/_mine/shout__lykta_lamps_are_safe_in_here_stand_under__capcut.m4a",
+     "seconds": 6.41
+    }
+   },
+   "rendered": "2026-11-18 09:56:14",
+   "character": "Lykta"
+  },
+  "shout/lykta_arrived_everything_still_has_all_i": {
+   "capcut_tts": true,
+   "files": {
+    "voice/shout/lykta_arrived_everything_still_has_all_i.m4a": "voice/_mine/shout__lykta_arrived_everything_still_has_all_i__capcut.m4a"
+   },
+   "raw": "",
+   "source": "capcut",
+   "renders": {
+    "__capcut": {
+     "preset": "raw",
+     "file": "voice/_mine/shout__lykta_arrived_everything_still_has_all_i__capcut.m4a",
+     "seconds": 4.46
+    }
+   },
+   "rendered": "2026-11-18 09:56:14",
+   "character": "Lykta"
   }
  },
  "map": {
@@ -38303,9 +38898,44 @@
   "voice/ml/td_073_m_adult.m4a": "voice/_mine/ml__td_073_m_adult__capcut.m4a",
   "voice/ml/wx_wind_03_w_adult.m4a": "voice/_mine/ml__wx_wind_03__capcut.m4a",
   "voice/ml/wx_wind_03_m_adult.m4a": "voice/_mine/ml__wx_wind_03__capcut.m4a",
-  "voice/ml/lights_talk_01_w_adult.m4a": "voice/_mine/ml__lights_talk_01_w_adult__capcut.m4a"
+  "voice/ml/lights_talk_01_w_adult.m4a": "voice/_mine/ml__lights_talk_01_w_adult__capcut.m4a",
+  "voice/shout/lykta_back_where_they_were_mostly_one_of.m4a": "voice/_mine/shout__lykta_back_where_they_were_mostly_one_of__capcut.m4a",
+  "voice/shout/lykta_nisse_security_central_fences_floo.m4a": "voice/_mine/shout__lykta_nisse_security_central_fences_floo__capcut.m4a",
+  "voice/shout/lykta_hush_something_is_right_behind_you.m4a": "voice/_mine/shout__lykta_hush_something_is_right_behind_you__capcut.m4a",
+  "voice/shout/lykta_wrong_rhythm_now_it_is_sulking.m4a": "voice/_mine/shout__lykta_wrong_rhythm_now_it_is_sulking__capcut.m4a",
+  "voice/shout/lykta_just_a_hollow_bin_this_time.m4a": "voice/_mine/shout__lykta_just_a_hollow_bin_this_time__capcut.m4a",
+  "voice/shout/lykta_a_cairn_somebody_stacked_these_sto.m4a": "voice/_mine/shout__lykta_a_cairn_somebody_stacked_these_sto__capcut.m4a",
+  "voice/shout/lykta_you_dreamed_of_a_long_green_hallwa.m4a": "voice/_mine/shout__lykta_you_dreamed_of_a_long_green_hallwa__capcut.m4a",
+  "voice/shout/lykta_er_the_sky_just_leaned_toward_us_p.m4a": "voice/_mine/shout__lykta_er_the_sky_just_leaned_toward_us_p__capcut.m4a",
+  "voice/shout/lykta_eyebrows_saved_barely.m4a": "voice/_mine/shout__lykta_eyebrows_saved_barely__capcut.m4a",
+  "voice/shout/lykta_turn_around_now.m4a": "voice/_mine/shout__lykta_turn_around_now__capcut.m4a",
+  "voice/shout/lykta_run_inside_or_wave_something_white.m4a": "voice/_mine/shout__lykta_run_inside_or_wave_something_white__capcut.m4a",
+  "voice/shout/lykta_flawless_it_is_a_library_card_they.m4a": "voice/_mine/shout__lykta_flawless_it_is_a_library_card_they__capcut.m4a",
+  "voice/shout/lykta_steady_hold_while_it_settles.m4a": "voice/_mine/shout__lykta_steady_hold_while_it_settles__capcut.m4a",
+  "voice/shout/lykta_they_leaned_anyway_very_committed.m4a": "voice/_mine/shout__lykta_they_leaned_anyway_very_committed__capcut.m4a",
+  "voice/shout/lykta_you_wake_up_in_your_own_bed_07_00.m4a": "voice/_mine/shout__lykta_you_wake_up_in_your_own_bed_07_00__capcut.m4a",
+  "voice/shout/lykta_scanning_hold_still_be_a_snowman.m4a": "voice/_mine/shout__lykta_scanning_hold_still_be_a_snowman__capcut.m4a",
+  "voice/shout/lykta_it_stands_a_triumph_of_balance_and.m4a": "voice/_mine/shout__lykta_it_stands_a_triumph_of_balance_and__capcut.m4a",
+  "voice/shout/lykta_the_lights_put_you_back_in_bed_and.m4a": "voice/_mine/shout__lykta_the_lights_put_you_back_in_bed_and__capcut.m4a",
+  "voice/shout/lykta_the_trapdoor_she_left_it_wide_open.m4a": "voice/_mine/shout__lykta_the_trapdoor_she_left_it_wide_open__capcut.m4a",
+  "voice/shout/lykta_plop_it_rolled_away_rude.m4a": "voice/_mine/shout__lykta_plop_it_rolled_away_rude__capcut.m4a",
+  "voice/shout/lykta_silent_as_a_mouse_in_socks.m4a": "voice/_mine/shout__lykta_silent_as_a_mouse_in_socks__capcut.m4a",
+  "voice/shout/lykta_the_trapdoor_locked_from_below_whi.m4a": "voice/_mine/shout__lykta_the_trapdoor_locked_from_below_whi__capcut.m4a",
+  "voice/shout/lykta_hold_still_it_is_counting_your_bre.m4a": "voice/_mine/shout__lykta_hold_still_it_is_counting_your_bre__capcut.m4a",
+  "voice/shout/lykta_whoosh_see_wooden_signs_know_thing.m4a": "voice/_mine/shout__lykta_whoosh_see_wooden_signs_know_thing__capcut.m4a",
+  "voice/shout/lykta_a_page_from_a_notebook_someone_wro.m4a": "voice/_mine/shout__lykta_a_page_from_a_notebook_someone_wro__capcut.m4a",
+  "voice/shout/lykta_boots_excellent_very_trustworthy_b.m4a": "voice/_mine/shout__lykta_boots_excellent_very_trustworthy_b__capcut.m4a",
+  "voice/shout/lykta_click_it_sits_perfectly.m4a": "voice/_mine/shout__lykta_click_it_sits_perfectly__capcut.m4a",
+  "voice/shout/lykta_oh_oh_no_every_light_went_out_at_o.m4a": "voice/_mine/shout__lykta_oh_oh_no_every_light_went_out_at_o__capcut.m4a",
+  "voice/shout/lykta_they_are_lit_blue_i_do_not_like_th.m4a": "voice/_mine/shout__lykta_they_are_lit_blue_i_do_not_like_th__capcut.m4a",
+  "voice/shout/lykta_the_lid_bounced_one_tiny_very_poli.m4a": "voice/_mine/shout__lykta_the_lid_bounced_one_tiny_very_poli__capcut.m4a",
+  "voice/shout/lykta_filed_under_suspicious_snowman_exp.m4a": "voice/_mine/shout__lykta_filed_under_suspicious_snowman_exp__capcut.m4a",
+  "voice/shout/lykta_ice_everywhere_there_is_no_grit_th.m4a": "voice/_mine/shout__lykta_ice_everywhere_there_is_no_grit_th__capcut.m4a",
+  "voice/shout/lykta_the_posts_talk_to_each_other_at_ni.m4a": "voice/_mine/shout__lykta_the_posts_talk_to_each_other_at_ni__capcut.m4a",
+  "voice/shout/lykta_lamps_are_safe_in_here_stand_under.m4a": "voice/_mine/shout__lykta_lamps_are_safe_in_here_stand_under__capcut.m4a",
+  "voice/shout/lykta_arrived_everything_still_has_all_i.m4a": "voice/_mine/shout__lykta_arrived_everything_still_has_all_i__capcut.m4a"
  },
- "updated": 1794919990315,
+ "updated": 1794992174973,
  "reuse": {
   "arena/hit3": {
    "source": "speak/sc48440c2",

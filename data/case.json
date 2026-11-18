@@ -1103,6 +1103,48 @@
     -835.4
    ],
    "n": 50
+  },
+  {
+   "id": "n_notours",
+   "title": "Missing persons: Bjørn, Tormod",
+   "desc": "Two names in pencil, in the corner of the board: Bjørn K. (post) and Tormod (coffee). Underneath, in the Director's hand: 'Missing persons: not our department. Refer to the council.' Agent Skeie notes that the council is the only department that has not looked.",
+   "kind": "ledger",
+   "cat": "Testimony",
+   "region": "the NCC in Hamre",
+   "src": "ncc:skeie:4",
+   "unlockDay": 22,
+   "weight": 2,
+   "th": [
+    0,
+    0,
+    2
+   ],
+   "at": [
+    921.5,
+    -838.0
+   ],
+   "n": 59
+  },
+  {
+   "id": "c_cable",
+   "title": "The cable that feeds her",
+   "desc": "A thick black cable, town hall wall to the converter by the fjord, humming all the way. Whatever is draining the valley is not in the valley. It is plugged in.",
+   "kind": "radio",
+   "cat": "Threshold",
+   "region": "the town hall, and the road to the fjord",
+   "src": "story:cable_done",
+   "unlockDay": 22,
+   "weight": 3,
+   "th": [
+    0,
+    0,
+    3
+   ],
+   "at": [
+    -5458,
+    3743
+   ],
+   "n": 60
   }
  ],
  "numbers": [
@@ -1155,7 +1197,17 @@
   "forty-seven",
   "forty-eight",
   "forty-nine",
-  "fifty"
+  "fifty",
+  "fifty-one",
+  "fifty-two",
+  "fifty-three",
+  "fifty-four",
+  "fifty-five",
+  "fifty-six",
+  "fifty-seven",
+  "fifty-eight",
+  "fifty-nine",
+  "sixty"
  ],
  "lines": {
   "skeie": {
@@ -1225,7 +1277,7 @@
     },
     {
      "who": "aasland",
-     "text": "Case closed, in so far as it can be. The nisser are in the Threshold World. They answered a call. Now someone must answer theirs. Take the lantern, and follow the warm light."
+     "text": "I closed this case on the twenty-second, because I was told to. I am reopening it. Unofficially. The nisser answered a call. Now somebody must answer theirs. Take the lantern, follow the warm light, and mind the cable."
     }
    ],
    "witch": [

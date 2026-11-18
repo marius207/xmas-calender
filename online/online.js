@@ -255,7 +255,7 @@ export default function init(ONL, cfg) {
   const evSend = (k, d, seed) => send({ t: 'ev', k, seed: (seed === undefined ? (Math.random() * 4294967295) >>> 0 : seed), ts: Date.now(), d: d || {} });
   const SH = () => W.__SHELTER, SI = () => W.__SIRENS, NL = () => W.__NORDLYS, WF = () => W.__WITCHFIRE, TD = () => W.__TOD;
   const DAY = () => +W.__DAY || 0;
-  const SHARED = { siren: { sent: 0, got: 0 }, wf: { sent: 0, got: 0, far: 0 }, nl: { sent: 0, got: 0 }, clk: { sent: 0, got: 0, adopted: 0 }, dropped: 0, last: '' };
+  const SHARED = { siren: { sent: 0, got: 0 }, wf: { sent: 0, got: 0, far: 0 }, nl: { sent: 0, got: 0 }, clk: { sent: 0, got: 0, adopted: 0 }, sol: { sent: 0, got: 0 }, dropped: 0, last: '' };
 
   /* --- air-raid siren: the starter sends the clip + the hatch; the others play the same clip now and open the same hatch --- */
   let remoteSiren = 0, sirenOff = null;
@@ -337,10 +337,22 @@ export default function init(ONL, cfg) {
     if (w.visit() === 'ok') { try { w.test.setCount(st.today + 1); } catch (_) {} wfPh = 'visit'; say(null, 'The witch is after ' + nice(m.n) + ' and you.'); }
   }
 
-  function onEv(m) {
-    if (m.k === 'siren') sirenIn(m); else if (m.k === 'clk') clockIn(m); else if (m.k === 'nl') nlIn(m); else if (m.k === 'wf') wfIn(m);
+  /* --- solstice (job solsticedoable): the fires lit on the long night count for everybody. Idempotent (ids of cairns), resent every 10 s so late joiners catch up; the receiver lights them without a reward --- */
+  let solN = 0;
+  function solSend() { const s = W.__SOLSTICE; if (!s || !s.sharing || !s.sharing() || !evOk()) return; const c = s.litIds(); if (!c.length) return; evSend('sol', { c, u: +(s.dawnU() || 0).toFixed(3) }); SHARED.sol.sent++; }
+  function solPoll() { if (++solN >= 20) { solN = 0; if (status === 'open' && Object.keys(R).length) solSend(); } }
+  function solIn(m) {
+    const s = W.__SOLSTICE, d = m.d || {}; if (!s || !s.remoteFires) return; SHARED.sol.got++;
+    if (!evOk()) { SHARED.dropped++; return; }
+    const ids = Array.isArray(d.c) ? d.c.slice(0, 15).map((x) => x | 0).filter((x) => x >= 0 && x < 15) : [];
+    const k = s.remoteFires(ids, +d.u, m.n); if (k) say(null, nice(m.n) + ' lit ' + (k === 1 ? 'a fire' : k + ' fires') + ' on the hills.');
   }
-  setInterval(() => { try { hookSiren(); nlPoll(); wfPoll(); if (status === 'open' && Object.keys(R).length) { if (++clkT >= 20) { clkT = 0; sendClock(); } } else clkT = 18; } catch (_) {} }, 500);
+  addEventListener('cairns:lit', (e) => { const d = (e && e.detail) || {}; if (d.remote) return; setTimeout(solSend, 300); });
+
+  function onEv(m) {
+    if (m.k === 'siren') sirenIn(m); else if (m.k === 'clk') clockIn(m); else if (m.k === 'nl') nlIn(m); else if (m.k === 'wf') wfIn(m); else if (m.k === 'sol') solIn(m);
+  }
+  setInterval(() => { try { hookSiren(); nlPoll(); wfPoll(); solPoll(); if (status === 'open' && Object.keys(R).length) { if (++clkT >= 20) { clkT = 0; sendClock(); } } else clkT = 18; } catch (_) {} }, 500);
   /* dev helpers (tests): fire each moment from this page */
   const dev = {
     siren: (i) => { const S = SI(); return S.play(i == null ? 1 : i); },

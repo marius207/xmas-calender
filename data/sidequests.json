@@ -412,18 +412,6 @@
       "place": "Nico Mat",
       "idle": "Ja, the milk is in the back. Do not tell the other customers."
     },
-    "bjorn": {
-      "name": "Bjorn",
-      "cat": "post",
-      "seed": 53,
-      "x": 520,
-      "z": -700,
-      "voice": "en-GB-RyanNeural",
-      "rate": "-2%",
-      "pitch": "-1Hz",
-      "place": "By the mailboxes",
-      "idle": "Van is parked. Crumbs on the seat again. Don't ask."
-    },
     "nabo": {
       "name": "Nabo Toril",
       "cat": "neighbour",
@@ -435,6 +423,18 @@
       "pitch": "+2Hz",
       "place": "Next door",
       "idle": "Warm is a team sport, my mother used to say."
+    },
+    "rolf": {
+      "name": "Postvikar Rolf",
+      "cat": "post",
+      "seed": 53,
+      "x": 520,
+      "z": -700,
+      "voice": "en-GB-RyanNeural",
+      "rate": "-2%",
+      "pitch": "-1Hz",
+      "place": "By the mailboxes (filling in for Bjørn)",
+      "idle": "Rolf. Filling in for Bjørn. Nobody has seen him since his town hall round. Resting, they say. Bjørn never rested. He ironed his gloves."
     }
   },
   "quests": [
@@ -1706,14 +1706,14 @@
     {
       "id": "bjorn_crumbs",
       "title": "Crumbs on the mat",
-      "giver": "bjorn",
+      "giver": "rolf",
       "where": [
         520,
         -700
       ],
       "type": "find",
       "minDay": 7,
-      "ask": "Bjorn from Posten. Your post is fine, the van is not. There are crumbs on the mat outside your door. Ginger ones. Somebody has been sitting there eating them. Could you check the mat? Do not sit on it yourself. I know how that sounds.",
+      "ask": "Rolf from Posten, filling in for Bjørn. Bjørn is on a very long lunch, they say. Nobody has seen him eat it. Anyway. Your post is fine, the van is not. There are crumbs on the mat outside your door. Ginger ones. Somebody has been sitting there eating them. Could you check the mat? Do not sit on it yourself. I know how that sounds.",
       "wait": "The crumbs are on the mat outside Chris's door. Follow them.",
       "done": "Ginger, butter, and a neat little trail going up the stairs. Right. That is not my problem. I will write it in the log.",
       "targets": {

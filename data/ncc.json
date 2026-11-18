@@ -61,6 +61,10 @@
         {
           "day": 18,
           "text": "Between us? The porridge bowl was empty this morning. Licked clean. And I locked the door from the inside."
+        },
+        {
+          "day": 5,
+          "text": "We also get calls about a postman, and an old man called Tormod. Not our department. I have a form for that too. It is the same form. I tick a different box."
         }
       ]
     },
@@ -97,7 +101,11 @@
         },
         {
           "day": 22,
-          "text": "Case closed. Official finding: the nisser were called, the witch was a misunderstanding, and the lights are the council's fault. Lindtner disagrees. Lindtner is retiring again."
+          "text": "Case closed. Official finding: weather, a large rock, and a very cold winter for the nisser. The lights were a municipal matter. The Mayor's office has been most helpful. Lindtner disagrees. Lindtner is retiring again."
+        },
+        {
+          "day": 16,
+          "text": "The Mayor's office has been very welcoming. She offered every agent a heated vest. We declined. Lindtner did not. Lindtner is fine. Lindtner is very warm."
         }
       ]
     },
@@ -127,6 +135,10 @@
         {
           "day": 19,
           "text": "I laid every clue on this board, and every string meets in one place. A door that only opens from the dark side. I keep my coat on in here now."
+        },
+        {
+          "day": 22,
+          "text": "The board has a pencil corner now. Bjørn K., post. Tormod, coffee. 'Not our department,' the Director said, twice. I wrote them in anyway. Somebody has to be on a board."
         }
       ]
     },
@@ -184,7 +196,7 @@
         },
         {
           "day": 22,
-          "text": "Between you and the thermos: the nisser were taken to the Threshold World. I have been there once. Everything is grey, and everyone stares at the Eye. If you ever see a warm light there, follow it. It is them."
+          "text": "Between you and the thermos: the nisser were called, not taken. I have been down there once. Everything grey, and everyone facing the Eye. If you ever see a warm light there, follow it. That one is them. And the lights going out? Nothing in the grey does that by itself. Somebody up here is feeding it. Follow the cable, kid. The Director will not. The Director has a stamp."
         },
         {
           "day": 17,
@@ -363,6 +375,241 @@
           "text": "When the valley goes quiet, the staff here stay happy. Warm lights, loud music, strike after strike. I think the hall is a refuge. I think the nisser knew that too."
         }
       ]
+    },
+    "fjeld": {
+      "sex": "f",
+      "name": "Agent Trine Fjeld",
+      "role": "Observer",
+      "place": "Utsikten observation post",
+      "at": "utsikten",
+      "seed": 21,
+      "lines": [
+        {
+          "day": 3,
+          "text": "Observation post Utsikten. From here I can see every chimney in Kvinesdal. Four hundred and twelve. All of them smoke. One house burnt down in November. Its chimney still smokes. I am not paid enough to explain that."
+        },
+        {
+          "day": 9,
+          "text": "The big nisse at the square. I have watched him all day. He moved. A pinky finger's worth. Forensics say no. Forensics are not up here."
+        },
+        {
+          "day": 15,
+          "text": "Last night a light fell from the sky and the whole valley said ooh. All at once, in one note. I wrote the note down. It was an F."
+        },
+        {
+          "day": 19,
+          "text": "I can see the Liland tower from here. It has been looking at me since Tuesday. I turned the binoculars round to look back. I look tired."
+        }
+      ],
+      "silent": true
+    },
+    "eide": {
+      "sex": "f",
+      "name": "Agent Torunn Eide",
+      "role": "Checkpoint lead",
+      "place": "Kleiv checkpoint",
+      "at": "kleiv",
+      "seed": 22,
+      "lines": [
+        {
+          "day": 4,
+          "text": "Checkpoint Kleiv. All vehicles stop. All pedestrians stop. All nisser, please also stop. We would love to meet you."
+        },
+        {
+          "day": 9,
+          "text": "I have stopped eleven cars, nine bicycles and one sheep. The sheep had the correct papers."
+        },
+        {
+          "day": 16,
+          "text": "The road is closed beyond this point. By order. Whose order? I wrote it on my hand and then I washed my hand."
+        },
+        {
+          "day": 21,
+          "text": "Everything above here has gone grey. Do not go up. If you go up, wave when you come back down. Please come back down."
+        }
+      ],
+      "silent": true
+    },
+    "sunde": {
+      "sex": "m",
+      "name": "Trainee Pål Sunde",
+      "role": "Holds the barrier",
+      "place": "Kleiv checkpoint",
+      "at": "kleiv",
+      "seed": 23,
+      "slot": 1,
+      "lines": [
+        {
+          "day": 4,
+          "text": "I am Pål. I am the trainee. I hold the barrier. It is a very important barrier. It has a handle."
+        },
+        {
+          "day": 12,
+          "text": "Nothing has come down that road since the witch went quiet. Except a smell. Warm bread. That is not nothing."
+        }
+      ],
+      "silent": true
+    },
+    "ronning": {
+      "sex": "m",
+      "name": "Agent Aksel Rønning",
+      "role": "Signals",
+      "place": "Mast camp, Saronsdal top",
+      "at": "mast",
+      "seed": 24,
+      "lines": [
+        {
+          "day": 6,
+          "text": "Mast camp Saronsdal. We are listening. Mostly to static. Static is only the universe clearing its throat."
+        },
+        {
+          "day": 10,
+          "text": "Three in the morning, I picked up three bells and somebody humming. Slowly. \"Deilig er jorden\". Nobody here hums."
+        },
+        {
+          "day": 14,
+          "text": "I tuned to Heksa FM last week and it went quiet. I miss her. She was awful, but she was company."
+        },
+        {
+          "day": 17,
+          "text": "The static has a rhythm now. Four beats, rest. Four beats, rest. Like counting. Do not ask me what it counts."
+        },
+        {
+          "day": 20,
+          "text": "Frequency seven seven point seven. Do not tune there at night. I do. Do not be me."
+        }
+      ],
+      "silent": true
+    },
+    "vang": {
+      "sex": "m",
+      "name": "Agent Haakon Vang",
+      "role": "Surveillance",
+      "place": "Converter stakeout van",
+      "at": "van",
+      "seed": 25,
+      "to": 21,
+      "lines": [
+        {
+          "day": 8,
+          "text": "Do not look at the van. The van is not here. The van is a municipal vehicle. Please look at the big buildings instead."
+        },
+        {
+          "day": 11,
+          "text": "The converter hums. B flat. It used to hum only at night. Now it hums at lunch. It does not stop for lunch."
+        },
+        {
+          "day": 17,
+          "text": "Cables leave that compound in a direction I am not authorised to write down. I am authorised to point. So. That way."
+        },
+        {
+          "day": 20,
+          "text": "The lights in town dip each time it hums louder. I made a graph. The graph looks like breathing."
+        }
+      ],
+      "silent": true
+    },
+    "lindtner2": {
+      "sex": "m",
+      "name": "Agent Lindtner",
+      "role": "Retired again",
+      "place": "Converter stakeout van",
+      "at": "van",
+      "seed": 26,
+      "slot": 1,
+      "from": 22,
+      "lines": [
+        {
+          "day": 22,
+          "text": "Case closed, they say. I took my leave. Retired again. The van is mine now. Sit. Have a biscuit. The cable goes where you think it goes, and I have decided to be less afraid of saying so."
+        },
+        {
+          "day": 24,
+          "text": "Go on. I will keep the kettle on. Follow it all the way, kid. Past the poles, past the hum, to the end of it."
+        }
+      ],
+      "silent": true
+    },
+    "strand": {
+      "sex": "f",
+      "name": "Agent Bjørg Strand",
+      "role": "Harbour patrol",
+      "place": "Feda fjord post",
+      "at": "boat",
+      "seed": 27,
+      "lines": [
+        {
+          "day": 10,
+          "text": "Fjord patrol. We check every boat for nisser. This week: forty boats, nine ducks and one nisse-shaped cloud. The cloud is under investigation."
+        },
+        {
+          "day": 13,
+          "text": "The fjord went very still when the witch went quiet. As if the whole water took a breath."
+        },
+        {
+          "day": 18,
+          "text": "There was a lantern on the water last night. Walking. On the water. I want it on record that I was sober. I was on duty. I was drinking coffee, which is the same thing."
+        },
+        {
+          "day": 21,
+          "text": "The boat bells ring by themselves around three. The harbour master says tides. I say tides do not have favourite hymns."
+        }
+      ],
+      "silent": true
+    },
+    "skar": {
+      "sex": "m",
+      "name": "Agent Magne Skår",
+      "role": "Stakeout",
+      "place": "Bowl car park",
+      "at": "bowl2",
+      "seed": 28,
+      "lines": [
+        {
+          "day": 11,
+          "text": "Stakeout. Bowlinghallen. Subject: a missing nisse who is rumoured to love a strike. We have a pizza box and a hole in it. The hole is a periscope."
+        },
+        {
+          "day": 14,
+          "text": "Nobody came in. Nobody came out. Then somebody did and it was the janitor. The case continues."
+        },
+        {
+          "day": 17,
+          "text": "The whole town comes here at night now. The hall is the only building with all its lights on. I am not on duty. I am just sitting very officially."
+        },
+        {
+          "day": 21,
+          "text": "Four hundred people in there and not one of them is arguing about the score. That is how I know something is wrong. Or right. I get the two confused."
+        }
+      ],
+      "silent": true
+    },
+    "hellum": {
+      "sex": "f",
+      "name": "Agent Nora Hellum",
+      "role": "Spotter",
+      "place": "Crater watchtower",
+      "at": "crater",
+      "seed": 29,
+      "lines": [
+        {
+          "day": 16,
+          "text": "Tower seven. We can see the whole bowl. It is warm at the bottom. Unnaturally warm. Like a bath someone left running."
+        },
+        {
+          "day": 18,
+          "text": "We count the grey footprints down there. Yesterday forty. Today forty-one. Nobody walked in. Nobody walked out. The new one is small."
+        },
+        {
+          "day": 20,
+          "text": "Tell the Director the crater breathes. She will say craters do not. Tell her anyway. In writing. With a stamp."
+        },
+        {
+          "day": 21,
+          "text": "At night the beam bends towards town. I checked the map twice. I am not saying anything."
+        }
+      ],
+      "silent": true
     }
   },
   "quests": [
@@ -494,6 +741,96 @@
         "kr": 80,
         "item": "rocket",
         "n": 1
+      },
+      "repeatable": false
+    },
+    {
+      "id": "ncc_flask",
+      "title": "Pål's flask",
+      "giver": "sunde",
+      "where": "kleiv",
+      "type": "find",
+      "minDay": 4,
+      "ask": "Pål Sunde. Trainee. I put my flask down to hold the barrier. Both hands, it is a two-hand barrier. Now it is gone. Somewhere in the snow near the tent. Could you look? Do not tell Eide.",
+      "wait": "A flask, near the checkpoint tent. It is silver, with a dent, and it still has soup in it. Probably.",
+      "done": "My flask! Still warm. Warm! That is not possible in this weather. Thank you. Take this, I have two.",
+      "targets": {
+        "at": "kleiv",
+        "dx": -4.2,
+        "dz": 2.4,
+        "thing": "Pål's flask",
+        "label": "a silver flask near the Kleiv checkpoint tent"
+      },
+      "reward": {
+        "kr": 50,
+        "item": "thermos",
+        "n": 1
+      },
+      "repeatable": false
+    },
+    {
+      "id": "ncc_binoc",
+      "title": "The chimney that smokes",
+      "giver": "fjeld",
+      "where": "utsikten",
+      "type": "photo",
+      "minDay": 3,
+      "ask": "Trine Fjeld, observation. Over the valley, by the stadium, there is a house that burnt down. Its chimney still smokes. I need it on film, with the date, for my report. Camera mode, point at it, press H. I would, but my battery is a coward.",
+      "wait": "The burnt house by the stadium, Farmonen. The chimney is the smoking one. Camera mode, point, press H.",
+      "done": "There it is. Smoke from a house with no fire. I have decided to call this evidence and not call it anything else. Here, for your trouble.",
+      "targets": {
+        "at": "utsikten",
+        "dx": -726.9,
+        "dz": -129.1,
+        "thing": "the chimney that still smokes",
+        "r": 900,
+        "label": "the burnt house at Farmonen 21"
+      },
+      "reward": {
+        "kr": 70
+      },
+      "repeatable": false
+    },
+    {
+      "id": "ncc_mast",
+      "title": "The red light on the mast",
+      "giver": "ronning",
+      "where": "mast",
+      "type": "photo",
+      "minDay": 6,
+      "ask": "Aksel Rønning, signals. The mast light blinks, and I would like proof that it is only the mast light. Walk down the valley road, turn round, camera mode, press H. If it blinks back, tell me. If it blinks in a pattern, do not tell me.",
+      "wait": "The red light on top of the Saronsdal mast. Camera mode, point it at the light, press H.",
+      "done": "A plain red light on a plain mast. Thank you. I feel much better. Slightly worse than before, but better.",
+      "targets": {
+        "at": "mast",
+        "dx": 0,
+        "dz": 0,
+        "thing": "the red mast light",
+        "r": 220,
+        "label": "the red light on the Saronsdal mast"
+      },
+      "reward": {
+        "kr": 70
+      },
+      "repeatable": false
+    },
+    {
+      "id": "ncc_boatcoffee",
+      "title": "Coffee for the boat",
+      "giver": "strand",
+      "where": "boat",
+      "type": "fetch",
+      "minDay": 10,
+      "ask": "Bjørg Strand, harbour patrol. The fjord is cold, the boat has no heater, and the thermos is on land. Bring a hot thermos and I will mention you in my log. Favourably.",
+      "wait": "One hot thermos. They turn up by lamp posts and benches, apparently. Bring it to the jetty.",
+      "done": "Hot. Strong. Illegal on duty, so I will drink it off duty, which is now. You are in my log. Favourably.",
+      "targets": {
+        "item": "thermos",
+        "n": 1,
+        "label": "a hot thermos"
+      },
+      "reward": {
+        "kr": 60
       },
       "repeatable": false
     }

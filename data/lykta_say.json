@@ -3577,6 +3577,27 @@
 "src": [
 "nicelistreveal"
 ]
+},
+{
+"text": "Sit tight, lean into the turns and hold S to drag your feet. The packed sledding hills are marked on your map.",
+"norm": "sittightleanintotheturnsandholdstodragyourfeetthepackedsleddinghillsaremarkedonyourmap",
+"src": [
+"wintersport"
+]
+},
+{
+"text": "Tap W in rhythm and use Space to double-pole. The lit trail west of town is groomed and fast.",
+"norm": "tapwinrhythmandusespacetodoublepolethelittrailwestoftownisgroomedandfast",
+"src": [
+"wintersport"
+]
+},
+{
+"text": "Skates need ice. The rink by the river is safe. Thin ice sings before it breaks. Listen.",
+"norm": "skatesneedicetherinkbytheriverissafethinicesingsbeforeitbreakslisten",
+"src": [
+"wintersport"
+]
 }
 ],
 "already_voiced": [

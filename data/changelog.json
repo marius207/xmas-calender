@@ -1,6 +1,218 @@
 {
  "entries": [
   {
+   "date": "2026-11-18",
+   "time": "09:43",
+   "title": "Dev: click a map marker to teleport",
+   "items": [
+    "In dev mode, clicking any marker on the big map or the minimap (also the \"?\" ones and the statues) puts you on the ground next to it, facing it. If you were driving you step out first.",
+    "A click on a search result does the same in dev. Outside dev mode a marker click still starts the GPS."
+   ]
+  },
+  {
+   "date": "2026-11-18",
+   "time": "09:43",
+   "title": "The crater cordon is solid",
+   "items": [
+    "The security tent, black cars, floodlight masts, posts and the NO ENTRY sign at the crater (days 16-19) now block you instead of letting you walk through",
+    "The tape itself you can still duck under"
+   ]
+  },
+  {
+   "date": "2026-11-18",
+   "time": "12:00",
+   "title": "Isbane: the ice racetrack",
+   "items": [
+    "A real ice circuit on the big frozen lake north-west of town: 1.35 km of snowbank-walled track, a start/finish gantry (\"KVINESDAL ISRACE\"), three checkpoint arches, a small wooden grandstand with spectators and a brazier, and floodlights for the night. It is on the map as \"Isbane (ice racetrack)\" (tap it for GPS, or search \"Isbane\").",
+    "Drive any car through the start gate to begin 3 timed laps. The HUD shows the lap, the current lap time, your last and best lap and the total. A lap only counts when you have driven through all three checkpoints in order. Your best lap and best 3-lap time are saved and a best-times board is shown at the finish.",
+    "Reach it from the end of the road at the south-east corner of the lake: a ploughed ice road with orange poles leads across the ice to the circuit. Ice grip all the way, so brake early. R = respawn at the last checkpoint, T = back to the start, Esc = leave. No police while you race. Floodlights at night. Something stands at the treeline on the far bend, but only on laps 2 and 3."
+   ]
+  },
+  {
+   "date": "2026-11-18",
+   "time": "07:17",
+   "title": "The statues are real monuments now",
+   "items": [
+    "All 31 statues are far bigger (40 to 90 metres) with mottled stone, moss running down from the ledges, cracks, snow caps and a wide stepped plinth with four corner pillars.",
+    "Every statue stands in its own clearing in the woods (ragged edge, at least 25 m of open snow), on hills and valley sides where it can be seen, and a silhouette of it shows on the horizon from several kilometres away, day and night.",
+    "New STATUES layer on the big map (N), also on the minimap and in the search: \"?\" until you find a landmark, then its name. Click a marker for GPS. Search has \"Nearest statue\" with teleport and GUIDE.",
+    "Pressing G in front of a plaque always reads it now, even where something else wanted the key."
+   ]
+  },
+  {
+   "date": "2026-11-17",
+   "time": "05:38",
+   "title": "The mountain-road roadblock: cars stop, feet get through (days 16 to 19)",
+   "items": [
+    "A striped barrier and two black cars nose to nose close Kleivsvegen to cars: drive at it and you are eased back, with a toast and a line from the agent",
+    "On foot there is a way round on the rock side, with footprints in the snow leading through it",
+    "An NCC agent sweeps the road with a torch and, the first time you slip past each day, shines it on you and mutters something",
+    "A sign (STENGT / ROAD CLOSED) with a handwritten note, a floodlight and an orange beacon at night; on the map as Roadblock (on foot: there is a way round)"
+   ]
+  },
+  {
+   "date": "2026-11-18",
+   "time": "02:51",
+   "title": "Weird events: up to three at once, solid props, shore fixes",
+   "items": [
+    "Weird events can now overlap (usually just one, never more than three, never two heavy or two scary ones, at least a minute and 120 m apart).",
+    "Booths, fridges, picnic tables, the parked tour bus and the snowball snowman are solid now: you cannot walk through them.",
+    "People who go into lakes and rivers stand at the waterline instead of floating."
+   ]
+  },
+  {
+   "date": "2026-11-18",
+   "time": "02:39",
+   "title": "More places to find things",
+   "items": [
+    "64 new chests and 85 new finds are hidden in interesting places all over the valley: hilltops and lookout ledges, outside the troll caves, at the foot of waterfalls, under bridges, on river holms and lake islands, on top of boulders, behind buildings, on the end of boathouse jetties, in the woods off the trails and in the ruins.",
+    "Some are up high: roofs and the church tower need the jetpack (day 6) or the elytra (day 9). The burnt house at Farmonen has its own surprise.",
+    "Everything old stays where it was. Each spot is checked in the game for solid, level ground, no water, no trees in the way and 40 m between chests. Open ones show on the big map like the others."
+   ]
+  },
+  {
+   "date": "2026-11-17",
+   "time": "23:54",
+   "title": "Giant weird statues in the woods",
+   "items": [
+    "Thirty-one enormous, weird stone landmarks now stand in the woods and lakes: a giant staircase, a giant who sat down, a stone troll hand, three giant forks, a toaster, a cat, a mitten, an upside-down bell, a hand holding the moon, three lake serpents and more. You can spot them from kilometres away.",
+    "Each one has a small plaque you can read (G / LOOK), shows as a ? on the map until you find it, and can be climbed all the way to the top (the lake ones from a stone causeway on the shore).",
+    "They are solid and fully breakable: dig them with the pickaxe, shoot them, strike them with lightning or ram them with a fast car. Chunks fall, rubble stays, and the plaque has something to say when it is mostly gone. It is saved per player and gives no points, so there is nothing to farm."
+   ]
+  },
+  {
+   "date": "2026-11-17",
+   "time": "23:45",
+   "title": "Airplanes and a night helicopter",
+   "items": [
+    "Airliners now cross the sky now and then: small blocky jets with a thin contrail by day and blinking red, green and white lights at night, plus a low propeller plane over the valley once in a while.",
+    "At night an NCC helicopter may come looking for you: it hovers, follows you with a searchlight and shouts through a loudspeaker. It is rare, never during cutscenes, fights or indoors, and Lykta has opinions."
+   ]
+  },
+  {
+   "date": "2026-11-17",
+   "time": "23:25",
+   "title": "More bonkers things in town",
+   "items": [
+    "27 more weird events, 37 in all: NCC agents chasing a nisse across the roofs, a sauna door that bursts open, street lamps that turn to look at you, a lost brass band, a ringing phone booth in the forest, the Mayor's PA slipping into a lullaby, a goat parade, the Count, a poster storm, a pie thief, a polar plunge, footprints that stop, a fog wall, NCC chatter on the car radio, twitching curtains, the trolls' picnic, a tourist bus at an empty field, shooting stars, a ghost car, snowplough ballet, a nisse tug-of-war, a fridge in the woods, Bjorn's bike, everybody's phone ringing, a man stuck in a chimney, a man with his own weather and ice fishing gone wrong.",
+    "Rare, never during cutscenes, fights, races or sirens, at most 8 a day (2 scary), and a few give a little reward."
+   ]
+  },
+  {
+   "date": "2026-11-17",
+   "time": "22:41",
+   "title": "Townspeople get real eyes and more varied skin",
+   "items": [
+    "Everyone in town now has proper eyes: white on the outer side, a coloured iris, a black pupil and a tiny white shine. Eye colours are a Norwegian mix, lots of blue and grey, some green and brown, a few amber, and every person keeps the same eyes every time you see them.",
+    "Skin tones come from one shared palette for the whole town: mostly light Nordic, with a real share of medium and darker tones. Hair of darker-skinned people stays natural. The Mayor, the witch, creatures and the players keep their own faces."
+   ]
+  },
+  {
+   "date": "2026-11-17",
+   "time": "22:29",
+   "title": "Sleds, skis and skates sound real",
+   "items": [
+    "Sled runners hiss on the snow, skis swish with every kick and pole push, and skates scrape and carve on the ice.",
+    "Hockey stops spray, and when you wipe out you land in the snow with a proper thump."
+   ]
+  },
+  {
+   "date": "2026-11-17",
+   "time": "22:17",
+   "title": "Weird things happen in town now",
+   "items": [
+    "Now and then something bonkers happens near you: a reindeer stampede through the street, a nisse riding a robot vacuum, a snowman that is closer every time you look away, a moose in Christmas lights, a sleigh with no horses.",
+    "Ten events so far (more coming). They are rare, never during cutscenes, fights or races, and some of them give you a few kroner or a Nice List moment."
+   ]
+  },
+  {
+   "date": "2026-11-17",
+   "time": "21:35",
+   "title": "More NCC outposts around the valley",
+   "items": [
+    "Seven small NCC camps: an observation post on Utsikten, a checkpoint on the mountain road, a radio mast camp, a stakeout van at the Feda converter, a patrol boat at Feda, a car-park stakeout at Bowlinghallen and a watchtower at the crater (from day 16)",
+    "Each has an agent or two with clues that change by day, a marker on the NCC map layer, and four have a small errand for you",
+    "On day 22 the camps are packed up and left empty; only the van stays open"
+   ]
+  },
+  {
+   "date": "2026-11-17",
+   "time": "21:27",
+   "title": "Sledding, skiing and ice skating",
+   "items": [
+    "You can now go sledding, skiing and ice skating. Buy an akebrett (149 kr), a ski set (590 kr) or skates (390 kr) at MX sport in Nesgata. Hold the item and click to use it. Press the interact key to stop.",
+    "Sledding: two packed sledding hills (Akebakken Øst and Vest) with a start sign, a timer, a finish banner and small kickers. Skiing: tap W in rhythm and use Space to double-pole; the lit trail (lysløype) west of town is groomed and fast, lamps come on at night, and something may watch from the trees. Skating: on the rink or anywhere on the thick river ice. Thin ice crackles before it breaks, and open water is open water.",
+    "The judge owl by the ice rink scores your skating routine. Rewards are small and shrink the more you repeat them each day. Everything is on the map."
+   ]
+  },
+  {
+   "date": "2026-11-17",
+   "time": "20:53",
+   "title": "Throw out all your trash with one press",
+   "items": [
+    "Standing at any trash can with litter bags, empty cans, bottles or snus tins? One press of E or G (or a tap) dumps all of it at once.",
+    "Every trash can counts now, also the wheelie bins by the houses.",
+    "Your other things stay in your pockets. With no trash on you, G still opens the bin to throw out anything else."
+   ]
+  },
+  {
+   "date": "2026-11-17",
+   "time": "20:08",
+   "title": "Street lamps glow small and tight",
+   "items": [
+    "The big round halo discs around the street lamps at night are gone. Each lamp head now has a small, tight warm glow, like the floodlights at the power station.",
+    "The soft pool of light on the snow under each lamp is still there, and power cuts, the Light radius slider and the graphics levels work as before."
+   ]
+  },
+  {
+   "date": "2026-11-17",
+   "time": "19:14",
+   "title": "Open the door and Lykta gives you the day's task",
+   "items": [
+    "Walk up to the lit door and press LOOK: the door creaks open in a flash of light, and Lykta tells you that day's task right there. Press Y and she leads the way.",
+    "The door sign now says \"TODAY\" for the lit door and \"Opened ✓\" once the task is done. Later doors stay asleep.",
+    "An earlier door you missed can be opened the same way."
+   ]
+  },
+  {
+   "date": "2026-11-17",
+   "time": "18:30",
+   "title": "World news on the car radio",
+   "items": [
+    "The car radio now has news from the rest of the world: a flu in Central Europe that is very probably not zombies, a runaway cheese in the Alps, a goat, an ark, a moose mayor, glitter volcanoes and more.",
+    "Randi and Ole read it on Radio Kvina between songs, and Julius Jolly and Night Owl Nils drop in short flashes on Downtown FM and Nattevakt.",
+    "The big stories carry on day by day through December, in the right order. Some news only turns up at night.",
+    "It is shuffled for each player, so Chris and Martin hear different things, and you hear every bulletin before any of them comes round again."
+   ]
+  },
+  {
+   "date": "2026-11-17",
+   "time": "16:42",
+   "title": "Story fixes: the postman, the crater cordon, the closed case, the cable, the tree, the Eye",
+   "items": [
+    "Bjørn the postman is missing, like the story says. The man at Chris's mailboxes is now Postvikar Rolf, filling in for him, and he mentions that nobody has seen Bjørn. The crumbs quest on day 7 still works.",
+    "Days 16-19: the NCC has really closed off the crater now. Yellow and black tape all the way round, two floodlights that light up the slope at night, a white NCC tent, two black cars and a NO ENTRY sign. Lykta has a word to say about it.",
+    "Day 22: when the NCC closes the case, the official answer is now clearly wrong (weather, a rock, nisser who went indoors, and thanks to the Mayor's office). Agent Vik hints that the Director got a very warm call from the town hall.",
+    "Day 22: Agent Lindtner and Agent Skeie say what they really think: the lights going out are being fed from up here, follow the cable, and Bjørn and Tormod are written in pencil on the board because the missing people are 'not our department'. The case file has two new pieces of evidence: the missing persons note and the cable that feeds her.",
+    "Day 22: after the Mayor thanks the investigators on the loudspeakers, Lykta points you at the cable. Her end-of-day line now mentions it too, and the cable itself finally explains why it matters.",
+    "The tree's story is now told the same way everywhere: a test lighting in November, it went dark on the 1st, and it is lit for real on day 14. Lykta tells it once by the dark tree, and once when it is lit.",
+    "The Mayor's loudspeaker line on days 17-18 no longer talks as if the Eye on the tower were hers.",
+    "New lines are shown as text until they are recorded. Lines that still need a new recording: the Mayor's day-17 Eye line, Rolf's lines, three NCC lines and the Director's last case-file line."
+   ]
+  },
+  {
+   "date": "2026-11-17",
+   "time": "16:33",
+   "title": "The longest night is possible now",
+   "items": [
+    "The long night on 21 December now lasts about 77 real minutes from dusk to dawn (the clock simply runs slower that night), so the fifteen cairns across the valley can really be reached.",
+    "Every new fire pulls dawn about 6 minutes closer, but after every fire there are always at least 14 minutes of night left (the fire gives time back if needed), so one fire per 14 minutes is enough. When the night ends early, the clock runs on quickly to morning.",
+    "A cairn you lit earlier in December is snuffed at dusk but lights again at once when you arrive, no lantern or flare needed, and it pays nothing a second time.",
+    "The signposts work all night, and their travel list includes every cairn you ever lit, even the ones snuffed tonight.",
+    "Online, fires lit by anybody count for everybody that night (you can press G at one to claim your own share, once)."
+   ]
+  },
+  {
    "date": "2026-11-17",
    "time": "12:57",
    "title": "Converter halls easier to see by day",
