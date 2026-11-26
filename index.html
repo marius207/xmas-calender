@@ -972,7 +972,7 @@ window.__devEff=eff;
 const isPhone=()=>eff()==='phone';
 const sync=()=>{try{document.body.classList.toggle('ph',isPhone());}catch(e){}};
 /* version label: the deploy script replaces the placeholder below; an unreplaced build shows DEV BUILD */
-const VRAW='26 Nov 2026 05:02';
+const VRAW='26 Nov 2026 15:31';
 const VER=(VRAW.indexOf('__BUILD'+'_')===0)?'DEV BUILD':VRAW;
 window.__VERSION=VER;
 const pill=()=>{const b=document.createElement('button');b.type='button';b.className='verpill';b.textContent=VER;b.title='Tap to copy';b.setAttribute('aria-label','Game version '+VER);b.addEventListener('click',e=>{e.stopPropagation();try{navigator.clipboard&&navigator.clipboard.writeText(VER);}catch(_){}});return b;};
@@ -3776,7 +3776,7 @@ const chris=await mcPerson({face:'chris-head.png',s:5,hair:'#7a4a2a',skin:'#e4ae
   bodySide:(p)=>{for(let y=0;y<12;y++)for(let x=0;x<8;x++)p(x,y,shade('#2c3a4e',(hash(x+7,y)-.5)*.1));},
   arm:(p)=>{for(let y=0;y<12;y++)for(let x=0;x<4;x++)p(x,y,y>=10?'#e4ae86':shade('#2c3a4e',(hash(x,y+70)-.5)*.1));},
   leg:(p)=>{for(let y=0;y<12;y++)for(let x=0;x<4;x++)p(x,y,y>=10?'#2a221c':shade('#3a3c52',(hash(x,y+80)-.5)*.12));}});
-scene.add(martin,chris);
+scene.add(martin);/*nochristree: Chris is a player, no NPC copy at the tree*/
 chris.position.set(TRX+2.5,gAt(TRX+2.5,TRZ+5.5),TRZ+5.5);
 
 
@@ -4389,7 +4389,7 @@ for(const b of world.bridges)if(b.name)addI(b.name,'Bridge',b.pts[Math.floor(b.p
 if(window.__bridge)addI('Stjerneporten','Lit footbridge',window.__bridge.x,window.__bridge.z);
 addI('The Christmas tree','Town hall',TRX,TRZ+6);for(const p of world.places||[])addI(p.name,'Place',p.x,p.z);if(BOWL){addI('Bowlinghallen','Bowling (2005)',BOWL.c[0],BOWL.c[1]);addI('Bowling','Bowlinghallen (2005)',BOWL.c[0],BOWL.c[1]);IDX.forEach(i=>{if(i.name==='Bowlinghallen'||i.name==='Bowling')i.lane=[40,-501.5];});/*coldfix1: teleport to the lanes*/}if(MARIUSH&&MARIUSH.front){addI("Marius's house (Furuvegen 21)",'Home',MARIUSH.front[0],MARIUSH.front[1]);addI('Furuvegen 21','Home',MARIUSH.front[0],MARIUSH.front[1]);}if(MARTINH&&MARTINH.front){addI("Martin's house (Vangen 27)",'Home',MARTINH.front[0],MARTINH.front[1]);addI('Vangen 27','Home',MARTINH.front[0],MARTINH.front[1]);}if(COURT)addI("Martin's tennis court",'Sport',COURT.cx,COURT.cz);if(CHRISH&&CHRISH.front){addI("Chris's place (Krågehølen 4B)",'Home',CHRISH.front[0],CHRISH.front[1]);addI('Krågehølen 4B','Home',CHRISH.front[0],CHRISH.front[1]);}for(const tu of world.tunnels||[])if(tu.n){const e=tu.p[0];addI(tu.n,'Tunnel',e[0],e[1]);}if(CASTLE)addI("The Threshold's castle (Liland)",'Danger',CASTLE.x+44,CASTLE.z);for(const o of world.outdoor||[])addI(o.name,'Hike · '+o.kind.split(' ·')[0],o.x,o.z);if(CHURCH)addI('Kvinesdal kirke','Church',CHURCH.c[0],CHURCH.c[1]);
 const fold=t=>t.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/æ/g,'ae').replace(/ø/g,'o').replace(/å/g,'a');
-function renderSearch(){const q=fold($('q').value.trim());const list=(q?IDX.filter(i=>fold(i.name).includes(q)).sort((a,b)=>fold(a.name).indexOf(q)-fold(b.name).indexOf(q)):IDX.filter(i=>i.kind!=='Street').concat(IDX.filter(i=>i.kind==='Street'))).slice(0,40);
+function renderSearch(){const q=fold($('q').value.trim());const IDXs=IDX.filter(i=>!(window.__SPOIL&&window.__SPOIL.hide(i.name)));/*fable_04: no spoilers before their day*/const list=(q?IDXs.filter(i=>fold(i.name).includes(q)).sort((a,b)=>fold(a.name).indexOf(q)-fold(b.name).indexOf(q)):IDXs.filter(i=>i.kind!=='Street').concat(IDXs.filter(i=>i.kind==='Street'))).slice(0,40);
   const el=$('sres');el.innerHTML='';for(const it of list){const row=document.createElement('div');row.className='row';const b=document.createElement('button');b.setAttribute('role','option');b.innerHTML=`<span></span><small></small>`;b.firstChild.textContent=it.name;b.lastChild.textContent=it.kind.toUpperCase();b.onclick=()=>{if(window.__PUBLIC_HOST&&!(window.__DEVTP&&__DEVTP.on&&__DEVTP.on())){/*realgame: players get the GPS, not a teleport*/closeSearch();try{if(window.__MAPGPS&&__MAPGPS.go&&__MAPGPS.go('search:'+it.name,it.name,it.x,it.z))return;}catch(_){}setGuide(it);return;}teleport(it);};
     const gd=document.createElement('button');gd.className='guide';gd.textContent='🧭 GUIDE';gd.setAttribute('aria-label','Guide me to '+it.name);gd.onclick=()=>{setGuide(it);closeSearch();};row.append(b,gd);el.appendChild(row);}
   if($('q').value.trim()==='4068'&&!window.__PUBLIC_HOST){/*realgame: no owner code for players*/el.innerHTML='';const b=document.createElement('button');b.innerHTML='<span></span><small>OWNER</small>';b.firstChild.textContent=OWNER?'Turn owner mode off':'Unlock owner mode (elytra + unlimited rockets)';b.onclick=()=>{setOwner(!OWNER);closeSearch();};el.appendChild(b);return;}
@@ -5710,7 +5710,7 @@ let near=null,expanded=false;
 function nearest(){let best=null,bd=4.5;for(const d of doors){const dist=Math.hypot(d.x-P.x,d.z-P.z);if(dist<bd){bd=dist;best=d;}}return best;}
 function showPrompt(d){const p=$('prompt');if(!d){p.classList.remove('show');return;}
   if(d.talk){$('pKick').textContent='CHRIS · AT THE TREE';$('pTitle').textContent=expanded?'"'+chrisLines[(chrisI+chrisLines.length-1)%chrisLines.length]+'"':'Talk to Chris';$('pText').textContent=expanded?'Tap TALK again for more.':'He looks cold. And worried.';}
-  else{$('pKick').textContent=d.n===24?'DOOR 24 · CHRISTMAS EVE':`DOOR ${d.n} · OPENS ${d.n} DECEMBER`;$('pTitle').textContent=d.name;$('pText').textContent=expanded?d.teaser:(d.kind?d.kind+' · ':'')+'Asleep. Tap LOOK to look closer.';if(window.__DOORS&&d.n>0&&__DOORS.prompt){const q=__DOORS.prompt(d.n,expanded);if(q){$('pKick').textContent=q.kick;$('pTitle').textContent=q.title;$('pText').textContent=q.text;}}/*doorsopen*/}
+  else{$('pKick').textContent=d.n===24?'DOOR 24 · CHRISTMAS EVE':`DOOR ${d.n} · OPENS ${d.n} DECEMBER`;$('pTitle').textContent=d.name;$('pText').textContent=expanded?d.teaser:(d.kind?d.kind+' · ':'')+'Asleep. Tap LOOK to look closer.';if(!d.n){/*playbotfix: shops are not advent doors*/$('pKick').textContent=String((d.kind||'Shop').split(' · ')[0]).toUpperCase();$('pText').textContent=d.kind||'';}if(window.__DOORS&&d.n>0&&__DOORS.prompt){const q=__DOORS.prompt(d.n,expanded);if(q){$('pKick').textContent=q.kick;$('pTitle').textContent=q.title;$('pText').textContent=q.text;}}/*doorsopen*/}
   p.classList.add('show');$('bUse').textContent=d.talk?'TALK':'LOOK';}
 function useAct(){if(P.driving){if(window.__DV4&&window.__DV4.bailOut&&window.__DV4.bailOut(P.driving))return;/* drv4 */exitCar();return;}const nc=nearCar();if(nc&&!(near&&near.n>0&&window.__DOORS&&__DOORS.wants&&__DOORS.wants(near.n))){enterCar(nc);return;}/*doorsopen: an unopened lit door wins over a parked car beside it*//* a car within reach always wins over a nearby place prompt */if(!near)return;if(near.talk){chrisI++;expanded=true;}else if(near.n>0&&window.__DOORS&&__DOORS.use&&__DOORS.use(near.n)){/*doorsopen*/}else expanded=!expanded;showPrompt(near);}
 const GEO={names:[],nidx:new Map(),sidx:new Map()};
@@ -6422,7 +6422,7 @@ for(const t of ['keydown','mousemove','pointerdown'])addEventListener(t,e=>{if(e
 {const mb=document.querySelector('#movie>.mvb');if(mb&&!document.getElementById('mvInput')){const b=document.createElement('button');b.id='mvInput';b.type='button';b.title='Input prompts: AUTO follows the last device you used, KEYBOARD always shows key names, PLAYSTATION always shows controller buttons';b.onclick=padCycleMode;b.style.cssText='grid-column:1/-1;width:100%';mb.insertBefore(b,mb.firstChild);}}
 /* controls screen: the table is built from PAD_MAP ({name} -> the button's name), plus the extra bindings */
 const PAD_CTX=[
- ['Walking',[['Move','Left stick','W A S D'],['Look','Right stick','Mouse'],['Jump','{jump}','Space'],['Run (toggle)','{run}','Shift (hold)'],['Break · attack','{throttle}','Left click'],['Place · use · aim','{brake}','Right click'],['Interact · pick up · get in a car','{interact}','G'],['Inventory and crafting','{inventory}','E'],['Hotbar slot','{prevSlot} / {nextSlot}','1–9 · wheel'],['Flashlight','{flashlight}','L'],['Search places','{search}','T'],['Camera view','{dLeft}','V'],['Photo mode (free camera, no screen UI)','phone menu','-'],['Lantern doors calendar','{dUp}','O'],['Music on / off','{dDown}','M'],['Big map (click the minimap)','{prevSlot} + {nextSlot}','N'],['Pause menu · controls','{options}','Esc']]],
+ ['Walking',[['Move','Left stick','W A S D'],['Look','Right stick','Mouse'],['Jump','{jump}','Space'],['Run (toggle)','{run}','Ctrl (hold) · double-tap W'],['Break · attack','{throttle}','Left click'],['Place · use · aim','{brake}','Right click'],['Interact · pick up · get in a car','{interact}','G'],['Inventory and crafting','{inventory}','E'],['Hotbar slot','{prevSlot} / {nextSlot}','1–9 · wheel'],['Flashlight','{flashlight}','L'],['Search places','{search}','T'],['Camera view','{dLeft}','V'],['Photo mode (free camera, no screen UI)','phone menu','-'],['Lantern doors calendar','{dUp}','O'],['Music on / off','{dDown}','M'],['Big map (click the minimap)','{prevSlot} + {nextSlot}','N'],['Pause menu · controls','{options}','Esc']]],
  ['In a car or vehicle',[['Gas','{throttle}','W'],['Brake · reverse','{brake}','S'],['Steer','Left stick','A D'],['Handbrake (slide, 180 turn)','{nextSlot} or {jump}','Space'],['More speed','{run}','Shift'],['Back on the road (hold)','hold {inventory}','—'],['Radio station','{touchpad}','R'],['Get out','{interact}','G'],['Camera view (7 views)','{dLeft} or {search}','V · C'],['Look behind (hold)','hold {flashlight}','hold B'],['Free look around the car','Right stick','Mouse']]],
  ['Flying · elytra · rockets',[['Open the elytra (while falling)','{jump} in the air','Space in the air'],['Parachute (while falling, press again to fold)','{inventory} in the air','P'],...(window.__PUBLIC_HOST?[]:[['Toggle flying','{dRight} · double-tap {jump}','F · double Space'],['Fly up / down','{dUp} / {dDown}','Space / C']]),['Jetpack: fly up','hold {jump}','hold Space'],['Fire a rocket (3 kinds)','{throttle} or {touchpad}','R'],['Steer a glide','Right stick','Mouse'],['Camera view (7 views)','{dLeft}','V'],['Selfie view (hold)','hold {flashlight}','hold B']]],
  ['Menus, shops and item screens',[['Move the focus','Left stick · D-pad','Mouse'],['Select · buy','{jump}','Click'],['Back · close','{cancel}','Esc'],['Open Settings','Options, then Settings','F2'],['Scroll long lists','Right stick','Mouse wheel'],['Dismiss “You got…!”','{jump} or {cancel}','Enter · click'],['Close the inventory','{inventory}','E']]],
@@ -6900,7 +6900,7 @@ function frame(now){if(window.__DIRNOW)now=window.__DIRNOW(now);/*director*/cons
   {const sp=(P.glide||martin.userData.hip.rotation.x>1)?1:0;for(const [pv,sd] of wings.userData.w){pv.rotation.z+=((sd*(sp?1.05:.16))-pv.rotation.z)*.25;pv.rotation.y+=((sd*(sp?.35:.08))-pv.rotation.y)*.25;const wm=pv.children[0];const tw=sp?1:.5;wm.scale.x+=((sd<0?-tw:tw)-wm.scale.x)*.25;wm.position.x=sd*.29*Math.abs(wm.scale.x);}}
   if(P.glide){martin.rotation.y=P.yaw+Math.PI;martin.rotation.x=0;u.legs[0].rotation.x=u.legs[1].rotation.x=0;u.arms[0].rotation.x=u.arms[1].rotation.x=0;u.hip.rotation.x=window.__RK?window.__RK.hip():1.25;}else{u.hip.rotation.x=0;u.legs[0].rotation.x=sw;u.legs[1].rotation.x=-sw;u.arms[0].rotation.x=-sw;u.arms[1].rotation.x=sw*.6-.25;}try{if(window.__B2HAND)window.__B2HAND.handHook(u);}catch(_){}u.head.rotation.y=0;
   fpDist+=(P.fly||!P.onGround||P.driving)?0:P.speed*dt;/*softsteps: no footsteps or footprints while driving (P.speed is the car's speed there)*/if(fpDist>(window.__MOVE?__MOVE.stride():.6)){fpDist=0;fpSide*=-1;dm.position.set(P.x+Math.cos(P.yaw)*.13*fpSide,P.y+.03,P.z-Math.sin(P.yaw)*.13*fpSide);dm.rotation.set(-Math.PI/2,0,P.yaw);dm.updateMatrix();fpIM.setMatrixAt(fpI%FP,dm.matrix);fpI++;fpIM.count=Math.min(FP,fpI);fpIM.instanceMatrix.needsUpdate=true;crunch();}
-  const dcx=P.x-chris.position.x,dcz=P.z-chris.position.z;if(Math.hypot(dcx,dcz)<12){let a=Math.atan2(dcx,dcz)-chris.rotation.y;a=Math.atan2(Math.sin(a),Math.cos(a));chris.rotation.y+=a*dt*3;}
+  const dcx=P.x-chris.position.x,dcz=P.z-chris.position.z;if(chris.parent&&Math.hypot(dcx,dcz)<12){let a=Math.atan2(dcx,dcz)-chris.rotation.y;a=Math.atan2(Math.sin(a),Math.cos(a));chris.rotation.y+=a*dt*3;}
   chris.userData.arms[0].rotation.x=Math.sin(t*1.3)*.06;
   // camera
   const bob=(!P.fly&&!P.glide&&P.onGround)?Math.sin(walkPh*2)*.04*amp*(window.__KVBOB??1):0;if(window.__RIDE){__RIDE.tick(dt);__RIDE.pose(dt);}/*riding*/const eye=new THREE.Vector3(P.x,P.y+1.62-(window.__MOVE?__MOVE.dip():0)+bob+(window.__RIDE?__RIDE.up():0),P.z);/*mcmove riding*/
@@ -7553,7 +7553,7 @@ const CAROLS=(()=>{try{
     /* lantern light on the nearest lantern */
     if(lb&&lbd<60){LL.position.copy(lb);LL.intensity=C.thr.car?2:Math.max(3,22*(window.__TODL===undefined?1:window.__TODL))+Math.sin(t*9)*.9;/*chrishouselight: choir readable at night*/}else LL.intensity=0;
     /* tip */
-    if(nearG&&!document.body.classList.contains('film')){const s=nearG.cur?SONGS[nearG.cur]:null;tip.innerHTML=nearG.name.toUpperCase()+'<br>'+(s?'<span style="color:#ffd23f">♪ '+s.t+'</span><br><small style="color:#9aa7c4">'+s.by+'</small><br>':'<span style="color:#9aa7c4">getting ready to sing…</span><br>')+'G · Give 5 kr';tip.style.display='block';}else tip.style.display='none';
+    if(nearG&&!document.body.classList.contains('film')){const s=nearG.cur?SONGS[nearG.cur]:null;tip.innerHTML=nearG.name.toUpperCase()+' · '+(s?'<span style="color:#ffd23f">♪ '+s.t+'</span>':'<span style="color:#9aa7c4">getting ready to sing…</span>')+' · G · Give 5 kr';tip.style.display='block';}else tip.style.display='none';
     /* churches */
     if(audioTick){const cand=[];for(const ch of C.churches){const b=ch.b;const dc=Math.hypot(P.x-ch.x,P.z-ch.z)-(b.hw||8)*1.6;if(dc>70){if(ch.choir&&ch.choir.visible)ch.choir.visible=false;if(ch.v&&ch.v.id){stopVoice(ch.v);}continue;}
         const inside=!P.driving&&P.x>b.bb[0]&&P.x<b.bb[1]&&P.z>b.bb[2]&&P.z<b.bb[3]&&pip(P.x,P.z,b.p)&&P.y<b.base+(b.eaveH||10)+2&&P.y>b.base-3;const ed=inside?0:edgeDist(b.p,P.x,P.z);cand.push({ch,inside,ed});
@@ -14062,7 +14062,7 @@ function phaseIn(ph){const n=nowT();updBar();
   if(ph===2){setSt('eat',2000);voice('munch_2','Mmm. Num num num. Num num num num.',0,1);F.hp=Math.min(F.max,F.hp+3);F.throwT=n+2600;F.darkT=n+7000;try{toast('She eats something… and looks stronger.');}catch(_){}}
   if(ph===3){g.scale.setScalar(1.45);voice('scream_3','Nooooo! Get OUT of here!',0,1);sting();jolt=.6;setSt('rage',1100);F.darkT=n+5000;F.lungeT=n+2500;F.throwT=n+3500;}}
 function startFight(){if(F.on||!g||!WI||!WI.st)return false;const n=nowT();window.__BOSS_ON=true;F.on=true;F.lost=false;F.hp=F.max;F.ph=1;F.hits=0;
-  WI.st.downLeft=0;WI.st.ug=1;WI.st.raid=0;U.state='boss';if(L.seq&&!L.seq.boss)L.seq=null;
+  try{if(window.__WITCHKO&&window.__WITCHKO.on)window.__WITCHKO.end();}catch(_){}WI.st.downLeft=0;WI.st.ug=1;WI.st.raid=0;U.state='boss';if(L.seq&&!L.seq.boss)L.seq=null;
   g.scale.setScalar(1.3);g.rotation.set(0,0,0);g.position.set(531,B-10,-703.2);g.visible=true;if(CAUL){CAUL.b=5;CAUL.d=15;}
   bar.style.display='block';updBar();sting();jolt=.5;voice('angry_1','GET OUT OF MY HOUSE!',0,1);
   setSt('intro',1600);F.atkT=n+2500;F.lungeT=n+5500;F.throwT=n+2000;F.darkT=n+9000;F.tauntT=n+7000;try{if(window.__MUS)__MUS.setWitch(true);}catch(e){}return true;}
@@ -14076,7 +14076,7 @@ function winFight(){const n=nowT();F.st='dying';F.sT=n+3200;F.dieY=g.position.y;
 function finishWin(){const x=Math.max(526.8,Math.min(535.2,g.position.x)),z=Math.max(-709.2,Math.min(-702.8,g.position.z));const onC=x>529.6&&x<532.4&&z>-707.4&&z<-704.6;
   g.visible=false;window.__WITCH_GONE=true;saveGone(true);WI.st.downLeft=Infinity;try{ambStop();}catch(_){}try{if(window.__MUS)__MUS.setWitch(false);}catch(_){}endFight();
   makeParcel(onC?533.2:x,onC?-705.5:z);
-  $('banSmall').textContent='She is gone. Something was left behind where she fell…';$('banReset').style.display=DEV?'inline-block':'none';ban.style.display='grid';setTimeout(()=>{ban.style.display='none';},DEV?9000:6500);}
+  $('banSmall').textContent='The spell is broken. Something was left behind where she fell…';$('banReset').style.display=DEV?'inline-block':'none';ban.style.display='grid';setTimeout(()=>{ban.style.display='none';},DEV?9000:6500);}
 function makeParcel(x,z){if(parcel){scene.remove(parcel);parcel=null;}const q=new THREE.Group();const M=c=>new THREE.MeshLambertMaterial({color:c});
   const b=new THREE.Mesh(new THREE.BoxGeometry(.5,.28,.38),M(0xb08a5a));b.position.y=.14;q.add(b);for(const [w,d] of [[.52,.03],[.03,.4]]){const s=new THREE.Mesh(new THREE.BoxGeometry(w,.29,d),M(0xe8e0c8));s.position.y=.145;q.add(s);}
   const lab=new THREE.Mesh(new THREE.BoxGeometry(.16,.01,.1),M(0xfbf6e8));lab.position.set(-.13,.285,.1);q.add(lab);const bow=new THREE.Mesh(new THREE.BoxGeometry(.12,.05,.06),M(0xc8202a));bow.position.y=.3;q.add(bow);
@@ -14126,7 +14126,7 @@ let lastF=nowT(),swayT=0,lastYaw=0,swing=0,hintT=0;
   if(U.on&&!F.on&&L.has&&L.oil>0&&!L.seq&&L.next&&n>L.next)L.scare();
   if(U.state==='lantern'&&g&&n>U.until&&!F.on){if(U.after==='chase'){startChase(rand(3000,5000));voice('angry_3',"I'll beat you with my broom! OUT!",panTo(g.position.x,g.position.z),1);}else vanish(rand(6000,14000));U.after=null;}
   /* auto start on the day of the fight */
-  if(!F.on&&U.on&&!window.__WITCH_GONE&&window.__DAY>=BOSS_DAY&&inArena()&&n>F.retryT&&WI&&WI.st&&!(WI.st.downLeft>0))startFight();
+  if(!F.on&&U.on&&!window.__WITCH_GONE&&window.__DAY>=BOSS_DAY&&inArena()&&n>F.retryT&&WI&&WI.st)startFight();/*fable_03: a knocked-out witch no longer blocks the boss*/
   /* the hint line */
   if(n>hintT){hintT=n+100;let t='',fn=null;
     if(parcel&&Math.hypot(P.x-parcel.position.x,P.z-parcel.position.z)<1.9&&Math.abs(P.y-parcel.position.y)<1.5){t='A PARCEL · Press <b style="color:#ffe36e">G</b> to open it';fn=openParcel;}
@@ -23218,7 +23218,7 @@ const evalDW=(e)=>{const w=e.done_when||{type:'talk'};const d=e.day;
     case 'near':{const t=(e.target&&typeof e.target.x==='number')?e.target:null;if(!t)return false;const r=w.radius||12,d0=dist2(t);if(d0>r+8)G.armed[d]=1;/* only counts after you were away: standing there already does not finish it */return !!G.armed[d]&&d0<r;}
     case 'race':return w.race?!!G.ev.race[w.race]:!!G.ev.race.any;
     case 'bowl':return G.ev.bowl>0;
-    case 'coins':{const b=G.seen.base[d];if(b==null){G.seen.base[d]=coinsNow();saveSeen();return false;}return coinsNow()-b>=(w.n||5);}
+    case 'coins':{/*fable_03: count upward only (yesterday's coins respawn / expire)*/const c=coinsNow(),s=G.seen;s.cn=s.cn||{};if(s.base[d]==null){s.base[d]=c;s.cn[d]=0;saveSeen();return false;}if(c>s.base[d])s.cn[d]=(s.cn[d]|0)+(c-s.base[d]);if(c!==s.base[d]){s.base[d]=c;saveSeen();}return (s.cn[d]|0)>=(w.n||5);}
     case 'flag':return !!window[w.flag];
     case 'manual':return false;
     default:return false;}};
@@ -23230,7 +23230,7 @@ const complete=(d)=>{d=d||curDay();if(!d||isDone(d))return;loadSave();G.done[d]=
 let chkT=0;
 const checkTask=dt=>{chkT-=dt;if(chkT>0)return;chkT=.4;const d=curDay();if(!d||!unlocked(d)||isDone(d))return;const e=entry(d);if(!e)return;if(evalDW(e))complete(d);};
 /* game events */
-try{const RS=window.__RACES;if(RS&&RS.showEnd&&!RS._lgw){const o=RS.showEnd;RS.showEnd=function(h){try{const k=/JETPACK/i.test(h)?'jet':/SPARK/i.test(h)?'spark':'';G.ev.race.any=Date.now();if(k)G.ev.race[k]=Date.now();}catch(_){}return o.apply(this,arguments);};RS._lgw=1;}}catch(_){}
+try{const RS=window.__RACES;if(RS&&RS.showEnd&&!RS._lgw){const o=RS.showEnd;RS.showEnd=function(h){try{const failed=/JETPACK RINGS(?!\s*—)/i.test(h);/*fable_03: the FAIL panel is not a finish*/const k=/JETPACK/i.test(h)?'jet':/SPARK/i.test(h)?'spark':'';if(!failed){G.ev.race.any=Date.now();if(k)G.ev.race[k]=Date.now();}}catch(_){}return o.apply(this,arguments);};RS._lgw=1;}}catch(_){}
 let bowlPrev='';const pollBowl=()=>{try{const B=window.__BOWLING;if(!B||!B.G)return;const s=B.G.state;if(s==='over'&&bowlPrev&&bowlPrev!=='over'&&bowlPrev!=='off')G.ev.bowl=Date.now();bowlPrev=s;}catch(_){}};
 /* ---------- say today's task / pointing ---------- */
 const refreshBtn=()=>{const d=curDay();btn.classList.toggle('new',!!d&&unlocked(d)&&!isDone(d)&&G.seen.told!==d);};
@@ -23284,7 +23284,7 @@ const react=dt=>{const n=performance.now();
     const hl=T.hollows||[];for(const h of hl){if(h.alive&&Math.hypot(h.x-P.x,h.z-P.z)<14){alertNow('Be careful… a Hollow is near!');break;}}}else G.thOn=false;}catch(_){}
   /* a random tip at calm moments, at most every 4 minutes */
   if(n-G.lastTip>240000&&n-G.talkAt>20000&&!S.on&&G.alert<=0&&!G.point&&!window.__ITEMGET_ON&&!P.driving&&G.ready){G.lastTip=n;const tips=TIPS();say('Psst! '+(globalThis.__BAG?__BAG.n(tips):tips[(Math.random()*tips.length)|0]),{hold:2.5,kind:'tip'});}};
-const TIPS=()=>{const pad=usePad();return ['Press L for the flashlight. It gets dark out there.','Press R to change the radio in a car.','Press T to search for any place downtown.','Press E to open your backpack and crafting.',pad?'Hold ▢ near me and I will tell you today\'s task.':'Press Y and I will tell you today\'s task.','Press O to look at all 24 doors.','Hold Shift to run.','Press M to turn the music on or off.','Press G to use things, talk, and get in cars.',pad?'Channel guide: press ▢ at a TV to change the channel. 1 Været og Nytt (the news), 2 Midnatt i Sentrum, 3 Nisse-TV.':'Channel guide: press G at a TV to change the channel. 1 Været og Nytt (the news), 2 Midnatt i Sentrum, 3 Nisse-TV.'];};
+const TIPS=()=>{const pad=usePad();return ['Press L for the flashlight. It gets dark out there.','Press R to change the radio in a car.','Press T to search for any place downtown.','Press E to open your backpack and crafting.',pad?'Hold ▢ near me and I will tell you today\'s task.':'Press Y and I will tell you today\'s task.','Press O to look at all 24 doors.','Hold Ctrl or double-tap W to run.','Press M to turn the music on or off.','Press G to use things, talk, and get in cars.',pad?'Channel guide: press ▢ at a TV to change the channel. 1 Været og Nytt (the news), 2 Midnatt i Sentrum, 3 Nisse-TV.':'Channel guide: press G at a TV to change the channel. 1 Været og Nytt (the news), 2 Midnatt i Sentrum, 3 Nisse-TV.'];};
 /* ---------- per frame ---------- */
 const V=new THREE.Vector3(),tgtp=new THREE.Vector3();let pTime=0,seed=Math.random()*100;
 const frameLG=(now)=>{const dt=Math.min(.1,(now-G.last)/1000);G.last=now;const t=now/1000;
@@ -23292,7 +23292,7 @@ const frameLG=(now)=>{const dt=Math.min(.1,(now-G.last)/1000);G.last=now;const t
     for(const q of TR){if(q.l<=0){q.s.visible=false;continue;}q.l-=dt;q.vx*=1-dt*.6;q.vz*=1-dt*.6;q.x+=q.vx*dt+Math.sin(t*3+q.max*9)*.12*dt;q.y+=q.vy*dt;q.z+=q.vz*dt;q.s.position.set(q.x,q.y,q.z);const a=Math.max(0,q.l/q.max);q.s.material.opacity=a*(.6+.4*Math.sin(t*22+q.max*31));q.s.scale.setScalar((q.sz||.12)*(.5+a)*Math.min(1,Math.hypot(q.x-cam.position.x,q.y-cam.position.y,q.z-cam.position.z)/6));}/* glitter drifts down onto the town, twinkling */
     return;}
   if(typeof started!=='undefined'&&started&&!G.ready){loadSave();}
-  const hide=hideAll();if(hide){LG.visible=false;for(const q of TR)q.s.visible=false;if(S.on)hideBub();comp.style.display='none';mini.style.display='none';BEA.visible=false;btn.style.display=(G.enabled&&!FORCE_OFF&&typeof started!=='undefined'&&started&&!document.body.classList.contains('film'))?'':'none';if(!G.enabled||FORCE_OFF)btn.style.display='none';return;}
+  pollBowl();/*playbotfix: see the bowling game end even while Lykta is hidden*/const hide=hideAll();if(hide){LG.visible=false;for(const q of TR)q.s.visible=false;if(S.on)hideBub();comp.style.display='none';mini.style.display='none';BEA.visible=false;btn.style.display=(G.enabled&&!FORCE_OFF&&typeof started!=='undefined'&&started&&!document.body.classList.contains('film'))?'':'none';if(!G.enabled||FORCE_OFF)btn.style.display='none';return;}
   btn.style.display=FORCE_OFF?'none':'';
   if(!G.loaded&&!G.loading){G.loading=1;loadDays();}
   const sy=Math.sin(P.yaw),cy=Math.cos(P.yaw);const fx=-sy,fz=-cy,rx=cy,rz=-sy;
@@ -23334,7 +23334,7 @@ const loop=now=>{requestAnimationFrame(loop);try{frameLG(now);}catch(err){if(!G.
 /* ---------- dev ---------- */
 const enable=(b)=>{G.enabled=!!b&&!FORCE_OFF;ls.set('kv-lantern-off',G.enabled?'0':'1');const mb=el_('mvLantern');if(mb){mb.textContent='Lantern guide '+(G.enabled?'ON':'OFF');mb.classList.toggle('on',G.enabled);}if(!G.enabled){hideBub();openPanel(false);}return G.enabled;};
 if(DEVQ&&!FORCE_OFF){const mv=document.querySelector('#movie>.mvb');if(mv){const b=document.createElement('button');b.id='mvLantern';b.type='button';b.textContent='Lantern guide '+(G.enabled?'ON':'OFF');b.classList.toggle('on',G.enabled);b.onclick=()=>enable(!G.enabled);mv.appendChild(b);}}
-window.__LANTERNGUIDE={isDone:d=>isDone(d),today:()=>today(),undo:d=>{delete G.done[d];saveDone();refreshBtn();if(G.panel)drawPanel();},/*doorbeacon*//*doorsopen*/tell:()=>{loadSave();tellTask();},selNow:()=>G.sel,cine:(x,y,z,br,snap)=>{if(!G.cine)G.cine=new THREE.Vector3(x,y,z);else G.cine.set(x,y,z);if(snap){LG.position.set(x,y,z);LG.visible=true;}G.cineBr=br==null?1:br;G.cineSnap=!!snap;},cineEnd:()=>{G.cine=null;},lgPos:()=>(LG.visible?LG.position:null),say:(t,o)=>{say(t,o);},setDay:n=>{G.over=n==null?null:Math.max(0,Math.min(31,n|0));G.sel=null;stopPoint();refreshBtn();if(G.panel)drawPanel();return curDay();},select:n=>{G.sel=n;stopPoint();refreshBtn();if(G.panel)drawPanel();},complete:d=>complete(d),point:(x,z,name)=>pointAt(x,z,name),stop:stopPoint,talk,calendar:openPanel,enable,reset:()=>{G.done={};G.seen={base:{},told:0};G.ev={race:{},bowl:0,talk:{}};saveDone();saveSeen();refreshBtn();},
+window.__LANTERNGUIDE={isDone:d=>isDone(d),today:()=>today(),undo:d=>{delete G.done[d];G.ev.race={};G.ev.bowl=0;/*playbotfix: undo also forgets earlier race/bowl wins*/saveDone();refreshBtn();if(G.panel)drawPanel();},/*doorbeacon*//*doorsopen*/tell:()=>{loadSave();tellTask();},selNow:()=>G.sel,cine:(x,y,z,br,snap)=>{if(!G.cine)G.cine=new THREE.Vector3(x,y,z);else G.cine.set(x,y,z);if(snap){LG.position.set(x,y,z);LG.visible=true;}G.cineBr=br==null?1:br;G.cineSnap=!!snap;},cineEnd:()=>{G.cine=null;},lgPos:()=>(LG.visible?LG.position:null),say:(t,o)=>{say(t,o);},setDay:n=>{G.over=n==null?null:Math.max(0,Math.min(31,n|0));G.sel=null;stopPoint();refreshBtn();if(G.panel)drawPanel();return curDay();},select:n=>{G.sel=n;stopPoint();refreshBtn();if(G.panel)drawPanel();},complete:d=>complete(d),point:(x,z,name)=>pointAt(x,z,name),stop:stopPoint,talk,calendar:openPanel,enable,reset:()=>{G.done={};G.seen={base:{},told:0};G.ev={race:{},bowl:0,talk:{}};saveDone();saveSeen();refreshBtn();},
   state:()=>({cineOn:!!G.cine,enabled:G.enabled,day:curDay(),today:today(),done:Object.keys(G.done),pointing:!!G.point,bubble:S.on?S.txt:'',typing:S.on&&!S.done,visible:LG.visible,pos:[LG.position.x,LG.position.y,LG.position.z],loaded:G.loaded,days:G.days.length,panel:G.panel,sleep:G.sleep,alert:G.alert}),
   get days(){return G.days;},idx:()=>IDX,tp:(x,z)=>{P.x=x;P.z=z;P.y=spawnY(x,z);P.vx=P.vz=P.vy=0;},group:LG,emit,body,halo,core,talking:()=>S.on,celeb:()=>G.celeb,alertT:()=>G.alert,alert:m=>{G.lastAlert=0;alertNow(m||'Be careful…');},tip:()=>{G.lastTip=0;const tp=TIPS();say('Psst! '+(globalThis.__BAG?__BAG.n(tp):tp[(Math.random()*tp.length)|0]),{hold:2.5,kind:'tip'});}};
 })();}catch(e){console.warn('lantern guide',e);}
@@ -27387,7 +27387,7 @@ function modsTick(dt){
  S.sk=ease(S.sk,slopeK(S.gr),3,dt);S.hk=ease(S.hk,S.hkT||1,6,dt);S.mk=S.sk*S.hk;}
 function helpSync(){try{const mc=on();
  const w=PAD_CTX[0][1];const i=w.findIndex(r=>/^(Run \(toggle\)|Sprint)/.test(r[0]));
- if(i>=0){const j=w.findIndex(r=>/^Sneak/.test(r[0]));w[i]=mc?['Sprint (stops when you stop)','click {run}','Ctrl (hold) · double-tap W']:['Run (toggle)','{run}','Shift (hold)'];
+ if(i>=0){const j=w.findIndex(r=>/^Sneak/.test(r[0]));w[i]=mc?['Sprint (stops when you stop)','click {run}','Ctrl (hold) · double-tap W']:['Run (toggle)','{run}','Ctrl (hold) · double-tap W'];
   if(mc&&j<0)w.splice(i+1,0,['Sneak (never falls off an edge)','hold {cancel}','Shift (hold)']);else if(!mc&&j>=0)w.splice(j,1);}
  const mv=w.find(r=>/^Move/.test(r[0]));if(mv)mv[0]=mc?'Move (tilt the stick lightly = walk slower)':'Move';
  for(const h of PAD_HELP){if(h[0]==='Left stick')h[1]=mc?'Walk: light tilt = slow, full tilt = walk (steer in a car)':'Walk (steer in a car)';
@@ -47158,7 +47158,7 @@ const giveEly=live=>{if(E9.hasEly())return false;if(!INV.armor.chest)INV.armor.c
   setTimeout(()=>{say(live?'Wings. Just lying here, on top of the world. Jump off the hill and see what happens.':'A pair of wings from Globen turned up in your things. Jump off something high and press Space.');
     got('elytra',{desc:'Wings. Just lying here, on top of the world. Jump off the hill and see what happens. (Space in the air opens them, R for a rocket boost.)'});got('rocket16');},live?1800:600);return true;};
 const done={};
-E9.tick=()=>{try{if(E9.pause||typeof started==='undefined'||!started||W.__INTRO_ON||typeof INV==='undefined')return;const d=DAY();
+E9.tick=()=>{try{if(E9.pause||typeof started==='undefined'||!started||W.__INTRO_ON||(W.__OPENING&&W.__OPENING.on)||(W.__BUSY&&W.__BUSY())||typeof INV==='undefined')return;const d=DAY();
   for(const k of ['jet','ely']){const s=SITES[k];if(d<s.day||done[E9.pfx+k])continue;const near=Math.hypot(P.x-s.x,P.z-s.z)<s.r;const live=d===s.day;if(live&&!near)continue;
     done[E9.pfx+k]=1;if(!once(s.key))continue;const r=k==='jet'?giveJet(live&&near):giveEly(live&&near);E9.log.push([k,d,r,live&&near]);}}catch(e){E9.err=String(e);}};
 setInterval(E9.tick,700);
@@ -56175,7 +56175,8 @@ const ldAll=()=>{try{return JSON.parse(localStorage.getItem(KV)||'{}')||{};}catc
 function me(){const o=ldAll()[who()];if(!o||o.y!==YEAR)return {y:YEAR,ending:'',stage:0,said:{}};return o;}
 function sv(patch){const all=ldAll();const nw=Object.assign(me(),patch);all[who()]=nw;try{localStorage.setItem(KV,JSON.stringify(all));}catch(_){}return nw;}
 const stage=()=>me().stage|0;
-const isFinale=()=>FORCE||dayN()===24;
+const isFinale=()=>FORCE||dayN()===24||(dayN()>24&&stage()<4);/*fable_02: 24 Dec and later until it is done*/
+const late25=()=>dayN()>24;const duskH=()=>{const h=todH();return h>=14.5||h<7||late25();};
 let scoreOv=null;
 /* ---------------------------------------------------------------- the ending score */
 function townWarm(){const o={cairns:0,clans:0,lucia:0,quests:0,hollows:0,total:0};
@@ -56624,7 +56625,8 @@ function dest(){const s=stage(),e=curEnding();if(s===0)return e==='grinch'?treeA
 const destName=()=>{const s=stage(),e=curEnding();return s===0?(e==='grinch'?'The Christmas tree':'The Liland tower'):s===1?'The graveyard':'The Christmas tree';};
 function lykSay(key,text){const m=me();if(m.said&&m.said[key])return;const s=Object.assign({},m.said||{});s[key]=1;sv({said:s});lyk(text,7);}
 function loadLater(){if(DR.laterP)return;DR.laterP=fetch('data/lantern_days.json',{cache:'no-cache'}).then(r=>r.json()).then(j=>{const d=(j.days||[]).find(x=>x.day===24);DR.later=(d&&d.later)||[];}).catch(()=>{DR.later=[];});}
-function poll(){try{if(typeof started==='undefined'||!started||W.__INTRO_ON)return;
+let preDark=false;function preDarkTree(){try{const d=dayN(),C=W.__CINE;if(!C||!C.starTop)return;const sc=W.__DAYSCENE;if(sc&&(sc.on||sc.pending))return;const ST=W.__STORY;let want=false;if(!FORCE&&d>=1&&d<=13)want=d>=2||!!(ST&&ST.seen&&ST.seen('mayorDay1'));if(want){if(C.starTop.visible)C.threshold(true);preDark=true;}else if(preDark){preDark=false;if(!isFinale())C.threshold(false);}}catch(_){}}
+function poll(){try{if(typeof started==='undefined'||!started||W.__INTRO_ON)return;preDarkTree();
   const fin=isFinale();const d=dayN();
   /* the breathing at the tower: day 23 and the morning of 24 (from far away it is only felt, near it is heard) */
   if((d===23||(d===24&&stage()===0)||(FORCE&&stage()===0))&&!F.on&&!Dir.on){const c=castle(),P=C_P();const dd=hyp(P.x-c.x,P.z-c.z);if(dd<520)breathAmb(true,clamp(1-dd/520,0,1)*.9);else if(AU.amb)breathAmb(false,0);}else if(AU.amb&&!Dir.on)breathAmb(false,0);
@@ -56633,18 +56635,18 @@ function poll(){try{if(typeof started==='undefined'||!started||W.__INTRO_ON)retu
   const st=stage(),m=me();
   if(st>=1){const want=m.ending==='warm'?'full':m.ending==='grey'?'half':'dark';if(treeKey!==want||performance.now()-treeT>4000)applyTree(want);
     if(m.ending==='warm'&&!BCN.lit&&!Dir.on)bcnAll(true);if(m.ending==='grinch')doorOpen(1);}
-  if(st>=1&&todH()>=15&&!CND.vis&&!Dir.on&&hyp(C_P().x-cemetery().x,C_P().z-cemetery().z)<420)candlesShow(true,m.ending!=='warm',st>=2?1e5:-1);
+  if(st>=1&&duskH()&&!CND.vis&&!Dir.on&&hyp(C_P().x-cemetery().x,C_P().z-cemetery().z)<420)candlesShow(true,m.ending!=='warm',st>=2?1e5:-1);
   if(CND.vis&&!Dir.on)CND.U.uT.value=(performance.now()/1000)%1000;
   if(Dir.on||F.on||otherBusy()||revealPend||(W.__BUSY&&W.__BUSY('ui,dead'))){prompt('',null);return;}
   const later=DR.later||[];const L=at=>{const x=later.find(q=>q.at===at);return x?x.text:'';};
-  if(st===0&&todH()>=12&&L('afternoon')){lykSay('afternoon',L('afternoon'));setTimeout(()=>{if(stage()!==0)return;const D=dest();lykPoint(D.x,D.z,destName());},7500);}
-  if(st>=1&&todH()>=15&&L('dusk'))lykSay('dusk',L('dusk'));
-  if(st>=2&&todH()>=18&&L('night'))lykSay('night',L('night'));
+  if(st===0&&(todH()>=12||late25())&&L('afternoon')){lykSay('afternoon',curEnding()==='grinch'?'The valley is very quiet tonight. Start at the tree on the square. Stand close and press E.':L('afternoon'));setTimeout(()=>{if(stage()!==0)return;const D=dest();lykPoint(D.x,D.z,destName());},7500);}
+  if(st>=1&&duskH()&&L('dusk'))lykSay('dusk',L('dusk'));
+  if(st>=2&&(todH()>=18||todH()<7||late25())&&L('night'))lykSay('night',L('night'));
   const P=C_P();let txt='',fn=null;
-  if(st===0&&(todH()>=11||FORCE||DEV)){const e=curEnding();const D=dest();const dd=hyp(P.x-D.x,P.z-D.z);
+  if(st===0&&(todH()>=11||late25()||FORCE||DEV)){const e=curEnding();const D=dest();const dd=hyp(P.x-D.x,P.z-D.z);
     if(e==='grinch'){if(dd<6.5&&!P.driving){txt='THE TREE · Press <b>E</b> to stand by it';fn=()=>encounter('grinch');}}
     else if(dd<130&&!P.driving){txt=e==='warm'?'THE TOWER · Press <b>E</b> to raise your lantern':'THE TOWER · Press <b>E</b> to wake the dragon';fn=()=>encounter(e);}}
-  else if(st===1){const cm=cemetery();if(hyp(P.x-cm.x,P.z-cm.z)<60&&todH()>=14.5&&!P.driving){txt='THE GRAVEYARD · Press <b>E</b> to light a candle';fn=lightCandle;}}
+  else if(st===1){const cm=cemetery();if(hyp(P.x-cm.x,P.z-cm.z)<60&&duskH()&&!P.driving){txt='THE GRAVEYARD · Press <b>E</b> to light a candle';fn=lightCandle;}}
   else if(st===2){const T=treeAt();if(hyp(P.x-T.x,P.z-T.z)<6.5&&!P.driving){txt='THE TREE · Press <b>E</b> to read the Nice List';fn=()=>{nicelist();};}}
   prompt(txt,fn);
  }catch(e){e_('poll',e);}}
@@ -56655,8 +56657,8 @@ setInterval(poll,700);
   if(BCN.lit)bcnTick(t);
 }catch(e){e_('tick',e);}};}
 /* ---------------------------------------------------------------- map markers */
-DR.markerLair=()=>{const d=dayN();if(d<23&&!FORCE)return null;if(d===24&&stage()>=1&&!FORCE)return null;if(d>24)return null;const c=castle();return {x:c.x,z:c.z};};
-DR.markerGrave=()=>{if(!(dayN()===24||FORCE)||stage()<1||stage()>2)return null;const c=cemetery();return {x:c.x,z:c.z};};
+DR.markerLair=()=>{const d=dayN();if(d<23&&!FORCE)return null;if(d>=24&&stage()>=1&&!FORCE)return null;const c=castle();return {x:c.x,z:c.z};};
+DR.markerGrave=()=>{if(!(dayN()>=24||FORCE)||stage()<1||stage()>2)return null;const c=cemetery();return {x:c.x,z:c.z};};
 /* ---------------------------------------------------------------- debug API */
 DR.dbg=()=>({pa:!!promptAct,pt:promptTxt,pend:Dir.pend,dir:Dir.on,F:F.on,st:stage(),end:curEnding(),kd:Dir.kd});DR.score=score;DR.ending=curEnding;DR.stage=stage;DR.townWarm=townWarm;
 DR.state=()=>({err:DR.err,day:dayN(),finale:isFinale(),stage:stage(),ending:me().ending,cur:curEnding(),score:score(),dirOn:Dir.on,fight:{on:F.on,done:F.done,hp:Math.round(F.hp),st:F.st,x:Math.round(F.x),y:Math.round(F.y),z:Math.round(F.z)},dragon:{built:DRG.built,vis:DRG.vis},beacons:{built:BCN.built,lit:BCN.lit},candles:{built:CND.built,n:CND.n,vis:CND.vis,wave:CND.wave},tree:treeKey,door:!!DOOR&&DOOR.visible,revealPend,log:DR.log.slice(-10)});
@@ -57301,14 +57303,13 @@ MY.play=async()=>{if(MY.busy)return false;MY.busy=true;try{const D=W.__DAYSCENE;
 MY.skip=()=>{try{W.__DAYSCENE.skip();}catch(_){}};
 MY.state=()=>({armed:MY.armed,busy:MY.busy,day:W.__DAY|0,err:MY.err,log:MY.log.slice(-6),scene:W.__DAYSCENE?W.__DAYSCENE.state():null});
 let near=0;
-function check(){if(!MY.armed||MY.busy||(W.__DAY|0)!==1||!ready())return;
+function check(){if(!MY.armed||MY.busy||(W.__DAY|0)<1||(W.__DAY|0)>13||!ready())return;/*fable_05: also on day 2+ for anyone who stayed in the car on day 1*/
   try{const C=C0(),P=C.P;if(P.driving||P.fly||!isFinite(P.x))return;if(W.__BUSY&&W.__BUSY('scene'))return;if(document.body.classList.contains('film'))return;
     if(buildingAt(P.x,P.z)){near=0;return;}
     const d=Math.hypot(P.x-TREE[0],P.z-TREE[1]);if(d>R_NEAR){near=0;return;}
     if(++near<2)return;
     const ST=W.__STORY;if(ST&&ST.seen&&ST.seen('mayorDay1'))return;
-    if(ST&&ST.once&&!ST.once('mayorDay1'))return;
-    lg('trigger d='+d.toFixed(1));MY.play();}catch(e){MY.err='check '+e;}}
+    lg('trigger d='+d.toFixed(1));MY.play().then(ok=>{if(ok&&ST&&ST.once)ST.once('mayorDay1');});}catch(e){MY.err='check '+e;}}
 setInterval(check,1250);
 if(DEV&&QP.get('mayor')==='1'){let n=0;const iv=setInterval(()=>{if(ready()){clearInterval(iv);setTimeout(()=>MY.play(),2500);}else if(++n>200)clearInterval(iv);},1500);}
 /* ---------- studio: plain-background renders of the Mayor (dev only, for the model sheet) ---------- */
@@ -57604,7 +57605,7 @@ const VO={au:null,tts:false};
 function voiceStop(){try{if(VO.au){VO.au.pause();VO.au=null;}}catch(_){}try{if(window.speechSynthesis)speechSynthesis.cancel();}catch(_){}}
 function voiceSay(id,who,text){voiceStop();if(SC.spd>1)return;/*speechaudit: no voice while fast-forwarding*/const ly=who==='LYKTA',tt=t=>{if(!ly)tts(t);};/*Lykta has no browser-voice fallback: her clip or her caption only*/
   try{const a=new Audio('voice/gertrud/'+id+'.m4a');a.volume=.95*Math.min(1,(window.SMIX&&SMIX.v&&typeof SMIX.v.voices==='number')?SMIX.v.voices:1);try{a.addEventListener('playing',()=>{window.__GFY&&window.__GFY.duck((isFinite(a.duration)?a.duration*1000:8000)+300);},{once:true});}catch(_){}/*gamefeel_13*/VO.au=a;a.onerror=()=>{if(VO.au===a){VO.au=null;tt(text);}};const p=a.play();if(p&&p.catch)p.catch(()=>{if(VO.au===a){VO.au=null;tt(text);}});}catch(_){tt(text);}}
-function tts(text){try{if(!window.speechSynthesis||SC.spd>1||!SC.on)return;const vv_=(window.SMIX&&SMIX.v&&typeof SMIX.v.voices==='number')?SMIX.v.voices:1;if(vv_<.03)return;const u=new SpeechSynthesisUtterance(text);u.pitch=1.55;u.rate=.92;u.volume=.8*Math.min(1,vv_);const vs=speechSynthesis.getVoices();const v=vs.find(x=>/en[-_]US/i.test(x.lang)&&/female|samantha|victoria|allison|ava|susan/i.test(x.name))||vs.find(x=>/en[-_]US/i.test(x.lang));if(v)u.voice=v;speechSynthesis.speak(u);}catch(_){}}
+function tts(text){return;/*fable_03: NO computer voice ever: the subtitle is shown silently*/try{if(!window.speechSynthesis||SC.spd>1||!SC.on)return;const vv_=(window.SMIX&&SMIX.v&&typeof SMIX.v.voices==='number')?SMIX.v.voices:1;if(vv_<.03)return;const u=new SpeechSynthesisUtterance(text);u.pitch=1.55;u.rate=.92;u.volume=.8*Math.min(1,vv_);const vs=speechSynthesis.getVoices();const v=vs.find(x=>/en[-_]US/i.test(x.lang)&&/female|samantha|victoria|allison|ava|susan/i.test(x.name))||vs.find(x=>/en[-_]US/i.test(x.lang));if(v)u.voice=v;speechSynthesis.speak(u);}catch(_){}}
 /* ---------------------------------------------------------------- the cut scene engine (letterbox + captions + fast-forward) */
 const SC=WF.sc={on:false,t:0,spd:1,right:0,tapR:0,tapS:0,iv:0,steps:[],i:-1,tEnd:0,el:null,css:false,res:null,look:null,cap:null,committed:0,motes:null,kd:null};
 function cssOnce(){if(SC.css)return;SC.css=true;const st=document.createElement('style');st.id='wfCss';st.textContent=
@@ -58188,8 +58189,9 @@ flag('__CF3_D11',()=>W.__BAKEDAY&&W.__BAKEDAY.counterBatch());
 flag('__CF3_D13',()=>{const s=W.__DECOR&&W.__DECOR.state&&W.__DECOR.state();return s&&s.on&&s.on.stars&&s.on.lights&&s.on.wreath;});
 flag('__CF3_D15',()=>W.__CRATER&&W.__CRATER.hit);
 flag('__CF3_D16',()=>{const g=W.__MUM&&W.__MUM.state().got;return g&&g['6'];});
-flag('__CF3_D20',()=>W.__CRATER&&W.__CRATER.found);
-flag('__CF3_D21',()=>{const s=sol();if(!s)return false;if(s.mem&&s.mem.end)return true;return !!s.night&&dist(BOWLH[0],BOWLH[1])<14;});
+const crater20=()=>lsg('kv-cf3-crater20')==='1';
+flag('__CF3_D20',()=>crater20()||!!(W.__CRATER&&W.__CRATER.found));
+flag('__CF3_D21',()=>{if((W.__DAY|0)>21)return true;/*fable_02: the night is over*/const s=sol();if(!s)return false;if(s.mem&&s.mem.end)return true;return !!s.night&&dist(BOWLH[0],BOWLH[1])<14;});
 flag('__CF3_D22',()=>{const s=sol();return s&&s.aft&&s.aft.some(q=>q.done);});
 flag('__CF3_D23',()=>W.__BAKEDAY&&W.__BAKEDAY.ginger&&W.__BAKEDAY.ginger.done()&&churchSeen());
 /* ---------------- the chip text ---------------- */
@@ -58203,7 +58205,7 @@ const TXT={
  19:"Fly the jetpack ring race: walk to the start sign and press G",
  20:"Drive up to the crater on Nonskarknuten and have a look. Then run!"};
 function chip12(){
- if(W.__WITCH_GONE)return "She is gone! Open Mom's parcel where she fell (G)";
+ if(W.__WITCH_GONE)return "The spell is broken! Open Mom's parcel where she fell (G)";
  const B=W.__BOSS;
  if(W.__BOSS_ON&&B){if(B.st==='hidden')return 'THE DARK: stand still, lantern up. She comes back behind you';if(B.ph===2)return 'THE DARK: click to hit her. When the light is back, TURN AROUND';if(B.ph===3)return 'ENRAGED: keep clicking, step aside when she lunges';return 'FIGHT: get close and CLICK to hit the witch';}
  const u=W.__UG,ln=W.__LANTERN;
@@ -58221,10 +58223,13 @@ function chip21(){const s=sol()||{};const n=s.lit|0;
  return "Light the cairns on the hills with your lantern (G): "+n+"/15. When it gets dark, run to Bowlinghallen";}
 function chip22(){return "Check on your neighbours: wave at the people in the gardens near Chris's house (G), help the grey ones on the square";}
 function chip23(){const g=S(()=>W.__BAKEDAY.ginger.done()),c=churchSeen();
+ {const B=W.__BAKEDAY;if(!g&&B&&B.have&&B.have('pepperkakehus')<1&&B.have('pepperkakehus_perfect')<1)return "No gingerbread kit: bake a pepperkakehus at Chris's stove (G), or look in Mamma's parcel";}
  if(!g&&!c)return "Make the gingerbread house at Chris's stove (G), then say hello at the church";
  if(!g)return "Now make the gingerbread house at Chris's stove (G): kit + 3 candy + sugar";
  return "Say hello to everyone at the church";}
 const chipFor=d=>{try{
+ if(d===24){const G=W.__DRAGON;if(G&&G.stage&&G.stage()===0&&G.ending&&G.ending()==='grinch')return 'Tonight: the tree on the square. Stand close and press E';}
+ if(d===11){const B=W.__BAKEDAY;if(B&&B.have&&!B.counterBatch()&&B.have('oppskriftskort')<1)return "First: empty the mailbox at Chris's house (G). Mamma's recipe card is in it";}
  if(d===12)return chip12();if(d===13)return chip13();if(d===15)return chip15();if(d===18)return chip18();if(d===21)return chip21();if(d===22)return chip22();if(d===23)return chip23();
  return TXT[d]||null;}catch(e){CF.err=String(e);return null;}};
 CF.chip=chipFor;
@@ -58239,7 +58244,11 @@ const mo=new MutationObserver(()=>{if(!busy)apply();});
 const said=()=>{try{return JSON.parse(lsg('kv-cf3-said')||'{}')||{};}catch(_){return {};}};
 const sayOnce=(k,text)=>{const s=said();if(s[k])return false;try{const L=W.__LANTERNGUIDE;if(!L||!L.say)return false;const st=L.state&&L.state();if(st&&(st.bubble||!st.visible))return false;if(W.__BUSY&&W.__BUSY())return false;s[k]=1;lss('kv-cf3-said',JSON.stringify(s));L.say(text,{hold:4,kind:'tip'});return true;}catch(_){return false;}};
 const HINTS=()=>{const d=day();
+ if(d>=20){const C=W.__CRATER,p=PP();if(C&&C.pos&&p&&Math.hypot(p.x-C.pos.x,p.z-C.pos.z)<95)lss('kv-cf3-crater20','1');}/*fable_02: standing at the crater counts even when it arrived late (quest closed)*/
  if(d===12&&!W.__WITCH_GONE&&dist(HOUSE[0],HOUSE[1])<25)sayOnce('d12h',"The trapdoor behind the house is open. Go down, take the old lantern from the hook (G), and walk into the cauldron room. Click to hit her. When it goes dark, she comes from behind: turn around.");
+ if(d>=11&&d<=12&&dist(HOUSE[0],HOUSE[1])<30&&S(()=>{const B=W.__BAKEDAY;return B&&B.have&&!B.counterBatch()&&B.have('oppskriftskort')<1;}))sayOnce('d11c',"Baking needs Bestemor's recipe card, and it is in the mailbox, the black box by the road. Look at it and press G until it is empty. Then the stove.");
+ if(d>=23&&dist(HOUSE[0],HOUSE[1])<30&&S(()=>{const B=W.__BAKEDAY;return B&&B.have&&!B.ginger.done()&&B.have('pepperkakehus')<1&&B.have('pepperkakehus_perfect')<1;}))sayOnce('d23k',"No gingerbread kit? Mamma's parcel had one, or bake your own at the stove: press G and pick Pepperkakehus.");
+ if(d===18){const nb=S(()=>W.__NISSEBRIDGE.state())||{},f=nb.flags||{};if(!f.summoned){const k=(f.redAgree?'r':'')+(f.blueAgree?'b':'');if(HINTS.a18!==k){const L=W.__LANTERNGUIDE,V=S(()=>W.__NISSE.villages)||[],pl=PP();const want=V.filter(v=>!f[v.id+'Agree']&&isFinite(v.x));if(L&&L.point&&pl&&want.length){want.sort((a,b)=>Math.hypot(a.x-pl.x,a.z-pl.z)-Math.hypot(b.x-pl.x,b.z-pl.z));const v=want[0];L.point(v.x,v.z,v.id==='red'?'The red hat cave':'The blue hat cave');HINTS.a18=k;}}}}
  if(d===13&&dist(HOUSE[0],HOUSE[1])<18)sayOnce('d13h',"Stand in the front yard and press G. Stars, lights, a wreath. Put them all up and the door is done.");
  if(d===16&&dist(526.5,-706.5)<14)sayOnce('d16h',"The mailbox is the black box by the road. Look at it and press G.");
  if(d>=23&&dist(CHURCH[0],CHURCH[1])<28){if(!churchSeen()){lss('kv-cf3-church23','1');try{toast('Little Christmas Eve at the church: say hello to everyone here (G at a person)');}catch(_){}}sayOnce('d23c',"Everyone has come to the church. Say hello to the people here: walk up to them and press G. Slowly. It is Lille julaften.");}
@@ -58336,11 +58345,14 @@ function siren(){const o=out();if(!o)return;try{const t=ac.currentTime,g0=clamp(
   osc.connect(lp);lp.connect(g);g.connect(o);osc.start(t);osc.stop(t+12.1);PA.s++;PA.busyUntil=performance.now()+13000;}catch(e){CR.err=String(e);}}
 function lyktaOnce(){if(PA.ly)return;PA.ly=true;const S=STO();if(S&&S.once&&!S.once('meteor_pa_lykta'))return;
   setTimeout(()=>{try{const L=W.__LANTERNGUIDE;if(L&&L.say)L.say('That is the loudspeaker. It says look up. I am looking up. Nothing yet, which is exactly what worries me.',{kind:'task',hold:2});}catch(_){}},9000);}
-function autoPlay(){try{const A=W.__ADVENT;if(!A||!A.play||!A.openers.meteor||CR.hit||A.played[15]||A.busy&&A.busy())return;
+function autoPlay(force){try{const A=W.__ADVENT;if(!A||!A.play||!A.openers.meteor||CR.hit||(A.played[15]&&!force)||A.busy&&A.busy())return;
   A.played[15]=Date.now();ls(KP,JSON.stringify(A.played));A.play('meteor');}catch(e){CR.err=String(e);}}
-function tick(){try{if((W.__DAY|0)!==15||CR.hit){stopTimer();return;}if(!free())return;const now=performance.now();if(now<PA.busyUntil)return;
+function nudge(dd){if(PA.nd===dd)return;try{const L=W.__LANTERNGUIDE;if(!L||!L.say)return;const st=L.state&&L.state();if(st&&st.bubble)return;PA.nd=dd;L.say(dd===15?'Tonight is the night. The loudspeakers keep saying it: when it gets dark, come outside and look up. Stay out in the open. I will be right here.':'Something fell from the sky and we were not looking. Come outside after dark and look up. The night is not over until we have seen it.',{kind:'task',hold:3});}catch(_){}}
+function tick(){try{const dd=W.__DAY|0;if(dd<15||dd>19||CR.hit){stopTimer();return;}if(!free())return;const now=performance.now();if(now<PA.busyUntil)return;
   const h=hour();
-  if((DEV?QP.get('meteorauto')==='1':true)&&(h>=21.5||h<4)){autoPlay();return;}
+  if(dd>15){/*fable_05: made up on a later night*/if(h>=20||h<4)autoPlay(true);else nudge(dd);return;}
+  nudge(15);
+  if((DEV?QP.get('meteorauto')==='1':true)&&(h>=20||h<4)){autoPlay();return;}
   if(townDist()>430||now<PA.next)return;
   if(!PA.next){PA.next=now+12000;return;}
   const night=h>=17||h<4,late=h>=19||h<4;let sir=night&&(PA.i%2===1);PA.i++;
@@ -58356,7 +58368,7 @@ async function lateCrater(){try{for(let i=0;i<40;i++){const M=W.__METEOR;if(M&&M
   ls(KM,JSON.stringify(Object.assign(sv(),{v:2,done:1,t:Date.now(),crater:{x:c.x,y:c.y,z:c.z},quest:'done',late:1})));M.crater=Object.assign(M.crater||{},c);try{M.buildCrater();}catch(_){}
   CR.onImpact(true,true);}catch(e){CR.err=String(e);}}
 function arm(){const S=STO();if(!S||!S.onDay){setTimeout(arm,1500);return;}
-  S.onDay(day=>{try{if(day===15&&!CR.hit)startTimer();else if(day>=16&&!CR.hit&&S.has('crater'))setTimeout(lateCrater,4000);}catch(e){CR.err=String(e);}});}
+  S.onDay(day=>{try{if(day===15&&!CR.hit)startTimer();else if(day>=16&&day<=19&&!CR.hit)startTimer();else if(day>=20&&!CR.hit&&S.has('crater'))setTimeout(lateCrater,4000);}catch(e){CR.err=String(e);}});}
 arm();
 })();}catch(e){window.__METEORNIGHT_ERR=String(e&&e.stack||e);console.warn('meteornight',e);}
 /* /meteornight */
@@ -58878,7 +58890,7 @@ function passStep(){if(!N.on||!N.passes||W.__INTRO_ON)return;
   const TH=W.__THRESH;if(!TH||!TH.hollows)return;
   for(const h of TH.hollows){if(!h.alive||h.st==='grab'||h.st==='dying'||h.st==='off'||h.st==='stun')continue;
     for(const p of N.passes)if(hy(h.x-p.x,h.z-p.z)<26){h.st='stun';h.stun=2.2;h.stunCD=3.2;h.cd=Math.max(h.cd||0,3);break;}}}
-SO.markerPos=function(i){if(i==='aft'){const s=AFT.spots.find(q=>q.kind==='nb'&&!q.done);return day()===22&&s?{x:s.x,z:s.z}:null;}
+SO.markerPos=function(i){if(i==='aft'){const s=AFT.spots.find(q=>q.kind==='nb'&&!q.done);return day()>=22&&s?{x:s.x,z:s.z}:null;}
   if(!N.on||!N.passes||!N.passes[i])return null;return {x:N.passes[i].x,z:N.passes[i].z};};
 function tickNight(force){const t0=performance.now();try{
   const act=nightActive();
@@ -58916,13 +58928,13 @@ function buildSpot(s){if(s.mesh)return;s.y=gY(s.x,s.z);const parts=[];const K=.7
   if(s.kind==='nb'&&s.done)addHouseNisse(s);}
 function addHouseNisse(s){if(s.hn)return;const parts=[];nisseParts(parts,0,0,.42,0xb8312a,0xc8102e,false);const m=new THREE.Mesh(vcg(parts),MAT);m.position.set(s.x+1.1,s.y,s.z+.8);m.rotation.y=Math.atan2(P.x-s.x,P.z-s.z);scene.add(m);s.hn=m;}
 function dropAft(){for(const s of AFT.spots){if(s.mesh){kill(s.mesh);s.mesh=null;}if(s.hal){kill(s.hal);s.hal=null;}if(s.hn){kill(s.hn);s.hn=null;}}if(AFT.sign){kill(AFT.sign);AFT.sign=null;}}
-function aftStep(){if(day()!==22||W.__INTRO_ON)return;planAft();
+function aftStep(){if(day()<22||W.__INTRO_ON)return;planAft();
   for(const s of AFT.spots){const d=hy(s.x-P.x,s.z-P.z);if(d<260&&!s.mesh){try{buildSpot(s);}catch(e){e8('spot',e);}}else if(d>420&&s.mesh&&!s.busy){kill(s.mesh);s.mesh=null;if(s.hal){kill(s.hal);s.hal=null;}if(s.hn){kill(s.hn);s.hn=null;}}}
   /* the closure scene: first time the player is at the NCC desk on the square */
   if(!me().closure&&!CL.on&&!busy()){const c=nccPos();if(hy(c[0]-P.x,c[1]-P.z)<20&&Math.abs(P.y-gY(c[0],c[1]))<8)closure();}}
 function tip(){if(AFT.tip)return AFT.tip;const e=document.createElement('div');e.id='solTip';e.style.cssText='position:fixed;left:50%;top:calc(50% + 26px);transform:translateX(-50%);z-index:4;font:13px Silkscreen,monospace;color:#fbf6e8;background:rgba(7,11,24,.8);border:3px solid #111;padding:6px 12px;text-align:center;display:none;text-shadow:1px 1px 0 #000;line-height:1.5;cursor:pointer;pointer-events:auto';document.body.appendChild(e);e.addEventListener('click',()=>act());AFT.tip=e;return e;}
 function nearest(){let best=null,bd=4.6;
-  if(day()===22)for(const s of AFT.spots){if(!s.mesh&&!s.busy)continue;const d=hy(s.x-P.x,s.z-P.z);if(d<bd&&Math.abs(P.y-s.y)<5){bd=d;best=s;}}
+  if(day()>=22)for(const s of AFT.spots){if(!s.mesh&&!s.busy)continue;const d=hy(s.x-P.x,s.z-P.z);if(d<bd&&Math.abs(P.y-s.y)<5){bd=d;best=s;}}
   if(day()===21&&N.on&&N.passes)for(const p of N.passes){if(!p.mesh)continue;const d=hy(p.x-P.x,p.z-P.z);if(d<5.5&&d<bd+1){bd=d;best={kind:'pass',p,x:p.x,z:p.z,y:p.y,id:'pass'+p.i};}}
   return best;}
 function hover(){const t=tip();if(busy()||CL.on){if(AFT.cur){AFT.cur=null;AFT.key='';t.style.display='none';}return;}
@@ -59000,8 +59012,8 @@ function arm(d){try{
   if(d===21||DEV){/* Lykta's own words for the long night go into the scheduler's table */
     const TS=S&&S.threshold;if(TS&&TS.lines&&d===21){TS.lines.full_warn=text('warn');TS.lines.full_start=text('start');}}
   if(d===21){if(!iv1)iv1=setInterval(()=>tickNight(false),1000);}
-  if(d===22){if(!iv1)iv1=setInterval(()=>{try{aftStep();}catch(e){e8('aft',e);}},1000);if(!iv2)iv2=setInterval(()=>{try{hover();}catch(e){e8('hover',e);}},250);
-    setTimeout(()=>{if(day()===22&&once('sol_aft_line')){say('aft',7,1000);say('aftHint',7,9500);}},9000);}
+  if(d>=22){if(!iv1)iv1=setInterval(()=>{try{aftStep();}catch(e){e8('aft',e);}},1000);if(!iv2)iv2=setInterval(()=>{try{hover();}catch(e){e8('hover',e);}},250);
+    setTimeout(()=>{if(day()>=22&&once('sol_aft_line')){say('aft',7,1000);say('aftHint',7,9500);}},9000);}
   if(d===21&&!iv2)iv2=setInterval(()=>{try{hover();}catch(e){e8('hover',e);}},250);
 }catch(e){e8('arm',e);}}
 W.addEventListener('cairns:lit',onLit);
@@ -59342,7 +59354,7 @@ function hdSet(){const r=dzOf();if(r>0)HD.value.set(STAD[0],STAD[1],r,1);else HD
 
 /* ---------------------------------------------------------------- 1. the crater always exists from day 16 (the day-15 meteor may have been missed) */
 let crTries=0;
-function ensureCrater(){try{const CR=W.__CRATER;if(!CR)return false;if(CR.pos)return true;if(day()<16&&!E.dev)return false;const M=W.__METEOR;if(!M||!M.find||typeof Hm!=='function')return false;
+function ensureCrater(){try{const CR=W.__CRATER;if(!CR)return false;if(CR.pos)return true;if(day()<20&&!E.dev)return false;/*fable_06: Hush only walks from day 20; before that a missed meteor night stays missable (no silent crater)*/const M=W.__METEOR;if(!M||!M.find||typeof Hm!=='function')return false;
   const c=M.find();if(!c||!isFinite(c.x))return false;let o={};try{o=JSON.parse(lg(KM)||'{}')||{};}catch(_){}
   ls(KM,JSON.stringify(Object.assign(o,{v:2,done:1,t:Date.now(),crater:{x:c.x,y:c.y,z:c.z},quest:'done',late:1})));M.crater=Object.assign(M.crater||{},c);try{M.buildCrater();}catch(_){}
   try{CR.onImpact(true,true);}catch(_){}return !!CR.pos;}catch(e){E.err='crater '+e;return false;}}
@@ -60806,7 +60818,7 @@ BD.counterBatch=()=>load().cb||0;
 BD.ginger={done:()=>!!load().gb};
 const I8=()=>window.__I8,I9=()=>window.__I9;
 const nameOf=id=>{try{return itemName(id);}catch(_){return id;}};
-const have=id=>{try{return countOf(id);}catch(_){return 0;}};
+const have=id=>{try{return countOf(id);}catch(_){return 0;}};BD.have=have;
 const mkIc=(id,px)=>{const c=document.createElement('canvas');c.width=c.height=16;try{c.getContext('2d').drawImage(iconCanvas(id),0,0);}catch(_){}if(px)c.style.width=c.style.height=px+'px';return c;};
 /* ---------------------------------------------------------------- items */
 const CANDY=['polkagris','marsipangris','sukkerspinn','smagodt','brente_mandler','kanelmandler'];
@@ -60851,16 +60863,16 @@ function card(o){const c=el('div','card bd'+(o.ok?' ok':''));c.dataset.bd=o.key;
   return c;}
 function counterCard(){const st=load(),hasCard=have('oppskriftskort')>0;
   if(st.cb)return card({key:'counter',icon:st.cb==='perfect'?'counterbatch_perfect':'counterbatch',title:"Mamma's counter-batch",en:'baked '+(st.cb==='perfect'?'(golden)':'(ok)'),text:'Done. The tin is for the witch on 12 Dec. Keep it in your pockets.',rows:[],ok:true});
-  if(!hasCard&&!(DEV&&bakeOpen()))return null;
+  if(!hasCard&&!bakeOpen())return null;/*fable_03: from 11 Dec the card shows, with the reason*/
   const miss=missingOf(COUNTER.ins),rows=Object.entries(COUNTER.ins).map(([id,n])=>[id,have(id),n]);rows.unshift(['oppskriftskort',have('oppskriftskort'),1,"Bestemor's recipe card (kept until it works)"]);
-  let why='';if(!bakeOpen())why='Baking Day is 11 Dec. Come back then.';else if(!hasCard)why='Needs the recipe card from Mamma.';else if(miss.length)why='Missing: '+miss.map(([id,n])=>(n-have(id))+' x '+nameOf(id).replace(/ \(.*\)/,'')).join(', ');
+  let why='';if(!bakeOpen())why='Baking Day is 11 Dec. Come back then.';else if(!hasCard)why="Needs Bestemor's recipe card: it is in Mamma's letter in the mailbox by the road at Chris's house (press G there until the mailbox is empty).";else if(miss.length)why='Missing: '+miss.map(([id,n])=>(n-have(id))+' x '+nameOf(id).replace(/ \(.*\)/,'')).join(', ');
   const where=miss.length?'Buy: '+miss.map(([id])=>nameOf(id).replace(/ \(.*\)/,'')+' at '+SELLTXT(id)).join(' · '):'';
   return card({key:'counter',icon:'counterbatch',title:"BAKING DAY · Mamma's counter-batch",en:'pepperkaker, baked with the first candle',text:'The card: light the first candle, say who the baking is for, then mix, roll, cut and bake. Do not let it burn.',rows,where,ok:!why,btn:'BAKE',why,go:()=>ritual()});}
 function ginCard(){const st=load();
   if(st.gb&&!have('pepperkakehus'))return card({key:'ginger',icon:'pepperkakehus_pyntet',title:'Pepperkakehus',en:'gingerbread house (decorated)',text:'Done. It hangs on a tree, or waits in your pockets for one.',rows:[],ok:true});
-  if(!have('pepperkakehus')&&!(DEV&&ginOpen()))return null;
+  if(!have('pepperkakehus')&&!ginOpen())return null;/*fable_03*/
   const rows=[['pepperkakehus',have('pepperkakehus'),1,'Pepperkakehus kit (Mamma\'s parcel)'],['polkagris',candyHave(),3,'3 pieces of candy (any)'],['sukker',have('sukker'),1,'Sukker (icing)']];
-  let why='';if(!ginOpen())why='Lille julaften is 23 Dec. Not yet.';else if(!have('pepperkakehus'))why='Needs the pepperkakehus kit from Mamma\'s parcel (or bake one).';else if(candyHave()<3)why='Needs 3 pieces of candy.';else if(have('sukker')<1)why='Needs 1 sugar for the icing.';
+  let why='';if(!ginOpen())why='Lille julaften is 23 Dec. Not yet.';else if(!have('pepperkakehus'))why='Needs a pepperkakehus: Mamma\'s kit, or bake one at this stove (recipe Pepperkakehus: 3 flour, 2 sugar, 1 butter, 2 syrup, 2 ginger spice).';else if(candyHave()<3)why='Needs 3 pieces of candy.';else if(have('sukker')<1)why='Needs 1 sugar for the icing.';
   const where=(candyHave()<3?'Candy: Godteboden (polkagris, marsipangris, sukkerspinn) / Kiosken (smågodt). ':'')+(have('sukker')<1?'Sugar: '+SELLTXT('sukker'):'');
   return card({key:'ginger',icon:'pepperkakehus',title:'LILLE JULAFTEN · Decorate the house',en:'build, ice and decorate your gingerbread house',text:'Walls, roof, icing, candy. It becomes a Christmas-tree decoration. Nothing is used up until it is finished.',rows,where,ok:!why,btn:'DECORATE',why,go:()=>openGinger()});}
 function inject(){try{const K=document.getElementById('kitchen');if(!K||K.hidden)return;const grid=K.querySelector('.kgrid');if(!grid||grid.querySelector('[data-bd]'))return;css();defs();
@@ -70712,11 +70724,12 @@ setInterval(()=>{try{if(typeof started==='undefined'||!started)return;const day=
   try{const s=R&&R.state&&R.state();if(s&&s.played)done=true;}catch(_){}
   try{if(G&&G.stage&&G.stage()>=3)done=true;}catch(_){}
   if(done&&!W.__DOOR24)W.__DOOR24=true;
-  if(done||day!==24||!G||!G.stage||!G.dev)return;
+  if(done||day<24||!G||!G.stage||!G.dev)return;
   const h=W.__TOD&&isFinite(W.__TOD.h)?W.__TOD.h:0,st=G.stage();
-  if(st===0&&h>=17)say('s0','The night has an order, lantern rule: first the dragon at the Liland tower, then the candles at the graveyard, then the tree on the square, where you press E and Santa reads the Nice List. Follow me.',(()=>{try{const c=G.dev.castle();return {x:c.x,z:c.z,name:'The Liland tower'};}catch(_){return null;}})());
-  else if(st===1&&h>=17)say('s1','Next: the candles at the graveyard. Press E there and light one. Then the tree, and the list.',(()=>{try{const c=G.dev.cemetery();return {x:c.x,z:c.z,name:'The graveyard'};}catch(_){return null;}})());
-  else if(st===2&&h>=19)say('s2','Last stop: the tree on the square. Stand close and press E. Santa reads the list.',(()=>{try{const c=G.dev.treeAt();return {x:c.x,z:c.z,name:'The Christmas tree'};}catch(_){return null;}})());
+  if(st===0&&(h>=17||day>24)&&G.ending&&G.ending()==='grinch')say('s0','The valley is very quiet tonight. Start at the tree on the square. Stand close and press E.',(()=>{try{const c=G.dev.treeAt();return {x:c.x,z:c.z,name:'The Christmas tree'};}catch(_){return null;}})());
+  else if(st===0&&(h>=17||day>24))say('s0','The night has an order, lantern rule: first the dragon at the Liland tower, then the candles at the graveyard, then the tree on the square, where you press E and Santa reads the Nice List. Follow me.',(()=>{try{const c=G.dev.castle();return {x:c.x,z:c.z,name:'The Liland tower'};}catch(_){return null;}})());
+  else if(st===1&&(h>=17||h<7||day>24))say('s1','Next: the candles at the graveyard. Press E there and light one. Then the tree, and the list.',(()=>{try{const c=G.dev.cemetery();return {x:c.x,z:c.z,name:'The graveyard'};}catch(_){return null;}})());
+  else if(st===2&&(h>=19||h<7||day>24))say('s2','Last stop: the tree on the square. Stand close and press E. Santa reads the list.',(()=>{try{const c=G.dev.treeAt();return {x:c.x,z:c.z,name:'The Christmas tree'};}catch(_){return null;}})());
 }catch(e){DS.err=String(e&&e.stack||e);}},2500);
 })();}catch(e){window.__DOORSCORE_ERR=String(e&&e.stack||e);console.warn('doorscore',e);}
 /* /doorscore */
@@ -70918,7 +70931,7 @@ if(!H||H.off)return;
 const $=id=>D.getElementById(id);
 /* priority = order (first wins) */
 H.lists.voice=['witchLine','eyeLine','qsTalk','qsSub','voLine','tlLine','blSub','shSub','njSub','rvLine','tvLine','wonderLine','lyLine','lgBubble'];
-H.lists.prompt=['hudPrompt','prompt','kvHint','klHint','qsHint','shPrompt','rtPrompt','trPrompt','pchPrompt','mgPrompt','nsPrompt','nbPrompt','gdHint','pjHint','lfHint','bxHint','igHint','flHint','rvHint','prHint','gaHint','msHint','nlrHint','riceHint','litPrompt','raceHint','ftPrompt','rtDoor','kitchenTip','decoTip','hdTip','fqTip','kvTip','ncTip','i6held','i6warn'];
+H.lists.prompt=['hudPrompt','prompt','kvHint','klHint','qsHint','carolTip','shPrompt','rtPrompt','trPrompt','pchPrompt','mgPrompt','nsPrompt','nbPrompt','gdHint','pjHint','lfHint','bxHint','igHint','flHint','rvHint','prHint','gaHint','msHint','nlrHint','riceHint','litPrompt','raceHint','ftPrompt','rtDoor','kitchenTip','decoTip','hdTip','fqTip','kvTip','ncTip','i6held','i6warn'];
 const x3=(l,pre)=>l.map(i=>`html ${pre||'body'} #${i}#${i}#${i}`).join(',');
 function css(){
  const V=H.lists.voice,P=H.lists.prompt;
@@ -72392,7 +72405,13 @@ O.use=n=>{try{n|=0;const s=stOf(n);if(s!==2&&s!==4)return false;const now=perfor
     try{const f=ensureFlash();f.style.opacity='1';setTimeout(()=>{f.style.transition='opacity 1.4s ease-in';f.style.opacity='0';setTimeout(()=>{f.style.transition='opacity .25s ease-out';},1500);},350);}catch(_){}
     try{toast('Door '+n+' creaks open…');}catch(_){}}
   const go=()=>{try{const Lg=L();if(!Lg)return;if(s===4||Lg.selNow&&Lg.selNow()!=null)Lg.select(n);else Lg.select(null);Lg.tell();O.told[n]=(O.told[n]|0)+1;O.log.push('told '+n);}catch(er){O.err=String(er&&er.stack||er);}};
-  if(first)setTimeout(go,900);else go();
+  /*fable_01: the same opener the O panel plays (news montage, day scene + quick-time moment, day 15 meteor, day 12 boss scene): today's door, first LOOK, once per day*/
+  const A=W.__ADVENT;const late15=!!(first&&s===4&&n===15&&W.__CRATER&&!W.__CRATER.hit&&(W.__DAY|0)<=19);/*fable_05: a missed meteor night is made up at the waiting door*/
+  const oids=(((first&&s===2)||late15)&&A&&A.days&&A.days[n-1])?A.days[n-1].openers.filter(i=>A.openers[i]&&A.openers[i].made&&!A.openers[i].auto):[];
+  if(oids.length&&(late15||!A.played[n])&&!(A.busy&&A.busy())){
+    A.played[n]=Date.now();try{localStorage.setItem('kv-advent-played',JSON.stringify(A.played));}catch(_){}
+    O.opener=n;setTimeout(async()=>{try{for(const i of oids)await A.play(i);}catch(er){O.err=String(er&&er.stack||er);}O.opener=0;go();},900);
+  }else if(first)setTimeout(go,900);else go();
   return true;}catch(er){O.err=String(er&&er.stack||er);return false;}};
 /* an old door you opened by hand leaves Lykta's selection on that day: put it back to today once it is done */
 setInterval(()=>{try{const Lg=L();if(!Lg||!Lg.selNow)return;const sl=Lg.selNow();if(sl!=null&&Lg.isDone(sl))Lg.select(null);}catch(_){}},1500);
@@ -74624,6 +74643,8 @@ const SHAPE={q:'d',k:'c',c:'t',p:'s',v:'s',a:'h',t:'t',s:'c',n:'s',o:'c'};
 /* existing layers: only their group (and, for some, a better name) */
 const OLD={q:['q'],d:['q'],h:['q','NISSE CAPS (hide and seek)'],r:['a'],c:['k'],t:['k'],v:['k'],p:['k'],o:['k'],mr:['k'],w:['k'],x:['c'],mc:['c'],mn:['c'],mw:['c'],a:['c'],z:['a'],l:['p','PLACE NAMES & VILLAGES'],u:['t'],ms:['s'],k:['s'],n:['n'],b:['o'],f:['o']};
 const PARENTS={g:1,e:1,s:1,mx:1};/* replaced by the finer entries below; their builders never run */
+/*fable_04: spoiler gate. Real game only (localhost / dev shows everything): a name or a left-list entry waits for its story day.*/
+const SPOIL=W.__SPOIL={rules:[[/^The Threshold's castle/i,23],[/^The Eye\b/i,17],[/^Shelter hatch/i,14],[/^Jetpack rings \(start\)/i,6]],on:()=>{try{return !!W.__PUBLIC_HOST&&!isDev();}catch(_){return false;}},day:()=>(W.__DAY|0),hide(name){if(!SPOIL.on())return false;const n=String(name||''),d=SPOIL.day();for(const [rx,f] of SPOIL.rules)if(rx.test(n)&&d<f)return true;return false;},def(d){return !!(d&&d.from&&SPOIL.on()&&SPOIL.day()<d.from);}};
 function D(k,g,name,col,gl,def,o){const d=Object.assign({k,g,name,col,gl,def:!!def,own:true,sh:SHAPE[g]||'c'},o||{});MA.defs.push(d);MA.byKey[k]=d;return d;}
 /* ---------- data helpers ---------- */
 function J(path){const j=MA.json;if(j[path]!==undefined)return j[path];j[path]=null;try{fetch(path,{cache:'no-cache'}).then(r=>r.json()).then(d=>{j[path]=d;}).catch(()=>{j[path]=false;});}catch(_){j[path]=false;}return null;}
@@ -74647,19 +74668,19 @@ function fillN(){const N=W.__NCC;const o=[];if(!N)return o;let act=false;try{act
   const C0=N.C0;if(C0&&fin(C0.x))o.push({x:C0.x,z:C0.z,id:'ncc-hq',name:isDev()?'NCC headquarters (not open yet)':'NCC ?',unk:true,sub:'n',gl:'N',col:'#4a7bff',lz:.1});
   for(const s of (N.sites||[])){if(!fin(s.x)||!fin(s.z))continue;o.push({x:s.x,z:s.z,id:'ncc-'+s.id,name:isDev()?(s.op?'NCC outpost · ':'NCC field site · ')+s.name+' (not open yet)':'NCC ?',unk:true,sub:'n',gl:'N',col:'#4a7bff',lz:.5});}
   o.push({x:-1741.4,z:430.4,id:'ncc-cordon-road',name:isDev()?'NCC roadblock · mountain road (days 16 to 19)':'NCC ?',unk:true,sub:'n',gl:'N',col:'#4a7bff',lz:.5});
-  o.push({x:-1665,z:-232,id:'ncc-crater-cordon',name:isDev()?'Crater cordon · watchtower (days 16 to 21)':'NCC ?',unk:true,sub:'n',gl:'N',col:'#4a7bff',lz:.5});return o;}
+  if(!SPOIL.on()||SPOIL.day()>=16)o.push({x:-1665,z:-232,id:'ncc-crater-cordon',name:isDev()?'Crater cordon · watchtower (days 16 to 21)':'NCC ?',unk:true,sub:'n',gl:'N',col:'#4a7bff',lz:.5});return o;}
 /* TRANSPORT */
 D('ycars','t','CARS YOU CAN DRIVE (G to get in)','#f4a742','C',0,{lz:.9,min:.4,collect:()=>{const C=W.__CARS;const o=[];if(!C)return o;let n=0;for(const k in C){const c=C[k];if(!c||!fin(c.x)||!fin(c.z)||(c.y!==undefined&&c.y<-900))continue;o.push({x:c.x,z:c.z,id:'car'+k,name:'Car'+(c.kind?' · '+c.kind:'')+(c.mine?' (yours)':'')});if(++n>400)break;}return o;}});
 /* STORY & MYSTERIES */
-D('yshelter','s','SHELTER HATCHES & BUNKER','#9aa0aa','S',1,{lz:.4,collect:()=>{const S=W.__SHELTER;const o=[];if(!S)return o;if(S.main&&fin(S.main.x))o.push({x:S.main.x,z:S.main.z,id:'main',name:S.main.name||'Bunker main entrance'});for(const h of (S.hatches||[]))if(fin(h.x)&&fin(h.z))o.push({x:h.x,z:h.z,id:h.id,name:'Shelter hatch · '+(h.name||h.id)});return o;}});
+D('yshelter','s','SHELTER HATCHES & BUNKER','#9aa0aa','S',1,{from:14,lz:.4,collect:()=>{const S=W.__SHELTER;const o=[];if(!S)return o;if(S.main&&fin(S.main.x))o.push({x:S.main.x,z:S.main.z,id:'main',name:S.main.name||'Bunker main entrance'});for(const h of (S.hatches||[]))if(fin(h.x)&&fin(h.z))o.push({x:h.x,z:h.z,id:h.id,name:'Shelter hatch · '+(h.name||h.id)});return o;}});
 D('yburnt','s','THE BURNT HOUSE','#e8602a','B',1,{lz:0,collect:()=>{const j=J('data/burnt_houses.json');const o=[];for(const h of ((j&&j.houses)||[]))if(fin(h.x))o.push({x:h.x,z:h.z,id:'burnt',name:'The burnt-out house · Farmonen'});return o;}});
-D('yeye','s','THE EYE TOWER','#ff3b3b','E',1,{lz:0,collect:()=>{const C=W.__CINE;const p=pos(C&&C.CASTLE);const o=[];if(p)o.push({x:p.x,z:p.z,id:'eye',name:'The Eye (castle tower)'});return o;}});
-D('ycrater','s','THE METEOR CRATER','#ff7a3a','C',1,{lz:0,collect:()=>{const C=W.__CRATER;const o=[];const q=C&&C.hit&&C.pos;if(q&&fin(q.x))o.push({x:q.x,z:q.z,id:'crater',name:'The meteor crater'});else o.push({x:-1665,z:-232,id:'crater',name:isDev()?'The meteor crater (not hit yet) · Nonskarknuten':'Crater ?',unk:!isDev()});return o;}});
+D('yeye','s','THE EYE TOWER','#ff3b3b','E',1,{from:17,lz:0,collect:()=>{const C=W.__CINE;const p=pos(C&&C.CASTLE);const o=[];if(p)o.push({x:p.x,z:p.z,id:'eye',name:'The Eye (castle tower)'});return o;}});
+D('ycrater','s','THE METEOR CRATER','#ff7a3a','C',1,{from:15,lz:0,collect:()=>{const C=W.__CRATER;const o=[];const q=C&&C.hit&&C.pos;if(q&&fin(q.x))o.push({x:q.x,z:q.z,id:'crater',name:'The meteor crater'});else o.push({x:-1665,z:-232,id:'crater',name:isDev()?'The meteor crater (not hit yet) · Nonskarknuten':'Crater ?',unk:!isDev()});return o;}});
 D('ytipi','s','TIPI VILLAGE & CAMPS','#d6a44e','T',1,{lz:.3,reg:1});
 /* NCC & THE MAYOR */
-D('ymayor','n','MAYOR CLUES (bike, Tormod posters)','#ff9ec0','M',0,{lz:.6,collect:()=>{const M=W.__MAYORCLUES;const o=[];try{const b=M&&M.state&&M.state().bike;if(b&&b.pos&&fin(b.pos.x))o.push({x:b.pos.x,z:b.pos.z,id:'bike',name:'Mayor clue · the bike'});}catch(_){}
+D('ymayor','n',(SPOIL.on()&&SPOIL.day()<22?'ODD THINGS IN TOWN (bike, posters)':'MAYOR CLUES (bike, Tormod posters)'),'#ff9ec0','M',0,{lz:.6,collect:()=>{const M=W.__MAYORCLUES;const o=[];try{const b=M&&M.state&&M.state().bike;if(b&&b.pos&&fin(b.pos.x))o.push({x:b.pos.x,z:b.pos.z,id:'bike',name:'Mayor clue · the bike'});}catch(_){}
   const j=J('data/tormod_posters.json');for(const s of ((j&&j.spots)||[]))if(fin(s.x))o.push({x:s.x,z:s.z,id:'poster'+s.id,name:'Tormod poster '+s.id+' · '+(s.area||''),min:.5});return o;}});
-D('ycable','n','THE MAYOR\'S CABLE & FEDA CONVERTER','#ffcf3a','⚡',0,{lz:.3,reg:1,collect:()=>{const j=J('data/mayor_cable_route.json');const o=[];if(!j||!j.route)return o;const r=j.route;for(let i=0;i<r.length;i+=12)o.push({x:r[i][0],z:r[i][1],id:'cb'+i,name:'Mayor cable route (pole '+(i/12+1)+')',min:.3});return o;}});
+D('ycable','n','THE MAYOR\'S CABLE & FEDA CONVERTER','#ffcf3a','⚡',0,{from:22,lz:.3,reg:1,collect:()=>{const j=J('data/mayor_cable_route.json');const o=[];if(!j||!j.route)return o;const r=j.route;for(let i=0;i<r.length;i+=12)o.push({x:r[i][0],z:r[i][1],id:'cb'+i,name:'Mayor cable route (pole '+(i/12+1)+')',min:.3});return o;}});
 /* ACTIVITIES */
 D('yninja','a','NINJA WARRIOR COURSE','#ff6a3a','N',1,{lz:0,collect:()=>{const N=W.__NINJA;const o=[];const p=pos(N&&N.site);if(p)o.push({x:p.x,z:p.z,id:'ninja',name:'Ninja Warrior course (run it yourself)'});return o;}});
 D('ykvent','a','KVENT TABLES (card game)','#ff6a5a','K',1,{lz:.4,collect:()=>{const K=W.__KVPLACES;const o=[];let L=[];try{L=K&&K.list?K.list():[];}catch(_){}const seen=new Set();for(const p of L){const t=p.table&&fin(p.table.x)?p.table:(fin(p.x)?p:null);if(!t)continue;const k=Math.round(t.x)+','+Math.round(t.z);if(seen.has(k))continue;seen.add(k);o.push({x:t.x,z:t.z,id:'kt_'+p.id,name:'Kvent table · '+(p.name||p.id)});}return o;}});
@@ -74698,13 +74719,13 @@ D('ycar','v','HOUSES & GARAGES TO BUY, YOUR CAR','#f4a742','C',1,{lz:.3,reg:1,de
 D('ycinema','v','CINEMA (DERPMAX)','#c070ff','C',1,{lz:0,reg:1});
 /* TRANSPORT */
 D('yballoon','t','HOT-AIR BALLOONS (climb in)','#ff9a5a','B',1,{lz:.6,reg:1});
-D('yjet','t','JETPACK RINGS, ELYTRA & NIGHT WING','#7fd8ff','J',1,{lz:0,reg:1});
+D('yjet','t','JETPACK RINGS, ELYTRA & NIGHT WING','#7fd8ff','J',1,{from:6,lz:0,reg:1});
 /* STORY places from the "more places" list */
-D('ywitch','s','THE WITCH / GERTRUD\'S FLAT','#b06bff','W',1,{lz:0,reg:1});
+D('ywitch','s','THE WITCH / GERTRUD\'S FLAT','#b06bff','W',1,{from:12,lz:0,reg:1});
 D('yrusty','s','UNCLE RUSTY & HIS CAMPER','#ffa040','R',1,{lz:0,reg:1,dedupe:60,collect:()=>{const R=W.__RV;const q=R&&R.site&&fin(R.site.x)?R.site:null;return [{x:q?q.x:520,z:q?q.z:-730,id:'rusty',name:q?'Uncle Rusty · his camper':'Uncle Rusty ? (camper site near Chris\'s house)',unk:!q&&!isDev()}];}});
-D('ydragon','s','LILAND TOWER & THE GRAVEYARD CANDLES','#ff9a3c','D',1,{lz:0,reg:1,dedupe:40,collect:()=>{const o=[];const d=W.__DRAGON;let L=null,G=null;try{L=d&&d.markerLair&&d.markerLair();G=d&&d.markerGrave&&d.markerGrave();}catch(_){}const C=W.__CINE;const cs=pos(C&&C.CASTLE),ch=pos(C&&C.CHURCH);if(L||cs)o.push({x:(L||cs).x,z:(L||cs).z,id:'lair',name:L?'The Liland tower · something is breathing':(isDev()?'The Liland tower (opens day 23)':'Old tower ?'),unk:!L&&!isDev()});if(G||ch)o.push({x:(G||ch).x+14,z:(G||ch).z+10,id:'grave',name:G?'Candles at the graveyard':(isDev()?'Graveyard candles (day 24)':'Graveyard ?'),unk:!G&&!isDev()});return o;}});
-D('ysol','s','SOLSTICE NIGHT (passes, neighbours)','#ff8a4a','▲',1,{lz:0,reg:1});
-D('ystory','s','OTHER STORY PLACES (barn, refuge, hush)','#c9a064','?',1,{lz:0,reg:1});
+D('ydragon','s','LILAND TOWER & THE GRAVEYARD CANDLES','#ff9a3c','D',1,{from:23,lz:0,reg:1,dedupe:40,collect:()=>{const o=[];const d=W.__DRAGON;let L=null,G=null;try{L=d&&d.markerLair&&d.markerLair();G=d&&d.markerGrave&&d.markerGrave();}catch(_){}const C=W.__CINE;const cs=pos(C&&C.CASTLE),ch=pos(C&&C.CHURCH);if(L||cs)o.push({x:(L||cs).x,z:(L||cs).z,id:'lair',name:L?'The Liland tower · something is breathing':(isDev()?'The Liland tower (opens day 23)':'Old tower ?'),unk:!L&&!isDev()});if(G||ch)o.push({x:(G||ch).x+14,z:(G||ch).z+10,id:'grave',name:G?'Candles at the graveyard':(isDev()?'Graveyard candles (day 24)':'Graveyard ?'),unk:!G&&!isDev()});return o;}});
+D('ysol','s','SOLSTICE NIGHT (passes, neighbours)','#ff8a4a','▲',1,{from:21,lz:0,reg:1});
+D('ystory','s','OTHER STORY PLACES (barn, refuge, hush)','#c9a064','?',1,{from:20,lz:0,reg:1});
 /* ---------- classify one registry entry ---------- */
 const KIND=(r)=>String(r.kind||'');
 function regSub(r){const id=r.id||'',k=KIND(r),nm=String(r.name||'');
@@ -74740,7 +74761,7 @@ bmL=function(id){if(PARENTS[id])return false;if(MA.force)return true;const d=MA.
 function keyOn(k){const was=MA.force;MA.force=false;try{return bmL(k);}finally{MA.force=was;}}
 /* BML: drop the lumpy parents, add ours (in group order); chips are built from BML the first time the map opens */
 try{for(let i=BML.length-1;i>=0;i--)if(PARENTS[BML[i][0]])BML.splice(i,1);
-  for(const d of MA.defs)if(!BML.some(b=>b[0]===d.k))BML.push([d.k,d.name,d.col]);
+  for(const d of MA.defs)if(!BML.some(b=>b[0]===d.k)&&!SPOIL.def(d))BML.push([d.k,d.name,d.col]);
   if(!BML.some(b=>b[0]==='h'))BML.push(['h',OLD.h[1],'#d8323a']);if(!BML.some(b=>b[0]==='n'))BML.push(['n','NCC (HQ, outposts, roadblock, cordon)','#4a7bff']);
   for(const b of BML){const o=OLD[b[0]];if(o&&o[1])b[1]=o[1];}
   BML.sort((a,b)=>(GI[grpOf(a[0])]-GI[grpOf(b[0])])||0);
@@ -74748,7 +74769,7 @@ try{for(let i=BML.length-1;i>=0;i--)if(PARENTS[BML[i][0]])BML.splice(i,1);
 /* ---------- the builder: old layers (forced, so every count is known) + ours, then filtered by the switches ---------- */
 function collectOnce(){const seen=new Set();const out=[];/* registry-driven layers share ONE pass over the registry */
   const reg=regMarks();const bySub={};for(const m of reg)(bySub[m.sub]=bySub[m.sub]||[]).push(m);
-  for(const d of MA.defs){let a=[];try{if(d.reg)a=(bySub[d.k]||[]).slice();if(d.collect)a=a.concat(d.collect()||[]);}catch(e){note(e);}
+  for(const d of MA.defs){if(SPOIL.def(d))continue;let a=[];try{if(d.reg)a=(bySub[d.k]||[]).slice();if(d.collect)a=a.concat(d.collect()||[]);}catch(e){note(e);}
     const mine=[];for(const m of a){if(!fin(m.x)||!fin(m.z))continue;if(d.dedupe&&mine.some(q=>hyp(q.x-m.x,q.z-m.z)<d.dedupe))continue;m.layer='ma';m.sub=m.sub||d.k;m.kind=m.kind||'ma';m.col=m.col||d.col;m.gl=m.gl||d.gl;m.sh=m.sh||d.sh;m.lz=m.lz!==undefined?m.lz:(d.lz||0);if(m.min===undefined)m.min=d.min||0;m.id=String(m.id);mine.push(m);out.push(m);}}
   for(const f of [fillT,fillR,fillW,fillN]){let a=[];try{a=f();}catch(e){note(e);}for(const m of a){m.layer='ma';m.kind='mu';m.sh=m.sh||'c';m.id=String(m.id);out.push(m);}}
   return out;}

@@ -1,6 +1,89 @@
 {
  "entries": [
   {
+   "date": "2026-11-26",
+   "time": "13:30",
+   "title": "Bowling door, tree arrow and shop signs fixed",
+   "items": [
+    "Door 3 now counts when your bowling game ends",
+    "On Christmas Eve Lykta points at the real tree",
+    "Shops no longer say 'Door 0'",
+    "Lykta's tip now says Ctrl or double-tap W to run (Shift is sneak)"
+   ]
+  },
+  {
+   "date": "2026-11-26",
+   "time": "07:10",
+   "title": "Opening a day's door now plays that day's story",
+   "items": [
+    "Looking at the lit door now plays the day's news and cutscene first (once), and Lykta tells you the task afterwards. Before, only the old door list did this"
+   ]
+  },
+  {
+   "date": "2026-11-26",
+   "time": "07:10",
+   "title": "Missed a day? You can still catch up",
+   "items": [
+    "Christmas Eve now works on the 24th and any day after, until you have seen it, and the tower prompt, candles and Nice List work at any hour",
+    "Days 20, 21 and 22 can be done late: the crater, the long night and the grey neighbours no longer disappear after their day",
+    "A missed meteor night is shown again on a later night, or when you look at the waiting door 15"
+   ]
+  },
+  {
+   "date": "2026-11-26",
+   "time": "07:10",
+   "title": "Day 12: the witch fight always starts",
+   "items": [
+    "If you knocked the witch out on the way down, the fight with her now starts anyway when you reach the cauldron room"
+   ]
+  },
+  {
+   "date": "2026-11-26",
+   "time": "07:10",
+   "title": "Day 19: a failed ring race no longer opens the door",
+   "items": [
+    "Running out of fuel in the jetpack race does not count as finishing any more"
+   ]
+  },
+  {
+   "date": "2026-11-26",
+   "time": "07:10",
+   "title": "Baking Day and Lille julaften hints",
+   "items": [
+    "Day 11: the baking card shows at the stove with a note on where Bestemor's recipe card is (the mailbox), and Lykta says so too",
+    "Day 23: the gingerbread card shows even without the kit, and tells you how to bake one"
+   ]
+  },
+  {
+   "date": "2026-11-26",
+   "time": "07:10",
+   "title": "No spoilers on the map or in search",
+   "items": [
+    "The map list and search keep the castle, the Eye, the shelter hatches, the crater, the Mayor's cable and Gertrud's flat hidden until their day"
+   ]
+  },
+  {
+   "date": "2026-11-26",
+   "time": "07:10",
+   "title": "Smaller story fixes",
+   "items": [
+    "The spell breaks on day 12: the witch is not gone for good, she is Gertrud, and Lykta's lines say so",
+    "The square tree stays dark until the lights come on on day 14",
+    "Day 5 coins only count upwards, day 18 Lykta's arrow leads to the caves first, the Grinch ending points to the tree",
+    "Gertrud never speaks with a computer voice; her lines show as subtitles when a recording cannot play",
+    "The carolers' tip and the quest-giver prompt no longer sit on top of each other",
+    "A late joiner no longer gets item pop-ups on top of the opening scene"
+   ]
+  },
+  {
+   "date": "2026-11-26",
+   "time": "05:25",
+   "title": "Chris no longer stands by the town tree",
+   "items": [
+    "The old Chris figure by the town tree is gone — Chris is a real player now, so there is only one of him"
+   ]
+  },
+  {
    "date": "2026-11-19",
    "time": "09:14",
    "title": "Tunnel lights fixed",

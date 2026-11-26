@@ -16,7 +16,7 @@
     "type": "near",
     "radius": 14
    },
-   "done": "The tree is lit and so are you. The first door is open!"
+   "done": "Found it. Big tree, small town, and I think it just blinked. The first door is open!"
   },
   {
    "day": 2,
@@ -210,7 +210,7 @@
     "type": "flag",
     "flag": "__WITCH_GONE"
    },
-   "done": "The spell is broken and she is gone for good! Go and get that last parcel where she fell.",
+   "done": "The spell is broken! That was never a witch. That was a neighbour with a very bad month. Go and get the parcel where she fell.",
    "chip": "Go down the trapdoor behind Chris's house, take the lantern (G), find the witch"
   },
   {
@@ -418,8 +418,8 @@
    "hint": "Press Y and I will show you the way to the next stop. Your Nice points plus your Julestemning decide who is the nicest.",
    "kind": "explore",
    "target": {
-    "x": 7,
-    "z": 28,
+    "x": -0.5,
+    "z": 15,
     "name": "The Christmas tree"
    },
    "done_when": {
