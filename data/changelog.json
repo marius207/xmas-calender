@@ -1,6 +1,126 @@
 {
  "entries": [
   {
+   "date": "2026-11-19",
+   "time": "09:14",
+   "title": "Tunnel lights fixed",
+   "items": [
+    "Two rows of long ceiling lights run the whole way through the tunnels",
+    "Under every light there is now a soft, warm glow on the road that follows the lane, instead of the big blocky patches that spilled all over"
+   ]
+  },
+  {
+   "date": "2026-11-19",
+   "time": "09:14",
+   "title": "Big roads look like the Fedafjord bridge",
+   "items": [
+    "All the big roads (the E39, the main roads through the valley, Nesgata, Austerdalsvegen) now have smooth dark asphalt with crisp white edge lines and a yellow dashed centre line, just like the road on the Fedafjord bridge",
+    "Small streets and paths look the same as before"
+   ]
+  },
+  {
+   "date": "2026-11-19",
+   "time": "08:30",
+   "title": "Statues moved off the roads",
+   "items": [
+    "Seven landmark statues (the Big Sleeper, the Cinnamon Buns, the Face That Looks Up, the Giant Stairs, the Enormous Toaster, the Upside-Down House and one Lake Serpent) stood on or beside roads and paths. They are now in clearings at least 8 m from any road, street, trail or bridge.",
+    "Nothing else about them changed: same look, plaques, map markers, GPS and search follow the new places."
+   ]
+  },
+  {
+   "date": "2026-11-18",
+   "time": "18:23",
+   "title": "The creatures of the woods are out",
+   "items": [
+    "The woods creatures (huldra, draugr, nøkken and the rest) and the many findable dens now live in the real game, with the same limits as before on phones and on the lowest graphics level."
+   ]
+  },
+  {
+   "date": "2026-11-18",
+   "time": "18:22",
+   "title": "Photo mode",
+   "items": [
+    "Press the minus key (-) or use PHOTO MODE in the phone menu: the world slows down, the screen clears and you get a free camera within 15 metres of yourself.",
+    "Pick a look (normal, warm, noir, film grain), set the field of view and press SAVE PHOTO to download a PNG. Esc leaves the mode."
+   ]
+  },
+  {
+   "date": "2026-11-18",
+   "time": "18:21",
+   "title": "Digging takes a moment",
+   "items": [
+    "Hold the break button to dig. A crack grows on the block; let go and it heals.",
+    "Snow, dirt, leaves and glass still break at once. Wooden walls take about a second by hand, stone and brick about a second and a half.",
+    "The Vedøks axe cuts wood much faster. Creative mode stays instant.",
+    "No leather from rugs, clothes racks or beds, and no way to craft an elytra: it comes from the day-9 story."
+   ]
+  },
+  {
+   "date": "2026-11-18",
+   "time": "18:20",
+   "title": "One game: no more shortcuts",
+   "items": [
+    "You can no longer fly freely with F, a double-tap on Space or the FLY button. Flying has to be earned: jetpack, elytra, the Night Wing, balloons and rockets are the real ways up.",
+    "The search box now guides you to a place with the GPS instead of teleporting you there.",
+    "The secret search code that gave an elytra and endless rockets is gone from the real game.",
+    "On the real site every web-address option (like ?day= or ?dev=1) is ignored, so nobody can jump ahead in the advent plan by editing the link.",
+    "F3 / F4 performance overlays are for the builder only. The Show FPS setting is still there for everyone.",
+    "The phone menu button 'SEND TO CLAUDE' is now called 'Send a bug report'."
+   ]
+  },
+  {
+   "date": "2026-11-18",
+   "time": "17:00",
+   "title": "Ninja Warrior: loud from afar, visible only on the lake",
+   "items": [
+    "The stands, screens, commentators, lights, beams and the commentary captions now only show up when you are within about 300 metres of the frozen lake course. No more seeing it from Utsikten.",
+    "The sound still carries: the crowd, the PA, the commentators and the run music fade in smoothly from up to 900 metres away and are gone beyond that.",
+    "The town music only pauses while you can actually hear the show. The map marker and GPS are unchanged."
+   ]
+  },
+  {
+   "date": "2026-11-18",
+   "time": "16:50",
+   "title": "Esc only ever goes back",
+   "items": [
+    "Esc no longer opens Settings. It closes whatever is open (inventory, map, phone, shop, search, notes, menus) and does nothing when nothing is open.",
+    "Settings now open with F2, the SETTINGS button in the top bar, or the Options menu on a controller.",
+    "Releasing the mouse no longer pops Settings up by itself. The controls screen and help texts list the new key."
+   ]
+  },
+  {
+   "date": "2026-11-18",
+   "time": "10:44",
+   "title": "Santa calls out your deeds",
+   "items": [
+    "Every time the Nice List moves, Santa shouts a short line from the North Pole: \"Ho ho ho!\" for good deeds, \"Oi!\" for naughty ones, bigger ones for big deeds.",
+    "He never spams: a pause between lines, a daily limit, and he stays quiet during scenes, fights and announcements.",
+    "The Nice List ending scene and the lump of coal use the same new short lines."
+   ]
+  },
+  {
+   "date": "2026-11-18",
+   "time": "10:24",
+   "title": "Everything you can interact with is in the map list",
+   "items": [
+    "The layer list on the left of the big map (N) now has an entry for every kind of thing you can use, talk to, open, board, light or play: quest givers, trail people, snowmen without hats, every chest, trail find, cairn, signpost, trial and rune stone, hot-air balloons, parked cars, shops by type, services (hospital, police, fire, school, library, church...), arenas, races, the Ninja course, ski and sledding hills, Kvent tables, shelter hatches, the burnt house, the Eye, the crater, NCC places, the Mayor clues and cable, and more.",
+    "The list is grouped (quests and people, collectibles, creatures, places and shops, services, activities, transport, story, NCC and the Mayor, other). Every entry shows how many there are, groups fold up, ALL / NONE per group, SHOW ALL / HIDE ALL on top, and a box to find a layer by name.",
+    "Things you have not found or opened yet show as \"?\" but you can still click them for the GPS. The minimap now shows exactly the layers you have switched on (doors and trash bins included), and your choice is saved.",
+    "Search has an entry for every small layer, and \"Nearest ...\" entries for the big ones."
+   ]
+  },
+  {
+   "date": "2026-11-18",
+   "time": "10:08",
+   "title": "The Hush climbs out of the crater",
+   "items": [
+    "Day 20: walk up to the crater and the Hush climbs out of it, in a one-minute scene with your own sound. Three quick moments (BRACE, KEEP THE LANTERN LIT, RUN); missing one never blocks the story, it only costs a little Julestemning.",
+    "The Hush has a new look: a black two-legged horned demon with torn wings and glowing red cracks. It can fly. After the scene it flies over the valley and lands at the stadium, where it eats the lamps around it.",
+    "If a player missed the day-15 meteor, the crater now still appears from day 16 (the Hush used to be missing for them).",
+    "Hold Right to fast-forward the scene, double-tap Space to jump ahead, Esc skips it."
+   ]
+  },
+  {
    "date": "2026-11-18",
    "time": "09:43",
    "title": "Dev: click a map marker to teleport",
