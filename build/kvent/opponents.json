@@ -1,0 +1,504 @@
+{
+ "version": 2,
+ "opponents": [
+  {
+   "id": "kare",
+   "name": "Kåre the Card Player",
+   "place": "Bowlinghallen, the Kvent corner (his own table)",
+   "faction": "town",
+   "leader": "t_l1",
+   "personality": "balanced",
+   "level": 1,
+   "tier": 1,
+   "extras": [
+    "n_baker"
+   ],
+   "portrait": "n_kare",
+   "dev": true,
+   "lines": {
+    "greet": [
+     "Sit. I have been waiting since the snow started.",
+     "Sett deg. Jeg har ventet siden snøen kom."
+    ],
+    "win": [
+     "The log never loses. It just waits.",
+     "Stokken taper aldri. Den bare venter."
+    ],
+    "lose": [
+     "I blame the cards. And the snow. And Marius.",
+     "Jeg skylder på kortene. Og snøen. Og Marius."
+    ],
+    "rwin": [
+     "Hm. Warm in here.",
+     "Hm. Varmt her inne."
+    ],
+    "rlose": [
+     "Wood creaks. It does not break.",
+     "Tre knirker. Det knekker ikke."
+    ],
+    "pass": [
+     "I pass. I am patient.",
+     "Jeg passer. Jeg er tålmodig."
+    ]
+   },
+   "greet": "Sit. I have been waiting since the snow started.",
+   "win": "The log never loses. It just waits.",
+   "lose": "I blame the cards. And the snow. And Marius."
+  },
+  {
+   "id": "pinsper",
+   "name": "Pins-Per the Bowler",
+   "place": "Bowlinghallen, the Kvent corner",
+   "faction": "town",
+   "leader": "t_l1",
+   "personality": "balanced",
+   "level": 1,
+   "tier": 1,
+   "extras": [
+    "n_mitten"
+   ],
+   "portrait": "n_bowler",
+   "lines": {
+    "greet": [
+     "Lane three is free, but this table is better. Sit.",
+     "Bane tre er ledig, men dette bordet er bedre. Sitt."
+    ],
+    "win": [
+     "Strike. In cards, that means I win.",
+     "Strike. I kortspill betyr det at jeg vinner."
+    ],
+    "lose": [
+     "Gutter ball. I blame the shoes.",
+     "Renne. Jeg skylder på skoene."
+    ],
+    "rwin": [
+     "Spare!",
+     "Spare!"
+    ],
+    "rlose": [
+     "A split. Ugh.",
+     "En splitt. Uff."
+    ],
+    "pass": [
+     "My turn to rent shoes.",
+     "Min tur til å leie sko."
+    ]
+   },
+   "greet": "Lane three is free, but this table is better. Sit.",
+   "win": "Strike. In cards, that means I win.",
+   "lose": "Gutter ball. I blame the shoes."
+  },
+  {
+   "id": "sven",
+   "name": "Sven the Cafe Owner",
+   "place": "Inside Frippledee (the cafe), at a table",
+   "faction": "town",
+   "leader": "t_l1",
+   "personality": "greedy",
+   "level": 1,
+   "tier": 1,
+   "extras": [
+    "n_baker"
+   ],
+   "portrait": "t_sven",
+   "lines": {
+    "greet": [
+     "Coffee is on me. The win is not.",
+     "Kaffen er på huset. Seieren er det ikke."
+    ],
+    "win": [
+     "Refill?",
+     "Påfyll?"
+    ],
+    "lose": [
+     "I will blame the milk.",
+     "Jeg skylder på melken."
+    ],
+    "rwin": [
+     "The tip jar is over there.",
+     "Tipsboksen står der borte."
+    ],
+    "rlose": [
+     "Decaf. That was decaf.",
+     "Koffeinfritt. Det var koffeinfritt."
+    ],
+    "pass": [
+     "Back in a minute, the espresso machine is screaming.",
+     "Straks tilbake, espressomaskinen skriker."
+    ]
+   },
+   "greet": "Coffee is on me. The win is not.",
+   "win": "Refill?",
+   "lose": "I will blame the milk."
+  },
+  {
+   "id": "ola",
+   "name": "Ola the Baker",
+   "place": "Inside Smula Bakeriutsalg (the bakery), at a table",
+   "faction": "town",
+   "leader": "t_l3",
+   "personality": "cautious",
+   "level": 1,
+   "tier": 1,
+   "extras": [
+    "n_baker",
+    "n_goat"
+   ],
+   "portrait": "n_baker",
+   "lines": {
+    "greet": [
+     "Careful. The dough is watching.",
+     "Pass på. Deigen ser på."
+    ],
+    "win": [
+     "Rises every time.",
+     "Hever seg hver gang."
+    ],
+    "lose": [
+     "Burnt. Again.",
+     "Brent. Igjen."
+    ],
+    "rwin": [
+     "Fresh out of the oven.",
+     "Rett fra ovnen."
+    ],
+    "rlose": [
+     "A little flat.",
+     "Litt flatt."
+    ],
+    "pass": [
+     "I will let it rest.",
+     "Jeg lar den hvile."
+    ]
+   },
+   "greet": "Careful. The dough is watching.",
+   "win": "Rises every time.",
+   "lose": "Burnt. Again."
+  },
+  {
+   "id": "ingeborg",
+   "name": "Ingeborg the Librarian",
+   "place": "Inside Kvinesdal bibliotek, at a reading-room table",
+   "faction": "town",
+   "leader": "t_l2",
+   "personality": "scholar",
+   "level": 2,
+   "tier": 2,
+   "extras": [
+    "t_ingeborg"
+   ],
+   "portrait": "t_ingeborg",
+   "unlock": {
+    "wins": 1
+   },
+   "lines": {
+    "greet": [
+     "Shh. Play quietly.",
+     "Hysj. Spill stille."
+    ],
+    "win": [
+     "Overdue: your loss.",
+     "Forfalt: tapet ditt."
+    ],
+    "lose": [
+     "I shall note this.",
+     "Dette skal noteres."
+    ],
+    "rwin": [
+     "Noted.",
+     "Notert."
+    ],
+    "rlose": [
+     "That page was missing from my copy.",
+     "Den siden manglet i mitt eksemplar."
+    ],
+    "pass": [
+     "I pass. Silently.",
+     "Jeg passer. Stille."
+    ]
+   },
+   "greet": "Shh. Play quietly.",
+   "win": "Overdue: your loss.",
+   "lose": "I shall note this."
+  },
+  {
+   "id": "brit",
+   "name": "Brit the Shopkeeper",
+   "place": "Inside Nico Mat (the shop), at a small table by the counter",
+   "faction": "town",
+   "leader": "t_l1",
+   "personality": "haggler",
+   "level": 2,
+   "tier": 2,
+   "extras": [
+    "n_mitten",
+    "n_cat",
+    "n_tin"
+   ],
+   "portrait": "n_mitten",
+   "unlock": {
+    "wins": 1
+   },
+   "lines": {
+    "greet": [
+     "Everything is for sale. Including this round.",
+     "Alt er til salgs. Også denne runden."
+    ],
+    "win": [
+     "No refunds.",
+     "Ingen refusjon."
+    ],
+    "lose": [
+     "Keep the change.",
+     "Behold vekslepengene."
+    ],
+    "rwin": [
+     "Sold!",
+     "Solgt!"
+    ],
+    "rlose": [
+     "That was a loss leader.",
+     "Det var et lokketilbud."
+    ],
+    "pass": [
+     "I will wait for the sale.",
+     "Jeg venter på salget."
+    ]
+   },
+   "greet": "Everything is for sale. Including this round.",
+   "win": "No refunds.",
+   "lose": "Keep the change."
+  },
+  {
+   "id": "gunvald",
+   "name": "Chieftain Gunvald",
+   "place": "The Red Cave",
+   "faction": "rod",
+   "leader": "r_l2",
+   "personality": "bluffer",
+   "level": 3,
+   "tier": 3,
+   "extras": [
+    "n_goat",
+    "n_cat"
+   ],
+   "portrait": "r_l2",
+   "clan": "red",
+   "rival": "blue",
+   "unlock": {
+    "wins": 3
+   },
+   "pack": "clan_rod",
+   "lines": {
+    "greet": [
+     "Red hats play first. (We insist.)",
+     "Røde luer spiller først. (Vi insisterer.)"
+    ],
+    "win": [
+     "By the hearth and the hat!",
+     "Ved peisen og luen!"
+    ],
+    "lose": [
+     "Blue hats were looking.",
+     "Blå luer så på."
+    ],
+    "rwin": [
+     "Warm hearth, warm win!",
+     "Varm peis, varm seier!"
+    ],
+    "rlose": [
+     "Pah. A draft from the blue side.",
+     "Pytt. Trekk fra den blå siden."
+    ],
+    "refuse": [
+     "You took from our gift pile. Come back when you have made it right.",
+     "Du tok fra gavehaugen vår. Kom igjen når du har gjort opp for deg."
+    ],
+    "shun": [
+     "A friend of the Blue Hats? Not at my table.",
+     "Venn av Blåluene? Ikke ved mitt bord."
+    ],
+    "friend": [
+     "Ah, a friend of the hearth! Sit, sit. Mind the porridge.",
+     "Å, en venn av peisen! Sett deg, sett deg. Pass på grøten."
+    ],
+    "pass": [
+     "I pass. Pass the porridge.",
+     "Jeg passer. Send grøten."
+    ]
+   },
+   "greet": "Red hats play first. (We insist.)",
+   "win": "By the hearth and the hat!",
+   "lose": "Blue hats were looking."
+  },
+  {
+   "id": "stempelsen",
+   "name": "Chief Auditor Stempelsen",
+   "place": "The Blue Cave",
+   "faction": "blaa",
+   "leader": "b_l1",
+   "personality": "cautious",
+   "level": 3,
+   "tier": 3,
+   "extras": [
+    "n_kleppe",
+    "n_tin"
+   ],
+   "portrait": "b_l1",
+   "clan": "blue",
+   "rival": "red",
+   "unlock": {
+    "wins": 3
+   },
+   "pack": "clan_blaa",
+   "lines": {
+    "greet": [
+     "Form 7. In triplicate. Play.",
+     "Skjema 7. I tre eksemplarer. Spill."
+    ],
+    "win": [
+     "APPROVED.",
+     "GODKJENT."
+    ],
+    "lose": [
+     "Denied. I will appeal.",
+     "Avslått. Jeg anker."
+    ],
+    "rwin": [
+     "Stamped.",
+     "Stemplet."
+    ],
+    "rlose": [
+     "Signature missing. Yours, presumably.",
+     "Signatur mangler. Din, antagelig."
+    ],
+    "refuse": [
+     "Your file has a theft flag. Return after rectification.",
+     "Mappen din har et tyveriflagg. Kom tilbake etter utbedring."
+    ],
+    "shun": [
+     "You are registered with the Reds. I cannot play with you.",
+     "Du er registrert hos de Røde. Jeg kan ikke spille med deg."
+    ],
+    "friend": [
+     "A registered friend. Take a number: you are number one.",
+     "En registrert venn. Ta et nummer: du er nummer én."
+    ],
+    "pass": [
+     "Pending review.",
+     "Til behandling."
+    ]
+   },
+   "greet": "Form 7. In triplicate. Play.",
+   "win": "APPROVED.",
+   "lose": "Denied. I will appeal."
+  },
+  {
+   "id": "troll",
+   "name": "The Frost Troll",
+   "place": "The Troll Cave",
+   "faction": "natt",
+   "leader": "m_l3",
+   "personality": "brute",
+   "level": 3,
+   "tier": 3,
+   "extras": [
+    "n_troll",
+    "n_owl"
+   ],
+   "portrait": "n_troll",
+   "unlock": {
+    "wins": 3
+   },
+   "pack": "night",
+   "lines": {
+    "greet": [
+     "HRRMM. CARDS.",
+     "HRRMM. KORT."
+    ],
+    "win": [
+     "HRRMMM!",
+     "HRRMMM!"
+    ],
+    "lose": [
+     "...again?",
+     "...igjen?"
+    ],
+    "rwin": [
+     "GRUMBLE. GOOD.",
+     "BRUMM. BRA."
+    ],
+    "rlose": [
+     "Grrr. Troll thinks.",
+     "Grrr. Trollet tenker."
+    ],
+    "pass": [
+     "Troll waits. Troll is good at waiting.",
+     "Trollet venter. Trollet er flink til å vente."
+    ]
+   },
+   "greet": "HRRMM. CARDS.",
+   "win": "HRRMMM!",
+   "lose": "...again?"
+  },
+  {
+   "id": "witch",
+   "name": "The Witch",
+   "place": "The Forest",
+   "faction": "natt",
+   "leader": "m_l2",
+   "personality": "witch",
+   "level": 4,
+   "tier": 4,
+   "extras": [
+    "n_witch",
+    "n_cat"
+   ],
+   "portrait": "n_witch",
+   "boss": true,
+   "unlock": {
+    "wins": 5
+   },
+   "pack": "boss",
+   "escalate": [
+    "n_troll",
+    "n_rusty",
+    "n_lykta",
+    "n_snowman"
+   ],
+   "lines": {
+    "greet": [
+     "I ate the cookies. Let us see what you brought.",
+     "Jeg spiste kjeksene. La oss se hva du tok med."
+    ],
+    "win": [
+     "More cookies, please.",
+     "Flere kjeks, takk."
+    ],
+    "lose": [
+     "This. Is. Not. Over.",
+     "Dette. Er. Ikke. Over."
+    ],
+    "rwin": [
+     "Hehehe. Tasty.",
+     "Hehehe. Smakfullt."
+    ],
+    "rlose": [
+     "The cauldron remembers that.",
+     "Gryta husker det."
+    ],
+    "refuse": [
+     "Come back when you have beaten a few of the little ones. I do not eat starters.",
+     "Kom tilbake når du har slått noen av de små. Jeg spiser ikke forretter."
+    ],
+    "pass": [
+     "I pass. The soup will not stir itself.",
+     "Jeg passer. Suppen rører seg ikke selv."
+    ]
+   },
+   "greet": "I ate the cookies. Let us see what you brought.",
+   "win": "More cookies, please.",
+   "lose": "This. Is. Not. Over."
+  }
+ ]
+}

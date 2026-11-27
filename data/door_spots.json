@@ -1,0 +1,166 @@
+{
+ "note": "Door n -> world position (x,z). Edit and reload; the game reads this file. Door 24 is the tree by the town hall (set in code).",
+ "spots": [
+  {
+   "n": 1,
+   "x": 101.4,
+   "z": -379.8,
+   "name": "House on Åmotsvegen",
+   "kind": "Door"
+  },
+  {
+   "n": 2,
+   "x": 473.2,
+   "z": 542.9,
+   "name": "House on Fladen",
+   "kind": "Door"
+  },
+  {
+   "n": 3,
+   "x": -300.0,
+   "z": -263.9,
+   "name": "House on Odden",
+   "kind": "Door"
+  },
+  {
+   "n": 4,
+   "x": -450.2,
+   "z": 878.7,
+   "name": "House on Farægra",
+   "kind": "Door"
+  },
+  {
+   "n": 5,
+   "x": -376.7,
+   "z": 358.0,
+   "name": "House on Farvegen",
+   "kind": "Door"
+  },
+  {
+   "n": 6,
+   "x": 1133.2,
+   "z": -348.6,
+   "name": "House on Kvinesheiveien",
+   "kind": "Door"
+  },
+  {
+   "n": 7,
+   "x": 653.9,
+   "z": -420.9,
+   "name": "House on Egelandsbakken",
+   "kind": "Door"
+  },
+  {
+   "n": 8,
+   "x": 23.4,
+   "z": -1065.0,
+   "name": "House on Vesterdalsvegen",
+   "kind": "Door"
+  },
+  {
+   "n": 9,
+   "x": 98.4,
+   "z": 389.6,
+   "name": "House on Eljestraumvegen",
+   "kind": "Door"
+  },
+  {
+   "n": 10,
+   "x": -1319.1,
+   "z": 687.4,
+   "name": "House on Steindørvegen",
+   "kind": "Door"
+  },
+  {
+   "n": 11,
+   "x": 594.9,
+   "z": 119.8,
+   "name": "House on Eljestraumvegen",
+   "kind": "Door"
+  },
+  {
+   "n": 12,
+   "x": -769.6,
+   "z": 52.5,
+   "name": "House on Gullestadvegen",
+   "kind": "Door"
+  },
+  {
+   "n": 13,
+   "x": 559.3,
+   "z": -973.9,
+   "name": "House on Løkkevegen",
+   "kind": "Door"
+  },
+  {
+   "n": 14,
+   "x": 400.2,
+   "z": -193.9,
+   "name": "House on Medåsvegen",
+   "kind": "Door"
+  },
+  {
+   "n": 15,
+   "x": 1420.1,
+   "z": 258.2,
+   "name": "House on Skaren",
+   "kind": "Door"
+  },
+  {
+   "n": 16,
+   "x": -110.3,
+   "z": -639.7,
+   "name": "House on Englemonåsen",
+   "kind": "Door"
+  },
+  {
+   "n": 17,
+   "x": 92.6,
+   "z": 962.8,
+   "name": "House on Åsevegen",
+   "kind": "Door"
+  },
+  {
+   "n": 18,
+   "x": 1235.7,
+   "z": -1043.2,
+   "name": "House on Sollia",
+   "kind": "Door"
+  },
+  {
+   "n": 19,
+   "x": 366.9,
+   "z": 309.6,
+   "name": "House on Eljestraumvegen",
+   "kind": "Door"
+  },
+  {
+   "n": 20,
+   "x": 851.2,
+   "z": 367.5,
+   "name": "House on Rødlandsvegen",
+   "kind": "Door"
+  },
+  {
+   "n": 21,
+   "x": 515.7,
+   "z": 1016.4,
+   "name": "House on Utsikten",
+   "kind": "Door"
+  },
+  {
+   "n": 22,
+   "x": -155.0,
+   "z": 714.9,
+   "name": "House on Farmonen",
+   "kind": "Door"
+  },
+  {
+   "n": 23,
+   "x": -769.6,
+   "z": 1294.3,
+   "name": "House on Egelandsmyra",
+   "kind": "Door"
+  }
+ ]
+}

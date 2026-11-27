@@ -972,7 +972,7 @@ window.__devEff=eff;
 const isPhone=()=>eff()==='phone';
 const sync=()=>{try{document.body.classList.toggle('ph',isPhone());}catch(e){}};
 /* version label: the deploy script replaces the placeholder below; an unreplaced build shows DEV BUILD */
-const VRAW='27 Nov 2026 07:46';
+const VRAW='27 Nov 2026 15:58';
 const VER=(VRAW.indexOf('__BUILD'+'_')===0)?'DEV BUILD':VRAW;
 window.__VERSION=VER;
 const pill=()=>{const b=document.createElement('button');b.type='button';b.className='verpill';b.textContent=VER;b.title='Tap to copy';b.setAttribute('aria-label','Game version '+VER);b.addEventListener('click',e=>{e.stopPropagation();try{navigator.clipboard&&navigator.clipboard.writeText(VER);}catch(_){}});return b;};
@@ -39855,7 +39855,7 @@ function step(dt){const T=window.__TOD;const AU=AU_(),AG=AG_();if(!T||!AU||!AG)r
   if(NL.whistling){NL.wtime+=dt;if(NL.wtime>3){NL.wtime=0;react();}}else NL.wtime=Math.max(0,NL.wtime-dt);
   NL.reactCd=Math.max(0,NL.reactCd-dt);NL.cool=Math.max(0,NL.cool-dt);
   /* opt-in prompt, mic, phone button, barks: only with an aurora up */
-  if(NL.k>.3){if(!dom)ensureDom();regHud();if(!MIC.asked&&visible&&out&&dom&&dom.ask.style.display!=='block'&&!MIC.promptShown&&!(window.__BUSY&&window.__BUSY('scene,dead,ui,phone'))&&!(window.__BALLOON&&window.__BALLOON.on)&&!(window.__JET&&window.__JET.on)){/*playbotfix: never ask mid-fight, mid-flight or in a scene*/MIC.promptShown=true;dom.ask.style.display='block';setTimeout(()=>{try{if(!MIC.asked){dom.ask.style.display='none';}}catch(_){}},25000);}}
+  if(NL.k>.3){if(!dom)ensureDom();regHud();if(!MIC.asked&&visible&&out&&dom&&dom.ask.style.display!=='block'&&!MIC.promptShown&&!(window.__BUSY&&window.__BUSY('scene,dead,ui,phone'))&&!(window.__BALLOON&&window.__BALLOON.on)&&!(window.__JET&&window.__JET.on)&&!(document.getElementById('bMenu')&&document.getElementById('bMenu').getAttribute('aria-expanded')==='true')){/*livefix: not over the MENU*//*playbotfix: never ask mid-fight, mid-flight or in a scene*/MIC.promptShown=true;dom.ask.style.display='block';setTimeout(()=>{try{if(!MIC.asked){dom.ask.style.display='none';}}catch(_){}},25000);}}
   else if(dom&&dom.ask.style.display==='block'){dom.ask.style.display='none';}
   micStep();
   if(dom&&((typeof TOUCH!=='undefined'&&TOUCH)||window.__WM_TOUCH)){const sb=(visible||(NL.k>.3&&!isBusy))&&out;/*whistlemic*/if(sb!==dom.btnV){dom.btnV=sb;dom.btn.style.display=sb?'block':'none';if(!sb){NL.touchHeld=false;}}}
@@ -70278,7 +70278,7 @@ const gnd=(x,z)=>{try{return groundTop(x,z,spawnY(x,z)+1);}catch(_){try{return s
 const treePos=()=>{const t=W.__TREEPOS;return t&&isFinite(t[0])?{x:t[0],z:t[1]}:{x:-.5,z:15};};
 const spawnPos=()=>{const s=W.__SPAWN;return s&&isFinite(s.x)?{x:s.x,z:s.z}:{x:12,z:19.6};};
 /* ---------------------------------------------------------------- saved state (per player: kv-sq-nlr-v1) */
-let ST={played:0,res:null,statue:null,house:null,wing:0,cash:0,coal:0,coalWait:0,gift:0,pend:0};
+let ST={played:0,res:null,statue:null,house:null,wing:0,cash:0,coal:0,coalWait:0,gift:0,pend:0,since:0};const SOLO_MS=600000;/*solosanta*/
 try{const j=JSON.parse(lsg(KEY)||'null');if(j&&typeof j==='object')ST=Object.assign(ST,j);}catch(_){}
 const save=()=>lss(KEY,JSON.stringify(ST));
 /* ---------------------------------------------------------------- who won: the exact standings of the Nice List */
@@ -70297,6 +70297,7 @@ function decide(o){o=o||{};let rows;
   else rows.sort((a,b)=>(b.t-a.t)||(b.s-a.s));
   const n=rows.length;let rk=0,prev=null,i=0;for(const r of rows){i++;if(r.t!==prev||r.f!=null){rk=i;prev=r.t;}r.rank=rk;}
   const d={rows,n,me:who,winners:[],loser:null,complete:n>=2,tieTop:false,tieLast:false,file:!!(!o.rows&&FILE)};
+  if(n===1&&o.solo){const r=rows[0];d.solo=true;d.complete=true;d.winners=r.t>0?[r]:[];d.loser=r.t>0?null:r;d.role=r.p!==who?'none':r.t>0?'winner':'loser';return d;}/*solosanta*/
   if(n<2){d.role='none';return d;}
   if(d.file){d.winners=rows.filter(r=>r.f===2);const lo=rows.find(r=>r.f===0);d.loser=lo&&!d.winners.includes(lo)?lo:null;if(!d.winners.length){d.complete=false;}}
   else{const top=rows[0].t,low=rows[n-1].t;d.winners=rows.filter(r=>r.t===top);d.tieTop=d.winners.length>1;
@@ -70595,7 +70596,7 @@ function buildSteps(d,sim){const sp=statueSpot(),s=spawnPos(),n=d.n;const steps=
   steps.push(S('Ho. Ho. Ho. Do not mind the sleigh. It is parked perfectly. The snow is just in the way.','sa01',{look:slL,len:6.2,fx:()=>{bells(5);}}));
   steps.push(S('I have a list, downtown. I check it twice. This year I checked it three times, once with a magnifying glass, because some of you are very good at hiding things in plain sight.','sa02',{look:slL,fx:()=>{SC.list.innerHTML='<h4>SANTA’S NICE LIST</h4>'+d.rows.slice().reverse().map((r,i)=>'<div class="r'+(i===0&&d.loser&&r.p===d.loser.p?' l':'')+(d.winners.some(w=>w.p===r.p)?' w':'')+'" data-i="'+i+'"><b>'+(d.rows.length-i)+'</b><span>'+esc(cap1(r.p))+'</span><em>'+esc(sc(r.s))+' + '+esc(String(r.sp))+' = '+esc(sc(r.t))+'</em></div>').join('');SC.list.classList.add('on');}}));
   const asc=d.rows.slice().reverse();
-  asc.forEach((r,i)=>{const k=n-i;const q=rate(r);const rk=d.rows.indexOf(r)+1;let txt;
+  (d.solo&&!d.winners.length?[]:asc).forEach((r,i)=>{const k=n-i;const q=rate(r);const rk=d.rows.indexOf(r)+1;let txt;
     if(rk===1&&d.winners.length>0&&d.winners.some(w=>w.p===r.p))return;/*the winners come last, with the fanfare*/
     const isLast=d.loser&&r.p===d.loser.p;
     if(isLast)txt=placeWord(rk,n)+': '+cap1(r.p)+', with '+both(r)+'. '+(q.worst[0]?'The list says: '+low(q.worst[0][0])+'. '+pickQ(QUIP_DN,i):'A quiet year. Santa respects a quiet year.');
@@ -70606,7 +70607,7 @@ function buildSteps(d,sim){const sp=statueSpot(),s=spawnPos(),n=d.n;const steps=
     if(meR==='loser')steps.push(L('It is a good lump. I checked. I am not allowed to say it is a gift. It is a lump. A good one, with character.',{look:slL,len:6}));
     else steps.push(L('That is not a punishment either. Check the label. It says: a joke, with warm hands.',{look:slL,len:5.2}));}
   else if(d.tieLast)steps.push(S('And last place is a tie. Santa will not give one lump of coal to one of two equally lumpy people. The coal stays in the sack until next year.','sa_tie',{look:slL,len:7.6}));
-  const wn=names(d.winners);
+  if(d.winners.length){/*solosanta*/const wn=names(d.winners);
   const win=d.winners.length>1?wn.join(' and ')+', tied':wn[0];
   steps.push(S('And the nicest in downtown, this year, and I checked it three times...','sa_w0',{look:slL,len:4.6,fx:()=>{tone(220,1.4,'sawtooth',.02,0);}}));
   steps.push(S(win+'!','sa_w1',{look:slL,len:3.6,fx:()=>{fanfare();motes(26);const rows=SC.list.querySelectorAll('.r.w');rows.forEach(r=>r.classList.add('on'));}}));
@@ -70614,6 +70615,7 @@ function buildSteps(d,sim){const sp=statueSpot(),s=spawnPos(),n=d.n;const steps=
   if(meR==='winner')steps.push(L('That is you. I am not going to say anything clever. Well. Maybe one thing: please do not put the statue on a fountain.',{look:stL,len:7}));
   else steps.push(L(meR==='loser'?'A statue. And you have a lump. Between the two of you the square is going to look very festive.':'Congratulations, whoever that is. I will not say it is the best statue in the valley, but it is the only one that sparkles.',{look:stL,len:6.4}));
   steps.push(S(meR==='winner'?'You will find the elves at your door. Choose the place, the style and the colour. Be nice to the pigeons.':'The rest of you: the list is long, the winter is longer, and there is always cake. Be kind. Or at least be quiet.','sa_end',{look:slL,len:8.2,fx:()=>{sleighGo(out_.x,out_.y,out_.z,.5);bells(10);}}));
+  }
   steps.push(S('Merry Christmas, downtown. Ho. Ho. Ho.','sa_bye',{look:slL,len:3.8}));
   steps.push(L('Well. That happened. I will not be telling the moon.',{look:stL,len:4.4}));
   return steps;}
@@ -70637,7 +70639,8 @@ R.start=async function(opt){opt=opt||{};if(startBusy||SC.on)return false;
   let d=decide(o);let simq=null;
   if(DEV&&!opt.sim&&(!d||!d.complete)&&R.simq&&SIM[R.simq]){simq=SIM[R.simq];o.rows=simq.rows;o.me=simq.me;d=decide(o);opt={force:true,sim:{commit:true},_q:1};}
   if(d&&!d.complete&&!opt.sim){try{const N=NLs();if(N&&N.pull)await Promise.race([N.pull(true),new Promise(r=>setTimeout(r,6000))]);}catch(_){}d=decide(o);}/*doorscore: 6 s limit*/
-  if(!d||!d.complete||!d.winners.length){R.late=true;const t=Date.now();
+  if(d&&!d.complete&&d.n===1&&!opt.sim){if(!ST.since){ST.since=Date.now();save();}if(Date.now()-ST.since>=SOLO_MS||dayN()>=25){o.solo=1;d=decide(o);}}/*solosanta*/
+  if(!d||!d.complete||(!d.winners.length&&!d.solo)){R.late=true;const t=Date.now();
     if(opt.dragon&&!R.interim){R.interim=1;startBusy=true;/*doorscore: the others' scores are unknown: show Santa's interim card, then let the story go on (he reads the list when they arrive)*/
       try{const N=NLs();if(N&&N.reveal)N.reveal({card:true,show:true});await new Promise(res=>{const t0=Date.now();const iv=setInterval(()=>{const e=document.getElementById('nlCard');if(!(e&&e.classList.contains('show'))||Date.now()-t0>240000){clearInterval(iv);res();}},500);});}catch(_){}finally{startBusy=false;}}
     if(t-waitT>90000){waitT=t;lg('waiting for news');if(calmOK())say('Santa is still waiting for the others’ lists. His pigeons are late. Give them a minute.',4);}return false;}
@@ -70670,7 +70673,7 @@ function tick(){try{tickN++;const near=(x,z,r)=>hy(P.x-x,P.z-z)<r;
   if(ST.pend&&!ST.house&&!uiOpen&&!pendShown&&ST.played&&!DEV){pendShown=true;houseUI();}
   /* arming the reveal on day 24+ */
   if(W.__DRAGON&&W.__DRAGON.ver&&!W.__DRAGON.onReveal){W.__DRAGON.onReveal=()=>R.start({dragon:1,force:DEV});lg('hooked __DRAGON.onReveal');}
-  if(!ST.played&&dayN()>=24){loadFile();
+  if(!ST.played&&dayN()>=24){loadFile();if(ST.since)R.late=true;/*solosanta: keep trying after a reload*/
     if(hasDragon()){if(DR_DONE||(R.late&&(dayN()>=25||night()&&hy(P.x-treePos().x,P.z-treePos().z)<70)))R.start({});}
     else{const t=treePos();const lateOK=dayN()>=25||night();if(lateOK&&(dayN()>=25||hy(P.x-t.x,P.z-t.z)<70))R.start({});}}
   }catch(e){e_('tick',e);}}

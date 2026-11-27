@@ -1,0 +1,2176 @@
+{
+"_note": "Bonkers spots (17 Nov 2026, job bonkersspots). Chests follow data/chests.json format, finds follow trail_finds.json. Loaded and re-validated live (ground, water, buildings, trees, 40 m spacing) by the /* bonkersspots */ block; builder (WEDIT) data is never touched. Roof/tower chests use day gates (jetpack d6, elytra d9).",
+"chests": [
+{
+"id": "bz_001",
+"x": 577.5,
+"z": -145.2,
+"y": 83,
+"yaw": 0.76,
+"area": "summit",
+"near": "Med\u00e5sen",
+"tier": "rare",
+"loot": "random",
+"table": "summit",
+"note": "the top of Med\u00e5sen.",
+"regular": true,
+"oren": 0,
+"bonkers": "summit"
+},
+{
+"id": "bz_002",
+"x": -1874.5,
+"z": 39.2,
+"y": 423,
+"yaw": 1.5,
+"area": "summit",
+"near": "Nonskarknuten",
+"tier": "rare",
+"loot": "random",
+"table": "summit",
+"note": "the top of Nonskarknuten.",
+"regular": true,
+"oren": 0,
+"bonkers": "summit"
+},
+{
+"id": "bz_003",
+"x": 355.5,
+"z": 1137.7,
+"y": 158,
+"yaw": 1.83,
+"area": "summit",
+"near": "Utsikten",
+"tier": "rare",
+"loot": "random",
+"table": "summit",
+"note": "the top of Utsikten.",
+"regular": true,
+"oren": 0,
+"bonkers": "summit"
+},
+{
+"id": "bz_004",
+"x": 3486.9,
+"z": -1109.2,
+"y": 375,
+"yaw": 2.74,
+"area": "summit",
+"near": "Hunsbedtheia",
+"tier": "rare",
+"loot": "random",
+"table": "summit",
+"note": "the top of Hunsbedtheia.",
+"regular": true,
+"oren": 0,
+"bonkers": "summit"
+},
+{
+"id": "bz_005",
+"x": 2075.1,
+"z": 3209.0,
+"y": 438,
+"yaw": 1.49,
+"area": "summit",
+"near": "T\u00e5g\u00e5sknuten",
+"tier": "rare",
+"loot": "random",
+"table": "summit",
+"note": "the top of T\u00e5g\u00e5sknuten.",
+"regular": true,
+"oren": 0,
+"bonkers": "summit"
+},
+{
+"id": "bz_006",
+"x": -6913.9,
+"z": 2630.2,
+"y": 519,
+"yaw": 2.62,
+"area": "summit",
+"near": "Fr\u00f8ytlandsvarden",
+"tier": "rare",
+"loot": "random",
+"table": "summit",
+"note": "the top of Fr\u00f8ytlandsvarden.",
+"regular": true,
+"oren": 0,
+"bonkers": "summit"
+},
+{
+"id": "bz_007",
+"x": -116.0,
+"z": -5391.0,
+"y": 195,
+"yaw": -2.92,
+"area": "summit",
+"near": "Stegemoen",
+"tier": "rare",
+"loot": "random",
+"table": "summit",
+"note": "the top of Stegemoen.",
+"regular": true,
+"oren": 0,
+"bonkers": "summit"
+},
+{
+"id": "bz_008",
+"x": -9346.8,
+"z": 6824.9,
+"y": 20,
+"yaw": -0.21,
+"area": "summit",
+"near": "Skomakertippen",
+"tier": "rare",
+"loot": "random",
+"table": "summit",
+"note": "the top of Skomakertippen.",
+"regular": true,
+"oren": 0,
+"bonkers": "summit"
+},
+{
+"id": "bz_009",
+"x": -870.0,
+"z": -2350.0,
+"y": 406,
+"yaw": 2.75,
+"area": "summit",
+"near": "Unnamed top, 406 m",
+"tier": "rare",
+"loot": "random",
+"table": "summit",
+"note": "a bare top nobody bothered to name.",
+"regular": true,
+"oren": 0,
+"bonkers": "summit"
+},
+{
+"id": "bz_010",
+"x": -2722.0,
+"z": 866.0,
+"y": 373,
+"yaw": 0.92,
+"area": "summit",
+"near": "Unnamed top, 373 m",
+"tier": "rare",
+"loot": "random",
+"table": "summit",
+"note": "a bare top nobody bothered to name.",
+"regular": true,
+"oren": 0,
+"bonkers": "summit"
+},
+{
+"id": "bz_011",
+"x": -5766.0,
+"z": 3110.0,
+"y": 484,
+"yaw": 2.49,
+"area": "summit",
+"near": "Unnamed top, 484 m",
+"tier": "rare",
+"loot": "random",
+"table": "summit",
+"note": "a bare top nobody bothered to name.",
+"regular": true,
+"oren": 0,
+"bonkers": "summit"
+},
+{
+"id": "bz_012",
+"x": -7566.0,
+"z": 258.0,
+"y": 445,
+"yaw": -2.4,
+"area": "summit",
+"near": "Unnamed top, 445 m",
+"tier": "rare",
+"loot": "random",
+"table": "summit",
+"note": "a bare top nobody bothered to name.",
+"regular": true,
+"oren": 0,
+"bonkers": "summit"
+},
+{
+"id": "bz_013",
+"x": 3614.0,
+"z": -9386.0,
+"y": 534,
+"yaw": -0.19,
+"area": "summit",
+"near": "Unnamed top, 534 m",
+"tier": "rare",
+"loot": "random",
+"table": "summit",
+"note": "a bare top nobody bothered to name.",
+"regular": true,
+"oren": 0,
+"bonkers": "summit"
+},
+{
+"id": "bz_014",
+"x": -826.0,
+"z": -3690.0,
+"y": 398,
+"yaw": -1.57,
+"area": "summit",
+"near": "Unnamed top, 398 m",
+"tier": "rare",
+"loot": "random",
+"table": "summit",
+"note": "a bare top nobody bothered to name.",
+"regular": true,
+"oren": 0,
+"bonkers": "summit"
+},
+{
+"id": "bz_015",
+"x": 1124.6,
+"z": 126.6,
+"y": 156,
+"yaw": 0.27,
+"area": "river",
+"near": "Falls, 157 m",
+"tier": "uncommon",
+"loot": "random",
+"table": "chest",
+"note": "at the foot of a waterfall: the spray hides it from the trail and the noise covers your st.",
+"regular": true,
+"oren": 0,
+"bonkers": "waterfall"
+},
+{
+"id": "bz_016",
+"x": -875.0,
+"z": -129.9,
+"y": 34,
+"yaw": 0.46,
+"area": "river",
+"near": "Falls, 35 m",
+"tier": "uncommon",
+"loot": "random",
+"table": "chest",
+"note": "at the foot of a waterfall: the spray hides it from the trail and the noise covers your st.",
+"regular": true,
+"oren": 0,
+"bonkers": "waterfall"
+},
+{
+"id": "bz_017",
+"x": 1476.6,
+"z": 98.6,
+"y": 265,
+"yaw": -3.02,
+"area": "river",
+"near": "Falls, 266 m",
+"tier": "uncommon",
+"loot": "random",
+"table": "chest",
+"note": "at the foot of a waterfall: the spray hides it from the trail and the noise covers your st.",
+"regular": true,
+"oren": 0,
+"bonkers": "waterfall"
+},
+{
+"id": "bz_018",
+"x": 1492.0,
+"z": -1106.0,
+"y": 50,
+"yaw": -1.76,
+"area": "river",
+"near": "Falls, 50 m",
+"tier": "uncommon",
+"loot": "random",
+"table": "chest",
+"note": "at the foot of a waterfall: the spray hides it from the trail and the noise covers your st.",
+"regular": true,
+"oren": 0,
+"bonkers": "waterfall"
+},
+{
+"id": "bz_019",
+"x": -201.0,
+"z": -2872.8,
+"y": 46,
+"yaw": -1.37,
+"area": "river",
+"near": "Falls, 45 m",
+"tier": "uncommon",
+"loot": "random",
+"table": "chest",
+"note": "at the foot of a waterfall: the spray hides it from the trail and the noise covers your st.",
+"regular": true,
+"oren": 0,
+"bonkers": "waterfall"
+},
+{
+"id": "bz_020",
+"x": 1656.0,
+"z": 826.0,
+"y": 266,
+"yaw": 2.58,
+"area": "river",
+"near": "Falls, 263 m",
+"tier": "uncommon",
+"loot": "random",
+"table": "chest",
+"note": "at the foot of a waterfall: the spray hides it from the trail and the noise covers your st.",
+"regular": true,
+"oren": 0,
+"bonkers": "waterfall"
+},
+{
+"id": "bz_021",
+"x": 50.9,
+"z": -5261.0,
+"y": 80,
+"yaw": 1.65,
+"area": "river",
+"near": "Rafossen, lowest point",
+"tier": "rare",
+"loot": "random",
+"table": "chest",
+"note": "the viewpoint everyone walks to.",
+"regular": true,
+"oren": 0,
+"bonkers": "waterfall"
+},
+{
+"id": "bz_022",
+"x": -8552.5,
+"z": 4883.6,
+"y": 1,
+"yaw": -2.11,
+"area": "shore",
+"near": "Boathouse jetty",
+"tier": "uncommon",
+"loot": "random",
+"table": "chest",
+"note": "the waterline end of a boathouse jetty.",
+"regular": true,
+"oren": 0,
+"bonkers": "jetty",
+"crate": true
+},
+{
+"id": "bz_023",
+"x": -3049.4,
+"z": 3617.7,
+"y": 1,
+"yaw": 1.84,
+"area": "shore",
+"near": "Boathouse jetty",
+"tier": "uncommon",
+"loot": "random",
+"table": "chest",
+"note": "the waterline end of a boathouse jetty.",
+"regular": true,
+"oren": 0,
+"bonkers": "jetty",
+"crate": true
+},
+{
+"id": "bz_024",
+"x": -3791.7,
+"z": 4295.2,
+"y": 1,
+"yaw": -2.24,
+"area": "shore",
+"near": "Boathouse jetty",
+"tier": "uncommon",
+"loot": "random",
+"table": "chest",
+"note": "the waterline end of a boathouse jetty.",
+"regular": true,
+"oren": 0,
+"bonkers": "jetty",
+"crate": true
+},
+{
+"id": "bz_025",
+"x": -75.0,
+"z": 480.0,
+"y": 4,
+"yaw": 0.73,
+"area": "town",
+"near": "Under a bridge",
+"tier": "uncommon",
+"loot": "random",
+"table": "chest",
+"note": "under the deck, out of the rain and out of sight: trolls, smugglers and tired teenagers al.",
+"regular": true,
+"oren": 0,
+"bonkers": "bridge",
+"crate": true
+},
+{
+"id": "bz_026",
+"x": -7946.2,
+"z": 189.0,
+"y": 98,
+"yaw": -2.31,
+"area": "town",
+"near": "Under Lone bru",
+"tier": "uncommon",
+"loot": "random",
+"table": "chest",
+"note": "under the deck, out of the rain and out of sight: trolls, smugglers and tired teenagers al.",
+"regular": true,
+"oren": 0,
+"bonkers": "bridge",
+"crate": true
+},
+{
+"id": "bz_027",
+"x": -8489.0,
+"z": 3878.6,
+"y": 29,
+"yaw": -3.09,
+"area": "town",
+"near": "Under a bridge",
+"tier": "uncommon",
+"loot": "random",
+"table": "chest",
+"note": "under the deck, out of the rain and out of sight: trolls, smugglers and tired teenagers al.",
+"regular": true,
+"oren": 0,
+"bonkers": "bridge",
+"crate": true
+},
+{
+"id": "bz_028",
+"x": -8863.9,
+"z": -5312.6,
+"y": 116,
+"yaw": 2.3,
+"area": "town",
+"near": "Under Gylandsvegen",
+"tier": "uncommon",
+"loot": "random",
+"table": "chest",
+"note": "under the deck, out of the rain and out of sight: trolls, smugglers and tired teenagers al.",
+"regular": true,
+"oren": 0,
+"bonkers": "bridge",
+"crate": true
+},
+{
+"id": "bz_029",
+"x": 174.0,
+"z": -266.0,
+"y": 6,
+"yaw": -1.8,
+"area": "island",
+"near": "River holm",
+"tier": "rare",
+"loot": "random",
+"table": "chest",
+"note": "a gravel holm in the river that you reach by a jump, a swim or a balloon: a rope swing and.",
+"regular": true,
+"oren": 0,
+"bonkers": "island"
+},
+{
+"id": "bz_030",
+"x": 506.0,
+"z": -562.0,
+"y": 12,
+"yaw": -1.76,
+"area": "island",
+"near": "River holm",
+"tier": "rare",
+"loot": "random",
+"table": "chest",
+"note": "a gravel holm in the river that you reach by a jump, a swim or a balloon: a rope swing and.",
+"regular": true,
+"oren": 0,
+"bonkers": "island"
+},
+{
+"id": "bz_031",
+"x": -326.0,
+"z": -1510.0,
+"y": 21,
+"yaw": 2.99,
+"area": "island",
+"near": "River holm",
+"tier": "rare",
+"loot": "random",
+"table": "chest",
+"note": "a gravel holm in the river that you reach by a jump, a swim or a balloon: a rope swing and.",
+"regular": true,
+"oren": 0,
+"bonkers": "island"
+},
+{
+"id": "bz_032",
+"x": -242.0,
+"z": -1718.0,
+"y": 34,
+"yaw": 2.31,
+"area": "island",
+"near": "River holm",
+"tier": "rare",
+"loot": "random",
+"table": "chest",
+"note": "a gravel holm in the river that you reach by a jump, a swim or a balloon: a rope swing and.",
+"regular": true,
+"oren": 0,
+"bonkers": "island"
+},
+{
+"id": "bz_033",
+"x": -7498.0,
+"z": -7118.0,
+"y": 160,
+"yaw": -1.31,
+"area": "trail",
+"near": "Boulder top",
+"tier": "uncommon",
+"loot": "random",
+"table": "chest",
+"note": "on top of a big glacier-dropped boulder: needs a jump, a thermos tin sits where a gull dro.",
+"regular": true,
+"oren": 0,
+"bonkers": "rock",
+"crate": true
+},
+{
+"id": "bz_034",
+"x": -9730.0,
+"z": 4310.0,
+"y": 134,
+"yaw": 2.86,
+"area": "trail",
+"near": "Boulder top",
+"tier": "uncommon",
+"loot": "random",
+"table": "chest",
+"note": "on top of a big glacier-dropped boulder: needs a jump, a thermos tin sits where a gull dro.",
+"regular": true,
+"oren": 0,
+"bonkers": "rock",
+"crate": true
+},
+{
+"id": "bz_035",
+"x": -8974.0,
+"z": -290.0,
+"y": 211,
+"yaw": 0.24,
+"area": "trail",
+"near": "Boulder top",
+"tier": "uncommon",
+"loot": "random",
+"table": "chest",
+"note": "on top of a big glacier-dropped boulder: needs a jump, a thermos tin sits where a gull dro.",
+"regular": true,
+"oren": 0,
+"bonkers": "rock",
+"crate": true
+},
+{
+"id": "bz_036",
+"x": 5502.0,
+"z": -1818.0,
+"y": 356,
+"yaw": 1.1,
+"area": "trail",
+"near": "Boulder top",
+"tier": "uncommon",
+"loot": "random",
+"table": "chest",
+"note": "on top of a big glacier-dropped boulder: needs a jump, a thermos tin sits where a gull dro.",
+"regular": true,
+"oren": 0,
+"bonkers": "rock",
+"crate": true
+},
+{
+"id": "bz_037",
+"x": -4538.0,
+"z": -870.0,
+"y": 369,
+"yaw": -1.83,
+"area": "trail",
+"near": "Boulder top",
+"tier": "uncommon",
+"loot": "random",
+"table": "chest",
+"note": "on top of a big glacier-dropped boulder: needs a jump, a thermos tin sits where a gull dro.",
+"regular": true,
+"oren": 0,
+"bonkers": "rock",
+"crate": true
+},
+{
+"id": "bz_038",
+"x": -6778.0,
+"z": 2938.0,
+"y": 466,
+"yaw": 2.73,
+"area": "lookout",
+"near": "Lookout ledge, 173 m drop",
+"tier": "rare",
+"loot": "random",
+"table": "summit",
+"note": "a ledge on the edge of a drop with a view over the valley.",
+"regular": true,
+"oren": 0,
+"bonkers": "lookout"
+},
+{
+"id": "bz_039",
+"x": -7742.0,
+"z": 810.0,
+"y": 194,
+"yaw": 1.18,
+"area": "lookout",
+"near": "Lookout ledge, 97 m drop",
+"tier": "rare",
+"loot": "random",
+"table": "summit",
+"note": "a ledge on the edge of a drop with a view over the valley.",
+"regular": true,
+"oren": 0,
+"bonkers": "lookout"
+},
+{
+"id": "bz_040",
+"x": -7002.0,
+"z": -7806.0,
+"y": 195,
+"yaw": 2.89,
+"area": "lookout",
+"near": "Lookout ledge, 81 m drop",
+"tier": "rare",
+"loot": "random",
+"table": "summit",
+"note": "a ledge on the edge of a drop with a view over the valley.",
+"regular": true,
+"oren": 0,
+"bonkers": "lookout"
+},
+{
+"id": "bz_041",
+"x": -8266.0,
+"z": -562.0,
+"y": 184,
+"yaw": 2.44,
+"area": "lookout",
+"near": "Lookout ledge, 56 m drop",
+"tier": "rare",
+"loot": "random",
+"table": "summit",
+"note": "a ledge on the edge of a drop with a view over the valley.",
+"regular": true,
+"oren": 0,
+"bonkers": "lookout"
+},
+{
+"id": "bz_042",
+"x": 5582.0,
+"z": 1638.0,
+"y": 403,
+"yaw": -1.25,
+"area": "lookout",
+"near": "Lookout ledge, 67 m drop",
+"tier": "rare",
+"loot": "random",
+"table": "summit",
+"note": "a ledge on the edge of a drop with a view over the valley.",
+"regular": true,
+"oren": 0,
+"bonkers": "lookout"
+},
+{
+"id": "bz_043",
+"x": -4244.6,
+"z": 4342.8,
+"y": 40,
+"yaw": -0.86,
+"area": "roof",
+"near": "Roof of a factory hall",
+"tier": "sky",
+"loot": "random",
+"table": "chest",
+"note": "up on the roof, needs jetpack (day 6) or elytra (day 9): a snow-covered box somebody haule.",
+"regular": true,
+"oren": 0,
+"bonkers": "roof",
+"roof": true,
+"day": 6
+},
+{
+"id": "bz_044",
+"x": -7163.7,
+"z": 6151.6,
+"y": 31,
+"yaw": -2.07,
+"area": "roof",
+"near": "Roof of Kvina verft",
+"tier": "sky",
+"loot": "random",
+"table": "chest",
+"note": "up on the roof, needs jetpack (day 6) or elytra (day 9): a snow-covered box somebody haule.",
+"regular": true,
+"oren": 0,
+"bonkers": "roof",
+"roof": true,
+"day": 6
+},
+{
+"id": "bz_045",
+"x": 10.0,
+"z": 249.4,
+"y": 13,
+"yaw": -2.2,
+"area": "roof",
+"near": "Roof of a block of flats",
+"tier": "sky",
+"loot": "random",
+"table": "chest",
+"note": "up on the roof, needs jetpack (day 6) or elytra (day 9): a snow-covered box somebody haule.",
+"regular": true,
+"oren": 0,
+"bonkers": "roof",
+"roof": true,
+"day": 6
+},
+{
+"id": "bz_046",
+"x": -158.3,
+"z": -99.6,
+"y": 12,
+"yaw": -2.7,
+"area": "roof",
+"near": "Roof of a block of flats",
+"tier": "sky",
+"loot": "random",
+"table": "chest",
+"note": "up on the roof, needs jetpack (day 6) or elytra (day 9): a snow-covered box somebody haule.",
+"regular": true,
+"oren": 0,
+"bonkers": "roof",
+"roof": true,
+"day": 6
+},
+{
+"id": "bz_047",
+"x": 136.6,
+"z": -330.3,
+"y": 6,
+"yaw": -1.23,
+"area": "roof",
+"near": "Roof of the civic block",
+"tier": "sky",
+"loot": "random",
+"table": "chest",
+"note": "up on the roof, needs jetpack (day 6) or elytra (day 9): a snow-covered box somebody haule.",
+"regular": true,
+"oren": 0,
+"bonkers": "roof",
+"roof": true,
+"day": 6
+},
+{
+"id": "bz_048",
+"x": -171.5,
+"z": 775.7,
+"y": 11,
+"yaw": 0.64,
+"area": "roof",
+"near": "Roof of the civic block",
+"tier": "sky",
+"loot": "random",
+"table": "chest",
+"note": "up on the roof, needs jetpack (day 6) or elytra (day 9): a snow-covered box somebody haule.",
+"regular": true,
+"oren": 0,
+"bonkers": "roof",
+"roof": true,
+"day": 6
+},
+{
+"id": "bz_049",
+"x": 294.4,
+"z": -827.2,
+"y": 8,
+"yaw": -3.08,
+"area": "roof",
+"near": "Roof of a shop",
+"tier": "sky",
+"loot": "random",
+"table": "chest",
+"note": "up on the roof, needs jetpack (day 6) or elytra (day 9): a snow-covered box somebody haule.",
+"regular": true,
+"oren": 0,
+"bonkers": "roof",
+"roof": true,
+"day": 6
+},
+{
+"id": "bz_050",
+"x": -77.4,
+"z": -135.4,
+"y": 24,
+"yaw": 1.1,
+"area": "roof",
+"near": "Church tower, Kvinesdal kirke",
+"tier": "sky",
+"loot": "random",
+"table": "chest",
+"note": "up in the bell chamber, behind the bell: the sexton's hidden tin, reached by elytra or the.",
+"regular": true,
+"oren": 0,
+"bonkers": "tower",
+"roof": true,
+"day": 9
+},
+{
+"id": "bz_051",
+"x": -336.0,
+"z": 941.0,
+"y": 13,
+"yaw": -1.01,
+"area": "town",
+"near": "Farmonen 21, the burnt house",
+"tier": "rare",
+"loot": "random",
+"table": "chest",
+"note": "in the cellar hole under the standing chimney: the one thing the fire could not take.",
+"regular": true,
+"oren": 0,
+"bonkers": "burnt"
+},
+{
+"id": "bz_052",
+"x": -7194.7,
+"z": 5588.6,
+"y": 120,
+"yaw": -1.18,
+"area": "ruin",
+"near": "Old ruin",
+"tier": "uncommon",
+"loot": "random",
+"table": "chest",
+"note": "beside the old walls, out of the wind: a stove, a tin, and the feeling someone still uses .",
+"regular": true,
+"oren": 0,
+"bonkers": "ruin"
+},
+{
+"id": "bz_053",
+"x": -258.5,
+"z": 114.9,
+"y": 13,
+"yaw": 1.97,
+"area": "town",
+"near": "Behind the flats",
+"tier": "uncommon",
+"loot": "random",
+"table": "chest",
+"note": "out of sight of the road, where staff smoke, hide the bins and bury what they would rather.",
+"regular": true,
+"oren": 0,
+"bonkers": "behind",
+"crate": true
+},
+{
+"id": "bz_054",
+"x": 4809.9,
+"z": -4840.9,
+"y": 154,
+"yaw": -0.12,
+"area": "town",
+"near": "Behind Stokkelands\u00e5na kraftverk",
+"tier": "uncommon",
+"loot": "random",
+"table": "chest",
+"note": "out of sight of the road, where staff smoke, hide the bins and bury what they would rather.",
+"regular": true,
+"oren": 0,
+"bonkers": "behind",
+"crate": true
+},
+{
+"id": "bz_055",
+"x": -324.3,
+"z": 584.8,
+"y": 15,
+"yaw": -1.14,
+"area": "town",
+"near": "Behind the flats",
+"tier": "uncommon",
+"loot": "random",
+"table": "chest",
+"note": "out of sight of the road, where staff smoke, hide the bins and bury what they would rather.",
+"regular": true,
+"oren": 0,
+"bonkers": "behind",
+"crate": true
+},
+{
+"id": "bz_056",
+"x": 176.7,
+"z": -744.6,
+"y": 12,
+"yaw": -0.12,
+"area": "town",
+"near": "Behind the workshop",
+"tier": "uncommon",
+"loot": "random",
+"table": "chest",
+"note": "out of sight of the road, where staff smoke, hide the bins and bury what they would rather.",
+"regular": true,
+"oren": 0,
+"bonkers": "behind",
+"crate": true
+},
+{
+"id": "bz_057",
+"x": 446.3,
+"z": -316.9,
+"y": 28,
+"yaw": 1.27,
+"area": "town",
+"near": "Behind the flats",
+"tier": "uncommon",
+"loot": "random",
+"table": "chest",
+"note": "out of sight of the road, where staff smoke, hide the bins and bury what they would rather.",
+"regular": true,
+"oren": 0,
+"bonkers": "behind",
+"crate": true
+},
+{
+"id": "bz_058",
+"x": -2039.4,
+"z": 7270.8,
+"y": 272,
+"yaw": -2.75,
+"area": "trail",
+"near": "Off the trail",
+"tier": "uncommon",
+"loot": "random",
+"table": "chest",
+"note": "50-150 m off a signed trail, in the trees: a clearing most walkers never turn aside to see.",
+"regular": true,
+"oren": 0,
+"bonkers": "woods",
+"crate": true
+},
+{
+"id": "bz_059",
+"x": -4923.7,
+"z": -4809.2,
+"y": 220,
+"yaw": 2.95,
+"area": "trail",
+"near": "Off the trail",
+"tier": "uncommon",
+"loot": "random",
+"table": "chest",
+"note": "50-150 m off a signed trail, in the trees: a clearing most walkers never turn aside to see.",
+"regular": true,
+"oren": 0,
+"bonkers": "woods",
+"crate": true
+},
+{
+"id": "bz_060",
+"x": 5067.6,
+"z": 1554.8,
+"y": 324,
+"yaw": -2.96,
+"area": "trail",
+"near": "Off the trail",
+"tier": "uncommon",
+"loot": "random",
+"table": "chest",
+"note": "50-150 m off a signed trail, in the trees: a clearing most walkers never turn aside to see.",
+"regular": true,
+"oren": 0,
+"bonkers": "woods",
+"crate": true
+},
+{
+"id": "bz_061",
+"x": 5787.8,
+"z": 6292.9,
+"y": 314,
+"yaw": 1.55,
+"area": "trail",
+"near": "Off the trail",
+"tier": "uncommon",
+"loot": "random",
+"table": "chest",
+"note": "50-150 m off a signed trail, in the trees: a clearing most walkers never turn aside to see.",
+"regular": true,
+"oren": 0,
+"bonkers": "woods",
+"crate": true
+},
+{
+"id": "bz_062",
+"x": -9635.1,
+"z": -5528.0,
+"y": 225,
+"yaw": 2.14,
+"area": "trail",
+"near": "Off the trail",
+"tier": "uncommon",
+"loot": "random",
+"table": "chest",
+"note": "50-150 m off a signed trail, in the trees: a clearing most walkers never turn aside to see.",
+"regular": true,
+"oren": 0,
+"bonkers": "woods",
+"crate": true
+},
+{
+"id": "bz_063",
+"x": -5488.9,
+"z": -5067.7,
+"y": 228,
+"yaw": -2.99,
+"area": "trail",
+"near": "Off the trail",
+"tier": "uncommon",
+"loot": "random",
+"table": "chest",
+"note": "50-150 m off a signed trail, in the trees: a clearing most walkers never turn aside to see.",
+"regular": true,
+"oren": 0,
+"bonkers": "woods",
+"crate": true
+},
+{
+"id": "bz_064",
+"x": 1968.1,
+"z": 4759.5,
+"y": 316,
+"yaw": 1.78,
+"area": "trail",
+"near": "Off the trail",
+"tier": "uncommon",
+"loot": "random",
+"table": "chest",
+"note": "50-150 m off a signed trail, in the trees: a clearing most walkers never turn aside to see.",
+"regular": true,
+"oren": 0,
+"bonkers": "woods",
+"crate": true
+}
+],
+"finds": [
+{
+"id": "bz_f001",
+"kind": "cairn",
+"area": "bonkers",
+"x": 1463.0,
+"z": -3072.9,
+"text": "the top of Hamrevarden.",
+"reward": {
+"kr": 35
+},
+"bonkers": "summit",
+"name": "Hamrevarden"
+},
+{
+"id": "bz_f002",
+"kind": "cairn",
+"area": "bonkers",
+"x": -9482.9,
+"z": 6592.2,
+"text": "the top of Dyreknuten.",
+"reward": {
+"kr": 35
+},
+"bonkers": "summit",
+"name": "Dyreknuten"
+},
+{
+"id": "bz_f003",
+"kind": "cairn",
+"area": "bonkers",
+"x": -7729.0,
+"z": 5244.0,
+"text": "the top of Hans Alfs utsikt.",
+"reward": {
+"kr": 35
+},
+"bonkers": "summit",
+"name": "Hans Alfs utsikt"
+},
+{
+"id": "bz_f004",
+"kind": "cairn",
+"area": "bonkers",
+"x": -7964.0,
+"z": 5101.0,
+"text": "the top of K\u00e5res utsikt.",
+"reward": {
+"kr": 35
+},
+"bonkers": "summit",
+"name": "K\u00e5res utsikt"
+},
+{
+"id": "bz_f005",
+"kind": "cairn",
+"area": "bonkers",
+"x": -7150.0,
+"z": -886.0,
+"text": "a bare top nobody bothered to name.",
+"reward": {
+"kr": 35
+},
+"bonkers": "summit",
+"name": "Unnamed top, 403 m"
+},
+{
+"id": "bz_f006",
+"kind": "cairn",
+"area": "bonkers",
+"x": -3398.0,
+"z": 5090.0,
+"text": "a bare top nobody bothered to name.",
+"reward": {
+"kr": 35
+},
+"bonkers": "summit",
+"name": "Unnamed top, 296 m"
+},
+{
+"id": "bz_f007",
+"kind": "cairn",
+"area": "bonkers",
+"x": -7050.0,
+"z": 7414.0,
+"text": "a bare top nobody bothered to name.",
+"reward": {
+"kr": 35
+},
+"bonkers": "summit",
+"name": "Unnamed top, 288 m"
+},
+{
+"id": "bz_f008",
+"kind": "cairn",
+"area": "bonkers",
+"x": 1982.0,
+"z": -246.0,
+"text": "a bare top nobody bothered to name.",
+"reward": {
+"kr": 35
+},
+"bonkers": "summit",
+"name": "Unnamed top, 332 m"
+},
+{
+"id": "bz_f009",
+"kind": "cairn",
+"area": "bonkers",
+"x": 4662.0,
+"z": -1310.0,
+"text": "a bare top nobody bothered to name.",
+"reward": {
+"kr": 35
+},
+"bonkers": "summit",
+"name": "Unnamed top, 420 m"
+},
+{
+"id": "bz_f010",
+"kind": "cairn",
+"area": "bonkers",
+"x": -5934.0,
+"z": -7782.0,
+"text": "a bare top nobody bothered to name.",
+"reward": {
+"kr": 35
+},
+"bonkers": "summit",
+"name": "Unnamed top, 427 m"
+},
+{
+"id": "bz_f011",
+"kind": "lantern",
+"area": "bonkers",
+"x": 210.0,
+"z": 74.1,
+"text": "bat-droppings, a dropped glove and a lantern stub by the entrance.",
+"reward": {
+"kr": 20
+},
+"bonkers": "cave",
+"name": "Troll cave 2 mouth"
+},
+{
+"id": "bz_f012",
+"kind": "lantern",
+"area": "bonkers",
+"x": -1710.9,
+"z": 282.6,
+"text": "bat-droppings, a dropped glove and a lantern stub by the entrance.",
+"reward": {
+"kr": 20
+},
+"bonkers": "cave",
+"name": "Troll cave 3 mouth"
+},
+{
+"id": "bz_f013",
+"kind": "bottle",
+"area": "bonkers",
+"x": 908.0,
+"z": -54.0,
+"text": "at the foot of a waterfall: the spray hides it from the trail and the noise covers your steps.",
+"reward": {
+"kr": 20
+},
+"bonkers": "waterfall",
+"name": "Falls, 72 m"
+},
+{
+"id": "bz_f014",
+"kind": "bottle",
+"area": "bonkers",
+"x": 740.4,
+"z": 967.9,
+"text": "at the foot of a waterfall: the spray hides it from the trail and the noise covers your steps.",
+"reward": {
+"kr": 20
+},
+"bonkers": "waterfall",
+"name": "Falls, 187 m"
+},
+{
+"id": "bz_f015",
+"kind": "bottle",
+"area": "bonkers",
+"x": 716.0,
+"z": -1838.0,
+"text": "at the foot of a waterfall: the spray hides it from the trail and the noise covers your steps.",
+"reward": {
+"kr": 20
+},
+"bonkers": "waterfall",
+"name": "Falls, 159 m"
+},
+{
+"id": "bz_f016",
+"kind": "bottle",
+"area": "bonkers",
+"x": 2593.7,
+"z": -231.6,
+"text": "at the foot of a waterfall: the spray hides it from the trail and the noise covers your steps.",
+"reward": {
+"kr": 20
+},
+"bonkers": "waterfall",
+"name": "Falls, 291 m"
+},
+{
+"id": "bz_f017",
+"kind": "bottle",
+"area": "bonkers",
+"x": 588.0,
+"z": -1530.0,
+"text": "at the foot of a waterfall: the spray hides it from the trail and the noise covers your steps.",
+"reward": {
+"kr": 20
+},
+"bonkers": "waterfall",
+"name": "Falls, 100 m"
+},
+{
+"id": "bz_f018",
+"kind": "bottle",
+"area": "bonkers",
+"x": -431.0,
+"z": -1599.2,
+"text": "at the foot of a waterfall: the spray hides it from the trail and the noise covers your steps.",
+"reward": {
+"kr": 20
+},
+"bonkers": "waterfall",
+"name": "Falls, 38 m"
+},
+{
+"id": "bz_f019",
+"kind": "bottle",
+"area": "bonkers",
+"x": -2010,
+"z": 6650,
+"text": "a flat gravel spit where the river bends.",
+"reward": {
+"kr": 10
+},
+"bonkers": "riverbank",
+"name": "Riverbank"
+},
+{
+"id": "bz_f020",
+"kind": "boot",
+"area": "bonkers",
+"x": -606,
+"z": 5702,
+"text": "a flat gravel spit where the river bends.",
+"reward": {
+"kr": 10
+},
+"bonkers": "riverbank",
+"name": "Riverbank"
+},
+{
+"id": "bz_f021",
+"kind": "bottle",
+"area": "bonkers",
+"x": -3550,
+"z": -2306,
+"text": "a flat gravel spit where the river bends.",
+"reward": {
+"kr": 10
+},
+"bonkers": "riverbank",
+"name": "Riverbank"
+},
+{
+"id": "bz_f022",
+"kind": "boot",
+"area": "bonkers",
+"x": -1606,
+"z": 6594,
+"text": "a flat gravel spit where the river bends.",
+"reward": {
+"kr": 10
+},
+"bonkers": "riverbank",
+"name": "Riverbank"
+},
+{
+"id": "bz_f023",
+"kind": "bottle",
+"area": "bonkers",
+"x": 4030,
+"z": -4314,
+"text": "a flat gravel spit where the river bends.",
+"reward": {
+"kr": 10
+},
+"bonkers": "riverbank",
+"name": "Riverbank"
+},
+{
+"id": "bz_f024",
+"kind": "boot",
+"area": "bonkers",
+"x": -930,
+"z": -4654,
+"text": "a flat gravel spit where the river bends.",
+"reward": {
+"kr": 10
+},
+"bonkers": "riverbank",
+"name": "Riverbank"
+},
+{
+"id": "bz_f025",
+"kind": "bottle",
+"area": "bonkers",
+"x": 3778,
+"z": -2510,
+"text": "a flat gravel spit where the river bends.",
+"reward": {
+"kr": 10
+},
+"bonkers": "riverbank",
+"name": "Riverbank"
+},
+{
+"id": "bz_f026",
+"kind": "boot",
+"area": "bonkers",
+"x": 4666,
+"z": 2206,
+"text": "a flat gravel spit where the river bends.",
+"reward": {
+"kr": 10
+},
+"bonkers": "riverbank",
+"name": "Riverbank"
+},
+{
+"id": "bz_f027",
+"kind": "bottle",
+"area": "bonkers",
+"x": -2581.0,
+"z": 3426.5,
+"text": "the waterline end of a boathouse jetty.",
+"reward": {
+"kr": 10
+},
+"bonkers": "jetty",
+"name": "Boathouse jetty"
+},
+{
+"id": "bz_f028",
+"kind": "bottle",
+"area": "bonkers",
+"x": -8580.0,
+"z": 5423.7,
+"text": "the waterline end of a boathouse jetty.",
+"reward": {
+"kr": 10
+},
+"bonkers": "jetty",
+"name": "Boathouse jetty"
+},
+{
+"id": "bz_f029",
+"kind": "bottle",
+"area": "bonkers",
+"x": -9935.9,
+"z": 6845.9,
+"text": "the waterline end of a boathouse jetty.",
+"reward": {
+"kr": 10
+},
+"bonkers": "jetty",
+"name": "Boathouse jetty"
+},
+{
+"id": "bz_f030",
+"kind": "bottle",
+"area": "bonkers",
+"x": -5056.8,
+"z": 4807.1,
+"text": "the waterline end of a boathouse jetty.",
+"reward": {
+"kr": 10
+},
+"bonkers": "jetty",
+"name": "Boathouse jetty"
+},
+{
+"id": "bz_f031",
+"kind": "rucksack",
+"area": "bonkers",
+"x": 265.2,
+"z": -4033.8,
+"text": "under the deck, out of the rain and out of sight: trolls, smugglers and tired teenagers all agree on this spot.",
+"reward": {
+"kr": 10
+},
+"bonkers": "bridge",
+"name": "Under Lyding"
+},
+{
+"id": "bz_f032",
+"kind": "rucksack",
+"area": "bonkers",
+"x": 4354.7,
+"z": 4231.1,
+"text": "under the deck, out of the rain and out of sight: trolls, smugglers and tired teenagers all agree on this spot.",
+"reward": {
+"kr": 10
+},
+"bonkers": "bridge",
+"name": "Under \u00c5gedal"
+},
+{
+"id": "bz_f033",
+"kind": "rucksack",
+"area": "bonkers",
+"x": -6015.2,
+"z": -5434.9,
+"text": "under the deck, out of the rain and out of sight: trolls, smugglers and tired teenagers all agree on this spot.",
+"reward": {
+"kr": 10
+},
+"bonkers": "bridge",
+"name": "Under Gr\u00f8ttelandsvegen"
+},
+{
+"id": "bz_f034",
+"kind": "rucksack",
+"area": "bonkers",
+"x": -8229.4,
+"z": 3170.9,
+"text": "under the deck, out of the rain and out of sight: trolls, smugglers and tired teenagers all agree on this spot.",
+"reward": {
+"kr": 10
+},
+"bonkers": "bridge",
+"name": "Under a bridge"
+},
+{
+"id": "bz_f035",
+"kind": "rucksack",
+"area": "bonkers",
+"x": -8230.7,
+"z": 4698.6,
+"text": "under the deck, out of the rain and out of sight: trolls, smugglers and tired teenagers all agree on this spot.",
+"reward": {
+"kr": 10
+},
+"bonkers": "bridge",
+"name": "Under Refsti bru"
+},
+{
+"id": "bz_f036",
+"kind": "rucksack",
+"area": "bonkers",
+"x": -7223.7,
+"z": -6906.8,
+"text": "under the deck, out of the rain and out of sight: trolls, smugglers and tired teenagers all agree on this spot.",
+"reward": {
+"kr": 10
+},
+"bonkers": "bridge",
+"name": "Under Gr\u00f8ttelandsvegen"
+},
+{
+"id": "bz_f037",
+"kind": "campfire",
+"area": "bonkers",
+"x": 274.0,
+"z": -398.0,
+"text": "a gravel holm in the river that you reach by a jump, a swim or a balloon: a rope swing and a box somebody floated out.",
+"reward": {
+"kr": 20
+},
+"bonkers": "island",
+"name": "River holm"
+},
+{
+"id": "bz_f038",
+"kind": "campfire",
+"area": "bonkers",
+"x": 1190.0,
+"z": -834.0,
+"text": "a lake island no path reaches: a rope swing, a cold fire ring, and a box somebody rowed out.",
+"reward": {
+"kr": 20
+},
+"bonkers": "island",
+"name": "Lake island"
+},
+{
+"id": "bz_f039",
+"kind": "campfire",
+"area": "bonkers",
+"x": -1342.0,
+"z": 734.0,
+"text": "a gravel holm in the river that you reach by a jump, a swim or a balloon: a rope swing and a box somebody floated out.",
+"reward": {
+"kr": 20
+},
+"bonkers": "island",
+"name": "River holm"
+},
+{
+"id": "bz_f040",
+"kind": "campfire",
+"area": "bonkers",
+"x": -214.0,
+"z": -1930.0,
+"text": "a lake island no path reaches: a rope swing, a cold fire ring, and a box somebody rowed out.",
+"reward": {
+"kr": 20
+},
+"bonkers": "island",
+"name": "Lake island"
+},
+{
+"id": "bz_f041",
+"kind": "runestone",
+"area": "bonkers",
+"x": -9298.0,
+"z": -8098.0,
+"text": "on top of a big glacier-dropped boulder: needs a jump, a thermos tin sits where a gull dropped it.",
+"reward": {
+"kr": 10
+},
+"bonkers": "rock",
+"name": "Boulder top"
+},
+{
+"id": "bz_f042",
+"kind": "runestone",
+"area": "bonkers",
+"x": 1218.0,
+"z": -5810.0,
+"text": "on top of a big glacier-dropped boulder: needs a jump, a thermos tin sits where a gull dropped it.",
+"reward": {
+"kr": 10
+},
+"bonkers": "rock",
+"name": "Boulder top"
+},
+{
+"id": "bz_f043",
+"kind": "runestone",
+"area": "bonkers",
+"x": 2538.0,
+"z": 838.0,
+"text": "on top of a big glacier-dropped boulder: needs a jump, a thermos tin sits where a gull dropped it.",
+"reward": {
+"kr": 10
+},
+"bonkers": "rock",
+"name": "Boulder top"
+},
+{
+"id": "bz_f044",
+"kind": "runestone",
+"area": "bonkers",
+"x": 3938.0,
+"z": 354.0,
+"text": "on top of a big glacier-dropped boulder: needs a jump, a thermos tin sits where a gull dropped it.",
+"reward": {
+"kr": 10
+},
+"bonkers": "rock",
+"name": "Boulder top"
+},
+{
+"id": "bz_f045",
+"kind": "runestone",
+"area": "bonkers",
+"x": -5146.0,
+"z": -4530.0,
+"text": "on top of a big glacier-dropped boulder: needs a jump, a thermos tin sits where a gull dropped it.",
+"reward": {
+"kr": 10
+},
+"bonkers": "rock",
+"name": "Boulder top"
+},
+{
+"id": "bz_f046",
+"kind": "runestone",
+"area": "bonkers",
+"x": -4630.0,
+"z": -6850.0,
+"text": "on top of a big glacier-dropped boulder: needs a jump, a thermos tin sits where a gull dropped it.",
+"reward": {
+"kr": 10
+},
+"bonkers": "rock",
+"name": "Boulder top"
+},
+{
+"id": "bz_f047",
+"kind": "runestone",
+"area": "bonkers",
+"x": 978.0,
+"z": 1622.0,
+"text": "on top of a big glacier-dropped boulder: needs a jump, a thermos tin sits where a gull dropped it.",
+"reward": {
+"kr": 10
+},
+"bonkers": "rock",
+"name": "Boulder top"
+},
+{
+"id": "bz_f048",
+"kind": "runestone",
+"area": "bonkers",
+"x": -134.0,
+"z": 2038.0,
+"text": "on top of a big glacier-dropped boulder: needs a jump, a thermos tin sits where a gull dropped it.",
+"reward": {
+"kr": 10
+},
+"bonkers": "rock",
+"name": "Boulder top"
+},
+{
+"id": "bz_f049",
+"kind": "runestone",
+"area": "bonkers",
+"x": 5286.0,
+"z": -9126.0,
+"text": "on top of a big glacier-dropped boulder: needs a jump, a thermos tin sits where a gull dropped it.",
+"reward": {
+"kr": 10
+},
+"bonkers": "rock",
+"name": "Boulder top"
+},
+{
+"id": "bz_f050",
+"kind": "bench",
+"area": "bonkers",
+"x": 3358.0,
+"z": -1110.0,
+"text": "a ledge on the edge of a drop with a view over the valley.",
+"reward": {
+"kr": 20
+},
+"bonkers": "lookout",
+"name": "Lookout ledge, 109 m drop"
+},
+{
+"id": "bz_f051",
+"kind": "bench",
+"area": "bonkers",
+"x": -1150.0,
+"z": -5546.0,
+"text": "a ledge on the edge of a drop with a view over the valley.",
+"reward": {
+"kr": 20
+},
+"bonkers": "lookout",
+"name": "Lookout ledge, 56 m drop"
+},
+{
+"id": "bz_f052",
+"kind": "bench",
+"area": "bonkers",
+"x": -5682.0,
+"z": -8690.0,
+"text": "a ledge on the edge of a drop with a view over the valley.",
+"reward": {
+"kr": 20
+},
+"bonkers": "lookout",
+"name": "Lookout ledge, 68 m drop"
+},
+{
+"id": "bz_f053",
+"kind": "bench",
+"area": "bonkers",
+"x": 1046.0,
+"z": -8142.0,
+"text": "a ledge on the edge of a drop with a view over the valley.",
+"reward": {
+"kr": 20
+},
+"bonkers": "lookout",
+"name": "Lookout ledge, 56 m drop"
+},
+{
+"id": "bz_f054",
+"kind": "bench",
+"area": "bonkers",
+"x": -970.0,
+"z": -5910.0,
+"text": "a ledge on the edge of a drop with a view over the valley.",
+"reward": {
+"kr": 20
+},
+"bonkers": "lookout",
+"name": "Lookout ledge, 68 m drop"
+},
+{
+"id": "bz_f055",
+"kind": "lantern",
+"area": "bonkers",
+"x": -8336.9,
+"z": 5874.0,
+"text": "the other church.",
+"reward": {
+"kr": 40
+},
+"bonkers": "tower",
+"name": "Church roof, Feda kirke"
+},
+{
+"id": "bz_f056",
+"kind": "mitten",
+"area": "bonkers",
+"x": -348.0,
+"z": 954.0,
+"text": "a scorched child's mitten on the washing-line pole.",
+"reward": {
+"kr": 20
+},
+"bonkers": "burnt",
+"name": "Farmonen 21, back garden"
+},
+{
+"id": "bz_f057",
+"kind": "cabin",
+"area": "bonkers",
+"x": -7213.5,
+"z": 5618.9,
+"text": "beside the old walls, out of the wind: a stove, a tin, and the feeling someone still uses it.",
+"reward": {
+"kr": 20
+},
+"bonkers": "ruin",
+"name": "Old ruin"
+},
+{
+"id": "bz_f058",
+"kind": "bench",
+"area": "bonkers",
+"x": 5.6,
+"z": -414.2,
+"text": "out of sight of the road, where staff smoke, hide the bins and bury what they would rather not explain.",
+"reward": {
+"kr": 10
+},
+"bonkers": "behind",
+"name": "Behind the flats"
+},
+{
+"id": "bz_f059",
+"kind": "bench",
+"area": "bonkers",
+"x": 1527.7,
+"z": -1335.5,
+"text": "out of sight of the road, where staff smoke, hide the bins and bury what they would rather not explain.",
+"reward": {
+"kr": 10
+},
+"bonkers": "behind",
+"name": "Behind the workshop"
+},
+{
+"id": "bz_f060",
+"kind": "bench",
+"area": "bonkers",
+"x": -56.1,
+"z": -718.1,
+"text": "out of sight of the road, where staff smoke, hide the bins and bury what they would rather not explain.",
+"reward": {
+"kr": 10
+},
+"bonkers": "behind",
+"name": "Behind the flats"
+},
+{
+"id": "bz_f061",
+"kind": "bench",
+"area": "bonkers",
+"x": -427.2,
+"z": 884.6,
+"text": "out of sight of the road, where staff smoke, hide the bins and bury what they would rather not explain.",
+"reward": {
+"kr": 10
+},
+"bonkers": "behind",
+"name": "Behind the flats"
+},
+{
+"id": "bz_f062",
+"kind": "bench",
+"area": "bonkers",
+"x": 413.1,
+"z": -755.9,
+"text": "out of sight of the road, where staff smoke, hide the bins and bury what they would rather not explain.",
+"reward": {
+"kr": 10
+},
+"bonkers": "behind",
+"name": "Behind the workshop"
+},
+{
+"id": "bz_f063",
+"kind": "bench",
+"area": "bonkers",
+"x": 55.1,
+"z": 665.9,
+"text": "out of sight of the road, where staff smoke, hide the bins and bury what they would rather not explain.",
+"reward": {
+"kr": 10
+},
+"bonkers": "behind",
+"name": "Behind the school"
+},
+{
+"id": "bz_f064",
+"kind": "bench",
+"area": "bonkers",
+"x": -159.3,
+"z": 666.1,
+"text": "out of sight of the road, where staff smoke, hide the bins and bury what they would rather not explain.",
+"reward": {
+"kr": 10
+},
+"bonkers": "behind",
+"name": "Behind the civic building"
+},
+{
+"id": "bz_f065",
+"kind": "bench",
+"area": "bonkers",
+"x": -7872.2,
+"z": 2478.7,
+"text": "out of sight of the road, where staff smoke, hide the bins and bury what they would rather not explain.",
+"reward": {
+"kr": 10
+},
+"bonkers": "behind",
+"name": "Behind Fr\u00f8itland skole"
+},
+{
+"id": "bz_f066",
+"kind": "bench",
+"area": "bonkers",
+"x": 1007.0,
+"z": -1015.1,
+"text": "out of sight of the road, where staff smoke, hide the bins and bury what they would rather not explain.",
+"reward": {
+"kr": 10
+},
+"bonkers": "behind",
+"name": "Behind the flats"
+},
+{
+"id": "bz_f067",
+"kind": "rucksack",
+"area": "bonkers",
+"x": -2417.0,
+"z": 7206.2,
+"text": "50-150 m off a signed trail, in the trees: a clearing most walkers never turn aside to see.",
+"reward": {
+"kr": 10
+},
+"bonkers": "woods",
+"name": "Off the trail"
+},
+{
+"id": "bz_f068",
+"kind": "cabin",
+"area": "bonkers",
+"x": -2423.5,
+"z": 7284.1,
+"text": "50-150 m off a signed trail, in the trees: a clearing most walkers never turn aside to see.",
+"reward": {
+"kr": 10
+},
+"bonkers": "woods",
+"name": "Off the trail"
+},
+{
+"id": "bz_f069",
+"kind": "mitten",
+"area": "bonkers",
+"x": 3619.5,
+"z": 5852.3,
+"text": "50-150 m off a signed trail, in the trees: a clearing most walkers never turn aside to see.",
+"reward": {
+"kr": 10
+},
+"bonkers": "woods",
+"name": "Off the trail"
+},
+{
+"id": "bz_f070",
+"kind": "antler",
+"area": "bonkers",
+"x": -2207.5,
+"z": 7154.5,
+"text": "50-150 m off a signed trail, in the trees: a clearing most walkers never turn aside to see.",
+"reward": {
+"kr": 10
+},
+"bonkers": "woods",
+"name": "Off the trail"
+},
+{
+"id": "bz_f071",
+"kind": "campfire",
+"area": "bonkers",
+"x": 3684.8,
+"z": 2269.9,
+"text": "50-150 m off a signed trail, in the trees: a clearing most walkers never turn aside to see.",
+"reward": {
+"kr": 10
+},
+"bonkers": "woods",
+"name": "Off the trail"
+},
+{
+"id": "bz_f072",
+"kind": "rucksack",
+"area": "bonkers",
+"x": 655.9,
+"z": 2962.1,
+"text": "50-150 m off a signed trail, in the trees: a clearing most walkers never turn aside to see.",
+"reward": {
+"kr": 10
+},
+"bonkers": "woods",
+"name": "Off the trail"
+},
+{
+"id": "bz_f073",
+"kind": "mitten",
+"area": "bonkers",
+"x": -962.9,
+"z": 3309.6,
+"text": "50-150 m off a signed trail, in the trees: a clearing most walkers never turn aside to see.",
+"reward": {
+"kr": 10
+},
+"bonkers": "woods",
+"name": "Off the trail"
+},
+{
+"id": "bz_f074",
+"kind": "tracks",
+"area": "bonkers",
+"x": -7801.9,
+"z": 6010.0,
+"text": "50-150 m off a signed trail, in the trees: a clearing most walkers never turn aside to see.",
+"reward": {
+"kr": 10
+},
+"bonkers": "woods",
+"name": "Off the trail"
+},
+{
+"id": "bz_f075",
+"kind": "antler",
+"area": "bonkers",
+"x": 218.5,
+"z": -9271.4,
+"text": "50-150 m off a signed trail, in the trees: a clearing most walkers never turn aside to see.",
+"reward": {
+"kr": 10
+},
+"bonkers": "woods",
+"name": "Off the trail"
+},
+{
+"id": "bz_f076",
+"kind": "rucksack",
+"area": "bonkers",
+"x": 873.4,
+"z": 3041.9,
+"text": "50-150 m off a signed trail, in the trees: a clearing most walkers never turn aside to see.",
+"reward": {
+"kr": 10
+},
+"bonkers": "woods",
+"name": "Off the trail"
+},
+{
+"id": "bz_f077",
+"kind": "cabin",
+"area": "bonkers",
+"x": -2841.7,
+"z": -908.0,
+"text": "50-150 m off a signed trail, in the trees: a clearing most walkers never turn aside to see.",
+"reward": {
+"kr": 10
+},
+"bonkers": "woods",
+"name": "Off the trail"
+},
+{
+"id": "bz_f078",
+"kind": "mitten",
+"area": "bonkers",
+"x": 5315.7,
+"z": 1515.0,
+"text": "50-150 m off a signed trail, in the trees: a clearing most walkers never turn aside to see.",
+"reward": {
+"kr": 10
+},
+"bonkers": "woods",
+"name": "Off the trail"
+},
+{
+"id": "bz_f079",
+"kind": "antler",
+"area": "bonkers",
+"x": -5872.3,
+"z": 7082.0,
+"text": "50-150 m off a signed trail, in the trees: a clearing most walkers never turn aside to see.",
+"reward": {
+"kr": 10
+},
+"bonkers": "woods",
+"name": "Off the trail"
+},
+{
+"id": "bz_f080",
+"kind": "campfire",
+"area": "bonkers",
+"x": 5696.0,
+"z": 6172.8,
+"text": "50-150 m off a signed trail, in the trees: a clearing most walkers never turn aside to see.",
+"reward": {
+"kr": 10
+},
+"bonkers": "woods",
+"name": "Off the trail"
+},
+{
+"id": "bz_f081",
+"kind": "rucksack",
+"area": "bonkers",
+"x": -9785.4,
+"z": -7886.8,
+"text": "50-150 m off a signed trail, in the trees: a clearing most walkers never turn aside to see.",
+"reward": {
+"kr": 10
+},
+"bonkers": "woods",
+"name": "Off the trail"
+},
+{
+"id": "bz_f082",
+"kind": "mitten",
+"area": "bonkers",
+"x": -5306.8,
+"z": -5149.5,
+"text": "50-150 m off a signed trail, in the trees: a clearing most walkers never turn aside to see.",
+"reward": {
+"kr": 10
+},
+"bonkers": "woods",
+"name": "Off the trail"
+},
+{
+"id": "bz_f083",
+"kind": "tracks",
+"area": "bonkers",
+"x": -4788.3,
+"z": -4635.6,
+"text": "50-150 m off a signed trail, in the trees: a clearing most walkers never turn aside to see.",
+"reward": {
+"kr": 10
+},
+"bonkers": "woods",
+"name": "Off the trail"
+},
+{
+"id": "bz_f084",
+"kind": "antler",
+"area": "bonkers",
+"x": 1981.0,
+"z": 4581.4,
+"text": "50-150 m off a signed trail, in the trees: a clearing most walkers never turn aside to see.",
+"reward": {
+"kr": 10
+},
+"bonkers": "woods",
+"name": "Off the trail"
+},
+{
+"id": "bz_f085",
+"kind": "rucksack",
+"area": "bonkers",
+"x": -923.2,
+"z": 3557.4,
+"text": "50-150 m off a signed trail, in the trees: a clearing most walkers never turn aside to see.",
+"reward": {
+"kr": 10
+},
+"bonkers": "woods",
+"name": "Off the trail"
+}
+]
+}

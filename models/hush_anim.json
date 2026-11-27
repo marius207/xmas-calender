@@ -1,0 +1,1087 @@
+{
+ "model": "hush.glb",
+ "units": "metres, creature faces +Z, y up; ~20 m tall, ~28 m wingspan",
+ "fps": 24,
+ "notes": [
+  "all actions are plain bone rotation keys (no IK/constraints in the GLB). root bone carries root motion: loc(root) is an offset in metres (y absolute above ground), rotation of root = yaw.",
+  "non-loop actions are baked at 24 fps; loop actions have N frames and wrap (duration = frames/24).",
+  "Blender action names == GLB animation names."
+ ],
+ "glow": {
+  "material": "hush_glow (emissive ember red #ff3b1f, pulse its emissiveIntensity), hush_fire (mouth furnace / flames), vertex colour COLOR_0 on glow faces: r = distance from the chest core / 32 (0..1), g = random phase 0..1, b = 1 marks glow; non-glow faces are 0,0,0.",
+  "core_world": [
+   0,
+   10.5,
+   2.6
+  ],
+  "shader_hint": "I = .32 + .75*w + .22*rum + flare*1.5; w = sq(.5+.5*sin(t*2.1 - r*32*.55 + g*.3)); rum = (.5+.5 sin(t*4.9+g*6.28))*(.5+.5 sin(t*1.4+1.3+g*3)); white-hot when flare>1"
+ },
+ "fire_sockets": [
+  "fire_breath_dir",
+  "fire_fore_L",
+  "fire_fore_R",
+  "fire_hand_L",
+  "fire_hand_R",
+  "fire_head",
+  "fire_horn_L",
+  "fire_horn_R",
+  "fire_horn_mid_L",
+  "fire_horn_mid_R",
+  "fire_mouth",
+  "fire_shoulder_L",
+  "fire_shoulder_R",
+  "fire_spine_1",
+  "fire_spine_2",
+  "fire_spine_3",
+  "fire_upper_L",
+  "fire_upper_R",
+  "fire_wing_a_L",
+  "fire_wing_a_R",
+  "fire_wing_b_L",
+  "fire_wing_b_R",
+  "fire_wing_c_L",
+  "fire_wing_c_R"
+ ],
+ "fire_note": "each fire_* is a tiny non-deforming bone; attach flame sprites/particles at its head; roar_fire.fire is the intensity envelope (t seconds, 0..1) and .smoke the smoke envelope",
+ "visemes": {
+  "closed": {
+   "jaw_rx_deg": 0,
+   "lip_corner_offset_m": {
+    "outward": 0,
+    "down": 0,
+    "forward": 0
+   },
+   "bones": "jaw rotation X (deg, + opens); lip_L/lip_R translation (x outward = +x for L, -x for R)"
+  },
+  "small": {
+   "jaw_rx_deg": 9,
+   "lip_corner_offset_m": {
+    "outward": 0.05,
+    "down": -0.05,
+    "forward": 0
+   },
+   "bones": "jaw rotation X (deg, + opens); lip_L/lip_R translation (x outward = +x for L, -x for R)"
+  },
+  "wide": {
+   "jaw_rx_deg": 40,
+   "lip_corner_offset_m": {
+    "outward": 0.2,
+    "down": -0.3,
+    "forward": -0.1
+   },
+   "bones": "jaw rotation X (deg, + opens); lip_L/lip_R translation (x outward = +x for L, -x for R)"
+  },
+  "A": {
+   "jaw_rx_deg": 30,
+   "lip_corner_offset_m": {
+    "outward": 0.25,
+    "down": -0.15,
+    "forward": -0.1
+   },
+   "bones": "jaw rotation X (deg, + opens); lip_L/lip_R translation (x outward = +x for L, -x for R)"
+  },
+  "O": {
+   "jaw_rx_deg": 18,
+   "lip_corner_offset_m": {
+    "outward": -0.4,
+    "down": -0.05,
+    "forward": 0.3
+   },
+   "bones": "jaw rotation X (deg, + opens); lip_L/lip_R translation (x outward = +x for L, -x for R)"
+  },
+  "E": {
+   "jaw_rx_deg": 13,
+   "lip_corner_offset_m": {
+    "outward": 0.55,
+    "down": 0.12,
+    "forward": -0.1
+   },
+   "bones": "jaw rotation X (deg, + opens); lip_L/lip_R translation (x outward = +x for L, -x for R)"
+  }
+ },
+ "viseme_actions": [
+  "mouth_closed",
+  "mouth_small",
+  "mouth_wide",
+  "mouth_A",
+  "mouth_O",
+  "mouth_E"
+ ],
+ "mouth": "jaw (hinged), lip_L/lip_R corner bones, teeth rigid on head/jaw, throat furnace glow = hush_fire material, socket fire_mouth",
+ "bones": [
+  "root",
+  "hips",
+  "spine1",
+  "spine2",
+  "chest",
+  "neck",
+  "head",
+  "jaw",
+  "fire_mouth",
+  "horn_L",
+  "fire_horn_L",
+  "fire_horn_mid_L",
+  "horn_R",
+  "fire_horn_R",
+  "fire_horn_mid_R",
+  "lip_L",
+  "lip_R",
+  "fire_breath_dir",
+  "fire_head",
+  "shoulder_L",
+  "upper_L",
+  "fore_L",
+  "hand_L",
+  "claw0_L",
+  "claw1_L",
+  "claw2_L",
+  "fire_hand_L",
+  "fire_fore_L",
+  "fire_upper_L",
+  "fire_shoulder_L",
+  "wing_a_L",
+  "wing_b_L",
+  "wing_c_L",
+  "wf3_L",
+  "fire_wing_c_L",
+  "wf2_L",
+  "fire_wing_b_L",
+  "wf1_L",
+  "fire_wing_a_L",
+  "shoulder_R",
+  "upper_R",
+  "fore_R",
+  "hand_R",
+  "claw0_R",
+  "claw1_R",
+  "claw2_R",
+  "fire_hand_R",
+  "fire_fore_R",
+  "fire_upper_R",
+  "fire_shoulder_R",
+  "wing_a_R",
+  "wing_b_R",
+  "wing_c_R",
+  "wf3_R",
+  "fire_wing_c_R",
+  "wf2_R",
+  "fire_wing_b_R",
+  "wf1_R",
+  "fire_wing_a_R",
+  "fire_spine_1",
+  "fire_spine_2",
+  "cloak0_a",
+  "cloak0_b",
+  "cloak1_a",
+  "cloak1_b",
+  "cloak2_a",
+  "cloak2_b",
+  "cloak3_a",
+  "cloak3_b",
+  "cloak4_a",
+  "cloak4_b",
+  "fire_spine_3",
+  "thigh_L",
+  "shin_L",
+  "foot_L",
+  "toe_L",
+  "thigh_R",
+  "shin_R",
+  "foot_R",
+  "toe_R"
+ ],
+ "actions": {
+  "stand_breathe": {
+   "length": 4.0,
+   "loop": true,
+   "desc": "idle loop: chest heaving, head slowly scanning, wings folded",
+   "fire": [],
+   "frames": 96,
+   "fps": 24,
+   "key_step": 2,
+   "worst_ik_error": 0.08
+  },
+  "talk": {
+   "length": 3.0,
+   "loop": true,
+   "desc": "jaw + head + lip beats; loop while a line plays. jaw open amount per syllable",
+   "mouth_fire": [
+    [
+     0,
+     0.1
+    ],
+    [
+     0.5,
+     0.4
+    ],
+    [
+     1.5,
+     0.3
+    ],
+    [
+     2.2,
+     0.5
+    ],
+    [
+     3,
+     0.1
+    ]
+   ],
+   "glow_flare": [
+    [
+     0,
+     0.1
+    ],
+    [
+     0.5,
+     0.5
+    ],
+    [
+     1.5,
+     0.3
+    ],
+    [
+     2.2,
+     0.6
+    ],
+    [
+     3,
+     0.1
+    ]
+   ],
+   "frames": 72,
+   "fps": 24,
+   "key_step": 2,
+   "worst_ik_error": 0.0
+  },
+  "roar": {
+   "length": 4.0,
+   "loop": false,
+   "desc": "inhale, head thrown forward, jaw wide, arms out, wings half open; hold then relax",
+   "contacts": [
+    {
+     "name": "snap",
+     "time": 1.0,
+     "frame": 25
+    }
+   ],
+   "glow_flare": [
+    [
+     0,
+     0.2
+    ],
+    [
+     0.8,
+     0.4
+    ],
+    [
+     1.0,
+     2.2
+    ],
+    [
+     1.3,
+     1.5
+    ],
+    [
+     3.0,
+     1.2
+    ],
+    [
+     4.0,
+     0.3
+    ]
+   ],
+   "fire": [],
+   "frames": 97,
+   "fps": 24,
+   "key_step": 2,
+   "worst_ik_error": 0.0
+  },
+  "roar_fire": {
+   "length": 8.0,
+   "loop": false,
+   "desc": "roar that catches fire: cracks flare white-hot, flames erupt on head/horns/shoulders/spine/wing spars/arms/mouth, then die back to embers + smoke",
+   "contacts": [
+    {
+     "name": "snap",
+     "time": 1.25,
+     "frame": 31
+    },
+    {
+     "name": "flames_peak",
+     "time": 2.5,
+     "frame": 61
+    }
+   ],
+   "glow_flare": [
+    [
+     0,
+     0.2
+    ],
+    [
+     1.0,
+     0.5
+    ],
+    [
+     1.25,
+     3.0
+    ],
+    [
+     2.5,
+     2.2
+    ],
+    [
+     4.5,
+     1.2
+    ],
+    [
+     6.5,
+     0.5
+    ],
+    [
+     8,
+     0.25
+    ]
+   ],
+   "fire": [
+    [
+     0,
+     0
+    ],
+    [
+     1.1,
+     0
+    ],
+    [
+     1.5,
+     0.6
+    ],
+    [
+     2.3,
+     1.0
+    ],
+    [
+     4.4,
+     1.0
+    ],
+    [
+     5.6,
+     0.45
+    ],
+    [
+     7.0,
+     0.12
+    ],
+    [
+     8,
+     0
+    ]
+   ],
+   "smoke": [
+    [
+     0,
+     0
+    ],
+    [
+     1.5,
+     0.2
+    ],
+    [
+     3.0,
+     0.8
+    ],
+    [
+     5.0,
+     1.0
+    ],
+    [
+     8,
+     0.4
+    ]
+   ],
+   "frames": 193,
+   "fps": 24,
+   "key_step": 2,
+   "worst_ik_error": 0.0
+  },
+  "fire_breath": {
+   "length": 6.0,
+   "loop": false,
+   "desc": "rears the head back and inhales (chest swells, cracks brighten), thrusts the head forward and sprays a ~3 s stream of fire from the open mouth (sweeping slightly), closes with smoke. Breath direction = bone fire_breath_dir (head->tail axis, forward and slightly down)",
+   "contacts": [
+    {
+     "name": "inhale_peak",
+     "time": 1.5,
+     "frame": 37
+    },
+    {
+     "name": "thrust",
+     "time": 1.7,
+     "frame": 42
+    },
+    {
+     "name": "stream_start",
+     "time": 1.85,
+     "frame": 45
+    },
+    {
+     "name": "stream_end",
+     "time": 4.85,
+     "frame": 117
+    },
+    {
+     "name": "mouth_closed",
+     "time": 5.4,
+     "frame": 131
+    }
+   ],
+   "breath_dir_bone": "fire_breath_dir",
+   "stream": [
+    [
+     0,
+     0
+    ],
+    [
+     1.8,
+     0
+    ],
+    [
+     2.1,
+     1
+    ],
+    [
+     4.6,
+     1
+    ],
+    [
+     4.95,
+     0
+    ],
+    [
+     6,
+     0
+    ]
+   ],
+   "fire": [
+    [
+     0,
+     0
+    ],
+    [
+     1.7,
+     0
+    ],
+    [
+     2.0,
+     0.5
+    ],
+    [
+     4.7,
+     0.5
+    ],
+    [
+     5.2,
+     0
+    ]
+   ],
+   "smoke": [
+    [
+     0,
+     0
+    ],
+    [
+     4.6,
+     0
+    ],
+    [
+     5.2,
+     0.8
+    ],
+    [
+     6,
+     0.5
+    ]
+   ],
+   "glow_flare": [
+    [
+     0,
+     0.3
+    ],
+    [
+     1.5,
+     1.9
+    ],
+    [
+     1.85,
+     2.4
+    ],
+    [
+     4.6,
+     1.6
+    ],
+    [
+     6,
+     0.3
+    ]
+   ],
+   "frames": 145,
+   "fps": 24,
+   "key_step": 2,
+   "worst_ik_error": 0.0
+  },
+  "wings_open": {
+   "length": 2.5,
+   "loop": false,
+   "desc": "tear open from folded to full span (ends spread, arms slightly out); hold the last pose",
+   "contacts": [
+    {
+     "name": "tear",
+     "time": 0.55,
+     "frame": 14
+    },
+    {
+     "name": "full_span",
+     "time": 1.3,
+     "frame": 32
+    }
+   ],
+   "glow_flare": [
+    [
+     0,
+     0.3
+    ],
+    [
+     0.6,
+     1.4
+    ],
+    [
+     1.3,
+     0.8
+    ],
+    [
+     2.5,
+     0.4
+    ]
+   ],
+   "frames": 61,
+   "fps": 24,
+   "key_step": 1,
+   "worst_ik_error": 0.0
+  },
+  "wings_fold": {
+   "length": 2.0,
+   "loop": false,
+   "desc": "close the wings behind the back (reverse of wings_open)",
+   "frames": 49,
+   "fps": 24,
+   "key_step": 1,
+   "worst_ik_error": 0.0
+  },
+  "walk": {
+   "length": 2.0,
+   "loop": true,
+   "desc": "heavy two-legged walk, arms swinging, wings folded; heel strike L at 0 s, R at 1 s (stride shake)",
+   "contacts": [
+    {
+     "name": "footfall_L",
+     "time": 0.0,
+     "frame": 1
+    },
+    {
+     "name": "footfall_R",
+     "time": 1.0,
+     "frame": 25
+    }
+   ],
+   "frames": 48,
+   "fps": 24,
+   "key_step": 2,
+   "worst_ik_error": 0.0
+  },
+  "fly": {
+   "length": 2.5,
+   "loop": true,
+   "desc": "flight loop: slow powerful flaps, torso pitched forward, legs trailing. root y baked around the cruise altitude 14 m (loop-safe, no z travel; the game moves it)",
+   "altitude": 14.0,
+   "contacts": [
+    {
+     "name": "downbeat_bottom",
+     "time": 0.62,
+     "frame": 16
+    },
+    {
+     "name": "upbeat_top",
+     "time": 1.87,
+     "frame": 46
+    }
+   ],
+   "glow_flare": [
+    [
+     0,
+     0.5
+    ],
+    [
+     0.6,
+     1.0
+    ],
+    [
+     1.2,
+     0.5
+    ],
+    [
+     1.9,
+     0.9
+    ],
+    [
+     2.5,
+     0.5
+    ]
+   ],
+   "frames": 60,
+   "fps": 24,
+   "key_step": 2,
+   "worst_ik_error": 0.0
+  },
+  "takeoff": {
+   "length": 3.5,
+   "loop": false,
+   "desc": "crouch, wings rise, one huge downbeat, lift; ends in the fly pose at altitude 14 (root z +6). Feet push off at 1.45 s",
+   "root_end": [
+    0,
+    14,
+    6
+   ],
+   "contacts": [
+    {
+     "name": "wings_up",
+     "time": 0.9,
+     "frame": 23
+    },
+    {
+     "name": "downbeat",
+     "time": 1.45,
+     "frame": 36
+    },
+    {
+     "name": "feet_leave_ground",
+     "time": 1.5,
+     "frame": 37
+    },
+    {
+     "name": "into_fly",
+     "time": 3.5,
+     "frame": 85
+    }
+   ],
+   "glow_flare": [
+    [
+     0,
+     0.4
+    ],
+    [
+     1.2,
+     1.2
+    ],
+    [
+     1.5,
+     2.0
+    ],
+    [
+     3.5,
+     0.6
+    ]
+   ],
+   "frames": 85,
+   "fps": 24,
+   "key_step": 2,
+   "worst_ik_error": 0.0
+  },
+  "dive": {
+   "length": 2.5,
+   "loop": false,
+   "desc": "wings swept back, arms forward, torso almost horizontal-down: attack dive. root y 14 -> 5, z +28",
+   "root_end": [
+    0,
+    5,
+    28
+   ],
+   "contacts": [
+    {
+     "name": "wings_swept",
+     "time": 0.5,
+     "frame": 13
+    },
+    {
+     "name": "pull_out",
+     "time": 2.3,
+     "frame": 56
+    }
+   ],
+   "glow_flare": [
+    [
+     0,
+     0.5
+    ],
+    [
+     0.5,
+     1.2
+    ],
+    [
+     2.3,
+     1.0
+    ],
+    [
+     2.5,
+     0.6
+    ]
+   ],
+   "frames": 61,
+   "fps": 24,
+   "key_step": 2,
+   "worst_ik_error": 0.0
+  },
+  "land": {
+   "length": 3.5,
+   "loop": false,
+   "desc": "wings flare, legs reach, heavy impact at 1.4 s (shake), crouch, rise to stand with folded wings. root y 5 -> 0, z +8",
+   "root_start": [
+    0,
+    5,
+    0
+   ],
+   "root_end": [
+    0,
+    0,
+    8
+   ],
+   "contacts": [
+    {
+     "name": "flare",
+     "time": 0.6,
+     "frame": 15
+    },
+    {
+     "name": "impact",
+     "time": 1.4,
+     "frame": 35
+    },
+    {
+     "name": "rise",
+     "time": 2.3,
+     "frame": 56
+    },
+    {
+     "name": "standing",
+     "time": 3.4,
+     "frame": 83
+    }
+   ],
+   "glow_flare": [
+    [
+     0,
+     0.4
+    ],
+    [
+     1.4,
+     2.6
+    ],
+    [
+     1.8,
+     1.0
+    ],
+    [
+     3.5,
+     0.3
+    ]
+   ],
+   "frames": 85,
+   "fps": 24,
+   "key_step": 2,
+   "worst_ik_error": 5.024
+  },
+  "flinch": {
+   "length": 1.5,
+   "loop": false,
+   "desc": "staggered back by a cairn flare: head turned away, arms up, steps back 1.5 m. root z -1.5",
+   "root_end": [
+    0,
+    0,
+    -1.5
+   ],
+   "contacts": [
+    {
+     "name": "hit",
+     "time": 0.12,
+     "frame": 4
+    },
+    {
+     "name": "step_back_R",
+     "time": 0.55,
+     "frame": 14
+    },
+    {
+     "name": "step_back_L",
+     "time": 0.95,
+     "frame": 24
+    }
+   ],
+   "glow_flare": [
+    [
+     0,
+     0.3
+    ],
+    [
+     0.12,
+     2.0
+    ],
+    [
+     0.6,
+     0.8
+    ],
+    [
+     1.5,
+     0.3
+    ]
+   ],
+   "frames": 37,
+   "fps": 24,
+   "key_step": 1,
+   "worst_ik_error": 0.0
+  },
+  "turn_away": {
+   "length": 2.5,
+   "loop": false,
+   "desc": "driven back by the light: turns its back (root yaw 160 deg), arms over the head, wings flare. root rotation ry=160 baked on the root bone",
+   "root_rot": [
+    0,
+    160,
+    0
+   ],
+   "contacts": [
+    {
+     "name": "cringe",
+     "time": 0.3,
+     "frame": 8
+    },
+    {
+     "name": "foot_shuffle_1",
+     "time": 0.8,
+     "frame": 20
+    },
+    {
+     "name": "foot_shuffle_2",
+     "time": 1.4,
+     "frame": 35
+    },
+    {
+     "name": "turned",
+     "time": 2.2,
+     "frame": 54
+    }
+   ],
+   "glow_flare": [
+    [
+     0,
+     0.4
+    ],
+    [
+     0.3,
+     2.0
+    ],
+    [
+     2.5,
+     0.5
+    ]
+   ],
+   "frames": 61,
+   "fps": 24,
+   "key_step": 2,
+   "worst_ik_error": 0.163
+  },
+  "climb_out": {
+   "length": 30.0,
+   "loop": false,
+   "desc": "hauls itself out of a hole below the rim: right hand slams on the rim and grips, left hand follows, hauls up (head rises between the arms), drags the chest over, one knee/foot up, pushes off and stands; wings folded. Hole front wall z=+3.9 (creature faces it), rim y=0, root start (0,-20.5,0.9) end (0,0,7.0); root bone carries the motion; final pose = stand_breathe start",
+   "root_start": [
+    0,
+    -20.5,
+    0.9
+   ],
+   "root_end": [
+    0,
+    0,
+    7.0
+   ],
+   "rim": {
+    "wall_z": 3.9,
+    "rim_y": 0.0
+   },
+   "segments": [
+    {
+     "name": "climb_grip",
+     "start": 0.0,
+     "end": 8.0
+    },
+    {
+     "name": "climb_haul",
+     "start": 8.0,
+     "end": 20.0
+    },
+    {
+     "name": "climb_stand",
+     "start": 20.0,
+     "end": 30.0
+    }
+   ],
+   "contacts": [
+    {
+     "name": "hand_rim_R_slam",
+     "time": 3.0,
+     "frame": 73
+    },
+    {
+     "name": "hand_rim_L_slam",
+     "time": 7.4,
+     "frame": 179
+    },
+    {
+     "name": "foot_step_L",
+     "time": 10.5,
+     "frame": 253
+    },
+    {
+     "name": "foot_step_R",
+     "time": 11.5,
+     "frame": 277
+    },
+    {
+     "name": "foot_step_L",
+     "time": 12.6,
+     "frame": 303
+    },
+    {
+     "name": "foot_step_R",
+     "time": 13.6,
+     "frame": 327
+    },
+    {
+     "name": "foot_step_L",
+     "time": 14.7,
+     "frame": 354
+    },
+    {
+     "name": "foot_step_R",
+     "time": 15.7,
+     "frame": 378
+    },
+    {
+     "name": "foot_step_L",
+     "time": 16.8,
+     "frame": 404
+    },
+    {
+     "name": "foot_step_R",
+     "time": 17.8,
+     "frame": 428
+    },
+    {
+     "name": "chest_over_rim",
+     "time": 19.0,
+     "frame": 457
+    },
+    {
+     "name": "hands_push_ground",
+     "time": 20.8,
+     "frame": 500
+    },
+    {
+     "name": "foot_R_on_ground",
+     "time": 26.2,
+     "frame": 630
+    },
+    {
+     "name": "foot_L_on_ground",
+     "time": 27.8,
+     "frame": 668
+    },
+    {
+     "name": "standing",
+     "time": 30.0,
+     "frame": 721
+    }
+   ],
+   "glow_flare": [
+    [
+     0,
+     0.3
+    ],
+    [
+     3.0,
+     1.6
+    ],
+    [
+     3.5,
+     0.4
+    ],
+    [
+     7.4,
+     1.6
+    ],
+    [
+     7.9,
+     0.4
+    ],
+    [
+     19,
+     1.2
+    ],
+    [
+     26,
+     1.0
+    ],
+    [
+     28.4,
+     1.5
+    ],
+    [
+     30,
+     0.4
+    ]
+   ],
+   "frames": 721,
+   "fps": 24,
+   "key_step": 2,
+   "worst_ik_error": 0.756
+  },
+  "mouth_closed": {
+   "length": 0,
+   "frames": 1,
+   "desc": "mouth shape (jaw rx deg=0, lip corners outward/down/forward m=(0, 0, 0)); blend between them for lip-sync"
+  },
+  "mouth_small": {
+   "length": 0,
+   "frames": 1,
+   "desc": "mouth shape (jaw rx deg=9, lip corners outward/down/forward m=(0.05, -0.05, 0)); blend between them for lip-sync"
+  },
+  "mouth_wide": {
+   "length": 0,
+   "frames": 1,
+   "desc": "mouth shape (jaw rx deg=40, lip corners outward/down/forward m=(0.2, -0.3, -0.1)); blend between them for lip-sync"
+  },
+  "mouth_A": {
+   "length": 0,
+   "frames": 1,
+   "desc": "mouth shape (jaw rx deg=30, lip corners outward/down/forward m=(0.25, -0.15, -0.1)); blend between them for lip-sync"
+  },
+  "mouth_O": {
+   "length": 0,
+   "frames": 1,
+   "desc": "mouth shape (jaw rx deg=18, lip corners outward/down/forward m=(-0.4, -0.05, 0.3)); blend between them for lip-sync"
+  },
+  "mouth_E": {
+   "length": 0,
+   "frames": 1,
+   "desc": "mouth shape (jaw rx deg=13, lip corners outward/down/forward m=(0.55, 0.12, -0.1)); blend between them for lip-sync"
+  }
+ }
+}

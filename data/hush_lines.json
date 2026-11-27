@@ -1,0 +1,12 @@
+{
+ "_note": "The Hush's spoken lines in sfx/hush/emerge.m4a (Marius's own voice). t0/t1 = seconds into the 65 s sound. Edit the text here; the game and the preview read it. confirmed=false means the wording is still being checked with Marius.",
+ "speaker": "THE HUSH",
+ "lines": [
+  {"id": "see1",  "t0": 0.0,  "t1": 1.2,  "text": "I can see you.", "confirmed": true},
+  {"id": "see2",  "t0": 20.0, "t1": 22.2, "text": "I can see you.", "confirmed": true},
+  {"id": "fear",  "t0": 23.0, "t1": 33.0, "text": "I can smell your fear. I'm gonna eat your light.", "confirmed": false},
+  {"id": "merry", "t0": 36.0, "t1": 41.0, "text": "Did you really think that this Christmas was gonna be a merry?", "confirmed": true},
+  {"id": "told",  "t0": 42.0, "t1": 45.0, "text": "I told you it was gonna be fucked up.", "confirmed": true},
+  {"id": "die",   "t0": 52.0, "t1": 54.2, "text": "Prepare to die.", "confirmed": true}
+ ]
+}
