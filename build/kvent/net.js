@@ -26,7 +26,7 @@ class HttpRelay extends RelayBase{constructor(base,key,fetchFn){super();this.bas
   async call(method,path,args){if(!this.f)throw new Error('no fetch');const h={'content-type':'application/json'};if(this.key)h['x-kvent-key']=this.key;
     let url=this.base+path,init={method,headers:h};
     if(method==='GET'){const q=Object.keys(args||{}).map(k=>encodeURIComponent(k)+'='+encodeURIComponent(args[k])).join('&');if(q)url+='?'+q;}else init.body=JSON.stringify(args||{});
-    const r=await this.f(url,init);let j;try{j=await r.json();}catch(e){j={ok:false,error:'bad reply ('+r.status+')'};}return j;}}
+    const ctl=typeof AbortController!=='undefined'?new AbortController():null;const tmo=ctl?setTimeout(()=>{try{ctl.abort();}catch(e){}},12000):0;if(ctl)init.signal=ctl.signal;let r;try{r=await this.f(url,init);}finally{if(tmo)clearTimeout(tmo);}let j;try{j=await r.json();}catch(e){j={ok:false,error:'bad reply ('+r.status+')'};}return j;}}
 function root_(){return typeof self!=='undefined'?self:globalThis;}
 /* ---------- the client ---------- */
 const DECK=d=>({faction:d.faction,leader:d.leader,cards:d.cards.slice()});

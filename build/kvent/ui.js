@@ -78,7 +78,7 @@ function startMatch(mt){stopSession();G.mt=mt;G.S=mt.S;G.tut=null;G.sel=null;G.b
   const seats=pl.map((p,i)=>p.kind==='ai'?new M.AITransport(i,p.personality||'balanced',850):new M.HotseatTransport());
   G.sess=onl&&KUI.netSession?KUI.netSession(mt,store):new M.Session(mt,seats,store);G.sess.onChange(a=>afterAct(a));
   G.view=onl&&KUI.netSeat?KUI.netSeat(mt):(G.hot?(mt.who()>=0?mt.who():0):hum[0]);G.covered=false;
-  G.rematch={players:pl,title:(mt.header.meta||{}).title};
+  G.rematch={players:pl,title:(mt.header.meta||{}).title,opp:(mt.header.meta||{}).opp};
   store(mt);showView('game');$('#roundInfo').textContent='';
   snd('deal');G.sess.start();render();refresh();if(KUI.say&&!onl)setTimeout(()=>KUI.say('greet'),700);}
 KUI.startMatch=startMatch;
@@ -91,7 +91,7 @@ function doAct(a){a=Object.assign({p:G.view},a);let r;G.sel=null;
   if(!r.ok){toast(r.err||'Illegal move');return r;}
   G.sel=null;if(G.tut){afterAct(a);}return r;}
 KUI.doAct=doAct;
-function afterAct(a){const S=G.S;G.passArm=0;if(KUI.anim)KUI.anim.events(S.ev);
+function afterAct(a){const S=G.S;G.passArm=0;try{if(KUI.anim)KUI.anim.events(S.ev);}catch(e){}
   for(const e of S.ev){
     if(e.t==='place'){G.lastNew.add(e.uid);snd(e.row==='x'?'play':'play',.45);}
     else if(e.t==='pass'){snd('pass');if(KUI.say&&!G.hot&&!G.online&&e.p!==G.view)KUI.say('pass');}
@@ -154,16 +154,16 @@ function showOver(){if(G.overShown)return;G.overShown=true;const S=G.S,V=G.view;
   const code=M.toCode(G.mt);
   const oppId=(G.mt.header.meta||{}).opp,onl=G.online;let rw=null,rwHtml='',packBtn=false,gg=null;
   const rounds=S.history.map(x=>[x.t[V],x.t[1-V],x.winner<0?0:(x.winner===V?1:-1)]);
-  if(oppId&&!G.hot&&!onl){const wonIt=w===V,o=OPP.find(x=>x.id===oppId);rw=wonIt?KUI.reward(oppId,true):{kr:0,cards:[],packs:[]};
+  if(oppId&&!G.hot&&!onl){const wonIt=w===V,o=OPP.find(x=>x.id===oppId);const pdm=LS.get('kvent.paid.v1',null)||{},again=!!pdm[G.mt.header.id];rw=(wonIt&&!again)?KUI.reward(oppId,true):{kr:0,cards:[],packs:[]};if(!again){try{const ks=Object.keys(pdm);if(ks.length>300)delete pdm[ks[0]];pdm[G.mt.header.id]=1;LS.set('kvent.paid.v1',pdm);}catch(e){}}
     const line=o?(wonIt?KUI.lineText(o,'lose'):(w<0?KUI.lineText(o,'draw'):KUI.lineText(o,'win'))):'';packBtn=!!(rw.packs&&rw.packs.length);
     rwHtml=(o?'<p><img class="portrait sm" src="'+KUI.portraitSrc(o)+'" alt=""> <b>'+esc(o.name)+':</b> <i>&ldquo;'+esc(line)+'&rdquo;</i></p>':'')+(wonIt?'<p class="good"><b>+'+rw.kr+' kr</b>'+(packBtn?' and '+rw.packs.length+' card pack'+(rw.packs.length>1?'s':'')+': '+rw.packs.map(p=>esc(KUI.CO.PACKS[p.kind].name)).join(', '):'')+'</p>':'');
     gg={opponent:oppId};
-    if(EMBED)toParent({type:'kvent-result',won:wonIt,draw:w<0,opponent:oppId,rounds,kr:rw.kr,cards:rw.cards,packs:rw.packs.length,first:!!rw.first,line,matchId:G.mt.header.id});}
+    if(EMBED&&!again)toParent({type:'kvent-result',won:wonIt,draw:w<0,opponent:oppId,rounds,kr:rw.kr,cards:rw.cards,packs:rw.packs.length,first:!!rw.first,line,matchId:G.mt.header.id});}
   else if(onl){const fn=S.players[1-V].name;KUI.friendResult(fn,w===V,w<0);gg={opponent:'friend:'+fn,friend:fn};rwHtml='<p class="sub">Saved to your friends ladder ('+esc(fn)+').</p>';
     if(EMBED)toParent({type:'kvent-result',won:w===V,draw:w<0,opponent:'friend:'+fn,friend:fn,rounds,kr:0,cards:[],packs:0,line:'',matchId:G.mt.header.id});}
   const box=openModal('<h2>'+esc(h)+'</h2><p class="sub">Rounds ('+esc(S.players[V].name)+' : '+esc(S.players[1-V].name)+')</p><p>'+hist+'</p>'+rwHtml+'<div class="row" style="justify-content:center"><button class="pri" data-fk="o1" id="o1">Rematch</button>'+(EMBED?'<button data-fk="o4" id="o4">Back to the game</button>':'')+'<button data-fk="o2" id="o2">Menu</button><button data-fk="o3" id="o3">Copy match code</button>'+(gg?'<button data-fk="o5" id="o5">Good game!</button>':'')+(packBtn?'<button class="pri" data-fk="o6" id="o6">Open my pack</button>':'')+'</div><p class="sub">The code replays and verifies this exact match (all moves are in it).</p>','over');
   if(EMBED&&$('#o4',box))$('#o4',box).onclick=()=>toParent({type:'kvent-close'});
-  $('#o1',box).onclick=()=>{const r=G.rematch;const mk=M.create({hostSeed:String(Math.random())+Date.now(),guestSalt:'rematch',players:r.players.map(p=>({name:p.name,faction:p.faction,leader:p.leader,cards:p.cards,kind:p.kind,personality:p.personality,opp:p.opp})),meta:{title:r.title,created:Date.now()}});startMatch(mk);};
+  $('#o1',box).onclick=()=>{const r=G.rematch;const mk=M.create({hostSeed:String(Math.random())+Date.now(),guestSalt:'rematch',players:r.players.map(p=>({name:p.name,faction:p.faction,leader:p.leader,cards:p.cards,kind:p.kind,personality:p.personality,opp:p.opp})),meta:{title:r.title,opp:r.opp,created:Date.now()}});startMatch(mk);};
   $('#o2',box).onclick=()=>{stopSession();showView('menu');KUI.menu();};
   $('#o3',box).onclick=()=>{try{navigator.clipboard.writeText(code);toast('Match code copied');}catch(e){toast('Copy failed');}};
   if($('#o5',box))$('#o5',box).onclick=()=>{const b=$('#o5',box);b.disabled=true;toast(KUI.lang&&KUI.lang()?'Takk for spillet!':'Good game!',1800);toParent(Object.assign({type:'kvent-gg',won:w===V,matchId:G.mt.header.id},gg));};
@@ -171,7 +171,7 @@ function showOver(){if(G.overShown)return;G.overShown=true;const S=G.S,V=G.view;
 /* ---------- render ---------- */
 function rowsOf(p){return G.snap?G.snap.rows[p]:G.S.players[p].rows;}
 function viewS(){return G.snap?{players:[Object.assign({},G.S.players[0],{rows:G.snap.rows[0]}),Object.assign({},G.S.players[1],{rows:G.snap.rows[1]})],weather:G.snap.weather}:G.S;}/*cardgame: keep the leader etc. in the round-end snapshot (rowPowers needs it; it threw and skipped the next AI move)*/
-function render(){const S=G.S;if(!S||curView()!=='game')return;if(KUI.anim)KUI.anim.before();const V=G.view,O=1-V,VS=viewS();
+function render(){const S=G.S;if(!S||curView()!=='game')return;try{if(KUI.anim)KUI.anim.before();}catch(e){if(!KUI.aw){KUI.aw=1;try{console.warn('kvent anim',e);}catch(_){}}}const V=G.view,O=1-V,VS=viewS();
   const sel=G.sel?optsFor(G.sel):[];const dropRows=new Set(sel.filter(a=>a.row).map(a=>a.row)),tgts=new Set(sel.filter(a=>a.target).map(a=>a.target));
   const dropAll=sel.length===1&&!sel[0].row&&!sel[0].target;
   const b=$('#board');b.innerHTML='';b.classList.toggle('dropall',dropAll);
@@ -213,7 +213,7 @@ function render(){const S=G.S;if(!S||curView()!=='game')return;if(KUI.anim)KUI.a
   $('#pOpp').classList.toggle('turn',S.phase==='play'&&S.turn===O);$('#pMe').classList.toggle('turn',S.phase==='play'&&S.turn===V);
   const lg=$('#log');lg.innerHTML=S.log.slice(-14).reverse().map(x=>'<div>'+esc(x)+'</div>').join('');
   zoomDefault();if(KUI.tutRender)KUI.tutRender();
-  applyFocus();if(KUI.anim)KUI.anim.after();}
+  applyFocus();try{if(KUI.anim)KUI.anim.after();}catch(e){if(!KUI.aw){KUI.aw=1;try{console.warn('kvent anim',e);}catch(_){}}}}
 KUI.render=render;KUI.refresh=refresh;
 function isHumanSafe(i){return G.mt?isHuman(i):i===G.view;}
 function panel(sel,p){const S=G.S,P=S.players[p],VS=viewS();$(sel).dataset.f=S.players[p].faction;const tot=K.total(VS,p);const f=K.meta().mapping[P.faction];const L=K.leaderDef(S,p);
@@ -269,13 +269,15 @@ document.addEventListener('keydown',e=>{if(e.target.matches&&e.target.matches('i
   else if(curView()==='game'&&!e.ctrlKey&&!e.metaKey){if(k==='p'||k==='P')$('#btnPass').click();else if(k==='l'||k==='L')$('#btnLeader').click();else if(k==='z'||k==='Z')zoomKey();else if(k==='m'||k==='M')$('#btnMute').click();}});
 /* gamepad (PS5: 0 Cross, 1 Circle, 2 Square, 3 Triangle, 12-15 D-pad) */
 let gpPrev={},gpRep=0,gpOn=false;
-function gpLoop(){let pads=navigator.getGamepads?navigator.getGamepads():[];let p=null;for(const x of pads)if(x&&x.connected){p=x;break;}
+const gpWarned=new Set();
+function gpLoop(){requestAnimationFrame(gpLoop);try{gpStep();}catch(e){const m=String(e&&e.message||e);if(!gpWarned.has(m)){gpWarned.add(m);try{console.warn('kvent gamepad',e);}catch(_){}}}}
+function gpStep(){let pads=navigator.getGamepads?navigator.getGamepads():[];let p=null;for(const x of pads)if(x&&x.connected){p=x;break;}
   if(!p&&EMBED&&parent!==window){try{pads=parent.navigator.getGamepads();for(const x of pads)if(x&&x.connected){p=x;break;}}catch(e){}}/* kventgame: the pad may only be visible to the top page */
   if(p){const b=i=>p.buttons[i]&&p.buttons[i].pressed;const now={x:b(0),o:b(1),s:b(2),t:b(3),u:b(12)||p.axes[1]<-.6,d:b(13)||p.axes[1]>.6,l:b(14)||p.axes[0]<-.6,r:b(15)||p.axes[0]>.6};const T=performance.now();
-    const edge=k=>now[k]&&!gpPrev[k];const dirs=['u','d','l','r'];const anyDir=dirs.some(k=>now[k]);
+    const prevS=gpPrev;gpPrev=now;const edge=k=>now[k]&&!prevS[k];const dirs=['u','d','l','r'];const anyDir=dirs.some(k=>now[k]);
     if(anyDir&&(dirs.some(k=>edge(k))||T>gpRep)){gpRep=T+(dirs.some(k=>edge(k))?320:130);if(now.u)moveFocus(0,-1);else if(now.d)moveFocus(0,1);else if(now.l)moveFocus(-1,0);else if(now.r)moveFocus(1,0);}
-    if(edge('x'))activate();if(edge('o'))back();if(edge('s'))zoomKey();if(edge('t')&&curView()==='game')$('#btnLeader').click();gpPrev=now;}
-  requestAnimationFrame(gpLoop);}
+    if(edge('x'))activate();if(edge('o'))back();if(edge('s'))zoomKey();if(edge('t')&&curView()==='game')$('#btnLeader').click();}
+}
 window.addEventListener('gamepadconnected',()=>{if(!gpOn){gpOn=true;toast('Gamepad connected: D-pad move, Cross select, Circle back/pass, Square zoom, Triangle leader',3500);}});
 requestAnimationFrame(gpLoop);
 /* ---------- menu ---------- */

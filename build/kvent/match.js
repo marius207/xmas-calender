@@ -70,7 +70,9 @@ class LocalTransport extends Transport{constructor(label){super();this.label=lab
 class HotseatTransport extends LocalTransport{constructor(){super('hotseat');}}
 class AITransport extends Transport{constructor(seat,pers,delay){super();this.seat=seat;this.pers=pers||'balanced';this.delay=delay==null?900:delay;this.t=null;this.label='ai';}
   notify(mt){const S=mt.S,p=this.seat;if(mt.who()!==p||this.t)return;
-    this.t=setTimeout(()=>{this.t=null;if(mt.who()!==p||!this.cb)return;this.cb(this.decide(mt));},this.delay);}
+    this.t=setTimeout(()=>{this.t=null;if(mt.who()!==p||!this.cb)return;const n0=mt.log.length;let r=null;try{r=this.cb(this.decide(mt));}catch(e){try{console.warn('kvent ai',e);}catch(_){}}
+      if((!r||r.ok===false)&&mt.log.length===n0&&mt.who()===p){try{this.cb(this.fallback(mt));}catch(e){try{console.warn('kvent ai fallback',e);}catch(_){}}}},this.delay);}
+  fallback(mt){const S=mt.S,p=this.seat;if(S.phase==='mulligan')return{p,t:'mulligan',uids:[]};if(S.pending){const pd=S.pending;if(pd.kind==='first')return{p,t:'first',who:p};return{p,t:'resolve',card:(pd.options||[])[0]};}return{p,t:'pass'};}
   decide(mt){const S=mt.S,p=this.seat;
     if(S.phase==='mulligan')return{p,t:'mulligan',uids:AI.mulligan(S,p)};
     if(S.pending){const pd=S.pending;if(pd.kind==='first')return{p,t:'first',who:AI.chooseFirst(S,p)};return{p,t:'resolve',card:AI.resolve(S,p).uid};}
@@ -103,7 +105,7 @@ class NetTransport extends Transport{constructor(relay,matchId,seat,opt){super()
 class Session{constructor(mt,seats,store){this.mt=mt;this.seats=seats;this.store=store||null;this.hooks=[];
     seats.forEach((t,i)=>{t.onAction(a=>this.dispatch(Object.assign({},a,{p:i})));});}
   dispatch(a){const r=this.mt.apply(a);if(!r.ok)return r;if(this.store)this.store(this.mt);
-    this.seats.forEach((t,i)=>{if(i!==a.p)t.send(a);});this.hooks.forEach(f=>f(a,this));
+    this.seats.forEach((t,i)=>{if(i!==a.p)t.send(a);});this.hooks.forEach(f=>{try{f(a,this);}catch(e){try{console.warn('kvent hook',e);}catch(_){}}});
     this.seats.forEach(t=>t.notify(this.mt));return r;}
   start(){this.seats.forEach(t=>{if(t.attach)t.attach(this.mt);if(t.start&&t.label==='net')t.start();t.notify(this.mt);});}
   onChange(f){this.hooks.push(f);}

@@ -38,7 +38,7 @@ function list(){const D=K.db();const cards=deckList();const v=K.validateDeck({fa
   $('#berr').innerHTML=v.errors.map(esc).join('<br>');return v;}
 function save(play){const cards=deckList();const v=K.validateDeck({faction:B.f,leader:B.leader,cards});if(!v.ok)return U.toast('Not saved: '+v.errors[0],3500);
   const all=LS.get('kvent.decks.v1',{});all[B.f]={leader:B.leader,cards};LS.set('kvent.decks.v1',all);U.toast('Deck saved');
-  if(play){const opp=U.OPP[Math.floor(Math.random()*U.OPP.length)];U.startMatch(U.newAIMatch(LS.get('kvent.profile','Marius'),{faction:B.f,leader:B.leader,cards},opp));}}
+  if(play){const qq=new URLSearchParams(location.search);const pool=U.OPP.filter(o=>!U.gate||U.gate(o).ok);const fx=U.OPP.find(o=>o.id===qq.get('opponent'));const opp=(fx&&(!U.gate||U.gate(fx).ok))?fx:(pool.length?pool[Math.floor(Math.random()*pool.length)]:U.OPP[0]);if(U.gateBlocks&&U.gateBlocks(opp))return;U.startMatch(U.newAIMatch(qq.get('player')||LS.get('kvent.profile','Marius'),{faction:B.f,leader:B.leader,cards},opp));}}
 /* ================= TUTORIAL ================= */
 function sc(f){const S=K.scenario({names:['You','Opponent'],factions:[f||'town','town']});return S;}
 function oppPass(S){S.players[1].passed=true;}

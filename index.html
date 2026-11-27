@@ -972,7 +972,7 @@ window.__devEff=eff;
 const isPhone=()=>eff()==='phone';
 const sync=()=>{try{document.body.classList.toggle('ph',isPhone());}catch(e){}};
 /* version label: the deploy script replaces the placeholder below; an unreplaced build shows DEV BUILD */
-const VRAW='27 Nov 2026 23:16';
+const VRAW='28 Nov 2026 00:06';
 const VER=(VRAW.indexOf('__BUILD'+'_')===0)?'DEV BUILD':VRAW;
 window.__VERSION=VER;
 const pill=()=>{const b=document.createElement('button');b.type='button';b.className='verpill';b.textContent=VER;b.title='Tap to copy';b.setAttribute('aria-label','Game version '+VER);b.addEventListener('click',e=>{e.stopPropagation();try{navigator.clipboard&&navigator.clipboard.writeText(VER);}catch(_){}});return b;};
@@ -47051,7 +47051,7 @@ const ago=u=>{if(!u)return 'no news yet';const m=Math.max(0,(nowMs()-u)/6e4);if(
 async function pull(force){const n=nowMs();if(!force&&n-lastPull<30000)return false;lastPull=n;NL.stats.pull++;let ch=0;
   try{const r=await fetch('data/leaderboard.json?'+n,{cache:'no-cache'});if(r&&r.ok){const j=await r.json();const q=j&&j.nicelist;if(q){if(q.players)ch+=mergeB(q.players);if(typeof q.endpoint==='string'&&/^https:\/\/[^\s]+$/.test(q.endpoint))EP=q.endpoint.replace(/\/+$/,'');}}}catch(e){}
   if(EP){try{const r=await fetch(EP+'/nicelist.json?'+n,{cache:'no-cache'});if(r&&r.ok){const j=await r.json();ch+=mergeB(j&&j.players);}}catch(e){}}
-  pulled=nowMs();if(ch){saveBoard();uiDirty=true;}return ch>0;}
+  try{ch+=await relayAsk();}catch(e){}/*onlinescore*/pulled=nowMs();if(ch){saveBoard();uiDirty=true;}return ch>0;}
 NL.pull=pull;
 function payload(){const x=extremes(),ti=tierOf(S.tot);return {kind:'nicelist',v:1,player:ME(),score:S.tot,sp:(window.__SPIRIT&&__SPIRIT.on&&__SPIRIT.ready)?Math.round(__SPIRIT.get()):undefined,tier:ti.id,day:adv(),today:today(),n:S.ev.length,u:nowMs(),best:x.best,worst:x.worst};}
 function push(force){if(!S)return false;const n=nowMs(),st=window.__STATS;const dk=String(dayId());if(pushDay!==dk){pushDay=dk;pushesToday=0;}
@@ -47062,6 +47062,19 @@ function push(force){if(!S)return false;const n=nowMs(),st=window.__STATS;const 
   if(EP){try{fetch(EP+'/nicelist',{method:'POST',mode:'cors',body,headers:{'Content-Type':'text/plain'},keepalive:true}).catch(()=>{});}catch(e){}}
   return true;}
 NL.push=push;
+/*onlinescore*/
+let relayAnswered=false,relayHeard={},relayAskRes=null,relayKey='',lastRelay=0,relayChg=0;
+function mergeRelay(p,x){if(PLAYERS.indexOf(p)<0||p===ME()||!x||typeof x!=='object')return 0;const c=cleanB(x);if(!(c.u>0))return 0;const o=B[p];if(o&&c.u<=o.u)return 0;B[p]=c;return 1;}
+function relaySend(force){try{if(!S)return false;const O=window.__ONLINE;if(!O||O.status!=='open'||!O.send)return false;const spv=(window.__SPIRIT&&__SPIRIT.on&&__SPIRIT.ready)?Math.round(__SPIRIT.get()):-1,key=S.tot+'|'+spv,n=nowMs();if(!force&&(key===relayKey||n-lastRelay<15000))return false;
+  const r=selfRow(),cut=a=>(a||[]).map(q=>[String(q[0]).slice(0,40),q[1]]);relayKey=key;lastRelay=n;O.send({t:'score',s:r.s,sp:Math.round(r.sp),d:r.d,td:r.td,n:r.n,best:cut(r.best),worst:cut(r.worst)});return true;}catch(e){return false;}}
+function relayAsk(){const O=window.__ONLINE;if(!O||O.status!=='open'||!O.send)return Promise.resolve(0);return new Promise(res=>{relayChg=0;const to=setTimeout(()=>{relayAskRes=null;res(relayChg);},2500);relayAskRes=()=>{clearTimeout(to);relayAskRes=null;res(relayChg);};O.send({t:'scores'});});}
+addEventListener('nlscore-in',e=>{try{const d=(e&&e.detail)||{};let ch=0;
+  if(d.all&&typeof d.all==='object'){relayAnswered=true;for(const p of PLAYERS){if(p!==ME()&&d.all[p]){relayHeard[p]=1;ch+=mergeRelay(p,d.all[p]);}}}
+  else if(typeof d.p==='string'&&d.rec){relayHeard[d.p]=1;ch+=mergeRelay(d.p,d.rec);}
+  relayChg+=ch;if(ch){saveBoard();uiDirty=true;}if(d.all&&relayAskRes)relayAskRes();}catch(er){NL.err=String(er&&er.stack||er);}});
+addEventListener('online:open',()=>{relayKey='';setTimeout(()=>relaySend(true),400);});
+NL.relayOk=()=>relayAnswered;NL.relay=()=>({ok:relayAnswered,heard:Object.keys(relayHeard)});NL.relaySend=relaySend;
+/*/onlinescore*/
 /* ---------------------------------------------------------------- UI: the pill on the HUD, the big card, the reveal, the phone app */
 let uiDirty=true,pill=null,pillShown=false,pillTxt='',flashT=0,open_=false,mode='',started_=false;
 const calm=()=>{try{if(typeof started==='undefined'||!started||P.driving||P.fly||P.glide)return false;if(window.__INTRO_ON||window.__BOSS_ON||window.__ITEMGET_ON||window.__LOGINOPEN||window.__INTRO_STORY)return false;const O=window.__OPENING;if(O&&O.on)return false;const T=window.__THRESH;if(T&&T.on)return false;
@@ -47128,9 +47141,9 @@ addEventListener('keydown',e=>{if(open_){const k=(e.key||'').toLowerCase();e.sto
 let lastReveal=null;
 function combined(){const L=standings().filter(x=>x.known).map(r=>Object.assign({},r,{sp:r.sp>0?Math.round(r.sp):0,t:tot(r)}));L.sort((a,b)=>(b.t-a.t)||(b.s-a.s)||PLAYERS.indexOf(a.p)-PLAYERS.indexOf(b.p));let rk=0,pv=null,i=0;for(const r of L){i++;if(r.t!==pv){rk=i;pv=r.t;}r.rank=rk;}return L;}/*doorscore*/
 NL.combined=combined;
-function revealData(){const L=combined();const win=L[0]||null,lows=L.length>1?L.filter(x=>x.t===L[L.length-1].t):[],lose=lows.length===1&&win&&lows[0].p!==win.p?lows[0]:null;
+function revealData(){const L=combined();const wins=L.length?L.filter(x=>x.t===L[0].t):[];/*onlinescore: all tied winners*/const win=L[0]||null,lows=L.length>1?L.filter(x=>x.t===L[L.length-1].t):[],lose=lows.length===1&&win&&lows[0].p!==win.p?lows[0]:null;
   const pk=r=>r?{player:r.p,score:r.s,sp:r.sp,total:r.t,tier:tierOf(r.s).id,best:r.best||[],worst:r.worst||[]}:null;
-  return {ready:false,day:adv(),daysLeft:daysLeft(),known:L.length,standings:L.map(r=>({player:r.p,score:r.s,sp:r.sp,total:r.t,rank:r.rank,tier:r.tier,best:r.best||[],worst:r.worst||[]})),winner:pk(win),loser:pk(lose),
+  return {ready:false,day:adv(),daysLeft:daysLeft(),known:L.length,standings:L.map(r=>({player:r.p,score:r.s,sp:r.sp,total:r.t,rank:r.rank,tier:r.tier,best:r.best||[],worst:r.worst||[]})),winner:pk(win),winners:wins.map(pk),tie:wins.length>1,loser:pk(lose),
     prizes:{winner:['golden statue in the town square','a made-to-order house anywhere','an unbreakable flying car with unlimited fuel','20 000 000 kr'],loser:'a lump of coal (a joke: it takes no points and nothing you own)'},stub:true};}
 function revealHtml(d){if(!d)return '';let h='<div class="nlh"><span class="nls">★</span><div><h2>Santa’s Nice List</h2><div class="nlsub">24 DECEMBER · THE LIST IS READ</div></div><button class="nlx" type="button" data-x="1" aria-label="Close">×</button></div>';
   const both=r=>'Nice '+esc(fmt(r.score))+' + Julestemning '+esc(String(r.sp))+' = <b>'+esc(fmt(r.total))+'</b>';
@@ -47139,7 +47152,7 @@ function revealHtml(d){if(!d)return '';let h='<div class="nlh"><span class="nls"
   if(!d.ready){h+='<div class="nlc" style="margin-top:12px">Santa is still checking it twice. '+d.daysLeft+' day'+(d.daysLeft===1?'':'s')+' to go.</div>';}
   else if((d.known||0)<2){h+='<div class="nlc" style="margin-top:12px"><b>Santa has your page.</b> '+(d.winner?both(d.winner):'')+'<small>The other lists have not arrived yet (his pigeons are late). Nobody is named nicest on a guess: he reads the list out loud as soon as the others are in. Come back to the tree, or press the Nice List key to look again.</small></div><h4>THE LIST SO FAR</h4>'+wholeList();}
   else{const row=(r,lab)=>r?'<div class="nlc" style="margin-top:8px"><b>'+lab+': '+esc(cap1(r.player))+'</b><small>'+both(r)+'</small>'+(r.best&&r.best.length?'<small>Best deeds: '+r.best.map(q=>esc(q[0])+' '+esc(fmt(q[1]))).join(' · ')+'</small>':'')+(r.worst&&r.worst.length?'<small>Worst deeds: '+r.worst.map(q=>esc(q[0])+' '+esc(fmt(q[1]))).join(' · ')+'</small>':'')+'</div>':'';
-    h+='<h4>THE NICEST (NICE + JULESTEMNING)</h4>'+row(d.winner,'On the Nice List')+'<h4>THE LUMP OF COAL</h4>'+(d.loser?row(d.loser,'Last place'):'<div class="nlc">No single last place, so the coal stays in the sack.</div>')+'<h4>THE WHOLE LIST</h4>'+wholeList();try{h+=(window.__NLTALLY&&window.__NLTALLY.html?window.__NLTALLY.html():'');}catch(e){}/*treedeco*/}
+    h+='<h4>THE NICEST (NICE + JULESTEMNING)</h4>'+(d.winners&&d.winners.length>1?d.winners.map(w=>row(w,'Tied at the top')).join(''):row(d.winner,'On the Nice List'))+/*onlinescore*/'<h4>THE LUMP OF COAL</h4>'+(d.loser?row(d.loser,'Last place'):'<div class="nlc">No single last place, so the coal stays in the sack.</div>')+'<h4>THE WHOLE LIST</h4>'+wholeList();try{h+=(window.__NLTALLY&&window.__NLTALLY.html?window.__NLTALLY.html():'');}catch(e){}/*treedeco*/}
   h+='<button class="bt" type="button" data-x="1">Close</button>';return h;}
 NL.reveal=function(opt){opt=opt||{};const d=revealData();d.ready=adv()>=24||!!(opt.force&&DEV);const RV=window.__NLREVEAL;if(RV&&RV.ver)d.stub=false;lastReveal=d;if(opt.show!==false&&S){if(RV&&RV.ver&&(opt.scene||opt.force)&&!opt.card){d.scene=true;try{RV.start({force:!!opt.force}).then(ok=>{if(!ok&&S&&opt.show!==false){if(open_)close();open('reveal');}});}catch(e){}return d;}if(open_)close();if(open('reveal'))d.shown=true;}return d;};/*nicelistreveal*/
 /* ---------------------------------------------------------------- the phone app (Nokia menu: text screens, no new UI code) */
@@ -47168,7 +47181,7 @@ function tick(){const t0=performance.now();try{if(!S)return;
   if(st&&pill&&uiDirty){uiDirty=false;pillUpdate();if(open_&&mode==='card')render();}
   if(st)morning();
   const n=nowMs();if(!document.hidden){if(n-lastPull>300000)pull(false);if(pushDirty&&n-lastPush>=120000)push(false);}
-  if(dirty&&n-lastFlush>=8000){save();}
+  if(dirty&&n-lastFlush>=8000){save();}relaySend(false);/*onlinescore*/
   }catch(e){NL.err=String(e&&e.stack||e);}finally{const c=performance.now()-t0;NL.cost.n++;NL.cost.sum+=c;if(c>NL.cost.max)NL.cost.max=c;}}
 addEventListener('visibilitychange',()=>{try{if(document.hidden){if(dirty)save();if(pushDirty&&S)push(false);}}catch(e){}});
 addEventListener('pagehide',()=>{try{if(dirty)save();}catch(e){}});
@@ -68292,7 +68305,7 @@ G.dbg=()=>{const m=GR[S.id]||GR[lastId];const o={gunRoot:gunRoot.visible,inCam:c
 try{(()=>{
 const W=window,QS=new URLSearchParams(location.search);
 const DEV=/^(localhost|127\.0\.0\.1)$/.test(location.hostname)||QS.get('dev')==='1';
-const KV=W.__KVENT={ver:1,on:DEV&&QS.get('kvent')!=='0',spawnOn:QS.get('kventspawn')!=='0',err:null,log:[],last:null,kare:null,pending:null};
+const KV=W.__KVENT={ver:1,on:QS.get('kvent')!=='0',/*cardlive*/spawnOn:QS.get('kventspawn')!=='0',err:null,log:[],last:null,kare:null,pending:null};
 if(!KV.on){KV.open=()=>false;KV.close=()=>false;KV.state=()=>({on:false});return;}
 const e8=e=>{KV.err=String(e&&e.stack||e);try{console.warn('kventgame',e);}catch(_){}};
 const TOUCHY=(()=>{try{return typeof TOUCH!=='undefined'&&!!TOUCH;}catch(_){return false;}})();
@@ -68322,10 +68335,10 @@ function kqMus(){try{const S=window.__SETTINGS;if(!S)return 1;if(S.get('musicOn'
 function kqHush(){try{if(typeof master!=='undefined'&&master&&typeof ac!=='undefined'&&ac)master.gain.setTargetAtTime(0,ac.currentTime,.25);}catch(_){}
   try{document.querySelectorAll('audio,video').forEach(el=>{if(el!==KM.el&&!el.muted){el.muted=true;KQ.muted.add(el);}});}catch(_){}}
 (function(){try{const P=HTMLMediaElement.prototype,pl=P.play;P.play=function(){try{if(KQ.on&&this!==KM.el&&!this.muted){this.muted=true;KQ.muted.add(this);}}catch(_){}return pl.apply(this,arguments);};}catch(_){}})();
-function kvQuiet(on){try{if(on){if(!KQ.on){KQ.on=true;try{KQ.prev=(typeof master!=='undefined'&&master)?master.gain.value:.7;if(!(KQ.prev>0))KQ.prev=.7;}catch(_){}}
+function kvQuiet(on){try{if(on){if(!KQ.on){KQ.on=true;try{KQ.prev=(typeof master!=='undefined'&&master)?master.gain.value:.7;if(!(KQ.prev>0))KQ.prev=.7;if(KQ.last&&performance.now()-KQ.lt<4000)KQ.prev=KQ.last;/*cardquiet*/}catch(_){}}
     kqHush();if(!KQ.iv)KQ.iv=setInterval(()=>{if(KQ.on)kqHush();},1000);}
   else{if(!KQ.on)return;KQ.on=false;if(KQ.iv){clearInterval(KQ.iv);KQ.iv=0;}
-    try{if(typeof master!=='undefined'&&master&&ac)master.gain.setTargetAtTime(KQ.prev,ac.currentTime,.6);}catch(_){}
+    try{if(typeof master!=='undefined'&&master&&ac)master.gain.setTargetAtTime(KQ.prev,ac.currentTime,.6);KQ.last=KQ.prev;KQ.lt=performance.now();/*cardquiet*/}catch(_){}
     KQ.muted.forEach(el=>{try{el.muted=false;}catch(_){}});KQ.muted.clear();}}catch(e){}}
 window.__KVQUIET={set:kvQuiet,state:()=>({on:KQ.on,prev:KQ.prev,muted:KQ.muted.size,master:(typeof master!=='undefined'&&master)?master.gain.value:null})};
 /* /kventquiet */
@@ -68583,7 +68596,7 @@ try{
 try{(()=>{
 const W=window,QS=new URLSearchParams(location.search);
 const DEV=/^(localhost|127\.0\.0\.1)$/.test(location.hostname)||QS.get('dev')==='1';
-const KL=W.__KLOUNGE={ver:1,on:DEV&&QS.get('kventlounge')!=='0',err:null,built:false,extBuilt:false,waiting:null,tables:[],log:[]};
+const KL=W.__KLOUNGE={ver:1,on:QS.get('kventlounge')!=='0',/*cardlive*/err:null,built:false,extBuilt:false,waiting:null,tables:[],log:[]};
 if(!KL.on){KL.tp=()=>false;KL.state=()=>({on:false});return;}
 const e8=e=>{KL.err=String(e&&e.stack||e);try{console.warn('kventlounge',e);}catch(_){}};
 const X=W.__BOWLX;if(!X||typeof THREE==='undefined'){KL.err='no BOWLX';return;}
@@ -70701,8 +70714,8 @@ R.start=async function(opt){opt=opt||{};if(startBusy||SC.on)return false;
   const o=opt.sim?{rows:opt.sim.rows,me:opt.sim.me}:{};
   let d=decide(o);let simq=null;
   if(DEV&&!opt.sim&&(!d||!d.complete)&&R.simq&&SIM[R.simq]){simq=SIM[R.simq];o.rows=simq.rows;o.me=simq.me;d=decide(o);opt={force:true,sim:{commit:true},_q:1};}
-  if(d&&!d.complete&&!opt.sim){try{const N=NLs();if(N&&N.pull)await Promise.race([N.pull(true),new Promise(r=>setTimeout(r,6000))]);}catch(_){}d=decide(o);}/*doorscore: 6 s limit*/
-  if(d&&!d.complete&&d.n===1&&!opt.sim){if(!ST.since){ST.since=Date.now();save();}if(Date.now()-ST.since>=SOLO_MS||dayN()>=25){o.solo=1;d=decide(o);}}/*solosanta*/
+  if(d&&!d.complete&&!opt.sim){if(Date.now()-(R.pullT||0)>20000){R.pullT=Date.now();/*onlinescore: at most one pull per 20 s*/try{const N=NLs();if(N&&N.pull)await Promise.race([N.pull(true),new Promise(r=>setTimeout(r,6000))]);}catch(_){}}d=decide(o);}/*doorscore: 6 s limit*/
+  if(d&&!d.complete&&d.n===1&&!opt.sim){if(!ST.since){ST.since=Date.now();save();}if((Date.now()-ST.since>=SOLO_MS||dayN()>=25)&&((()=>{try{const N=NLs();return !!(N&&N.relayOk&&N.relayOk());}catch(_){return false;}})())){o.solo=1;d=decide(o);}}/*solosanta; onlinescore: a solo winner only when the relay confirmed nobody else has reported, never on a guess*/
   if(!d||!d.complete||(!d.winners.length&&!d.solo)){R.late=true;const t=Date.now();
     if(opt.dragon&&!R.interim){R.interim=1;startBusy=true;/*doorscore: the others' scores are unknown: show Santa's interim card, then let the story go on (he reads the list when they arrive)*/
       try{const N=NLs();if(N&&N.reveal)N.reveal({card:true,show:true});await new Promise(res=>{const t0=Date.now();const iv=setInterval(()=>{const e=document.getElementById('nlCard');if(!(e&&e.classList.contains('show'))||Date.now()-t0>240000){clearInterval(iv);res();}},500);});}catch(_){}finally{startBusy=false;}}

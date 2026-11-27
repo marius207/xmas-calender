@@ -181,19 +181,19 @@ export default function init(ONL, cfg) {
   }
 
   /* ---------- network ---------- */
-  let handleMsg = () => {}, ws = null, retry = 2000, retryT = 0, pingT = 0, force = true, closedFor = '';
+  let handleMsg = () => {}, ws = null, retry = 2000, retryT = 0, pingT = 0, force = true, closedFor = '', lastRx = 0, tPos = 0;/*onlinewd*/
   function send(o) { if (ws && ws.readyState === 1) { try { ws.send(JSON.stringify(o)); } catch (_) {} } }
   function connect() {
-    clearTimeout(retryT); status = 'connecting'; refreshBadge();
+    clearTimeout(retryT); status = 'connecting'; refreshBadge(); lastRx = performance.now();
     /* came from the lobby on the title screen? then use that very connection (already logged in, no second login) */
     const L = window.__LOBBY && window.__LOBBY.takeOver ? window.__LOBBY.takeOver() : null;
     if (L) ws = L; else { try { ws = new WebSocket(cfg.url); } catch (_) { later(); return; } }
     const mine = ws;
     if (!L) ws.onopen = () => { mine.send(JSON.stringify({ t: 'hello', name: ME, room: cfg.room, where: 'game' })); };
-    ws.onmessage = (ev) => { let m; try { m = JSON.parse(ev.data); } catch (_) { return; } handleMsg(m); };
+    ws.onmessage = (ev) => { if (ws !== mine) return; lastRx = performance.now(); let m; try { m = JSON.parse(ev.data); } catch (_) { return; } if (m && typeof m === 'object') handleMsg(m); };
     handleMsg = (m) => {
       if (m.t === 'pos') { const r = R[m.n] || addRemote(m.n); if (!r) return; r.tx = m.x; r.ty = m.y; r.tz = m.z; r.tyaw = m.yaw + 0; r.tpitch = m.pitch; r.a = m.a | 0; r.v = m.v | 0; r.seen = performance.now(); if (!r.have) { r.have = true; refreshBadge(); r.x = m.x; r.y = m.y; r.z = m.z; r.yaw = m.yaw; } }
-      else if (m.t === 'hi') { status = 'open'; retry = 2000; for (const n of m.players) { const sv = m.states && m.states[n]; if (!sv || sv.where === 'game') addRemote(n); } force = true; say(null, m.players.length ? 'Online: ' + m.players.map(nice).join(' and ') + (m.players.length > 1 ? ' are' : ' is') + ' here.' : 'You are online. Nobody else is here yet.'); refreshBadge(); }
+      else if (m.t === 'hi') { status = 'open'; retry = 2000; try { setTimeout(() => { send({ t: 'scores' }); window.dispatchEvent(new CustomEvent('online:open')); }, 0); } catch (_) {}/*onlinescore*/ for (const n of m.players) { const sv = m.states && m.states[n]; if (!sv || sv.where === 'game') addRemote(n); } force = true; say(null, m.players.length ? 'Online: ' + m.players.map(nice).join(' and ') + (m.players.length > 1 ? ' are' : ' is') + ' here.' : 'You are online. Nobody else is here yet.'); refreshBadge(); }
       else if (m.t === 'join') { if (m.where === 'lobby' || m.where === 'title') { say(null, nice(m.n) + ' is in the lobby.'); } else { addRemote(m.n); force = true; say(null, nice(m.n) + ' joined.'); } refreshBadge(); }
       else if (m.t === 'who') { if (m.where === 'game') { if (!R[m.n]) say(null, nice(m.n) + ' joined.'); addRemote(m.n); force = true; } else if (R[m.n]) dropRemote(m.n); refreshBadge(); }
       else if (m.t === 'leave') { dropRemote(m.n); say(null, nice(m.n) + ' left.'); }
@@ -202,6 +202,8 @@ export default function init(ONL, cfg) {
         if (r) { r.emote = i; r.et = performance.now() / 1000; r.edur = EMOTES[i][2]; r.em.material.map = emoteTex[i]; r.em.visible = true; } say(null, nice(m.n) + ' ' + EMOTES[i][1] + '.'); }
       else if (m.t === 'book') { try { window.dispatchEvent(new CustomEvent('vbook-in', { detail: { n: String(m.n || ''), id: String(m.id || ''), text: String(m.text || ''), ts: +m.ts || 0, d: String(m.d || ''), day: m.day | 0 } })); } catch (_) {} }
       else if (m.t === 'ev') { try { onEv(m); } catch (_) {} }
+      else if (m.t === 'scores') { try { window.dispatchEvent(new CustomEvent('nlscore-in', { detail: { all: (m.all && typeof m.all === 'object') ? m.all : {} } })); } catch (_) {} }/*onlinescore*/
+      else if (m.t === 'score') { try { window.dispatchEvent(new CustomEvent('nlscore-in', { detail: { p: String(m.n || ''), rec: Object.assign({}, m, { n: m.cnt }) } })); } catch (_) {} }
       else if (m.t === 'bad') { closedFor = m.why; }
     };
     ws.onclose = () => {
@@ -216,12 +218,13 @@ export default function init(ONL, cfg) {
   }
   function later() { clearTimeout(retryT); retryT = setTimeout(() => { if (!document.hidden) connect(); else later(); }, retry); retry = Math.min(30000, retry * 2); }
   addEventListener('pagehide', () => { send({ t: 'bye' }); });
+  addEventListener('visibilitychange', () => { if (document.hidden) return; lastRx = performance.now(); if (!ws && status === 'retry') { retry = 2000; connect(); } });/*onlinewd*/
 
   /* ---------- per frame (called from the game's frame loop, after it has moved everything) ---------- */
   let started = false, acc = 0, sx = 1e9, sy = 0, sz = 0, syaw = 0, spit = 0, sa = -1, sv = -1, tPing = 0;
   window.__ONF = function (dt, t) {
     if (!started) { if (!ONL.started()) return; started = true; connect(); }
-    if (R.marius || R.chris || R.martin) { const now = performance.now() / 1000; for (const n in R) animate(R[n], dt, now); }
+    if (R.marius || R.chris || R.martin) { const now = performance.now() / 1000; for (const n in R) { const rr = R[n]; if (rr.have && performance.now() - rr.seen > 45000) { dropRemote(n); continue; } animate(rr, dt, now); } }/*onlinewd: ghosts expire*/
     /* send our own position: about 6 times a second, only if we moved, never from a hidden tab */
     acc += dt; if (acc < SEND_DT) return; acc = 0;
     if (!ws || ws.readyState !== 1 || status !== 'open' || document.hidden) return;
@@ -229,11 +232,13 @@ export default function init(ONL, cfg) {
     if (D) { v = 1; if (typeof D.x === 'number' && typeof D.z === 'number') { x = D.x; y = D.y || y; z = D.z; } }
     const a = P.glide ? 2 : P.fly ? 1 : 0;
     const moved = Math.abs(x - sx) + Math.abs(y - sy) + Math.abs(z - sz) > .04 || Math.abs(yaw - syaw) > .02 || Math.abs(P.pitch - spit) > .03 || a !== sa || v !== sv;
-    if (moved || force) {
-      force = false; sx = x; sy = y; sz = z; syaw = yaw; spit = P.pitch; sa = a; sv = v;
+    if (moved || force || t - tPos > 12) {
+      tPos = t; force = false; sx = x; sy = y; sz = z; syaw = yaw; spit = P.pitch; sa = a; sv = v;
       const q = (n) => Math.round(n * 100) / 100;
       ws.send(JSON.stringify({ t: 'pos', x: q(x), y: q(y), z: q(z), yaw: q(yaw), pitch: q(P.pitch), a, v }));
-    } else if (t - tPing > 25) { tPing = t; ws.send('p'); }
+    }
+    if (t - tPing > 20) { tPing = t; try { ws.send('p'); } catch (_) {} }
+    if (lastRx && performance.now() - lastRx > 90000) { const dead = ws; try { dead.onmessage = null; dead.close(); } catch (_) {} if (dead.onclose) dead.onclose(); }/*onlinewd: watchdog*/
   };
 
   /* ---------- shared big moments (job onlinemp): siren, northern lights, witch visit, one shared clock ----------
@@ -287,11 +292,12 @@ export default function init(ONL, cfg) {
   function sendClock() { const T = TD(); if (!T || !evOk()) return; evSend('clk', { h: +T.h.toFixed(4), d: T.d | 0, sp: T.speed, a: +age().toFixed(1) }); SHARED.clk.sent++; }
   function clockIn(m) {
     const T = TD(), d = m.d || {}; if (!T || typeof d.h !== 'number' || !isFinite(d.h)) return; SHARED.clk.got++;
-    if (!ONL.started() || W.__INTRO_ON || T.paused || T.urlForced || T.speed !== d.sp) return;
+    if (!ONL.started() || W.__INTRO_ON || W.__CINE_MUTE || W.__BOSS_ON || W.__ITEMGET_ON || T.paused || T.urlForced || T.speed !== d.sp) return;/*onlinecl*/
     const mine = age(), theirs = +d.a || 0;
     if (theirs < mine || (theirs === mine && m.n > ME)) return;       /* the older player wins; ties go to the first name */
     const lat = Math.max(0, Math.min(3, (Date.now() - (m.ts || Date.now())) / 1000)) * T.speed / 60;
     let h = d.h + lat, dd = d.d | 0; if (h >= 24) { h -= 24; dd++; }
+    if (dd !== (T.d | 0) && dd !== (T.d | 0) + 1) dd = T.d | 0;   /*onlinecl: never adopt a far-away game-day counter, only the hour*/
     const diff = (dd * 24 + h) - (T.d * 24 + T.h);
     if (Math.abs(diff) < .1) return;
     try { T.d = dd; T.h = h; if (T.set) T.set(h); } catch (_) { return; }

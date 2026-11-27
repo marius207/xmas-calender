@@ -1,6 +1,17 @@
 {
  "entries": [
   {
+   "date": "2026-11-28",
+   "time": "00:15",
+   "title": "Card game and playing together",
+   "items": [
+    "Kvent, the card game, is now open at Bowlinghallen",
+    "Card game fixes: rewards once only, rematch pays, no locked opponents",
+    "Nice List scores now reach your friend, so Christmas Eve picks one winner",
+    "A lost connection reconnects and old ghost players disappear"
+   ]
+  },
+  {
    "date": "2026-11-27",
    "time": "23:20",
    "title": "Advent day fixes",
