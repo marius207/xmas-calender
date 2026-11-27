@@ -972,7 +972,7 @@ window.__devEff=eff;
 const isPhone=()=>eff()==='phone';
 const sync=()=>{try{document.body.classList.toggle('ph',isPhone());}catch(e){}};
 /* version label: the deploy script replaces the placeholder below; an unreplaced build shows DEV BUILD */
-const VRAW='26 Nov 2026 15:31';
+const VRAW='27 Nov 2026 07:46';
 const VER=(VRAW.indexOf('__BUILD'+'_')===0)?'DEV BUILD':VRAW;
 window.__VERSION=VER;
 const pill=()=>{const b=document.createElement('button');b.type='button';b.className='verpill';b.textContent=VER;b.title='Tap to copy';b.setAttribute('aria-label','Game version '+VER);b.addEventListener('click',e=>{e.stopPropagation();try{navigator.clipboard&&navigator.clipboard.writeText(VER);}catch(_){}});return b;};
@@ -5710,7 +5710,7 @@ let near=null,expanded=false;
 function nearest(){let best=null,bd=4.5;for(const d of doors){const dist=Math.hypot(d.x-P.x,d.z-P.z);if(dist<bd){bd=dist;best=d;}}return best;}
 function showPrompt(d){const p=$('prompt');if(!d){p.classList.remove('show');return;}
   if(d.talk){$('pKick').textContent='CHRIS · AT THE TREE';$('pTitle').textContent=expanded?'"'+chrisLines[(chrisI+chrisLines.length-1)%chrisLines.length]+'"':'Talk to Chris';$('pText').textContent=expanded?'Tap TALK again for more.':'He looks cold. And worried.';}
-  else{$('pKick').textContent=d.n===24?'DOOR 24 · CHRISTMAS EVE':`DOOR ${d.n} · OPENS ${d.n} DECEMBER`;$('pTitle').textContent=d.name;$('pText').textContent=expanded?d.teaser:(d.kind?d.kind+' · ':'')+'Asleep. Tap LOOK to look closer.';if(!d.n){/*playbotfix: shops are not advent doors*/$('pKick').textContent=String((d.kind||'Shop').split(' · ')[0]).toUpperCase();$('pText').textContent=d.kind||'';}if(window.__DOORS&&d.n>0&&__DOORS.prompt){const q=__DOORS.prompt(d.n,expanded);if(q){$('pKick').textContent=q.kick;$('pTitle').textContent=q.title;$('pText').textContent=q.text;}}/*doorsopen*/}
+  else{$('pKick').textContent=d.n===24?'DOOR 24 · CHRISTMAS EVE':`DOOR ${d.n} · OPENS ${d.n} DECEMBER`;$('pTitle').textContent=d.name;$('pText').textContent=expanded?d.teaser:(d.kind?d.kind+' · ':'')+'Asleep. Tap LOOK to look closer.';if(!d.n){/*playbotfix: shops are not advent doors*/$('pKick').textContent=String((d.kind||'Shop').split(' · ')[0]).toUpperCase();$('pText').textContent=d.kind||'';}if(window.__DOORS&&d.n>0&&__DOORS.prompt){const q=__DOORS.prompt(d.n,expanded);if(q){$('pKick').textContent=q.kick;$('pTitle').textContent=q.title;$('pText').textContent=q.text;}}/*doorsopen*/if(!TOUCH){const pt=$('pText');pt.textContent=pt.textContent.replace(/Tap LOOK/g,'Press G');}/*playbotfix: desktop key*/}
   p.classList.add('show');$('bUse').textContent=d.talk?'TALK':'LOOK';}
 function useAct(){if(P.driving){if(window.__DV4&&window.__DV4.bailOut&&window.__DV4.bailOut(P.driving))return;/* drv4 */exitCar();return;}const nc=nearCar();if(nc&&!(near&&near.n>0&&window.__DOORS&&__DOORS.wants&&__DOORS.wants(near.n))){enterCar(nc);return;}/*doorsopen: an unopened lit door wins over a parked car beside it*//* a car within reach always wins over a nearby place prompt */if(!near)return;if(near.talk){chrisI++;expanded=true;}else if(near.n>0&&window.__DOORS&&__DOORS.use&&__DOORS.use(near.n)){/*doorsopen*/}else expanded=!expanded;showPrompt(near);}
 const GEO={names:[],nidx:new Map(),sidx:new Map()};
@@ -7498,7 +7498,7 @@ const CAROLS=(()=>{try{
   /* ---------- tip + G to tip 5 kr ---------- */
   const tip=document.createElement('div');tip.id='carolTip';tip.style.cssText='position:fixed;left:50%;top:calc(50% + 26px);transform:translateX(-50%);z-index:4;font:13px Silkscreen,monospace;color:#fbf6e8;background:rgba(7,11,24,.8);border:3px solid #111;padding:6px 12px;text-align:center;pointer-events:none;display:none;text-shadow:1px 1px 0 #000;line-height:1.5;max-width:min(420px,90vw)';document.body.appendChild(tip);
   let nearG=null;
-  addEventListener('keydown',e=>{if(e.key.toLowerCase()!=='g'||e.repeat||!nearG||!started)return;if(/INPUT|TEXTAREA/.test(document.activeElement.tagName))return;e.stopImmediatePropagation();
+  addEventListener('keydown',e=>{if(e.key.toLowerCase()!=='g'||e.repeat||!nearG||!started)return;if((()=>{try{const A=window.__SOLSTICE&&window.__SOLSTICE.AFT;return !!(A&&A.cur&&!A.cur.done&&A.tip&&A.tip.style.display!=='none');}catch(_){return false;}})())return;/*playbotfix: a dark lantern / lost neighbour next to the choir gets the G*/if(/INPUT|TEXTAREA/.test(document.activeElement.tagName))return;e.stopImmediatePropagation();
     const how=MONEY.pay(5);if(!how){toast('You have no kroner to give');return;}nearG.tips=(nearG.tips||0)+1;nearG.bow=1;toast(['God jul! Tusen takk!','God jul og godt nytt år!','Takk! Merry Christmas!'][nearG.tips%3]+'  (−5 kr)');},true);
 
   /* ---------- per frame ---------- */
@@ -7553,7 +7553,7 @@ const CAROLS=(()=>{try{
     /* lantern light on the nearest lantern */
     if(lb&&lbd<60){LL.position.copy(lb);LL.intensity=C.thr.car?2:Math.max(3,22*(window.__TODL===undefined?1:window.__TODL))+Math.sin(t*9)*.9;/*chrishouselight: choir readable at night*/}else LL.intensity=0;
     /* tip */
-    if(nearG&&!document.body.classList.contains('film')){const s=nearG.cur?SONGS[nearG.cur]:null;tip.innerHTML=nearG.name.toUpperCase()+' · '+(s?'<span style="color:#ffd23f">♪ '+s.t+'</span>':'<span style="color:#9aa7c4">getting ready to sing…</span>')+' · G · Give 5 kr';tip.style.display='block';}else tip.style.display='none';
+    if(nearG&&!document.body.classList.contains('film')&&!(()=>{try{const A=window.__SOLSTICE&&window.__SOLSTICE.AFT;return !!(A&&A.cur&&!A.cur.done&&A.tip&&A.tip.style.display!=='none');}catch(_){return false;}})()){const s=nearG.cur?SONGS[nearG.cur]:null;tip.innerHTML=nearG.name.toUpperCase()+' · '+(s?'<span style="color:#ffd23f">♪ '+s.t+'</span>':'<span style="color:#9aa7c4">getting ready to sing…</span>')+' · G · Give 5 kr';tip.style.display='block';}else tip.style.display='none';
     /* churches */
     if(audioTick){const cand=[];for(const ch of C.churches){const b=ch.b;const dc=Math.hypot(P.x-ch.x,P.z-ch.z)-(b.hw||8)*1.6;if(dc>70){if(ch.choir&&ch.choir.visible)ch.choir.visible=false;if(ch.v&&ch.v.id){stopVoice(ch.v);}continue;}
         const inside=!P.driving&&P.x>b.bb[0]&&P.x<b.bb[1]&&P.z>b.bb[2]&&P.z<b.bb[3]&&pip(P.x,P.z,b.p)&&P.y<b.base+(b.eaveH||10)+2&&P.y>b.base-3;const ed=inside?0:edgeDist(b.p,P.x,P.z);cand.push({ch,inside,ed});
@@ -39855,7 +39855,7 @@ function step(dt){const T=window.__TOD;const AU=AU_(),AG=AG_();if(!T||!AU||!AG)r
   if(NL.whistling){NL.wtime+=dt;if(NL.wtime>3){NL.wtime=0;react();}}else NL.wtime=Math.max(0,NL.wtime-dt);
   NL.reactCd=Math.max(0,NL.reactCd-dt);NL.cool=Math.max(0,NL.cool-dt);
   /* opt-in prompt, mic, phone button, barks: only with an aurora up */
-  if(NL.k>.3){if(!dom)ensureDom();regHud();if(!MIC.asked&&visible&&out&&dom&&dom.ask.style.display!=='block'&&!MIC.promptShown){MIC.promptShown=true;dom.ask.style.display='block';setTimeout(()=>{try{if(!MIC.asked){dom.ask.style.display='none';}}catch(_){}},25000);}}
+  if(NL.k>.3){if(!dom)ensureDom();regHud();if(!MIC.asked&&visible&&out&&dom&&dom.ask.style.display!=='block'&&!MIC.promptShown&&!(window.__BUSY&&window.__BUSY('scene,dead,ui,phone'))&&!(window.__BALLOON&&window.__BALLOON.on)&&!(window.__JET&&window.__JET.on)){/*playbotfix: never ask mid-fight, mid-flight or in a scene*/MIC.promptShown=true;dom.ask.style.display='block';setTimeout(()=>{try{if(!MIC.asked){dom.ask.style.display='none';}}catch(_){}},25000);}}
   else if(dom&&dom.ask.style.display==='block'){dom.ask.style.display='none';}
   micStep();
   if(dom&&((typeof TOUCH!=='undefined'&&TOUCH)||window.__WM_TOUCH)){const sb=(visible||(NL.k>.3&&!isBusy))&&out;/*whistlemic*/if(sb!==dom.btnV){dom.btnV=sb;dom.btn.style.display=sb?'block':'none';if(!sb){NL.touchHeld=false;}}}
@@ -53634,10 +53634,10 @@ const CS=32;
 function nodeOf(x,z){const kx=Math.round(x/1.5)+100000,kz=Math.round(z/1.5)+100000,k=kx*262144+kz;let n=GR.km.get(k);if(n===undefined){n=GR.xs.length;GR.xs.push(x);GR.zs.push(z);GR.km.set(k,n);}return n;}
 function buildStep(){
   const t0=performance.now();
-  if(GR.st===0){GR.km=new Map();GR.ri=0;GR.t0=t0;GR.st=1;}
+  if(GR.st===0){GR.km=new Map();GR.em=[];GR.ri=0;GR.t0=t0;GR.st=1;}
   if(GR.st===1){const R=world.roads||[];
     while(GR.ri<R.length){const r=R[GR.ri++];if(!r||!r.p||r.p.length<2||!(r.w||r.c))continue;const f=(r.w?1:0)|(r.c?2:0)|((r.c&&!r.o)?4:0);let a=nodeOf(r.p[0][0],r.p[0][1]);
-      for(let i=1;i<r.p.length;i++){const b=nodeOf(r.p[i][0],r.p[i][1]);if(b!==a){GR.ea.push(a);GR.eb.push(b);GR.ef.push(f);}a=b;}
+      for(let i=1;i<r.p.length;i++){const b=nodeOf(r.p[i][0],r.p[i][1]);if(b!==a){GR.ea.push(a);GR.eb.push(b);GR.ef.push(f);/*day2route*/let em=1;if(!(f&2)){try{const ax=GR.xs[a],az=GR.zs[a],bx=GR.xs[b],bz=GR.zs[b],dl=hyp(ax-bx,az-bz),nn=Math.max(1,Math.ceil(dl/2)),sd=Math.max(2,dl/nn);let ph=Hm(ax,az),mx=0;for(let k=1;k<=nn;k++){const h=Hm(ax+(bx-ax)*k/nn,az+(bz-az)*k/nn);mx=Math.max(mx,Math.abs(h-ph)/sd);ph=h;}if(mx>.45)em=1+(mx-.45)*200;}catch(e){}}GR.em.push(em);}a=b;}
       if(performance.now()-t0>6)break;}
     if(GR.ri>=R.length)GR.st=2;return false;}
   if(GR.st===2){const N=GR.xs.length,E=GR.ea.length,deg=new Int32Array(N+1);
@@ -53645,8 +53645,8 @@ function buildStep(){
     for(let i=0;i<E;i++){const f=GR.ef[i];if(h1(f))deg[GR.ea[i]+1]++;if(h2(f))deg[GR.eb[i]+1]++;}
     for(let i=0;i<N;i++)deg[i+1]+=deg[i];const M=deg[N],to=new Int32Array(M),fr=new Int32Array(M),hf=new Uint8Array(M),hl=new Float32Array(M),pos=deg.slice(0,N);
     for(let i=0;i<E;i++){const a=GR.ea[i],b=GR.eb[i],f=GR.ef[i],L=hyp(GR.xs[a]-GR.xs[b],GR.zs[a]-GR.zs[b]);let q;
-      if((q=h1(f))){const e=pos[a]++;to[e]=b;fr[e]=a;hf[e]=q;hl[e]=L;}
-      if((q=h2(f))){const e=pos[b]++;to[e]=a;fr[e]=b;hf[e]=q;hl[e]=L;}}
+      if((q=h1(f))){const e=pos[a]++;to[e]=b;fr[e]=a;hf[e]=q;hl[e]=L*GR.em[i];}
+      if((q=h2(f))){const e=pos[b]++;to[e]=a;fr[e]=b;hf[e]=q;hl[e]=L*GR.em[i];}}
     GR.N=N;GR.M=M;GR.off=deg;GR.to=to;GR.fr=fr;GR.hf=hf;GR.hl=hl;GR.ea=GR.eb=GR.ef=null;GR.st=3;return false;}
   if(GR.st===3){const N=GR.N,cell=new Map();
     for(let i=0;i<N;i++){const k=Math.floor(GR.xs[i]/CS)*8192+Math.floor(GR.zs[i]/CS);let l=cell.get(k);if(!l)cell.set(k,l=[]);l.push(i);}
