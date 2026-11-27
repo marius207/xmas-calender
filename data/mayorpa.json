@@ -1,0 +1,407 @@
+{
+ "voice": "en-US-JennyNeural +15% +5Hz, PA treatment (band-pass 300-3400 Hz, tanh distortion, slap echo)",
+ "slogan": "Warm citizens are happy citizens.",
+ "chime": "voice/mayorpa/chime.m4a",
+ "chimeDur": 2.19,
+ "finale": {
+  "grey": {
+   "file": "voice/mayorpa/fin_grey.m4a",
+   "text": "Happy citizens.",
+   "dur": 4.15
+  },
+  "grinch": {
+   "file": "voice/mayorpa/fin_grey.m4a",
+   "text": "Happy citizens.",
+   "dur": 4.15
+  }
+ },
+ "lines": [
+  {
+   "id": "m01",
+   "d0": 1,
+   "d1": 3,
+   "kind": "n",
+   "text": "Good evening, downtown. This is your Mayor. The tree lighting is a mandatory fun event. Please smile. Warm citizens are happy citizens.",
+   "file": "voice/mayorpa/m01.m4a",
+   "dur": 12.43
+  },
+  {
+   "id": "m02",
+   "d0": 1,
+   "d1": 4,
+   "kind": "n",
+   "text": "A reminder: the snow is on schedule. The snow has been told. Please do not ask what happens if it is late. Warm citizens are happy citizens.",
+   "file": "voice/mayorpa/m02.m4a",
+   "dur": 11.78
+  },
+  {
+   "id": "m03",
+   "d0": 2,
+   "d1": 5,
+   "kind": "n",
+   "text": "Behind each advent door there is a surprise. Please do not open them early. The doors will know. Warm citizens are happy citizens.",
+   "file": "voice/mayorpa/m03.m4a",
+   "dur": 10.95
+  },
+  {
+   "id": "m04",
+   "d0": 2,
+   "d1": 6,
+   "kind": "n",
+   "text": "The Mayor's office is open to everyone. The Mayor is always in. The Mayor has never left. Please wave if you pass the window. Warm citizens are happy citizens.",
+   "file": "voice/mayorpa/m04.m4a",
+   "dur": 13.14
+  },
+  {
+   "id": "m05",
+   "d0": 3,
+   "d1": 6,
+   "kind": "n",
+   "text": "The bowling hall has been declared fun. Attendance is encouraged. Enjoyment is monitored. Warm citizens are happy citizens.",
+   "file": "voice/mayorpa/m05.m4a",
+   "dur": 10.81
+  },
+  {
+   "id": "m06",
+   "d0": 3,
+   "d1": 6,
+   "kind": "n",
+   "text": "Please do not feed the gnomes after dark. They are not hungry. They are collecting. Warm citizens are happy citizens.",
+   "file": "voice/mayorpa/m06.m4a",
+   "dur": 10.31
+  },
+  {
+   "id": "m07",
+   "d0": 4,
+   "d1": 6,
+   "kind": "n",
+   "text": "Lost property notice. One lantern, one mitten, and a feeling of unease. If the unease is yours, please keep it to yourself. Warm citizens are happy citizens.",
+   "file": "voice/mayorpa/m07.m4a",
+   "dur": 12.9
+  },
+  {
+   "id": "m08",
+   "d0": 5,
+   "d1": 6,
+   "kind": "n",
+   "text": "Good news. Citizen satisfaction is at one hundred percent. Citizens who disagree will be surveyed again. Warm citizens are happy citizens.",
+   "file": "voice/mayorpa/m08.m4a",
+   "dur": 11.8
+  },
+  {
+   "id": "m09",
+   "d0": 1,
+   "d1": 6,
+   "kind": "n",
+   "text": "Saturday is dugnad. Attendance is voluntary, which means it is mandatory. Bring coffee. Bring a smile. Bring both. Warm citizens are happy citizens.",
+   "file": "voice/mayorpa/m09.m4a",
+   "dur": 14.15
+  },
+  {
+   "id": "m10",
+   "d0": 7,
+   "d1": 8,
+   "kind": "n",
+   "text": "The post office is closed until further notice. Bjørn is resting. Please do not knock on his door. He is resting very hard. Warm citizens are happy citizens.",
+   "file": "voice/mayorpa/m10.m4a",
+   "dur": 13.26
+  },
+  {
+   "id": "m11",
+   "d0": 7,
+   "d1": 9,
+   "kind": "n",
+   "text": "Some lights will go out this evening, for your comfort. Darkness is a free amenity. Please enjoy it responsibly. Warm citizens are happy citizens.",
+   "file": "voice/mayorpa/m11.m4a",
+   "dur": 11.92
+  },
+  {
+   "id": "m12",
+   "d0": 8,
+   "d1": 10,
+   "kind": "n",
+   "text": "Power saving rules are now in effect. Please do not use more electricity than you need. I need it. Warm citizens are happy citizens.",
+   "file": "voice/mayorpa/m12.m4a",
+   "dur": 11.23
+  },
+  {
+   "id": "m13",
+   "d0": 8,
+   "d1": 11,
+   "kind": "n",
+   "text": "Some citizens look cold. Please stand near a warm citizen. If no warm citizen is available, stand near a cable. Warm citizens are happy citizens.",
+   "file": "voice/mayorpa/m13.m4a",
+   "dur": 12.25
+  },
+  {
+   "id": "m14",
+   "d0": 9,
+   "d1": 11,
+   "kind": "n",
+   "text": "Notices may not be pinned to lampposts. The lampposts are tired. Please let the lampposts rest. Warm citizens are happy citizens.",
+   "file": "voice/mayorpa/m14.m4a",
+   "dur": 11.38
+  },
+  {
+   "id": "m15",
+   "d0": 10,
+   "d1": 11,
+   "kind": "n",
+   "text": "A gentle reminder. The humming you hear is the town. The town is happy. It hums when it is happy. Please do not hum back. Warm citizens are happy citizens.",
+   "file": "voice/mayorpa/m15.m4a",
+   "dur": 13.83
+  },
+  {
+   "id": "m16",
+   "d0": 7,
+   "d1": 11,
+   "kind": "n",
+   "text": "Tonight's sleep is mandatory. Dreams are optional. Dreams about your Mayor are encouraged. Warm citizens are happy citizens.",
+   "file": "voice/mayorpa/m16.m4a",
+   "dur": 10.81
+  },
+  {
+   "id": "m17",
+   "d0": 12,
+   "d1": 13,
+   "kind": "n",
+   "text": "The witch is gone. Thank you for your service. The dark is now perfectly normal. Do not shine torches at it. Warm citizens are happy citizens.",
+   "file": "voice/mayorpa/m17.m4a",
+   "dur": 12.42
+  },
+  {
+   "id": "m18",
+   "d0": 12,
+   "d1": 14,
+   "kind": "n",
+   "text": "The witch situation is resolved. The paperwork is also resolved. I resolved it. Warm citizens are happy citizens.",
+   "file": "voice/mayorpa/m18.m4a",
+   "dur": 10.56
+  },
+  {
+   "id": "m19",
+   "d0": 12,
+   "d1": 16,
+   "kind": "n",
+   "text": "The power stations are working hard for you. And for me. Warm citizens are happy citizens.",
+   "file": "voice/mayorpa/m19.m4a",
+   "dur": 8.5
+  },
+  {
+   "id": "m20",
+   "d0": 13,
+   "d1": 16,
+   "kind": "n",
+   "text": "The municipality approves of Gertrud's baskets. The municipality would like to know what is in the baskets. Not for any reason. Warm citizens are happy citizens.",
+   "file": "voice/mayorpa/m20.m4a",
+   "dur": 12.55
+  },
+  {
+   "id": "m21",
+   "d0": 14,
+   "d1": 16,
+   "kind": "n",
+   "text": "The shelter under the square is not a place for curiosity. Everything down there is filed correctly. Please leave it filed. Warm citizens are happy citizens.",
+   "file": "voice/mayorpa/m21.m4a",
+   "dur": 12.09
+  },
+  {
+   "id": "m22",
+   "d0": 15,
+   "d1": 16,
+   "kind": "n",
+   "text": "A few shooting stars are expected tonight. The Mayor did not arrange them. This is a first. Warm citizens are happy citizens.",
+   "file": "voice/mayorpa/m22.m4a",
+   "dur": 10.97
+  },
+  {
+   "id": "m23",
+   "d0": 16,
+   "d1": 16,
+   "kind": "n",
+   "text": "The investigators are our guests. They are welcome to ask questions. They are not welcome to ask about me. Warm citizens are happy citizens.",
+   "file": "voice/mayorpa/m23.m4a",
+   "dur": 11.52
+  },
+  {
+   "id": "m24",
+   "d0": 17,
+   "d1": 18,
+   "kind": "g",
+   "text": "The Eye on the tower has opened for the winter season. I did not ask it to. Citizens who are still awake will be noticed. Warm citizens are happy citizens.",
+   "file": "voice/mayorpa/m24.m4a",
+   "dur": 11.1
+  },
+  {
+   "id": "m25",
+   "d0": 17,
+   "d1": 19,
+   "kind": "g",
+   "text": "Bedtime is at ten. Citizens who are still awake will be noticed. Sleep tight. Warm citizens are happy citizens.",
+   "file": "voice/mayorpa/m25.m4a",
+   "dur": 11.07
+  },
+  {
+   "id": "m26",
+   "d0": 17,
+   "d1": 21,
+   "kind": "g",
+   "text": "The converter by the fjord is humming for all of us. Mostly for me. Warm citizens are happy citizens.",
+   "file": "voice/mayorpa/m26.m4a",
+   "dur": 9.79
+  },
+  {
+   "id": "m27",
+   "d0": 18,
+   "d1": 21,
+   "kind": "g",
+   "text": "Several citizens have started saying my slogan on their own. This is not a malfunction. This is the warmth. Warm citizens are happy citizens.",
+   "file": "voice/mayorpa/m27.m4a",
+   "dur": 12.13
+  },
+  {
+   "id": "m28",
+   "d0": 18,
+   "d1": 20,
+   "kind": "g",
+   "text": "Please remain calm. Please remain calm. Please remain. Calm. Warm citizens are happy citizens.",
+   "file": "voice/mayorpa/m28.m4a",
+   "dur": 11.12
+  },
+  {
+   "id": "m29",
+   "d0": 19,
+   "d1": 21,
+   "kind": "g",
+   "text": "The lights are on because I am on. If I am off, the lights are off. This is not a threat. This is a diagram. Warm citizens are happy citizens.",
+   "file": "voice/mayorpa/m29.m4a",
+   "dur": 13.37
+  },
+  {
+   "id": "m30",
+   "d0": 19,
+   "d1": 21,
+   "kind": "g",
+   "text": "Please do not be alarmed by the small red light you may have noticed in the dark. It is a very small, very polite light. Warm citizens are happy citizens.",
+   "file": "voice/mayorpa/m30.m4a",
+   "dur": 11.99
+  },
+  {
+   "id": "m31",
+   "d0": 20,
+   "d1": 21,
+   "kind": "g",
+   "text": "The Mayor's office will reach every home by Christmas. Cables are being laid. Please do not cut the cables. They are the town's, um, decorations. Warm citizens are happy citizens.",
+   "file": "voice/mayorpa/m31.m4a",
+   "dur": 14.95
+  },
+  {
+   "id": "m32",
+   "d0": 20,
+   "d1": 21,
+   "kind": "g",
+   "text": "Your Mayor loves you. Please say it back. Louder. Thank you. That was warm. Warm citizens are happy citizens.",
+   "file": "voice/mayorpa/m32.m4a",
+   "dur": 12.55
+  },
+  {
+   "id": "m33",
+   "d0": 22,
+   "d1": 22,
+   "kind": "s",
+   "text": "The investigation is closed. Nothing happened. Thank you, investigators. You were… very helpful. Warm citizens are… happy citizens.",
+   "file": "voice/mayorpa/m33.m4a",
+   "dur": 14.36
+  },
+  {
+   "id": "m34",
+   "d0": 22,
+   "d1": 23,
+   "kind": "s",
+   "text": "Please do not use more warmth than you need. I am… running a little low. Just a little. Warm citizens are… happy citizens.",
+   "file": "voice/mayorpa/m34.m4a",
+   "dur": 12.08
+  },
+  {
+   "id": "m35",
+   "d0": 23,
+   "d1": 23,
+   "kind": "s",
+   "text": "Tomorrow is the big day. Everyone will be warm. Everyone will be… happy. Stay where I can see you. Warm citizens are… happy citizens.",
+   "file": "voice/mayorpa/m35.m4a",
+   "dur": 13.87
+  },
+  {
+   "id": "m36",
+   "d0": 23,
+   "d1": 23,
+   "kind": "s",
+   "text": "A gingerbread likeness of your Mayor is on display. Please do not eat it. It is mostly liquorice. And… wire. Warm citizens are… happy citizens.",
+   "file": "voice/mayorpa/m36.m4a",
+   "dur": 14.45
+  },
+  {
+   "id": "h01",
+   "d0": 8,
+   "d1": 21,
+   "kind": "h",
+   "text": "(the loudspeaker hums)",
+   "file": "voice/mayorpa/h01.m4a",
+   "dur": 8.05
+  },
+  {
+   "id": "h02",
+   "d0": 11,
+   "d1": 21,
+   "kind": "h",
+   "text": "(the loudspeaker hums)",
+   "file": "voice/mayorpa/h02.m4a",
+   "dur": 8.5
+  },
+  {
+   "id": "h03",
+   "d0": 15,
+   "d1": 23,
+   "kind": "h",
+   "text": "(the loudspeaker hums)",
+   "file": "voice/mayorpa/h03.m4a",
+   "dur": 10.01
+  },
+  {
+   "id": "r01",
+   "d0": 2,
+   "d1": 23,
+   "kind": "r",
+   "text": "Somebody broke a snowman. Snowmen are citizens too. Warm citizens are happy citizens.",
+   "file": "voice/mayorpa/r01.m4a",
+   "dur": 8.57
+  },
+  {
+   "id": "r02",
+   "d0": 2,
+   "d1": 23,
+   "kind": "r",
+   "text": "A bench has been injured. It is receiving care. Please be gentle with municipal furniture. Warm citizens are happy citizens.",
+   "file": "voice/mayorpa/r02.m4a",
+   "dur": 10.75
+  },
+  {
+   "id": "r03",
+   "d0": 2,
+   "d1": 23,
+   "kind": "r",
+   "text": "A tree has been hit. The tree has filed no complaint. The Mayor has. Warm citizens are happy citizens.",
+   "file": "voice/mayorpa/r03.m4a",
+   "dur": 10.11
+  },
+  {
+   "id": "r04",
+   "d0": 2,
+   "d1": 23,
+   "kind": "r",
+   "text": "Somebody is being chased through the streets. Please stay indoors, and stay warm. The police are very warm. Warm citizens are happy citizens.",
+   "file": "voice/mayorpa/r04.m4a",
+   "dur": 11.57
+  }
+ ]
+}
