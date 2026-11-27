@@ -377,7 +377,7 @@ html,body{height:100%;margin:0;background:var(--night);color:var(--ink);font-fam
 #invHeld{position:fixed;width:36px;height:36px;pointer-events:none;z-index:7}#invHeld canvas{width:100%;height:100%;image-rendering:pixelated}
 #hotbar button{position:relative}#hotbar span{position:absolute;right:2px;bottom:0;font-family:var(--label);font-size:11px;color:#fff;text-shadow:1px 1px 0 #000}
 #toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(env(safe-area-inset-bottom,0px) + 100px);background:rgba(0,0,0,.7);color:#fff;font-family:var(--label);font-size:12px;padding:6px 10px;z-index:5;pointer-events:none}#toast[hidden]{display:none!important}
-@media (max-width:640px){.slot{width:34px;height:34px;padding:2px}}
+@media (max-width:640px){.slot{width:34px;height:34px;padding:2px}}@media (max-width:460px){#inv{padding:4px}.invbox{padding:6px}.slot{width:28px;height:28px;padding:1px}}/*phoneportrait_01: 9 slots fit 390 px*/
 #xhair{position:fixed;left:50%;top:50%;width:22px;height:22px;margin:-11px 0 0 -11px;pointer-events:none;z-index:3}
 #xhair:before,#xhair:after{content:"";position:absolute;background:rgba(255,255,255,.85);mix-blend-mode:difference}#xhair:before{left:10px;top:0;width:2px;height:22px}#xhair:after{top:10px;left:0;width:22px;height:2px}
 #hotbar{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(env(safe-area-inset-bottom,0px) + 8px);display:flex;gap:0;background:rgba(0,0,0,.55);border:3px solid #111;z-index:3}
@@ -683,7 +683,7 @@ html body.ph #bView{position:fixed;right:calc(var(--sr) + 12px + var(--big) + 8p
 html body.ph #bRun{position:fixed;right:calc(var(--sr) + 12px + var(--big) + 8px + (var(--big) - var(--u))/2 + var(--u) + 8px);bottom:calc(var(--sb) + 10px + var(--big) + 8px + 1 * (var(--u) + 8px));width:var(--u);height:var(--u);margin:0}
 html body.ph #bFly{position:fixed;right:calc(var(--sr) + 12px + var(--big) + 8px + (var(--big) - var(--u))/2 + var(--u) + 8px);bottom:calc(var(--sb) + 10px + var(--big) + 8px + 2 * (var(--u) + 8px));width:var(--u);height:var(--u);margin:0}
 /*janitor_11*/html body.ph #bSense{position:fixed;right:calc(var(--sr) + 12px + 2 * (var(--big) + 8px) + (var(--big) - var(--u))/2);bottom:calc(var(--sb) + 10px);width:var(--u);height:var(--u);margin:0;font-size:10px}
-html body.ph.ph-left #bSense{right:auto;left:calc(var(--sl) + 12px + 2 * (var(--big) + 8px) + (var(--big) - var(--u))/2)}/*/janitor_11*/
+html body.ph.ph-left #bSense{right:auto;left:calc(var(--sl) + 12px + 2 * (var(--big) + 8px) + (var(--big) - var(--u))/2)}/*/janitor_11*/@media (orientation:portrait){html body.ph:not(.ph-left) #bSense{right:auto;left:calc(var(--sl) + 12px);bottom:calc(var(--sb) + 200px)}html body.ph.ph-left #bSense{left:auto;right:calc(var(--sr) + 12px);bottom:calc(var(--sb) + 200px)}}/*phoneportrait_01: off the hotbar*/
 html body.ph #phChute{position:fixed;right:calc(var(--sr) + 12px + (var(--big) - var(--u))/2);bottom:calc(var(--sb) + 10px + var(--big) + 8px + 1 * (var(--u) + 8px));width:var(--u);height:var(--u);margin:0}
 html body.ph #phBrake{position:fixed;right:calc(var(--sr) + 12px + (var(--big) - var(--u))/2);bottom:calc(var(--sb) + 10px + var(--big) + 8px + 0 * (var(--u) + 8px));width:var(--u);height:var(--u);margin:0}
 html body.ph #phLaunch{position:fixed;right:calc(var(--sr) + 12px + var(--big) + 8px + (var(--big) - var(--u))/2);bottom:calc(var(--sb) + 10px + var(--big) + 8px + 0 * (var(--u) + 8px));width:var(--u);height:var(--u);margin:0}
@@ -972,7 +972,7 @@ window.__devEff=eff;
 const isPhone=()=>eff()==='phone';
 const sync=()=>{try{document.body.classList.toggle('ph',isPhone());}catch(e){}};
 /* version label: the deploy script replaces the placeholder below; an unreplaced build shows DEV BUILD */
-const VRAW='27 Nov 2026 21:09';
+const VRAW='27 Nov 2026 22:28';
 const VER=(VRAW.indexOf('__BUILD'+'_')===0)?'DEV BUILD':VRAW;
 window.__VERSION=VER;
 const pill=()=>{const b=document.createElement('button');b.type='button';b.className='verpill';b.textContent=VER;b.title='Tap to copy';b.setAttribute('aria-label','Game version '+VER);b.addEventListener('click',e=>{e.stopPropagation();try{navigator.clipboard&&navigator.clipboard.writeText(VER);}catch(_){}});return b;};
@@ -5767,7 +5767,7 @@ let ac,master;function audioInit(){if(ac)return;try{ac=new (window.AudioContext|
   const len=ac.sampleRate*4,b=ac.createBuffer(1,len,ac.sampleRate),d=b.getChannelData(0);let l=0;for(let i=0;i<len;i++){l=(l+.02*(Math.random()*2-1))/1.02;d[i]=l*3;}const s=ac.createBufferSource();s.buffer=b;s.loop=true;const f=ac.createBiquadFilter();f.type='lowpass';f.frequency.value=500;const g=ac.createGain();g.gain.value=.05;s.connect(f);f.connect(g);g.connect(master);s.start();MUS.init();}catch(e){}}
 // background music: a looping Kvinesdal theme, crossfading to a dark version in the Threshold world. M toggles it.
 const MUS={on:true,dark:false,src:{},gain:{},init(){const vol=ac.createGain();vol.gain.value=.55;vol.connect(SMIX.bus('music')||master);this.vol=vol;this.ld={};const KS=['merry','dark','witch','bowl'];for(const k of KS){const gn=ac.createGain();gn.gain.value=k==='merry'?1:0;gn.connect(vol);this.gain[k]=gn;}
-  const load=k=>{if(this.ld[k])return;this.ld[k]=1;const gn=this.gain[k];fetch('theme_'+k+'.mp4').then(r=>r.arrayBuffer()).then(b=>ac.decodeAudioData(b)).then(buf=>{const s=ac.createBufferSource();s.buffer=buf;s.loop=true;s.connect(gn);s.start();this.src[k]=s;}).catch(()=>{});};this.load=load;
+  const load=k=>{if(this.ld[k])return;this.ld[k]=1;const gn=this.gain[k];fetch('theme_'+k+'.mp4').then(r=>r.arrayBuffer()).then(b=>ac.decodeAudioData(b)).then(buf=>{const s=ac.createBufferSource();s.buffer=buf;s.loop=true;s.connect(gn);s.start();this.src[k]=s;if(TOUCH){const M_=this;setTimeout(()=>{try{const w=!!M_.witch,bo=!w&&!!M_.bowl,keep=w?'witch':bo?'bowl':M_.dark?'dark':'merry';for(const j in M_.src){const o=M_.src[j];if(j===keep||!o)continue;try{o.stop();o.disconnect();}catch(_){}M_.src[j]=null;if(M_.ld)M_.ld[j]=0;}}catch(_){}},8000);}/*phonetheme_01: phones keep one decoded theme*/}).catch(()=>{});};this.load=load;
   if(!TOUCH){for(const k of KS)load(k);}/*phonecrash: phones decode only the theme that is wanted (each is 20-30 MB decoded), and not during the intro / opening*/
   else{this.tick=()=>{try{if(!started||window.__INTRO_ON||(window.__OPENING&&window.__OPENING.on))return;const w=!!this.witch,bo=!w&&!!this.bowl;load(w?'witch':bo?'bowl':this.dark?'dark':'merry');}catch(_){}};setInterval(this.tick,1500);}},setDark(d){if(!ac||!this.gain.merry)return;this.dark=d;this.mix();},setWitch(w){if(!ac||!this.gain.merry||this.witch===w)return;this.witch=w;this.mix();},setBowl(b){if(!ac||!this.gain.merry||this.bowl===b)return;this.bowl=b;this.mix();},mix(){if(this.tick)this.tick();const t=ac.currentTime,w=!!this.witch,bo=!w&&!!this.bowl,d=this.dark,q=!w&&!bo;this.gain.merry.gain.setTargetAtTime(q&&!d?1:0,t,w?.8:1.6);this.gain.dark.gain.setTargetAtTime(q&&d?1:0,t,w?.8:1.6);this.gain.witch.gain.setTargetAtTime(w?.6/*gamefeel_08*/:0,t,w?.8:2.2);if(this.gain.bowl)this.gain.bowl.gain.setTargetAtTime(bo?.55/*gamefeel_08*/:0,t,bo?.9:1.6);},toggle(){if(!this.vol)return;this.on=!this.on;this.vol.gain.setTargetAtTime(this.on?.55:0,ac.currentTime,.3);try{toast(this.on?'Music on (M)':'Music off (M)');}catch(_){}}};
 window.__MUS=MUS;addEventListener('keydown',e=>{if((window.__KEYS?__KEYS.is(e,'music'):e.code==='KeyM')&&!e.repeat&&!window.__LASER_IN/*janitor_46*/&&!/INPUT|TEXTAREA/.test(document.activeElement.tagName))MUS.toggle();});
@@ -9853,7 +9853,7 @@ const RACES=(()=>{const RS={mode:null,phase:null,t:0,cd:0,jet:null,spark:null};w
   document.addEventListener('pointerlockchange',()=>{if(RS.mode&&!document.pointerLockElement)setTimeout(()=>{if(RS.mode&&!document.pointerLockElement&&$('inv').hidden&&$('search').hidden&&!(window.__DEV&&window.__DEV.ED&&window.__DEV.ED.open))RS.quit('Race cancelled (Esc)');},120);});
   RS.starts=[];
   RS.frame=(dt,t)=>{
-    if(!RS.mode){let nr=null;for(const s of RS.starts){if(Math.hypot(P.x-s.x,P.z-s.z)<7&&!P.driving){nr=s;break;}}RS.near=nr;const show=!!nr&&end.hidden&&!document.body.classList.contains('film');hint.hidden=!show;if(show){const b=RS.best(nr.key);hint.innerHTML='<b>G</b> — start '+nr.label+(b?' &nbsp;·&nbsp; best '+RS.fmt(b):'');}}
+    if(!RS.mode){let nr=null;for(const s of RS.starts){if(Math.hypot(P.x-s.x,P.z-s.z)<7&&!P.driving){nr=s;break;}}RS.near=nr;const show=!!nr&&end.hidden&&!document.body.classList.contains('film');hint.hidden=!show;if(show){const b=RS.best(nr.key);{const h_='<b>G</b> — start '+nr.label+(b?' &nbsp;·&nbsp; best '+RS.fmt(b):'');if(hint._h!==h_){hint._h=h_;hint.innerHTML=h_;}}/*phoneuse_01: set only when it changes*/}}
     else hint.hidden=true;
     if(RS.mode==='jet'&&RS.jet)RS.jet.frame(dt,t);if(RS.mode==='spark'&&RS.spark)RS.spark.frame(dt,t);};
   window.__RACEF=(dt,t)=>{try{RS.frame(dt,t);}catch(e){console.warn('race',e);}};
@@ -24378,7 +24378,7 @@ const clearLanes=keep=>{for(const id of LANES){if(id===keep)continue;const e=el_
 const lingerLane=(e)=>{if(!e.lane)return;const el=el_(e.lane);if(!el)return;const tok=el._tok;setTimeout(()=>{if(el._tok===tok&&S.cur===null){el._tok=(el._tok||0)+1;clearTimeout(el._t);try{cancelAnimationFrame(el._raf||0);}catch(_){}el.style.opacity=0;el._spOn=false;}},520);};
 /* ---------- built-in url playback ---------- */
 const bufs=new Map();
-const loadUrl=u=>{if(bufs.has(u))return bufs.get(u);const p=fetch(u).then(r=>{if(!r.ok)throw 0;return r.arrayBuffer();}).then(ab=>new Promise((res,rej)=>{const q=ac.decodeAudioData(ab,res,rej);if(q&&q.catch)q.catch(rej);})).catch(()=>{bufs.delete(u);return null;});bufs.set(u,p);return p;};
+const loadUrl=u=>{if(bufs.has(u))return bufs.get(u);const p=fetch(u).then(r=>{if(!r.ok)throw 0;return r.arrayBuffer();}).then(ab=>new Promise((res,rej)=>{const q=ac.decodeAudioData(ab,res,rej);if(q&&q.catch)q.catch(rej);})).catch(()=>{bufs.delete(u);return null;});bufs.set(u,p);if(typeof TOUCH!=='undefined'&&TOUCH&&bufs.size>24){const o_=bufs.keys().next().value;if(o_!==u)bufs.delete(o_);}/*phonevoice_01: phones keep 24 decoded lines*/return p;};
 S.fade=(src,gain,ms)=>{try{const t=ac.currentTime,g=gain.gain,v=g.value;g.cancelScheduledValues(t);g.setValueAtTime(v,t);g.linearRampToValueAtTime(0,t+ms/1000);}catch(_){}try{src.stop(ac.currentTime+ms/1000+.03);}catch(_){}};
 S.handle=(src,gain,dur,extra)=>{try{const w=S.cur&&S.cur.who;if(w==='witch'||w==='lykta'){SMIX.hit('voices');gain.gain.value*=SMIX.v.voices;}}catch(_){}return Object.assign({duration:dur,stop(ms){S.fade(src,gain,ms||200);}},extra||{});};
 const playUrl=(u,gainV,node)=>loadUrl(u).then(buf=>{if(!buf)return null;const s=ac.createBufferSource();s.buffer=buf;const g=ac.createGain();g.gain.value=gainV==null?.9:gainV;s.connect(g);g.connect(node||master);s.start(ac.currentTime+.02);return S.handle(s,g,buf.duration);});
@@ -42707,7 +42707,7 @@ let hintEl=null,hintTxt='';const HRX=/\b(press|tap)\s+(g|here|use|tap|parachute|
 const posCache=new WeakMap();
 function scan(){let found=null,txt='';const ch=document.body.children;
   for(let i=0;i<ch.length;i++){const el=ch[i];if(el.id==='phMenu'||el.id==='phHelp'||el.id==='phRot'||el.hidden||el.tagName==='SCRIPT'||el.tagName==='STYLE')continue;
-    const t=el.textContent;if(!t||t.length>240||!HRX.test(t))continue;
+    const t=el.textContent;if(!t||t.length>240||!(HRX.test(t)||/^\s*USE\s*[—–·:]/.test(t)))continue;/*phoneuse_01: chips that start with the touch key-cap USE ('<b>G</b> — ...')*/
     let pos=posCache.get(el);if(!pos){pos=getComputedStyle(el).position;posCache.set(el,pos);}if(pos!=='fixed'&&pos!=='absolute')continue;
     const cs=el.style;if(cs.display==='none'||(cs.opacity!==''&&+cs.opacity===0)||cs.visibility==='hidden')continue;if(el.classList.contains('hide')||(el.id&&/hint|tip|say/i.test(el.id)&&!el.classList.contains('show')&&getComputedStyle(el).opacity<.05))continue;
     const r=el.getBoundingClientRect();if(r.width<8||r.height<8)continue;found=el;txt=t;break;}
@@ -42719,9 +42719,9 @@ function scan(){let found=null,txt='';const ch=document.body.children;
   if(u.textContent!==label)u.textContent=label;}
 const nearCarSafe=()=>{try{return !P.driving&&typeof nearCar==='function'&&!!nearCar();}catch(e){return false;}};
 let useDown=false,useY=0,useT=0;
-window.__PHUSE=on=>{try{if(on){if(useDown)return;useDown=true;hap(18);padKey('keydown','g','KeyG');clearTimeout(useT);useT=setTimeout(()=>{if(useDown&&!useY){useY=1;padKey('keydown','y','KeyY');}},520);}else{if(!useDown)return;useDown=false;clearTimeout(useT);padKey('keyup','g','KeyG');if(useY){useY=0;padKey('keyup','y','KeyY');}}}catch(e){}};
+let useK=['g','KeyG'];const EIDS=/^(drPrompt|wfPrompt|rvHint|gdHint|pjHint|kvHint|klHint|litPrompt)$/;/*phoneekey_01: these chips only listen for E*/window.__PHUSE=on=>{try{if(on){if(useDown)return;useDown=true;hap(18);useK=(hintEl&&EIDS.test(hintEl.id||'')&&!P.driving&&!nearCarSafe())?['e','KeyE']:['g','KeyG'];padKey('keydown',useK[0],useK[1]);clearTimeout(useT);useT=setTimeout(()=>{if(useDown&&!useY){useY=1;padKey('keydown','y','KeyY');}},520);}else{if(!useDown)return;useDown=false;clearTimeout(useT);padKey('keyup',useK[0],useK[1]);if(useY){useY=0;padKey('keyup','y','KeyY');}}}catch(e){}};
 function doUse(){window.__PHUSE(1);setTimeout(()=>window.__PHUSE(0),70);}
-function worldTap(x,y){if(B.classList.contains('ph-clean')){B.classList.remove('ph-clean');revealHud();return;}if(!started)return;if(hintEl||nearCarSafe())doUse();}
+function worldTap(x,y){if(B.classList.contains('ph-clean')){B.classList.remove('ph-clean');revealHud();return;}if(!started)return;try{const BF=window.__BOSS;if(BF&&BF.on&&window.__BOSSHIT){window.__BOSSHIT({button:0});return;}}catch(_){}/*phoneboss_01: a tap hits the day-12 witch*/if(hintEl||nearCarSafe())doUse();}
 /* context classes + labels. USE / parachute / brake appear only when relevant and fade away a few seconds after */
 const jb=$('bJump');let lastJ=0,useUntil=0,chuteUntil=0,hideAt=0;
 const heldId=()=>{try{const s=INV&&INV.slots&&INV.slots[slot];return s&&s.id!=null?String(s.id):'';}catch(e){return '';}};
@@ -43000,6 +43000,19 @@ setInterval(()=>{try{B.classList.toggle('ph-keys',keysWanted());}catch(e){}},400
 window.__PHONE.ring=ring;window.__PHONE.state=()=>({sx,sz,sid,run:P.run,input:{x:input.x,z:input.z},gas:pedGas,brk:pedBrk,hint:hintTxt});
 })();}
 /* /phone */
+/* phoneskip */
+/* phoneskip_01: a touch SKIP button for the intro flyover, the witch opening and the banishment / drive-home story (keys only before). */
+try{(()=>{const W=window,D=document;if(!(typeof TOUCH!=='undefined'&&TOUCH))return;
+const st=D.createElement('style');st.textContent='#phSkip{position:fixed;right:calc(env(safe-area-inset-right,0px) + 14px);top:calc(env(safe-area-inset-top,0px) + 12px);z-index:100001;display:none;min-width:88px;min-height:44px;padding:8px 14px;font:13px Silkscreen,monospace;color:#fff;background:rgba(10,14,30,.8);border:3px solid #000;box-shadow:inset 2px 2px 0 rgba(255,255,255,.2);touch-action:manipulation;pointer-events:auto;cursor:pointer}html body #phSkip#phSkip{visibility:visible!important}';D.head.appendChild(st);
+const b=D.createElement('button');b.id='phSkip';b.type='button';b.textContent='SKIP ⏭';b.setAttribute('aria-label','Skip the cutscene');D.body.appendChild(b);
+const which=()=>{try{if(W.__INTRO_ON)return 'intro';const O=W.__OPENING;if(O&&O.on)return 'opening';const S=W.__INTROSTORY;if(S&&S.state){const s=S.state();if(s&&s.on)return 'story';}}catch(_){}return '';};
+const esc=()=>{const o={key:'Escape',code:'Escape',bubbles:true,cancelable:true};try{D.body.dispatchEvent(new KeyboardEvent('keydown',o));D.body.dispatchEvent(new KeyboardEvent('keyup',o));}catch(_){}};
+b.addEventListener('pointerdown',e=>{e.stopPropagation();});
+b.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();const w=which();if(!w)return;if(w==='story'){try{W.__INTROSTORY.skip();}catch(_){esc();}}else esc();b.style.display='none';});
+let reg=false;setInterval(()=>{try{const on=!!which(),want=on?'block':'none';if(b.style.display!==want)b.style.display=want;if(on&&!reg&&W.__HUDLAYOUT&&W.__HUDLAYOUT.register){reg=true;W.__HUDLAYOUT.register(b,{priority:90,anchor:'top'});}}catch(_){}},400);
+W.__PHSKIP={el:b,which};
+})();}catch(e){window.__PHSKIP_ERR=String(e&&e.stack||e);}
+/* /phoneskip */
 /* phoneicon */
 /* A little phone button on the screen (Marius: "have a little icon so they can pull it up to call, text and play Snake"). Bottom-left, above the DEV button,
    in the game's pixel style. Click / tap = open the phone menu (same as P). Hidden in film / cutscenes and while the phone is already up. */
@@ -55532,8 +55545,8 @@ ADV.day1=async()=>{const ok=await ADV.play('intro');if(!ok)return false;for(let 
 function doorHook(){const pan=document.getElementById('lgDoors');if(!pan){setTimeout(doorHook,1500);return;}
   pan.addEventListener('click',e=>{try{const b=e.target.closest&&e.target.closest('.dr');if(!b||b.classList.contains('lk'))return;const d=+b.dataset.d;if(!(d>=1&&d<=24)||d>Math.max(dayNow(),0))return;
     const D=ADV.days[d-1];const ids=D.openers.filter(i=>ADV.openers[i]&&ADV.openers[i].made&&!ADV.openers[i].auto);if(!ids.length||ADV.played[d]||d<dayNow())return;/*coldfix3: old doors do not replay old news*/if(ADV.busy())return;
-    ADV.played[d]=Date.now();lsx.set(KP,JSON.stringify(ADV.played));const cl=pan.querySelector('[data-a=close]');if(cl)cl.click();else pan.hidden=true;
-    setTimeout(()=>{(async()=>{for(const i of ids)await ADV.play(i);})();},500);}catch(er){ADV.err=String(er);}},true);}
+    ADV.played[d]=Date.now();/*datesopener_01: saved after it played*/const cl=pan.querySelector('[data-a=close]');if(cl)cl.click();else pan.hidden=true;
+    setTimeout(()=>{(async()=>{let okp=false;for(const i of ids)okp=(await ADV.play(i))||okp;if(!okp)delete ADV.played[d];lsx.set(KP,JSON.stringify(ADV.played));})();},500);}catch(er){ADV.err=String(er);}},true);}
 setTimeout(doorHook,2000);
 
 /* =====================================================================  2. THE METEOR DAY OPENER  ===================================================================== */
@@ -56170,7 +56183,7 @@ const treeAt=()=>{try{const t=W.__TREEPOS;if(t)return {x:t[0],z:t[1],y:(typeof T
 function cemetery(){if(cemetery.v&&cemetery.v.list.length)return cemetery.v;const G=(W.__DET&&W.__DET.GRAVES)||[];const L=[];for(const q of G)if(q[0]>-130&&q[0]<150&&q[1]>-215&&q[1]<-60)L.push(q);
   let sx=0,sz=0;for(const q of L){sx+=q[0];sz+=q[1];}const n=L.length||1;return cemetery.v={list:L,x:L.length?sx/n:10,z:L.length?sz/n:-135};}
 /* ---------------------------------------------------------------- per-player state (kv-dragon-v1) */
-const KV='kv-dragon-v1',YEAR=new Date().getFullYear();
+const KV='kv-dragon-v1',YEAR=(()=>{const d=new Date();return d.getMonth()<10?d.getFullYear()-1:d.getFullYear();})();/*datesyear_01: the advent season year (Jan-Oct = last December)*/
 const ldAll=()=>{try{return JSON.parse(localStorage.getItem(KV)||'{}')||{};}catch(_){return {};}};
 function me(){const o=ldAll()[who()];if(!o||o.y!==YEAR)return {y:YEAR,ending:'',stage:0,said:{}};return o;}
 function sv(patch){const all=ldAll();const nw=Object.assign(me(),patch);all[who()]=nw;try{localStorage.setItem(KV,JSON.stringify(all));}catch(_){}return nw;}
@@ -57106,7 +57119,7 @@ function segCam(seg){if(seg.k==='qte'||seg.k==='qres')return seg.b.qcam||seg.b.c
 function nextSeg(){if(S.si<S.segs.length-1){enterSeg(S.si+1,C0());}}
 function showCard(){if(S.row&&S.row.nocard){S.cardT=1;UI.q.classList.remove('on');showLine(null);return;}/* mayorday1: a scene without a TODAY'S THING card ends by itself */
   const o=S.row.obj||{};UI.cH.textContent=o.head||'';UI.cP.textContent=o.text||'';UI.cS.textContent=o.sub||'';UI.card.classList.add('on');S.cardT=0;sChime();UI.q.classList.remove('on');showLine(null);}
-function toCard(skipped){if(!DS.on||S.fin)return;if(S.segs[S.si]&&S.segs[S.si].k==='card'){if(S.cardT>.3)finish();return;}
+function toCard(skipped){if(!DS.on||S.fin||!S.segs||!S.segs[S.si])return;/*dsskip*/if(S.segs[S.si]&&S.segs[S.si].k==='card'){if(S.cardT>.3)finish();return;}
   S.skipped=!!skipped||S.skipped;const q=S.q;if(q&&!q.res&&S.segs[S.si]&&S.segs[S.si].k==='qte'){q.res='ok';UI.q.classList.remove('on');}
   if(S.segs[S.si].k!=='card')enterSeg(S.segs.length-1,C0());}
 function frame(C){if(!DS.on||!S.started)return;const now=performance.now();const rdt=Math.min(.1,(now-S.last)/1000);S.last=now;
@@ -62489,7 +62502,7 @@ const once=k=>{try{const S=W.__STORY;if(S&&S.once)return S.once(k);}catch(_){}re
 const todH=()=>{try{return W.__TOD?W.__TOD.h:12;}catch(_){return 12;}};
 const SL_LEN=12,SL_STEPS=7;
 /* ---------- saved state per player per year: {ending, done} ---------- */
-const KV='kv-shelter2-v1',YEAR=new Date().getFullYear();
+const KV='kv-shelter2-v1',YEAR=(()=>{const d=new Date();return d.getMonth()<10?d.getFullYear()-1:d.getFullYear();})();/*datesyear_01: the advent season year (Jan-Oct = last December)*/
 const ldAll=()=>{try{return JSON.parse(localStorage.getItem(KV)||'{}')||{};}catch(_){return {};}};
 function me(){const o=ldAll()[who()];if(!o||o.y!==YEAR)return {y:YEAR,ending:'',done:0};return o;}
 function sv(patch){const all=ldAll();all[who()]=Object.assign(me(),patch);try{localStorage.setItem(KV,JSON.stringify(all));}catch(_){}return all[who()];}
@@ -70082,7 +70095,7 @@ function ensureCss(){if(ensureCss.d)return;ensureCss.d=1;const st=document.creat
 +'#mgWheel button.s.lock{opacity:.35;filter:grayscale(1)}#mgWheel button.s.hov{transform:scale(1.22);border-color:#fff;box-shadow:0 0 18px var(--c);z-index:2}#mgWheel button.s.sel{border-color:var(--c)}#mgWheel button.s.cdn{opacity:.55}'
 +'#mgLearn{position:fixed;left:50%;top:18%;transform:translate(-50%,-10px);z-index:61;display:none;flex-direction:column;align-items:center;gap:3px;padding:12px 22px;max-width:min(86vw,420px);text-align:center;background:rgba(10,14,30,.88);border:2px solid #8fe3ff;border-radius:16px;color:#eaf2ff;font:600 14px Georgia,serif;pointer-events:none;opacity:0;transition:opacity .35s,transform .35s}#mgLearn.on{display:flex;opacity:1;transform:translate(-50%,0)}#mgLearn b{font:700 18px Georgia,serif;letter-spacing:.5px}#mgLearn span{font-size:12px;opacity:.9}'
 +'#mgPrompt{position:fixed;left:50%;bottom:calc(env(safe-area-inset-bottom,0px) + 24%);transform:translateX(-50%);z-index:60;display:none;background:rgba(18,12,30,.85);color:#e8d8ff;border:1px solid #b890ff;border-radius:14px;padding:9px 16px;font:600 15px Georgia,serif;cursor:pointer}'
-+'#mgBtn{position:fixed;right:12px;bottom:calc(env(safe-area-inset-bottom,0px) + 232px);z-index:58;width:46px;height:46px;border-radius:50%;border:2px solid rgba(160,200,255,.7);background:rgba(10,14,30,.7);padding:0;display:none}#mgBtn canvas{width:34px;height:34px;display:block;margin:4px auto}';
++'#mgBtn{position:fixed;right:calc(env(safe-area-inset-right,0px) + 12px);bottom:calc(env(safe-area-inset-bottom,0px) + 232px);z-index:58;width:46px;height:46px;border-radius:50%;border:2px solid rgba(160,200,255,.7);background:rgba(10,14,30,.7);padding:0;display:none}#mgBtn canvas{width:34px;height:34px;display:block;margin:4px auto}';
  document.head.appendChild(st);}
 function ensureHud(){if(HUD)return HUD;ensureCss();const v=document.getElementById('vitals');if(!v)return null;const d=document.createElement('div');d.id='mgHud';d.hidden=true;d.innerHTML='<canvas width="44" height="44"></canvas><div class="mb"><i></i><b></b></div>';v.appendChild(d);
   HUD={d,cv:d.querySelector('canvas'),i:d.querySelector('i'),b:d.querySelector('b'),last:''};return HUD;}
@@ -72412,8 +72425,8 @@ O.use=n=>{try{n|=0;const s=stOf(n);if(s!==2&&s!==4)return false;const now=perfor
   const A=W.__ADVENT;const late15=!!(first&&s===4&&n===15&&W.__CRATER&&!W.__CRATER.hit&&(W.__DAY|0)<=19);/*fable_05: a missed meteor night is made up at the waiting door*/
   const oids=(((first&&s===2)||late15)&&A&&A.days&&A.days[n-1])?A.days[n-1].openers.filter(i=>A.openers[i]&&A.openers[i].made&&!A.openers[i].auto):[];
   if(oids.length&&(late15||!A.played[n])&&!(A.busy&&A.busy())){
-    A.played[n]=Date.now();try{localStorage.setItem('kv-advent-played',JSON.stringify(A.played));}catch(_){}
-    O.opener=n;setTimeout(async()=>{try{for(const i of oids)await A.play(i);}catch(er){O.err=String(er&&er.stack||er);}O.opener=0;go();},900);
+    A.played[n]=Date.now();/*datesopener_01: saved only once it has really played*/
+    O.opener=n;setTimeout(async()=>{let okp=false;try{for(const i of oids)okp=(await A.play(i))||okp;}catch(er){O.err=String(er&&er.stack||er);}if(!okp)delete A.played[n];try{localStorage.setItem('kv-advent-played',JSON.stringify(A.played));}catch(_){}O.opener=0;go();},900);
   }else if(first)setTimeout(go,900);else go();
   return true;}catch(er){O.err=String(er&&er.stack||er);return false;}};
 /* an old door you opened by hand leaves Lykta's selection on that day: put it back to today once it is done */
@@ -72422,6 +72435,22 @@ O.state=()=>({opened:Object.assign({},O.opened),told:Object.assign({},O.told),er
 if(W.__DOORS){W.__DOORS.use=O.use;W.__DOORS.prompt=O.prompt;W.__DOORS.wants=O.wants;}
 })();}catch(e){window.__DOORSOPEN_ERR=String(e&&e.stack||e);console.warn('doorsopen',e);}
 /* /doorsopen */
+/* datesnewday */
+/* datesnewday_01: window.__DAY is fixed at page load. In the real game, tell the player when the date moves on (tab open over midnight / after sleep). Never reloads by itself. */
+try{(()=>{const W=window;if(!W.__PUBLIC_HOST)return;
+const real=()=>{const d=new Date(),mo=d.getMonth();return mo===11?Math.min(25,d.getDate()):(mo<=9&&d.getFullYear()>=2027?25:0);};/* same formula as window.__DAY */
+const D0=W.__DAY|0;if(real()!==D0)return;/* a day set by hand (tests): leave it alone */
+const ND=W.__NEWDAY={d0:D0,shown:0,el:null};
+function show(n){if(ND.el)return;const b=document.createElement('button');b.type='button';b.id='newDayBtn';
+  b.textContent=(n>=1&&n<=24?'A NEW DAY · Door '+n+' is lit':'MERRY CHRISTMAS · a new day')+' · reload (F5 or tap here)';
+  b.style.cssText='position:fixed;left:50%;top:58px;transform:translateX(-50%);z-index:40;max-width:calc(100vw - 32px);padding:8px 14px;border-radius:10px;border:1px solid #ffd23f;background:rgba(18,22,38,.92);color:#ffe9a0;font:bold 13px system-ui,sans-serif;cursor:pointer;pointer-events:auto';
+  b.addEventListener('click',e=>{e.stopPropagation();try{location.reload();}catch(_){}});
+  document.body.appendChild(b);ND.el=b;ND.shown=Date.now();try{W.__HUDLAYOUT&&W.__HUDLAYOUT.register(b,{priority:85,anchor:'top'});}catch(_){}}
+const chk=()=>{try{const n=real();if(n!==D0)show(n);}catch(_){}};
+setInterval(chk,60000);document.addEventListener('visibilitychange',()=>{if(!document.hidden)chk();});
+ND.check=chk;ND.test=n=>{show(n==null?D0+1:n|0);return !!ND.el;};
+})();}catch(e){window.__DATESNEWDAY_ERR=String(e&&e.stack||e);}
+/* /datesnewday */
 /* mapgps */
 try{(()=>{
 const W=window,hyp=Math.hypot;

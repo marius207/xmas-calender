@@ -2,6 +2,16 @@
  "entries": [
   {
    "date": "2026-11-27",
+   "time": "22:25",
+   "title": "Phone and date fixes",
+   "items": [
+    "A new door now announces itself if the game is left open past midnight",
+    "A story scene you leave halfway plays again",
+    "Phones: races, the Christmas Eve finale, skipping scenes and menus work better by touch"
+   ]
+  },
+  {
+   "date": "2026-11-27",
    "time": "21:10",
    "title": "Freeze fixes",
    "items": [
