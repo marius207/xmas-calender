@@ -1,5 +1,5 @@
 {
- "_README": "PLACEHOLDERS: Marius will rewrite all of these. Every day below is a draft task drawn from what exists in the game, not final story. Edit freely: day = door number; title = short name; text = what the Lantern (Lykta) says; hint = a small extra line (can be empty); done = what Lykta says when the task is done; target = {x,z,name} in world coordinates (null = no arrow; name is what the compass shows, use 'downtown' not the real town name); kind = story/explore/race/bowl/coins (just a label); done_when = how the game knows it is done: {type:'near',radius:12} walk within radius metres of the target, {type:'race',race:'spark'|'jet'} finish that race (leave race out for any race), {type:'bowl'} finish a bowling game, {type:'coins',n:10} collect n coins since the door opened, {type:'flag',flag:'__WITCH_GONE'} a window flag is truthy, {type:'talk'} just listen to Lykta, {type:'manual'} only window.__LANTERNGUIDE.complete() finishes it. Target can use {find:'Bowlinghallen'} instead of x,z to look the place up in the search index. Note: this file is public, so days later than today can be read by anyone who opens it; keep spoilers vague or move the file out before launch. Day 24 also has 'later': timed Lykta lines [{at:'afternoon'|'dusk'|'night', text}] for the finale (storydata 4 Nov; the finale wiring reads them).",
+ "_README": "PLACEHOLDERS: Marius will rewrite all of these. Every day below is a draft task drawn from what exists in the game, not final story. Edit freely: day = door number; title = short name; text = what the Lantern (Lykta) says; hint = a small extra line (can be empty); done = what Lykta says when the task is done; target = {x,z,name} in world coordinates (null = no arrow; name is what the compass shows, use 'downtown' not the real town name); kind = story/explore/race/bowl/coins (just a label); done_when = how the game knows it is done: {type:'near',radius:12} walk within radius metres of the target, {type:'race',race:'spark'|'jet'} finish that race (leave race out for any race), {type:'bowl'} finish a bowling game, {type:'coins',n:10} collect n coins since the door opened, {type:'flag',flag:'__WITCH_GONE'} a window flag is truthy, {type:'talk'} just listen to Lykta, {type:'manual'} only window.__LANTERNGUIDE.complete() finishes it. Target can use {find:'Bowlinghallen'} instead of x,z to look the place up in the search index. Note: this file is public, so days later than today can be read by anyone who opens it; keep spoilers vague or move the file out before launch. Day 24 also has 'later': timed Lykta lines [{at:'afternoon'|'dusk'|'night', text}] for the finale (storydata 4 Nov; the finale wiring reads them). target.live (playmail): 'mailstand' = the game moves x,z onto the builder mailstand the mailbox hotspot uses, 'tree' = onto the Christmas tree (window.__TREEPOS); x,z stay the fallback.",
  "days": [
   {
    "day": 1,
@@ -8,9 +8,10 @@
    "hint": "It stands in the middle of town, by the town hall.",
    "kind": "explore",
    "target": {
-    "x": 7,
-    "z": 28,
-    "name": "The Christmas tree"
+    "x": -0.5,
+    "z": 15,
+    "name": "The Christmas tree",
+    "live": "tree"
    },
    "done_when": {
     "type": "near",
@@ -112,9 +113,10 @@
    "hint": "The mailbox is the black box by the road in front of Chris's house. Look at it and press G.",
    "kind": "story",
    "target": {
-    "x": 526.5,
-    "z": -706.5,
-    "name": "Chris's mailbox"
+    "x": 541,
+    "z": -712.5,
+    "name": "Chris's mailbox",
+    "live": "mailstand"
    },
    "done_when": {
     "type": "near",
@@ -238,9 +240,10 @@
    "hint": "Go to the big tree by the town hall and stand under it. The whole town glows tonight.",
    "kind": "explore",
    "target": {
-    "x": 7,
-    "z": 28,
-    "name": "The Christmas tree"
+    "x": -0.5,
+    "z": 15,
+    "name": "The Christmas tree",
+    "live": "tree"
    },
    "done_when": {
     "type": "near",
@@ -274,9 +277,10 @@
    "hint": "The mailbox is the black box by the road. Look at it and press G.",
    "kind": "story",
    "target": {
-    "x": 526.5,
-    "z": -706.5,
-    "name": "Chris's house"
+    "x": 541,
+    "z": -712.5,
+    "name": "Chris's mailbox",
+    "live": "mailstand"
    },
    "done_when": {
     "type": "flag",
@@ -420,7 +424,8 @@
    "target": {
     "x": -0.5,
     "z": 15,
-    "name": "The Christmas tree"
+    "name": "The Christmas tree",
+    "live": "tree"
    },
    "done_when": {
     "type": "flag",

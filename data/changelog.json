@@ -2,6 +2,20 @@
  "entries": [
   {
    "date": "2026-11-27",
+   "time": "23:20",
+   "title": "Advent day fixes",
+   "items": [
+    "Day 4: the door now wins over the trash bin beside it",
+    "Days 7 and 16: the arrow points at the real mailbox",
+    "Days 1 and 14: the arrow points at the tree",
+    "Day 11: the bakery stays open late",
+    "Menus are no longer covered by the screen text",
+    "Pop-ups and phone calls wait until a story scene is over",
+    "A broken cutscene can no longer freeze the picture"
+   ]
+  },
+  {
+   "date": "2026-11-27",
    "time": "22:25",
    "title": "Phone and date fixes",
    "items": [

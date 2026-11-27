@@ -972,7 +972,7 @@ window.__devEff=eff;
 const isPhone=()=>eff()==='phone';
 const sync=()=>{try{document.body.classList.toggle('ph',isPhone());}catch(e){}};
 /* version label: the deploy script replaces the placeholder below; an unreplaced build shows DEV BUILD */
-const VRAW='27 Nov 2026 22:28';
+const VRAW='27 Nov 2026 23:16';
 const VER=(VRAW.indexOf('__BUILD'+'_')===0)?'DEV BUILD':VRAW;
 window.__VERSION=VER;
 const pill=()=>{const b=document.createElement('button');b.type='button';b.className='verpill';b.textContent=VER;b.title='Tap to copy';b.setAttribute('aria-label','Game version '+VER);b.addEventListener('click',e=>{e.stopPropagation();try{navigator.clipboard&&navigator.clipboard.writeText(VER);}catch(_){}});return b;};
@@ -1137,7 +1137,7 @@ add('dead','dead',()=>!!(W.__HEALTH&&W.__HEALTH.dead));
 add('inv','ui',()=>vis('inv'));add('search','ui',()=>vis('search'));add('shop','ui',()=>vis('shopUI'));
 add('map','ui',()=>!!(W.__MAPOPEN||(W.__BIGMAP&&W.__BIGMAP.open)));add('travel','ui',()=>!!W.__TRAVEL_OPEN);add('login','ui',()=>!!W.__LOGINOPEN);add('mail','ui',()=>!!W.__MAIL_ON);
 add('quests','ui',()=>!!(W.__QUESTS&&(W.__QUESTS.view||W.__QUESTS.jOpen)));
-add('panel','ui',()=>{for(const id of['lfPage','lfBook','padMenu','mailUI','deathScr','vhsUI','ahUI','lobby','msBoard','gaUI','prUI'])if(vis(id))return true;return false;});
+add('panel','ui',()=>{for(const id of['lfPage','lfBook','padMenu','mailUI','deathScr','vhsUI','ahUI','lobby','msBoard','gaUI','prUI','csJ','qsJ','mrJ','nlCard','spCard','ornUI','lgDoors'/*playpanels*/])if(vis(id))return true;return false;});
 add('phone','phone',()=>!!(W.__PHONEUI&&W.__PHONEUI.mode&&W.__PHONEUI.mode!=='off'));
 add('builder','builder',()=>!!(W.__DEV&&W.__DEV.ED&&W.__DEV.ED.open));
 const expand=f=>{const on=new Set(),off=new Set();for(let t of String(f==null?'scene,dead':f).split(',')){t=t.trim();if(!t)continue;const neg=t[0]==='-';if(neg)t=t.slice(1);const names=t==='all'?Object.keys(R):G[t]||(R[t]?[t]:[]);for(const n of names)(neg?off:on).add(n);}return [...on].filter(n=>!off.has(n));};
@@ -1148,6 +1148,46 @@ BUSY.groups=G;BUSY.flags=()=>Object.keys(R);BUSY.active=flags=>{const o=[];for(c
 W.__BUSY=BUSY;
 })();
 /* /busy */
+/* playmicask */
+/* playmic: the "Whistle for real?" card never stays up over a scene, a door opening, a panel, the phone or Lykta talking: it is put
+   away unanswered and may come back after 4 s of calm (nordlys shows it only then). */
+setInterval(()=>{try{const a=document.getElementById('nlAsk'),N=window.__NORDLYS,M=N&&N.mic;if(!a||!M||M.asked||a.style.display!=='block')return;
+ const SQ=window.__STORYQUIET;if((SQ&&!SQ(0))||(window.__BUSY&&window.__BUSY('scene,dead,ui,phone'))){a.style.display='none';M.promptShown=false;M.putAway=(M.putAway|0)+1;}}catch(_){}},250);
+/* /playmicask */
+/* playstory */
+/* playtest 27 Nov (playbot27): ONE probe for "a story moment is on": cutscenes, day openers, the day card, the door opening, the
+   banishment / drive-home backstory and any Lykta or witch line being spoken. window.__STORYQUIET(ms) = true when none of that has been
+   on for ms milliseconds; __STORYQUIET.why() names what is on ('' = calm). Used by the side-job phone calls (playphone) and the
+   "Whistle for real?" mic card (playmic). 4 checks a second, no allocation besides __INTROSTORY.state(). */
+(()=>{if(window.__STORYQUIET)return;const W=window,D=document;let last=-1e9;
+const bc=n=>{try{return D.body.classList.contains(n);}catch(_){return false;}};
+const why=()=>{try{
+ const b=W.__BUSY?W.__BUSY('scene,dead'):'';if(b)return b;
+ if(W.__INTRO_ON||(W.__OPENING&&W.__OPENING.on))return 'opening';
+ for(const c of ['cineOn','film','scOn','dnOn','dsOn','mtOn','hm-cutscene'])if(bc(c))return c;
+ if(W.__DAYCARD_ON)return 'daycard';
+ const O=W.__DOORSOPEN;if(O&&(O.opener||(O.busy&&performance.now()-O.busy<6000)))return 'door';
+ const I=W.__INTROSTORY;if(I&&I.state){const s=I.state();if(s&&(s.on||s.busy))return 'backstory';}
+ const S=W.__SPEECH,c=S&&S.cur;if(c&&!c.ambient&&(c.who==='lykta'||c.who==='witch'))return 'talk:'+c.who;
+}catch(_){}return '';};
+const SQ=W.__STORYQUIET=ms=>{if(why()){last=performance.now();return false;}return performance.now()-last>=(+ms||0);};
+SQ.why=why;SQ.since=()=>performance.now()-last;
+setInterval(()=>{try{if(why())last=performance.now();}catch(_){}},250);
+})();
+/* /playstory */
+/* playpanels */
+/* playtest 27 Nov (playbot27 F1): while a big menu panel is open (case file, nice list, Julestemning, morality, quests, baubles, doors,
+   search, notes) body.kvPanel hides Lykta's bubble, the speech lanes and the world prompt chips, which hm-modal does not cover. */
+(()=>{const D=document;try{const st=D.createElement('style');st.id='playpanelsCss';
+ st.textContent='html body.kvPanel :is(#lgBubble,#lyLine,#voLine,#prompt,#binTip,#hdTip,#hudPrompt),html body.kvPanel>:is([id$="Prompt"],[id$="Tip"],[id$="Hint"]):not(#nlAsk){display:none!important}';
+ (D.head||D.documentElement).appendChild(st);}catch(_){}
+const IDS=['csJ','qsJ','mrJ','nlCard','spCard','ornUI','lgDoors','lfBook','search'];
+const vis=id=>{const e=D.getElementById(id);if(!e||e.hidden)return false;try{return getComputedStyle(e).display!=='none';}catch(_){return false;}};
+const open=()=>{for(const id of IDS)if(vis(id))return id;try{const Q=window.__QUESTS;if(Q&&Q.jOpen)return 'quests';}catch(_){}return '';};
+window.__PANELOPEN=open;
+setInterval(()=>{try{const B=D.body;if(!B)return;const on=!!open();if(on!==B.classList.contains('kvPanel'))B.classList.toggle('kvPanel',on);}catch(_){}},200);
+})();
+/* /playpanels */
 const GLTFL=(()=>{let pr=null;return()=>pr||(pr=import('three/addons/loaders/GLTFLoader.js').then(m=>new m.GLTFLoader()));})();/*janitor_08: one GLTFLoader for Lykta, cars and the witch skin*/
 /* player login */await (window.__LOGIN_READY||Promise.resolve());/* /player login */
 // Dev panel (world editor) input hooks: registered first, so in edit mode they run before every game listener
@@ -5713,6 +5753,7 @@ function showPrompt(d){const p=$('prompt');if(!d){p.classList.remove('show');ret
   else{$('pKick').textContent=d.n===24?'DOOR 24 · CHRISTMAS EVE':`DOOR ${d.n} · OPENS ${d.n} DECEMBER`;$('pTitle').textContent=d.name;$('pText').textContent=expanded?d.teaser:(d.kind?d.kind+' · ':'')+'Asleep. Tap LOOK to look closer.';if(!d.n){/*playbotfix: shops are not advent doors*/$('pKick').textContent=String((d.kind||'Shop').split(' · ')[0]).toUpperCase();$('pText').textContent=d.kind||'';}if(window.__DOORS&&d.n>0&&__DOORS.prompt){const q=__DOORS.prompt(d.n,expanded);if(q){$('pKick').textContent=q.kick;$('pTitle').textContent=q.title;$('pText').textContent=q.text;}}/*doorsopen*/if(!TOUCH){const pt=$('pText');pt.textContent=pt.textContent.replace(/Tap LOOK/g,'Press G');}/*playbotfix: desktop key*/}
   p.classList.add('show');$('bUse').textContent=d.talk?'TALK':'LOOK';}
 function useAct(){if(P.driving){if(window.__DV4&&window.__DV4.bailOut&&window.__DV4.bailOut(P.driving))return;/* drv4 */exitCar();return;}const nc=nearCar();if(nc&&!(near&&near.n>0&&window.__DOORS&&__DOORS.wants&&__DOORS.wants(near.n))){enterCar(nc);return;}/*doorsopen: an unopened lit door wins over a parked car beside it*//* a car within reach always wins over a nearby place prompt */if(!near)return;if(near.talk){chrisI++;expanded=true;}else if(near.n>0&&window.__DOORS&&__DOORS.use&&__DOORS.use(near.n)){/*doorsopen*/}else expanded=!expanded;showPrompt(near);}
+/*playdoor: a lit advent door always wins G (registered before every later capture-phase G listener: bins, notes ...)*/window.__DOORFIRST=lit=>{try{if(!near||!(near.n>0)||P.driving||!window.__DOORS||!__DOORS.st)return 0;const s=__DOORS.st(near.n);if(s!==2&&s!==4)return 0;if(lit||(__DOORS.wants&&__DOORS.wants(near.n)))return near.n;}catch(_){}return 0;};addEventListener('keydown',e=>{try{if((e.key||'').toLowerCase()!=='g'||e.repeat||e.ctrlKey||e.metaKey||e.altKey)return;if(typeof started==='undefined'||!started)return;const tg=e.target;if(tg&&/^(INPUT|TEXTAREA|SELECT)$/.test(tg.tagName))return;if(!window.__DOORFIRST(false))return;if(window.__BUSY&&window.__BUSY('scene,dead,ui,phone,builder'))return;if(!$('inv').hidden||!$('search').hidden||!shopUI.hidden)return;e.stopImmediatePropagation();e.preventDefault();useAct();}catch(_){}},true);
 const GEO={names:[],nidx:new Map(),sidx:new Map()};
 fetch('data/names.json?'+VER).then(r=>r.json()).then(L=>{GEO.names=L;for(const n of L){const k=Math.floor(n.x/500)+','+Math.floor(n.z/500);if(!GEO.nidx.has(k))GEO.nidx.set(k,[]);GEO.nidx.get(k).push(n);}}).catch(()=>{});
 fetch('data/streetlines.json?'+VER).then(r=>r.json()).then(L=>{for(const st of L)for(let i=0;i<st.p.length-1;i++){const [ax,az]=st.p[i],[bx,bz]=st.p[i+1];const seg=[ax,az,bx,bz,st.n];const ks=new Set();for(let f=0;f<=1;f+=.25)ks.add(Math.floor((ax+(bx-ax)*f)/64)+','+Math.floor((az+(bz-az)*f)/64));for(const k of ks){if(!GEO.sidx.has(k))GEO.sidx.set(k,[]);GEO.sidx.get(k).push(seg);}}}).catch(()=>{});
@@ -6863,7 +6904,8 @@ padRefresh(true);
 /* end gamepad */
 // ================= loop =================
 const AIRS={t:0,x:0,y:0,z:0,n:0};window.__AIRS=AIRS;let last=performance.now(),walkPh=0,lightT=0,armSwing=0;const tmpV=new THREE.Vector3();
-function frame(now){requestAnimationFrame(frame);/*noframefreeze: first, so one error never stops the loop*/if(window.__DIRNOW)now=window.__DIRNOW(now);/*director*/const dt=Math.max(0,Math.min(.05,(now-last)/1000));last=now;const t=now/1000;
+function frame(now){requestAnimationFrame(frame);/*loopframe*/const f0_=r.info.render.frame;try{frameMain_(now);}catch(e){const k_=String(e&&e.message||e).slice(0,70),Z_=window.__FRAMEERR||(window.__FRAMEERR={n:0});Z_.n++;if(!Z_[k_]){Z_[k_]=1;console.warn('frame',e);}try{if(r.info.render.frame===f0_){composer?composer.render():r.render(scene,cam);}}catch(_){}}}
+function frameMain_(now){/*noframefreeze: frame() re-arms first and wraps this*/if(window.__DIRNOW)now=window.__DIRNOW(now);/*director*/const dt=Math.max(0,Math.min(.05,(now-last)/1000));last=now;const t=now/1000;
   // input relative to where you look (Minecraft style)
   let fwd=-input.z,str=input.x;if(keys['w']||(keys['arrowup']&&!P.fly))fwd+=1;if(keys['s']||(keys['arrowdown']&&!P.fly))fwd-=1;if(keys['a']||keys['arrowleft'])str-=1;if(keys['d']||keys['arrowright'])str+=1;
   const im=Math.min(1,Math.hypot(fwd,str));if(im>1e-3){fwd/=Math.max(1,Math.hypot(fwd,str));str/=Math.max(1,Math.hypot(fwd,str));}
@@ -6994,7 +7036,7 @@ function frame(now){requestAnimationFrame(frame);/*noframefreeze: first, so one 
   const nd=nearest();if(nd!==near){near=nd;expanded=false;showPrompt(near);}
   {const nc=!P.driving&&nearCar();if(nc&&!near){if(!window.__carHint){window.__carHint=1;showCarHint(true);}}else if(window.__carHint&&!nc){window.__carHint=0;if(!near)$('prompt').classList.remove('show');}}
   if(((now/250)|0)!==window.__mmT){window.__mmT=(now/250)|0;{const pi=placeInfo();$('placeName').textContent=pi.name;$('placeKick').textContent=pi.kick;}drawMap();}
-  if(window.__CINE&&window.__CINE.f){window.__CINE.arm.visible=false;window.__CINE.f(window.__CINE,t);const C=window.__CINE;if(C.fogFar){scene.fog.far=C.fogFar;scene.fog.near=C.fogNear||300;}}
+  if(window.__CINE&&window.__CINE.f){try{window.__CINE.arm.visible=false;window.__CINE.f(window.__CINE,t);}catch(e){const k_=String(e&&e.message||e).slice(0,70),Z_=window.__CINEERR||(window.__CINEERR={n:0});Z_.n++;if(!Z_[k_]){Z_[k_]=1;console.warn('cutscene frame',e);}}/*loopcine*/const C=window.__CINE;if(C&&C.fogFar){scene.fog.far=C.fogFar;scene.fog.near=C.fogNear||300;}}
   if(window.__torchFlicker)window.__torchFlicker(t);
   {const dl=$('roseDial');if(dl){const dv=new THREE.Vector3();cam.getWorldDirection(dv);const hd=Math.atan2(dv.x,-dv.z);dl.style.transform='rotate('+(-hd*180/Math.PI)+'deg)';}}
   if(window.__RACEF)window.__RACEF(dt,t);if(window.__FILM)window.__FILM(t);
@@ -10165,7 +10207,7 @@ RACES.spark=(()=>{const RS=RACES;const HAM=[[1138.8,-890.9],[1138.4,-895.2],[113
     c.v-=(.32+.0042*c.v*c.v)*dt;
     const off=S.lat>HW+1.2;if(off){c.v-=Math.min(c.v,(3+c.v*.25)*dt);if(Math.random()<dt*12&&c.v>2)spark(c.x,c.y+.2,c.z,0xffffff,(Math.random()-.5)*2,2+Math.random()*2,(Math.random()-.5)*2,.5);}
     S.kickT-=dt;S.kicking=false;if(fwd>0&&S.kickT<=0&&S.stam>.08&&c.v<17){c.v+=(c.v<3?2.4:1.7)*(1-c.v/18);S.stam-=.1;S.kickT=.42;S.kickA=1;mcSound('snow',.5,1.15);}
-    if(fwd<=0)S.stam=Math.min(1,S.stam+.16*dt);
+    if(fwd<=0||(run&&c.v<3))S.stam=Math.min(1,S.stam+.16*dt);/*playsled: a held W recovers when nearly stopped (same rate as letting go)*/if(run&&fwd>0&&S.stam<=.08&&S.tiredFor!==c){S.tiredFor=c;try{toast('Out of breath! Let go of W for a moment to kick harder again.');}catch(_){}}
     /* SPACE = hard push: more speed, but above ~17 m/s the sled gets wobbly and can throw you off */
     {const sp=!!keys[' '];if(run&&sp&&!S.spPrev&&S.stam>.12&&!(S.stun>0)){c.v+=Math.max(.8,2.2*(1-c.v/30));S.stam-=.14;S.kickA=1;mcSound('snow',.6,1.3);}S.spPrev=sp;
      const over=Math.max(0,c.v-17);S.wob=Math.max(0,(S.wob||0)+(over*over*.012+Math.abs(str)*over*.05)*dt);if(over<=0)S.wob*=Math.pow(.2,dt);
@@ -20125,7 +20167,7 @@ PH.sms=function(from,text,o){try{o=o||{};const id=typeof from==='object'&&from?f
   thread(id).unread++;return peekSms(id,clipTxt(text),name);}catch(e){PH.err=String(e&&e.stack||e);return false;}};
 let kickT=0;function kick(){if(kickT)return;kickT=setTimeout(function f(){kickT=0;if(!PH.queue.length)return;if(busy()||bigUI()||PH.mode==='ring'||(PH.mode==='ui'&&curScr()&&curScr().t==='snake'&&!SN.over)){kickT=setTimeout(f,1500);return;}const q=PH.queue.shift();const t=thread(q.id);t.unread=Math.max(1,t.unread);peekSms(q.id,q.text,q.name);if(PH.queue.length)kickT=setTimeout(f,7000);},1500);}
 /* ---------- calls ---------- */
-PH.call=function(o){try{o=o||{};if(call||PH.mode==='ring'||busy())return false;if(PH.mode==='ui'){SN.stop();if(SN.on&&!SN.over)SN.paused=true;}const id=o.id||'unknown';thread(id,o.name);call=o;call.id=id;call.name=o.name||nameOf(id);clearTimeout(hideT);clearTimeout(typT);
+PH.call=function(o){try{o=o||{};if(call||PH.mode==='ring'||busy())return false;if(!o.now&&window.__STORYQUIET&&!window.__STORYQUIET(3000)){/*playphone: wait for calm; a story call is kept and rung in later*/if(o.story){const oo=o;let n=0;const f=()=>{try{if(++n>150)return;if(!window.__STORYQUIET(3000)||PH.call(oo)===false)setTimeout(f,2000);}catch(_){}};setTimeout(f,2000);return true;}return false;}if(PH.mode==='ui'){SN.stop();if(SN.on&&!SN.over)SN.paused=true;}const id=o.id||'unknown';thread(id,o.name);call=o;call.id=id;call.name=o.name||nameOf(id);clearTimeout(hideT);clearTimeout(typT);
   stack=[];setMode('ring');render();const loop=()=>{ringTune();buzz();};loop();clearInterval(ringT);ringT=setInterval(loop,2600);clearTimeout(ttlT);ttlT=setTimeout(()=>PH.decline(true),o.ttl||14000);return true;}catch(e){PH.err=String(e&&e.stack||e);return false;}};
 const endRing=()=>{clearInterval(ringT);clearTimeout(ttlT);};
 PH.ringing=()=>PH.mode==='ring'&&!!call;
@@ -23115,6 +23157,11 @@ setInterval(()=>{if(L.n>1&&lvl()==='low'&&!L.busy)L.set(1,{user:false,quiet:true
 })();}catch(e){console.warn('look toggle',e);}
 /* /look toggle */
 /* lantern guide */
+/* playmail */
+/* playmail: live positions for day targets that follow a real object (data/lantern_days.json target.live). 'mailstand' = where the mailbox hotspot really is (same rule as the hotspot near const MBX: nearest builder mailstand/mailbox within 60 m of the old spot 526.5,-706.5); 'tree' = the Christmas tree (window.__TREEPOS). x,z in the data stay the fallback. Builder edits are only read. */
+window.__MAILSTAND=function(){try{const cur=window.__DEVW&&__DEVW.CUR&&__DEVW.CUR();if(!cur||!Array.isArray(cur.objects))return {x:541,z:-712.5,src:'fallback'};let b=null,bd=60;for(const o of cur.objects){if(!o||(o.type!=='mailstand'&&o.type!=='mailbox')||!isFinite(o.x)||!isFinite(o.z))continue;const d=Math.hypot(o.x-526.5,o.z+706.5);if(d<bd){bd=d;b=o;}}return b?{x:b.x,z:b.z,y:b.y,id:b.id,src:'builder'}:{x:526.5,z:-706.5,src:'hotspot'};}catch(_){return {x:541,z:-712.5,src:'fallback'};}};
+window.__LIVETGT=function(t){try{if(!t||!t.live)return t;let p=null;if(t.live==='mailstand')p=window.__MAILSTAND();else if(t.live==='tree'){const q=window.__TREEPOS;if(q&&isFinite(q[0])&&isFinite(q[1]))p={x:q[0],z:q[1]};}if(p&&isFinite(p.x)&&isFinite(p.z)&&(t.x!==p.x||t.z!==p.z)){t.x=p.x;t.z=p.z;}}catch(_){}return t;};
+/* /playmail */
 /* Lykta, the Lantern spirit: a small glowing companion that tells the player each day's task. Data: data/lantern_days.json. Dev: window.__LANTERNGUIDE, ?lantern=0 turns it off. Keys: Y talk / point, O doors. */
 try{(()=>{
 const QS=new URLSearchParams(location.search);
@@ -23128,7 +23175,7 @@ const G={armed:{},enabled:!FORCE_OFF&&ls.get('kv-lantern-off')!=='1',days:[],loa
 const FALLBACK=[{day:1,title:'Welcome downtown',text:'Welcome downtown. Find the Christmas tree on the square.',hint:'It is in the middle of town.',target:null,kind:'explore',done_when:{type:'talk'}}];
 const loadDays=()=>{try{fetch('data/lantern_days.json',{cache:'no-cache'}).then(r=>r.json()).then(j=>{G.days=(j&&j.days)||FALLBACK;G.loaded=true;resolveAll();}).catch(()=>{G.days=FALLBACK;G.loaded=true;});}catch(_){G.days=FALLBACK;G.loaded=true;}};
 const idxFind=n=>{try{n=String(n).toLowerCase();return IDX.find(i=>i.name.toLowerCase()===n)||IDX.find(i=>i.name.toLowerCase().includes(n));}catch(_){return null;}};
-const resolveAll=()=>{for(const e of G.days){const t=e.target;if(t&&typeof t.x!=='number'&&t.find){const f=idxFind(t.find);if(f){t.x=f.x;t.z=f.z;}}}};
+const resolveAll=()=>{for(const e of G.days){const t=e.target;if(t&&typeof t.x!=='number'&&t.find){const f=idxFind(t.find);if(f){t.x=f.x;t.z=f.z;}}if(t&&t.live&&window.__LIVETGT)window.__LIVETGT(t);}};setInterval(()=>{try{if(G.loaded)resolveAll();}catch(_){}},1000);/*playmail: targets follow the real mailstand / tree*/
 const entry=d=>G.days.find(e=>e.day===d)||null;
 const today=()=>G.over!=null?G.over:((window.__DAY|0)||0);
 const curDay=()=>{const t=today();if(t<1)return 0;return Math.min(24,Math.max(1,G.sel!=null?G.sel:Math.min(24,t)));};
@@ -23234,13 +23281,14 @@ try{const RS=window.__RACES;if(RS&&RS.showEnd&&!RS._lgw){const o=RS.showEnd;RS.s
 let bowlPrev='';const pollBowl=()=>{try{const B=window.__BOWLING;if(!B||!B.G)return;const s=B.G.state;if(s==='over'&&bowlPrev&&bowlPrev!=='over'&&bowlPrev!=='off')G.ev.bowl=Date.now();bowlPrev=s;}catch(_){}};
 /* ---------- say today's task / pointing ---------- */
 const refreshBtn=()=>{const d=curDay();btn.classList.toggle('new',!!d&&unlocked(d)&&!isDone(d)&&G.seen.told!==d);};
+window.__TASKLINE=(d,e)=>{/*playtask: no title twice when the text already starts with it*/const w=s=>String(s||'').toLowerCase().replace(/[^a-z0-9\u00e6\u00f8\u00e5 ]+/g,' ').replace(/\s+/g,' ').trim();const a=w(e.text),b=w(e.title);const dup=!!b&&(a===b||a.startsWith(b+' '));return 'Psst! Over here! Door '+d+': '+(dup?'':e.title+'. ')+e.text+(e.hint?' ('+e.hint+')':'');};
 const tellTask=()=>{loadSave();const d=curDay();const t=today();
   if(t<1){say('Psst! Over here! The first door opens on 1 December. See you then!',{hold:2});return;}
   const e=entry(d);if(!e){say('Psst! Over here! I have nothing for this door yet.',{hold:2});return;}
   G.ev.talk[d]=true;G.seen.told=d;saveSeen();refreshBtn();
   if(isDone(d)){say('Door '+d+' is already open. '+(Math.random()<.5?'Come back tomorrow!':'Go and explore downtown.'),{hold:2});return;}
   const tg=targetOf(e);
-  say('Psst! Over here! Door '+d+': '+e.title+'. '+e.text+(e.hint?' ('+e.hint+')':''),{small:tg?keyTalk()+': show me where':'',kind:'task'});};
+  {const full='Psst! Over here! Door '+d+': '+e.title+'. '+e.text+(e.hint?' ('+e.hint+')':''),tx=window.__TASKLINE(d,e);if(tx!==full){window.__LYSALIAS=window.__LYSALIAS||{};window.__LYSALIAS[tx]=full;}/*playtask*/say(tx,{small:tg?keyTalk()+': show me where':'',kind:'task'});}};
 const pointAt=(x,z,name)=>{G.manual={x,z,name:name||'here'};G.point=true;G.pointT=0;};
 const startPoint=()=>{const e=entry(curDay());const t=targetOf(e);if(!t){say('I do not know where that is. Have a look around downtown!',{hold:1.5});return;}G.point=true;G.pointT=0;say('Follow me!',{hold:.8});};
 const stopPoint=()=>{G.point=null;comp.style.display='none';mini.style.display='none';BEA.visible=false;};
@@ -34872,7 +34920,8 @@ try{const s=JSON.parse(localStorage.getItem('dt-filmlook-v1')||'null');if(s)for(
 const S=FL.state,B=window.__BRIGHT={fo:1,fa:1};
 let hemiTry=0;const hemi=()=>{if(B.h)return B.h;if(hemiTry++<240)B.h=scene.children.find(o=>o.isHemisphereLight)||null;return B.h||null;};/*janitor_09: look a limited number of times*/
 function lbAmb(o,kb,kl,a){if(!o)return;if(a===1&&B[kb]===undefined)return;if(B[kb]===undefined||Math.abs(o.intensity-B[kl])>1e-6)B[kb]=o.intensity;o.intensity=B[kl]=B[kb]*a;if(a===1){o.intensity=B[kb];B[kb]=undefined;}}
-function tick(){
+function tick(){requestAnimationFrame(tick);try{tick_();}catch(e){if(!B._w){B._w=1;console.warn('lookbright',e);}}}/*loopbright*/
+function tick_(){
  const D=Math.max(0,Math.min(1,TD.D||0)),bump=4*D*(1-D);
  let f=(S.brNight*(1-D)+S.brDay*D)/100;f*=1+(S.brDusk/100-1)*bump;{const th=!!(window.__THRESH&&window.__THRESH.on);B.tw=(B.tw||0)+((th?1:0)-(B.tw||0))*.06;if(Math.abs(B.tw-(th?1:0))<.002)B.tw=th?1:0;f=f*(1-B.tw)+(S.brThr/100)*B.tw;}B.fo=f;
  /* exposure: keep whatever the game set as the base, multiply on top */
@@ -34880,7 +34929,7 @@ function tick(){
  /* night ambient: hemisphere + moon light only */
  const a=(1+(S.nightAmb/100-1)*(1-D))*(1-(B.tw||0))+(S.thrAmb/100)*(B.tw||0);B.fa=a;
  lbAmb(hemi(),'hhb','hhl',a);lbAmb(typeof moon!=='undefined'?moon:null,'mmb','mml',a);/*janitor_09: no per-frame arrays*/
- requestAnimationFrame(tick);}
+ }
 requestAnimationFrame(tick);
 /* panel */
 let rows=null;
@@ -38487,7 +38536,7 @@ addEventListener('keydown',e=>{const k=(e.key||'').toLowerCase();
 /* ---------- phone calls ---------- */
 let callOn=null,callT=0,nextCall=performance.now()+110000+Math.random()*60000,hintOn=false;
 function nextCallSoon(){nextCall=performance.now()+70000+Math.random()*60000;}
-function ringUp(m){if(callOn||MS.A||!m||window.__RACE||(window.__RACES&&window.__RACES.mode))return;/*coldfix1: not during a race*/const g=GV[m.giver]||{n:'Someone'};callOn=m;if(phoneCall(m,g))return;ring();UI.call.className='on';UI.call.innerHTML='<b></b><div></div><small>P (or click) = answer and take the job · ignore it to decline</small>';UI.call.querySelector('b').textContent='RING RING · '+g.n+' calls';UI.call.querySelector('div').textContent='"'+m.call+'"  ('+payFor(m)+' kr)';
+function ringUp(m){if(callOn||MS.A||!m||window.__RACE||(window.__RACES&&window.__RACES.mode))return;if(window.__STORYQUIET&&!window.__STORYQUIET(3000))return;/*playphone*//*coldfix1: not during a race*/const g=GV[m.giver]||{n:'Someone'};callOn=m;if(phoneCall(m,g))return;ring();UI.call.className='on';UI.call.innerHTML='<b></b><div></div><small>P (or click) = answer and take the job · ignore it to decline</small>';UI.call.querySelector('b').textContent='RING RING · '+g.n+' calls';UI.call.querySelector('div').textContent='"'+m.call+'"  ('+payFor(m)+' kr)';
   clearTimeout(callT);callT=setTimeout(hangup,14000);}
 function hangup(){callOn=null;UI.call.className='';}
 /* phoneui: the call comes in on the in-game phone (answer P / click, decline Backspace / wait) */
@@ -38501,7 +38550,7 @@ MS.answer=answer;
 setInterval(()=>{const t0=performance.now();try{if(document.hidden||typeof started==='undefined'||!started)return;
   const s=boardSpot();const d=hyp(P.x-s.x,P.z-s.z);if(d<260&&!BD.mesh&&!busy())buildBoard();
   const near=!!BD.mesh&&d<3.6&&!P.driving&&!busy()&&!uiOpen()&&!bOpen&&!MS.A;if(near!==hintOn){hintOn=near;UI.hint.classList.toggle('on',near);if(near)UI.hint.innerHTML='<b>G</b> · JOBS BOARD (delivery, race, taxi, escape, odd jobs)';}
-  if(!MS.A&&!callOn&&performance.now()>nextCall&&!busy()&&!uiOpen()&&!P.fly){nextCall=performance.now()+120000+Math.random()*120000;const ok=MS.list.filter(m=>m.type!=='odd'||Math.random()<.6);ringUp((globalThis.__BAG?__BAG.n(ok):ok[(Math.random()*ok.length)|0]));}
+  if(!MS.A&&!callOn&&performance.now()>nextCall&&!busy()&&!uiOpen()&&!P.fly&&!(window.__STORYQUIET&&!window.__STORYQUIET(3000))/*playphone*/){nextCall=performance.now()+120000+Math.random()*120000;const ok=MS.list.filter(m=>m.type!=='odd'||Math.random()<.6);ringUp((globalThis.__BAG?__BAG.n(ok):ok[(Math.random()*ok.length)|0]));}
   }catch(e){if(!MS.err)MS.err=String(e&&e.stack||e);}
   const c=MS.cost;c.n++;const dd=performance.now()-t0;c.sum+=dd;if(dd>c.max)c.max=dd;},1000);
 /* ---------- the big map and minimap: goal, board and givers on the quest layer ---------- */
@@ -39855,7 +39904,7 @@ function step(dt){const T=window.__TOD;const AU=AU_(),AG=AG_();if(!T||!AU||!AG)r
   if(NL.whistling){NL.wtime+=dt;if(NL.wtime>3){NL.wtime=0;react();}}else NL.wtime=Math.max(0,NL.wtime-dt);
   NL.reactCd=Math.max(0,NL.reactCd-dt);NL.cool=Math.max(0,NL.cool-dt);
   /* opt-in prompt, mic, phone button, barks: only with an aurora up */
-  if(NL.k>.3){if(!dom)ensureDom();regHud();if(!MIC.asked&&visible&&out&&dom&&dom.ask.style.display!=='block'&&!MIC.promptShown&&!(window.__BUSY&&window.__BUSY('scene,dead,ui,phone'))&&!(window.__BALLOON&&window.__BALLOON.on)&&!(window.__JET&&window.__JET.on)&&!(document.getElementById('bMenu')&&document.getElementById('bMenu').getAttribute('aria-expanded')==='true')){/*livefix: not over the MENU*//*playbotfix: never ask mid-fight, mid-flight or in a scene*/MIC.promptShown=true;dom.ask.style.display='block';setTimeout(()=>{try{if(!MIC.asked){dom.ask.style.display='none';}}catch(_){}},25000);}}
+  if(NL.k>.3){if(!dom)ensureDom();regHud();if(!MIC.asked&&visible&&out&&dom&&dom.ask.style.display!=='block'&&!MIC.promptShown&&!(window.__BUSY&&window.__BUSY('scene,dead,ui,phone'))&&!(window.__STORYQUIET&&!window.__STORYQUIET(4000))/*playmic*/&&!(window.__BALLOON&&window.__BALLOON.on)&&!(window.__JET&&window.__JET.on)&&!(document.getElementById('bMenu')&&document.getElementById('bMenu').getAttribute('aria-expanded')==='true')){/*livefix: not over the MENU*//*playbotfix: never ask mid-fight, mid-flight or in a scene*/MIC.promptShown=true;dom.ask.style.display='block';setTimeout(()=>{try{if(!MIC.asked){dom.ask.style.display='none';}}catch(_){}},25000);}}
   else if(dom&&dom.ask.style.display==='block'){dom.ask.style.display='none';}
   micStep();
   if(dom&&((typeof TOUCH!=='undefined'&&TOUCH)||window.__WM_TOUCH)){const sb=(visible||(NL.k>.3&&!isBusy))&&out;/*whistlemic*/if(sb!==dom.btnV){dom.btnV=sb;dom.btn.style.display=sb?'block':'none';if(!sb){NL.touchHeld=false;}}}
@@ -40053,7 +40102,7 @@ let near=null;
 const uiFree=()=>{try{if(window.__BUSY&&window.__BUSY())return false;/*janitor_48*/if(!$('inv').hidden||!$('search').hidden||!shopUI.hidden)return false;if(window.__BIGMAP&&window.__BIGMAP.open)return false;if(window.__DEV&&window.__DEV.ED&&window.__DEV.ED.open)return false;if(window.__INTRO_ON||document.body.classList.contains('film'))return false;return true;}catch(_){return false;}};
 setInterval(()=>{try{near=null;if(typeof started==='undefined'||!started||P.driving||!uiFree()){tip.style.display='none';return;}
   const w=typeof WORK!=='undefined'?WORK.near:null;if(w&&w.dist<=3.1){tip.style.display='none';return;}
-  const n=nearest();if(n&&n.d<2.6&&Math.abs(P.y-gAt(n.x,n.z))<5){near=n;if(trashN()>0){tip.style.display='none';return;}tip.innerHTML='TRASH BIN<br><span style="color:#ffd23f">'+(TOUCH?'tap here':'press G')+'</span> to throw things away';tip.style.display='block';}else tip.style.display='none';}catch(e){e2(e);}},150);
+  const n=nearest();if(n&&n.d<2.6&&Math.abs(P.y-gAt(n.x,n.z))<5&&!(window.__DOORFIRST&&window.__DOORFIRST(true))/*playdoor: a lit door beside the bin wins*/){near=n;if(trashN()>0){tip.style.display='none';return;}tip.innerHTML='TRASH BIN<br><span style="color:#ffd23f">'+(TOUCH?'tap here':'press G')+'</span> to throw things away';tip.style.display='block';}else tip.style.display='none';}catch(e){e2(e);}},150);
 addEventListener('keydown',e=>{if(e.key.toLowerCase()!=='g'||e.repeat||!near||!started||!uiFree())return;const tg=e.target;if(tg&&(tg.tagName==='INPUT'||tg.tagName==='TEXTAREA'))return;e.stopImmediatePropagation();e.preventDefault();if(quick())return;openBin(near);},true);
 tip.addEventListener('click',()=>{if(near&&uiFree()){if(quick())return;openBin(near);}});
 /* ---------- 3. money in the bins ---------- */
@@ -42048,7 +42097,8 @@ const _o=new THREE.Object3D();let sgNear=[],sgN=0;
 function windNow(){try{return Math.min(3.6,WEATHER.wind||0);}catch(e){return .3;}}
 /* ---- the loop: only runs while something is moving ---- */
 let lt=0;function startLoop(){if(!loopOn){loopOn=true;lt=performance.now();requestAnimationFrame(loop);}}
-function loop(now){const dt=Math.min(.1,(now-lt)/1000);lt=now;let busy=false;
+function loop(now){try{loop_(now);}catch(e){loopOn=false;B.err=String(e&&e.stack||e);if(!B._w){B._w=1;console.warn('props loop',e);}}}/*loopswing*/
+function loop_(now){const dt=Math.min(.1,(now-lt)/1000);lt=now;let busy=false;
   if(alive>0){let a=0;for(let i=0;i<NP;i++){if(pl[i]<=0)continue;pl[i]-=dt;if(pl[i]<=0){pp[i*3+1]=-9999;continue;}a++;pv[i*3+1]-=2.6*dt;pv[i*3]*=1-dt*1.2;pv[i*3+2]*=1-dt*1.2;pp[i*3]+=pv[i*3]*dt;pp[i*3+1]+=pv[i*3+1]*dt;pp[i*3+2]+=pv[i*3+2]*dt;}
     alive=a;pa.needsUpdate=true;if(!a)pts.visible=false;else busy=true;}
   for(let k=TP.length-1;k>=0;k--){const q=TP[k];if(q.t<1){q.t=Math.min(1,q.t+dt*2.2);const e=q.t*q.t*(3-2*q.t);q.mesh.rotation.x=e*1.45;q.mesh.position.y=q.y+e*.3;busy=true;}
@@ -43632,7 +43682,7 @@ function bagMesh(){const g=new THREE.Group(),add=(w,h,d,c,x,y,z,bas)=>{const m=n
 function spawnBag(b){try{if(BAGM[b.id]||typeof scene==='undefined')return;const g=bagMesh();g.position.set(b.x,b.y,b.z);g.rotation.y=rnd(-.5,.5);scene.add(g);BAGM[b.id]=g;}catch(e){lg('bagmesh',e);}}
 function dropMesh(id){const g=BAGM[id];if(g){try{scene.remove(g);}catch(e){}delete BAGM[id];}}
 function groundY(x,z){try{return spawnY(x,z);}catch(e){return 0;}}
-function placeBag(kind,pid,items,note){const id=S.seq++;let x,y,z;if(kind==='mail'){x=MBX[0]+.7;z=MBX[1]+.2;y=groundY(x,z);}else{x=HOME[0]-.9+rnd(-.15,.15);z=HOME[1]+rnd(-.2,.2);y=(typeof LOT!=='undefined'&&LOT.base!=null?LOT.base+3:groundY(x,z));}
+function placeBag(kind,pid,items,note){const id=S.seq++;let x,y,z;if(kind==='mail'){const mb=window.__MAILSTAND?window.__MAILSTAND():null;/*playmail: next to the real mailbox*/x=(mb?mb.x:MBX[0])+.7;z=(mb?mb.z:MBX[1])+.2;y=groundY(x,z);}else{x=HOME[0]-.9+rnd(-.15,.15);z=HOME[1]+rnd(-.2,.2);y=(typeof LOT!=='undefined'&&LOT.base!=null?LOT.base+3:groundY(x,z));}
   const b={id,kind,pid,items,x,y,z,note:note||'',t:tg()};S.bags.push(b);save();spawnBag(b);startChk();
   try{toast(kind==='mail'?'Something is in the mailbox.':PN(pid)+' left a bag on your steps.');}catch(e){}return b;}
 function startChk(){if(chkT)return;chkT=setInterval(chk,400);}
@@ -49822,7 +49872,7 @@ const RULES={grocery:W5(7,22,[8,20]),bakery:W5(6.5,16.5,[7,14]),kiosk:W5(6,22.5,
 const DAYN=['søndag','mandag','tirsdag','onsdag','torsdag','fredag','lørdag'];
 const inR=(h,a,b)=>b>24?(h>=a||h<b-24):(h>=a&&h<b);
 function ruleKey(cat,name,kind){if(!cat)return null;const s=(name||'')+' '+(kind||'');if(cat==='food'&&/\b(bar|pub)\b/i.test(s))return 'bar';if(cat==='shop'&&/repair/i.test(s))return 'repair';return RULES[cat]?cat:null;}
-function isOpen(key,h,wd){const r=RULES[key];if(!r)return undefined;const t=r[wd];if(!t)return false;return inR(h,t[0],t[1]);}
+function isOpen(key,h,wd){if(key==='bakery'&&window.__DAY===11&&h>=6.5&&h<23)return true;/*day11bake*/const r=RULES[key];if(!r)return undefined;const t=r[wd];if(!t)return false;return inR(h,t[0],t[1]);}
 function nextOpen(key,h,wd){const r=RULES[key];if(!r)return '';for(let d=0;d<=7;d++){const t=r[(wd+d)%7];if(t&&(d>0||h<t[0])){const hh=Math.floor(t[0]),mm=Math.round((t[0]-hh)*60);return (d===0?'i dag':d===1?'i morgen':DAYN[(wd+d)%7])+' kl. '+String(hh).padStart(2,'0')+':'+String(mm).padStart(2,'0');}}return '';}
 function keyOfB(b){if(!b)return null;if(b._rk!==undefined)return b._rk;let k=null;const q=b.bizL&&b.bizL[0];if(q)k=ruleKey(q.cat,q.name,q.kind);else if(b.icat)k=ruleKey(b.icat,b.n||'','');b._rk=k;return k;}
 function keyOfW(o){if(o._rk!==undefined)return o._rk;const bz=o.biz||{};let k=null;if(o.cat==='dyr')k='dyr';else if(o.b)k=keyOfB(o.b);if(!k)k=ruleKey(o.cat||bz.cat,bz.name,bz.kind);return o._rk=k;}
@@ -54156,7 +54206,7 @@ function lysBuf(f){if(lysBufs.has(f))return lysBufs.get(f);
 NV.lykSay=function(text,o){try{
   if(!NV.on||!text||typeof ac==='undefined'||!ac)return Promise.resolve(null);
   if(window.SMIX&&isFinite(SMIX.v.voices)&&!(SMIX.v.voices>.01)){LYS.stats.blocked++;return Promise.resolve(null);}
-  return lysIdx().then(I=>{if(!I)return null;const tx=String(text),c=I.clips[lyn(tx)]||(window.__SHOUT&&window.__SHOUT.clip&&window.__SHOUT.clip('lykta',tx));
+  return lysIdx().then(I=>{if(!I)return null;const tx=String(text),c=I.clips[lyn(tx)]||(window.__LYSALIAS&&window.__LYSALIAS[tx]&&I.clips[lyn(window.__LYSALIAS[tx])])/*playtask: recorded clip of the old line*/||(window.__SHOUT&&window.__SHOUT.clip&&window.__SHOUT.clip('lykta',tx));
     if(!c){LYS.stats.miss++;const k=tx.slice(0,120);LYS.miss[k]=(LYS.miss[k]||0)+1;lg('lys-miss',k.slice(0,50));return null;}
     return lysBuf(c[0]).then(buf=>{if(!buf){LYS.stats.err++;return null;}
       try{if(ac.state==='suspended')ac.resume();}catch(_){}
@@ -57181,7 +57231,7 @@ function cleanup(){const C=C0();DS.on=false;S.started=false;listen(false);KEYDN=
   killAll(.3);actorsFree();S.vh=null;S.wind=null;S.sg=null;
   if(UI.root){UI.sub.classList.remove('on');UI.card.classList.remove('on');UI.q.classList.remove('on');UI.ff.textContent='';UI.ffV='';UI.sg.style.opacity='0';}
   S.spd=1;S.jump=0;S.sway=0;S.lbr=1;DS.pending=false;}
-function pointObjective(d){try{const LG=W.__LANTERNGUIDE;const lan=((DS.lan&&DS.lan.days)||[]).find(x=>x.day===d);if(LG&&LG.point&&lan&&lan.target&&lan.target.x!=null)setTimeout(()=>{try{LG.point(lan.target.x,lan.target.z,lan.target.name||'');}catch(_){}},900);}catch(_){}}
+function pointObjective(d){try{const LG=W.__LANTERNGUIDE;const lan=((DS.lan&&DS.lan.days)||[]).find(x=>x.day===d);if(lan&&lan.target&&W.__LIVETGT)W.__LIVETGT(lan.target);/*playmail*/if(LG&&LG.point&&lan&&lan.target&&lan.target.x!=null)setTimeout(()=>{try{LG.point(lan.target.x,lan.target.z,lan.target.name||'');}catch(_){}},900);}catch(_){}}
 function finish(){if(!DS.on||S.fin)return;S.fin=true;lg('finish');
   if(!S.started){S.abort=true;cleanup();return;}
   setFade(1);try{restoreWorld();}catch(e){DS.err='fin '+e;}
@@ -58263,7 +58313,7 @@ const HINTS=()=>{const d=day();
  if(d>=23&&dist(HOUSE[0],HOUSE[1])<30&&S(()=>{const B=W.__BAKEDAY;return B&&B.have&&!B.ginger.done()&&B.have('pepperkakehus')<1&&B.have('pepperkakehus_perfect')<1;}))sayOnce('d23k',"No gingerbread kit? Mamma's parcel had one, or bake your own at the stove: press G and pick Pepperkakehus.");
  if(d===18){const nb=S(()=>W.__NISSEBRIDGE.state())||{},f=nb.flags||{};if(!f.summoned){const k=(f.redAgree?'r':'')+(f.blueAgree?'b':'');if(HINTS.a18!==k){const L=W.__LANTERNGUIDE,V=S(()=>W.__NISSE.villages)||[],pl=PP();const want=V.filter(v=>!f[v.id+'Agree']&&isFinite(v.x));if(L&&L.point&&pl&&want.length){want.sort((a,b)=>Math.hypot(a.x-pl.x,a.z-pl.z)-Math.hypot(b.x-pl.x,b.z-pl.z));const v=want[0];L.point(v.x,v.z,v.id==='red'?'The red hat cave':'The blue hat cave');HINTS.a18=k;}}}}
  if(d===13&&dist(HOUSE[0],HOUSE[1])<18)sayOnce('d13h',"Stand in the front yard and press G. Stars, lights, a wreath. Put them all up and the door is done.");
- if(d===16&&dist(526.5,-706.5)<14)sayOnce('d16h',"The mailbox is the black box by the road. Look at it and press G.");
+ if(d===16&&S(()=>{const m=W.__MAILSTAND?W.__MAILSTAND():{x:541,z:-712.5};return dist(m.x,m.z)<14;}))/*playmail*/sayOnce('d16h',"The mailbox is the black box by the road. Look at it and press G.");
  if(d>=23&&dist(CHURCH[0],CHURCH[1])<28){if(!churchSeen()){lss('kv-cf3-church23','1');try{toast('Little Christmas Eve at the church: say hello to everyone here (G at a person)');}catch(_){}}sayOnce('d23c',"Everyone has come to the church. Say hello to the people here: walk up to them and press G. Slowly. It is Lille julaften.");}
  if(d===21)S(()=>{const s=sol();if(s&&s.night)sayOnce('d21n',"The dark is coming. Bowlinghallen stays warm. Light a cairn on the way if you can: press G beside it with your lantern.");});};
 /* ---------------- Lykta stuck in cine mode + bubble clear of the witch subtitle ---------------- */
@@ -74405,7 +74455,8 @@ function debMesh(){if(DI)return DI;mats();DI=new THREE.InstancedMesh(new THREE.B
   for(let i=0;i<NDEB;i++)DI.setColorAt(i,new THREE.Color(0x888888));return DI;}
 function spawnDebris(x,y,z,col,size,vy,vx,vz){if(deb.length>=NDEB)return;debMesh();deb.push({x,y,z,vx:vx||0,vy:vy||0,vz:vz||0,s:size,rx:Math.random()*6,ry:Math.random()*6,sx:(Math.random()-.5)*6,sy:(Math.random()-.5)*6,t:0,col,rest:0});ST.debris.live=deb.length;if(!debRun){debRun=true;lastT=performance.now();requestAnimationFrame(debTick);}}
 const tmpC=new THREE.Color();
-function debTick(now){const dt=Math.min(.05,(now-lastT)/1000);lastT=now;
+function debTick(now){try{debTick_(now);}catch(e){deb.length=0;debRun=false;try{DI.count=0;}catch(_){}ST.err=String(e&&e.stack||e);if(!ST._dw){ST._dw=1;console.warn('statue debris',e);}}}/*loopdeb*/
+function debTick_(now){const dt=Math.min(.05,(now-lastT)/1000);lastT=now;
   for(let i=deb.length-1;i>=0;i--){const d=deb[i];d.t+=dt;d.vy-=26*dt;d.x+=d.vx*dt;d.y+=d.vy*dt;d.z+=d.vz*dt;d.rx+=d.sx*dt;d.ry+=d.sy*dt;
     const gy=tTop(Math.floor(d.x),Math.floor(d.z))+d.s*.5;if(d.y<gy){d.y=gy;if(d.vy<-4){d.vy=-d.vy*.28;d.vx*=.55;d.vz*=.55;}else{d.vy=0;d.vx*=.85;d.vz*=.85;d.sx*=.8;d.sy*=.8;d.rest+=dt;}}
     if(d.rest>1.4||d.t>9){deb.splice(i,1);}}
