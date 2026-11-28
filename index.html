@@ -972,7 +972,7 @@ window.__devEff=eff;
 const isPhone=()=>eff()==='phone';
 const sync=()=>{try{document.body.classList.toggle('ph',isPhone());}catch(e){}};
 /* version label: the deploy script replaces the placeholder below; an unreplaced build shows DEV BUILD */
-const VRAW='28 Nov 2026 05:49';
+const VRAW='28 Nov 2026 07:02';
 const VER=(VRAW.indexOf('__BUILD'+'_')===0)?'DEV BUILD':VRAW;
 window.__VERSION=VER;
 const pill=()=>{const b=document.createElement('button');b.type='button';b.className='verpill';b.textContent=VER;b.title='Tap to copy';b.setAttribute('aria-label','Game version '+VER);b.addEventListener('click',e=>{e.stopPropagation();try{navigator.clipboard&&navigator.clipboard.writeText(VER);}catch(_){}});return b;};
@@ -68531,7 +68531,7 @@ KS.tele=(id,_try)=>{const o=OPP.find(q=>q.id===id),p=o&&pos(id);if(!DEV)return f
 /* ---------- the challenge screen (prototype hub, mock) ---------- */
 KS.challenge=friend=>{try{const PH=W.__PHONEUI;if(PH&&PH.close)PH.close();}catch(_){}
   setTimeout(()=>{if(!KV.open||!KV.open('kare',null))return;let n=0;const iv=setInterval(()=>{try{const f=document.querySelector('#kvOv iframe'),d=f&&f.contentDocument,b=d&&d.querySelector('#mHub');
-    if(b&&d.querySelector('#v-menu')){clearInterval(iv);b.click();setTimeout(()=>{try{const c=d.querySelector('[data-ch="'+friend+'"]');if(c){c.scrollIntoView({block:'center'});c.focus();}}catch(_){}},400);}
+    if(b&&d.querySelector('#v-menu')){clearInterval(iv);b.click();setTimeout(()=>{try{const c=d.querySelector('[data-och="'+friend+'"]')/*kvfriend*/;if(c){c.scrollIntoView({block:'center'});c.focus();}}catch(_){}},400);}
     else if(++n>50)clearInterval(iv);}catch(_){if(++n>50)clearInterval(iv);}},200);},200);};
 /* ---------- the phone: GPS search rows + the Kvent app ---------- */
 const GENERIC=['kvent','kort','kortspill','cards','card'];
@@ -68688,7 +68688,7 @@ function drawLogo(g,w,h){
   const fan=(fx,fy2,s)=>{const cols=['#f2e8d0','#d8c9a5','#f2e8d0','#c22a22','#f2e8d0'];for(let i=0;i<5;i++){g.save();g.translate(fx,fy2);g.rotate((i-2)*.2);g.fillStyle=cols[i];g.strokeStyle='#2a1a10';g.lineWidth=s*.04;g.beginPath();g.roundRect(-s*.3,-s*.9,s*.6,s,s*.06);g.fill();g.stroke();g.fillStyle='#8a1d1a';g.font=(s*.4)+'px serif';g.fillText(['♦','♣','♥','♠','♦'][i],0,-s*.4);g.restore();}};
   fan(aL+aW*.16,h*.915,h*.075);fan(aR-aW*.16,h*.915,h*.075);
 }
-function ladderRows(){const d=LS.get('kvent.lounge.ladder.v1',null)||{Marius:{w:3,l:1},Chris:{w:2,l:2},Martin:{w:1,l:3}};return Object.keys(d).map(n=>({n,w:d[n].w,l:d[n].l})).sort((a,b)=>(b.w-b.l)-(a.w-a.l));}
+function ladderRows(){const d=LS.get('kvent.lounge.ladder.v1',null)||{Marius:{w:0,l:0},Chris:{w:0,l:0},Martin:{w:0,l:0}};return Object.keys(d).map(n=>({n,w:d[n].w,l:d[n].l})).sort((a,b)=>(b.w-b.l)-(a.w-a.l));}
 const POSTERS={
  tour(g,w,h){const T=(t,x,y,fmt,sz,mw,col,al)=>{g.textAlign=al||'center';g.fillStyle=col;fit(g,t,fmt,sz,mw);g.fillText(t,x,y);};g.fillStyle='#e8d9b5';g.fillRect(0,0,w,h);g.strokeStyle='#7a2a1a';g.lineWidth=8;g.strokeRect(8,8,w-16,h-16);const mw=w*.8;
    T('KVENT',w/2,84,'900 #px Georgia,serif',52,mw,'#7a2a1a');T('JULETURNERING',w/2,132,'700 #px Georgia,serif',28,mw,'#7a2a1a');
@@ -68808,11 +68808,11 @@ setInterval(()=>{try{ensureBub();const t=target();const k=t?t.id:'';if(k!==hintK
 function go(){const t=hint;if(!t)return;if(t.id==='solo'){const S=T0[3];try{P.yaw=Math.atan2(-(S.x-P.x),-(S.z-P.z));P.pitch=-.15;}catch(_){}try{W.__KVENT.open('pinsper','town');}catch(e){e8(e);}}else if(t.id==='friend')chooser();}
 addEventListener('keydown',e=>{if((e.key==='e'||e.key==='E')&&!e.repeat&&hint&&!e.ctrlKey&&!e.metaKey&&X.free()){e.stopImmediatePropagation();e.preventDefault();go();}},true);
 function chooser(){if(document.getElementById('klCh'))return;ensureBub();const o=document.createElement('div');o.id='klCh';const rows=ladderRows();const rec=n=>{const r=rows.find(q=>q.n===n);return r?r.w+' - '+r.l:'0 - 0';};
-  const who=me();o.innerHTML='<div class="p"><h3>Spill mot en venn</h3><small>Online play is a mock for now: the challenge goes out, then you wait for an answer.</small>'+['Marius','Chris','Martin'].map(n=>'<button data-f="'+n+'"'+(n.toLowerCase()===who.toLowerCase()?' disabled':'')+'>'+n+'  ('+rec(n)+')</button>').join('')+'<button class="x" data-f="">Cancel</button></div>';
+  const who=me();o.innerHTML='<div class="p"><h3>Spill mot en venn</h3><small>Pick a friend, then press their Challenge button on the card screen.</small>'+['Marius','Chris','Martin'].map(n=>'<button data-f="'+n+'"'+(n.toLowerCase()===who.toLowerCase()?' disabled':'')+'>'+n+'  ('+rec(n)+')</button>').join('')+'<button class="x" data-f="">Cancel</button></div>';
   const close=()=>{o.remove();try{X.closeModal();}catch(_){}};
   X.openModal({key(e,down){if(down&&e.key==='Escape')close();}});
-  o.addEventListener('click',ev=>{const b=ev.target.closest&&ev.target.closest('button');if(!b||b.disabled)return;const f=b.dataset.f;close();if(!f)return;KL.waiting={friend:f,until:performance.now()+180000};try{KL.refreshTent();}catch(_){}
-    try{say({x:T0[5].x,y:KL.fy+1.5,z:T0[5].z+.95},'Waiting for '+f+'...',4500);}catch(_){}try{toast('Challenge sent to '+f+'. Waiting for opponent...');}catch(_){}
+  o.addEventListener('click',ev=>{const b=ev.target.closest&&ev.target.closest('button');if(!b||b.disabled)return;const f=b.dataset.f;close();if(!f)return;/*kvfriend: no pretend waiting*/
+    
     try{W.__KVENTSEARCH.challenge(f);}catch(er){e8(er);}});
   document.body.appendChild(o);}
 /* ------------------------------------------------------------------ OUTSIDE ------------------------------------------------------------- */

@@ -54,6 +54,7 @@ class Client{
       if(s.status==='pending')(s.to===this.me?out.incoming:out.outgoing).push(s);
       else if(s.status==='declined')out.declined.push(s);
       else if(s.status==='active'){let mt=this.load(s.id);if(!mt){mt=this.build(s);this.save(mt);}
+        if(mt.S.phase!=='over'){try{const y=await this.sync(s.id);if(y.ok&&y.mt)mt=y.mt;}catch(e){}}/*kvfriend: up to date, and send moves made offline*/
         const rec={s,mt,seat:this.seatOf(mt),moves:s.moves,mine:false,over:mt.S.phase==='over'};
         const w=mt.who();rec.mine=!rec.over&&w===rec.seat;(rec.over?out.done:out.active).push(rec);}}
     return out;}

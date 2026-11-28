@@ -178,10 +178,12 @@ U.hubExtra=function(v){/* lock gated townspeople, then the online section */
   onlineUI(v);};
 /* ------------------------------------------------------------------ online: friends, challenges, match list */
 let client=null,relayKey='';
-function relayCfg(){return LS.get('kvent.relay',{mode:'local',url:'',key:''});}
+/* relaydefault (28 Nov): the card server is built in so friends can play with nothing to type; a saved choice still wins; localhost stays 'this browser only' */
+const RELAY_BUILTIN={mode:'online',url:'https://kvent-relay.marius-b6a.workers.dev',key:"julenisse-hf03ov"};
+function relayCfg(){const local=/^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname);const d=local?{mode:'local',url:'',key:''}:RELAY_BUILTIN;const c=LS.get('kvent.relay',null);if(!c)return d;if(c.mode==='online'&&!c.url)return Object.assign({},RELAY_BUILTIN);return c;}
 function mkRelay(){const c=relayCfg();if(c.mode==='online'&&c.url)return new NET.HttpRelay(c.url,c.key);return new NET.LoopbackRelay(new (window.KventRelayCore.RelayCore)(new NET.LocalDB(localStorage)));}
 const mstore={get:id=>{const r=(LS.get('kvent.matches',{})||{})[id];return r?r.json:null;},set:(id,j)=>{const all=LS.get('kvent.matches',{})||{};const meta=j.meta||{};all[id]={json:j,updated:Date.now()};LS.set('kvent.matches',all);},all:()=>LS.get('kvent.matches',{})};
-function getClient(){const c=relayCfg();const key=player()+'|'+c.mode+'|'+c.url+'|'+c.key;if(!client||relayKey!==key){relayKey=key;client=new NET.Client({relay:mkRelay(),me:player(),store:mstore});}return client;}
+function getClient(){const c=relayCfg();const key=player()+'|'+c.mode+'|'+c.url+'|'+c.key;if(!client||relayKey!==key){relayKey=key;client=new NET.Client({relay:mkRelay(),me:myName()||player()/*kvfriend*/,store:mstore});}return client;}
 const isFriendName=n=>FRIENDS.some(f=>f.toLowerCase()===String(n).toLowerCase());
 function myName(){const f=FRIENDS.find(x=>x.toLowerCase()===player().toLowerCase());return f||null;}
 U.netSeat=mt=>{const o=(mt.header.meta||{}).online;return o&&o.host===myName()?0:1;};
