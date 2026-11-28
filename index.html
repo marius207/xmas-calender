@@ -1018,7 +1018,7 @@ window.__devEff=eff;
 const isPhone=()=>eff()==='phone';
 const sync=()=>{try{document.body.classList.toggle('ph',isPhone());}catch(e){}};
 /* version label: the deploy script replaces the placeholder below; an unreplaced build shows DEV BUILD */
-const VRAW='28 Nov 2026 18:49';
+const VRAW='28 Nov 2026 19:38';
 const VER=(VRAW.indexOf('__BUILD'+'_')===0)?'DEV BUILD':VRAW;
 window.__VERSION=VER;
 const pill=()=>{const b=document.createElement('button');b.type='button';b.className='verpill';b.textContent=VER;b.title='Tap to copy';b.setAttribute('aria-label','Game version '+VER);b.addEventListener('click',e=>{e.stopPropagation();try{navigator.clipboard&&navigator.clipboard.writeText(VER);}catch(_){}});return b;};
@@ -3896,7 +3896,7 @@ const auroraMat=new THREE.ShaderMaterial({transparent:true,depthWrite:false,blen
 if(Q>=2){composer=new EffectComposer(r);composer.setPixelRatio(r.getPixelRatio());composer.setSize(innerWidth,innerHeight);composer.addPass(new RenderPass(scene,cam));
   composer.addPass(new UnrealBloomPass(new THREE.Vector2(innerWidth,innerHeight),.55,.4,.92));
   composer.addPass(window.__gradeP=new ShaderPass({uniforms:{tDiffuse:{value:null},dark:{value:0},fade:{value:1}},vertexShader:'varying vec2 vU;void main(){vU=uv;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}',
-    fragmentShader:'uniform sampler2D tDiffuse;uniform float dark,fade;varying vec2 vU;void main(){vec4 c=texture2D(tDiffuse,vU);vec3 col=c.rgb;float l=dot(col,vec3(.299,.587,.114));col=mix(col*vec3(.92,1.,1.1),col*vec3(1.06,1.,.9),smoothstep(.2,.8,l));col*=mix(.6,1.,smoothstep(1.2,.4,length(vU-.5)*1.4));{vec3 o=c.rgb;float L=dot(o,vec3(.299,.587,.114));float g=pow(L,1.45)*.8;vec3 dk=vec3(g*.78,g*.66,g*.68);float gx=max(0.,o.g-max(o.r,o.b));dk+=vec3(1.25,.08,.04)*(gx*2.2+smoothstep(.8,1.6,L)*1.3+smoothstep(.05,.5,o.r-o.b)*L*1.4);dk*=mix(.45,1.,smoothstep(1.15,.3,length(vU-.5)*1.4));col=mix(col,dk,dark);}col*=fade;gl_FragColor=vec4(col,c.a);}'}));
+    fragmentShader:'uniform sampler2D tDiffuse;uniform float dark,fade;varying vec2 vU;void main(){vec4 c=texture2D(tDiffuse,vU);c.rgb=max(vec3(c.r<1e4?c.r:0.,c.g<1e4?c.g:0.,c.b<1e4?c.b:0.),0.);/*specks*/vec3 col=c.rgb;float l=dot(col,vec3(.299,.587,.114));col=mix(col*vec3(.92,1.,1.1),col*vec3(1.06,1.,.9),smoothstep(.2,.8,l));col*=mix(.6,1.,smoothstep(1.2,.4,length(vU-.5)*1.4));{vec3 o=c.rgb;float L=dot(o,vec3(.299,.587,.114));float g=pow(L,1.45)*.8;vec3 dk=vec3(g*.78,g*.66,g*.68);float gx=max(0.,o.g-max(o.r,o.b));dk+=vec3(1.25,.08,.04)*(gx*2.2+smoothstep(.8,1.6,L)*1.3+smoothstep(.05,.5,o.r-o.b)*L*1.4);dk*=mix(.45,1.,smoothstep(1.15,.3,length(vU-.5)*1.4));col=mix(col,dk,dark);}col*=fade;gl_FragColor=vec4(col,c.a);}'}));
   composer.addPass(new OutputPass());window.__gradeU=window.__gradeP.uniforms;}
 /* shaders29 */
 /* SHADERS29 (job shaders29, 29 Oct): the RECOMMENDED combo from presentations/looksmaxing (SHADERS tab, "the easy win"): AgX film colour curve (exposure stays 1.2), bloom retuned
@@ -3917,7 +3917,7 @@ vec3 wpos(vec2 uv,float d){vec4 v=pInv*vec4(uv*2.-1.,d*2.-1.,1.);v/=v.w;return (
 void main(){float d=texture2D(tDepth,vUv).r;vec3 wp=wpos(vUv,d);vec3 rv=wp-cp;float dist=length(rv);vec3 rd=rv/max(dist,1e-4);bool sky=d>.99995;
  vec3 col=texture2D(tDiffuse,vUv).rgb;
  float lum=dot(col,vec3(.299,.587,.114));
- if(spK>0.&&!sky&&dist<70.){vec3 n=normalize(cross(dFdx(wp),dFdy(wp)));if(n.y<0.)n=-n;float gnd=smoothstep(.8,.95,n.y);
+ if(spK>0.&&!sky&&dist<70.){vec3 nc=cross(dFdx(wp),dFdy(wp));float ncl=length(nc);vec3 n=(ncl>1e-9&&ncl<1e30)?nc/ncl:vec3(0.,1.,0.);/*specks*/if(n.y<0.)n=-n;float gnd=smoothstep(.8,.95,n.y);
   vec2 cell=floor(wp.xz*34.);float h=h21(cell);float tw=pow(max(0.,sin(time*(1.2+h*2.5)+h*60.)),30.);float vis=smoothstep(.02,.12,lum)*smoothstep(70.,10.,dist);
   float sp=step(.955,h)*tw*vis*gnd;col+=vec3(.85,.95,1.)*sp*5.*spK;
   /* icy / wet road: lamp reflections smeared along the road */
@@ -3930,7 +3930,7 @@ void main(){float d=texture2D(tDepth,vUv).r;vec3 wp=wpos(vUv,d);vec3 rv=wp-cp;fl
   vec3 gl=vec3(0.);for(int i=0;i<12;i++){if(i>=nL)break;vec3 Lp=lamps[i].xyz;float t=clamp(dot(Lp-cp,rd),0.,dd);vec3 q=cp+rd*t;vec3 e=Lp-q;float e2=dot(e,e);float w=2.1+.012*length(Lp-cp);
    float hz=exp(-e2/(w*w));float tight=exp(-e2/(.55*.55));gl+=vec3(1.,.66,.32)*(hz*(.22+amt*1.4)+tight*.5)*lamps[i].w*haloK/(1.+.0035*t*t/ (1.+dd*.01));}
   col=mix(col,fc,amt*(sky?.35:1.))+gl;}
- gl_FragColor=vec4(col,1.);}`.split('lamps[12]').join('lamps[8]').split('i<12').join('i<8');
+ {vec3 c=col;col=max(vec3(c.r<1e4?c.r:0.,c.g<1e4?c.g:0.,c.b<1e4?c.b:0.),0.);}/*specks*/gl_FragColor=vec4(col,1.);}`.split('lamps[12]').join('lamps[8]').split('i<12').join('i<8');
 let skip=false;
 function build(){const p=new ShaderPass({uniforms:U,vertexShader:'varying vec2 vUv;void main(){vUv=uv;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}',fragmentShader:FRAG});
  const rr=p.render.bind(p);
@@ -18138,7 +18138,7 @@ const sfx=(()=>{const nb=()=>{if(!noiseB){const len=ac.sampleRate*2;noiseB=ac.cr
     const o2=ac.createOscillator(),g2=ac.createGain();o2.type='sine';o2.frequency.value=f*2.76;g2.gain.setValueAtTime(.025,t);g2.gain.exponentialRampToValueAtTime(.0001,t+.6);o2.connect(g2);g2.connect(out());o2.start(t);o2.stop(t+.7);});}};
   return S;})();
 let musicBuf=null,musicFetch=null;window.__INTRO_FREE=()=>{musicBuf=null;window.__INTRO_PRE=null;};/*phonecrash*/const fetchMusic=()=>musicFetch||(musicFetch=fetch('intro_theme.m4a').then(r=>r.ok?r.arrayBuffer():null).catch(()=>null));
-function startAudio(){if(!ac)return;AX={g:ac.createGain(),a0:ac.currentTime-S.T,srcs:[]};AX.g.gain.value=1;AX.g.connect(master);const at=T=>AX.a0+T,A=AX;
+function startAudio(){if(!ac)return;AX={g:ac.createGain(),a0:ac.currentTime-S.T,srcs:[]};AX.g.gain.value=1;/*introaudio*/{const W=window;if(W.__IG_V==null){W.__IG_V=master.gain.value;master.gain.cancelScheduledValues(ac.currentTime);master.gain.value=0;}const ib=ac.createGain();ib.gain.value=W.__IG_V;ib.connect(ac.destination);AX.g.connect(ib);if(!W.__IG_T){let seen=!!W.__INTRO_ON,n=0;W.__IG_T=setInterval(()=>{n++;if(W.__INTRO_ON){seen=true;if(master.gain.value!==0){master.gain.cancelScheduledValues(ac.currentTime);master.gain.value=0;}return;}if(!seen&&n<50)return;clearInterval(W.__IG_T);W.__IG_T=0;const v=W.__IG_V;W.__IG_V=null;if(!W.__CINE_MUTE){master.gain.cancelScheduledValues(ac.currentTime);master.gain.setValueAtTime(0,ac.currentTime);master.gain.linearRampToValueAtTime(v,ac.currentTime+1.2);}},100);}}const at=T=>AX.a0+T,A=AX;
   /* wind bed, driven each frame by the flying speed */
   {const s=ac.createBufferSource();s.buffer=sfx.nb();s.loop=true;const f=ac.createBiquadFilter();f.type='lowpass';f.frequency.value=400;f.Q.value=.6;const f2=ac.createBiquadFilter();f2.type='highpass';f2.frequency.value=60;const g=ac.createGain();g.gain.value=0;s.connect(f2);f2.connect(f);f.connect(g);g.connect(A.g);s.start();A.wind={s,f,g};A.srcs.push(s);}
   /* pre-roll pad over the open sea: low open fifths that swell, then cut at the hero title */

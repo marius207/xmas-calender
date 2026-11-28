@@ -280,6 +280,1049 @@
    "glyph": "📮",
    "note": "Post a note; an answer is waiting next day, in odd handwriting.",
    "g": "more"
+  },
+  {
+   "id": "chest_common",
+   "name": "Chest · common",
+   "col": "#b98a52",
+   "glyph": "🧰",
+   "note": "A treasure chest of this rarity. Write a note if it should hold something special.",
+   "g": "chest",
+   "ex": "chest:common"
+  },
+  {
+   "id": "chest_uncommon",
+   "name": "Chest · uncommon",
+   "col": "#5fc46a",
+   "glyph": "🧰",
+   "note": "A treasure chest of this rarity. Write a note if it should hold something special.",
+   "g": "chest",
+   "ex": "chest:uncommon"
+  },
+  {
+   "id": "chest_rare",
+   "name": "Chest · rare",
+   "col": "#59a8ff",
+   "glyph": "🧰",
+   "note": "A treasure chest of this rarity. Write a note if it should hold something special.",
+   "g": "chest",
+   "ex": "chest:rare"
+  },
+  {
+   "id": "chest_sky",
+   "name": "Chest · sky",
+   "col": "#d690ff",
+   "glyph": "🧰",
+   "note": "A treasure chest of this rarity. Write a note if it should hold something special.",
+   "g": "chest",
+   "ex": "chest:sky"
+  },
+  {
+   "id": "find_cairn",
+   "name": "Cairn",
+   "col": "#c9a86a",
+   "glyph": "🪨",
+   "note": "A trail find (like the ones along the paths). Your note can be the text it shows.",
+   "g": "find",
+   "ex": "find:cairn"
+  },
+  {
+   "id": "find_cabin",
+   "name": "Cabin",
+   "col": "#9fd8ff",
+   "glyph": "🛖",
+   "note": "A trail find (like the ones along the paths). Your note can be the text it shows.",
+   "g": "find",
+   "ex": "find:cabin"
+  },
+  {
+   "id": "find_campfire",
+   "name": "Campfire",
+   "col": "#ff9a3c",
+   "glyph": "🔥",
+   "note": "A trail find (like the ones along the paths). Your note can be the text it shows.",
+   "g": "find",
+   "ex": "find:campfire"
+  },
+  {
+   "id": "find_bench",
+   "name": "Bench",
+   "col": "#c97b84",
+   "glyph": "🪑",
+   "note": "A trail find (like the ones along the paths). Your note can be the text it shows.",
+   "g": "find",
+   "ex": "find:bench"
+  },
+  {
+   "id": "find_rucksack",
+   "name": "Rucksack",
+   "col": "#8fbf6a",
+   "glyph": "🎒",
+   "note": "A trail find (like the ones along the paths). Your note can be the text it shows.",
+   "g": "find",
+   "ex": "find:rucksack"
+  },
+  {
+   "id": "find_lantern",
+   "name": "Lantern",
+   "col": "#ffd23f",
+   "glyph": "🏮",
+   "note": "A trail find (like the ones along the paths). Your note can be the text it shows.",
+   "g": "find",
+   "ex": "find:lantern"
+  },
+  {
+   "id": "find_runestone",
+   "name": "Rune stone",
+   "col": "#7fe0d0",
+   "glyph": "🗿",
+   "note": "A trail find (like the ones along the paths). Your note can be the text it shows.",
+   "g": "find",
+   "ex": "find:runestone"
+  },
+  {
+   "id": "find_tracks",
+   "name": "Strange tracks",
+   "col": "#b9c0cc",
+   "glyph": "🐾",
+   "note": "A trail find (like the ones along the paths). Your note can be the text it shows.",
+   "g": "find",
+   "ex": "find:tracks"
+  },
+  {
+   "id": "find_mitten",
+   "name": "Lost mitten",
+   "col": "#ff6b6b",
+   "glyph": "🧤",
+   "note": "A trail find (like the ones along the paths). Your note can be the text it shows.",
+   "g": "find",
+   "ex": "find:mitten"
+  },
+  {
+   "id": "find_bottle",
+   "name": "Bottle",
+   "col": "#7fe3c0",
+   "glyph": "🍾",
+   "note": "A trail find (like the ones along the paths). Your note can be the text it shows.",
+   "g": "find",
+   "ex": "find:bottle"
+  },
+  {
+   "id": "find_sled",
+   "name": "Sled",
+   "col": "#d9a066",
+   "glyph": "🛷",
+   "note": "A trail find (like the ones along the paths). Your note can be the text it shows.",
+   "g": "find",
+   "ex": "find:sled"
+  },
+  {
+   "id": "find_snowman",
+   "name": "Snowman",
+   "col": "#e8f6ff",
+   "glyph": "⛄",
+   "note": "A trail find (like the ones along the paths). Your note can be the text it shows.",
+   "g": "find",
+   "ex": "find:snowman"
+  },
+  {
+   "id": "find_antler",
+   "name": "Antler",
+   "col": "#d8cfc0",
+   "glyph": "🦌",
+   "note": "A trail find (like the ones along the paths). Your note can be the text it shows.",
+   "g": "find",
+   "ex": "find:antler"
+  },
+  {
+   "id": "find_boot",
+   "name": "Boot",
+   "col": "#a87c52",
+   "glyph": "🥾",
+   "note": "A trail find (like the ones along the paths). Your note can be the text it shows.",
+   "g": "find",
+   "ex": "find:boot"
+  },
+  {
+   "id": "find_ski",
+   "name": "Old ski",
+   "col": "#9aa7b4",
+   "glyph": "🎿",
+   "note": "A trail find (like the ones along the paths). Your note can be the text it shows.",
+   "g": "find",
+   "ex": "find:ski"
+  },
+  {
+   "id": "find_feeder",
+   "name": "Bird feeder",
+   "col": "#6fb7ff",
+   "glyph": "🐦",
+   "note": "A trail find (like the ones along the paths). Your note can be the text it shows.",
+   "g": "find",
+   "ex": "find:feeder"
+  },
+  {
+   "id": "find_thermos",
+   "name": "Thermos",
+   "col": "#ff7ad9",
+   "glyph": "☕",
+   "note": "A trail find (like the ones along the paths). Your note can be the text it shows.",
+   "g": "find",
+   "ex": "find:thermos"
+  },
+  {
+   "id": "col_secretdoor",
+   "name": "Secret rock door",
+   "col": "#9fd8ff",
+   "glyph": "🚪",
+   "note": "A sealed rock face that opens.",
+   "g": "col"
+  },
+  {
+   "id": "col_nissecap",
+   "name": "Nisse cap (hide and seek)",
+   "col": "#8fbf6a",
+   "glyph": "🎩",
+   "note": "A hidden red cap.",
+   "g": "col",
+   "ex": "h"
+  },
+  {
+   "id": "col_bauble",
+   "name": "Bauble",
+   "col": "#b9c0cc",
+   "glyph": "🔴",
+   "note": "A Christmas bauble to collect.",
+   "g": "col"
+  },
+  {
+   "id": "col_varde",
+   "name": "Cairn to light (summit book)",
+   "col": "#d9a066",
+   "glyph": "📕",
+   "note": "A varde on a top with a book to sign.",
+   "g": "col",
+   "ex": "yvarde"
+  },
+  {
+   "id": "col_hiker",
+   "name": "Hiker / trail person",
+   "col": "#a87c52",
+   "glyph": "🚶",
+   "note": "Someone to talk to out on a trail.",
+   "g": "col",
+   "ex": "ypeople"
+  },
+  {
+   "id": "col_hatless",
+   "name": "Hatless snowman",
+   "col": "#ff7ad9",
+   "glyph": "☃️",
+   "note": "Find its hat.",
+   "g": "col",
+   "ex": "yhat"
+  },
+  {
+   "id": "col_signpost",
+   "name": "Fast-travel signpost",
+   "col": "#ff9a3c",
+   "glyph": "🪧",
+   "note": "A signpost you can travel from.",
+   "g": "col",
+   "ex": "w"
+  },
+  {
+   "id": "col_statue",
+   "name": "Statue",
+   "col": "#ffd23f",
+   "glyph": "🗽",
+   "note": "A statue.",
+   "g": "col",
+   "ex": "ms"
+  },
+  {
+   "id": "col_den",
+   "name": "Creature den",
+   "col": "#ff6b6b",
+   "glyph": "🐺",
+   "note": "Creatures live here. Note which kind.",
+   "g": "col",
+   "ex": "mc"
+  },
+  {
+   "id": "col_trollcave",
+   "name": "Troll cave",
+   "col": "#e8f6ff",
+   "glyph": "🕳️",
+   "note": "A cave mouth with trolls inside.",
+   "g": "col",
+   "ex": "x"
+  },
+  {
+   "id": "col_runetrial",
+   "name": "Nisse trial",
+   "col": "#9aa7b4",
+   "glyph": "🎯",
+   "note": "A challenge course.",
+   "g": "col",
+   "ex": "r"
+  },
+  {
+   "id": "bk_reindeer",
+   "name": "Reindeer stampede",
+   "col": "#ff9a3c",
+   "glyph": "🦌",
+   "note": "A surprise event the game already has. A pin means: it can happen here.",
+   "g": "bk"
+  },
+  {
+   "id": "bk_vacuum",
+   "name": "Nisse on a robot vacuum",
+   "col": "#b9c0cc",
+   "glyph": "🤖",
+   "note": "A surprise event the game already has. A pin means: it can happen here.",
+   "g": "bk"
+  },
+  {
+   "id": "bk_snowman",
+   "name": "The snowman that moves",
+   "col": "#d8cfc0",
+   "glyph": "⛄",
+   "note": "A surprise event the game already has. A pin means: it can happen here.",
+   "g": "bk"
+  },
+  {
+   "id": "bk_alarm",
+   "name": "Car alarm choir",
+   "col": "#c9a86a",
+   "glyph": "🚗",
+   "note": "A surprise event the game already has. A pin means: it can happen here.",
+   "g": "bk"
+  },
+  {
+   "id": "bk_moose",
+   "name": "Moose in Christmas lights",
+   "col": "#ffd23f",
+   "glyph": "🫎",
+   "note": "A surprise event the game already has. A pin means: it can happen here.",
+   "g": "bk"
+  },
+  {
+   "id": "bk_gingerbread",
+   "name": "It rains gingerbread",
+   "col": "#d9a066",
+   "glyph": "🍪",
+   "note": "A surprise event the game already has. A pin means: it can happen here.",
+   "g": "bk"
+  },
+  {
+   "id": "bk_kicksled",
+   "name": "Runaway kicksled",
+   "col": "#6fb7ff",
+   "glyph": "🛷",
+   "note": "A surprise event the game already has. A pin means: it can happen here.",
+   "g": "bk"
+  },
+  {
+   "id": "bk_mittens",
+   "name": "The great mitten migration",
+   "col": "#c97b84",
+   "glyph": "🧤",
+   "note": "A surprise event the game already has. A pin means: it can happen here.",
+   "g": "bk"
+  },
+  {
+   "id": "bk_sleigh",
+   "name": "Sleigh with no horses",
+   "col": "#ff6b6b",
+   "glyph": "🎠",
+   "note": "A surprise event the game already has. A pin means: it can happen here.",
+   "g": "bk"
+  },
+  {
+   "id": "bk_snowball",
+   "name": "The giant snowball",
+   "col": "#a87c52",
+   "glyph": "⚪",
+   "note": "A surprise event the game already has. A pin means: it can happen here.",
+   "g": "bk"
+  },
+  {
+   "id": "bk_rooftops",
+   "name": "NCC chase on the rooftops",
+   "col": "#9fd8ff",
+   "glyph": "🏃",
+   "note": "A surprise event the game already has. A pin means: it can happen here.",
+   "g": "bk"
+  },
+  {
+   "id": "bk_sauna",
+   "name": "The sauna bursts open",
+   "col": "#7fe0d0",
+   "glyph": "🧖",
+   "note": "A surprise event the game already has. A pin means: it can happen here.",
+   "g": "bk"
+  },
+  {
+   "id": "bk_lamps",
+   "name": "Street lamps turn to look",
+   "col": "#e8f6ff",
+   "glyph": "💡",
+   "note": "A surprise event the game already has. A pin means: it can happen here.",
+   "g": "bk"
+  },
+  {
+   "id": "bk_band",
+   "name": "The lost brass band",
+   "col": "#ff7ad9",
+   "glyph": "🎺",
+   "note": "A surprise event the game already has. A pin means: it can happen here.",
+   "g": "bk"
+  },
+  {
+   "id": "bk_booth",
+   "name": "Phone booth in the forest",
+   "col": "#8fbf6a",
+   "glyph": "☎️",
+   "note": "A surprise event the game already has. A pin means: it can happen here.",
+   "g": "bk"
+  },
+  {
+   "id": "bk_padrift",
+   "name": "Mayor's PA slips into a song",
+   "col": "#7fe3c0",
+   "glyph": "📢",
+   "note": "A surprise event the game already has. A pin means: it can happen here.",
+   "g": "bk"
+  },
+  {
+   "id": "bk_goats",
+   "name": "Goat parade",
+   "col": "#9aa7b4",
+   "glyph": "🐐",
+   "note": "A surprise event the game already has. A pin means: it can happen here.",
+   "g": "bk"
+  },
+  {
+   "id": "bk_count",
+   "name": "The Count",
+   "col": "#ff9a3c",
+   "glyph": "🧛",
+   "note": "A surprise event the game already has. A pin means: it can happen here.",
+   "g": "bk"
+  },
+  {
+   "id": "bk_posters",
+   "name": "Poster storm",
+   "col": "#b9c0cc",
+   "glyph": "📄",
+   "note": "A surprise event the game already has. A pin means: it can happen here.",
+   "g": "bk"
+  },
+  {
+   "id": "bk_pie",
+   "name": "The pie thief",
+   "col": "#d8cfc0",
+   "glyph": "🥧",
+   "note": "A surprise event the game already has. A pin means: it can happen here.",
+   "g": "bk"
+  },
+  {
+   "id": "bk_plunge",
+   "name": "Polar plunge",
+   "col": "#c9a86a",
+   "glyph": "🩲",
+   "note": "A surprise event the game already has. A pin means: it can happen here.",
+   "g": "bk"
+  },
+  {
+   "id": "bk_footprints",
+   "name": "Footprints that stop",
+   "col": "#ffd23f",
+   "glyph": "👣",
+   "note": "A surprise event the game already has. A pin means: it can happen here.",
+   "g": "bk"
+  },
+  {
+   "id": "bk_fogwall",
+   "name": "The fog wall",
+   "col": "#d9a066",
+   "glyph": "🌫️",
+   "note": "A surprise event the game already has. A pin means: it can happen here.",
+   "g": "bk"
+  },
+  {
+   "id": "bk_radio",
+   "name": "Bleed-through",
+   "col": "#6fb7ff",
+   "glyph": "📻",
+   "note": "A surprise event the game already has. A pin means: it can happen here.",
+   "g": "bk"
+  },
+  {
+   "id": "bk_curtains",
+   "name": "The twitching curtains",
+   "col": "#c97b84",
+   "glyph": "🪟",
+   "note": "A surprise event the game already has. A pin means: it can happen here.",
+   "g": "bk"
+  },
+  {
+   "id": "bk_picnic",
+   "name": "The trolls' picnic",
+   "col": "#ff6b6b",
+   "glyph": "🧺",
+   "note": "A surprise event the game already has. A pin means: it can happen here.",
+   "g": "bk"
+  },
+  {
+   "id": "bk_tourbus",
+   "name": "Tourists, empty field",
+   "col": "#a87c52",
+   "glyph": "🚌",
+   "note": "A surprise event the game already has. A pin means: it can happen here.",
+   "g": "bk"
+  },
+  {
+   "id": "bk_sparkle",
+   "name": "Sparkler rain",
+   "col": "#9fd8ff",
+   "glyph": "🎇",
+   "note": "A surprise event the game already has. A pin means: it can happen here.",
+   "g": "bk"
+  },
+  {
+   "id": "bk_ghostcar",
+   "name": "The ghost car",
+   "col": "#7fe0d0",
+   "glyph": "🚘",
+   "note": "A surprise event the game already has. A pin means: it can happen here.",
+   "g": "bk"
+  },
+  {
+   "id": "bk_ploughs",
+   "name": "Snowplough ballet",
+   "col": "#e8f6ff",
+   "glyph": "🚜",
+   "note": "A surprise event the game already has. A pin means: it can happen here.",
+   "g": "bk"
+  },
+  {
+   "id": "bk_tugwar",
+   "name": "Nisse tug-of-war",
+   "col": "#ff7ad9",
+   "glyph": "🪢",
+   "note": "A surprise event the game already has. A pin means: it can happen here.",
+   "g": "bk"
+  },
+  {
+   "id": "bk_fridge",
+   "name": "Fridge in the woods",
+   "col": "#8fbf6a",
+   "glyph": "🧊",
+   "note": "A surprise event the game already has. A pin means: it can happen here.",
+   "g": "bk"
+  },
+  {
+   "id": "bk_bike",
+   "name": "Bjorn's bike",
+   "col": "#7fe3c0",
+   "glyph": "🚲",
+   "note": "A surprise event the game already has. A pin means: it can happen here.",
+   "g": "bk"
+  },
+  {
+   "id": "bk_phones",
+   "name": "Everybody's phone rings",
+   "col": "#9aa7b4",
+   "glyph": "📱",
+   "note": "A surprise event the game already has. A pin means: it can happen here.",
+   "g": "bk"
+  },
+  {
+   "id": "bk_santa",
+   "name": "Santa stuck in the chimney",
+   "col": "#ff9a3c",
+   "glyph": "🎅",
+   "note": "A surprise event the game already has. A pin means: it can happen here.",
+   "g": "bk"
+  },
+  {
+   "id": "bk_cloudman",
+   "name": "Man with his own weather",
+   "col": "#b9c0cc",
+   "glyph": "🌧️",
+   "note": "A surprise event the game already has. A pin means: it can happen here.",
+   "g": "bk"
+  },
+  {
+   "id": "bk_icefish",
+   "name": "Ice fishing goes wrong",
+   "col": "#d8cfc0",
+   "glyph": "🎣",
+   "note": "A surprise event the game already has. A pin means: it can happen here.",
+   "g": "bk"
+  },
+  {
+   "id": "statue_waffle",
+   "name": "The Waffle Iron",
+   "col": "#ffd23f",
+   "glyph": "🧇",
+   "note": "NEW statue, 8 m tall. An iron the size of a cabin, still holding one waffle. It smells of jam on cold nights.",
+   "g": "statue"
+  },
+  {
+   "id": "statue_boot",
+   "name": "The Lonely Boot",
+   "col": "#b9c0cc",
+   "glyph": "🥾",
+   "note": "NEW statue, 10 m tall. The left one. Nobody has found the right one, and nobody wants to meet its owner.",
+   "g": "statue"
+  },
+  {
+   "id": "statue_kettle",
+   "name": "The Kettle Nobody Filled",
+   "col": "#7fe3c0",
+   "glyph": "🫖",
+   "note": "NEW statue, 13 m tall. It steams in winter. There is no fire under it.",
+   "g": "statue"
+  },
+  {
+   "id": "statue_clock",
+   "name": "Five To Midnight",
+   "col": "#e8f6ff",
+   "glyph": "⏰",
+   "note": "NEW statue, 11.4 m tall. The alarm clock has said the same time since before anyone moved here. Sometimes it ticks once.",
+   "g": "statue"
+  },
+  {
+   "id": "statue_gingerbread",
+   "name": "The Bitten Gingerbread",
+   "col": "#a87c52",
+   "glyph": "🍪",
+   "note": "NEW statue, 12 m tall. Missing one leg, below the knee. There are tooth marks, and they are very large.",
+   "g": "statue"
+  },
+  {
+   "id": "statue_tree_down",
+   "name": "The Upside-Down Fir",
+   "col": "#6fb7ff",
+   "glyph": "🎄",
+   "note": "NEW statue, 13.4 m tall. A fir standing on its tip, star in the snow. It has not fallen in any storm.",
+   "g": "statue"
+  },
+  {
+   "id": "statue_telephone",
+   "name": "The Stone Telephone",
+   "col": "#c9a86a",
+   "glyph": "☎️",
+   "note": "NEW statue, 5.4 m tall. The handset is off the hook. Put your ear to it and you hear someone waiting.",
+   "g": "statue"
+  },
+  {
+   "id": "statue_eyes",
+   "name": "The Eyes In The Snow",
+   "col": "#ff9a3c",
+   "glyph": "👀",
+   "note": "NEW statue, 3.4 m tall. Only the top of the head shows. Nobody has dug to find how far down it goes.",
+   "g": "statue"
+  },
+  {
+   "id": "statue_candle",
+   "name": "The Candle Still Burning",
+   "col": "#8fbf6a",
+   "glyph": "🕯️",
+   "note": "NEW statue, 15 m tall. Three storeys of wax. The flame is stone, and it still gives off a little warmth.",
+   "g": "statue"
+  },
+  {
+   "id": "statue_crows",
+   "name": "The Crow Council",
+   "col": "#7fe0d0",
+   "glyph": "🐦‍⬛",
+   "note": "NEW statue, 8.8 m tall. Four small crows and a chairman. Count them again on the way back.",
+   "g": "statue"
+  },
+  {
+   "id": "statue_turned_away",
+   "name": "The Man Facing Away",
+   "col": "#ff6b6b",
+   "glyph": "🧍",
+   "note": "NEW statue, 12.2 m tall. Walk round to see his face. His back is to you again.",
+   "g": "statue"
+  },
+  {
+   "id": "statue_sock",
+   "name": "The Odd Sock",
+   "col": "#d9a066",
+   "glyph": "🧦",
+   "note": "NEW statue, 10.9 m tall. A giant knitted sock with a hole at the heel. Something warm lives in it.",
+   "g": "statue"
+  },
+  {
+   "id": "ev_walkingtree",
+   "name": "The Tree That Walks Home",
+   "col": "#c97b84",
+   "glyph": "🌲",
+   "note": "A fir shuffles across your path, looking for its living room.",
+   "g": "newev"
+  },
+  {
+   "id": "ev_risingsnow",
+   "name": "Snow Going Up",
+   "col": "#b9c0cc",
+   "glyph": "❄️",
+   "note": "For one minute the snow falls upwards, from one spot.",
+   "g": "newev"
+  },
+  {
+   "id": "ev_nissewedding",
+   "name": "A Very Small Wedding",
+   "col": "#e8f6ff",
+   "glyph": "💍",
+   "note": "A nisse wedding procession, rice and all. Do not step on the bride.",
+   "g": "newev"
+  },
+  {
+   "id": "ev_torchwalkers",
+   "name": "The Silent Torches",
+   "col": "#6fb7ff",
+   "glyph": "🔦",
+   "note": "Hooded walkers with torches pass in the dark. One stops to look at you.",
+   "g": "newev"
+  },
+  {
+   "id": "ev_mirrorstranger",
+   "name": "The Other You",
+   "col": "#ff9a3c",
+   "glyph": "🪞",
+   "note": "Someone 30 m away does exactly what you do.",
+   "g": "newev"
+  },
+  {
+   "id": "ev_runawayham",
+   "name": "Runaway Christmas Ham",
+   "col": "#7fe0d0",
+   "glyph": "🍖",
+   "note": "A glazed ham comes rolling downhill, chased by a cook.",
+   "g": "newev"
+  },
+  {
+   "id": "ev_winteric",
+   "name": "Ice Cream Van In December",
+   "col": "#d9a066",
+   "glyph": "🍦",
+   "note": "A jingle in the snow. It only sells soup.",
+   "g": "newev"
+  },
+  {
+   "id": "sky_small",
+   "name": "Sky platform · small (20 m)",
+   "col": "#bfe8ff",
+   "glyph": "☁️",
+   "note": "A snowy floating island, 20 m across. Set how high it floats.",
+   "g": "sky",
+   "size": 20,
+   "h": 60
+  },
+  {
+   "id": "sky_medium",
+   "name": "Sky platform · medium (50 m)",
+   "col": "#8fd0ff",
+   "glyph": "☁️",
+   "note": "A snowy floating island, 50 m across. Set how high it floats.",
+   "g": "sky",
+   "size": 50,
+   "h": 60
+  },
+  {
+   "id": "sky_large",
+   "name": "Sky platform · large (100 m)",
+   "col": "#5fb4ff",
+   "glyph": "☁️",
+   "note": "A snowy floating island, 100 m across. Set how high it floats.",
+   "g": "sky",
+   "size": 100,
+   "h": 60
+  },
+  {
+   "id": "mon_pyramid",
+   "name": "The Pyramid",
+   "col": "#cfd6dd",
+   "glyph": "🔺",
+   "note": "33 x 33 m, 17 m tall. Sandstone, climbable to the top. A low passage on the south side leads to a chamber with a stone coffin.",
+   "g": "mon",
+   "fp": [
+    33,
+    33
+   ]
+  },
+  {
+   "id": "mon_stonecircle",
+   "name": "The Stone Circle",
+   "col": "#cfd6dd",
+   "glyph": "🪨",
+   "note": "29 x 30 m, 8 m tall. Standing stones with lintels, five great trilithons inside, an altar stone in the middle.",
+   "g": "mon",
+   "fp": [
+    29,
+    30
+   ]
+  },
+  {
+   "id": "mon_stoneship",
+   "name": "The Stone Ship",
+   "col": "#cfd6dd",
+   "glyph": "⛵",
+   "note": "13 x 31 m, 4 m tall. A Viking ship setting: standing stones in the shape of a hull, tall at stem and stern.",
+   "g": "mon",
+   "fp": [
+    13,
+    31
+   ]
+  },
+  {
+   "id": "mon_dolmen",
+   "name": "The Dolmen",
+   "col": "#cfd6dd",
+   "glyph": "🗿",
+   "note": "9 x 7 m, 6 m tall. Three uprights and a capstone heavier than a bus. You can stand underneath.",
+   "g": "mon",
+   "fp": [
+    9,
+    7
+   ]
+  },
+  {
+   "id": "mon_mound",
+   "name": "The Burial Mound",
+   "col": "#cfd6dd",
+   "glyph": "⛰️",
+   "note": "27 x 27 m, 7 m tall. A grave mound with a stone doorway. The passage runs in to a chamber.",
+   "g": "mon",
+   "fp": [
+    27,
+    27
+   ]
+  },
+  {
+   "id": "mon_obelisk",
+   "name": "The Obelisk",
+   "col": "#cfd6dd",
+   "glyph": "🗼",
+   "note": "8 x 8 m, 27 m tall. One needle of pale stone with a gilded tip.",
+   "g": "mon",
+   "fp": [
+    8,
+    8
+   ]
+  },
+  {
+   "id": "mon_moai",
+   "name": "The Stone Heads",
+   "col": "#cfd6dd",
+   "glyph": "🗿",
+   "note": "26 x 8 m, 12 m tall. Three long-faced heads on a stone platform, all looking the same way.",
+   "g": "mon",
+   "fp": [
+    26,
+    8
+   ]
+  },
+  {
+   "id": "mon_sphinx",
+   "name": "The Sphinx",
+   "col": "#cfd6dd",
+   "glyph": "🦁",
+   "note": "14 x 38 m, 15 m tall. A lion with a human head, paws stretched out south. Climb up over its back.",
+   "g": "mon",
+   "fp": [
+    14,
+    38
+   ]
+  },
+  {
+   "id": "mon_steptemple",
+   "name": "The Step Temple",
+   "col": "#cfd6dd",
+   "glyph": "🛕",
+   "note": "31 x 34 m, 20 m tall. A terraced temple with a great stair up the front and a shrine you can walk into.",
+   "g": "mon",
+   "fp": [
+    31,
+    34
+   ]
+  },
+  {
+   "id": "mon_tower",
+   "name": "The Ruined Tower",
+   "col": "#cfd6dd",
+   "glyph": "🏰",
+   "note": "13 x 13 m, 18 m tall. A broken round keep. Go in the door and up the stair to the floor with the arrow slits.",
+   "g": "mon",
+   "fp": [
+    13,
+    13
+   ]
+  },
+  {
+   "id": "mon_aqueduct",
+   "name": "The Aqueduct",
+   "col": "#cfd6dd",
+   "glyph": "🌉",
+   "note": "63 x 4 m, 17 m tall. Four arches of an old water channel. A stair at the east end takes you up onto it.",
+   "g": "mon",
+   "fp": [
+    63,
+    4
+   ]
+  },
+  {
+   "id": "mon_greek",
+   "name": "The Temple Ruin",
+   "col": "#cfd6dd",
+   "glyph": "🏛️",
+   "note": "23 x 35 m, 18 m tall. White columns on three steps, some still holding the roof beam, some fallen.",
+   "g": "mon",
+   "fp": [
+    23,
+    35
+   ]
+  },
+  {
+   "id": "mon_arch",
+   "name": "The Great Arch",
+   "col": "#cfd6dd",
+   "glyph": "⛩️",
+   "note": "22 x 8 m, 16 m tall. A carved gateway standing alone in the snow. Walk through all three openings.",
+   "g": "mon",
+   "fp": [
+    22,
+    8
+   ]
+  },
+  {
+   "id": "mon_castle_keep",
+   "name": "The Square Keep",
+   "col": "#e6d3a3",
+   "glyph": "🏰",
+   "note": "18 x 18 m, 27 m tall. A Norman keep: three floors, narrow windows, a stair all the way to the battlements.",
+   "g": "castle",
+   "fp": [
+    18,
+    18
+   ]
+  },
+  {
+   "id": "mon_castle_coast",
+   "name": "The Coast Fortress",
+   "col": "#e6d3a3",
+   "glyph": "⚓",
+   "note": "37 x 31 m, 16 m tall. Norwegian sea fortress: thick walls you can walk on, a stone hall under a red roof and a squat gun tower.",
+   "g": "castle",
+   "fp": [
+    37,
+    31
+   ]
+  },
+  {
+   "id": "mon_castle_fairy",
+   "name": "The Mountain Castle",
+   "col": "#e6d3a3",
+   "glyph": "🏯",
+   "note": "32 x 26 m, 44 m tall. White walls, five pointed towers and tall windows. The great hall has a gallery up a wooden stair.",
+   "g": "castle",
+   "fp": [
+    32,
+    26
+   ]
+  },
+  {
+   "id": "mon_castle_star",
+   "name": "The Star Fort",
+   "col": "#e6d3a3",
+   "glyph": "⭐",
+   "note": "45 x 44 m, 13 m tall. Five pointed ramparts with a gate to the south, a commandant house in the middle and a flag.",
+   "g": "castle",
+   "fp": [
+    45,
+    44
+   ]
+  },
+  {
+   "id": "mon_castle_ruin",
+   "name": "The Fallen Castle",
+   "col": "#e6d3a3",
+   "glyph": "🏚️",
+   "note": "36 x 38 m, 16 m tall. Gatehouse with two towers, a broken curtain wall you can walk, and the shell of a hall.",
+   "g": "castle",
+   "fp": [
+    36,
+    38
+   ]
+  },
+  {
+   "id": "horde_zombie",
+   "name": "Zombies",
+   "col": "#8fbf6a",
+   "glyph": "🧟",
+   "note": "Slow, many, arms out. The classic.",
+   "g": "horde",
+   "horde": true
+  },
+  {
+   "id": "horde_carolers",
+   "name": "Frozen Carollers",
+   "col": "#9fd8ff",
+   "glyph": "🎶",
+   "note": "Still singing, very slowly. Frost on everything; the hum gives them away. A cold hum that gets louder; being surrounded slows you.",
+   "g": "horde",
+   "horde": true
+  },
+  {
+   "id": "horde_fishermen",
+   "name": "Drowned Fishermen",
+   "col": "#ffd23f",
+   "glyph": "🎣",
+   "note": "Yellow oilskins, dripping, only near water. A hook on a line drags you closer. Every 8 s one can pull you 3 m toward it.",
+   "g": "horde",
+   "horde": true
+  },
+  {
+   "id": "horde_scarecrows",
+   "name": "Scarecrow Men",
+   "col": "#d6b85a",
+   "glyph": "🧑‍🌾",
+   "note": "Sacking heads, straw hands. Stand still in rows until you walk past. Dormant until you are inside the middle of them.",
+   "g": "horde",
+   "horde": true
+  },
+  {
+   "id": "horde_mannequins",
+   "name": "Shop Mannequins",
+   "col": "#e3d6c6",
+   "glyph": "🕴️",
+   "note": "Smooth, faceless, perfectly still while you look at them. Move only while off screen.",
+   "g": "horde",
+   "horde": true
+  },
+  {
+   "id": "horde_hollownisse",
+   "name": "Hollow Nisser",
+   "col": "#ff6b6b",
+   "glyph": "🎅",
+   "note": "Small, red caps, nothing behind the eyes. Quick and giggling. Scale 0.65; arrive in a rush, steal a few kroner on a hit.",
+   "g": "horde",
+   "horde": true
+  },
+  {
+   "id": "horde_miners",
+   "name": "Lost Miners",
+   "col": "#c9a23a",
+   "glyph": "⛏️",
+   "note": "Soot-black, one lamp each. You see the lamps long before the men. Helmet lamps; they spread out to circle you.",
+   "g": "horde",
+   "horde": true
   }
  ],
  "pins": [
@@ -6104,7 +7147,7 @@
     "x": -6435,
     "z": 5079,
     "pos": {
-     "x": -6432.0,
+     "x": -6432,
      "z": 5079.5,
      "y": 179.8,
      "moved": 3
@@ -6336,8 +7379,8 @@
     "x": -65,
     "z": -162,
     "pos": {
-     "x": -65.0,
-     "z": -162.0,
+     "x": -65,
+     "z": -162,
      "y": 8.7,
      "moved": 0
     }
@@ -7125,9 +8168,159 @@
     "y": 206.1,
     "moved": 21
    }
+  },
+  {
+   "id": "sky_large-mx0qzlym",
+   "type": "sky_large",
+   "x": 4274,
+   "z": -700,
+   "note": "filled with zombies\n",
+   "added": "you",
+   "h": 250
+  },
+  {
+   "id": "ev_walkingtree-mx0r127n",
+   "type": "ev_walkingtree",
+   "x": 3697,
+   "z": -567,
+   "note": "",
+   "added": "you"
+  },
+  {
+   "id": "ev_walkingtree-mx0r13pr",
+   "type": "ev_walkingtree",
+   "x": 2257,
+   "z": -1667,
+   "note": "",
+   "added": "you"
+  },
+  {
+   "id": "ev_walkingtree-mx0r15aq",
+   "type": "ev_walkingtree",
+   "x": 2142,
+   "z": 394,
+   "note": "",
+   "added": "you"
+  },
+  {
+   "id": "chest_rare-mx0r1zd6",
+   "type": "chest_rare",
+   "x": 2834,
+   "z": 2824,
+   "note": "",
+   "added": "you"
+  },
+  {
+   "id": "chest_rare-mx0r1zvm",
+   "type": "chest_rare",
+   "x": 2159,
+   "z": 2029,
+   "note": "",
+   "added": "you"
+  },
+  {
+   "id": "chest_rare-mx0r20si",
+   "type": "chest_rare",
+   "x": 2915,
+   "z": 1378,
+   "note": "",
+   "added": "you"
+  },
+  {
+   "id": "chest_rare-mx0r23hq",
+   "type": "chest_rare",
+   "x": 226,
+   "z": 4856,
+   "note": "",
+   "added": "you"
+  },
+  {
+   "id": "chest_rare-mx0r24gx",
+   "type": "chest_rare",
+   "x": 5240,
+   "z": -1457,
+   "note": "",
+   "added": "you"
+  },
+  {
+   "id": "chest_rare-mx0r25ds",
+   "type": "chest_rare",
+   "x": 2873,
+   "z": -3954,
+   "note": "",
+   "added": "you"
+  },
+  {
+   "id": "chest_rare-mx0r268d",
+   "type": "chest_rare",
+   "x": 412,
+   "z": -2841,
+   "note": "",
+   "added": "you"
+  },
+  {
+   "id": "phone-mx0r2nb5",
+   "type": "phone",
+   "x": -11448,
+   "z": -3647,
+   "note": "",
+   "added": "you"
+  },
+  {
+   "id": "ev_risingsnow-mx0r2tw7",
+   "type": "ev_risingsnow",
+   "x": -11485,
+   "z": -3579,
+   "note": "",
+   "added": "you"
+  },
+  {
+   "id": "ev_nissewedding-mx0r3337",
+   "type": "ev_nissewedding",
+   "x": -11378,
+   "z": -3828,
+   "note": "",
+   "added": "you"
+  },
+  {
+   "id": "horde_zombie-mx0r3p03",
+   "type": "horde_zombie",
+   "x": -2738,
+   "z": 4731,
+   "note": "",
+   "added": "you",
+   "radius": 150,
+   "count": 25
+  },
+  {
+   "id": "mon_castle_keep-mx0r4br3",
+   "type": "mon_castle_keep",
+   "x": -3178,
+   "z": 4974,
+   "note": "",
+   "added": "you",
+   "rot": 0
+  },
+  {
+   "id": "mon_castle_fairy-mx0r5lel",
+   "type": "mon_castle_fairy",
+   "x": -1190,
+   "z": -1371,
+   "note": "",
+   "added": "you",
+   "rot": 0
+  },
+  {
+   "id": "mon_stonecircle-mx0r6usv",
+   "type": "mon_stonecircle",
+   "x": 248,
+   "z": -1892,
+   "note": "",
+   "added": "you",
+   "rot": 0
   }
  ],
- "rev": 318,
+ "rev": 351,
  "autoplaced": "2026-11-28",
  "rules": "GAME BUILD: use pin.pos (and dest.pos) when present, else pin.x/z. Run build/snap_mapideas.py before publishing so every pin has a pos (placed after the 28 Nov background fix, raw x/z are real but not yet moved off water/trees/buildings). pos.y is a hint: take the real ground height in game; pos.on = roof / bridge / ice is intentional. pin.x/z are the original clicks and are never changed. every marked spot goes in the game: pos.moved / pos.note say how far it had to move. pin.flag (should not happen) = ask Marius."
 }
