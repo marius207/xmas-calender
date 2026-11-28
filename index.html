@@ -761,6 +761,8 @@ html body.mcOpen.mcOpen canvas#glmain{visibility:visible!important}
 </style>
 <script>/* mcmenu2 */(()=>{const shut=()=>{if(!document.body.classList.contains('mcOpen'))return;const m=document.getElementById('bMenu');if(m&&m.getAttribute('aria-expanded')==='true')m.click();};document.addEventListener('click',e=>{const b=e.target&&e.target.closest&&e.target.closest('#hudBar button');if(!b||b.id==='bMenu'||b.id==='bGfx'||b.id==='bLook'||b.id==='bVO'||b.closest('#spdBar'))return;if(document.body.classList.contains('mcOpen'))setTimeout(shut,0);},true);addEventListener('keydown',e=>{if(e.key!=='Escape'&&e.key!=='Tab'&&e.key!=='Enter'&&e.key!==' ')shut();},true);})();</script>
 <style>/*marius1130*/@media (min-width:900px) and (min-height:521px){html body:not(.ph) #hudMeters{top:10px!important;left:330px!important;flex-direction:row!important;width:auto!important;gap:8px!important;align-items:flex-start}html body:not(.ph):not(.hm-drive):not(.hm-combat) #hudMeters .hmM{width:176px}}</style>
+<style>/*facecolors: Chris blue, Martin green, Marius red*/#login .lpl img[src*="chris"],.player img[src*="chris"]{background:#3f8fd8!important}#login .lpl:has(img[src*="chris"]),#intro .player:has(img[src*="chris"]){background:#1f3a5c!important;box-shadow:inset 0 0 0 3px #4f84c4!important}#login .lpl.on:has(img[src*="chris"]){box-shadow:inset 0 0 0 4px var(--gold)!important}#login .lpl img[src*="martin"],.player img[src*="martin"]{background:#46b05e!important}#login .lpl:has(img[src*="martin"]),#intro .player:has(img[src*="martin"]){background:#1e4429!important;box-shadow:inset 0 0 0 3px #4f9a62!important}#login .lpl.on:has(img[src*="martin"]){box-shadow:inset 0 0 0 4px var(--gold)!important}#login .lpl img[src*="marius"],.player img[src*="marius"]{background:#d65348!important}#login .lpl:has(img[src*="marius"]),#intro .player:has(img[src*="marius"]){background:#552220!important;box-shadow:inset 0 0 0 3px #b85a4e!important}#login .lpl.on:has(img[src*="marius"]){box-shadow:inset 0 0 0 4px var(--gold)!important}</style>
+<style>/*barpin: Marius's black bar sat mid-screen with online on*/#lbT{position:fixed!important;top:0!important;bottom:auto!important;transform:none!important;translate:none!important;margin:0!important}#lbB{position:fixed!important;bottom:0!important;top:auto!important;transform:none!important;translate:none!important;margin:0!important}body.cineOn #olHud,body.film #olHud,body.dsOn #olHud,body.cineOn #olLog,body.film #olLog{display:none!important}</style>
 <!-- player login -->
 <style>/* player login */
 #login{position:fixed;inset:0;z-index:60;display:grid;place-items:center;background:radial-gradient(ellipse at 50% 40%,rgb(22,30,60),rgb(3,5,12));padding:24px 16px;text-align:center;color:var(--ink);overflow:auto;font-family:var(--body)}
@@ -993,7 +995,7 @@ window.__devEff=eff;
 const isPhone=()=>eff()==='phone';
 const sync=()=>{try{document.body.classList.toggle('ph',isPhone());}catch(e){}};
 /* version label: the deploy script replaces the placeholder below; an unreplaced build shows DEV BUILD */
-const VRAW='28 Nov 2026 11:14';
+const VRAW='28 Nov 2026 11:59';
 const VER=(VRAW.indexOf('__BUILD'+'_')===0)?'DEV BUILD':VRAW;
 window.__VERSION=VER;
 const pill=()=>{const b=document.createElement('button');b.type='button';b.className='verpill';b.textContent=VER;b.title='Tap to copy';b.setAttribute('aria-label','Game version '+VER);b.addEventListener('click',e=>{e.stopPropagation();try{navigator.clipboard&&navigator.clipboard.writeText(VER);}catch(_){}});return b;};
@@ -17825,7 +17827,7 @@ const PEOPLE=()=>{let n=0;try{n+=vill.length;}catch(_){}try{n+=INTB.length*2;}ca
   try{const C=window.__CAROLS;if(C&&C.groups)for(const g of C.groups){const m=g.members||g.singers||g.people;n+=Array.isArray(m)?m.length:4;}}catch(_){}return n>=1000?Math.floor(n/100)*100:Math.floor(n/50)*50;};
 const TITLES=[
  {T:-21,K:2.4,kind:'plain',sub:null,main:'DERP STUDIOS',lights:2}/*playerbuild: further out*/,/* intro2 v2: every card is steered into frame, 2.8 s readable (K = card width per m/s of speed); the fjord prelude is at negative times (TB) */
- {T:-15.4,K:2.3,kind:'small',main:'presents',lights:1}/*playerbuild: further out*/,
+ {T:-15.4,K:4.4,kind:'plain',sub:'presents, in association with',main:'THE MCM UNIVERSE',lights:2}/*playerbuild: further out*/,
  {T:-7.4,K:4.4,kind:'plain',sub:'one town',main:'THREE FRIENDS',lights:2},
  {T:-1.8,K:4.4,kind:'candy',sub:'every nook and cranny',main:'1:1 SCALE',lights:2},
  {T:3.8,K:4.4,kind:'plain',sub:SIZE.a+' km\u00b2 of snow',main:SIZE.w+' \u00d7 '+SIZE.h+' KM',lights:2},
