@@ -995,7 +995,7 @@ window.__devEff=eff;
 const isPhone=()=>eff()==='phone';
 const sync=()=>{try{document.body.classList.toggle('ph',isPhone());}catch(e){}};
 /* version label: the deploy script replaces the placeholder below; an unreplaced build shows DEV BUILD */
-const VRAW='28 Nov 2026 11:59';
+const VRAW='28 Nov 2026 12:59';
 const VER=(VRAW.indexOf('__BUILD'+'_')===0)?'DEV BUILD':VRAW;
 window.__VERSION=VER;
 const pill=()=>{const b=document.createElement('button');b.type='button';b.className='verpill';b.textContent=VER;b.title='Tap to copy';b.setAttribute('aria-label','Game version '+VER);b.addEventListener('click',e=>{e.stopPropagation();try{navigator.clipboard&&navigator.clipboard.writeText(VER);}catch(_){}});return b;};
@@ -6418,7 +6418,7 @@ window.__PAD_ACTIVE=false;
 const PAD_NAMES={0:'✕',1:'◯',2:'▢',3:'△',4:'L1',5:'R1',6:'L2',7:'R2',8:'Create',9:'Options',10:'L3',11:'R3',12:'D-pad up',13:'D-pad down',14:'D-pad left',15:'D-pad right',17:'Touchpad'};
 const PN=k=>PAD_NAMES[PAD_MAP[k]]||k;
 PAD.mode='auto';PAD.dev=false;try{const m=localStorage.getItem('kv-pad-mode');if(m==='kb'||m==='ps'||m==='auto')PAD.mode=m;}catch(_){}
-{const st=document.createElement('style');st.textContent='#padFocus{position:fixed;z-index:100000;pointer-events:none;border:3px solid #ffe36e;box-shadow:0 0 0 2px #000,0 0 14px 3px rgba(255,227,110,.65);border-radius:3px;display:none;transition:left .06s,top .06s,width .06s,height .06s}#padNote{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:100001;background:rgba(0,0,0,.8);color:#ffe36e;font:12px var(--label);padding:7px 12px;border:2px solid #000;display:none;pointer-events:none}#padMenu{position:fixed;inset:0;z-index:88;display:grid;place-items:center;background:rgba(3,5,12,.82);color:#fff;font-family:var(--body,sans-serif)}#padMenu[hidden]{display:none!important}#padMenu .pm{width:min(560px,94vw);max-height:92vh;overflow:auto;background:#2b2118;border:3px solid #000;box-shadow:inset 0 0 0 3px #6b4426;padding:18px;display:grid;gap:10px}#padMenu h2{margin:0;font-family:var(--label,monospace);font-size:20px}#padMenu button{font:13px var(--label);background:#8b8b8b;color:#111;border:3px solid #000;padding:9px 12px;cursor:pointer}#padMenu .row{display:flex;gap:8px;flex-wrap:wrap}#padMenu table{border-collapse:collapse;font-size:12px;width:100%}#padMenu td{padding:2px 6px;border-bottom:1px solid #4a3a28}#padMenu td:first-child{color:#ffe36e;white-space:nowrap}#padIntro{margin-top:8px;color:#ffe36e;font:12px var(--label)}';document.head.appendChild(st);}
+{const st=document.createElement('style');st.textContent='#padFocus{position:fixed;z-index:100000;pointer-events:none;border:2px solid rgba(255,255,255,.8);box-shadow:0 0 0 1px rgba(0,0,0,.6);border-radius:4px;display:none;transition:left .06s,top .06s,width .06s,height .06s}#padNote{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:100001;background:rgba(0,0,0,.8);color:#ffe36e;font:12px var(--label);padding:7px 12px;border:2px solid #000;display:none;pointer-events:none}#padMenu{position:fixed;inset:0;z-index:88;display:grid;place-items:center;background:rgba(3,5,12,.82);color:#fff;font-family:var(--body,sans-serif)}#padMenu[hidden]{display:none!important}#padMenu .pm{width:min(560px,94vw);max-height:92vh;overflow:auto;background:#2b2118;border:3px solid #000;box-shadow:inset 0 0 0 3px #6b4426;padding:18px;display:grid;gap:10px}#padMenu h2{margin:0;font-family:var(--label,monospace);font-size:20px}#padMenu button{font:13px var(--label);background:#8b8b8b;color:#111;border:3px solid #000;padding:9px 12px;cursor:pointer}#padMenu .row{display:flex;gap:8px;flex-wrap:wrap}#padMenu table{border-collapse:collapse;font-size:12px;width:100%}#padMenu td{padding:2px 6px;border-bottom:1px solid #4a3a28}#padMenu td:first-child{color:#ffe36e;white-space:nowrap}#padIntro{margin-top:8px;color:#ffe36e;font:12px var(--label)}';document.head.appendChild(st);}
 const padFocusEl=document.createElement('div');padFocusEl.id='padFocus';document.body.appendChild(padFocusEl);
 const padNoteEl=document.createElement('div');padNoteEl.id='padNote';document.body.appendChild(padNoteEl);
 const padMenu=document.createElement('div');padMenu.id='padMenu';padMenu.hidden=true;padMenu.setAttribute('role','dialog');padMenu.innerHTML='<div class="pm"><h2>Paused · Controller</h2><div class="row"><button type="button" data-a="resume">Resume</button><button type="button" data-a="ctl">Controls</button><button type="button" data-a="mode"></button></div><div class="row"><button type="button" data-a="vib"></button><button type="button" data-a="sm"></button><button type="button" data-a="sp">Look speed +</button><button type="button" data-a="inv"></button></div><div class="row"><button type="button" data-a="doors">Lantern doors (calendar)</button><button type="button" data-a="music">Music on / off</button></div><div class="row"><button type="button" data-a="nice">Santa’s Nice List</button><button type="button" data-a="notes">Notes</button><button type="button" data-a="baubles">Baubles</button></div><p class="pmh">Press Options or ◯ to close. The right stick scrolls long lists.</p></div>';document.body.appendChild(padMenu);
@@ -6440,9 +6440,9 @@ function padCur(){let gps=[];try{gps=navigator.getGamepads?navigator.getGamepads
 /* menus: find the topmost visible overlay and move a focus ring between its clickable things */
 let padCands=[],padCandT=-1e9;
 const PAD_KNOWN=['login','intro','lobby','inv','search','padMenu','padCtl','lgDoors','shopUI','vhsUI','ahUI','csJ','bigMap'];
-function padOverlay(now){if(now-padCandT>1000){padCandT=now;const s=new Set(document.querySelectorAll('body > *, body > * > *, [id]'));padCands=[...s].filter(el=>{if(el.id==='padFocus'||el.id==='padNote'||el.id==='view'||el.id==='glmain')return false;const cs=getComputedStyle(el);return cs.position==='fixed'&&cs.pointerEvents!=='none';});}
+function padOverlay(now){if(now-padCandT>1000){padCandT=now;const s=new Set(document.querySelectorAll('body > *, body > * > *, [id]'));padCands=[...s].filter(el=>{if(el.id==='padFocus'||el.id==='padNote'||el.id==='view'||el.id==='glmain')return false;/*prompts_08*/if(el.id!=='intro'&&el.closest&&el.closest('#nokiaPh,#phIcon')&&!(window.__PHONEUI&&__PHONEUI.mode==='ui'))return false;const cs=getComputedStyle(el);return cs.position==='fixed'&&cs.pointerEvents!=='none';});}
   const vw=innerWidth,vh=innerHeight;let best=null,bz=-1e9,bi=-1;
-  for(let i=0;i<padCands.length;i++){const el=padCands[i];if(el.hidden||!el.isConnected)continue;const cs=getComputedStyle(el);if(cs.display==='none'||cs.visibility==='hidden'||+cs.opacity<.05)continue;const r=el.getBoundingClientRect();const known=PAD_KNOWN.includes(el.id)||el.classList.contains('bxOv');if(!known&&(r.width*r.height<vw*vh*.12))continue;if(r.width<40||r.height<40)continue;
+  for(let i=0;i<padCands.length;i++){const el=padCands[i];if(el.hidden||!el.isConnected)continue;if(el.closest&&el.closest('#nokiaPh,#phIcon')&&!(window.__PHONEUI&&__PHONEUI.mode==='ui'))continue;const cs=getComputedStyle(el);if(cs.display==='none'||cs.visibility==='hidden'||+cs.opacity<.05)continue;const r=el.getBoundingClientRect();const known=PAD_KNOWN.includes(el.id)||el.classList.contains('bxOv');if(!known&&(r.width*r.height<vw*vh*.12))continue;if(r.width<40||r.height<40)continue;
     if(!known&&!el.querySelector('button,a[href],[role=button],input,select,[onclick],canvas'))continue;
     const z=(parseInt(cs.zIndex)||0);if(z>=bz){bz=z;best=el;bi=i;}}
   return best;}
@@ -6508,12 +6508,14 @@ const PAD_RULES=[
  [new RegExp('(^|[^A-Za-z0-9\\-])(Hold|hold|HOLD)(\\s+)('+TL+')(?![A-Za-z0-9])','g'),(m,a,v,sp,k)=>a+v+' '+kmap(k)],
  [/(^|[^A-Za-z0-9\-])(Press|press)\s*$/,'$1Tap '],[/(^|[^A-Za-z0-9\-])PRESS\s*$/,'$1TAP '],
  [/(^|[.!?:·]\s+)Y to (hear|talk|see|ask)/g,'$1Hold USE to $2'],[/\b(?:Space|SPACE)\b(?! Invaders)/g,'JUMP'],[/\b(?:Shift|SHIFT)\b/g,'RUN'],[/\b(?:Esc|ESC|Escape)\b/g,'Close'],[/\b(?:Enter|ENTER)\b/g,'OK']
-];/* /phone text */
+];TOUCH_RULES.push([/(^|[,;\u00B7.:]\s+)G(?=\s+to\b)/g,'$1USE']);/*prompts_04*//* /phone text */
 const PAD_QUICK=/\([A-Z]\)|[Kk]eyboard|\b(?:Press|press|PRESS|Hold|hold|HOLD|hit|Hit|Space|SPACE|Shift|SHIFT|Esc|ESC|Escape|Enter|ENTER|click|Click|mouse|Mouse|WASD|any key|[GETFLROMVYP])\b|W\/S|A ?\/ ?D|↑|↓|1–9/;
 function padText(s){if(typeof s!=='string'||s.length<2||!PAD_QUICK.test(s))return s;let o=s;for(const [re,r] of (TOUCH?TOUCH_RULES:PAD_RULES))o=o.replace(re,r);return o;}
 const padOrig=new WeakMap(),padSet=new Set(),padAttr=new Map();
-function padSkip(n){const p=n.nodeType===3?n.parentElement:n;return !p||!p.closest||!!p.closest('#padMenu,#padCtl,#padNote,script,style,textarea');}
+function padSkip(n){const p=n.nodeType===3?n.parentElement:n;return !p||!p.closest||!!p.closest('#padMenu,#padCtl,#padNote,script,style,textarea,[data-btn],[data-btnp]')/*prompts_01*/;}
 function padNodeText(n){const t=n.data;let o=padText(t);if(o===t){const tt=t.trim();if(/^[GETFLROMVYP]$/.test(tt)){const p=n.parentElement;if(p&&/^(B|STRONG|KBD|CODE|EM|I|SPAN|U)$/.test(p.tagName)&&p.childNodes.length===1){const pv=p.previousSibling,nx=p.nextSibling;const pt=pv&&pv.nodeType===3?pv.data:'',nt=nx&&nx.nodeType===3?nx.data:'';if(/(?:Press|press|PRESS|Hold|hold|HOLD|hit|\bor|\band|[\/·,—])\s*$/.test(pt)||/^\s*(?::|—|–|to\b|for\b|\/|or\b|and\b|again|next|·)/.test(nt))o=t.replace(tt,kmap(tt));}}}return o;}
+/*prompts_04*/{const _pnt=padNodeText;padNodeText=function(n){let o=_pnt(n);try{const t=n.data;if(o===t){const tt=t.trim();if(/^[GETFLROMVYP]$/.test(tt)){const p=n.parentElement;if(p&&/^(B|STRONG|KBD)$/.test(p.tagName)&&p.childNodes.length===1){const pv=p.previousSibling,nx=p.nextSibling;const pt=pv&&pv.nodeType===3?pv.data:'',nt=nx&&nx.nodeType===3?nx.data:'';if((!pt.trim()||/[\u00B7\u2014:,(]\s*$/.test(pt))&&/^[\s\u00a0]+[A-Za-z]/.test(nt))o=t.replace(tt,kmap(tt));}}}}catch(_){}return o;};}
+/*prompts_05*/{const _pn2=padNodeText;const EPS='#tfPrompt,#drPrompt,#wfPrompt,#rvHint,#gdHint,#pjHint,#kvHint,#klHint,#litPrompt,#litChip';padNodeText=function(n){const t=n.data;let o=_pn2(n);try{if(o!==t){const pe=n.parentElement;if(pe&&pe.closest&&pe.closest(EPS))o=TOUCH?o.replace(/\bBAG\b/g,'USE'):o.replace(/\u25B3/g,'\u25A2');}}catch(_){}return o;};}
 function padDoText(n){if(padSkip(n))return;const rec=padOrig.get(n);if(rec&&rec.c===n.data)return;const t=n.data,o=padNodeText(n);if(o!==t){padOrig.set(n,{o:t,c:o});padSet.add(n);n.data=o;}}
 function padDoAttrs(el){if(!el.getAttribute||padSkip(el))return;for(const a of ['title','aria-label','placeholder']){const v=el.getAttribute(a);if(!v)continue;let m=padAttr.get(el);const rec=m&&m[a];if(rec&&rec.c===v)continue;const o=padText(v);if(o!==v){if(!m){m={};padAttr.set(el,m);}m[a]={o:v,c:o};el.setAttribute(a,o);}}}
 function padWalk(root){if(root.nodeType===3){padDoText(root);return;}if(root.nodeType!==1)return;padDoAttrs(root);const w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);let n;while((n=w.nextNode()))padDoText(n);for(const el of root.querySelectorAll('[title],[aria-label],[placeholder]'))padDoAttrs(el);if(padSet.size>3000)for(const x of padSet)if(!x.isConnected)padSet.delete(x);}
@@ -6522,7 +6524,7 @@ const PAD_INTRO_TXT='Controller: left stick walks, right stick looks, ✕ jumps 
 function padStatics(on){for(const el of document.querySelectorAll('#intro .keys')){if(on){if(el.dataset.padO===undefined){el.dataset.padO=el.textContent;el.textContent=PAD_INTRO_TXT;}}else if(el.dataset.padO!==undefined){el.textContent=el.dataset.padO;delete el.dataset.padO;}}}
 const padMO=new MutationObserver(ms=>{if(!window.__PAD_ACTIVE&&!TOUCH)return;for(const m of ms){if(m.type==='characterData')padDoText(m.target);else if(m.type==='attributes')padDoAttrs(m.target);else for(const n of m.addedNodes)padWalk(n);}});
 {const P2=CanvasRenderingContext2D.prototype,_ft=P2.fillText;P2.fillText=function(t,...a){return _ft.call(this,((window.__PAD_ACTIVE||TOUCH)&&typeof t==='string')?padText(t):t,...a);};}
-function padRefresh(force){const on=PAD.mode==='ps'||(PAD.mode==='auto'&&PAD.dev);if(!force&&PAD.inited&&on===window.__PAD_ACTIVE){padModeUI();return;}PAD.inited=true;window.__PAD_ACTIVE=PAD.active=on;if(on){padMO.observe(document.body,{childList:true,characterData:true,subtree:true,attributes:true,attributeFilter:['title','aria-label','placeholder']});padStatics(true);padWalk(document.body);}else if(!TOUCH){padMO.disconnect();padRestoreAll();padStatics(false);}padModeUI();}
+function padRefresh(force){/*prompts_01: the tail of this function fires 'kvdevice'*/const on=PAD.mode==='ps'||(PAD.mode==='auto'&&PAD.dev);if(!force&&PAD.inited&&on===window.__PAD_ACTIVE){padModeUI();return;}PAD.inited=true;window.__PAD_ACTIVE=PAD.active=on;if(on){padMO.observe(document.body,{childList:true,characterData:true,subtree:true,attributes:true,attributeFilter:['title','aria-label','placeholder']});padStatics(true);padWalk(document.body);}else if(!TOUCH){padMO.disconnect();padRestoreAll();padStatics(false);}padModeUI();try{dispatchEvent(new Event('kvdevice'));}catch(_){}/*prompts_01*/}
 const PAD_MODE_NAMES={auto:'AUTO',kb:'KEYBOARD',ps:'PLAYSTATION'};
 function padModeUI(){const t='Input: '+PAD_MODE_NAMES[PAD.mode];const a=document.getElementById('mvInput');if(a)a.textContent=t;const b=padMenu.querySelector('[data-a=mode]');if(b)b.textContent=t;}
 function padSetMode(m){if(!PAD_MODE_NAMES[m])return;PAD.mode=m;try{localStorage.setItem('kv-pad-mode',m);}catch(_){}padRefresh(true);}
@@ -6707,6 +6709,34 @@ try{const apply=()=>{for(const el of document.querySelectorAll('#intro .keys')){
 setTimeout(()=>{try{const c=K.check();if(!c.ok){window.__KEYS_ERR='key clash: '+JSON.stringify(c.conflicts.slice(0,3))+(c.selfTest?'':' (self-test failed)');console.warn('[controls] '+window.__KEYS_ERR);}}catch(e){window.__KEYS_ERR='check: '+e;}},2500);
 })();}catch(e){window.__KEYS_ERR=String(e&&e.message||e);console.warn('controlsmap',e);}
 /* /controlsmap */
+/* prompts_01 */
+try{(()=>{
+const W=window,D=document;
+/* [keyboard, pad, touch]; an optional 4th entry {touch:'Tap ...'} replaces the whole phrase on that device. Ids not listed fall back to the __KEYS registry. */
+const T={
+ interact:['G','▢','USE'],interactE:['E','▢','USE'],talk:['Y','hold ▢','hold USE'],jump:['Space','✕','JUMP'],bag:['E','△','BAG'],
+ cancel:['Esc','◯','CLOSE'],parachute:['P','△','PARACHUTE'],
+ answer:['P','▢','ANSWER'],decline:['Backspace','◯','DECLINE'],hangup:['Backspace','◯','END'],
+ nafcall:['J','▢','the button below',{touch:'Tap a button below'}]
+};
+const dev=()=>{try{if(typeof TOUCH!=='undefined'&&TOUCH)return 'touch';}catch(_){}return W.__PAD_ACTIVE?'pad':'kb';};
+const IX={kb:0,pad:1,touch:2};
+function capFor(id,d){const t=T[id];if(t)return t[IX[d]];const K=W.__KEYS,a=K&&K.get&&K.get(id);if(!a)return String(id);return d==='kb'?a.cap:d==='pad'?(a.pad||a.cap):(a.touch||a.cap);}
+const cap=id=>capFor(id,dev());
+const has=id=>!!(T[id]||(W.__KEYS&&W.__KEYS.get&&W.__KEYS.get(id)));
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const html=id=>'<b class="kvbtn" data-btn="'+esc(id)+'">'+esc(cap(id))+'</b>';
+function phraseOf(id){const d=dev(),t=T[id];if(t&&t[3]&&t[3][d])return esc(t[3][d]);return (d==='touch'?'Tap ':'Press ')+html(id);}
+const phrase=id=>'<span data-btnp="'+esc(id)+'">'+phraseOf(id)+'</span>';
+function refresh(){try{for(const e of D.querySelectorAll('[data-btnp]')){const h=phraseOf(e.getAttribute('data-btnp'));if(e.dataset.h!==h){e.dataset.h=h;e.innerHTML=h;}}
+ for(const e of D.querySelectorAll('[data-btn]')){const c=cap(e.getAttribute('data-btn'));if(e.textContent!==c)e.textContent=c;}}catch(_){}}
+let last=dev();
+W.addEventListener('kvdevice',()=>{last=dev();refresh();});
+setInterval(()=>{const d=dev();if(d!==last){last=d;refresh();try{W.dispatchEvent(new Event('kvdevice'));}catch(_){}}},500);
+try{const st=D.createElement('style');st.id='kvbtnCSS';st.textContent='.kvbtn{display:inline-block;min-width:1.5em;padding:0 .4em;margin:0 .15em;text-align:center;background:#ffd36e;color:#1a1205;box-shadow:0 2px 0 #000;font-weight:400;line-height:1.35}';D.head.appendChild(st);}catch(_){}
+W.__BTN={dev,cap,capFor,has,html,phrase,refresh,onChange:fn=>W.addEventListener('kvdevice',fn),table:T,version:1};
+})();}catch(e){window.__BTN_ERR=String(e&&e.stack||e);console.warn('prompts_01',e);}
+/* /prompts_01 */
 const padCtl=document.createElement('div');padCtl.id='padCtl';padCtl.hidden=true;padCtl.setAttribute('role','dialog');padCtl.setAttribute('aria-label','Controls');document.body.appendChild(padCtl);
 PAD.ctlTab='ps';
 function padCtlRender0(){const ps=PAD.ctlTab==='ps';let h='<div class="pc-head"><h2>CONTROLS</h2><button type="button" data-t="ps" class="'+(ps?'on':'')+'">PLAYSTATION</button><button type="button" data-t="kb" class="'+(ps?'':'on')+'">KEYBOARD + MOUSE</button><button type="button" data-t="x">CLOSE ('+PN('cancel')+' · Esc)</button></div><div class="pc-body"><div class="pc-dia">'+(ps?padDiagram():padKbPanel())+'<p class="pc-note">'+(ps?'Right stick: scroll this page. '+PN('cancel')+': close.':'Mouse look needs a click on the game first. Esc: pause.')+'</p></div><div class="pc-tab">';
@@ -20281,7 +20311,7 @@ el.addEventListener('click',e=>{const b=e.target.closest&&e.target.closest('[dat
 addEventListener('keydown',e=>{const k=(e.key||'').toLowerCase();if(e.ctrlKey||e.metaKey||e.altKey)return;const tg=e.target;if(tg&&(tg.tagName==='INPUT'||tg.tagName==='TEXTAREA'||tg.isContentEditable))return;
   const eat=()=>{e.stopImmediatePropagation();e.preventDefault();};if(PH.mode==='ui'&&busy()){try{PH.close();}catch(_){}return;}/*janitor_47*/if(PH.nk&&PH.nk.kd&&PH.nk.kd(e,k,eat))return;/*phonenokia*/
   if(k==='p'&&e.shiftKey&&PH.cycleMode){if(!e.repeat)PH.cycleMode();eat();return;}/*phonemodes*/
-  if(PH.mode==='ring'){if(k==='p'||k==='enter'){if(!e.repeat)PH.answer();eat();}else if(k==='backspace'||k==='escape'){if(!e.repeat)PH.decline(false);eat();}return;}
+  if(PH.mode==='ring'){if(k==='p'||k==='enter'||(window.__PAD_ACTIVE&&(k==='g'||k===' '))){if(!e.repeat)PH.answer();eat();}else if(k==='backspace'||k==='escape'){if(!e.repeat)PH.decline(false);eat();}return;}
   if(PH.mode==='ui'){const sc=curScr();if(k==='escape'||k==='p'||k==='g'||k==='e'){if(!e.repeat)PH.close();eat();return;}
     const map={arrowup:'up',arrowdown:'down',arrowleft:'left',arrowright:'right',enter:'ok',' ':'ok',backspace:'c',w:'w',a:'a',s:'s',d:'d'};let m=map[k];if(!m&&/^[0-9]$/.test(k)&&(sc&&(sc.t==='menu'||sc.t==='snake')))m=k;
     if(m){if(!e.repeat||(sc&&sc.t==='snake'))press(m);eat();}return;}
@@ -20386,8 +20416,8 @@ function nafDone(){const c=NAF.car,job=NAF.job;try{if(!c||!cars.includes(c)){naf
 function nafPromptShow(kind){try{let el=document.getElementById('nafPrompt');if(!el){el=document.createElement('div');el.id='nafPrompt';el.style.cssText='position:fixed;left:50%;bottom:30%;transform:translateX(-50%);z-index:8;font:13px Silkscreen,monospace;color:#fbf6e8;background:rgba(7,11,24,.9);border:2px solid #f2c400;padding:8px 12px;text-align:center;max-width:86vw';document.body.appendChild(el);}
   const c=nafMine(),job=nafBestJob(c),pr=nafPrice(job,c);NAF.prompt=kind;NAF.promptAt=Date.now();NAF.promptJob=job;
   const btn=(t,id)=>'<button type="button" data-n="'+id+'" style="margin:6px 4px 0;font:inherit;padding:4px 10px;background:#f2c400;color:#111;border:2px solid #111;cursor:pointer">'+t+'</button>';
-  if(kind==='free')el.innerHTML='Still stuck?<br>Press <b>J</b> to be put back on the nearest road (free, once).<br>'+btn('Put me on the road (J)','free')+btn('No','no');
-  else el.innerHTML='You seem stuck. Call <b>NAF Veihjelp</b>?<br>'+(job==='tow'?'Tow':'Pull-out')+' '+pr.tot+' kr'+(NAF.debt?' (incl. last invoice)':'')+(PH.ringer==='off'?'<br>(phone is OFF)':'')+'<br>Press <b>J</b> or open the phone (02016).<br>'+btn('Call NAF (J)','call')+btn('No','no');
+  if(kind==='free')el.innerHTML='Still stuck?<br>'+(window.__BTN?__BTN.phrase('nafcall'):'Press <b>J</b>')+' to be put back on the nearest road (free, once).<br>'+btn('Put me on the road'+(window.__BTN&&__BTN.dev()==='kb'?' (J)':window.__BTN&&__BTN.dev()==='pad'?' (▢)':''),'free')+btn('No','no');/*prompts_03*/
+  else el.innerHTML='You seem stuck. Call <b>NAF Veihjelp</b>?<br>'+(job==='tow'?'Tow':'Pull-out')+' '+pr.tot+' kr'+(NAF.debt?' (incl. last invoice)':'')+(PH.ringer==='off'?'<br>(phone is OFF)':'')+'<br>'+(window.__BTN?__BTN.phrase('nafcall'):'Press <b>J</b>')+' or open the phone (02016).<br>'+btn('Call NAF'+(window.__BTN&&__BTN.dev()==='kb'?' (J)':window.__BTN&&__BTN.dev()==='pad'?' (▢)':''),'call')+btn('No','no');/*prompts_03*/
   el.style.display='block';el.onclick=ev=>{const b=ev.target&&ev.target.dataset&&ev.target.dataset.n;if(b)nafPromptAct(b);};
   if(kind==='free')NAF.freeDone=true;}catch(e){NAF.err=String(e&&e.stack||e);}}
 function nafPromptHide(){NAF.prompt=null;const el=document.getElementById('nafPrompt');if(el)el.style.display='none';}
@@ -20396,7 +20426,7 @@ function nafPromptAct(a){try{const k=NAF.prompt;nafPromptHide();if(a==='no'){NAF
 function nafUnstick(){try{const c=P.driving||nafMine();if(!c){return;}const s=nafRoadSpot(c);if(!s){toast('No road nearby');return;}c.x=s.x;c.z=s.z;c.y=s.y;c.yaw=s.yaw;nafReset(c);nafSay('unstick');NAF.st=0;NAF.log.push('unstick');}catch(e){PH.err=String(e&&e.stack||e);}}
 function nafDigit(k){if(!/^[0-9]$/.test(k))return;NAF.dg=(NAF.dg+k).slice(-5);clearTimeout(NAF.dgT);NAF.dgT=setTimeout(()=>{NAF.dg='';},3000);if(NAF.dg==='02016'){NAF.dg='';setTimeout(()=>{stack=[mainMenu(),nafMenuScr()];render();nafGreet();},0);}}
 function nafOpenPhone(){try{if(PH.ringer==='off'){toast('The phone is OFF');return;}if(PH.mode!=='ui')PH.open();setTimeout(()=>{if(PH.mode==='ui'){stack=[mainMenu(),contacts(),nafMenuScr()];render();nafGreet();}},80);}catch(e){}}
-addEventListener('keydown',e=>{try{if(!(window.__KEYS?__KEYS.is(e,'nafcall'):e.code==='KeyJ')||e.repeat||e.ctrlKey||e.metaKey||e.altKey||e.shiftKey||/INPUT|TEXTAREA/.test((document.activeElement||{}).tagName||'')||typeof started==='undefined'||!started||PH.mode==='ui'||PH.mode==='ring')return;
+addEventListener('keydown',e=>{try{if(!((window.__KEYS?__KEYS.is(e,'nafcall'):e.code==='KeyJ')||(NAF.prompt&&window.__PAD_ACTIVE&&(e.code==='KeyG'||e.key==='g')))/*prompts_03: pad Square answers the stuck prompt*/||e.repeat||e.ctrlKey||e.metaKey||e.altKey||e.shiftKey||/INPUT|TEXTAREA/.test((document.activeElement||{}).tagName||'')||typeof started==='undefined'||!started||PH.mode==='ui'||PH.mode==='ring')return;
   if(window.__BUSY&&window.__BUSY('scene,dead,ui'))return;if(!NAF.prompt)return;/*controlsmap: J is the bauble key unless the stuck prompt shows*/e.preventDefault();e.stopImmediatePropagation();
   if(NAF.prompt)nafPromptAct(NAF.prompt==='free'?'free':'call');else nafOpenPhone();}catch(e){}},true);
 setInterval(()=>{try{if(document.hidden||typeof started==='undefined'||!started)return;const c=P.driving;
@@ -62536,8 +62566,8 @@ SH.doorUse=function(){if(!SW.in)return false;SH.doors++;const info={hatch:SH.cur
   SH.knocks++;sndKnock();try{toast('Locked. Something on the other side is breathing.');}catch(_){}return true;};
 /* ---------- the prompt (registered with the HUD layout) ---------- */
 let PR=null,prTxt='',prK=null;
-function prUI(){if(PR)return;const st=document.createElement('style');st.textContent='#shPrompt{position:fixed;left:50%;bottom:calc(env(safe-area-inset-bottom,0px) + 28%);transform:translateX(-50%);z-index:4;background:rgba(20,0,0,.72);border:3px solid #111;color:#fff;font:13px var(--label,Silkscreen,monospace);text-shadow:1px 1px 0 #000;padding:8px 14px;text-align:center;cursor:pointer;display:none;max-width:86vw}#shPrompt b{color:#ff6a5a;font-weight:normal;margin-right:6px}';document.head.appendChild(st);
-  PR=document.createElement('div');PR.id='shPrompt';document.body.appendChild(PR);const act=e=>{e.preventDefault();e.stopPropagation();useKey();};PR.addEventListener('click',act);PR.addEventListener('touchend',act);
+function prUI(){if(PR)return;const st=document.createElement('style');st.textContent='#tfPrompt{position:fixed;left:50%;bottom:calc(env(safe-area-inset-bottom,0px) + 28%);transform:translateX(-50%);z-index:4;background:rgba(20,0,0,.72);border:3px solid #111;color:#fff;font:13px var(--label,Silkscreen,monospace);text-shadow:1px 1px 0 #000;padding:8px 14px;text-align:center;cursor:pointer;display:none;max-width:86vw}/*prompts_07*/#tfPrompt b{color:#ff6a5a;font-weight:normal;margin-right:6px}';document.head.appendChild(st);
+  PR=document.createElement('div');PR.id='tfPrompt';document.body.appendChild(PR);const act=e=>{e.preventDefault();e.stopPropagation();useKey();};PR.addEventListener('click',act);PR.addEventListener('touchend',act);
   try{const H=W.__HUDLAYOUT;if(H&&H.register)H.register(PR,{priority:56,anchor:'bottom'});}catch(_){}}
 function setPrompt(t){if(!PR||t===prTxt)return;prTxt=t;PR.innerHTML=t;PR.style.display=t?'block':'none';}
 const KEYTXT=()=>(typeof TOUCH!=='undefined'&&TOUCH)?'TAP':'E';
@@ -62555,7 +62585,7 @@ function useKey(){if(!ST.act)return false;
   if(ST.act==='door')return SH.doorUse();if(ST.act==='up')return SH.leave();
   if(ST.act==='down')return SH.enter(prK);
   if(ST.act==='lid'){try{toast(LID_LINES[(SH.lines++)%LID_LINES.length]);}catch(_){}return true;}return false;}
-addEventListener('keydown',e=>{if(e.repeat||e.ctrlKey||e.metaKey||e.altKey)return;const k=(e.key||'').toLowerCase();if(k!=='e'&&k!=='g')return;if(!ST.act)return;e.stopImmediatePropagation();e.preventDefault();useKey();},true);
+addEventListener('keydown',e=>{if(e.repeat||e.ctrlKey||e.metaKey||e.altKey)return;const k=(e.key||'').toLowerCase();if(k!=='e'&&k!=='g')return;if(!ST.act||(PR&&PR.classList.contains('hudQ')))return;e.stopImmediatePropagation();e.preventDefault();useKey();},true);
 /* ===================== THE GAS MASK MAN ===================== */
 const M={on:false,g:null,body:null,legL:null,legR:null,eyes:null,x:0,z:0,y:0,yaw:0,state:'off',t:0,seen:false,ph:0,spawnedAt:0,hatch:null,cd:0,retreat:0,breath:null,hidden:false,rise:0,fwdSeen:0,said:false,vt:0,n:0,mv:false,stuck:0,free:0,leaveT:0};
 let MG=null;
@@ -71247,7 +71277,7 @@ if(!H||H.off)return;
 const $=id=>D.getElementById(id);
 /* priority = order (first wins) */
 H.lists.voice=['witchLine','eyeLine','qsTalk','qsSub','voLine','tlLine','blSub','shSub','njSub','rvLine','tvLine','wonderLine','lyLine','lgBubble'];
-H.lists.prompt=['hudPrompt','prompt','kvHint','klHint','qsHint','carolTip','shPrompt','rtPrompt','trPrompt','pchPrompt','mgPrompt','nsPrompt','nbPrompt','gdHint','pjHint','lfHint','bxHint','igHint','flHint','rvHint','prHint','gaHint','msHint','nlrHint','riceHint','litPrompt','raceHint','ftPrompt','rtDoor','kitchenTip','decoTip','hdTip','fqTip','kvTip','ncTip','i6held','i6warn'];
+H.lists.prompt=['hudPrompt','prompt','kvHint','klHint','qsHint','carolTip','shPrompt','rtPrompt','trPrompt','pchPrompt','mgPrompt','nsPrompt','nbPrompt','gdHint','pjHint','tfPrompt','lfHint','bxHint','igHint','flHint','rvHint','prHint','gaHint','msHint','nlrHint','riceHint','litPrompt','raceHint','ftPrompt','rtDoor','kitchenTip','decoTip','hdTip','fqTip','kvTip','ncTip','i6held','i6warn','lanHint','balHint','rdHint'/*prompts_06*/];
 const x3=(l,pre)=>l.map(i=>`html ${pre||'body'} #${i}#${i}#${i}`).join(',');
 function css(){
  const V=H.lists.voice,P=H.lists.prompt;
@@ -71289,9 +71319,9 @@ const chip=D.createElement('div');chip.id='hudPrompt';chip.setAttribute('role','
 const act=new Map();let shown=null;
 function pick(){let b=null;for(const [id,p] of act)if(!b||p.prio>b.prio)b=Object.assign({id},p);return b;}
 function render(){const b=pick();shown=b?b.id:null;if(!b){chip.classList.remove('on');chip.onclick=null;return;}
- chip.innerHTML='';if(b.key){const k=D.createElement('span');k.className='k';k.textContent=b.key;chip.appendChild(k);}
- chip.appendChild(D.createTextNode(b.text||''));chip.classList.add('on');chip.onclick=b.onTap?(e=>{e.stopPropagation();try{b.onTap();}catch(_){}}):null;}
-H.prompt=(id,o)=>{o=o||{};act.set(String(id),{key:(window.__KEYS&&__KEYS.get(o.key))?__KEYS.cap(o.key):(o.key||''),text:String(o.text||''),prio:o.prio==null?1:o.prio,onTap:o.onTap||null});render();return H;};
+ chip.innerHTML='';const BT=W.__BTN;const kcap=(kid,fb)=>(kid&&BT&&BT.has(kid))?BT.cap(kid):(fb||'');/*prompts_02: cap for the ACTIVE device*/{const c0=kcap(b.kid,b.key);if(c0){const k=D.createElement('span');k.className='k';if(b.kid&&BT&&BT.has(b.kid))k.setAttribute('data-btn',b.kid);k.textContent=c0;chip.appendChild(k);}}
+ chip.appendChild(D.createTextNode(b.text||''));if(b.more)for(const m of b.more){const sp=D.createElement('span');sp.className='k';sp.style.marginLeft='14px';const mc=kcap(m.key,m.key);if(m.key&&BT&&BT.has(m.key))sp.setAttribute('data-btn',m.key);sp.textContent=mc;chip.appendChild(sp);chip.appendChild(D.createTextNode(m.text||''));}/*prompts_02*/chip.classList.add('on');chip.onclick=b.onTap?(e=>{e.stopPropagation();try{b.onTap();}catch(_){}}):null;}
+H.prompt=(id,o)=>{o=o||{};if(!H._kvdev){H._kvdev=1;addEventListener('kvdevice',()=>{try{render();}catch(_){}});}/*prompts_02: re-render when pad <-> keyboard switches*/act.set(String(id),{key:(window.__KEYS&&__KEYS.get(o.key))?__KEYS.cap(o.key):(o.key||''),kid:o.key||'',more:o.more||null,text:String(o.text||''),prio:o.prio==null?1:o.prio,onTap:o.onTap||null});render();return H;};
 H.clear=id=>{if(act.delete(String(id)))render();return H;};
 H.prompts=()=>[...act.keys()];
 H.say=o=>{try{if(W.__SPEECH&&W.__SPEECH.say)return W.__SPEECH.say(o);}catch(e){}return false;};
@@ -71299,7 +71329,7 @@ H.say=o=>{try{if(W.__SPEECH&&W.__SPEECH.say)return W.__SPEECH.say(o);}catch(e){}
 const vis=e=>{if(!e)return false;const cs=getComputedStyle(e);if(cs.display==='none')return false;if(+cs.opacity<.05)return false;return !!((e.textContent||'').trim())||e.id==='hudPrompt';};
 function lane(list){let win=null;for(const id of list){const e=$(id);if(!e)continue;e.classList.remove('hudQ');if(vis(e)){if(!win)win=e;else e.classList.add('hudQ');}}return win;}
 function shortText(){const t=$('pText'),p=$('prompt');if(!t||!p)return;const full=(t.textContent||'').trim();if(t.dataset.full===full)return;t.dataset.full=full;
- let s=full.split(/(?<=[.!?])\s+/)[0]||full;if(s.length>64)s=s.slice(0,61)+'...';t.dataset.short=s;}
+ const sent=full.split(/(?<=[.!?])\s+/);let s=sent[0]||full;/*prompts_02: never drop the key sentence*/const KRX=/\b(?:Press|press|Hold|hold|Tap|tap)\b|[▢✕△◯]|\bUSE\b|\b[GEYP]\b to\b/;if(!KRX.test(s)){const q=sent.slice(1).find(x=>KRX.test(x));if(q)s=q;}if(s.length>64){const m=s.search(KRX);s=(m>30)?('...'+s.slice(Math.max(0,m-8),Math.max(0,m-8)+61)):(s.slice(0,61)+'...');}t.dataset.short=s;}
 H.lane={voice:null,prompt:null};
 H.tick(()=>{shortText();H.lane.voice=(lane(H.lists.voice)||{}).id||null;H.lane.prompt=(lane(H.lists.prompt)||{}).id||null;});
 H.lane.rebuild=apply;
@@ -71730,6 +71760,59 @@ H.audit=()=>{const out={mode:H.mode,small:[],overlaps:[],items:0};
  out.rects=L.map(x=>[x.n,rectOf(x.e)]);return out;};
 })();}catch(e){window.__HUD_ERR=String(e&&e.stack||e);console.warn('hud_07',e);}
 /* /hud_07 */
+/* prompts_03 */
+try{(()=>{
+const W=window;
+/* controller: Square (G) or Cross (Space) answers a ringing call; Circle (Escape) already declines. Registered late, so a G handler that eats the key first (a lit door next to you) wins: Cross still works. */
+addEventListener('keydown',e=>{try{if(!W.__PAD_ACTIVE||e.repeat)return;const PH=W.__PHONEUI;if(!PH||!PH.ringing||!PH.ringing())return;
+  if(e.key==='g'||e.key===' '||e.code==='KeyG'||e.code==='Space'){e.stopImmediatePropagation();e.preventDefault();PH.answer();}}catch(_){}},true);
+let sig='';
+const inCall=PH=>{try{const sc=PH.X&&PH.X.curScr&&PH.X.curScr();return PH.mode==='ui'&&!!(sc&&sc.t==='text'&&sc.peek&&sc.parts&&sc.parts[0]&&sc.parts[0].s==='Connected');}catch(_){return false;}};
+const tick=()=>{try{const H=W.__HUD,PH=W.__PHONEUI,B=W.__BTN;if(!H||!H.prompt||!PH||!B)return;
+  const ring=!!(PH.ringing&&PH.ringing()),inc=!ring&&inCall(PH),d=B.dev();const s=(ring?'r':inc?'c':'-')+d;if(s===sig)return;sig=s;
+  const touch=d==='touch';
+  if(ring){H.clear('phone-call');H.prompt('phone-ring',{key:'answer',text:touch?'':'Answer',more:[{key:'decline',text:touch?'':'Decline'}],prio:9,onTap:()=>{try{PH.answer();}catch(_){}}});}
+  else if(inc){H.clear('phone-ring');H.prompt('phone-call',{key:'hangup',text:touch?'':'Hang up',prio:6,onTap:()=>{try{PH.close();}catch(_){}}});}
+  else{H.clear('phone-ring');H.clear('phone-call');}}catch(_){}};
+setInterval(tick,250);
+W.addEventListener('kvdevice',()=>{sig='';tick();});
+W.__PROMPTS_PHONE={tick,sig:()=>sig};
+})();}catch(e){window.__PROMPTS03_ERR=String(e&&e.stack||e);console.warn('prompts_03',e);}
+/* /prompts_03 */
+/* prompts_05 */
+try{(()=>{
+const W=window,D=document;
+const ONLY=['drPrompt','wfPrompt','gdHint','pjHint','kvHint','klHint'];/*rvHint and litPrompt poll Square on their own*/
+const shown=id=>{const e=D.getElementById(id);if(!e||e.hidden)return false;const cs=getComputedStyle(e);if(cs.display==='none'||cs.visibility==='hidden'||+cs.opacity<.05)return false;return !!(e.textContent||'').trim()&&e.getClientRects().length>0;};
+addEventListener('keydown',e=>{try{if(!W.__PAD_ACTIVE||e.repeat||!(e.key==='g'||e.code==='KeyG'))return;
+  for(const id of ONLY)if(shown(id)){e.stopImmediatePropagation();e.preventDefault();W.dispatchEvent(new KeyboardEvent('keydown',{key:'e',code:'KeyE',bubbles:true}));setTimeout(()=>{try{W.dispatchEvent(new KeyboardEvent('keyup',{key:'e',code:'KeyE',bubbles:true}));}catch(_){}},60);return;}}catch(_){}},true);
+W.__PROMPTS_EONLY=ONLY;
+})();}catch(e){window.__PROMPTS05_ERR=String(e&&e.stack||e);console.warn('prompts_05',e);}
+/* /prompts_05 */
+/* prompts_08 */
+try{(()=>{
+const W=window,D=document;
+const svg=b=>"url(\"data:image/svg+xml,"+encodeURIComponent("<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'>"+b+"</svg>")+"\")";
+const SHAPE={'▢':['square',"<rect x='4' y='4' width='12' height='12' stroke='#e9a2d4'/>"],'△':['triangle',"<path d='M10 3 17.5 16H2.5Z' stroke='#45e0ae'/>"],
+ '◯':['circle',"<circle cx='10' cy='10' r='6.8' stroke='#ff6b6b'/>"],'✕':['cross',"<path d='M4.5 4.5 15.5 15.5M15.5 4.5 4.5 15.5' stroke='#8cb8f0'/>"]};
+const PILL=/^(L1|R1|L2|R2|L3|R3|Options|Create|touchpad|D-pad (up|down|left|right))$/;
+const N=':not(#_a):not(#_b):not(#_c):not(#_d)';/*beats the HUD's id-stacked rules*/
+let css='[data-ps]'+N+'{display:inline-block!important;box-sizing:border-box!important;vertical-align:middle!important;height:24px!important;line-height:22px!important;margin:0 7px 0 0!important;background-color:#17181d!important;color:#fff!important;border:1px solid #6d7080!important;box-shadow:0 2px 0 #000!important;text-shadow:none!important;text-align:center!important}';
+for(const k in SHAPE)css+='[data-ps="'+SHAPE[k][0]+'"]'+N+'{width:24px!important;min-width:24px!important;padding:0!important;border-radius:50%!important;font-size:0!important;background-image:'+svg(SHAPE[k][1])+'!important;background-repeat:no-repeat!important;background-position:center!important;background-size:15px 15px!important}';
+css+='[data-ps="pill"]'+N+'{min-width:30px!important;padding:0 6px!important;border-radius:6px!important;font:11px var(--label,Silkscreen,monospace)!important;line-height:22px!important}';
+css+='#hudPrompt [data-ps]'+N+':not(:first-child){margin-left:14px!important}';
+const st=D.createElement('style');st.id='psIconCSS';st.textContent=css;D.head.appendChild(st);
+const SEL='b,kbd,.k,.kvbtn';
+const mark=e=>{if(!e||e.nodeType!==1||!e.matches(SEL))return;let v=null;if(W.__PAD_ACTIVE&&!e.childElementCount){const t=(e.textContent||'').trim();v=SHAPE[t]?SHAPE[t][0]:(PILL.test(t)?'pill':null);}
+  if(v){if(e.dataset.ps!==v){e.dataset.ps=v;if(!e.title)e.setAttribute('aria-label',v);}}else if(e.dataset.ps){delete e.dataset.ps;e.removeAttribute('aria-label');}};
+const q=new Set();let on=false;
+const flush=()=>{on=false;for(const n of q){if(!n.isConnected)continue;mark(n);if(n.firstElementChild)n.querySelectorAll(SEL).forEach(mark);}q.clear();};
+const add=n=>{if(!n)return;if(n.nodeType===3)n=n.parentElement;if(!n)return;q.add(n);if(!on){on=true;requestAnimationFrame(flush);}};
+new MutationObserver(ms=>{if(!W.__PAD_ACTIVE)return;for(const m of ms){add(m.target);for(const n of m.addedNodes)if(n.nodeType===1)add(n);}}).observe(D.body,{childList:true,subtree:true,characterData:true});
+const all=()=>setTimeout(()=>{try{D.querySelectorAll(SEL).forEach(mark);}catch(_){}},30);
+addEventListener('kvdevice',all);all();W.__PSICONS=true;
+})();}catch(e){window.__PROMPTS08_ERR=String(e&&e.stack||e);console.warn('prompts_08',e);}
+/* /prompts_08 */
 /* playerclock_01 */
 /* Player view: a small clock chip (game time + date) at the top of the screen, left of the round minimap, so it never sits on the MENU chip, the hearts or the item toasts. Text is copied from the hidden #hudClock (which already follows game time / game date). Hidden in cutscenes, modals, death, film mode and whenever the hearts are hidden. One 500 ms timer, no per-frame work. */
 try{(()=>{
