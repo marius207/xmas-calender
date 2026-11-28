@@ -77,8 +77,8 @@
    "hint": "Gold coins glow on the main road. Follow the pin and walk through them.",
    "kind": "coins",
    "target": {
-    "x": -250,
-    "z": 700,
+    "x": -196,
+    "z": 565,
     "name": "The coin trail"
    },
    "done_when": {

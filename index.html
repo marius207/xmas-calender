@@ -972,7 +972,7 @@ window.__devEff=eff;
 const isPhone=()=>eff()==='phone';
 const sync=()=>{try{document.body.classList.toggle('ph',isPhone());}catch(e){}};
 /* version label: the deploy script replaces the placeholder below; an unreplaced build shows DEV BUILD */
-const VRAW='28 Nov 2026 01:16';
+const VRAW='28 Nov 2026 05:49';
 const VER=(VRAW.indexOf('__BUILD'+'_')===0)?'DEV BUILD':VRAW;
 window.__VERSION=VER;
 const pill=()=>{const b=document.createElement('button');b.type='button';b.className='verpill';b.textContent=VER;b.title='Tap to copy';b.setAttribute('aria-label','Game version '+VER);b.addEventListener('click',e=>{e.stopPropagation();try{navigator.clipboard&&navigator.clipboard.writeText(VER);}catch(_){}});return b;};
@@ -4481,7 +4481,7 @@ const STARM=STARS.map(([x,y,z])=>{const m=new THREE.Mesh(starGeo,starMat);m.posi
  {const g=new THREE.Group();const N=900,p=new Float32Array(N*3);for(let i=0;i<N;i++){const a=Math.random()*Math.PI*2,b=Math.acos(1-Math.random()*1.6);p[i*3]=Math.sin(b)*Math.cos(a)*2.25;p[i*3+1]=2.4+Math.cos(b)*2.25;p[i*3+2]=Math.sin(b)*Math.sin(a)*2.25;}
   const gg=new THREE.BufferGeometry();gg.setAttribute('position',new THREE.BufferAttribute(p,3));g.add(new THREE.Points(gg,new THREE.PointsMaterial({color:new THREE.Color(2.3,2.2,2.0),size:.13,toneMapped:false})));
   for(let i=0;i<10;i++){const a=i/10*Math.PI*2;const r=new THREE.Mesh(new THREE.TorusGeometry(2.25,.025,4,40),new THREE.MeshBasicMaterial({color:0xdde8ff}));r.rotation.y=a;r.position.y=2.4;g.add(r);}
-  const plinth=new THREE.Mesh(new THREE.CylinderGeometry(2.4,2.6,.4,16),new THREE.MeshLambertMaterial({color:0x2a2c33}));plinth.position.y=.2;g.add(plinth);put(g,-10,2);}
+  const plinth=new THREE.Mesh(new THREE.CylinderGeometry(2.4,2.6,.4,16),new THREE.MeshLambertMaterial({color:0x2a2c33}));plinth.position.y=.2;g.add(plinth);g.name='julekula';/*santab*/put(g,-10,2);}
  // Santa's sleigh + reindeer
  {const g=new THREE.Group();const red=new THREE.MeshLambertMaterial({color:0xb3121b}),gold=new THREE.MeshLambertMaterial({color:0xe0b040}),brown=new THREE.MeshLambertMaterial({color:0x6a4426});
   const B=(w,h,d,x,y,z,m)=>{const o=new THREE.Mesh(new THREE.BoxGeometry(w,h,d),m);o.position.set(x,y,z);g.add(o);};
@@ -7708,7 +7708,7 @@ const HEALTH=(()=>{const H={hp:20,max:20,eye:0,dmgT:0,regenT:0,dead:false};
       P.x=home[0];P.z=home[1];P.y=spawnY(P.x,P.z);if(home[0]===SPAWN.x&&SPAWN.yaw!=null)P.yaw=SPAWN.yaw;P.vx=P.vy=P.vz=0;H.hp=H.max;H.eye=0;H.dead=false;try{window.__GF&&window.__GF.respawned();}catch(e){}/*gamefeel_01*/$('deathScr').hidden=true;draw();},3200);}};
   H.step=(dt,seen)=>{const safe=typeof filmMode!=='undefined'&&filmMode||INV.mode==='creative'||window.__RACE;
     H.eye=Math.max(0,Math.min(1,H.eye+(seen?dt/9:-dt/14)));
-    if(seen&&!safe&&H.eye>=.6){H.dmgT+=dt;const every=H.eye>=1?.7:1.6;if(H.dmgT>=every){H.dmgT=0;H.hurt(1,'eye');}}else H.dmgT=0;
+    if(seen&&!safe&&H.eye>=.6){H.dmgT+=dt;const soft=window.__DAY===19||window.__DAY===24;/*answers28: gentle Eye on these days*/const every=(H.eye>=1?.7:1.6)*(soft?2.5:1);if(H.dmgT>=every){H.dmgT=0;if(!soft||H.hp>1)H.hurt(1,'eye');}}else H.dmgT=0;
     if(!seen&&H.eye<.05&&H.hp<H.max){H.regenT+=dt;if(H.regenT>=5){H.regenT=0;H.hp++;draw();}}
     draw();};
   draw();window.__HEALTH=H;return H;})();
@@ -42778,7 +42778,7 @@ const heldId=()=>{try{const s=INV&&INV.slots&&INV.slots[slot];return s&&s.id!=nu
 function ctxTick(){const now=performance.now();B.classList.toggle('ph-fly',!!P.fly);B.classList.toggle('ph-drive',!!P.driving);
   const fall=started&&!P.fly&&!P.driving&&!P.onGround&&P.vy<-9&&!P.glide;if(fall)chuteUntil=now+3500;B.classList.toggle('ph-fall',now<chuteUntil&&!P.fly&&!P.driving&&!P.onGround);
   const jl=P.driving?(nwAir?'UP':'GAS'):P.fly?'UP':'JUMP';if(jb.textContent!==jl)jb.textContent=jl;
-  const hid=heldId();const tool=/pickaxe|_axe|^axe|sword|sling|snowball|th_/.test(hid);const rk=/^rocket/.test(hid);
+  const hid=heldId();const tool=/pickaxe|_axe|^axe|sword|sling|snowball|th_|^as_(pistol|smg|sniper)/.test(hid);const rk=/^rocket/.test(hid);
   B.classList.toggle('ph-hit',!P.driving&&(PHS.pinHit||tool));B.classList.toggle('ph-place',!P.driving&&!!PHS.pinHit);B.classList.toggle('ph-rocket',!P.driving&&(PHS.pinRocket||rk));
   const hb=$('bBreak');const bl=/snowball|sling/.test(hid)?'❄':'⛏';if(hb.textContent!==bl)hb.textContent=bl;
   {const c=P.driving;const nw=!!(c&&c.kind==='nightwing');B.classList.toggle('ph-nw',nw);B.classList.toggle('ph-nwair',nw&&!!c.air);nwAir=nw&&!!c.air;nwOn=nw;}
@@ -52779,7 +52779,7 @@ const EXTRA=[ /* id, name, glyph, colour, getter -> {x,z}|null, kind line, min z
  ['dlair','The Liland tower','D','#ff9a3c',()=>{const d=W.__DRAGON;return d&&d.markerLair?d.markerLair():null;},'The old tower on the Liland road. Something large is breathing in it',0],
  ['dgrave','Candles at the graveyard','C','#ffd07a',()=>{const d=W.__DRAGON;return d&&d.markerGrave?d.markerGrave():null;},'Light a candle for everyone who is not here',0],
  ['barn','Barn · log pile','B','#c9a064',()=>({x:534.6,z:-450.4}),'Barn with the log pile',.2],
- ['airsoft','Airsoft Arena','A','#7fd06a',()=>{const A=W.__AIRSOFT&&W.__AIRSOFT.arena;return A&&A.poly&&A.poly.length?centroid(A.poly):null;},'Airsoft arena and shop (dev)',0],
+ ['airsoft','Airsoft Arena','A','#7fd06a',()=>{const A=W.__AIRSOFT&&W.__AIRSOFT.arena;return A&&A.poly&&A.poly.length?centroid(A.poly):null;},'Airsoft arena and shop',0],
  ['crater','The crater (Nonskarknuten)','C','#ff7a3a',()=>{const C=W.__CRATER;const q=C&&C.hit&&C.pos;return q?{x:q.x,z:q.z}:null;},'Where the fireball landed on Nonskarknuten. From day 20 something is moving in it.',0],/*meteornight*/
  ['hush','The Hush','H','#9aa0a8',()=>{const h=W.__HUSH;return h&&h.markerPos?h.markerPos():null;},'The slow grey thing that eats the light. Keep the fires lit.',0],/*craterhush*/
  ['refuge','Bowlinghallen \u00b7 REFUGE (safe from the Threshold)','\u263c','#ffd35a',()=>{try{if((W.__DAY|0)<21)return null;/*coldfix3*/return typeof BOWL!=='undefined'&&BOWL&&BOWL.c?{x:BOWL.c[0],z:BOWL.c[1]+7}:null;}catch(_){return null;}},'Refuge: the Threshold cannot enter, Julestemning rises here',0],
@@ -58421,7 +58421,7 @@ function siren(){const o=out();if(!o)return;try{const t=ac.currentTime,g0=clamp(
   osc.connect(lp);lp.connect(g);g.connect(o);osc.start(t);osc.stop(t+12.1);PA.s++;PA.busyUntil=performance.now()+13000;}catch(e){CR.err=String(e);}}
 function lyktaOnce(){if(PA.ly)return;PA.ly=true;const S=STO();if(S&&S.once&&!S.once('meteor_pa_lykta'))return;
   setTimeout(()=>{try{const L=W.__LANTERNGUIDE;if(L&&L.say)L.say('That is the loudspeaker. It says look up. I am looking up. Nothing yet, which is exactly what worries me.',{kind:'task',hold:2});}catch(_){}},9000);}
-function autoPlay(force){try{const A=W.__ADVENT;if(!A||!A.play||!A.openers.meteor||CR.hit||(A.played[15]&&!force)||A.busy&&A.busy())return;
+function autoPlay(force){try{if(W.__STORYQUIET&&!W.__STORYQUIET(5000))return;/*answers28: never over Lykta's task*/const A=W.__ADVENT;if(!A||!A.play||!A.openers.meteor||CR.hit||(A.played[15]&&!force)||A.busy&&A.busy())return;
   A.played[15]=Date.now();ls(KP,JSON.stringify(A.played));A.play('meteor');}catch(e){CR.err=String(e);}}
 function nudge(dd){if(PA.nd===dd)return;try{const L=W.__LANTERNGUIDE;if(!L||!L.say)return;const st=L.state&&L.state();if(st&&st.bubble)return;PA.nd=dd;L.say(dd===15?'Tonight is the night. The loudspeakers keep saying it: when it gets dark, come outside and look up. Stay out in the open. I will be right here.':'Something fell from the sky and we were not looking. Come outside after dark and look up. The night is not over until we have seen it.',{kind:'task',hold:3});}catch(_){}}
 function tick(){try{const dd=W.__DAY|0;if(dd<15||dd>19||CR.hit){stopTimer();return;}if(!free())return;const now=performance.now();if(now<PA.busyUntil)return;
@@ -69158,7 +69158,7 @@ KPL.list=()=>Object.keys(KPL.homes).map(KPL.state);
 try{(()=>{
 const W=window,QS=new URLSearchParams(location.search);
 const DEV=/^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname)||QS.get('dev')==='1';
-const AS=W.__AIRSOFT={ver:1,on:DEV&&QS.get('airsoft')!=='0',err:null,built:false,inf:QS.get('airsoftammo')==='inf',stats:{},log:[],game:null};
+const AS=W.__AIRSOFT={ver:1,on:QS.get('airsoft')!=='0',/*answers28*/err:null,built:false,inf:QS.get('airsoftammo')==='inf',stats:{},log:[],game:null};
 if(!AS.on){AS.state=()=>({on:false});AS.tp=()=>false;return;}
 const e8=(e,w)=>{if(!AS.err)AS.err=(w||'')+String(e&&e.stack||e);try{console.warn('airsoft',w||'',e);}catch(_){}};
 const lg=(k,d)=>{AS.stats[k]=(AS.stats[k]||0)+1;AS.log.push([Math.round(performance.now()/1000),k,d||'']);if(AS.log.length>60)AS.log.shift();};
@@ -69397,7 +69397,7 @@ function useBBs(n){if(AS.inf||n<=0)return;let need=n;while(need>0){if(LOOSE>=nee
 function autoHold(){let i=INV.slots.findIndex((s,j)=>j<9&&s&&WD[s.id]);if(i>=0){slot=i;try{renderHotbar();}catch(_){}}}
 function endGame(why){if(GS.st!=='run'&&GS.st!=='count')return;const sc=GS.score,my=GS.team,en=otherTeam(my);const me=E[0];
   GS.st='end';GS.t=0;const res=sc[my]>sc[en]?'win':sc[my]<sc[en]?'loss':'draw';
-  GS.res=res;GS.pay=GS.free?0:(res==='win'?300:res==='draw'?120:50)+me.hits*5;if(GS.pay>0){try{MONEY.cash+=GS.pay;MONEY.save();}catch(_){}}
+  GS.res=res;GS.pay=(GS.free||why==='left the field')?0:(res==='win'?300:res==='draw'?120:50)+me.hits*5;if(GS.pay>0){try{const d=new Date().toDateString();let j=JSON.parse(localStorage.getItem('kv-as-pay')||'null');if(!j||j.d!==d)j={d,n:0};if(j.n>=3)GS.pay=0;else{j.n++;localStorage.setItem('kv-as-pay',JSON.stringify(j));}}catch(_){}}/*airfix*/if(GS.pay>0){try{MONEY.cash+=GS.pay;MONEY.save();}catch(_){}}
   GS.endT=0;sWhistle(true);say(res==='win'?'Game! '+(my==='red'?'Red':'Blue')+' team wins '+sc[my]+' to '+sc[en]+'. Payout '+GS.pay+' kr.':res==='draw'?'Game! A draw, '+sc[my]+' each. Payout '+GS.pay+' kr.':'Game! '+(en==='red'?'Red':'Blue')+' wins '+sc[en]+' to '+sc[my]+'. Payout '+GS.pay+' kr.',5200);
   dommerGo('counter');showBoard();lg('end',res+' '+sc.red+':'+sc.blue+(why?' '+why:''));}
 function stopGame(){GS.st='idle';dommerGo('counter');for(const e of E)if(e.m)e.m.visible=false;hideBoard();for(const k in BBhide)0;hudDirty=true;}
@@ -69520,8 +69520,8 @@ function startReload(s){if(S.rel)return false;const d=WD[s.id];if(s.mag===undefi
 function finishReload(){const r=S.rel;S.rel=null;if(!r)return;const s=r.s;if(!INV.slots.includes(s))return;const d=WD[s.id];const need=d.cap-(s.mag||0);const n=Math.min(need,reserve());if(n>0){useBBs(n);s.mag=(s.mag||0)+n;try{saveInv();}catch(_){}}hudKey_();}
 {const _bb=breakBlock;breakBlock=function(){try{if(AS.on&&heldSlot()){tryFire();return;}}catch(e){e8(e,'fire ');}return _bb.apply(this,arguments);};}
 {const _pb=placeBlock;placeBlock=function(){try{if(AS.on&&heldSlot()){if(typeof TOUCH!=='undefined'&&TOUCH)S.aim=!S.aim;return;}}catch(e){e8(e,'aim ');}return _pb.apply(this,arguments);};}
-addEventListener('pointerdown',e=>{try{if(!AS.on||!heldSlot())return;if(e.button===2&&!(typeof TOUCH!=='undefined'&&TOUCH&&e.pointerType!=='mouse'))S.aim=true;if(e.button===0)S.trig=true;}catch(_){}},true);
-addEventListener('pointerup',e=>{if(e.button===2)S.aim=false;if(e.button===0)S.trig=false;},true);
+addEventListener('pointerdown',e=>{try{if(!AS.on||!heldSlot())return;if(e.button===2&&!(typeof TOUCH!=='undefined'&&TOUCH&&e.pointerType!=='mouse'))S.aim=true;if(e.button===0&&(e.pointerType!=='touch'||(e.target&&e.target.id==='bBreak'))){S.trig=true;S.tid=e.pointerId;}/*airfix2*/}catch(_){}},true);
+addEventListener('pointerup',e=>{if(e.button===2)S.aim=false;if(e.button===0&&(S.tid===undefined||e.pointerId===S.tid))S.trig=false;/*airfix3*/},true);
 addEventListener('pointercancel',()=>{S.trig=false;},true);addEventListener('blur',()=>{S.trig=false;if(!(typeof TOUCH!=='undefined'&&TOUCH))S.aim=false;});
 addEventListener('keydown',e=>{if(e.code!=='KeyR'||e.repeat||e.ctrlKey||e.metaKey||e.altKey)return;try{if(!AS.on||busy())return;const s=heldSlot();if(!s)return;const ae=document.activeElement;if(ae&&/INPUT|TEXTAREA|SELECT/.test(ae.tagName))return;e.stopImmediatePropagation();e.preventDefault();startReload(s);}catch(er){e8(er,'key ');}},true);
 /* ------------------------------------------------------------------ HUD: ammo, game score, out text, scoreboard, goggles frame, scope */
@@ -69529,7 +69529,7 @@ let hudDirty=true,DOM=null;
 function mkDom(){if(DOM)return DOM;const st=document.createElement('style');st.textContent='#asHud{position:fixed;inset:0;pointer-events:none;z-index:6;font:700 13px/1.25 "Courier New",monospace;color:#f4f0e0;text-shadow:0 1px 0 #000,0 0 4px #000}#asTop{position:absolute;left:50%;top:84px;transform:translateX(-50%);text-align:center;display:none;background:rgba(0,0,0,.5);padding:5px 14px;border:2px solid #111;letter-spacing:1px}#asTop b{font-size:18px}.asR{color:#ff7a6a}.asB{color:#7aa8ff}#asFeed{position:absolute;left:14px;bottom:210px;text-align:left;font-size:12px;opacity:.92;max-width:44vw}#asAmmo{position:absolute;right:10px;bottom:70px;text-align:right;display:none}#asOut{position:absolute;left:0;right:0;top:34%;text-align:center;font-size:34px;display:none;color:#ff6a5a}#asRed{position:absolute;inset:0;background:radial-gradient(circle,rgba(200,30,20,0) 30%,rgba(200,30,20,.55) 100%);opacity:0}#asGog{position:absolute;inset:0;opacity:0;background:radial-gradient(ellipse at 50% 50%,rgba(0,0,0,0) 62%,rgba(10,12,14,.55) 100%);box-shadow:inset 0 0 0 6px rgba(20,22,26,.65),inset 0 0 40px rgba(240,200,80,.08)}#asScope{position:absolute;inset:0;opacity:0;background:radial-gradient(circle at 50% 50%,transparent 0,transparent 24vmin,rgba(0,0,0,.94) 25vmin)}#asScope i{position:absolute;background:rgba(0,0,0,.8)}#asHit{position:absolute;left:50%;top:50%;width:26px;height:26px;margin:-13px 0 0 -13px;opacity:0;background:linear-gradient(45deg,transparent 46%,#fff 46%,#fff 54%,transparent 54%),linear-gradient(-45deg,transparent 46%,#fff 46%,#fff 54%,transparent 54%);filter:drop-shadow(0 0 2px #000)}#asBub{position:fixed;z-index:7;transform:translate(-50%,-100%);max-width:260px;background:#fff;color:#111;font:600 13px/1.3 system-ui,sans-serif;padding:6px 10px;border:3px solid #111;border-radius:4px;pointer-events:none;text-shadow:none}#asBub small{display:block;opacity:.65;font-size:11px;margin-top:2px}#asBoard{position:fixed;inset:0;z-index:12;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.55)}#asBoard .bx{background:#1b1d22;border:4px solid #f07a1e;color:#f4f0e0;padding:16px 20px;min-width:min(520px,92vw);font:600 14px/1.4 "Courier New",monospace;text-align:center}#asBoard table{width:100%;border-collapse:collapse;margin:8px 0}#asBoard td,#asBoard th{padding:2px 6px;text-align:left;border-bottom:1px solid #333}#asBoard h2{margin:0 0 4px;font-size:22px;color:#f07a1e}#asBoard button{margin-top:8px;font:700 14px "Courier New",monospace;padding:6px 16px;background:#f07a1e;border:3px solid #111;cursor:pointer}';document.head.appendChild(st);
   const h=document.createElement('div');h.id='asHud';h.innerHTML='<div id="asGog"></div><div id="asScope"><i style="left:50%;top:calc(50% - 24vmin);width:1px;height:48vmin"></i><i style="top:50%;left:calc(50% - 24vmin);height:1px;width:48vmin"></i></div><div id="asRed"></div><div id="asTop"></div><div id="asFeed"></div><div id="asAmmo"></div><div id="asOut"></div><div id="asHit"></div>';document.body.appendChild(h);
   const bub=document.createElement('div');bub.id='asBub';bub.hidden=true;document.body.appendChild(bub);
-  const bd=document.createElement('div');bd.id='asBoard';document.body.appendChild(bd);bd.addEventListener('click',e=>{if(e.target.dataset&&e.target.dataset.x||e.target===bd)hideBoard();});
+  const bd=document.createElement('div');bd.id='asBoard';bd.style.zIndex='99999';/*airfix*/document.body.appendChild(bd);bd.addEventListener('click',e=>{if(e.target.dataset&&e.target.dataset.x||e.target===bd)hideBoard();});
   DOM={h,top:$a('asTop'),feed:$a('asFeed'),ammo:$a('asAmmo'),out:$a('asOut'),red:$a('asRed'),gog:$a('asGog'),scope:$a('asScope'),hit:$a('asHit'),bub,board:bd};return DOM;}
 function showBoard(){mkDom();const my=GS.team,en=otherTeam(my);const rows=E.slice().sort((a,b)=>b.hits-a.hits);const cn={red:'asR',blue:'asB'};
   let h='<h2>'+(GS.res==='win'?'YOU WIN':GS.res==='loss'?'YOU LOSE':'DRAW')+'</h2><div><span class="asR">RED '+GS.score.red+'</span> : <span class="asB">'+GS.score.blue+' BLUE</span></div><table><tr><th>Player</th><th>Team</th><th>Hits</th><th>Out</th></tr>';
@@ -69628,7 +69628,7 @@ function tick(dt,t){if(!AS.on)return;if(typeof started==='undefined'||!started)r
   const near=dh<320;if(ROOT.visible!==near)ROOT.visible=near;
   if(DM&&DM.m.visible!==near&&!(GS.st==='run'))DM.m.visible=near;
   const act=GS.st!=='idle'||BB.n>0;
-  if(!near&&!act&&!heldSlot())return;
+  if(!near&&!act&&!heldSlot()){if(AS._clean)return;AS._clean=1;hudT=0;/*airfix: one last pass hides the gun and ammo*/}else AS._clean=0;
   if(dt>.1)dt=.1;
   /* player vs the arena (cover, hut, net) */
   if(dh<90&&!P.fly&&!P.driving){if(pushOut(P.x,P.z,.36)){P.x=PO.x;P.z=PO.z;}}
@@ -70617,13 +70617,14 @@ function enter(i){const s=SC.steps[i];if(!s)return;SC.i=i;
  if(s.look)SC.look=s.look;
  try{if(s.fx)s.fx();}catch(e){e_('fx',e);}
  if(s.commit&&!s._c){s._c=1;try{s.commit();}catch(e){e_('commit',e);}}
+ try{santaStep(s);}catch(e){e_('santab',e);}/*santab*/
  if(s.vid&&s.who==='SANTA'&&SC.spd<=1)voiceSay(s.vid,s.text);else if(s.who==='SANTA'||SC.spd>1)voiceStop();}
 function tickScene(dt){if(!SC.on)return;zeroIn();SC.t+=dt*SC.spd;
  if(SC.ffEl)SC.ffEl.textContent=SC.spd>1?'>> '+SC.spd+'x':'';
  if(SC.spd>1&&VO.au){voiceStop();}
  let i=SC.i;while(i+1<SC.steps.length&&SC.t>=SC.steps[i+1].t0){i++;enter(i);}
  if(SC.look&&SC.look.f){const p=SC.look.f();if(p)aimAt(p.x,p.y,p.z,Math.min(1,dt*3));}
- sleighTick(dt*SC.spd);
+ if(!SNT.cam)sleighTick(dt*SC.spd);/*santab*/
  const left=SC.tEnd-SC.t;if(SC.fade)SC.fade.style.opacity=(left<.6)?String(1-Math.max(0,left)/.6):'0';
  if(left<=0)finish(false);}
 const otherBusy=()=>!calmOK();
@@ -70642,10 +70643,56 @@ function finish(skipped){if(!SC.on)return;SC.on=false;W.__NLR_ON=false;clearInte
 try{W.__BUSY&&W.__BUSY.add&&W.__BUSY.add('nicelistreveal','scene',()=>!!SC.on||uiOpen);}catch(_){}
 /* ---------------------------------------------------------------- Santa's sleigh (built for the scene, thrown away after it) */
 const SL={g:null,x:0,y:0,z:0,tx:0,ty:0,tz:0,sp:1,yaw:0,t:0};
+/* santab */
+/* the real Santa: models/santa.glb in the sleigh. window.__SANTAB = {state()} for tests; window.__SANTA_URL overrides the file (tests only). */
+const SNT={on:new URLSearchParams(location.search).get('santab')!=='0',p:null,grp:null,mix:null,act:{},cur:null,boxy:null,cam:null,camF:null,dome:null,t:0,err:null,ready:false,yaw:0};
+W.__SANTAB={state:()=>({on:SNT.on,ready:SNT.ready,inSleigh:!!(SNT.grp&&SL.g&&SNT.grp.parent===SL.g),boxy:SNT.boxy?SNT.boxy.visible:null,anim:SNT.cur,cam:!!SNT.cam,domeMoved:!!SNT.dome,err:SNT.err})};
+function santaLoad(){if(!SNT.on||W.__INTRO_ON)return null;if(SNT.p)return SNT.p;
+  SNT.p=GLTFL().then(ld=>new Promise((res,rej)=>ld.load(W.__SANTA_URL||'models/santa.glb',res,undefined,rej))).then(gl=>{
+    const sc_=gl.scene;sc_.traverse(o=>{if(o.isMesh){o.frustumCulled=false;o.castShadow=false;o.receiveShadow=false;
+      const old=o.material,gold=/gold/.test(old.name||''),k=gold?.45:.25;/* a little own light: Christmas Eve is dark */
+      const m=new THREE.MeshLambertMaterial({vertexColors:true,flatShading:!o.geometry.attributes.normal});m.name=old.name;
+      m.onBeforeCompile=s=>{s.fragmentShader=s.fragmentShader.replace('#include <emissivemap_fragment>','#include <emissivemap_fragment>\ntotalEmissiveRadiance+=diffuseColor.rgb*'+k.toFixed(2)+';');};m.customProgramCacheKey=()=>'santab'+k;
+      o.material=m;if(old.dispose)old.dispose();}});
+    const g=new THREE.Group();g.name='santaB';g.add(sc_);g.scale.setScalar(.9);g.position.set(0,1.15,-.1);
+    {const st=new THREE.Mesh(new THREE.BoxGeometry(.8,.22,.62),LAM(0x6e1216));st.position.set(0,-.11,-.02);st.name='santaStep';g.add(st);}/* the step he stands on, so more of him shows over the sleigh's sides */
+    SNT.mix=new THREE.AnimationMixer(sc_);for(const c of gl.animations){const a=SNT.mix.clipAction(c);SNT.act[c.name]=a;}
+    SNT.grp=g;SNT.ready=true;santaAttach();return true;}).catch(e=>{SNT.err=String(e&&e.message||e);SNT.p=null;console.warn('santab: keeping the box Santa',e);return false;});
+  return SNT.p;}
+function santaAttach(){if(!SNT.ready||!SL.g||SNT.grp.parent===SL.g)return;SL.g.add(SNT.grp);if(SNT.boxy)SNT.boxy.visible=false;SNT.cur=null;santaPlay('wave');}
+function santaPlay(n){const a=SNT.act[n];if(!a||SNT.cur===n)return;const old=SNT.act[SNT.cur];a.reset();a.play();if(old){old.crossFadeTo(a,.35,false);}SNT.cur=n;}
+/* idle with a wave now and then; waves through the hello, the winner's name and the goodbye. He turns to whoever is watching. */
+function santaTick(dt){if(!SNT.ready||!SL.g||SNT.grp.parent!==SL.g)return;SNT.t+=dt;
+  const s=SC.steps&&SC.steps[SC.i],v=s&&s.vid,wave=v==='sa01'||v==='sa_w1'||v==='sa_bye'||(SNT.t%9)<2.2;santaPlay(wave?'wave':'idle');SNT.mix.update(Math.min(dt,.1));
+  /* hovering: side-on to the viewer, so the reindeer and the front board do not cover him */
+  if(Math.hypot(SL.tx-SL.x,SL.tz-SL.z)<9){let y_=Math.atan2(P.x-SL.x,P.z-SL.z)+1.05-SL.yaw;y_=Math.atan2(Math.sin(y_),Math.cos(y_));SL.yaw+=y_*Math.min(1,dt*3);}
+  const q=SNT.cam?SNT.cam.pos:cam.position,rel=Math.atan2(q.x-SL.x,q.z-SL.z)-SL.yaw,w=Math.atan2(Math.sin(rel),Math.cos(rel));
+  let d=w-SNT.grp.rotation.y;d=Math.atan2(Math.sin(d),Math.cos(d));SNT.grp.rotation.y+=d*Math.min(1,dt*(SNT.cam?8:2.5));}
+/* the closer look: a camera that rides along with the sleigh, in front of him, for the step it is asked for */
+function santaCam(on){const C=W.__CINE;if(!C)return;
+  if(!on){if(!SNT.cam)return;const c=SNT.cam;SNT.cam=null;if(C.f===SNT.camF)C.f=null;SNT.camF=null;try{cam.fov=c.fov;cam.updateProjectionMatrix();}catch(_){}return;}
+  if(SNT.cam||C.f||!SNT.ready||!SL.g||SNT.grp.parent!==SL.g)return;
+  let rel=Math.atan2(P.x-SL.x,P.z-SL.z)-SL.yaw;rel=Math.atan2(Math.sin(rel),Math.cos(rel));rel=Math.max(-.85,Math.min(.85,rel));if(Math.abs(rel)<.3)rel=rel<0?-.3:.3;
+  const c=SNT.cam={rel,t:0,last:performance.now(),fov:cam.fov,pos:new THREE.Vector3(),look:new THREE.Vector3()};
+  const place=dt=>{c.t+=dt;const a=SL.yaw+c.rel*(1-.12*Math.min(1,c.t/6)),d=4.1-.5*Math.min(1,c.t/6),o=SL.g.position;
+    const hx=o.x+Math.sin(SL.yaw)*-.13,hz=o.z+Math.cos(SL.yaw)*-.13,hy_=o.y+(1.15+1.32*.9)*1.3;
+    c.look.set(hx,hy_-.12,hz);c.pos.set(hx+Math.sin(a)*d,hy_+.12,hz+Math.cos(a)*d);};
+  place(0);{let r_=Math.atan2(c.pos.x-SL.x,c.pos.z-SL.z)-SL.yaw;SNT.grp.rotation.y=Math.atan2(Math.sin(r_),Math.cos(r_));}
+  const own=SNT.camF=()=>{if(SNT.camF!==own||!SC.on||!SL.g){if(C.f===own)C.f=null;santaCam(false);return;}const n=performance.now(),dt=Math.min(.1,(n-c.last)/1000);c.last=n;
+    sleighTick(dt*SC.spd);/* per frame while we ride along, so the picture does not step */place(dt);
+    cam.position.copy(c.pos);cam.up.set(0,1,0);cam.lookAt(c.look);if(Math.abs(cam.fov-42)>.01){cam.fov=42;cam.updateProjectionMatrix();}};
+  C.f=SNT.camF;}
+function santaStep(s){santaCam(false);if(s&&s.who==='SANTA'&&(s.vid==='sa01'||s.vid==='sa_bye'))santaCam(true);}
+/* the walk-in light globe stands between you and the sleigh: slid behind you for the scene, put back afterwards (the saved square plan is untouched) */
+function santaDome(px,pz,a){santaDomeBack();if(!SNT.on)return;const d=scene.getObjectByName('julekula');if(!d||Math.hypot(d.position.x-px,d.position.z-pz)>30)return;
+  SNT.dome={o:d,p:d.position.clone()};const x=px+Math.sin(a)*10,z=pz+Math.cos(a)*10;d.position.set(x,gnd(x,z),z);}
+function santaDomeBack(){const m=SNT.dome;if(!m)return;SNT.dome=null;m.o.position.copy(m.p);}
+function santaDrop(){santaDomeBack();santaCam(false);if(SNT.grp&&SNT.grp.parent)SNT.grp.parent.remove(SNT.grp);SNT.boxy=null;SNT.cur=null;}
+/* /santab */
 function makeSleigh(){const g=new THREE.Group();const red=LAM(0xb01e24),gold=LAM(0xe0b030,0x3a2800),wood=LAM(0x5a3a22),white=LAM(0xf2eee4),skin=LAM(0xe0b090),brown=LAM(0x7a5233),dark=LAM(0x2a2018),nose=new THREE.MeshBasicMaterial({color:0xff2a2a,toneMapped:false});
   g.add(merged([{w:1.7,h:.5,d:3,x:0,y:.7,z:0},{w:1.7,h:.9,d:.4,x:0,y:1.15,z:-1.4},{w:.2,h:.7,d:2.6,x:-.7,y:1.05,z:0},{w:.2,h:.7,d:2.6,x:.7,y:1.05,z:0}],red));
   g.add(merged([{w:.14,h:.14,d:3.6,x:-.75,y:.3,z:.1},{w:.14,h:.14,d:3.6,x:.75,y:.3,z:.1},{w:.14,h:.5,d:.14,x:-.75,y:.55,z:-.8},{w:.14,h:.5,d:.14,x:.75,y:.55,z:-.8},{w:.14,h:.5,d:.14,x:-.75,y:.55,z:.9},{w:.14,h:.5,d:.14,x:.75,y:.55,z:.9}],gold));
-  g.add(merged([{w:.9,h:.9,d:.8,x:0,y:1.55,z:-.1},{w:.9,h:.2,d:.82,x:0,y:1.1,z:-.1}],red));g.add(merged([{w:.5,h:.5,d:.5,x:0,y:2.2,z:-.1}],skin));g.add(merged([{w:.56,h:.26,d:.3,x:0,y:2.02,z:.1},{w:.58,h:.14,d:.54,x:0,y:2.42,z:-.1}],white));g.add(merged([{w:.44,h:.42,d:.44,x:-.05,y:2.62,z:-.12,rz:.12},{w:.14,h:.14,d:.14,x:-.3,y:2.8,z:-.12}],red));
+  const bx_=new THREE.Group();bx_.name='santaBoxy';g.add(bx_);SNT.boxy=bx_;/*santab*/bx_.add(merged([{w:.9,h:.9,d:.8,x:0,y:1.55,z:-.1},{w:.9,h:.2,d:.82,x:0,y:1.1,z:-.1}],red));bx_.add(merged([{w:.5,h:.5,d:.5,x:0,y:2.2,z:-.1}],skin));bx_.add(merged([{w:.56,h:.26,d:.3,x:0,y:2.02,z:.1},{w:.58,h:.14,d:.54,x:0,y:2.42,z:-.1}],white));bx_.add(merged([{w:.44,h:.42,d:.44,x:-.05,y:2.62,z:-.12,rz:.12},{w:.14,h:.14,d:.14,x:-.3,y:2.8,z:-.12}],red));
   g.add(merged([{w:1.3,h:1.0,d:1.0,x:0,y:1.45,z:-1.0}],brown));
   for(let i=0;i<2;i++){const dx=(i?1:-1)*.62,rz=3.6;g.add(merged([{w:.5,h:.55,d:1.1,x:dx,y:1.15,z:rz},{w:.3,h:.34,d:.5,x:dx,y:1.5,z:rz+.8},{w:.1,h:.5,d:.1,x:dx-.12,y:1.88,z:rz+.8,rz:.4},{w:.1,h:.5,d:.1,x:dx+.12,y:1.88,z:rz+.8,rz:-.4},{w:.1,h:.6,d:.1,x:dx-.16,y:.62,z:rz-.4},{w:.1,h:.6,d:.1,x:dx+.16,y:.62,z:rz-.4},{w:.1,h:.6,d:.1,x:dx-.16,y:.62,z:rz+.4},{w:.1,h:.6,d:.1,x:dx+.16,y:.62,z:rz+.4}],brown));
     g.add(merged([{w:.1,h:.1,d:.1,x:dx,y:1.5,z:rz+1.06}],nose));}
@@ -70654,21 +70701,21 @@ function makeSleigh(){const g=new THREE.Group();const red=LAM(0xb01e24),gold=LAM
 function sleighGo(x,y,z,sp){SL.tx=x;SL.ty=y;SL.tz=z;SL.sp=sp||1;}
 function sleighTick(dt){if(!SL.g)return;SL.t+=dt;const k=1-Math.pow(.5,dt*SL.sp);const dx=SL.tx-SL.x,dz=SL.tz-SL.z;SL.x+=dx*k;SL.y+=(SL.ty-SL.y)*k;SL.z+=dz*k;
   if(hy(dx,dz)>1.5){const ty=Math.atan2(dx,dz);let d=ty-SL.yaw;d=Math.atan2(Math.sin(d),Math.cos(d));SL.yaw+=d*Math.min(1,dt*2.2);}
-  SL.g.position.set(SL.x,SL.y+Math.sin(SL.t*1.7)*.35,SL.z);SL.g.rotation.set(Math.sin(SL.t*1.1)*.03,SL.yaw,Math.sin(SL.t*.9)*.05);if(Math.random()<dt*1.5)bells(3);}
-function sleighMake(x,y,z){sleighDrop();SL.g=makeSleigh();SL.x=SL.tx=x;SL.y=SL.ty=y;SL.z=SL.tz=z;SL.t=0;scene.add(SL.g);SL.g.position.set(x,y,z);}
-function sleighDrop(){try{if(SL.g){scene.remove(SL.g);SL.g.traverse(o=>{if(o.geometry)o.geometry.dispose();if(o.material&&o.material.dispose)o.material.dispose();});}}catch(_){}SL.g=null;}
+  SL.g.position.set(SL.x,SL.y+Math.sin(SL.t*1.7)*.35,SL.z);SL.g.rotation.set(Math.sin(SL.t*1.1)*.03,SL.yaw,Math.sin(SL.t*.9)*.05);santaTick(dt);/*santab*/if(Math.random()<dt*1.5)bells(3);}
+function sleighMake(x,y,z){sleighDrop();SL.g=makeSleigh();SL.x=SL.tx=x;SL.y=SL.ty=y;SL.z=SL.tz=z;SL.t=0;scene.add(SL.g);SL.g.position.set(x,y,z);santaLoad();santaAttach();/*santab*/}
+function sleighDrop(){try{santaDrop();/*santab*/}catch(_){}try{if(SL.g){scene.remove(SL.g);SL.g.traverse(o=>{if(o.geometry)o.geometry.dispose();if(o.material&&o.material.dispose)o.material.dispose();});}}catch(_){}SL.g=null;}
 /* ---------------------------------------------------------------- the script */
 function names(rows){return rows.map(r=>cap1(r.p));}
 function buildSteps(d,sim){const sp=statueSpot(),s=spawnPos(),n=d.n;const steps=[];const meR=d.role;
   const a=Math.atan2(s.x-sp.x,s.z-sp.z);const px=sp.x+Math.sin(a)*11,pz=sp.z+Math.cos(a)*11;
-  const hover={x:sp.x-Math.sin(a)*6,y:sp.y+13,z:sp.z-Math.cos(a)*6},far={x:sp.x-Math.sin(a)*190+Math.cos(a)*120,y:sp.y+60,z:sp.z-Math.cos(a)*190-Math.sin(a)*120};
+  const hover={x:sp.x-Math.sin(a)*6,y:sp.y+(SNT.on?7:13),/*santab*/z:sp.z-Math.cos(a)*6},far={x:sp.x-Math.sin(a)*190+Math.cos(a)*120,y:sp.y+60,z:sp.z-Math.cos(a)*190-Math.sin(a)*120};
   const out_={x:sp.x-Math.sin(a)*260-Math.cos(a)*180,y:sp.y+110,z:sp.z-Math.cos(a)*260+Math.sin(a)*180};
   const slL={f:()=>SL.g?{x:SL.x,y:SL.y,z:SL.z}:null},stL={f:()=>({x:sp.x,y:sp.y+2.2,z:sp.z})},skyL={f:()=>({x:far.x,y:far.y,z:far.z})};
   const S=(text,id,o)=>Object.assign({who:'SANTA',text,vid:id},o||{}),L=(text,o)=>Object.assign({who:'LYKTA',text},o||{});
   steps.push(L('Bells. Real ones. I did not hang bells. Stand still and look clever, it is the lantern rule.',{look:skyL,len:5.4,fx:()=>{
       if(DEV&&sim&&!night()){try{W.__TOD&&W.__TOD.set&&W.__TOD.set(22);}catch(_){}}
       try{if(P.driving&&typeof exitCar==='function')exitCar();}catch(_){}P.x=px;P.z=pz;P.y=gnd(px,pz);P.vx=P.vz=P.vy=0;P.yaw=Math.atan2(-(far.x-px),-(far.z-pz));P.pitch=.15;
-      sleighMake(far.x,far.y,far.z);sleighGo(hover.x,hover.y,hover.z,.42);bells(8);}}));
+      sleighMake(far.x,far.y,far.z);santaDome(px,pz,a);/*santab*/sleighGo(hover.x,hover.y,hover.z,.42);bells(8);}}));
   steps.push(S('Ho. Ho. Ho. Do not mind the sleigh. It is parked perfectly. The snow is just in the way.','sa01',{look:slL,len:6.2,fx:()=>{bells(5);}}));
   steps.push(S('I have a list, downtown. I check it twice. This year I checked it three times, once with a magnifying glass, because some of you are very good at hiding things in plain sight.','sa02',{look:slL,fx:()=>{SC.list.innerHTML='<h4>SANTA’S NICE LIST</h4>'+d.rows.slice().reverse().map((r,i)=>'<div class="r'+(i===0&&d.loser&&r.p===d.loser.p?' l':'')+(d.winners.some(w=>w.p===r.p)?' w':'')+'" data-i="'+i+'"><b>'+(d.rows.length-i)+'</b><span>'+esc(cap1(r.p))+'</span><em>'+esc(sc(r.s))+' + '+esc(String(r.sp))+' = '+esc(sc(r.t))+'</em></div>').join('');SC.list.classList.add('on');}}));
   const asc=d.rows.slice().reverse();
@@ -70721,7 +70768,7 @@ R.start=async function(opt){opt=opt||{};if(startBusy||SC.on)return false;
       try{const N=NLs();if(N&&N.reveal)N.reveal({card:true,show:true});await new Promise(res=>{const t0=Date.now();const iv=setInterval(()=>{const e=document.getElementById('nlCard');if(!(e&&e.classList.contains('show'))||Date.now()-t0>240000){clearInterval(iv);res();}},500);});}catch(_){}finally{startBusy=false;}}
     if(t-waitT>90000){waitT=t;lg('waiting for news');if(calmOK())say('Santa is still waiting for the others’ lists. His pigeons are late. Give them a minute.',4);}return false;}
   startBusy=true;
-  try{coalItem();css();
+  try{coalItem();css();santaLoad();/*santab*/
     R.late=false;const steps=buildSteps(d,opt.sim?{commit:!!opt.sim.commit}:null);
     emit('nicelist:reveal-start',{role:d.role});
     await run(steps,{});
@@ -72486,7 +72533,7 @@ O.use=n=>{try{n|=0;const s=stOf(n);if(s!==2&&s!==4)return false;const now=perfor
   const go=()=>{try{const Lg=L();if(!Lg)return;if(s===4||Lg.selNow&&Lg.selNow()!=null)Lg.select(n);else Lg.select(null);Lg.tell();O.told[n]=(O.told[n]|0)+1;O.log.push('told '+n);}catch(er){O.err=String(er&&er.stack||er);}};
   /*fable_01: the same opener the O panel plays (news montage, day scene + quick-time moment, day 15 meteor, day 12 boss scene): today's door, first LOOK, once per day*/
   const A=W.__ADVENT;const late15=!!(first&&s===4&&n===15&&W.__CRATER&&!W.__CRATER.hit&&(W.__DAY|0)<=19);/*fable_05: a missed meteor night is made up at the waiting door*/
-  const oids=(((first&&s===2)||late15)&&A&&A.days&&A.days[n-1])?A.days[n-1].openers.filter(i=>A.openers[i]&&A.openers[i].made&&!A.openers[i].auto):[];
+  const oids=(((first&&s===2)||late15)&&A&&A.days&&A.days[n-1])?A.days[n-1].openers.filter(i=>A.openers[i]&&A.openers[i].made&&!A.openers[i].auto&&!(i==='meteor'&&!late15)/*answers28: on the night itself the meteor comes after the task*/):[];
   if(oids.length&&(late15||!A.played[n])&&!(A.busy&&A.busy())){
     A.played[n]=Date.now();/*datesopener_01: saved only once it has really played*/
     O.opener=n;setTimeout(async()=>{let okp=false;try{for(const i of oids)okp=(await A.play(i))||okp;}catch(er){O.err=String(er&&er.stack||er);}if(!okp)delete A.played[n];try{localStorage.setItem('kv-advent-played',JSON.stringify(A.played));}catch(_){}O.opener=0;go();},900);
