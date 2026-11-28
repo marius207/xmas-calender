@@ -1,0 +1,545 @@
+{
+ "_README": "Julius Jolly on the radio in the Backrooms. Recorded by Marius only (never TTS). ids bj_01..; audio voice/backrooms/<id>.m4a, listed in have[]; text shows on screen until then. dark:true = sinister lines: Julius drops the cheer, low, slow, close to the mic.",
+ "speaker": "Julius Jolly",
+ "have": [],
+ "lines": [
+  {
+   "id": "bj_01",
+   "text": "Downtown FM, ninety-nine point nine. The only station in here."
+  },
+  {
+   "id": "bj_02",
+   "text": "Good morning! It is... it says morning. The clock has said morning for quite some time."
+  },
+  {
+   "id": "bj_03",
+   "text": "Julius Jolly with you. If you can hear this, please phone in. Nobody has phoned in since the carpet started."
+  },
+  {
+   "id": "bj_04",
+   "text": "I know which way you're facing.",
+   "dark": true
+  },
+  {
+   "id": "bj_05",
+   "text": "The weather today is yellow. Tomorrow, expect more yellow."
+  },
+  {
+   "id": "bj_06",
+   "text": "A traffic update. There is no traffic. There are no roads. Do take care."
+  },
+  {
+   "id": "bj_07",
+   "text": "You've been in here before. You didn't leave that time either.",
+   "dark": true
+  },
+  {
+   "id": "bj_08",
+   "text": "We have a request from a listener. It's from you. You asked me not to say your name."
+  },
+  {
+   "id": "bj_09",
+   "text": "Someone is knocking on my studio door. I haven't got a studio door."
+  },
+  {
+   "id": "bj_10",
+   "text": "If you've seen a green door, listeners, go through it. Don't wait for the song to finish."
+  },
+  {
+   "id": "bj_11",
+   "text": "Don't sit down to dinner. The fourth chair is taken.",
+   "dark": true
+  },
+  {
+   "id": "bj_12",
+   "text": "That noise behind you is perfectly normal. Please don't check."
+  },
+  {
+   "id": "bj_13",
+   "text": "It isn't looking for you. It's already found you. It's only being polite.",
+   "dark": true
+  },
+  {
+   "id": "bj_14",
+   "text": "I've counted the ceiling lights again. There's one fewer. There's always one fewer."
+  },
+  {
+   "id": "bj_15",
+   "text": "Sigrid's gingerbread recipe. Flour, syrup, ginger, and do not answer if the oven says hello."
+  },
+  {
+   "id": "bj_16",
+   "text": "Your friend out there has someone walking beside them. It looks a lot like you.",
+   "dark": true
+  },
+  {
+   "id": "bj_17",
+   "text": "I can hear you walking. Could you walk a little quieter? It can hear you too."
+  },
+  {
+   "id": "bj_18",
+   "text": "Shhh. Hold your breath. Now tell me who's still breathing.",
+   "dark": true
+  },
+  {
+   "id": "bj_19",
+   "text": "Chris. Martin. Which one of you is that? Only one of you came in."
+  },
+  {
+   "id": "bj_20",
+   "text": "I'm not in a studio, am I? There's no window. There's no door. There's just you, listening.",
+   "dark": true
+  },
+  {
+   "id": "bj_21",
+   "text": "Right. Nobody is panicking. I am not panicking. I am simply getting under the desk."
+  },
+  {
+   "id": "bj_22",
+   "text": "When the lights go out this time, I would not run. They like it when you run.",
+   "dark": true
+  },
+  {
+   "id": "bj_23",
+   "text": "We're all so happy you're staying.",
+   "dark": true
+  },
+  {
+   "id": "bj_24",
+   "text": "This has been Julius Jolly, on Downtown FM. I'll be here when you come back."
+  }
+ ],
+ "clips": [
+  {
+   "id": "r01",
+   "sec": 6.3,
+   "at": 3.5
+  },
+  {
+   "id": "r02",
+   "sec": 5.0,
+   "at": 13.2
+  },
+  {
+   "id": "r03",
+   "sec": 7.0,
+   "at": 19.8
+  },
+  {
+   "id": "r04",
+   "sec": 12.2,
+   "at": 30.5
+  },
+  {
+   "id": "r05",
+   "sec": 5.2,
+   "at": 45.1
+  },
+  {
+   "id": "r06",
+   "sec": 7.0,
+   "at": 53.3
+  },
+  {
+   "id": "r07",
+   "sec": 3.3,
+   "at": 63.5
+  },
+  {
+   "id": "r08",
+   "sec": 1.6,
+   "at": 67.9
+  },
+  {
+   "id": "r09",
+   "sec": 2.8,
+   "at": 70.4
+  },
+  {
+   "id": "r10",
+   "sec": 8.6,
+   "at": 75.9
+  },
+  {
+   "id": "r11",
+   "sec": 6.5,
+   "at": 89.2
+  },
+  {
+   "id": "r12",
+   "sec": 4.5,
+   "at": 96.7
+  },
+  {
+   "id": "r13",
+   "sec": 2.2,
+   "at": 104.7
+  },
+  {
+   "id": "r14",
+   "sec": 1.5,
+   "at": 107.8
+  },
+  {
+   "id": "r15",
+   "sec": 6.0,
+   "at": 113.6
+  },
+  {
+   "id": "r16",
+   "sec": 4.5,
+   "at": 122.7
+  },
+  {
+   "id": "r17",
+   "sec": 2.6,
+   "at": 131.2
+  },
+  {
+   "id": "r18",
+   "sec": 1.1,
+   "at": 135.4
+  },
+  {
+   "id": "r19",
+   "sec": 3.8,
+   "at": 141.6
+  },
+  {
+   "id": "r20",
+   "sec": 1.6,
+   "at": 146.5
+  },
+  {
+   "id": "r21",
+   "sec": 1.2,
+   "at": 148.8
+  },
+  {
+   "id": "r22",
+   "sec": 1.9,
+   "at": 150.8
+  },
+  {
+   "id": "r23",
+   "sec": 2.3,
+   "at": 156.8
+  },
+  {
+   "id": "r24",
+   "sec": 1.7,
+   "at": 160.2
+  },
+  {
+   "id": "r25",
+   "sec": 1.8,
+   "at": 162.7
+  },
+  {
+   "id": "r26",
+   "sec": 4.2,
+   "at": 168.2
+  },
+  {
+   "id": "r27",
+   "sec": 0.9,
+   "at": 173.4
+  },
+  {
+   "id": "r28",
+   "sec": 1.1,
+   "at": 175.2
+  },
+  {
+   "id": "r29",
+   "sec": 2.1,
+   "at": 180.1
+  },
+  {
+   "id": "r30",
+   "sec": 14.1,
+   "at": 187.7
+  },
+  {
+   "id": "r31",
+   "sec": 1.8,
+   "at": 206.4
+  },
+  {
+   "id": "r32",
+   "sec": 1.9,
+   "at": 209.7
+  },
+  {
+   "id": "r33",
+   "sec": 2.1,
+   "at": 212.5
+  },
+  {
+   "id": "r34",
+   "sec": 2.7,
+   "at": 218.0
+  },
+  {
+   "id": "r35",
+   "sec": 2.9,
+   "at": 221.6
+  },
+  {
+   "id": "r36",
+   "sec": 2.1,
+   "at": 227.0
+  },
+  {
+   "id": "r37",
+   "sec": 3.0,
+   "at": 230.1
+  },
+  {
+   "id": "r38",
+   "sec": 2.1,
+   "at": 234.8
+  },
+  {
+   "id": "r39",
+   "sec": 9.4,
+   "at": 240.5
+  },
+  {
+   "id": "r40",
+   "sec": 12.2,
+   "at": 253.0
+  },
+  {
+   "id": "r41",
+   "sec": 3.8,
+   "at": 269.4
+  },
+  {
+   "id": "r42",
+   "sec": 1.8,
+   "at": 274.0
+  },
+  {
+   "id": "r43",
+   "sec": 7.9,
+   "at": 279.9
+  },
+  {
+   "id": "r44",
+   "sec": 1.4,
+   "at": 288.6
+  },
+  {
+   "id": "r45",
+   "sec": 5.2,
+   "at": 294.2
+  },
+  {
+   "id": "r46",
+   "sec": 4.4,
+   "at": 300.3
+  },
+  {
+   "id": "s01",
+   "sec": 6.8,
+   "at": 3.1
+  },
+  {
+   "id": "s02",
+   "sec": 5.1,
+   "at": 13.2
+  },
+  {
+   "id": "s03",
+   "sec": 7.2,
+   "at": 19.8
+  },
+  {
+   "id": "s04",
+   "sec": 12.6,
+   "at": 30.2
+  },
+  {
+   "id": "s05",
+   "sec": 5.3,
+   "at": 45.1
+  },
+  {
+   "id": "s06",
+   "sec": 7.5,
+   "at": 52.9
+  },
+  {
+   "id": "s07",
+   "sec": 3.5,
+   "at": 63.5
+  },
+  {
+   "id": "s08",
+   "sec": 1.7,
+   "at": 67.9
+  },
+  {
+   "id": "s09",
+   "sec": 2.9,
+   "at": 70.4
+  },
+  {
+   "id": "s10",
+   "sec": 8.7,
+   "at": 75.9
+  },
+  {
+   "id": "s11",
+   "sec": 12.0,
+   "at": 89.2
+  },
+  {
+   "id": "s12",
+   "sec": 2.4,
+   "at": 104.6
+  },
+  {
+   "id": "s13",
+   "sec": 1.6,
+   "at": 107.8
+  },
+  {
+   "id": "s14",
+   "sec": 1.8,
+   "at": 113.6
+  },
+  {
+   "id": "s15",
+   "sec": 3.5,
+   "at": 116.1
+  },
+  {
+   "id": "s16",
+   "sec": 4.5,
+   "at": 122.7
+  },
+  {
+   "id": "s17",
+   "sec": 2.8,
+   "at": 131.2
+  },
+  {
+   "id": "s18",
+   "sec": 1.2,
+   "at": 135.5
+  },
+  {
+   "id": "s19",
+   "sec": 3.8,
+   "at": 141.6
+  },
+  {
+   "id": "s20",
+   "sec": 6.4,
+   "at": 146.5
+  },
+  {
+   "id": "s21",
+   "sec": 2.8,
+   "at": 156.4
+  },
+  {
+   "id": "s22",
+   "sec": 4.3,
+   "at": 160.2
+  },
+  {
+   "id": "s23",
+   "sec": 4.8,
+   "at": 167.9
+  },
+  {
+   "id": "s24",
+   "sec": 3.0,
+   "at": 173.4
+  },
+  {
+   "id": "s25",
+   "sec": 2.4,
+   "at": 180.1
+  },
+  {
+   "id": "s26",
+   "sec": 14.4,
+   "at": 187.3
+  },
+  {
+   "id": "s27",
+   "sec": 1.9,
+   "at": 206.3
+  },
+  {
+   "id": "s28",
+   "sec": 1.9,
+   "at": 209.8
+  },
+  {
+   "id": "s29",
+   "sec": 2.1,
+   "at": 212.5
+  },
+  {
+   "id": "s30",
+   "sec": 2.8,
+   "at": 218.0
+  },
+  {
+   "id": "s31",
+   "sec": 2.9,
+   "at": 221.6
+  },
+  {
+   "id": "s32",
+   "sec": 2.2,
+   "at": 227.0
+  },
+  {
+   "id": "s33",
+   "sec": 3.1,
+   "at": 230.2
+  },
+  {
+   "id": "s34",
+   "sec": 2.3,
+   "at": 234.7
+  },
+  {
+   "id": "s35",
+   "sec": 9.5,
+   "at": 240.5
+  },
+  {
+   "id": "s36",
+   "sec": 12.2,
+   "at": 253.0
+  },
+  {
+   "id": "s37",
+   "sec": 6.5,
+   "at": 269.4
+  },
+  {
+   "id": "s38",
+   "sec": 10.2,
+   "at": 279.9
+  },
+  {
+   "id": "s39",
+   "sec": 5.3,
+   "at": 294.2
+  },
+  {
+   "id": "s40",
+   "sec": 4.5,
+   "at": 300.3
+  }
+ ],
+ "_README_clips": "Marius improvised take cut at pauses. Play at RANDOM (never in order, no repeat until many others, not all in one visit). When clips exist they replace the written lines and no text is shown."
+}
