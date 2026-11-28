@@ -990,7 +990,7 @@ function begin(name,fresh){window.__PLAYER=name;ns(name);try{document.documentEl
   try{const ps=document.querySelectorAll('#intro .player');for(const p of ps){const b=p.querySelector('b'),s=p.querySelector('span');if(!b||!s)continue;const me=b.textContent.trim().toLowerCase()===name;if(me)s.textContent='You';else if(s.textContent==='You')s.textContent=name==='marius'?'Waiting at home':'Waiting at the tree';}
     if(GATE){const c=document.querySelector('#intro .card'),st=document.getElementById('start');if(c&&!document.getElementById('loginWho')){const d=document.createElement('div');d.id='loginWho';d.innerHTML='Logged in as <b></b> · <button type="button">Log out / Logg ut</button>';d.querySelector('b').textContent=name.toUpperCase();d.querySelector('button').onclick=()=>window.__LOGIN.logout();if(st&&st.parentNode===c)c.insertBefore(d,st.nextSibling);else c.appendChild(d);}}}catch(e){}
   ready(name);}
-window.__LOGIN={gated:GATE,sha256,get player(){return window.__PLAYER;},logout(){rdel('kv-login');location.reload();}};
+let OWNTYPED=false;/*godmode: the password was really typed this page load*/window.__LOGIN={gated:GATE,sha256,get player(){return window.__PLAYER;},ownerTyped:()=>OWNTYPED&&window.__PLAYER==='marius',ownerCheck:async pw=>window.__PLAYER==='marius'&&(await sha256(H.marius.salt+':'+String(pw).trim().toLowerCase()))===H.marius.hash,logout(){rdel('kv-login');location.reload();}};
 if(!GATE){const a=(qs.get('as')||qs.get('player')||'').toLowerCase();begin(NAMES.includes(a)?a:'marius');return;}
 let s=null;try{s=JSON.parse(rget('kv-login')||'null');}catch(e){}
 if(s&&H[s.name]&&s.hash===H[s.name].hash){begin(s.name);return;}
@@ -999,7 +999,7 @@ let pick=null;box.hidden=false;
 for(const c of box.querySelectorAll('.lpl'))c.onclick=()=>{pick=c.dataset.n;for(const o of box.querySelectorAll('.lpl'))o.classList.toggle('on',o===c);user.value=pick;form.hidden=false;err.textContent='';pw.value='';pw.placeholder='Passord for '+nice(pick)+' / Password';setTimeout(()=>pw.focus(),0);};
 let busy=false;
 form.onsubmit=async e=>{e.preventDefault();if(!pick||busy)return;busy=true;const P=H[pick];const got=await sha256(P.salt+':'+pw.value.trim().toLowerCase());busy=false;
-  if(got===P.hash){rset('kv-login',JSON.stringify({name:pick,hash:P.hash}));box.hidden=true;begin(pick,true);}
+  if(got===P.hash){OWNTYPED=pick==='marius';/*godmode*/rset('kv-login',JSON.stringify({name:pick,hash:P.hash}));box.hidden=true;begin(pick,true);}
   else{err.textContent='Feil passord / Wrong password';form.classList.remove('shake');void form.offsetWidth;form.classList.add('shake');pw.select();}};
 })();
 /* /player login */</script>
@@ -1018,7 +1018,7 @@ window.__devEff=eff;
 const isPhone=()=>eff()==='phone';
 const sync=()=>{try{document.body.classList.toggle('ph',isPhone());}catch(e){}};
 /* version label: the deploy script replaces the placeholder below; an unreplaced build shows DEV BUILD */
-const VRAW='28 Nov 2026 16:12';
+const VRAW='28 Nov 2026 17:33';
 const VER=(VRAW.indexOf('__BUILD'+'_')===0)?'DEV BUILD':VRAW;
 window.__VERSION=VER;
 const pill=()=>{const b=document.createElement('button');b.type='button';b.className='verpill';b.textContent=VER;b.title='Tap to copy';b.setAttribute('aria-label','Game version '+VER);b.addEventListener('click',e=>{e.stopPropagation();try{navigator.clipboard&&navigator.clipboard.writeText(VER);}catch(_){}});return b;};
@@ -4356,7 +4356,7 @@ window.__TS={flush:()=>TSFLUSH(),solid:(x,y,z)=>TSF(x,y,z),tree:(x,y,z)=>TSH(x,y
 addEventListener('keydown',e=>{if(!$('inv').hidden){if(e.key.toLowerCase()==='e'||e.key==='Escape'){closeInv();}return;}if(!$('search').hidden)return;const k=e.key.toLowerCase();keys[k]=true;if(k==='r'&&!e.repeat)rocket();if(k==='x'&&!e.repeat&&window.__JET)window.__JET.toggle();if(e.key===' '&&window.__JET&&window.__JET.on){e.preventDefault();return;}if(e.key===' '&&!e.repeat&&tryElytra()){e.preventDefault();return;}if(e.key==='Control')P.run=true;
   if(k==='f'&&!e.repeat)toggleFly();if(e.key===' '&&!e.repeat){const now=performance.now();if(now-(window.__lastSpace||0)<300){toggleFly();window.__lastSpace=0;}else window.__lastSpace=now;}if(k==='v'||e.key==='F5'){e.preventDefault();toggleView();}if(k==='e'){if($('inv').hidden)openInv();else closeInv();}if(k==='g'){useAct();}if(/^[1-9]$/.test(e.key))selectSlot(+e.key-1);if(e.key===' ')e.preventDefault();});
 addEventListener('keyup',e=>{keys[e.key.toLowerCase()]=false;if(e.key==='Shift'||e.key==='Control')P.run=$('bRun').classList.contains('on');});
-function toggleFly(){if(P.driving)return;if(window.__PUBLIC_HOST&&!P.fly)return;/*realgame: players cannot start free-fly (jetpack, elytra, Night Wing, balloons and rockets are the real flying); turning it OFF stays allowed*/P.fly=!P.fly;P.vy=0;$('bFly').classList.toggle('on',P.fly);$('bFly').setAttribute('aria-pressed',P.fly);$('bDown').hidden=!P.fly;if(!P.fly&&overlaps(P.x,P.y,P.z)){const [x,z]=freeSpot(P.x,P.z);P.x=x;P.z=z;P.y=spawnY(x,z);}}
+function toggleFly(){if(P.driving)return;if(window.__PUBLIC_HOST&&!P.fly&&!(window.__GODMODE&&window.__GODMODE.flyOk()))return;/*realgame: players cannot start free-fly (jetpack, elytra, Night Wing, balloons and rockets are the real flying); turning it OFF stays allowed*/P.fly=!P.fly;P.vy=0;$('bFly').classList.toggle('on',P.fly);$('bFly').setAttribute('aria-pressed',P.fly);$('bDown').hidden=!P.fly;if(!P.fly&&overlaps(P.x,P.y,P.z)){const [x,z]=freeSpot(P.x,P.z);P.x=x;P.z=z;P.y=spawnY(x,z);}}
 function toggleView(){if(window.__MAPTHINGS&&window.__MAPTHINGS.backrooms&&window.__MAPTHINGS.backrooms.in)return;/*mapthings_05*/if(window.__CAMS&&window.__CAMS.cycle())return;thirdPerson=!thirdPerson;$('bView').textContent=thirdPerson?'1ST':'VIEW';}
 // touch stick
 const stick=$('stick'),nub=$('nub');let stickId=null,sc0={x:0,y:0};
@@ -75545,6 +75545,94 @@ setInterval(tick,250);
 (function waitBoot(){const iv=setInterval(()=>{try{if(typeof started!=='undefined'&&started&&!W.__INTRO_ON&&!(W.__OPENING&&W.__OPENING.on)||QS.get('dev')==='1'&&typeof started!=='undefined'&&started){clearInterval(iv);boot();}}catch(_){}},1500);})();
 })();}catch(e){window.__STATUES_ERR=String(e&&e.stack||e);console.warn('woodstatues',e);}
 /* /woodstatues */
+/* godmode */
+/* Owner powers on the PUBLIC site: only when logged in as marius AND the password was typed this page load.
+   For anybody else this block creates nothing (no DOM, no listeners, no window.__GODMODE). No URL parameter turns it on.
+   Open: the crown button, Option/Alt+G, or controller Options menu -> Owner. Quick note: Option/Alt+N. Switches are not saved: a reload clears them. */
+try{(()=>{const W=window,L=W.__LOGIN;if(!L||!L.gated||!W.__LOGIN_READY)return;
+W.__LOGIN_READY.then(who=>{try{if(who!=='marius'||W.__PLAYER!=='marius')return;
+const D=document,NKEY='kv-owner-notes',WX=['clear','light','steady','heavy','fog','frost','aurora'];
+let ok=!!(L.ownerTyped&&L.ownerTyped()),fly=false,god=false,tp=false,spd=1,clock=null,mode='main',msg='';
+const me=()=>W.__PLAYER==='marius';
+const can=()=>ok&&me();
+const busy=()=>{try{return !!(W.__BUSY&&W.__BUSY('scene,dead'));}catch(_){return false;}};
+const say=t=>{msg=t;try{toast(t);}catch(_){}const m=D.getElementById('godMsg');if(m)m.textContent=t;};
+/* ---- powers ---- */
+function setFly(on){if(!can())return;fly=!!on;D.body.classList.toggle('godfly',fly);if(fly){if(!P.fly&&!P.driving)toggleFly();}else if(P.fly)toggleFly();}
+function setGod(on){if(!can())return;god=!!on;const H=W.__HEALTH;if(H&&!H.__godw){const h0=H.hurt;H.hurt=function(){if(god)return;return h0.apply(this,arguments);};H.__godw=1;}}
+setInterval(()=>{if(!god)return;const H=W.__HEALTH;if(H&&!H.dead){H.hp=H.max;H.eye=0;}},200);
+function setTp(on){if(!can()||!W.__DEVTP)return;tp=!!on;W.__DEVTP.override(tp?true:null);}
+function setSpeed(n){if(!can())return;spd=n;W.__SPD=n;}
+/* time: the online friends share one clock. A game speed that differs by a hair makes their pages ignore ours (online.js compares it),
+   so changing the time here never moves theirs. "Normal clock" puts back the hour it would have been. */
+function holdClock(){const T=W.__TOD;if(!T)return null;if(!clock){clock={u:T.d*24+T.h,t:Date.now(),sp:T.speed,paused:T.paused};T.speed=clock.sp*1.000001;}return T;}
+function setTime(h){if(!can())return;const T=holdClock();if(T){T.set(h);say('Time '+T.hhmm()+' (only for you)');}}
+function freeze(){if(!can())return;const T=holdClock();if(T){T.pause(!T.paused);say(T.paused?'Clock frozen':'Clock running');}}
+function normalClock(){const T=W.__TOD;if(!T||!clock)return;const u=clock.u+(clock.paused?0:(Date.now()-clock.t)/1000*clock.sp/60);T.speed=clock.sp;T.paused=clock.paused;T.d=Math.floor(u/24);T.set(u-T.d*24);clock=null;}
+function setWx(n){if(!can()||!W.__WEATHER)return;W.__WEATHER.set(n||null);try{W.__WEATHER.step(40);}catch(_){}}
+for(const ev of ['pagehide','beforeunload'])addEventListener(ev,()=>{try{normalClock();}catch(_){}},true);
+function giveIt(id,n){if(!can()||!IT[id])return;give(id,Math.max(1,Math.min(999,n|0)));say('Given: '+IT[id].n);}
+function friends(){const O=W.__ONLINE,a=[];if(O&&O.R&&O.status==='open')for(const n in O.R){const r=O.R[n];if(r&&r.have&&isFinite(r.x)&&isFinite(r.z))a.push(r);}return a;}
+function gotoFriend(name){if(!can())return;const r=friends().find(f=>f.name===name);if(!r){say(name+' is not here');return;}if(busy()){say('Not during a scene');return;}
+  if(P.driving){say('Get out of the vehicle first');return;}
+  show(false);P.x=r.x+1.2;P.z=r.z;P.vx=P.vy=P.vz=0;streamChunks(P.x,P.z,800);P.y=(isFinite(r.y)?r.y:spawnY(P.x,P.z))+.2;try{unstick();}catch(_){}say('You are with '+name.toUpperCase());}
+/* ---- notes ---- */
+const notes=()=>{try{const a=JSON.parse(localStorage.getItem(NKEY)||'[]');return Array.isArray(a)?a:[];}catch(_){return [];}};
+function note(text){if(!can())return null;const T=W.__TOD,n={text:String(text||'').trim().slice(0,600)||'(marked spot)',x:+P.x.toFixed(1),y:+P.y.toFixed(1),z:+P.z.toFixed(1),yaw:+P.yaw.toFixed(2),day:W.__DAY|0,gameTime:T?T.hhmm():'',fly:!!P.fly,driving:!!P.driving,ver:W.__VERSION||'',when:new Date().toISOString()};
+  const a=notes();a.push(n);while(a.length>200)a.shift();try{localStorage.setItem(NKEY,JSON.stringify(a));}catch(_){}
+  /* send: __STATS only posts from github.io, so post to the same topic ourselves elsewhere */
+  try{const S=W.__STATS,d=Object.assign({player:'marius',title:'Note: '+n.text.slice(0,80),tags:'ownernote'},n);
+    if(S&&S.live)S.send('ownernote',d);else if(S&&S.topic)fetch(S.topic,{method:'POST',mode:'cors',body:JSON.stringify(Object.assign({kind:'ownernote'},d,{title:undefined,tags:undefined})),headers:{'Title':'Owner note','Tags':'ownernote'}}).catch(()=>{});}catch(_){}
+  say('Note saved ('+a.length+')');return n;}
+/* ---- UI ---- */
+const css=D.createElement('style');css.id='godCss';css.textContent='#godBtn{position:fixed;left:50%;top:4px;transform:translateX(-50%);z-index:60;width:34px;height:30px;border:0;border-radius:8px;background:rgba(12,18,34,.6);font-size:16px;cursor:pointer}'
+ +'#godPanel{position:fixed;inset:0;z-index:99990;background:rgba(3,5,12,.55);display:flex;align-items:center;justify-content:center;pointer-events:auto}#godPanel[hidden]{display:none}'
+ +'#godPanel .gp{background:#0e1630;color:#eaf0ff;border:2px solid #ffd23f;border-radius:12px;padding:12px;width:min(520px,94vw);max-height:90vh;overflow:auto;font:14px/1.35 system-ui,sans-serif}'
+ +'#godPanel .r{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:7px 0}#godPanel b{min-width:62px}#godPanel button,#godPanel select,#godPanel input{min-height:36px;border-radius:8px;border:1px solid #4a5a8a;background:#1c2950;color:#fff;padding:4px 10px;font:inherit}'
+ +'#godPanel button.on{background:#ffd23f;color:#10182f}#godPanel input[type=text],#godPanel input[type=password]{flex:1;min-width:150px}#godMsg{color:#ffd23f;min-height:18px}'
+ +'html body.godfly #bFly{display:block!important}';
+D.head.appendChild(css);
+const btn=D.createElement('button');btn.type='button';btn.id='godBtn';btn.textContent='👑';btn.setAttribute('aria-label','Owner panel');D.body.appendChild(btn);
+const box=D.createElement('div');box.id='godPanel';box.hidden=true;box.setAttribute('role','dialog');D.body.appendChild(box);
+try{W.__HUDLAYOUT&&W.__HUDLAYOUT.register&&W.__HUDLAYOUT.register(btn,{priority:40,anchor:'top'});}catch(_){}
+const el=(tag,props,kids)=>{const e=D.createElement(tag);Object.assign(e,props||{});for(const k of kids||[])e.appendChild(k);return e;};
+const B=(text,fn,on)=>el('button',{type:'button',textContent:text,className:on?'on':'',onclick:ev=>{ev.stopPropagation();fn();}});
+const row=(label,kids)=>el('div',{className:'r'},(label?[el('b',{textContent:label})]:[]).concat(kids));
+const again=fn=>()=>{fn();render();};
+function render(){box.textContent='';const c=el('div',{className:'gp'});box.appendChild(c);
+  c.appendChild(row('',[el('b',{textContent:mode==='note'?'NOTE':'OWNER'}),B('✕ Close',()=>show(false))]));
+  if(!can()){const pw=el('input',{type:'password',id:'godPw',placeholder:'Your password',autocomplete:'current-password'});
+    const go=async()=>{if(await L.ownerCheck(pw.value)){ok=true;msg='';render();}else say('Wrong password');};
+    pw.onkeydown=e=>{if(e.key==='Enter')go();};c.appendChild(row('',[pw,B('Unlock',go)]));c.appendChild(el('div',{id:'godMsg',textContent:msg}));setTimeout(()=>pw.focus(),30);return;}
+  const nt=el('input',{type:'text',id:'godNote',placeholder:'What is wrong here?',maxLength:600});
+  const save=()=>{note(nt.value);nt.value='';if(mode==='note')show(false);};nt.onkeydown=e=>{if(e.key==='Enter')save();};
+  c.appendChild(row('Note',[nt,B('Save',save)]));
+  if(mode==='note'){c.appendChild(el('div',{id:'godMsg'}));setTimeout(()=>nt.focus(),30);return;}
+  c.appendChild(row('Powers',[B('Fly',again(()=>setFly(!fly)),fly),B('No damage',again(()=>setGod(!god)),god),B('Map/search teleport',again(()=>setTp(!tp)),tp)]));
+  c.appendChild(row('Go',[B('Map',()=>{setTp(true);show(false);try{W.__BIGMAP.openIt();}catch(_){}}),B('Search',()=>{setTp(true);show(false);openSearch();})].concat(friends().map(f=>B('To '+f.name.toUpperCase(),()=>gotoFriend(f.name))))));
+  c.appendChild(row('Speed',[1,2,3,6].map(n=>B(n+'x'+(n>3?' (fly)':''),again(()=>setSpeed(n)),spd===n))));
+  const T=W.__TOD;c.appendChild(row('Time',[7,12,15,18,22,0].map(h=>B(String(h).padStart(2,'0'),again(()=>setTime(h)))).concat([B('Freeze',again(freeze),!!(clock&&T&&T.paused)),B('Normal clock',again(normalClock),!clock)])));
+  const cur=(W.__WEATHER&&W.__WEATHER.force)||'';c.appendChild(row('Weather',[''].concat(WX).map(n=>B(n||'auto',again(()=>setWx(n)),cur===n))));
+  const sel=el('select',{id:'godItem'},Object.keys(IT).sort((a,b)=>String(IT[a].n).localeCompare(String(IT[b].n))).map(id=>el('option',{value:id,textContent:IT[id].n})));
+  const qty=el('select',{},[1,5,16,64].map(n=>el('option',{value:n,textContent:'x'+n})));
+  c.appendChild(row('Item',[sel,qty,B('Give',()=>giveIt(sel.value,+qty.value))]));
+  c.appendChild(row('Notes',[el('span',{textContent:notes().length+' saved'}),B('Copy all',()=>{try{navigator.clipboard.writeText(JSON.stringify(notes(),null,1));say('Copied');}catch(_){say('Copy failed');}})]));
+  c.appendChild(el('div',{id:'godMsg',textContent:msg}));}
+function show(on,m){mode=m||'main';msg='';box.hidden=!on;if(on){try{D.exitPointerLock();}catch(_){}try{for(const k in keys)keys[k]=false;}catch(_){}render();}else{try{D.activeElement&&D.activeElement.blur();}catch(_){}}}
+btn.addEventListener('click',e=>{e.stopPropagation();show(box.hidden);});
+box.addEventListener('click',e=>{e.stopPropagation();if(e.target===box)show(false);});
+for(const ev of ['keydown','keyup','pointerdown','wheel'])box.addEventListener(ev,e=>{e.stopPropagation();if(ev==='keydown'&&e.key==='Escape')show(false);});
+addEventListener('keydown',e=>{const hot=e.altKey&&!e.ctrlKey&&!e.metaKey&&(e.code==='KeyG'||e.code==='KeyN');
+  if(hot){e.preventDefault();e.stopImmediatePropagation();if(!e.repeat&&me())show(box.hidden,e.code==='KeyN'?'note':'main');return;}
+  if(!box.hidden&&e.key==='Escape'){e.preventDefault();e.stopImmediatePropagation();show(false);}},true);
+/* controller: an extra button in the Options (pause) menu; the panel itself is found by the pad menu navigation */
+try{const r=padMenu.querySelector('.row');if(r){const b=B('👑 Owner',()=>{padMenu.hidden=true;show(true);});r.appendChild(b);}}catch(_){}
+try{W.__BUSY&&W.__BUSY.add&&W.__BUSY.add('godpanel','ui',()=>!box.hidden);}catch(_){}
+/* read-only handle (tests + toggleFly). Powers are reachable through the panel only. */
+W.__GODMODE={flyOk:()=>fly&&can(),state:()=>({unlocked:can(),fly,god,tp,spd,clock:!!clock,open:!box.hidden,notes:notes().length})};
+}catch(e){W.__GODMODE_ERR=String(e&&e.stack||e);console.warn('godmode',e);}});
+})();}catch(e){window.__GODMODE_ERR=String(e&&e.stack||e);console.warn('godmode',e);}
+/* /godmode */
 /* mapall-devtp */
 try{(()=>{
 /* DEV: a click on ANY map marker (big map or minimap) or a search result TELEPORTS the player next to it, facing it. Outside dev the same click starts the GPS (unchanged).
