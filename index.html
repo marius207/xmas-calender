@@ -760,6 +760,7 @@ html body.mcOpen.mcOpen canvas#glmain,html body.mcOpen.mcOpen #hudBar,html body.
 html body.mcOpen.mcOpen canvas#glmain{visibility:visible!important}
 </style>
 <script>/* mcmenu2 */(()=>{const shut=()=>{if(!document.body.classList.contains('mcOpen'))return;const m=document.getElementById('bMenu');if(m&&m.getAttribute('aria-expanded')==='true')m.click();};document.addEventListener('click',e=>{const b=e.target&&e.target.closest&&e.target.closest('#hudBar button');if(!b||b.id==='bMenu'||b.id==='bGfx'||b.id==='bLook'||b.id==='bVO'||b.closest('#spdBar'))return;if(document.body.classList.contains('mcOpen'))setTimeout(shut,0);},true);addEventListener('keydown',e=>{if(e.key!=='Escape'&&e.key!=='Tab'&&e.key!=='Enter'&&e.key!==' ')shut();},true);})();</script>
+<style>/*marius1130*/@media (min-width:900px) and (min-height:521px){html body:not(.ph) #hudMeters{top:10px!important;left:330px!important;flex-direction:row!important;width:auto!important;gap:8px!important;align-items:flex-start}html body:not(.ph):not(.hm-drive):not(.hm-combat) #hudMeters .hmM{width:176px}}</style>
 <!-- player login -->
 <style>/* player login */
 #login{position:fixed;inset:0;z-index:60;display:grid;place-items:center;background:radial-gradient(ellipse at 50% 40%,rgb(22,30,60),rgb(3,5,12));padding:24px 16px;text-align:center;color:var(--ink);overflow:auto;font-family:var(--body)}
@@ -992,7 +993,7 @@ window.__devEff=eff;
 const isPhone=()=>eff()==='phone';
 const sync=()=>{try{document.body.classList.toggle('ph',isPhone());}catch(e){}};
 /* version label: the deploy script replaces the placeholder below; an unreplaced build shows DEV BUILD */
-const VRAW='28 Nov 2026 09:28';
+const VRAW='28 Nov 2026 11:14';
 const VER=(VRAW.indexOf('__BUILD'+'_')===0)?'DEV BUILD':VRAW;
 window.__VERSION=VER;
 const pill=()=>{const b=document.createElement('button');b.type='button';b.className='verpill';b.textContent=VER;b.title='Tap to copy';b.setAttribute('aria-label','Game version '+VER);b.addEventListener('click',e=>{e.stopPropagation();try{navigator.clipboard&&navigator.clipboard.writeText(VER);}catch(_){}});return b;};
@@ -1182,6 +1183,7 @@ setInterval(()=>{try{const a=document.getElementById('nlAsk'),N=window.__NORDLYS
 (()=>{if(window.__STORYQUIET)return;const W=window,D=document;let last=-1e9;
 const bc=n=>{try{return D.body.classList.contains(n);}catch(_){return false;}};
 const why=()=>{try{
+ try{const q=W.__CINE&&W.__CINE.P;if(q&&(W.__DAY|0)<=1&&Math.hypot(q.x,q.z-15)>1500)return 'drivehome';}catch(_){}/*marius1130: no calls until downtown*/
  const b=W.__BUSY?W.__BUSY('scene,dead'):'';if(b)return b;
  if(W.__INTRO_ON||(W.__OPENING&&W.__OPENING.on))return 'opening';
  for(const c of ['cineOn','film','scOn','dnOn','dsOn','mtOn','hm-cutscene'])if(bc(c))return c;
@@ -3952,7 +3954,7 @@ if(qp==='0')off=true;else if(qp==='1')off=false;
 if(TOUCH&&qp!=='1')return;
 const num=(k,d,lo,hi)=>{const v=parseFloat(QS_.get(k));return isFinite(v)?Math.max(lo,Math.min(hi,v)):d;};
 const R0s=r.setPixelRatio.bind(r),R0g=r.getPixelRatio.bind(r),CM=(typeof composer!=='undefined'&&composer)?composer:null,C0s=CM?CM.setPixelRatio.bind(CM):null;
-const D=window.__DRS={on:!off,s:1,base:R0g(),floor:num('drsfloor',.7,.3,2),hiMs:1000/num('drsfps',48,20,144),ema:16.7,work:0,hold:0,probes:0,fails:0,changes:0,upWait:4000,noGainUntil:0,lastUp:0,log:[]};
+const D=window.__DRS={on:qp==='1'&&!off/*marius1130 speedoff*/,s:1,base:R0g(),floor:num('drsfloor',.7,.3,2),hiMs:1000/num('drsfps',48,20,144),ema:16.7,work:0,hold:0,probes:0,fails:0,changes:0,upWait:4000,noGainUntil:0,lastUp:0,log:[]};
 const sMin=()=>Math.min(1,D.floor/Math.max(.01,D.base));
 const act=v=>{v=+v||1;return Math.max(Math.min(D.floor,v),v*D.s);};
 D.pr=()=>act(D.base);
@@ -4538,7 +4540,9 @@ for(const [P_,C_,m] of [[bulbPos,bulbCol,bulbMatA],[bulbPos2,bulbCol2,bulbMatB]]
 // paper stars hanging in the middle of the garlands
 const starGeo=(()=>{const sh=new THREE.Shape();for(let i=0;i<10;i++){const r=i%2?.22:.55,a=i/10*Math.PI*2-Math.PI/2;i?sh.lineTo(Math.cos(a)*r,Math.sin(a)*r):sh.moveTo(Math.cos(a)*r,Math.sin(a)*r);}return new THREE.ExtrudeGeometry(sh,{depth:.12,bevelEnabled:false});})();
 const starMat=new THREE.MeshBasicMaterial({color:new THREE.Color(2.4,2.0,1.1),toneMapped:false});
-const STARM=STARS.map(([x,y,z])=>{const m=new THREE.Mesh(starGeo,starMat);m.position.set(x,y,z);scene.add(m);return m;});
+/*starhang: only the stars under the street lights; point up, cord reaches the string 0.9 m above*/
+const starHangGeo=(()=>{const sh=new THREE.Shape();sh.moveTo(.02,.5);sh.lineTo(.02,.92);sh.lineTo(-.02,.92);sh.lineTo(-.02,.5);for(let i=1;i<10;i++){const r=i%2?.22:.55,a=i/10*Math.PI*2+Math.PI/2;sh.lineTo(Math.cos(a)*r,Math.sin(a)*r);}return new THREE.ExtrudeGeometry(sh,{depth:.12,bevelEnabled:false});})();
+const STARM=STARS.map(([x,y,z])=>{const m=new THREE.Mesh(starHangGeo,starMat);m.position.set(x,y,z);scene.add(m);return m;});
 // the square: julekula (walk-in light globe), Santa's sleigh + reindeer, Christmas market stalls, gifts, snowmen
 {const C=window.__cal;const nx=C?C.nx:0,nz=C?C.nz:1,tx=-nz,tz=nx;const gy=gAt(TX,TZ);
  SQKEEP.push([TX,TZ,6.5]);SQKEEP.push([TRX,TRZ,6.5]);/*squareapply*/const put=(o,dx,dz,ry=0)=>{let x=TX+tx*dx+nx*dz,z=TZ+tz*dx+nz*dz,rr=Math.atan2(nx,nz)+ry;{const mv=window.__SQM&&window.__SQM(x,z);if(mv){x=mv[0];z=mv[1];rr=mv[2];}}SQKEEP.push([x,z,o.children.length>40?7:3.6]);o.position.set(x,gAt(x,z),z);o.rotation.y=rr;scene.add(o);o.traverse(q=>{if(q.isMesh)q.castShadow=true;});return o;};
@@ -7078,7 +7082,7 @@ function frameMain_(now){/*noframefreeze: frame() re-arms first and wraps this*/
   if(SHOT==='25'&&MARTINH){const c2=COURT||{cx:MARTINH.c[0],cz:MARTINH.c[1]};cam.position.set((c2.cx+MARTINH.c[0])/2+30,MARTINH.base+30,(c2.cz+MARTINH.c[1])/2+30);cam.lookAt((c2.cx+MARTINH.c[0])/2,MARTINH.base,(c2.cz+MARTINH.c[1])/2);}
   if(SHOT==='26'&&BOWL){cam.position.set(85,BOWL.base+170,-540);cam.up.set(0,0,-1);cam.lookAt(85,BOWL.base,-541);}if(SHOT==='27'&&BOWL){cam.position.set(BOWL.c[0]+55,BOWL.base+22,BOWL.c[1]+10);cam.lookAt(BOWL.c[0],BOWL.base+4,BOWL.c[1]);}
   if(SHOT==='4'){cam.position.set(TX+380,160,TZ+420);cam.lookAt(TX-40,0,TZ-60);}
-  shadowT-=dt;if(shadowT<=0){shadowT=QTIER.k.shT;{const ld=window.__TOD&&window.__TOD.ld;moon.position.set(Math.round(P.x)+(ld?ld[0]*103:-40),P.y+(ld?ld[1]*103:90),Math.round(P.z)+(ld?ld[2]*103:-30));}moon.target.position.set(Math.round(P.x),P.y,Math.round(P.z));moon.target.updateMatrixWorld();if(!(window.__INTRO_ON&&!window.__SMSH0&&cam.position.y-P.y>110))r.shadowMap.needsUpdate=true;/*smoothshadow*/}
+  shadowT-=dt;if(shadowT<=0){shadowT=QTIER.k.shT;{const ld=window.__TOD&&window.__TOD.ld;moon.position.set(Math.round(P.x)+(ld?ld[0]*103:-40),P.y+(ld?ld[1]*103:90),Math.round(P.z)+(ld?ld[2]*103:-30));}moon.target.position.set(Math.round(P.x),P.y,Math.round(P.z));moon.target.updateMatrixWorld();r.shadowMap.needsUpdate=true;/*speedoff*/}
   // nearest street lamps get real lights
   lightT-=dt;if(lightT<=0){lightT=.35;if(!window.__SL){window.__SL=[];const keep=new Set([...lightPool,indoorLight]);const rm=[];scene.traverse(o=>{if(o.isPointLight&&!keep.has(o)&&!o.userData.lpad)rm.push(o);});/*iceintro02: the pad lights stay*/
       for(const o of rm){o.updateWorldMatrix(true,false);const wp=new THREE.Vector3().setFromMatrixPosition(o.matrixWorld);window.__SL.push({x:wp.x,y:wp.y,z:wp.z,c:o.color.clone(),i:o.intensity,d:o.distance,k:o.decay});o.parent.remove(o);}}
@@ -8659,7 +8663,7 @@ function make(ch){if(!ch||ch.kx===undefined)return null;const ids=byChunk.get(ch
  const JN=window.__R2&&window.__R2.JN;const pos=[],col=[],idx=[];let vc=0;
  for(const ri of ids){const o=RS[ri];prep(o);const secs=o.b.get(key);if(!secs)continue;const hw=o.hw;const rows=new Map();
   /* row j: lateral offsets (relative to the OSM line) + surface heights; null = no carriageway here */
-  const row=j=>{let r=rows.get(j);if(r!==undefined)return r;r=null;const x=o.X[j],z=o.Z[j];if(okQ(x,z)){const [wl,wr]=extAt(o,j);const A=(wl+wr)/2-INSET,c0=(wl-wr)/2;
+  const row=j=>{let r=rows.get(j);if(r!==undefined)return r;r=null;const x=o.X[j],z=o.Z[j];if(okQ(x,z)){let sa_=0,sc_=0,n_=0;for(let k=Math.max(0,j-10);k<=Math.min(o.n,j+10);k++){const [l_,r_]=extAt(o,k);sa_+=(l_+r_)/2;sc_+=(l_-r_)/2;n_++;}const A=sa_/n_-INSET,c0=sc_/n_;/*roadsmooth*/
     if(A>=1.1){const E=Math.max(.4,A-.55);const OFR=[-A,-(E+WL),-E,-E/2,-.09,.09,E/2,E,E+WL,A];const off=new Float32Array(10),h=new Float32Array(10),nx=o.NX[j],nz=o.NZ[j];
      for(let q=0;q<10;q++){off[q]=c0+OFR[q];h[q]=surf(x+nx*off[q],z+nz*off[q])+OFY;}r={off,h,A};}}rows.set(j,r);return r;};
   for(const j of secs){const j2=j+1;const r1=row(j),r2=row(j2);if(!r1||!r2){rj('norow');continue;}const mx=(o.X[j]+o.X[j2])/2,mz=(o.Z[j]+o.Z[j2])/2;
@@ -18160,7 +18164,7 @@ function chunkStep(ms){if(!BD.list||BD.done)return;const t0=performance.now();
 /* weak machine: keep only the chunks closest to the path */
 function chunkTrim(){if(!BD.list||BD.done||BD.light)return;BD.light=true;BD.note='Lighter view on this device';const rest=BD.list.slice(BD.i).filter(e=>e.d<=BD.RD*.45);BD.list=BD.list.slice(0,BD.i).concat(rest);BD.total=BD.list.length;}
 /* adaptive: when frames take longer than ~50 ms the pinned chunks farthest from the camera are switched off (group.visible) until the frame time is fine again */
-/* smoothdeco */const DLOD=window.__DLOD={on:QI.get('smoothdeco')!=='0',far:760,near:700,hid:0,ms:0,set:null,FAR:1<<29};
+/* smoothdeco */const DLOD=window.__DLOD={on:QI.get('smoothdeco')==='1'/*speedoff*/,far:760,near:700,hid:0,ms:0,set:null,FAR:1<<29};
 function decoGeos(){if(DLOD.set)return DLOD.set;const S=new Set();const add=f=>{try{const g=f();if(g)S.add(g);}catch(_){}};
  add(()=>balcGeo);add(()=>glassGeo);add(()=>awnGeo);add(()=>candleGeo);add(()=>starGeo2);add(()=>benchGeo);add(()=>postGeo);add(()=>basketGeo);return DLOD.set=S;}
 function decoChunk(ch,hide){if(!ch||!ch.group||!!ch._dl===hide)return;ch._dl=hide;const S=decoGeos();
@@ -20246,7 +20250,7 @@ PH.sms=function(from,text,o){try{o=o||{};const id=typeof from==='object'&&from?f
   thread(id).unread++;return peekSms(id,clipTxt(text),name);}catch(e){PH.err=String(e&&e.stack||e);return false;}};
 let kickT=0;function kick(){if(kickT)return;kickT=setTimeout(function f(){kickT=0;if(!PH.queue.length)return;if(busy()||bigUI()||PH.mode==='ring'||(PH.mode==='ui'&&curScr()&&curScr().t==='snake'&&!SN.over)){kickT=setTimeout(f,1500);return;}const q=PH.queue.shift();const t=thread(q.id);t.unread=Math.max(1,t.unread);peekSms(q.id,q.text,q.name);if(PH.queue.length)kickT=setTimeout(f,7000);},1500);}
 /* ---------- calls ---------- */
-PH.call=function(o){try{o=o||{};if(call||PH.mode==='ring'||busy())return false;if(!o.now&&window.__STORYQUIET&&!window.__STORYQUIET(3000)){/*playphone: wait for calm; a story call is kept and rung in later*/if(o.story){const oo=o;let n=0;const f=()=>{try{if(++n>150)return;if(!window.__STORYQUIET(3000)||PH.call(oo)===false)setTimeout(f,2000);}catch(_){}};setTimeout(f,2000);return true;}return false;}if(PH.mode==='ui'){SN.stop();if(SN.on&&!SN.over)SN.paused=true;}const id=o.id||'unknown';thread(id,o.name);call=o;call.id=id;call.name=o.name||nameOf(id);clearTimeout(hideT);clearTimeout(typT);
+PH.call=function(o){try{o=o||{};if(call||PH.mode==='ring'||busy())return false;if(!o.now&&window.__STORYQUIET&&!window.__STORYQUIET(3000)){/*playphone: wait for calm; a story call is kept and rung in later*/if(o.story){const oo=o;let n=0;const f=()=>{try{if(++n>900)return;if(!window.__STORYQUIET(3000)||PH.call(oo)===false)setTimeout(f,2000);}catch(_){}};setTimeout(f,2000);return true;}return false;}if(PH.mode==='ui'){SN.stop();if(SN.on&&!SN.over)SN.paused=true;}const id=o.id||'unknown';thread(id,o.name);call=o;call.id=id;call.name=o.name||nameOf(id);clearTimeout(hideT);clearTimeout(typT);
   stack=[];setMode('ring');render();const loop=()=>{ringTune();buzz();};loop();clearInterval(ringT);ringT=setInterval(loop,2600);clearTimeout(ttlT);ttlT=setTimeout(()=>PH.decline(true),o.ttl||14000);return true;}catch(e){PH.err=String(e&&e.stack||e);return false;}};
 const endRing=()=>{clearInterval(ringT);clearTimeout(ttlT);};
 PH.ringing=()=>PH.mode==='ring'&&!!call;
@@ -22433,8 +22437,8 @@ function sweep(){const cx=cam.position.x,cz=cam.position.z,fogF=scene.fog?scene.
   PF.cull.tracked=CU.list.length;PF.cull.hidden=CU.hidden;}
 /* smoothfar02 */
 const QF_=new URLSearchParams(location.search);
-const PXC=window.__FOGCULL={on:QF_.get('fogcull')!=='0',hid:0,ms:0,swept:0,k:.985,px:.5};const _pxv=new THREE.Vector3();
-const LM=window.__LOOSEMERGE={on:QF_.get('loosemerge')!=='0',far:600,near:540,cell:256,maxV:120000,budgetMB:QTIER.tier==='ultra'?160:96,bytes:0,regions:new Map(),list:[],extra:[],
+const PXC=window.__FOGCULL={on:QF_.get('fogcull')==='1'/*speedoff*/,hid:0,ms:0,swept:0,k:.985,px:.5};const _pxv=new THREE.Vector3();
+const LM=window.__LOOSEMERGE={on:QF_.get('loosemerge')==='1'/*speedoff*/,far:600,near:540,cell:256,maxV:120000,budgetMB:QTIER.tier==='ultra'?160:96,bytes:0,regions:new Map(),list:[],extra:[],
  phase:0,pi:0,snapAt:0,queue:[],built:0,parts:0,act:0,ents:0,meshes:0,rejected:0,buildMs:0,maxStepMs:0,dead:false,err:null,keep:QF_.get('farmergekeep')==='1',root:null,vt:0,vq:[],dropped:0,full:false};
 {const q=parseFloat(QF_.get('loosemergemb'));if(isFinite(q))LM.budgetMB=q;}
 try{r.domElement.addEventListener('webglcontextlost',()=>{LM.dead=true;LM.err='context lost';try{lmOff();}catch(_){}});}catch(_){}
@@ -71366,7 +71370,7 @@ html body:not(.ph) #hudBar{position:fixed!important;top:calc(env(safe-area-inset
 html body.hudIdle:not(.ph).hudMin #hudBar{opacity:.4}html body #hudBar:hover{opacity:1!important}
 /* H: hotbar / crosshair / phone icon by mode */
 html body.hudIdle #hotbar{opacity:.4}html body #hotbar{transition:opacity .5s}
-html body.hm-drive :is(#hotbar,#xhair,#phIcon){display:none!important}
+html body.hm-drive :is(#hotbar,#xhair){display:none!important}/*marius1130: the phone icon stays in the car*/
 html body.hm-combat #phIcon{display:none!important}`;}
 H.css('03',css());
 /* ---- adopt the legacy elements into the column ---- */
