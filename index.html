@@ -1018,7 +1018,7 @@ window.__devEff=eff;
 const isPhone=()=>eff()==='phone';
 const sync=()=>{try{document.body.classList.toggle('ph',isPhone());}catch(e){}};
 /* version label: the deploy script replaces the placeholder below; an unreplaced build shows DEV BUILD */
-const VRAW='28 Nov 2026 17:33';
+const VRAW='28 Nov 2026 18:49';
 const VER=(VRAW.indexOf('__BUILD'+'_')===0)?'DEV BUILD':VRAW;
 window.__VERSION=VER;
 const pill=()=>{const b=document.createElement('button');b.type='button';b.className='verpill';b.textContent=VER;b.title='Tap to copy';b.setAttribute('aria-label','Game version '+VER);b.addEventListener('click',e=>{e.stopPropagation();try{navigator.clipboard&&navigator.clipboard.writeText(VER);}catch(_){}});return b;};
@@ -1611,9 +1611,9 @@ function greedy(dims,sample,origin,scale,topTile,faceFn){let cq=GRE?GRE.cq:2048;
 
 
 // ================= load XL data =================
-const VER='v25';async function loadImg(src){const im=new Image();im.src=src+'?'+VER;await im.decode();const c=document.createElement('canvas');c.width=im.width;c.height=im.height;const g=c.getContext('2d',{willReadFrequently:true});g.drawImage(im,0,0);const dd=g.getImageData(0,0,im.width,im.height).data,ww=im.width,hh=im.height;c.width=c.height=0;try{window.__ldTick&&window.__ldTick();}catch(e){}/* phone memory: give the big canvas back at once (iPhone Safari keeps it until the page is killed) */return {d:dd,w:ww,h:hh};}
+const VER='v25';async function loadImg(src){const im=new Image();im.src=src+'?'+VER+(src.startsWith('west/')?'&w='+((window.__WEST&&window.__WEST.build)||0):'')/*west_01*/;await im.decode();const c=document.createElement('canvas');c.width=im.width;c.height=im.height;const g=c.getContext('2d',{willReadFrequently:true});g.drawImage(im,0,0);const dd=g.getImageData(0,0,im.width,im.height).data,ww=im.width,hh=im.height;c.width=c.height=0;try{window.__ldTick&&window.__ldTick();}catch(e){}/* phone memory: give the big canvas back at once (iPhone Safari keeps it until the page is killed) */return {d:dd,w:ww,h:hh};}
 $('load').textContent='Loading the valley';
-const world=await (await fetch('world.json?'+VER,{cache:'no-cache'})).json();
+/*west_01: wider western map, dev only, ?west=1*/const [WD,world]=await (async()=>{const q=new URLSearchParams(location.search),dev=/^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname)||q.get('dev')==='1';const phone=TOUCH||!!window.__SAFE||/iPhone|iPad|iPod|Android|Mobile/i.test(navigator.userAgent),wq=q.get('west');/*phones keep the old map (memory); ?west=0 = off; ?west=force is for measuring only*/if(wq==='force'||(wq!=='0'&&!phone)){try{/*west_02: every file must load and decode before the wide map is chosen, else the old one*/const r=await fetch('west/world.json?'+VER,{cache:'no-cache'});if(!r.ok)throw new Error('world '+r.status);const w=await r.json(),m=w.meta,[ny,nx]=m.tiles||[2,2],[dy]=m.demTiles||[1];const files=['far.png','trees.png'];for(let i=0;i<ny;i++)for(let j=0;j<nx;j++)files.push('type_'+i+j+'.png','hedge_'+i+j+'.png');if(dy<=1)files.push('dem.png');else for(let i=0;i<dy;i++)files.push('dem_'+i+'0.png');await Promise.all(files.map(async f=>{const im=new Image();im.src='west/'+f+'?'+VER+'&w='+(m.westBuild||0);await im.decode();if(!im.naturalWidth)throw new Error(f);}));return ['west/',w];}catch(e){console.warn('west: using the old map',e);window.__WEST_ERR=String(e&&e.message||e);}}return ['',await (await fetch('world.json?'+VER,{cache:'no-cache'})).json()];})();window.__WEST={on:!!WD,x0:world.meta.X0,build:world.meta.westBuild||0};
 // ---- world edits made with the in-game Dev panel (data/world_edits.json, loaded for every player; the dev's own unsaved copy wins if newer) ----
 const WEDIT=await (async()=>{const dev=/^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname)||new URLSearchParams(location.search).get('dev')==='1';let f=null;try{const r=await fetch('data/world_edits.json?'+Date.now(),{cache:'no-store'});if(r.ok)f=await r.json();}catch(e){}
   let base=f?(+f.saved||0):0;if(dev){try{const l=JSON.parse(localStorage.getItem('kvinesdal-world-edits')||'null');if(l&&typeof l==='object'&&(+l.saved||0)>base){if((+l.base||0)===base){l.__local=true;f=l;}else{localStorage.setItem('kvinesdal-world-edits-conflict',JSON.stringify(l));window.__WEDIT_STALE=true;}}}catch(e){}}
@@ -1720,11 +1720,11 @@ const LOTS=[LOT,BLOT].filter(Boolean);const MT=world.meta;
 const X0=MT.X0,Y1=MT.Y1,TWD=MT.W,THT=MT.H;// type grid at 2 m
 const TYPE=new Uint8Array(TWD*THT);
 const TQ=[];{const [ny,nx]=MT.tiles||[2,2];for(let i=0;i<ny;i++)for(let j=0;j<nx;j++)TQ.push(''+i+j);}
-for(const q of TQ){const im=await loadImg('type_'+q+'.png');const oi=+q[0]*im.h,oj=+q[1]*im.w;for(let r=0;r<im.h;r++)for(let c=0;c<im.w;c++)TYPE[(oi+r)*TWD+oj+c]=im.d[(r*im.w+c)*4];}
-const HEDGE=new Uint8Array(TWD*THT);for(const q of TQ){const im=await loadImg('hedge_'+q+'.png');const oi=+q[0]*im.h,oj=+q[1]*im.w;for(let r=0;r<im.h;r++)for(let c=0;c<im.w;c++)HEDGE[(oi+r)*TWD+oj+c]=im.d[(r*im.w+c)*4];}
+for(const q of TQ){const im=await loadImg(WD+'type_'+q+'.png');const oi=+q[0]*im.h,oj=+q[1]*im.w;for(let r=0;r<im.h;r++)for(let c=0;c<im.w;c++)TYPE[(oi+r)*TWD+oj+c]=im.d[(r*im.w+c)*4];}
+const HEDGE=new Uint8Array(TWD*THT);for(const q of TQ){const im=await loadImg(WD+'hedge_'+q+'.png');const oi=+q[0]*im.h,oj=+q[1]*im.w;for(let r=0;r<im.h;r++)for(let c=0;c<im.w;c++)HEDGE[(oi+r)*TWD+oj+c]=im.d[(r*im.w+c)*4];}
 const hedgeAt=(x,z)=>{const c=Math.floor((x-X0)/2),r=Math.floor((z+Y1)/2);if(c<0||r<0||c>=TWD||r>=THT)return 0;return HEDGE[r*TWD+c];};
 $('load').textContent='Reading laser heights';await tick();
-const demI=await (async()=>{const [ny]=MT.demTiles||[1];if(ny<=1)return loadImg('dem.png');const parts=[];for(let i=0;i<ny;i++)parts.push(await loadImg('dem_'+i+'0.png'));const w=parts[0].w,h=parts.reduce((a,p)=>a+p.h,0);const d=new Uint8ClampedArray(w*h*4);let o=0;for(const p of parts){d.set(p.d,o);o+=p.d.length;}return {d,w,h};})();const DW=demI.w,DH=demI.h;const DEM=new Float32Array(DW*DH);for(let i=0;i<DW*DH;i++)DEM[i]=((demI.d[i*4]<<8)|demI.d[i*4+1])/10-1;demI.d=null;/* 65 MB of RGBA not needed any more */
+const demI=await (async()=>{const [ny]=MT.demTiles||[1];if(ny<=1)return loadImg(WD+'dem.png');const parts=[];for(let i=0;i<ny;i++)parts.push(await loadImg(WD+'dem_'+i+'0.png'));const w=parts[0].w,h=parts.reduce((a,p)=>a+p.h,0);const d=new Uint8ClampedArray(w*h*4);let o=0;for(const p of parts){d.set(p.d,o);o+=p.d.length;}return {d,w,h};})();const DW=demI.w,DH=demI.h;const DEM=new Float32Array(DW*DH);for(let i=0;i<DW*DH;i++)DEM[i]=((demI.d[i*4]<<8)|demI.d[i*4+1])/10-1;demI.d=null;/* 65 MB of RGBA not needed any more */
 /* fedaroad_dem */
 /* Fedafjorden bru: the laser terrain has a one-cell (4 m) spike about 15 m tall at the bridge's south end, at about (-7077,5846), a dark stepped
    square block standing on the road under the bridge (the old DEM is bilinear, so a single bad cell is a square pyramid). Near non-footbridge
@@ -1742,7 +1742,7 @@ try{(()=>{
   window.__FEDADEM={fixed};
 })();}catch(e){console.warn('fedaroad dem',e);}
 /* /fedaroad_dem */
-const farI=await loadImg('far.png'),far30I=await loadImg('far30.png');
+const farI=await loadImg(WD+'far.png'),far30I=await loadImg('far30.png');
 const XMIN=X0,XMAX=X0+TWD*2,ZMIN=-Y1,ZMAX=-Y1+THT*2;// world z = -north
 const XHEDGE=[];const PAVE=[];const typeAt=(x,z)=>{if(typeof Z05!=='undefined'&&Z05&&x>-30&&x<240&&z>-660&&z<-420&&pip(x,z,Z05)){if(pip(x,z,LOT05))return 1;if(pip(x,z,ROCK05))return 2;return 0;}if(typeof GONEPOLY!=='undefined'&&GONEPOLY.length&&Math.abs(x-60)<160&&Math.abs(z+540)<160){for(const pg of GONEPOLY)if(pip(x,z,pg))return 2;}for(const q of XHEDGE){if(x>q[0]&&x<q[1]&&z>q[2]&&z<q[3])return 0;}for(const q of PAVE){if(x>q[0]&&x<q[1]&&z>q[2]&&z<q[3])return 1;}const c=Math.floor((x-X0)/2),r=Math.floor((z+Y1)/2);if(c<0||r<0||c>=TWD||r>=THT)return 0;return TYPE[r*TWD+c];};
 /* roads2 (real roads): a smoothed height profile along every road centreline, a flat cross-section with a tiny crown, the verge blended into the hill.
@@ -1929,7 +1929,7 @@ var GONEPOLY=[];var BOWL=null;var Z05=[[9.0, -612.1], [113.1, -623.6], [124.4, -
  const pts=HALL.concat([HALL[0]]);let cx=0,cz=0;for(const q of HALL){cx+=q[0]/4;cz+=q[1]/4;}
  let ax=(HALL[3][0]+HALL[2][0])/2-(HALL[0][0]+HALL[1][0])/2,az=(HALL[3][1]+HALL[2][1])/2-(HALL[0][1]+HALL[1][1])/2;const L=Math.hypot(ax,az);ax/=L;az/=L;
  const gb=Math.min(...HALL.map(q=>Hm(q[0],q[1])));
- const nb={p:pts,b:gb,e:6,r:9,rt:1,s:6,rc:1,ax:[ax,az],c:[cx,cz],hw:11,pc:0,n:'Bowlinghallen',k:'commercial',id:BL.length+1};
+ const nb={p:pts,b:gb,e:6,r:9,rt:1,s:6,rc:1,ax:[ax,az],c:[cx,cz],hw:11,pc:0,n:'Bowlinghallen',k:'commercial',id:BL.length+1-((world.meta.westAdd||{}).buildings||0)/*west_01: same number (and look) as without the strip*/};
  let x0=1e9,x1=-1e9,z0=1e9,z1=-1e9;for(const [x,z] of pts){x0=Math.min(x0,x);x1=Math.max(x1,x);z0=Math.min(z0,z);z1=Math.max(z1,z);}nb.bb=[x0,x1,z0,z1];nb.base=Math.round(gb);nb.eaveH=6;nb.ridgeH=10;
  {let pm=1e9,pM=-1e9;for(const [x,z] of pts){const pp=-(x-cx)*az+(z-cz)*ax;pm=Math.min(pm,pp);pM=Math.max(pM,pp);}nb.pc=(pm+pM)/2;nb.hw=(pM-pm)/2;}
  BL.push(nb);for(let kx=Math.floor(x0/BK);kx<=Math.floor(x1/BK);kx++)for(let kz=Math.floor(z0/BK);kz<=Math.floor(z1/BK);kz++){const k=kx+','+kz;if(!BIDX.has(k))BIDX.set(k,[]);BIDX.get(k).push(nb);}
@@ -2197,7 +2197,7 @@ for(const e of TUN.values()){e.y=e.lv[0].y;e.edge=e.lv[0].edge;}
 function tunnelAt(x,z,yr){const e=TUN.get(Math.floor(x)+','+Math.floor(z));if(!e)return undefined;if(e.lv.length===1)return e.lv[0];const ref=yr??(typeof P!=='undefined'?P.y:e.lv[0].y);let best=e.lv[0];for(const l of e.lv)if(Math.abs(l.y-ref)<Math.abs(best.y-ref))best=l;return best;}
 function roadSurf(x,z,yr){{const SD=window.__STAIRS;if(SD&&SD.cells.size){const sv=SD.cells.get(Math.floor(x)+','+Math.floor(z));if(sv!==undefined){if(P.y>sv+.2&&Math.abs(x-P.x)<.01&&Math.abs(z-P.z)<.01)return null;return sv;}}}/*shopstairs-hook*/const tu=tunnelAt(x,z,yr);if(tu)return tu.y;if(LOT&&x>=LOT.x0&&x<LOT.x1&&z>=LOT.z0&&z<LOT.z1)return null;if(SIDE.has(Math.floor(x)+','+Math.floor(z))&&DECK.get(Math.floor(x)+','+Math.floor(z))===undefined)return RG.rs(x,z);const tr=typeAt(x,z);if((tr===1||tr===5||tr===4)&&!buildingAt(x,z)&&DECK.get(Math.floor(x)+','+Math.floor(z))===undefined)return RG.rs(x,z);return null;}
 // ================= trees (binary) =================
-const tpi=await loadImg('trees.png');const tb=new Uint8Array(tpi.w*tpi.h*3);for(let i=0,j=0;i<tpi.w*tpi.h;i++){tb[j++]=tpi.d[i*4];tb[j++]=tpi.d[i*4+1];tb[j++]=tpi.d[i*4+2];}const NT0=MT.trees,NT=NT0+TREES05.length;
+const tpi=await loadImg(WD+'trees.png');const tb=new Uint8Array(tpi.w*tpi.h*3);for(let i=0,j=0;i<tpi.w*tpi.h;i++){tb[j++]=tpi.d[i*4];tb[j++]=tpi.d[i*4+1];tb[j++]=tpi.d[i*4+2];}const NT0=MT.trees,NT=NT0+TREES05.length;
 const TXA=new Int16Array(NT),TZA=new Int16Array(NT),THA=new Uint8Array(NT);TXA.set(new Int16Array(tb.buffer.slice(0,NT0*2)));TZA.set(new Int16Array(tb.buffer.slice(NT0*2,NT0*4)));THA.set(tb.slice(NT0*4,NT0*5));TREES05.forEach((q,k)=>{TXA[NT0+k]=q[0];TZA[NT0+k]=q[1];THA[NT0+k]=q[2];});
 const TIDX=new Map();for(let i=0;i<NT;i++){if(LOTS.some(Lt=>Lt.in(TXA[i],TZA[i])))continue;const k=Math.floor(TXA[i]/64)+','+Math.floor(TZA[i]/64);if(!TIDX.has(k))TIDX.set(k,[]);TIDX.get(k).push(i);}
 /* ===== GLOBEN (v61): the mossy boulder with a pole and a little globe on the Hamrevarden og Globen loop, top of Hamre. Best guess spot on the knoll by the path junction; move GLOBEN.x/z if Marius says it is wrong ===== */
@@ -2563,7 +2563,7 @@ function* rfGen(){
   const D=new Float32Array(N).fill(Infinity);const hk=[],hi=[];
   const push=(key,id)=>{let n=hk.length;hk.push(key);hi.push(id);while(n>0){const p=(n-1)>>1;if(hk[p]<=key)break;hk[n]=hk[p];hi[n]=hi[p];n=p;}hk[n]=key;hi[n]=id;};
   const pop=()=>{const key=hk[0],id=hi[0];const lk=hk.pop(),li=hi.pop();const L=hk.length;if(L>0){let n=0;for(;;){let c=2*n+1;if(c>=L)break;if(c+1<L&&hk[c+1]<hk[c])c++;if(hk[c]>=lk)break;hk[n]=hk[c];hi[n]=hi[c];n=c;}hk[n]=lk;hi[n]=li;}return [key,id];};
-  for(let j=0;j<GH;j++){const z=ZMIN+j*8+4;if(z<=2500)continue;for(let i=0;i<GW;i++){const k=j*GW+i;if(!wat[k]||bd[k]<26)continue;const x=XMIN+i*8+4;if(x<-1500){D[k]=0;push(0,k);}}if(slice()){yield;t0=performance.now();}}
+  for(let j=0;j<GH;j++){const z=ZMIN+j*8+4;if(z<=2500)continue;for(let i=0;i<GW;i++){const k=j*GW+i;if(!wat[k]||bd[k]<26)continue;const x=XMIN+i*8+4;if(x<-1500&&x>=-10000/*west_01: the new western lakes are not the sea*/){D[k]=0;push(0,k);}}if(slice()){yield;t0=performance.now();}}
   const NB=[[1,0,1],[-1,0,1],[0,1,1],[0,-1,1],[1,1,1.414],[1,-1,1.414],[-1,1,1.414],[-1,-1,1.414]];let pops=0;
   while(hk.length){const [key,k]=pop();if(key>D[k])continue;const i=k%GW,j=(k-i)/GW;
     for(let q=0;q<8;q++){const ni=i+NB[q][0],nj=j+NB[q][1];if(ni<0||nj<0||ni>=GW||nj>=GH)continue;const nk=nj*GW+ni;if(!wat[nk]&&dw[nk]>9)continue;
@@ -5784,7 +5784,7 @@ function addCar(x,z,yaw,col,kind){kind=kind||CAR_KIND_LIST[(hash(Math.floor(x),M
   const OFF=[0xc8102e,0x2f6b3a,0xe0b030,0x1d4f91,0xe8e8e8,0x6b4a2a];let n=0;
   for(const o of world.outdoor||[]){const p1=spot(o.x,o.z);if(p1)addCar(...ncPark(p1,hash(n,7)*6.28,.75,1.3),OFF[n%OFF.length],n%3===2?'six':'atv');n++;const p2=spot(o.x+18,o.z-12);if(p2)addCar(...ncPark(p2,hash(n,9)*6.28,.75,1.3),OFF[(n+2)%OFF.length],n%2?'atv':'six');n++;}
   const MOP=[0xc8102e,0x58c8ff,0xe0b030,0xf2f2f2,0x2a2a2e,0x7ad87a];const ms=[[TX+4,TZ+10],[TX-8,TZ+4],[TX+12,TZ-6]];if(typeof MARTINH!=='undefined'&&MARTINH&&MARTINH.front)ms.push(MARTINH.front);if(typeof MARIUSH!=='undefined'&&MARIUSH&&MARIUSH.front)ms.push(MARIUSH.front);
-  for(let i=0;i<40&&ms.length<14;i++){const b=BL[(hash(i,31)*BL.length)|0];if(b&&!b.gone&&Math.hypot(b.c[0]-TX,b.c[1]-TZ)<500)ms.push([b.c[0]+b.hw+2,b.c[1]]);}
+  for(let i=0;i<40&&ms.length<14;i++){const NA=(world.meta.westAdd||{}).buildings||0,k_=(hash(i,31)*(BL.length-NA))|0,b=BL[NA&&k_>=world.meta.westOld.buildings?k_+NA:k_]/*west_01: skip the strip, so the town mopeds stay put*/;if(b&&!b.gone&&Math.hypot(b.c[0]-TX,b.c[1]-TZ)<500)ms.push([b.c[0]+b.hw+2,b.c[1]]);}
   ms.forEach((q,i)=>{const p=spot(q[0],q[1]);if(p)addCar(...ncPark(p,hash(i,3)*6.28,.45,1.1),MOP[i%MOP.length],'moped');});}
 if(LOT){for(const q of LOT.cars){const c=addCar(q.x,q.z,q.yaw,q.van?0xd8c6a0:q.col,q.van?'martin_t3':(q.kind||'sedan'));c.y=LOT.base+q.dy;c.m.position.y=c.y;if(q.van){c.martin=true;window.__MARTINCAR=c;}}}else if(CHRISG){const g=CHRISG;const ax=g.ax[0],az=g.ax[1];for(const sd of[-1,1]){const x=g.c[0]-az*sd*1.6,z=g.c[1]+ax*sd*1.6;const c=addCar(x,z,Math.atan2(ax,az),sd>0?0x2a2a2e:0xe8e8e8);c.y=g.base;c.m.position.y=g.base;}}
 {const COLS=[0xc8102e,0x1d4f91,0xe8e8e8,0x2a2a2e,0x4a7a3a,0xe0b030,0x7a7d84];let n=0;
@@ -14489,7 +14489,7 @@ const TORCHES=[],TORCHIDX=new Map(),TORCH_COL=new THREE.Color(0xff9a3a);
     const sc=real*2+boards.length+(c.head?2:0)+(boards.some(q=>/GLOBEN|VARDEN/.test(q.t))?6:0)+(Math.hypot(S.x,S.z+68)<2500||Math.hypot(S.x-1300,S.z+2100)<1400?10:0);
     signs.push({x:S.x,z:S.z,i:c.i,head:c.head,b:boards,sc});}
   /* merge spots closer than 45 m (keep the richer one) and cap the count */
-  signs.sort((p,q)=>q.sc-p.sc);const keep=[];for(const s of signs){if(keep.some(k=>Math.hypot(k.x-s.x,k.z-s.z)<45))continue;keep.push(s);if(keep.length>=150)break;}
+  signs.sort((p,q)=>q.sc-p.sc);const keep=[],WX=world.meta.westAdd?-10000:-1e9/*west_01: the strip has its own 20 signs, the 150 stay as before*/;let ne=0,nw=0;for(const s of signs){const w=s.x<WX;if(w?nw>=20:ne>=150)continue;if(keep.some(k=>Math.hypot(k.x-s.x,k.z-s.z)<45))continue;keep.push(s);w?nw++:ne++;}
   /* the tree: an existing spruce within ~3.5 m that is not on the path, else a new one beside it */
   for(const s of keep){const dirs=s.b.map(q=>q.a);let tree=null,bd=3.6;
     const kx=Math.floor(s.x/64),kz=Math.floor(s.z/64);for(let a=-1;a<=1;a++)for(let b=-1;b<=1;b++)for(const i of TIDX.get((kx+a)+','+(kz+b))||[]){const x=TXA[i]+.5,z=TZA[i]+.5;const d=Math.hypot(x-s.x,z-s.z);if(d>=bd)continue;const sc=Math.max(.45,Math.min(2.4,THA[i]/9.5));if(sc<.95||sc>1.8)continue;if(segD(x,z)[0]<sc*.5+.6)continue;bd=d;tree={x,z,s:sc,own:false};}
@@ -17888,7 +17888,7 @@ const FONT='"Mountains of Christmas", Georgia, serif';let fontsReady=false;
 const loadFonts=()=>Promise.race([Promise.all([document.fonts.load('700 120px "Mountains of Christmas"'),document.fonts.load('120px Creepster'),document.fonts.load('700 40px "Pixelify Sans"')]),new Promise(r=>setTimeout(r,3000))]).then(()=>{fontsReady=true;}).catch(()=>{});
 const NAME={chris:'CHRIS',martin:'MARTIN'};
 const NB=n=>String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g,'\u00a0');
-const SIZE=(()=>{const m=world.meta||{};const w=Math.round(((m.X1??6000)-(m.X0??-10000))/1000),h=Math.round(((m.Y1??9600)-(m.Y0??-7488))/1000);return {w,h,a:w*h};})();
+const SIZE=(()=>{const m=world.meta||{};const w=((m.X1??6000)-(m.X0??-10000))/1000,h=((m.Y1??9600)-(m.Y0??-7488))/1000,half=v=>Math.round(v*2)/2;/*west_02: the area from the real size (was 16 x 17 = 272, really 273)*/return {w:half(w),h:half(h),a:Math.round(w*h)};})();
 const PEOPLE=()=>{let n=0;try{n+=vill.length;}catch(_){}try{n+=INTB.length*2;}catch(_){}try{n+=+window.__VENDORS||0;}catch(_){}
   try{const C=window.__CAROLS;if(C&&C.groups)for(const g of C.groups){const m=g.members||g.singers||g.people;n+=Array.isArray(m)?m.length:4;}}catch(_){}return n>=1000?Math.floor(n/100)*100:Math.floor(n/50)*50;};
 const TITLES=[
@@ -33227,7 +33227,7 @@ try{window.__MZ=(()=>{
 const QS=new URLSearchParams(location.search),LSK='kv-mapmusic',LSZ='kv-mz-zones';
 const clamp=(v,a,b)=>v<a?a:(v>b?b:v),ss=u=>{u=clamp(u,0,1);return u*u*(3-2*u);};
 const MZ={version:1,on:QS.get('mapmusic')!=='0',vol:1,data:null,zones:[],ready:false,err:null,fake:null,variantForce:null,
-  layers:new Map(),bus:null,lp:null,owned:0,ownT:0,baseK:1,yieldK:0,yieldWhy:'init',variant:'day',top:[],pos:{x:0,z:0},bounds:{x0:-10000,x1:6000,z0:-7488,z1:9600},
+  layers:new Map(),bus:null,lp:null,owned:0,ownT:0,baseK:1,yieldK:0,yieldWhy:'init',variant:'day',top:[],pos:{x:0,z:0},bounds:{x0:(typeof XMIN==='number'?XMIN:-10000)/*west_01*/,x1:6000,z0:-7488,z1:9600},
   tn:0,log:[],stats:{ticks:0,ms:0,maxMs:0,loads:0,peak:0,kills:0}};
 try{const s=JSON.parse(localStorage.getItem(LSK)||'null');if(s){if(s.on===false)MZ.on=false;if(typeof s.vol==='number')MZ.vol=clamp(s.vol,0,1.5);}}catch(_){}
 const keep=()=>{try{localStorage.setItem(LSK,JSON.stringify({on:MZ.on,vol:MZ.vol}));}catch(_){}};
