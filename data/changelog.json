@@ -2,6 +2,15 @@
  "entries": [
   {
    "date": "2026-11-28",
+   "time": "01:05",
+   "title": "Finale fixes",
+   "items": [
+    "The meteor scene no longer interrupts a race",
+    "The Eye leaves you alone while Santa reads the list"
+   ]
+  },
+  {
+   "date": "2026-11-28",
    "time": "00:15",
    "title": "Card game and playing together",
    "items": [

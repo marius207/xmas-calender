@@ -972,7 +972,7 @@ window.__devEff=eff;
 const isPhone=()=>eff()==='phone';
 const sync=()=>{try{document.body.classList.toggle('ph',isPhone());}catch(e){}};
 /* version label: the deploy script replaces the placeholder below; an unreplaced build shows DEV BUILD */
-const VRAW='28 Nov 2026 00:06';
+const VRAW='28 Nov 2026 01:16';
 const VER=(VRAW.indexOf('__BUILD'+'_')===0)?'DEV BUILD':VRAW;
 window.__VERSION=VER;
 const pill=()=>{const b=document.createElement('button');b.type='button';b.className='verpill';b.textContent=VER;b.title='Tap to copy';b.setAttribute('aria-label','Game version '+VER);b.addEventListener('click',e=>{e.stopPropagation();try{navigator.clipboard&&navigator.clipboard.writeText(VER);}catch(_){}});return b;};
@@ -6954,7 +6954,7 @@ function frameMain_(now){/*noframefreeze: frame() re-arms first and wraps this*/
   target=(started&&!P.driving)?raycast():null;if(target){outline.visible=true;outline.position.set(target.x+.5,target.y+.5,target.z+.5);}else outline.visible=false;
   {const ib=buildingAt(P.x,P.z);const inside=!!ib&&!P.driving&&P.y<ib.base+ib.eaveH;indoorLight.visible=inside;if(inside){indoorLight.position.set(P.x,P.y+(ib.gh?2.6:1.7),P.z);indoorLight.distance=ib.gh?16:9;indoorLight.intensity=ib.gh?3.2:5;indoorLight.color.setHex(ib.gh?0xfff4ea:0xffe0b0);}}
   window.__sky.position.copy(cam.position);SKYU.t.value=t;if(window.__stars)window.__stars.position.copy(cam.position);WU.t.value=t;WU.cam.value.copy(cam.position);try{RFSTEP();RFU.t.value=performance.now()/1000;}catch(_){}/*riverflow*/WU.fogN.value=scene.fog.near;WU.fogF.value=scene.fog.far;
-  stepLife(dt,t);updateGuide();updateFX(dt);const eD_=!!(EYE&&window.__EYEDORM&&window.__EYEDORM());if(EYE&&eD_!==!!EYE._dorm){EYE._dorm=eD_;try{window.__EYEDORMVIS&&window.__EYEDORMVIS(EYE,eD_);}catch(_){}}/*eyeday17*/if(EYE&&(window.__eyeOff||eD_)){EYE.lock=false;EYE.beamG.visible=false;EYE.spot.visible=false;EYE.spotL.intensity=0;EYE.laser.visible=false;for(const id of['eyeWarn','eyeGlare','eyeVign']){const e=$(id);if(e){e.style.opacity=0;if(id==='eyeWarn')e.hidden=true;}}if(window.__HEALTH)window.__HEALTH.step(dt,false);}else if(EYE){EYE.halo.material.opacity=.18+.1*Math.sin(t*1.7);{const ex=EYE.g.position;const dx=P.x-ex.x,dy=(P.y+1.6)-ex.y,dz=P.z-ex.z;const D=Math.hypot(dx,dz);
+  stepLife(dt,t);updateGuide();updateFX(dt);const eD_=!!(EYE&&window.__EYEDORM&&window.__EYEDORM());if(EYE&&eD_!==!!EYE._dorm){EYE._dorm=eD_;try{window.__EYEDORMVIS&&window.__EYEDORMVIS(EYE,eD_);}catch(_){}}/*eyeday17*/if(EYE&&(window.__eyeOff||eD_||window.__NLR_ON/*finale24*/)){EYE.lock=false;EYE.beamG.visible=false;EYE.spot.visible=false;EYE.spotL.intensity=0;EYE.laser.visible=false;for(const id of['eyeWarn','eyeGlare','eyeVign']){const e=$(id);if(e){e.style.opacity=0;if(id==='eyeWarn')e.hidden=true;}}if(window.__HEALTH)window.__HEALTH.step(dt,false);}else if(EYE){EYE.halo.material.opacity=.18+.1*Math.sin(t*1.7);{const ex=EYE.g.position;const dx=P.x-ex.x,dy=(P.y+1.6)-ex.y,dz=P.z-ex.z;const D=Math.hypot(dx,dz);
   // line of sight over the real terrain and buildings
   EYE.losT=(EYE.losT||0)-dt;let los=EYE.los??true;if(EYE.losT<=0){EYE.losT=.15;los=eyeContact(ex);EYE.los=los;}
   const pYaw=Math.atan2(dx,dz),pPit=-Math.atan2((P.y+.2)-ex.y,D);// aim at the feet so the pool of light lands on the player
@@ -58426,7 +58426,7 @@ function autoPlay(force){try{const A=W.__ADVENT;if(!A||!A.play||!A.openers.meteo
 function nudge(dd){if(PA.nd===dd)return;try{const L=W.__LANTERNGUIDE;if(!L||!L.say)return;const st=L.state&&L.state();if(st&&st.bubble)return;PA.nd=dd;L.say(dd===15?'Tonight is the night. The loudspeakers keep saying it: when it gets dark, come outside and look up. Stay out in the open. I will be right here.':'Something fell from the sky and we were not looking. Come outside after dark and look up. The night is not over until we have seen it.',{kind:'task',hold:3});}catch(_){}}
 function tick(){try{const dd=W.__DAY|0;if(dd<15||dd>19||CR.hit){stopTimer();return;}if(!free())return;const now=performance.now();if(now<PA.busyUntil)return;
   const h=hour();
-  if(dd>15){/*fable_05: made up on a later night*/if(h>=20||h<4)autoPlay(true);else nudge(dd);return;}
+  if(window.__RACE||(window.__RACES&&window.__RACES.mode))return;/*finale24: never during a race*/if(dd>15){/*fable_05: made up on a later night*/if(h>=20||h<4)autoPlay(true);else nudge(dd);return;}
   nudge(15);
   if((DEV?QP.get('meteorauto')==='1':true)&&(h>=20||h<4)){autoPlay();return;}
   if(townDist()>430||now<PA.next)return;
